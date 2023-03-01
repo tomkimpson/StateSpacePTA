@@ -2,9 +2,9 @@ module StateSpacePTA
 
 #Imports 
 import Parameters: @with_kw, @unpack
-using LinearAlgebra,DataFrames,CSV,DifferentialEquations 
+using LinearAlgebra,DataFrames,CSV,DifferentialEquations, Noise,Plots
 
-#Imports
+
 
 #Exports
 export UKF 
@@ -17,6 +17,8 @@ include("system_parameters.jl")
 include("pulsars.jl")
 include("GW.jl")
 include("synthetic_data.jl")
+include("kalman_filter.jl")
+include("plotting.jl")
 include("run.jl")
 
 

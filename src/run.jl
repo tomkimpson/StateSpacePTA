@@ -23,10 +23,14 @@ GW = gw_variables(P)
 
 
 
-create_synthetic_data(PTA,GW)
+state,measurement = create_synthetic_data(PTA,GW)
 
 
+kalman_filter(measurement,PTA.σm)
 
+println("Plotter")
+psr_index = 1
+plotter(PTA.t,state,measurement,psr_index)
 
 # #A = rand(1.:9.,6,4)
 # A = Array{NF}([1 2 3; 4 1 6; 7 8 1])
