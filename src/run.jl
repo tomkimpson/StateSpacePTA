@@ -14,19 +14,16 @@ function UKF(::Type{NF}=Float64;              # number format, use Float64 as de
            ) where {NF<:AbstractFloat}
 
 
-println("hello")
-println(NF)
+println("Hello from StateSpacePTA. You are running with NF = ", " ", NF)
+
+
+P = SystemParameters(NF=NF;kwargs...) # Parameters
+PTA = setup_PTA(P)
+GW = gw_variables(P)
 
 
 
-
-PTA = setup_PTA(NF)
-
-
-
-println(PTA.γ)
-
-
+create_synthetic_data(PTA,GW)
 
 
 

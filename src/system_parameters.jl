@@ -10,6 +10,10 @@ The default values of the keywords define the default model setup.
     # NUMBER FORMATS
     NF::DataType       # Number format. Default is defined in orbit.jl
 
+    #Observation parameters
+    T::Real = 10.0        # how long to integrate for in years
+    cadence::Real = 7.0   # sampling interval in days
+
     #GW parameters
     ω  ::Real = 1e-7      
     Φ0 ::Real = 0.20      

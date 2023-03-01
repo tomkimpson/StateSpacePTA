@@ -15,6 +15,8 @@ export UKF
 # Write your package code here.
 include("system_parameters.jl")
 include("pulsars.jl")
+include("GW.jl")
+include("synthetic_data.jl")
 include("run.jl")
 
 

@@ -8,11 +8,11 @@ struct Pulsars{NF<:AbstractFloat}
     γ :: Vector{NF}
     n :: Vector{NF} 
     q :: Matrix{NF} 
-
+    t :: Vector{NF}
 
 end 
 
-function setup_PTA(NF::Type)
+function setup_PTA(P::SystemParameters)
 
     pc = 3e16     # parsec in m
 
@@ -29,9 +29,13 @@ function setup_PTA(NF::Type)
 
     
     q = unit_vector(π/2.0 .-δ, α)
-    println(typeof(q))
+    
+    step_seconds = P.cadence * 24*3600 #from days to step_seconds
+    end_seconds = P.T * 365*24*3600 #from years to second
+    t = collect(0:step_seconds:end_seconds)
+   
 
-    return Pulsars{NF}(f,d,γ,n,q)
+    return Pulsars{P.NF}(f,d,γ,n,q,t) #convert to type NF 
 
 
 end 
@@ -44,6 +48,6 @@ function unit_vector(θ::Vector{NF},ϕ::Vector{NF}) where {NF<:AbstractFloat}
    qy = sin.(θ) .* sin.(ϕ)
    qz = cos.(θ)
 
-   return q =[qx;;qy;;qz] #shape Npulars,3
+   return [qx;;qy;;qz] #shape Npulars,3
    
 end 
