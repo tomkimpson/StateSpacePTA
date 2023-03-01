@@ -2,7 +2,7 @@ module StateSpacePTA
 
 #Imports 
 import Parameters: @with_kw, @unpack
-using LinearAlgebra,DataFrames,CSV 
+using LinearAlgebra,DataFrames,CSV,DifferentialEquations 
 
 #Imports
 

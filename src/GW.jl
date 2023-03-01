@@ -14,6 +14,8 @@ struct gravitational_wave{NF<:AbstractFloat}
     Hij :: Matrix{NF} 
 
 
+    ω  ::NF   
+    Φ0 ::NF
 
 
 
@@ -32,7 +34,7 @@ function gw_variables(P::SystemParameters)
     Hij                 = hp .* e_plus .+ hx * e_cross
 
     
-    return gravitational_wave{P.NF}(m,n,Ω,Hij)
+    return gravitational_wave{P.NF}(m,n,Ω,Hij,P.ω,P.Φ0)
 
 
 
