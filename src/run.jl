@@ -18,15 +18,20 @@ println("Hello from StateSpacePTA. You are running with NF = ", " ", NF)
 
 
 P = SystemParameters(NF=NF;kwargs...) # Parameters
-PTA = setup_PTA(P)
-GW = gw_variables(P)
 
+println(typeof(P))
+PTA = setup_PTA(P)
+GW = gw_variables(P.NF,P)
 
 
 state,measurement = create_synthetic_data(PTA,GW)
 
 
-kalman_filter(measurement,PTA.σm)
+
+
+
+θ̂ = guess_parameters(PTA,P)
+kalman_filter(measurement,PTA,θ̂)
 
 println("Plotter")
 psr_index = 1

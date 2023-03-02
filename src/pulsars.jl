@@ -14,6 +14,8 @@ struct Pulsars{NF<:AbstractFloat}
     σp::NF 
     σm::NF
 
+    dt::NF 
+
 end 
 
 function setup_PTA(P::SystemParameters)
@@ -39,7 +41,7 @@ function setup_PTA(P::SystemParameters)
     t = collect(0:step_seconds:end_seconds)
    
 
-    return Pulsars{P.NF}(f,d,γ,n,q,t,P.σp, P.σm) #convert to type NF 
+    return Pulsars{P.NF}(f,d,γ,n,q,t,P.σp, P.σm,step_seconds) #convert to type NF 
 
 
 end 

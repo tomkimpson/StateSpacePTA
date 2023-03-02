@@ -19,17 +19,27 @@ function create_synthetic_data(
     g(u,p,t) = σp
     tspan = (first(t),last(t))
     prob = SDEProblem(f,g,f0,tspan,tstops=t)
-    intrinsic_frequency = solve(prob,EM())#,dt=dt)
+    intrinsic_frequency = solve(prob,EM())
     
 
 
     #Create some useful quantities that relate the GW and pulsar variables 
-    dot_product = [1.0 .+ dot(Ω,q[i,:]) for i=1:size(q)[1]]                   # Size Npulsars. Is there a vectorised way to do this?
-    hbar = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
+    #dot_product = [NF(1.0) .+ dot(Ω,q[i,:]) for i=1:size(q)[1]]                   # Size Npulsars. Is there a vectorised way to do this?
+    #hbar = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
     
-    ratio = hbar ./ dot_product
-    Hcoefficient = NF(1.0) .- exp.(1im*ω.*d.*dot_product)
-    prefactor = NF(0.5).*ratio.*Hcoefficient
+
+
+    prefactor,dot_product = gw_prefactor(Ω,q,Hij,ω,d)
+
+
+   #  println("CHECKS")
+   #  println(new_dot_product == dot_product)
+   #  println(new_hbar == hbar)
+
+
+   #  ratio = hbar ./ dot_product
+   #  Hcoefficient = NF(1.0) .- exp.(1im*ω.*d.*dot_product)
+   #  prefactor = NF(0.5).*ratio.*Hcoefficient
     
 
     #Iterate through time. Really should vectorise all this...
@@ -40,6 +50,7 @@ function create_synthetic_data(
     
        time_variation = exp.(-1im*ω*ti .*dot_product .+ Φ0)
        GW_factor = real.(NF(1.0) .- prefactor .* time_variation)
+       #println(i, " ", size(prefactor), " ", size(time_variation), " ",size(GW_factor))
     
        f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
     end

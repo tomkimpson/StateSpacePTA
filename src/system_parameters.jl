@@ -27,4 +27,26 @@ The default values of the keywords define the default model setup.
     σp::Real = 1e-13
     σm::Real = 1e-13
 
+    
+    #Guessed parameters
+    #Whilst the GW parameters are used in conjunction with the pulsar parameters to generate synthetic data
+    #These parameters are the guesses of those quantities which get fed into the Kalman FILTER
+
+    #d_guess for now take d as known i.e. read from data file. Note that these are vector parameters, one for each pulsar
+    #γ_guess ditto
+    #n_guess ditto
+
+    ω_guess  ::Real = ω      
+    Φ0_guess ::Real = Φ0      
+    ψ_guess  ::Real = ψ 
+    ι_guess  ::Real = ι
+    δ_guess  ::Real = δ
+    α_guess :: Real = α
+    h_guess :: Real = h
+
+    σp_guess::Real = σp
+    σm_guess::Real = σm
+
+
+
 end

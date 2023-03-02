@@ -1,9 +1,5 @@
 
 
-
-
-
-
 struct gravitational_wave{NF<:AbstractFloat}
 
 
@@ -17,12 +13,10 @@ struct gravitational_wave{NF<:AbstractFloat}
     ω  ::NF   
     Φ0 ::NF
 
-
-
 end 
 
 
-function gw_variables(P::SystemParameters)
+function gw_variables(NF,P) #P is either a SystemParameters object or a GuessedParameters object 
 
     m,n                 = principal_axes(π/2.0 - P.δ,P.α,P.ψ)    
     Ω                   = cross(m,n)            
@@ -32,24 +26,10 @@ function gw_variables(P::SystemParameters)
     e_cross             = [m[i]*n[j]-n[i]*m[j] for i=1:3,j=1:3]
     
     Hij                 = hp .* e_plus .+ hx * e_cross
-
     
-    return gravitational_wave{P.NF}(m,n,Ω,Hij,P.ω,P.Φ0)
-
-
-
-    #x = 0:0.1:1
-    #println(x)
-    #blob = [m[i]*m[j] -n[i]*n[j] for i=1:3, j=1:3]
-
-
-    # Hij = self.hp * eplus + self.hx * ecross
-
-
+    return gravitational_wave{NF}(m,n,Ω,Hij,P.ω,P.Φ0)
 
 end 
-
-
 
 
 
@@ -77,11 +57,6 @@ end
 
 
 
-
-
-
-
-
 """
 Given the strain h and the inclination ι, get the h+ and hx components
 """
@@ -95,6 +70,26 @@ function h_amplitudes(h::NF,ι::NF) where {NF<:AbstractFloat}
 
 end 
 
+
+
+
+function gw_prefactor(Ω:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::Vector{NF}) where {NF<:AbstractFloat}
+
+    dot_product = [NF(1.0) .+ dot(Ω,q[i,:]) for i=1:size(q)[1]] 
+    hbar = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
+
+
+
+    ratio = hbar ./ dot_product
+    Hcoefficient = NF(1.0) .- exp.(1im*ω.*d.*dot_product)
+    prefactor = NF(0.5).*ratio.*Hcoefficient
+
+    println("calculating the prefactor as ")
+    println(size(prefactor))
+
+    return prefactor,dot_product
+
+end 
 
 
 function gw_modulation()
