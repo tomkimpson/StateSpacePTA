@@ -84,8 +84,7 @@ function gw_prefactor(Ω:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::V
     Hcoefficient = NF(1.0) .- exp.(1im*ω.*d.*dot_product)
     prefactor = NF(0.5).*ratio.*Hcoefficient
 
-    println("calculating the prefactor as ")
-    println(size(prefactor))
+
 
     return prefactor,dot_product
 

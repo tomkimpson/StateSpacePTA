@@ -9,57 +9,85 @@ function kalman_filter(observations::Matrix{NF},
                        parameters::GuessedParameters
                       ) where {NF<:AbstractFloat}
 
-    i = 1
+   
     
-    @unpack q,dt,t = PTA #PTA does have some parameters that we might want to estimate ultimatley. Unpack it all here
-    
+    @unpack q,dt,t,f0 = PTA # PTA does have some parameters that ultimatley we might want to estimate . 
+
+    @unpack σm,σp,γ,n,ω,Φ0 = parameters 
+
+
     #Set the dimension of the state space 
     L = size(observations)[1]     # dimension of hidden states i.e. number of pulsars
 
-    ti = t[i]
+
+    #Get the 0th order frequencies and reshape them 
+    #These are the PSR frequencies given by ANTF
+    f0 = reshape(f0,(1,size(f0)[1])) #change f0 from a 1D vector to a 2D matrix
 
     #Initialise x and P
-    x= observations[:,i] # guess that the intrinsic frequency is the same as the measured frequency
-    P = I(L) * parameters.σm*1e9 
-   
+    x= observations[:,1] # guess that the intrinsic frequency is the same as the measured frequency
+    #P = I(L) * σm*1e9 
+    P = diagm(fill(σm^2*1e9 ,L)) 
 
-    #Initialise the weights for the UKF
+    #Initialise the weights for thexite UKF
     ukf_weights = calculate_UKF_weights(NF,L,7e-4,2.0,0.0) #standard UKF parameters. Maybe make this arguments to be set?
 
 
-    χ = calculate_sigma_vectors(x,P,ukf_weights.γ,L)
+    #Calculate the time-independent Q-matrix
+    Q = Q_function(γ,n,f0,dt,σp)
 
-    F_function(χ,dt,parameters)
 
+    # Calculate GW-related quantities that are time-constant
     GW = gw_variables(NF,parameters)
-    prefactor,dot_product = gw_prefactor(GW.Ω,
-                                         q,GW.Hij,parameters.ω,parameters.d)
-
-    println("dot product")
-    println(size(dot_product))
-    println(size(prefactor))
-    out = H_function(χ,ti,dot_product,prefactor,parameters.ω,parameters.Φ0)
-    println(size(out))
-    #for i=1:size(observations)[2]
-
-     #   obs = observations[:,i] #a vector of observations over N pulsars at time t 
-
-    #println(i)
-
-    #end
-   #for obs in observations
-   # println(size(obs))
+    prefactor,dot_product = gw_prefactor(GW.Ω,q,GW.Hij,ω,parameters.d)
 
 
+    #Calculate measurement noise matrix
+    R = R_function(L,σm)
 
-  # end 
+    for i=1:size(observations)[2]
+
+  
+        observation = reshape(observation,(1,size(observation)[1])) #can we avoid these reshapes and get a consistent dimensionality?
+        ti = t[i]
+
+        println("Running for step: ", i, " ",ti)
+        observation = observations[:,i]
+        println("The observation is =")
+        println(observation)
+
+        #Calculate sigma points, given the state variables 
+        χ = calculate_sigma_vectors(x,P,ukf_weights.γ,L)
+
+        #Evolve the sigma points in time
+        χ1 = F_function(χ,dt,parameters)
+
+        #Weighted state predictions and covariance
+        x_predicted, P_xx,Δx= predict(χ1, ukf_weights)
+        P_xx += Q
+
+        #Evolve the sigma vectors according to the measurement function
+        #Note we are omitting Joe's extra step recalculating sigmas here 
+        χ2 = H_function(χ,ti,dot_product,prefactor,ω,Φ0)
+        y_predicted, P_yy,Δy= predict(χ2, ukf_weights)
+        P_yy += R
+        
+        #Measurement update 
+        x,P = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
+
+        println("The updated x is =")
+        println(x)
+
+    end 
+
+    
 
   println("-------END OF KALMAN FILTER---------------")
 end 
 
 
 
-function calculate_sigma_vectors(x::Vector{NF},P::LinearAlgebra.Diagonal{NF, Vector{NF}},γ::NF,L::Int) where {NF<:AbstractFloat}
+function calculate_sigma_vectors(x::Vector{NF},P::Matrix{NF},γ::NF,L::Int) where {NF<:AbstractFloat}
 
     Psqrt = cholesky(P,check=true).L #the lower triangular part. This bit is returned by default in Python: https://numpy.org/doc/stable/reference/generated/numpy.linalg.cholesky.html
     M = γ .* Psqrt
@@ -77,17 +105,15 @@ end
 
 
 
-
-
-
+"""
+Sttruct to hold the UKF weights 
+"""
 struct UKF_weights{NF<:AbstractFloat}
-
-    Wm :: Vector{NF} 
-    Wc :: Vector{NF}
+    Wm :: Matrix{NF} 
+    Wc :: Matrix{NF}
     γ :: NF
    
 end 
-
 
 """
 Calculate the weight vectors used in the UKF
@@ -101,7 +127,7 @@ function calculate_UKF_weights(NF::Type, L::Int,α::Float64,β::Float64,κ::Floa
     q = 1/(2*(L+λ))
 
     #Weights Wm and Wc
-    Wm = fill(q,2*L+1) 
+    Wm = fill(q,(1,2*L+1)) 
     Wc = copy(Wm)
 
     Wm[1] = λ/(L + λ)
@@ -114,47 +140,62 @@ function calculate_UKF_weights(NF::Type, L::Int,α::Float64,β::Float64,κ::Floa
    
 end 
 
-# def _calculate_weights(self):
-
-# """
-# Internal function
-
-# Calculate the weights of the UKF.
-
-# Updates self.Wm, self.Wc
-# """
-
-  
-# lambda_ = self.alpha**2 *(self.L+self.kappa) - self.L # scaling parameter used in calculating the weights
-
-# #Preallocating arrays then filling to make dimensions explicit.
-# #Verbose, but clear. Maybe just use np.full()...
-# self.Wm = np.zeros(2*self.L+1,dtype=NF)  
-# self.Wc = np.zeros(2*self.L+1,dtype=NF)
 
 
+function predict(χ::Matrix{NF}, W::UKF_weights) where {NF<:AbstractFloat}
 
-# #Fill Wm
-# self.Wm[0] = lambda_  / (self.L + lambda_ )
-# for i in range(1,len(self.Wm)):
-#     self.Wm[i] = 1/(2*(self.L+lambda_ ))
 
-# #Fill Wc
-# self.Wc[0] = lambda_  / (self.L + lambda_ ) + (1 - self.alpha**2 + self.beta)
-# for i in range(1,len(self.Wc)):
-#     self.Wc[i] = 1/(2*(self.L+lambda_ ))
+    @unpack Wm,Wc = W
+    
+   
+
+    x_predicted = Wm * χ #this is a dot product 
+
+    y = χ .- x_predicted #from each row of χ, subtract the x predictions
+
+
+    yT = transpose(y)
+    tmp = transpose(Wc) .* y #for each row in y, multiply it by the corresponding weight
+    P_predicted = yT * tmp # size 47 x 47
+    
+
+    return x_predicted, P_predicted,y
+
+end 
 
 
 
 
-# #Also define....
-# self.gamma = np.sqrt(self.L + lambda_,dtype=NF)
+"""
+Measurement update equations from Eric A. Wan and Rudolph van der Merwe
+"""
+function update(Δx::Matrix{NF}, Δy::Matrix{NF},W::UKF_weights, P_xx::Matrix{NF},P_yy::Matrix{NF},
+               observation::Matrix{NF},x_predicted::Matrix{NF},y_predicted::Matrix{NF}) where {NF<:AbstractFloat}
+
+    @unpack Wc =W
+
+    #Get the cross correlation matrix
+    yT = transpose(Δy)
+    tmp = transpose(Wc) .* Δx 
+    P_xy = yT * tmp # size 47 x 47
+
+    #Get the Kalman gain. Do we need these transposes? 
+    Q,R = qr(P_yy)
+    Qb = transpose(Q)*P_xy
+    K = R \ Qb #left division operator solves R*K = Qb ; Ax = b
+    
+
+    #Update state and covariance estiamtes
+    
+    innovation = transpose(observation - y_predicted)
+    
 
 
+    x = x_predicted - transpose(K*innovation)
+    P = P_xx - K*P_yy*transpose(K)
 
-
-
-
+    return vec(x),P
+end 
 
 
 

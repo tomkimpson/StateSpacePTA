@@ -21,3 +21,24 @@ function H_function(χ::Matrix{NF},t::NF,dot_product::Vector{NF},prefactor::Vect
     
     return χ .* GW
 end 
+
+
+function Q_function(γ::Matrix{NF},n::Matrix{NF},f0::Matrix{NF},dt::NF,σp::NF) where {NF<:AbstractFloat}
+
+    #println("hello from inside Q func")
+
+    coefficient = NF(2) .*γ .*n .*f0.^(n.-1)
+    exponential_term = exp.(-coefficient.*dt) .- NF(1.0)
+    
+    Q = -σp^2 .* exponential_term ./ coefficient
+
+    return diagm(Q[1,:]) #https://stackoverflow.com/questions/69609872/how-to-make-a-diagonal-matrix-from-a-vector
+
+end 
+
+
+function R_function(L::Int, σm::NF) where {NF<:AbstractFloat}
+
+    return diagm(fill(σm^2 ,L)) 
+
+end 

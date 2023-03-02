@@ -18,14 +18,11 @@ println("Hello from StateSpacePTA. You are running with NF = ", " ", NF)
 
 
 P = SystemParameters(NF=NF;kwargs...) # Parameters
-
-println(typeof(P))
 PTA = setup_PTA(P)
 GW = gw_variables(P.NF,P)
 
 
 state,measurement = create_synthetic_data(PTA,GW)
-
 
 
 
