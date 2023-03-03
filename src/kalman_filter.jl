@@ -27,8 +27,9 @@ function kalman_filter(observations::Matrix{NF},
     #Initialise x and P
     x= observations[:,1] # guess that the intrinsic frequency is the same as the measured frequency
     #P = I(L) * σm*1e9 
-    P = diagm(fill(σm^2*1e9 ,L)) 
-
+    
+    tmp_sigma = 1e-13
+    P = diagm(fill(tmp_sigma^2*1e9 ,L)) 
     #Initialise the weights for thexite UKF
     ukf_weights = calculate_UKF_weights(NF,L,7e-4,2.0,0.0) #standard UKF parameters. Maybe make this arguments to be set?
 
@@ -45,27 +46,42 @@ function kalman_filter(observations::Matrix{NF},
     #Calculate measurement noise matrix
     R = R_function(L,σm)
 
-    for i=1:size(observations)[2]
+    for i=1:3#size(observations)[2]
 
-  
+        observation = observations[:,i]
+        println(i)
+        println("Observations for this timestep are:")
+        display(observation)
         observation = reshape(observation,(1,size(observation)[1])) #can we avoid these reshapes and get a consistent dimensionality?
         ti = t[i]
 
-        println("Running for step: ", i, " ",ti)
-        observation = observations[:,i]
-        println("The observation is =")
-        println(observation)
-
-        #Calculate sigma points, given the state variables 
+        
+ 
+        
+        # #Calculate sigma points, given the state variables 
         χ = calculate_sigma_vectors(x,P,ukf_weights.γ,L)
+       
+        # println("Sigma vector second row")
+        # println(size(χ))
+        # display(χ[2,:])
 
-        #Evolve the sigma points in time
+        # #Evolve the sigma points in time
         χ1 = F_function(χ,dt,parameters)
 
-        #Weighted state predictions and covariance
+
+        # println("Evolved sigma1 vector second row ", dt)
+        # println(size(χ1))
+        # display(χ1[2,:])
+
+        
+        # #Weighted state predictions and covariance
         x_predicted, P_xx,Δx= predict(χ1, ukf_weights)
         P_xx += Q
 
+
+        # println("P_xx is")
+        # display(P_xx)
+        # print("_--------------------------")
         #Evolve the sigma vectors according to the measurement function
         #Note we are omitting Joe's extra step recalculating sigmas here 
         χ2 = H_function(χ,ti,dot_product,prefactor,ω,Φ0)
@@ -75,8 +91,6 @@ function kalman_filter(observations::Matrix{NF},
         #Measurement update 
         x,P = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
 
-        println("The updated x is =")
-        println(x)
 
     end 
 
@@ -89,16 +103,33 @@ end
 
 function calculate_sigma_vectors(x::Vector{NF},P::Matrix{NF},γ::NF,L::Int) where {NF<:AbstractFloat}
 
+
+  
+
+    
+    # println(ishermitian(P))
+    # display(P)
+
+    eps_matrix = diagm(fill(eps() ,47)) 
+    Pstable = NF(0.5)*(P + transpose(P)) + eps_matrix
+
+    println("Attempting Cholesky of matrix with the following diagonal")
+    display(diag(P))
+    #display(P)
+    #display(diag(P))
     Psqrt = cholesky(P,check=true).L #the lower triangular part. This bit is returned by default in Python: https://numpy.org/doc/stable/reference/generated/numpy.linalg.cholesky.html
     M = γ .* Psqrt
 
+  
+
     χ = zeros(NF,2*L+1,L)
+    #χ = zeros(NF,L,2*L+1) #may want to go other way round for speed?
 
     χ[1,:] = x 
-    χ[2:L+1,:] .= x .+ M
-    χ[L+1+1:2*L+1,:] .= x .- M
+    χ[2:L+1,:] .= x' .+ M #to every row of M, add the vector x 
+    χ[L+1+1:2*L+1,:] .= x' .- M 
 
-   
+    
     return χ
 end 
 
@@ -147,9 +178,10 @@ function predict(χ::Matrix{NF}, W::UKF_weights) where {NF<:AbstractFloat}
 
     @unpack Wm,Wc = W
     
-   
-
     x_predicted = Wm * χ #this is a dot product 
+    
+    println("You are inside the predict function")
+    #println(x_predicted)
 
     y = χ .- x_predicted #from each row of χ, subtract the x predictions
 
@@ -157,7 +189,19 @@ function predict(χ::Matrix{NF}, W::UKF_weights) where {NF<:AbstractFloat}
     yT = transpose(y)
     tmp = transpose(Wc) .* y #for each row in y, multiply it by the corresponding weight
     P_predicted = yT * tmp # size 47 x 47
+
+    println("the second row of the covar matrix is")
     
+    println("before_correction")
+    println(P_predicted[2,2], " ",P_predicted[2,3]," ",P_predicted[2,4])
+    eps_matrix = diagm(fill(eps(NF) ,47)) 
+    
+    P_predicted = NF(0.5)*(P_predicted + transpose(P_predicted)) + eps_matrix# Enforce symmetry of the covariance matrix
+    println("after correction")
+    println(P_predicted[2,2]," ", P_predicted[2,3]," ",P_predicted[2,4])
+
+
+    println("-------------------------")
 
     return x_predicted, P_predicted,y
 
@@ -178,12 +222,28 @@ function update(Δx::Matrix{NF}, Δy::Matrix{NF},W::UKF_weights, P_xx::Matrix{NF
     yT = transpose(Δy)
     tmp = transpose(Wc) .* Δx 
     P_xy = yT * tmp # size 47 x 47
+    #eps_matrix = diagm(fill(eps() ,47)) 
+
+    #P_xy = NF(0.5)*(P_xy + transpose(P_xy)) + eps_matrix# Enforce symmetry of the covariance matrix
+
+    #println("Is Pxy posdef?", " ", isposdef(P_xy))
+
+
 
     #Get the Kalman gain. Do we need these transposes? 
     Q,R = qr(P_yy)
     Qb = transpose(Q)*P_xy
-    K = R \ Qb #left division operator solves R*K = Qb ; Ax = b
     
+
+    K1 = transpose(R \ Qb) #left division operator solves R*K = Qb ; Ax = b
+    K2 = P_yy \ P_xy
+    K3 = transpose(K2)
+
+
+    K = K3
+    println("writing")
+    writedlm("KalmanGain.txt", K)
+   
 
     #Update state and covariance estiamtes
     
@@ -193,48 +253,14 @@ function update(Δx::Matrix{NF}, Δy::Matrix{NF},W::UKF_weights, P_xx::Matrix{NF
 
     x = x_predicted - transpose(K*innovation)
     P = P_xx - K*P_yy*transpose(K)
+    blob_factor = K*P_yy*transpose(K)
+    writedlm("blob_factor.txt", blob_factor)
+
+    println("The first row of the new covar matrix is:")
+    println(P[1,:])
+
 
     return vec(x),P
 end 
 
 
-
-
-
-
-
-
-
-
-
-
-# """
-# Internal function
-
-# Calculate the sigma vectors for a given state `x` and covariance `P`
-
-# Updates self.chi
-
-# See Eq. 15 from Wav/Van
-# """
-
-# P_check = P
-
-# P_sqrt = la.cholesky(P_check, check_finite=True)  # cholesky is much faster than scipy.linalg.sqrtm. Note that this is float64 not float128
-
-
-
-
-
-# M = self.gamma*P_sqrt
-
-# self.chi = np.zeros((2*self.L + 1,self.L),dtype=NF)
-
-
-# self.chi[0,:] = x
-
-# self.chi[1:self.L+1,:] = x + M
-# self.chi[self.L+1:2*self.L+1+1,:] = x - 
-
-
-# end 

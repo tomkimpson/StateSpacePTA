@@ -5,7 +5,34 @@ Transition function which takes the state of sigma points and advances
 by dt using a Euler step.
 """
 function F_function(χ::Matrix{NF},dt::NF,θ̂::GuessedParameters) where {NF<:AbstractFloat}
-    df = θ̂.γ .*χ.^θ̂.n
+    df = -θ̂.γ .*χ.^θ̂.n
+
+
+    gamma = θ̂.γ 
+    n = θ̂.n
+
+    # println("shape of n")
+    # println(size(n))
+    # display(n)
+    
+    # println(χ[2,:]," ", size(χ[2,:]))
+    # blob = χ.^θ̂.n
+    # println(blob[2,2]," ", size(blob[2,:]))
+    
+    # println("shape of gama")
+    # println(size(gamma))
+    # display(gamma)
+    # println("-----------")
+
+    # blob2 = -gamma .* blob
+    # println(blob2[2,2]," ", size(blob2[2,:]))
+
+    
+    # println("Welcome to the F function")
+    # println(size(df[2,:]))
+    # println(df[2,:])
+
+    
     return χ .+ dt .* df 
 end 
 
@@ -30,7 +57,7 @@ function Q_function(γ::Matrix{NF},n::Matrix{NF},f0::Matrix{NF},dt::NF,σp::NF) 
     coefficient = NF(2) .*γ .*n .*f0.^(n.-1)
     exponential_term = exp.(-coefficient.*dt) .- NF(1.0)
     
-    Q = -σp^2 .* exponential_term ./ coefficient
+    Q = -(σp)^2 .* exponential_term ./ coefficient
 
     return diagm(Q[1,:]) #https://stackoverflow.com/questions/69609872/how-to-make-a-diagonal-matrix-from-a-vector
 

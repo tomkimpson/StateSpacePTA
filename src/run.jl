@@ -30,9 +30,9 @@ state,measurement = create_synthetic_data(PTA,GW)
 θ̂ = guess_parameters(PTA,P)
 kalman_filter(measurement,PTA,θ̂)
 
-println("Plotter")
-psr_index = 1
-plotter(PTA.t,state,measurement,psr_index)
+#println("Plotter")
+#psr_index = 1
+#plotter(PTA.t,state,measurement,psr_index)
 
 # #A = rand(1.:9.,6,4)
 # A = Array{NF}([1 2 3; 4 1 6; 7 8 1])
@@ -50,7 +50,7 @@ plotter(PTA.t,state,measurement,psr_index)
 
 
 
-
+println("Completed OK ")
 # println(df)
 # println(size(blob))
 # println(blob[2,:])

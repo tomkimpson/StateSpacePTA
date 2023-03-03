@@ -21,7 +21,7 @@ end
 function setup_PTA(P::SystemParameters)
 
     pc = 3e16     # parsec in m
-    c = 299792458 #speed of light in m/s
+    c = 3e8 #speed of light in m/s
 
     pulsars = DataFrame(CSV.File("data/NANOGrav_pulsars.csv"))
 

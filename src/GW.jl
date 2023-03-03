@@ -79,11 +79,15 @@ function gw_prefactor(Ω:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::V
     hbar = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
 
 
+    #println("dot product:  ", dot_product)
+    #println("hbar :  ", hbar)
+
 
     ratio = hbar ./ dot_product
     Hcoefficient = NF(1.0) .- exp.(1im*ω.*d.*dot_product)
     prefactor = NF(0.5).*ratio.*Hcoefficient
 
+    #println("Hcoeff :  ", Hcoefficient[1], "BREAK ",1im,"BREAK ",ω,"BREAK  ",d[1],"BREAK  ",dot_product[1])
 
 
     return prefactor,dot_product
