@@ -6,33 +6,7 @@ by dt using a Euler step.
 """
 function F_function(χ::Matrix{NF},dt::NF,θ̂::GuessedParameters) where {NF<:AbstractFloat}
     df = -θ̂.γ .*χ.^θ̂.n
-
-
-    gamma = θ̂.γ 
-    n = θ̂.n
-
-    # println("shape of n")
-    # println(size(n))
-    # display(n)
-    
-    # println(χ[2,:]," ", size(χ[2,:]))
-    # blob = χ.^θ̂.n
-    # println(blob[2,2]," ", size(blob[2,:]))
-    
-    # println("shape of gama")
-    # println(size(gamma))
-    # display(gamma)
-    # println("-----------")
-
-    # blob2 = -gamma .* blob
-    # println(blob2[2,2]," ", size(blob2[2,:]))
-
-    
-    # println("Welcome to the F function")
-    # println(size(df[2,:]))
-    # println(df[2,:])
-
-    
+  
     return χ .+ dt .* df 
 end 
 
@@ -45,9 +19,20 @@ function H_function(χ::Matrix{NF},t::NF,dot_product::Vector{NF},prefactor::Vect
     time_variation = exp.(-1im*ω*t.*dot_product .+ Φ0)
     GW_factor = real(NF(1.0) .- prefactor .* time_variation)
     GW = reshape(GW_factor,(1,size(GW_factor)[1])) #make GW_factor a row vector for operations with Χ(95,47)
-    
     return χ .* GW
 end 
+
+
+
+"""
+Measurement function which takes the state and returns the measurement, but with zero measurement effects
+    i.e. just returns the state
+
+"""
+function null_function(χ::Matrix{NF},t::NF,dot_product::Vector{NF},prefactor::Vector{Complex{NF}},ω::NF,Φ0::NF) where {NF<:AbstractFloat}
+    return χ 
+end 
+
 
 
 function Q_function(γ::Matrix{NF},n::Matrix{NF},f0::Matrix{NF},dt::NF,σp::NF) where {NF<:AbstractFloat}

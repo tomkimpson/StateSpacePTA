@@ -6,10 +6,12 @@ Given some data recover the state and determine the likelihood
 """
 function kalman_filter(observations::Matrix{NF},
                        PTA::Pulsars,
-                       parameters::GuessedParameters
+                       parameters::GuessedParameters,
+                       model::Symbol
                       ) where {NF<:AbstractFloat}
 
    
+    #println("Running the Kalman filter for the measurement model defined via: ", model)
     
     @unpack q,dt,t,f0 = PTA # PTA does have some parameters that ultimatley we might want to estimate . 
 
@@ -28,8 +30,8 @@ function kalman_filter(observations::Matrix{NF},
     x= observations[:,1] # guess that the intrinsic frequency is the same as the measured frequency
     #P = I(L) * σm*1e9 
     
-    tmp_sigma = 1e-13
-    P = diagm(fill(tmp_sigma^2*1e9 ,L)) 
+    tmp_sigma = NF(1e-3)
+    P = diagm(fill(tmp_sigma ,L)) 
     #Initialise the weights for thexite UKF
     ukf_weights = calculate_UKF_weights(NF,L,7e-4,2.0,0.0) #standard UKF parameters. Maybe make this arguments to be set?
 
@@ -48,54 +50,57 @@ function kalman_filter(observations::Matrix{NF},
 
     #Initialise an array to hold the results
     x_results = zeros(NF,N,L)
-    println("LENGTH OF N = ", N)
+
+    #Initialise a likelihood variable
+    likelihood = NF(0.0)
+
+    #Set what measurement model to use
+    if model == :GW
+        measurement_function = H_function
+    elseif model == :null
+        measurement_function = null_function
+    else
+        println("Model is not defined. Choose one of :GW or :null" )
+        return
+    end 
+
+    
 
     for i=1:N
 
+        #Grab the observatin and the time 
         observation = observations[:,i]
-        println("Observation number: ", i)
         observation = reshape(observation,(1,size(observation)[1])) #can we avoid these reshapes and get a consistent dimensionality?
         ti = t[i]
 
-        
- 
-        
-        # #Calculate sigma points, given the state variables 
+        # #Calculate sigma points, given the state variables
         χ = calculate_sigma_vectors(x,P,ukf_weights.γ,L)
        
-
-
         # #Evolve the sigma points in time
         χ1 = F_function(χ,dt,parameters)
 
-
-
-
-        
-        # #Weighted state predictions and covariance
-
+        #Weighted state predictions and covariance
         x_predicted, P_xx,Δx= predict(χ1, ukf_weights)
         P_xx += Q
 
-
         #Evolve the sigma vectors according to the measurement function
-        #Note we are omitting Joe's extra step recalculating sigmas here 
-        χ2 = H_function(χ,ti,dot_product,prefactor,ω,Φ0)
+        #Note we are omitting Joe's extra step recalculating sigmas here.
+        #Including this steps makes the performance worse -
+        # after discussion we think the two methods are equivalent 
+        χ2 = measurement_function(χ,ti,dot_product,prefactor,ω,Φ0)
         y_predicted, P_yy,Δy= predict(χ2, ukf_weights)
         P_yy += R
         
         #Measurement update 
-        x,P = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
+        x,P,l = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
 
-
-        println("x: ", x[1])
-        #Write to IO array 
+        #Do some IO, update likelihood 
         x_results[i,:] = x 
-    
+        likelihood += l
+      
     end 
-    return x_results
 
-    
+    return x_results, likelihood
 
 end 
 
@@ -127,7 +132,7 @@ function calculate_sigma_vectors(x::Vector{NF},P::Matrix{NF},γ::NF,L::Int) wher
     χ[2:L+1,:] .= x' .+ M #to every row of M, add the vector x 
     χ[L+1+1:2*L+1,:] .= x' .- M 
 
-    
+    #println(χ[1,:])
     return χ
 end 
 
@@ -220,32 +225,38 @@ function update(Δx::Matrix{NF}, Δy::Matrix{NF},W::UKF_weights, P_xx::Matrix{NF
 
 
     #Get the Kalman gain. Do we need these transposes? 
-    Q,R = qr(P_yy)
-    Qb = transpose(Q)*P_xy
+    #Q,R = qr(P_yy)
+    #Qb = transpose(Q)*P_xy
     
 
 
-    K1 = transpose(R \ Qb) #left division operator solves R*K = Qb ; Ax = b
+    #K1 = transpose(R \ Qb) #left division operator solves R*K = Qb ; Ax = b
     K2 = P_yy \ P_xy
     K3 = transpose(K2)
 
 
-    K = K1
+    K = K3
+
 
    
-
-    #Update state and covariance estiamtes
-    
+    #Update state and covariance estiamtes    
     innovation = transpose(observation - y_predicted)
     
 
 
     x = x_predicted + transpose(K*innovation)
     P = P_xx - K*P_yy*transpose(K)
-   
+    l = likelihood(P_yy,innovation)
 
 
-    return vec(x),P
+    return vec(x),P,l
 end 
 
 
+function likelihood(P_yy::Matrix{NF},innovation::LinearAlgebra.Transpose{NF, Matrix{NF}}) where {NF<:AbstractFloat}
+
+    M = size(P_yy)[1] #number of observations per timestep i.e. number of pulsars
+    x = P_yy \ innovation
+    return -NF(0.5) * (logdet(P_yy) + only(transpose(innovation) * x) +M*log(NF(2.0)*π))
+
+end 

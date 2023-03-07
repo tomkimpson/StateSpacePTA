@@ -27,6 +27,9 @@ The default values of the keywords define the default model setup.
     σp::Real = 1e-13
     σm::Real = 1e-13
 
+    #Random seed
+    seed::Int64 = 0 #0 is defined to be no seeding - different for each run!
+
     
     #Guessed parameters
     #Whilst the GW parameters are used in conjunction with the pulsar parameters to generate synthetic data

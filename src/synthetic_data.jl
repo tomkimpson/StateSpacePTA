@@ -4,7 +4,8 @@
 
 function create_synthetic_data(
                                pulsars::Pulsars,
-                               GW::gravitational_wave) #where {NF<:AbstractFloat}
+                               GW::gravitational_wave,
+                               seed::Int64) 
 
 
     @unpack f0,q,t,d,n,γ,σp,σm = pulsars 
@@ -14,14 +15,24 @@ function create_synthetic_data(
 
     
       
-    #Evolve the pulsar frequency 
-    f(u,p,t) = -γ.*u .^n
-    g(u,p,t) = σp
+
+
+    
+    #println(typeof(nothing))
+    if seed == 0
+        Random.seed!()
+    else
+      Random.seed!(seed)
+    end 
+
+    #Evolve the pulsar frequency
+    f(du,u,p,t) = (du .= -γ.*u .^n) 
+    g(du,u,p,t) = (du .= σp) 
+    noise = WienerProcess(0., 0.) #WienerProcess(t0,W0) where t0 is the initial value of time and W0 the initial value of the process
     tspan = (first(t),last(t))
-    prob = SDEProblem(f,g,f0,tspan,tstops=t)
+    prob = SDEProblem(f,g,f0,tspan,tstops=t,noise=noise)
     intrinsic_frequency = solve(prob,EM())
     
-
 
     #Create some useful quantities that relate the GW and pulsar variables 
     prefactor,dot_product = gw_prefactor(Ω,q,Hij,ω,d)

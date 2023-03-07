@@ -23,16 +23,16 @@ struct GuessedParameters{NF<:AbstractFloat}
 
 end 
 
+"""
+For now the guessed parameters are just the true parameters used to generate the synthetic data
+"""
 function guess_parameters(pulsars::Pulsars,P::SystemParameters)
 
     @unpack ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,σp_guess,σm_guess = P
     @unpack γ,n,d = pulsars
     
-   
-    
     dims = (1,size(d)[1]) #1,Npulsar
    
-
     return GuessedParameters{P.NF}(d,reshape(γ,dims),reshape(n,dims),
                                    ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,σp_guess,σm_guess) #convert to type NF 
 

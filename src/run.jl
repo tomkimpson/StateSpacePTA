@@ -1,9 +1,3 @@
-
-
-
-
-
-
 """
 solution,model = orbit(NF,kwargs...)
 
@@ -14,69 +8,29 @@ function UKF(::Type{NF}=Float64;              # number format, use Float64 as de
            ) where {NF<:AbstractFloat}
 
 
-println("Hello from StateSpacePTA. You are running with NF = ", " ", NF)
 
 
-P = SystemParameters(NF=NF;kwargs...) # Parameters
-PTA = setup_PTA(P)
-GW = gw_variables(P.NF,P)
+    P = SystemParameters(NF=NF;kwargs...) # Parameters
+    PTA = setup_PTA(P)
+    GW = gw_variables(P.NF,P)
+
+    #@info "Hello from StateSpacePTA. You are running with NF = ", " ", P.NF
+
+    seed = P.seed # Integer or nothing 
+    state,measurement = create_synthetic_data(PTA,GW,seed)
+
+    θ̂ = guess_parameters(PTA,P)
+    model_state_predictions,model_likelihood = kalman_filter(measurement,PTA,θ̂,:GW)
+    null_state_predictions,null_likelihood = kalman_filter(measurement,PTA,θ̂,:null)
+
+    test_statistic = NF(2.0) * (model_likelihood - null_likelihood)
 
 
-state,measurement = create_synthetic_data(PTA,GW)
+    output_dictionary = Dict("time" => PTA.t, "state" => state, "measurement" => measurement,
+                             "TS" => test_statistic,
+                             "model_predictions" => model_state_predictions, "model_likelihood" => model_likelihood,
+                             "null_predictions" => null_state_predictions, "null_likelihood" => null_likelihood,)
 
 
-
-
-θ̂ = guess_parameters(PTA,P)
-state_predictions = kalman_filter(measurement,PTA,θ̂)
-
-#save("data/state_predictions.jld", "state_predictions", state_predictions)
-
-
-println("Plotter")
-println(size(state_predictions))
-println(size(state))
-psr_index = 1
-plotter(PTA.t,state,measurement,state_predictions,psr_index)
-
-# #A = rand(1.:9.,6,4)
-# A = Array{NF}([1 2 3; 4 1 6; 7 8 1])
-# Q,R = qr(A);
-
-
-# df = DataFrame(CSV.File("data/NANOGrav_pulsars.csv"))
-
-
-# blob = Matrix(df)
-
-# f = NF.(blob[:,3])
-
-# println(f)
-
-
-
-println("Completed OK ")
-# println(df)
-# println(size(blob))
-# println(blob[2,:])
-#A = sparse([NF(1.0), 1, 2, 3], [1, 3, 2, 3], [0, 1, 2, 0])
-# println(eltype(A))
-
-
-
-# QR(A)
-# Setup all system parameters, universal constants etc.
-#P = SystemParameters(NF=NF;kwargs...) # Parameters
-# bounds_checks(P)                      # Check all parameters are reasonable
-# C = Constants(P)                      # Constants
-# M = Model(P,C)                        # Pack all of the above into a single *Model struct 
-
-# #Initial conditions 
-# initialization = initial_conditions(M)
-
-# #Evolve in time
-# solution = timestepping(initialization, M)
-
-# return solution, M
-
+    return output_dictionary
 end

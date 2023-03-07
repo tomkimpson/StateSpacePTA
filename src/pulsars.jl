@@ -23,7 +23,11 @@ function setup_PTA(P::SystemParameters)
     pc = 3e16     # parsec in m
     c = 3e8 #speed of light in m/s
 
-    pulsars = DataFrame(CSV.File("data/NANOGrav_pulsars.csv"))
+    load_file = pkgdir(StateSpacePTA, "data", "NANOGrav_pulsars.csv")
+
+    pulsars = DataFrame(CSV.File(load_file))
+
+
 
     f = pulsars[:,"F0"]
     d = pulsars[:,"DIST"]*1e3*pc/c #this is in units of s^-1

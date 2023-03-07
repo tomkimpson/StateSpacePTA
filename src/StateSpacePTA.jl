@@ -2,12 +2,13 @@ module StateSpacePTA
 
 #Imports 
 import Parameters: @with_kw, @unpack
-using LinearAlgebra,DataFrames,CSV,DifferentialEquations, Noise,Plots,Statistics,DelimitedFiles, JLD
+using LinearAlgebra,DataFrames,CSV,DifferentialEquations, Noise,Plots,Statistics,DelimitedFiles, JLD, Random,Logging
+
 
 
 
 #Exports
-export UKF 
+export UKF, plotter
 
 
 
