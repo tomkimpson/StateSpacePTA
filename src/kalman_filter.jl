@@ -11,15 +11,17 @@ function kalman_filter(observations::Matrix{NF},
                       ) where {NF<:AbstractFloat}
 
    
-    #println("Running the Kalman filter for the measurement model defined via: ", model)
-    
+    @info "Running the Kalman filter for the measurement model defined via: ", model
+
     @unpack q,dt,t,f0 = PTA # PTA does have some parameters that ultimatley we might want to estimate . 
 
     @unpack σm,σp,γ,n,ω,Φ0 = parameters 
 
 
+
     #Set the dimension of the state space 
-    L = size(observations)[1]     # dimension of hidden states i.e. number of pulsars
+    Npulsars = size(observations)[1]
+    L = Npulsars + 7 # dimension of hidden states i.e. number of pulsars + number of GW parameters 
     N = size(observations)[2]     # number of timesteps
 
     #Get the 0th order frequencies and reshape them 
@@ -27,26 +29,30 @@ function kalman_filter(observations::Matrix{NF},
     f0 = reshape(f0,(1,size(f0)[1])) #change f0 from a 1D vector to a 2D matrix
 
     #Initialise x and P
-    x= observations[:,1] # guess that the intrinsic frequency is the same as the measured frequency
+    x_pulsar = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+    x_parameters = [parameters.h, parameters.ι, parameters.δ, parameters.α, parameters.ψ, parameters.ω, parameters.Φ0] 
+
+
+    x = [x_pulsar; x_parameters] #concatenate to get the intial state
     #P = I(L) * σm*1e9 
     
     tmp_sigma = NF(1e-3)
-    P = diagm(fill(tmp_sigma ,L)) 
-    #Initialise the weights for thexite UKF
+    P = diagm(fill(tmp_sigma ,L)) #maybe we want the uncertainty in the frequencies and the uncertainty in the parameters to be different?
+    # #Initialise the weights for thexite UKF
     ukf_weights = calculate_UKF_weights(NF,L,7e-4,2.0,0.0) #standard UKF parameters. Maybe make this arguments to be set?
 
 
     #Calculate the time-independent Q-matrix
-    Q = Q_function(γ,n,f0,dt,σp)
+    Q = Q_function(γ,n,f0,dt,σp,7)
 
 
-    # Calculate GW-related quantities that are time-constant
-    GW = gw_variables(NF,parameters)
-    prefactor,dot_product = gw_prefactor(GW.Ω,q,GW.Hij,ω,parameters.d)
+    # # Calculate GW-related quantities that are time-constant
+    # GW = gw_variables(NF,parameters)
+    # prefactor,dot_product = gw_prefactor(GW.Ω,q,GW.Hij,ω,parameters.d)
 
 
     #Calculate measurement noise matrix
-    R = R_function(L,σm)
+    R = R_function(Npulsars,σm)
 
     #Initialise an array to hold the results
     x_results = zeros(NF,N,L)
@@ -66,41 +72,56 @@ function kalman_filter(observations::Matrix{NF},
 
     
 
-    for i=1:N
+     for i=1:N
 
-        #Grab the observatin and the time 
-        observation = observations[:,i]
-        observation = reshape(observation,(1,size(observation)[1])) #can we avoid these reshapes and get a consistent dimensionality?
-        ti = t[i]
+        println("STEP NUMBER i ", i)
+         #Grab the observatin and the time 
+         observation = observations[:,i]
+         observation = reshape(observation,(1,size(observation)[1])) #can we avoid these reshapes and get a consistent dimensionality?
+         ti = t[i]
 
-        # #Calculate sigma points, given the state variables
-        χ = calculate_sigma_vectors(x,P,ukf_weights.γ,L)
-       
-        # #Evolve the sigma points in time
-        χ1 = F_function(χ,dt,parameters)
-
-        #Weighted state predictions and covariance
-        x_predicted, P_xx,Δx= predict(χ1, ukf_weights)
-        P_xx += Q
-
-        #Evolve the sigma vectors according to the measurement function
-        #Note we are omitting Joe's extra step recalculating sigmas here.
-        #Including this steps makes the performance worse -
-        # after discussion we think the two methods are equivalent 
-        χ2 = measurement_function(χ,ti,dot_product,prefactor,ω,Φ0)
-        y_predicted, P_yy,Δy= predict(χ2, ukf_weights)
-        P_yy += R
+         # #Calculate sigma points, given the state variables
+         χ = calculate_sigma_vectors(x,P,ukf_weights.γ,L)
         
-        #Measurement update 
-        x,P,l = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
+       
+         # #Evolve the sigma points in time
+         χ_input = χ[:,1:Npulsars]              #Get the columns which correspond to the frequencies 
+         χ_remain = χ[:,Npulsars+1:Npulsars+7]  #Save the columns which correspond to the parameters 
+        
+         
+         χ1 = F_function(χ_input,dt,parameters)
+         χ1 = [χ1 χ_remain]
+         
 
-        #Do some IO, update likelihood 
-        x_results[i,:] = x 
-        likelihood += l
+  
+
+        #  #Weighted state predictions and covariance
+         x_predicted, P_xx,Δx= predict(χ1, ukf_weights)
+         P_xx += Q
+
+         #Evolve the sigma vectors according to the measurement function
+         #Note we are omitting Joe's extra step recalculating sigmas here.
+         #Including this steps makes the performance worse -
+         # after discussion we think the two methods are equivalent 
+         #χ2 = measurement_function(χ,ti,dot_product,prefactor,ω,Φ0)
+         χ2 = measurement_function(χ,ti,Npulsars,PTA.q,PTA.d)
+         y_predicted, P_yy,Δy= predict(χ2, ukf_weights)
+         
+
+         P_yy += R
+        
+        #  #Measurement update 
+         x,P,l = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
+
+         println(x)
+         #Do some IO, update likelihood 
+         x_results[i,:] = x 
+         likelihood += l
       
-    end 
+     end 
 
     return x_results, likelihood
+    #return 1,1
 
 end 
 
@@ -182,18 +203,17 @@ function predict(χ::Matrix{NF}, W::UKF_weights) where {NF<:AbstractFloat}
     @unpack Wm,Wc = W
     
     x_predicted = Wm * χ #this is a dot product 
-
-   
+    
 
     y = χ .- x_predicted #from each row of χ, subtract the x predictions
 
 
     yT = transpose(y)
     tmp = transpose(Wc) .* y #for each row in y, multiply it by the corresponding weight
-    P_predicted = yT * tmp # size 47 x 47
+    P_predicted = yT * tmp # size L x L
 
     
-    eps_matrix = diagm(fill(eps(NF) ,47)) 
+    eps_matrix = diagm(fill(eps(NF) ,size(x_predicted)[2]))  #size(x_predicted)[2] = L 
     
     P_predicted = NF(0.5)*(P_predicted + transpose(P_predicted)) + eps_matrix # Enforce symmetry of the covariance matrix
    
@@ -216,19 +236,7 @@ function update(Δx::Matrix{NF}, Δy::Matrix{NF},W::UKF_weights, P_xx::Matrix{NF
     yT = transpose(Δy)
     tmp = transpose(Wc) .* Δx 
     P_xy = yT * tmp # size 47 x 47
-    #eps_matrix = diagm(fill(eps() ,47)) 
-
-    #P_xy = NF(0.5)*(P_xy + transpose(P_xy)) + eps_matrix# Enforce symmetry of the covariance matrix
-
-  
-
-
-
-    #Get the Kalman gain. Do we need these transposes? 
-    #Q,R = qr(P_yy)
-    #Qb = transpose(Q)*P_xy
     
-
 
     #K1 = transpose(R \ Qb) #left division operator solves R*K = Qb ; Ax = b
     K2 = P_yy \ P_xy

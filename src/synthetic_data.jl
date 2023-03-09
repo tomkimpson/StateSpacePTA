@@ -14,10 +14,7 @@ function create_synthetic_data(
     NF = eltype(t)
 
     
-      
-
-
-    
+          
     #println(typeof(nothing))
     if seed == 0
         Random.seed!()
