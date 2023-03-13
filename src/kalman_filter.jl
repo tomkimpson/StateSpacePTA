@@ -32,7 +32,8 @@ function kalman_filter(observations::Matrix{NF},
     x_pulsar = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
     x_parameters = [parameters.h, parameters.ι, parameters.δ, parameters.α, parameters.ψ, parameters.ω, parameters.Φ0] 
 
-
+    println("The input x_parameters = ")
+    println(x_parameters)
     x = [x_pulsar; x_parameters] #concatenate to get the intial state
     #P = I(L) * σm*1e9 
     
@@ -90,8 +91,10 @@ function kalman_filter(observations::Matrix{NF},
         
          
          χ1 = F_function(χ_input,dt,parameters)
+        
+
          χ1 = [χ1 χ_remain]
-         
+
 
   
 
@@ -99,18 +102,25 @@ function kalman_filter(observations::Matrix{NF},
          x_predicted, P_xx,Δx= predict(χ1, ukf_weights)
          P_xx += Q
 
+         println("x predicted")
+         println(size(x_predicted), " ", size(P_xx))
+
          #Evolve the sigma vectors according to the measurement function
          #Note we are omitting Joe's extra step recalculating sigmas here.
          #Including this steps makes the performance worse -
          # after discussion we think the two methods are equivalent 
          #χ2 = measurement_function(χ,ti,dot_product,prefactor,ω,Φ0)
          χ2 = measurement_function(χ,ti,Npulsars,PTA.q,PTA.d)
+ 
          y_predicted, P_yy,Δy= predict(χ2, ukf_weights)
+         println("y_predicted")
+         println(size(y_predicted), " ", size(P_yy))
          
 
          P_yy += R
         
         #  #Measurement update 
+        println("update")
          x,P,l = update(Δx, Δy,ukf_weights,P_xx,P_yy,observation,x_predicted,y_predicted)
 
          println(x)
@@ -254,6 +264,7 @@ function update(Δx::Matrix{NF}, Δy::Matrix{NF},W::UKF_weights, P_xx::Matrix{NF
 
     x = x_predicted + transpose(K*innovation)
     P = P_xx - K*P_yy*transpose(K)
+   
     l = likelihood(P_yy,innovation)
 
 
