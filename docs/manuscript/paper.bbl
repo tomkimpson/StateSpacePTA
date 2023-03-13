@@ -17,14 +17,9 @@
   {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
-\bibitem[\protect\citeauthoryear{Fournier}{Fournier}{1901}]{Fournier1901}
-Fournier P.,  1901, ApJ, 1, 101
-
-\bibitem[\protect\citeauthoryear{Maggiore}{Maggiore}{2018}]{Maggiore}
-Maggiore M.,  2018, {Gravitational Waves: Volume 2: Astrophysics and
-  Cosmology}.
-Oxford University Press, \mn@doi{10.1093/oso/9780198570899.001.0001}, \url
-  {https://doi.org/10.1093/oso/9780198570899.001.0001}
+\bibitem[\protect\citeauthoryear{Vargas \& Melatos}{Vargas \&
+  Melatos}{2023}]{Vargas}
+Vargas A.,  Melatos A.,  2023, TBD, 1, 1
 
 \makeatother
 \end{thebibliography}

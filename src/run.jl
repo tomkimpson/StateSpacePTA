@@ -19,8 +19,11 @@ function UKF(::Type{NF}=Float64;              # number format, use Float64 as de
     seed = P.seed # Integer or nothing 
     state,measurement = create_synthetic_data(PTA,GW,seed)
 
-    θ̂ = guess_parameters(PTA,P)
-    model_state_predictions,model_likelihood = kalman_filter(measurement,PTA,θ̂,:GW)
+
+    plotter(PTA.t,state,measurement,nothing,nothing,4)
+
+    #θ̂ = guess_parameters(PTA,P)
+   # model_state_predictions,model_likelihood = kalman_filter(measurement,PTA,θ̂,:GW)
     
     # null_state_predictions,null_likelihood = kalman_filter(measurement,PTA,θ̂,:null)
 

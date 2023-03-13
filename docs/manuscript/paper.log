@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  13 MAR 2023 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 MAR 2023 10:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -802,57 +802,34 @@ $[]$ []\T1/ntxtlf/m/n/8 Present ad-dress: Sci-ence mag-a-zine, AAAS Sci-ence In
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
- []
-
-(./paper.bbl
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-27.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
-File: t1ntxtt.fd 2012/04/20 v3.1
-)
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--28
-[]\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--28
-\T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--28
-[][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
-/m/n/8 https : / / doi . org /
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 28.
+(Font)              scaled to size 8.0pt on input line 198.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 28.
+(Font)              scaled to size 6.2pt on input line 198.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 28.
+e 198.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 28.
+(Font)              scaled to size 8.0pt on input line 198.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-])
+] (./paper.bbl)
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 211.
- [2
+(Font)              scaled to size 12.0pt on input line 227.
+
+[2
 
 ] (./paper.aux)
 
@@ -860,16 +837,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 4B29A3338D4FB40F0E40F78560412953;278.
+(rerunfilecheck)             Checksum: 48146E9856189AB0599B042ACD91E263;379.
  ) 
 Here is how much of TeX's memory you used:
- 14723 strings out of 478268
- 217901 string characters out of 5846348
- 520683 words of memory out of 5000000
- 32605 multiletter control sequences out of 15000+600000
- 562330 words of font info for 189 fonts, out of 8000000 for 9000
+ 14687 strings out of 478268
+ 217268 string characters out of 5846348
+ 519664 words of memory out of 5000000
+ 32572 multiletter control sequences out of 15000+600000
+ 562008 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,370b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,405b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -885,15 +862,14 @@ xlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}</usr/local/texlive
 texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
-/public/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
-/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
-tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (2 pages, 169238 bytes).
+/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
+public/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/n
+ewtx/ztmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr
+.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on paper.pdf (2 pages, 166838 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
- 25 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

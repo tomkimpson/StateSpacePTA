@@ -151,11 +151,15 @@ Explicitly, it can be shown that the measurement function is,
 \begin{equation} \label{eq:final}
 	g(\bar{\theta},t) = 1 - \frac{1}{2} \frac{h_{ij}(t) q(t)^i q(t)^j}{1 + \bar{n} \cdot \bar{q}(t)}[1 - e^{i \Omega(1+\bar{n} \cdot \bar{q}(t)) d}]
 \end{equation}
-There are a few terms to unpack and define in this equation. $q(t)$ is the vector that connects the Earth and the pulsar, $n$ the vector that connects the Earth and the GW source, $\Omega$ the (constant) angular frequency of the GW and $d$ the Earth-pulsar distance. $h_{ij}(t)$ is the metric perturbation due to the GW $= g_{ij} - \eta_{ij}$. It is given by
+There are a few terms to unpack and define in this equation. $q(t)$ is the vector that connects the Earth and the pulsar, $n$ the vector that connects the Earth and the GW source, $\Omega$ the (constant) angular frequency of the GW and $d$ the Earth-pulsar distance. $h_{ij}(t)$ is the metric perturbation due to the GW $= g_{ij} - \eta_{ij}$. It is given by the familiar plane-wave relation:	
 \begin{equation}
-h_{ij}(t) = H_{ij} e^{(i(\Omega (\bar{n} \cdot \bar{q} - t) + \Phi_0))}
+	h_{ij}(t) = H_{ij} e^{(i(\bar{k} \cdot \bar{x} - \Omega t + \Phi_0))}
 \end{equation}
-for phase offset (GW phase at Earth when $t=0$) $\Phi_0$. The amplitude tensor  $H_{ij}$ is
+where $\bar{k}$ is the GW 3-wavevector $=\Omega \bar{n}$ and $x = -\bar{q} t$ (photon propagates from pulsar to Earth), and for phase offset (GW phase at Earth when $t=0$) $\Phi_0$.  We can also write this as,
+\begin{equation}
+h_{ij}(t) = H_{ij} e^{(-i\Omega t (1 + \bar{n} \cdot \bar{q} ) + \Phi_0))}
+\end{equation}
+The amplitude tensor  $H_{ij}$ is
 \begin{eqnarray}
 	H_{ij} = h_+ e_{ij}^+(\bar{n},\psi) + h_{\times} e_{ij}^{\times}(\bar{n},\psi)
 \end{eqnarray}
@@ -167,7 +171,7 @@ where $h_{+,\times}$ are the constant amplitudes of the gravitational plane wave
 
 \noindent Lets review and categorise all the parameters:
 \begin{equation}
-	\bar{\theta} =  \bar{\theta}_{\rm PSR} + \bar{\theta}_{\rm GW} + \bar{\theta}_{\rm noise}
+	\bar{\theta} =  \bar{\theta}_{\rm PSR} \cup \bar{\theta}_{\rm GW} \cup \bar{\theta}_{\rm noise}
 \end{equation}
 \begin{equation}
 	\bar{\theta}_{\rm PSR} = [\gamma, f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d]
@@ -180,12 +184,24 @@ where $h_{+,\times}$ are the constant amplitudes of the gravitational plane wave
 \end{equation}
 We can also express the measurement equation generally as,
 \begin{equation} 
-	g(\bar{\theta},t) = 1 -A \cos(\Omega(n\cdot q - t) + \Phi_0)
+	g(\bar{\theta},t) = 1 -A \cos(-\Omega t (1 + n\cdot q ) + \Phi_0)
 \end{equation}
 where 
 \begin{equation}
 	A =  \frac{1}{2} \frac{H_{ij} q^i q^j}{1 + \bar{n} \cdot \bar{q}}[1 - e^{i \Omega(1+\bar{n} \cdot \bar{q}) d}]
 \end{equation}
+
+
+\cite{Vargas}
+
+
+\section{PTA pulsars}
+
+
+
+
+
+
 
 
 \subsection{References}
