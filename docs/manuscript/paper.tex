@@ -121,7 +121,7 @@ editorials, notices -- miscellaneous
 
 
 \section{Model}
-The intrinsic pulsar frequency $f$ evolves as (See Vargas and Melatos)
+We will take as our model of the intrinsic pulsar frequency $f$ a variation of the phenomenological model of \cite{Vargas}. The frequency evolves according to a Ornstein-Uhlenbeck process (equivalently a Langevin equation) with a time-dependent drift parameter:
 \begin{equation}
 	\frac{df}{dt} = -\gamma	 [f - f_{\rm EM} (t)] + \dot{f}_{\rm EM} + \xi(t)
 	\label{eq:frequency_evolution}
@@ -160,16 +160,40 @@ where $\bar{k}$ is the GW 3-wavevector $=\Omega \bar{n}$ and $x = -\bar{q} t$ (p
 h_{ij}(t) = H_{ij} e^{(-i\Omega t (1 + \bar{n} \cdot \bar{q} ) + \Phi_0))}
 \end{equation}
 The amplitude tensor  $H_{ij}$ is
-\begin{eqnarray}
+\begin{equation}
 	H_{ij} = h_+ e_{ij}^+(\bar{n},\psi) + h_{\times} e_{ij}^{\times}(\bar{n},\psi)
-\end{eqnarray}
+\end{equation}
 where $h_{+,\times}$ are the constant amplitudes of the gravitational plane wave, and $e_{ij}^{+, \times}(\bar{n}, \psi)$ are the polarisation tensors which are uniquely defined by the principal axes of the GW. $\psi$ is the polarisation angle of the GW. \newline 
+
+
+
+
+
+
 
 
 \noindent Going forward, for now we will take $q(t) = q$ i..e. the pulsar locations are constant with respect to the Earth. This may have already been "done" during the barycentreing when pulsar TOAs are generated, in which case $q$ is the vector from the SSB to the pulsar  \newline 
 
 
-\noindent Lets review and categorise all the parameters:
+
+
+\noindent Bringing this together, and adopting a trigonometric form of the equations, we can express the measurement equation as 
+
+
+\begin{equation} 
+	g(\bar{\theta},t) = 1 -A \cos(-\Omega t (1 + n\cdot q ) + \Phi_0)
+\end{equation}
+where 
+\begin{equation}
+	A =  \frac{1}{2} \frac{H_{ij} q^i q^j}{1 + \bar{n} \cdot \bar{q}}[1 - \cos\left( {\Omega(1+\bar{n} \cdot \bar{q}) d}\right)]
+\end{equation}
+
+
+
+
+
+\subsection{Parameters of the model}
+\noindent Lets review and categorise all the parameters the the above model. We can generally separate these into parameters which correspond to the intrinsic frequency evolution of the pulsar, the GW parameters and the noise parameters i.e.
 \begin{equation}
 	\bar{\theta} =  \bar{\theta}_{\rm PSR} \cup \bar{\theta}_{\rm GW} \cup \bar{\theta}_{\rm noise}
 \end{equation}
@@ -183,16 +207,8 @@ where $h_{+,\times}$ are the constant amplitudes of the gravitational plane wave
 	\bar{\theta}_{\rm noise} = [\sigma, \Sigma]
 \end{equation}
 We can also express the measurement equation generally as,
-\begin{equation} 
-	g(\bar{\theta},t) = 1 -A \cos(-\Omega t (1 + n\cdot q ) + \Phi_0)
-\end{equation}
-where 
-\begin{equation}
-	A =  \frac{1}{2} \frac{H_{ij} q^i q^j}{1 + \bar{n} \cdot \bar{q}}[1 - e^{i \Omega(1+\bar{n} \cdot \bar{q}) d}]
-\end{equation}
 
 
-\cite{Vargas}
 
 
 \section{PTA pulsars}

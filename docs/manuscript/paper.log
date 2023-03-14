@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 MAR 2023 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 MAR 2023 11:02
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -807,27 +807,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--167
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 198.
+(Font)              scaled to size 8.0pt on input line 197.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 198.
+(Font)              scaled to size 6.2pt on input line 197.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 198.
+e 197.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 198.
+(Font)              scaled to size 8.0pt on input line 197.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ] (./paper.bbl)
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 227.
+(Font)              scaled to size 12.0pt on input line 243.
 
 [2
 
@@ -837,16 +837,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 48146E9856189AB0599B042ACD91E263;379.
+(rerunfilecheck)             Checksum: 24F3E6C62A55A6664FE9E699633B696F;560.
  ) 
 Here is how much of TeX's memory you used:
- 14687 strings out of 478268
- 217268 string characters out of 5846348
- 519664 words of memory out of 5000000
- 32572 multiletter control sequences out of 15000+600000
+ 14689 strings out of 478268
+ 217298 string characters out of 5846348
+ 519667 words of memory out of 5000000
+ 32573 multiletter control sequences out of 15000+600000
  562008 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,405b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,405b,399s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -866,10 +866,10 @@ texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2022/texmf
 public/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/n
 ewtx/ztmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr
 .pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (2 pages, 166838 bytes).
+Output written on paper.pdf (2 pages, 167869 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
- 26 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 122 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -27,7 +27,7 @@ function gw_variables(NF,P) #P is either a SystemParameters object or a GuessedP
     
     Hij                 = hp .* e_plus .+ hx * e_cross
     
-    return gravitational_wave{NF}(m,n̄,Ω,Hij,P.ω,P.Φ0)
+    return gravitational_wave{NF}(m,n,n̄,Hij,P.ω,P.Φ0)
 
 end 
 
@@ -118,30 +118,68 @@ end
 
 
 
-function gw_prefactor(n̄:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::Vector{NF}) where {NF<:AbstractFloat}
+# function gw_prefactor(n̄:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::Vector{NF}) where {NF<:AbstractFloat}
 
-    dot_product  = [NF(1.0) .+ dot(n̄,q[i,:]) for i=1:size(q)[1]] 
-    hbar         = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
-    ratio        = hbar ./ dot_product
-    Hcoefficient = NF(1.0) .- cos.(ω.*d.*dot_product)
-    prefactor    = NF(0.5).*ratio.*Hcoefficient
+#     dot_product  = [NF(1.0) .+ dot(n̄,q[i,:]) for i=1:size(q)[1]] 
+#     hbar         = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
+#     ratio        = hbar ./ dot_product
+#     Hcoefficient = NF(1.0) .- cos.(ω.*d.*dot_product)
+#     prefactor    = NF(0.5).*ratio.*Hcoefficient
+
+#     return prefactor,dot_product
+
+# end 
+
+
+
+
+function gw_prefactor(Ω:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::Vector{NF}) where {NF<:AbstractFloat}
+
+
+
+    dot_product = [NF(1.0) .+ dot(Ω,q[i,:]) for i=1:size(q)[1]] 
+    hbar = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
+
+
+    #println("dot product:  ", dot_product)
+    #println("hbar :  ", hbar)
+
+
+    ratio = hbar ./ dot_product
+    println("The origian lH coeff is")
+    println(typeof(ω))
+    println(typeof(d))
+    println(typeof(dot_product))
+
+    Hcoefficient = NF(1.0) .- exp.(1im*ω.*d.*dot_product)
+    println(typeof(Hcoefficient))
+
+    prefactor = NF(0.5).*ratio.*Hcoefficient
+
+    #println("Hcoeff :  ", Hcoefficient[1], "BREAK ",1im,"BREAK ",ω,"BREAK  ",d[1],"BREAK  ",dot_product[1])
+
 
     return prefactor,dot_product
 
-end 
+end
 
 
-function gw_modulation(t,prefactor:: Vector{NF},dot_product::NF)
 
 
-   
-    
-       time_variation = cos.(-1im*ω*ti .*dot_product .+ Φ0)
-       GW_factor = real.(NF(1.0) .- prefactor .* time_variation)
-    
-       f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
 
-    
+
+
+
+
+
+
+
+
+
+
+function gw_modulation(t::NF, ω::NF,Φ0::NF,prefactor:: Vector{NF},dot_product::Vector{NF}) where {NF<:AbstractFloat} 
+       time_variation = cos.(-ω*t .*dot_product .+ Φ0)
+       GW_factor = NF(1.0) .- prefactor .* time_variation
 
     return GW_factor 
 
