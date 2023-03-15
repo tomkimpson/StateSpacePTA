@@ -151,7 +151,7 @@ Explicitly, it can be shown that the measurement function is,
 \begin{equation} \label{eq:final}
 	g(\bar{\theta},t) = 1 - \frac{1}{2} \frac{h_{ij}(t) q(t)^i q(t)^j}{1 + \bar{n} \cdot \bar{q}(t)}[1 - e^{i \Omega(1+\bar{n} \cdot \bar{q}(t)) d}]
 \end{equation}
-There are a few terms to unpack and define in this equation. $q(t)$ is the vector that connects the Earth and the pulsar, $n$ the vector that connects the Earth and the GW source, $\Omega$ the (constant) angular frequency of the GW and $d$ the Earth-pulsar distance. $h_{ij}(t)$ is the metric perturbation due to the GW $= g_{ij} - \eta_{ij}$. It is given by the familiar plane-wave relation:	
+There are a few terms to unpack and define in this equation. $q(t)$ is the vector from the Earth to the pulsar, $n$ the propagation direction of the GW, $\Omega$ the (constant) angular frequency of the GW and $d$ the Earth-pulsar distance. $h_{ij}(t)$ is the metric perturbation due to the GW $= g_{ij} - \eta_{ij}$. It is given by the familiar plane-wave relation:	
 \begin{equation}
 	h_{ij}(t) = H_{ij} e^{(i(\bar{k} \cdot \bar{x} - \Omega t + \Phi_0))}
 \end{equation}
@@ -212,7 +212,32 @@ We can also express the measurement equation generally as,
 
 
 \section{PTA pulsars}
+In order to proceed and explore how well this state-space formulation works, we will need to specify a selection of pulsars to make up our PTA. We will take the 47 pulsars that make up the NANOGrav PTA. For each pulsar, we need to specify the complete set of $\bar{\theta}_{\rm PSR}$ as well as $\sigma$. The parameters $f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d$ are straightforward to set and can be read directly from  the current "present day" best estimates of the pulsar frequency, derivative and distance. 
+ 
+ 
+ 
 
+\begin{figure}
+	\includegraphics[width=0.8\columnwidth]{images/pulsars}
+	\caption{Spatial distribution and distances of NANOGrav pulsars}
+	\label{fig:pulsar_distrib}
+\end{figure}
+
+
+
+
+\section{Methods}
+
+
+There are two potential methods we can take
+
+\begin{enumerate}
+	\item Let the states just be the frequencies $\bar{x} = (f)$. We have a linear equation for both the state evolution and the measurement matrix. Both of these depend on the parameters $\theta$. Use the likelihood output by a standard Kalman filter to run a nested sampler and try to recover $\theta$.
+	\item Let the states be the frequencies and all the unknown parameters $\bar{x} = (f, \bar{\theta}_{\rm GW},\bar{\theta}_{\rm PSR},\bar{\theta}_{\rm noise})$. Our state evolution is now linear but our measurement matrix is non-linear - a function of the states(parameters). Use a non-linear estimator such as a EKF/UKF to try to recover all of the states at once.
+\end{enumerate}
+
+
+\subsection{Method 1}
 
 
 

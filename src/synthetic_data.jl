@@ -12,7 +12,6 @@ function create_synthetic_data(
     @unpack n̄,Hij,ω,Φ0 = GW
 
 
-
     NF = eltype(t)
         
     if seed == 0
@@ -24,7 +23,7 @@ function create_synthetic_data(
     
     #Evolve the pulsar frequencyz
     f(du,u,p,t) = (du .= -γ.*u .+ γ.*(f0 .+ ḟ0*t) .+ ḟ0)
-    g(du,u,p,t) = (du .= σp) 
+    g(du,u,p,t) = (du .= σp^2) 
     noise = WienerProcess(0., 0.) # WienerProcess(t0,W0) where t0 is the initial value of time and W0 the initial value of the process
    
     tspan = (first(t),last(t))
@@ -40,27 +39,11 @@ function create_synthetic_data(
     f_measured_clean = zeros(NF,size(q)[1],length(t))
 
 
-   # for i =1:length(t)
+   for i =1:length(t)
 
-
-      for i =1:length(t)
-        ti = t[i]
-     
-        time_variation = exp.(-1im*ω*ti .*dot_product .+ Φ0)
-        GW_factor = real.(NF(1.0) .- prefactor .* time_variation)
-     
-        f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
-     end
-
-
-
-
-
-
-
-    #    GW_factor = gw_modulation(t[i], ω,Φ0,prefactor,dot_product)
-    #    f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
-    # end
+       GW_factor = gw_modulation(t[i], ω,Φ0,prefactor,dot_product)
+       f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
+    end
 
 
     f_measured = add_gauss(f_measured_clean, σm, 0.0) #does this do the correct thing?   

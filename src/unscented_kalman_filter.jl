@@ -4,7 +4,7 @@
 """
 Given some data recover the state and determine the likelihood
 """
-function kalman_filter(observations::Matrix{NF},
+function UKF(observations::Matrix{NF},
                        PTA::Pulsars,
                        parameters::GuessedParameters,
                        model::Symbol
@@ -15,26 +15,31 @@ function kalman_filter(observations::Matrix{NF},
 
     @unpack q,dt,t,f0 = PTA # PTA does have some parameters that ultimatley we might want to estimate . 
 
-    @unpack σm,σp,γ,n,ω,Φ0 = parameters 
+    #@unpack σm,σp,γ,ω,Φ0 = parameters 
 
 
 
     #Set the dimension of the state space 
     Npulsars = size(observations)[1]
-    L = Npulsars + 7 # dimension of hidden states i.e. number of pulsars + number of GW parameters 
+    L = Npulsars + 7
+    #L = 6*Npulsars + 7 # dimension of hidden states i.e. number of pulsars, which have 5 parameters + a frequency state and the 7 GW parameters 
+    
+    
     N = size(observations)[2]     # number of timesteps
+    @info "Size of the state space is: ", L 
+    @info "Number of observations is : ", N
+
 
     #Get the 0th order frequencies and reshape them 
     #These are the PSR frequencies given by ANTF
-    f0 = reshape(f0,(1,size(f0)[1])) #change f0 from a 1D vector to a 2D matrix
+    #f0 = reshape(f0,(1,size(f0)[1])) #change f0 from a 1D vector to a 2D matrix
 
     #Initialise x and P
-    x_pulsar = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
-    x_parameters = [parameters.h, parameters.ι, parameters.δ, parameters.α, parameters.ψ, parameters.ω, parameters.Φ0] 
+    x_pulsar_frequencies = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+    x_GW_parameters = [parameters.h, parameters.ι, parameters.δ, parameters.α, parameters.ψ, parameters.ω, parameters.Φ0] # guess the GW parameters 
 
-    println("The input x_parameters = ")
-    println(x_parameters)
-    x = [x_pulsar; x_parameters] #concatenate to get the intial state
+  
+    x = [x_pulsar_frequencies; x_GW_parameters] #concatenate to get the intial state
     #P = I(L) * σm*1e9 
     
     tmp_sigma = NF(1e-3)
@@ -44,16 +49,12 @@ function kalman_filter(observations::Matrix{NF},
 
 
     #Calculate the time-independent Q-matrix
-    Q = Q_function(γ,n,f0,dt,σp,7)
-
-
-    # # Calculate GW-related quantities that are time-constant
-    # GW = gw_variables(NF,parameters)
-    # prefactor,dot_product = gw_prefactor(GW.Ω,q,GW.Hij,ω,parameters.d)
+    Q_function(PTA.γ,PTA.σp,dt)
+    
 
 
     #Calculate measurement noise matrix
-    R = R_function(Npulsars,σm)
+    R = R_function(Npulsars,PTA.σm)
 
     #Initialise an array to hold the results
     x_results = zeros(NF,N,L)

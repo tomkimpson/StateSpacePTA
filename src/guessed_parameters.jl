@@ -3,10 +3,11 @@
 
 struct GuessedParameters{NF<:AbstractFloat}
 
-    #Pulsar parameters. Some of these are now matrices (i.e. 2D) to enable efficient operations in the Kalman filter
+    #Pulsar parameters. 
+    f0 :: Vector{NF} 
+    ḟ0 :: Vector{NF}
     d :: Vector{NF}
-    γ :: Matrix{NF}
-    n :: Matrix{NF} 
+    γ :: Vector{NF}
 
     #GW parameters 
     ω  ::NF     
@@ -17,7 +18,7 @@ struct GuessedParameters{NF<:AbstractFloat}
     α  ::NF
     h  ::NF
 
-    #Noise parameters 
+    # #Noise parameters 
     σp::NF
     σm::NF
 
@@ -29,12 +30,12 @@ For now the guessed parameters are just the true parameters used to generate the
 function guess_parameters(pulsars::Pulsars,P::SystemParameters)
 
     @unpack ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,σp_guess,σm_guess = P
-    @unpack γ,n,d = pulsars
+    @unpack f0,ḟ0,d,γ = pulsars
     
-    dims = (1,size(d)[1]) #1,Npulsar
    
-    return GuessedParameters{P.NF}(d,reshape(γ,dims),reshape(n,dims),
-                                   ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,σp_guess,σm_guess) #convert to type NF 
+    return GuessedParameters{P.NF}(f0,ḟ0,d,γ,
+                                   ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,
+                                   σp_guess,σm_guess) #convert to type NF 
 
 
 end 

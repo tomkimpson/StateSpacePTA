@@ -8,7 +8,7 @@ using LinearAlgebra,DataFrames,CSV,DifferentialEquations, Noise,Plots,Statistics
 
 
 #Exports
-export UKF, plotter
+export KalmanFilter, plotter
 
 
 
@@ -20,7 +20,10 @@ include("GW.jl")
 include("guessed_parameters.jl")
 include("synthetic_data.jl")
 include("model.jl")
-include("kalman_filter.jl")
+#include("unscented_kalman_filter.jl")
+#include("extended_kalman_filter.jl")
+include("linear_kalman_filter.jl")
+
 include("plotting.jl")
 include("run.jl")
 

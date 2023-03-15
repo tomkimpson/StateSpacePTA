@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 MAR 2023 11:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 MAR 2023 16:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -812,41 +812,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--176
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 197.
+(Font)              scaled to size 8.0pt on input line 199.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 197.
+(Font)              scaled to size 6.2pt on input line 199.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 197.
+e 199.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 197.
+(Font)              scaled to size 8.0pt on input line 199.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] (./paper.bbl)
+]
+<images/pulsars.png, id=65, 481.0773pt x 299.9205pt>
+File: images/pulsars.png Graphic file (type png)
+<use images/pulsars.png>
+Package pdftex.def Info: images/pulsars.png  used on input line 221.
+(pdftex.def)             Requested size: 195.20074pt x 121.69595pt.
+ (./paper.bbl)
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 243.
+(Font)              scaled to size 12.0pt on input line 261.
 
 [2
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.261 \end{document}
+                    
 
-] (./paper.aux)
+ <./images/pulsars.png>] (./paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 24F3E6C62A55A6664FE9E699633B696F;560.
+(rerunfilecheck)             Checksum: F0FCF610BC29FEEEBA342B82E2FC8680;638.
  ) 
 Here is how much of TeX's memory you used:
- 14689 strings out of 478268
- 217298 string characters out of 5846348
- 519667 words of memory out of 5000000
- 32573 multiletter control sequences out of 15000+600000
+ 14712 strings out of 478268
+ 217649 string characters out of 5846348
+ 519743 words of memory out of 5000000
+ 32589 multiletter control sequences out of 15000+600000
  562008 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,405b,399s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,538b,391s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -866,10 +878,10 @@ texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2022/texmf
 public/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/n
 ewtx/ztmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr
 .pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (2 pages, 167869 bytes).
+Output written on paper.pdf (2 pages, 355018 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
- 27 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 134 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

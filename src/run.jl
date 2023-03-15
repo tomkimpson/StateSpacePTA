@@ -1,9 +1,9 @@
 """
 solution,model = orbit(NF,kwargs...)
 
-Runs RelativisticDynamics.jl with number format `NF` and any additional parameters in the keyword arguments
+Runs StateSpacePTA.jl with number format `NF` and any additional parameters in the keyword arguments
 `kwargs...`. Any unspecified parameters will use the default values as defined in `src/system_parameters.jl`."""
-function UKF(::Type{NF}=Float64;              # number format, use Float64 as default
+function KalmanFilter(::Type{NF}=Float64;              # number format, use Float64 as default
            kwargs...                        # all additional non-default parameters
            ) where {NF<:AbstractFloat}
 
@@ -23,7 +23,15 @@ function UKF(::Type{NF}=Float64;              # number format, use Float64 as de
     plotter(PTA.t,state,measurement,nothing,nothing,4)
 
     #θ̂ = guess_parameters(PTA,P)
-   # model_state_predictions,model_likelihood = kalman_filter(measurement,PTA,θ̂,:GW)
+
+    #println(θ̂)
+
+    #model_state_predictions,model_likelihood = KF(measurement,PTA,θ̂,:GW)
+
+    #model_state_predictions,model_likelihood = EKF(measurement,PTA,θ̂,:GW)
+
+    #model_state_predictions,model_likelihood = UKF(measurement,PTA,:GW)
+
     
     # null_state_predictions,null_likelihood = kalman_filter(measurement,PTA,θ̂,:null)
 
