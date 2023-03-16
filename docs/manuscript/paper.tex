@@ -240,9 +240,12 @@ There are two potential methods we can take
 \subsection{Method 1}
 
 
-
-
-
+In the case where the states are just the intrinsic pulsar frequencies, we can write the ODEs in matrix form as
+\begin{equation}
+	d\bar{X} = \bar{A} \bar{X} dt + \bar{N}(t) dt + \bar{\Sigma} d\bar{B}(t) 
+\end{equation}
+where $\bar{A} = \text{diag}(\gamma_1, \gamma_2,...)$,  $\bar{X} = \text{diag}(f_1, f_2,...)$, $\bar{N} =\text{diag}(\gamma_1[a_1+b_1t] + b_1, ...)$
+and we have let $a = f_{EM}(0)$, $b = \dot{f}_{\rm EM}(0)$.
 
 
 \subsection{References}

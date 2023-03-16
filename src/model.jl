@@ -4,15 +4,16 @@
 Transition function which takes the state of sigma points and advances
 by dt using a Euler step.
 """
-function F_function(χ::Matrix{NF},dt::NF) where {NF<:AbstractFloat}
+function F_function(parameters,dt::NF) where {NF<:AbstractFloat}
+    @unpack γ = parameters 
+    value = exp.(-γ.*dt)
+    return diagm(value) 
+end 
 
-
-
-
-
-    df = -θ̂.γ #.* (χ 
-  
-    return χ .+ dt .* df 
+function T_function(parameters,t,dt) where {NF<:AbstractFloat}
+    @unpack f0, ḟ0,γ = parameters
+    value = f0 + ḟ0*(t+dt) - exp.(-γ.*dt).*(f0+ḟ0*t)
+    return value
 end 
 
 
@@ -21,8 +22,6 @@ end
 Measurement function which takes the state and returns the measurement
 """
 function H_function(parameters,t,q) where {NF<:AbstractFloat}
-
-    println("this is the H function")
 
     @unpack h,ι,δ,α,ψ,ω,Φ0,d = parameters 
 
@@ -52,13 +51,9 @@ Returns a Q matrix of size N x N pulsars
 """
 function Q_function(γ::Vector{NF},σp::NF,dt::NF) where {NF<:AbstractFloat}
     value = σp^2 .* exp.(NF(2.0).*γ .* dt) .- NF(1.0) ./ (NF(2.0) .* γ)
-    return diagm(value) #https://stackoverflow.com/questions/69609872/how-to-make-a-diagonal-matrix-from-a-vector
-
+    return diagm(value) 
 end 
 
-
 function R_function(L::Int, σm::NF) where {NF<:AbstractFloat}
-
     return diagm(fill(σm^2 ,L)) 
-
 end 

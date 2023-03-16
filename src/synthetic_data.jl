@@ -46,7 +46,13 @@ function create_synthetic_data(
     end
 
 
-    f_measured = add_gauss(f_measured_clean, σm, 0.0) #does this do the correct thing?   
+    f_measured = add_gauss(f_measured_clean,σm,0.0)
+    # f_measured = zeros(NF,size(q)[1],length(t))
+    # for i=1:size(q)[1]
+    #   println
+    #   f_measured[i,:] = add_gauss(f_measured_clean[i,:], σm, 0.0) #does this do the correct thing?   
+    # end
+    
     return intrinsic_frequency,f_measured
 
 end 

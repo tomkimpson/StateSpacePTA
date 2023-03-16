@@ -14,39 +14,30 @@ function KF(observations::Matrix{NF},
 
     @info "Running the Kalman filter for the measurement model defined via: ", model
 
-    @unpack q,dt,t = PTA # PTA does have some parameters that ultimatley we might want to estimate . 
-
-    @unpack γ,σp,σm = parameters 
+    @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
+    @unpack γ,σp,σm = parameters #Get some of the parameters that we want to infer 
 
     #Set the dimension of the state space 
     Npulsars = size(observations)[1]
     L = Npulsars 
-    
-    
     N = size(observations)[2]     # number of timesteps
     @info "Size of the state space is: ", L 
     @info "Number of observations is : ", N
 
 
-    #Get the 0th order frequencies and reshape them 
-    #These are the PSR frequencies given by ANTF
-    #f0 = reshape(f0,(1,size(f0)[1])) #change f0 from a 1D vector to a 2D matrix
 
     #Initialise x and P
     x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
-    #x_GW_parameters = [parameters.h, parameters.ι, parameters.δ, parameters.α, parameters.ψ, parameters.ω, parameters.Φ0] # guess the GW parameters 
+    P = I(L) * σm*1e9 
+    #println(σm)
+    #P = I(L) * 1e-15
 
-
-   # x = [x_pulsar_frequencies; x_GW_parameters] #concatenate to get the intial state
-    #P = I(L) * σm*1e9 
-    
-    tmp_sigma = NF(1e-3)
-    P = diagm(fill(tmp_sigma ,L)) #maybe we want the uncertainty in the frequencies and the uncertainty in the parameters to be different?
-    # #Initialise the weights for thexite UKF
-
+    #tmp_sigma = NF(1e-3)
+    #P = diagm(fill(tmp_sigma ,L)) #maybe we want the uncertainty in the frequencies and the uncertainty in the parameters to be different?
+   
 
     #Calculate the time-independent Q-matrix
-    Q_function(γ,σp,dt)
+    Q = Q_function(γ,σp,dt)
     
 
 
@@ -71,25 +62,23 @@ function KF(observations::Matrix{NF},
 
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
-    x,P = update(x,P, observation[:,i],t[i],parameters,q,R) 
-    for i=2:1 #N
+    x,P = update(x,P, observations[:,1],t[1],parameters,q,R)
+    x_results[1,:] = x  
+    for i=2:N
 
-        println("STEP NUMBER i ", i)
-        #Grab the observatin and the time 
+
         observation = observations[:,i]
-         #observation = reshape(observation,(1,size(observation)[1])) #can we avoid these reshapes and get a consistent dimensionality?
-         ti = t[i]
+        ti = t[i]
+        x_predict,P_predict = predict(x,P,parameters,ti,dt,Q)
+        x,P                 = update(x_predict,P_predict, observation,ti,parameters,q,R)
 
-
-        x1,P1 = update(x,P, observation,ti,parameters,q,R)
-        #  self.update(obs)    # Kalman update step
-        #  self.predict()      # Kalman predict step
+        x_results[i,:] = x 
          
       
      end 
 
     return x_results, likelihood
-    #return 1,1
+
 
 end 
 
@@ -112,16 +101,24 @@ function update(x,P, observation,t,parameters,q,R)
     I_KH = I - (K*H)
     Pnew = I_KH * P * I_KH' .+ K * R * K'
 
+
+    #Pnew = I_KH*P
+
     return xnew, Pnew 
 end 
 
 
-function predict(x,p)
+function predict(x,P,parameters,t,dt,Q)
 
+    
+    F = F_function(parameters,dt)
+    T = T_function(parameters,t,dt)
 
-    xp = 
+    xp = F*x .+ T 
 
+    Pp = F*P*F + Q
 
+    return xp,Pp
 
 end 
 
