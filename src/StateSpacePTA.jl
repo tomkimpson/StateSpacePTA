@@ -16,7 +16,7 @@ import Suppressor: @suppress_err
 
 
 #Exports
-export KalmanFilter, plotter
+export KalmanFilter,infer_parameters, plotter
 
 
 
