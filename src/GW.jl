@@ -33,7 +33,7 @@ end
 
 function gw_variables(h::NF,ι::NF,δ::NF,α::NF,ψ::NF) where {NF<:AbstractFloat} 
 
-    m,n                 = principal_axes(π/2.0 - δ,α,ψ)    
+    m,n                 = principal_axes(π/NF(2.0) - δ,α,ψ)    
     n̄                   = cross(m,n)            
     
     hp,hx               = h_amplitudes(h,ι)                                    

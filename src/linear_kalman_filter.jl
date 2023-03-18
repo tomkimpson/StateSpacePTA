@@ -59,14 +59,14 @@ function KF(observations::Matrix{NF},
     likelihood = NF(0.0)
 
     #Set what measurement model to use
-    if model == :GW
-        measurement_function = H_function
-    elseif model == :null
-        measurement_function = null_function
-    else
-        println("Model is not defined. Choose one of :GW or :null" )
-        return
-    end 
+    # if model == :GW
+    #     measurement_function = H_function
+    # elseif model == :null
+    #     measurement_function = null_function
+    # else
+    #     println("Model is not defined. Choose one of :GW or :null" )
+    #     return
+    # end 
     
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
@@ -116,7 +116,8 @@ function KF(observations::Matrix{NF},
 
     ω = ω_tuple[1]
     @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
-    @unpack γ,σp,σm = parameters #Get some of the parameters that we want to infer 
+    @unpack h,ι,δ,α,ψ,Φ0,d,γ,σp,σm = parameters 
+
 
     #Set the dimension of the state space 
     Npulsars = size(observations)[1]
@@ -129,61 +130,63 @@ function KF(observations::Matrix{NF},
     #Initialise x and P
     x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
     P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
-    println(size(P))
-
+   
     #Calculate the time-independent Q-matrix
     Q = Q_function(γ,σp,dt)
     
-
-
     #Calculate measurement noise matrix
     R = R_function(Npulsars,σm)
 
     #Initialise an array to hold the results
-    x_results = zeros(NF,N,L)
+    #x_results = zeros(NF,N,L)
 
     #Initialise a likelihood variable
     likelihood = NF(0.0)
 
-    #Set what measurement model to use
-    if model == :GW
-        measurement_function = H_function
-    elseif model == :null
-        measurement_function = null_function
-    else
-        println("Model is not defined. Choose one of :GW or :null" )
-        return
-    end 
+    #Define the time-constant GW quantities
+    m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
+   # prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+
+    # #Set what measurement model to use
+    # if model == :GW
+    #      = H_function
+    # elseif model == :null
+    #     measurement_function = null_function
+    # else
+    #     println("Model is not defined. Choose one of :GW or :null" )
+    #     return
+    # end 
     
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
 
     
-    x,P = update(x,P, observations[:,1],t[1],parameters,q,R,ω)
-    #x_results[1,:] = x  
-    for i=2:N
-
-       # println(i, "  ", x[1], "  ", x[2]," ", x[3])
-       # println(i, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
+    #x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
 
 
-        observation = observations[:,i]
-        #println(observation[1], "  ", observation[2]," ", observation[3])
-        ti = t[i]
-        x_predict,P_predict   = predict(x,P,parameters,ti,dt,Q)
-        x,P,l                 = update(x_predict,P_predict, observation,ti,parameters,q,R,ω)
 
-        likelihood +=l
-        #x_results[i,:] = x 
+
+
+
+
+    # for i=2:N
+     
+
+
+    #     observation           = observations[:,i] #column-major slicing
+    #     ti                    = t[i]
+    #     #x_predict,P_predict   = predict(x,P,parameters,ti,dt,Q)
+    #     # x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product)
+    #     update(x,P, observation,ti,R,ω,Φ0,prefactor,dot_product)
+
+    #     likelihood +=1.0 #l
+        
          
       
-     end 
+    #  end 
 
-    #return x_results, likelihood
     return likelihood
     
-    return 1.0
-
 
 end 
 
@@ -204,23 +207,25 @@ end
 
 
 
-function update(x,P, observation,t,parameters,q,R,ω)
+function update(x::Vector{NF},
+                P::LinearAlgebra.Diagonal{NF, Vector{NF}}, 
+                observation::Vector{NF},
+                t::NF,
+                #parameters::GuessedParameters,
+                #q::Matrix{Float64},
+                R::LinearAlgebra.Diagonal{NF, Vector{NF}},
+                ω::NF,
+                Φ0::NF,
+                prefactor::Vector{NF},
+                dot_product::Vector{NF}) where {NF<:AbstractFloat}
 
-    println("UPDATE")
-    H = H_function(parameters,t,q,ω)
-    println(size(observation))
-    println(size(H))
-    println(size(x))
-    y = observation .- H*x 
-    #println("The innovation is")
-    #println(y)
-    #println("The P covariance is")
-    #println(P[1,1], " ", P[2,2], " ", P[3,3])
-    S = H*P*H' .+ R 
-    K = P*H'*inv(S)
+    #H = H_function(parameters,t,q,ω) 
+    H = H_function(t, ω,Φ0,prefactor,dot_product)
+    HT = H #we can set this as H', but our H is diagonal. Is Julia smart enough to make the optimisation itself, or should we set manually? H vs H' vs transpose(H)
+    y = observation .- H*x     
+    S = H*P*HT .+ R 
+    K = P*HT*inv(S)
     xnew = x .+ K*y
-
-   
 
     #Update the covariance 
     #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
@@ -228,43 +233,38 @@ function update(x,P, observation,t,parameters,q,R,ω)
     # and works for non-optimal K vs the equation
     # P = (I-KH)P usually seen in the literature.
     I_KH = I - (K*H)
-    KH = K*H
     #Pnew = I_KH * P * I_KH' .+ K * R * K'
-    Pnew = I_KH * P
-
-   l = get_likelihood(S,y)
+    Pnew = I_KH*P
+    l = get_likelihood(S,y)
 
 
     return xnew, Pnew,l
 end 
 
 
-function predict(x,P,parameters,t,dt,Q)
+function predict(x::Vector{NF},
+                 P::LinearAlgebra.Diagonal{NF, Vector{NF}},
+                 parameters::GuessedParameters,
+                 t::NF,
+                 dt::NF,
+                 Q::LinearAlgebra.Diagonal{NF, Vector{NF}}) where {NF<:AbstractFloat}
 
     
     F = F_function(parameters,dt)
     T = T_function(parameters,t,dt)
 
     xp = F*x .+ T 
-
-
     Pp = F*P*F' + Q
-    
     return xp,Pp
 
 end 
 
 
 
-function get_likelihood(P::Matrix{NF},innovation::Vector{NF}) where {NF<:AbstractFloat}
-
-    #println("Getting likelihood:  ", P[1,1],"  ", P[2,2],"  ", P[3,3])
+function get_likelihood(P::LinearAlgebra.Diagonal{NF, Vector{NF}},innovation::Vector{NF}) where {NF<:AbstractFloat}
     M = size(P)[1]
-   
     x = P \ innovation
-   
-    
-    #everything is diagonal --det(S) = 0
+    #everything is diagonal --logdet(S) = 0 ?
     return -NF(0.5) * (only(transpose(innovation) * x) +M*log(NF(2.0)*π))
 
 end 

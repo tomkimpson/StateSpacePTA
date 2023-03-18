@@ -7,7 +7,7 @@ by dt using a Euler step.
 function F_function(parameters,dt::NF) where {NF<:AbstractFloat}
     @unpack γ = parameters 
     value = exp.(-γ.*dt)
-    return diagm(value) 
+    return Diagonal(value) 
 end 
 
 function T_function(parameters,t,dt) where {NF<:AbstractFloat}
@@ -21,21 +21,17 @@ end
 """
 Measurement function which takes the state and returns the measurement
 """
-function H_function(parameters,t,q,ω) where {NF<:AbstractFloat}
+function H_function(t, ω,Φ0,prefactor,dot_product) where {NF<:AbstractFloat}
 
-    #@unpack h,ι,δ,α,ψ,ω,Φ0,d = parameters 
-    @unpack h,ι,δ,α,ψ,Φ0,d = parameters 
+    #@unpack h,ι,δ,α,ψ,Φ0,d = parameters 
 
+    #m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
 
-    m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
-
-    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+    #prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
 
     GW_factor = gw_modulation(t, ω,Φ0,prefactor,dot_product)
 
-    #return diagm(GW_factor) #make it a 2d matrix
-    return GW_factor #make it a 2d matrix
-
+    return Diagonal(GW_factor) #make it a 2d matrix
 end 
 
 
@@ -55,11 +51,11 @@ Returns a Q matrix of size N x N pulsars
 """
 function Q_function(γ::Vector{NF},σp::NF,dt::NF) where {NF<:AbstractFloat}
     value = σp^2 .* (exp.(NF(2.0).*γ .* dt) .- NF(1.0) ./ (NF(2.0) .* γ))
-    return value 
-    #return diagm(value) 
+    #return value 
+    return Diagonal(value) 
 end 
 
 function R_function(L::Int, σm::NF) where {NF<:AbstractFloat}
-    return σm^2
-    #return diagm(fill(σm^2 ,L)) 
+    #return σm^2
+    return Diagonal(fill(σm^2 ,L)) 
 end 
