@@ -21,9 +21,11 @@ end
 """
 Measurement function which takes the state and returns the measurement
 """
-function H_function(parameters,t,q) where {NF<:AbstractFloat}
+function H_function(parameters,t,q,ω) where {NF<:AbstractFloat}
 
-    @unpack h,ι,δ,α,ψ,ω,Φ0,d = parameters 
+    #@unpack h,ι,δ,α,ψ,ω,Φ0,d = parameters 
+    @unpack h,ι,δ,α,ψ,Φ0,d = parameters 
+
 
     m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
 
@@ -31,7 +33,9 @@ function H_function(parameters,t,q) where {NF<:AbstractFloat}
 
     GW_factor = gw_modulation(t, ω,Φ0,prefactor,dot_product)
 
-    return diagm(GW_factor) #make it a 2d matrix
+    #return diagm(GW_factor) #make it a 2d matrix
+    return GW_factor #make it a 2d matrix
+
 end 
 
 
@@ -50,10 +54,12 @@ end
 Returns a Q matrix of size N x N pulsars 
 """
 function Q_function(γ::Vector{NF},σp::NF,dt::NF) where {NF<:AbstractFloat}
-    value = σp^2 .* exp.(NF(2.0).*γ .* dt) .- NF(1.0) ./ (NF(2.0) .* γ)
-    return diagm(value) 
+    value = σp^2 .* (exp.(NF(2.0).*γ .* dt) .- NF(1.0) ./ (NF(2.0) .* γ))
+    return value 
+    #return diagm(value) 
 end 
 
 function R_function(L::Int, σm::NF) where {NF<:AbstractFloat}
-    return diagm(fill(σm^2 ,L)) 
+    return σm^2
+    #return diagm(fill(σm^2 ,L)) 
 end 

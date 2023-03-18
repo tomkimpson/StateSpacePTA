@@ -27,7 +27,7 @@ function setup_PTA(P::SystemParameters)
     load_file = pkgdir(StateSpacePTA, "data", "NANOGrav_pulsars.csv")
 
     pulsars = DataFrame(CSV.File(load_file))
-
+    pulsars = first(pulsars,10)#.sample(2) 
 
 
     f = pulsars[:,"F0"]

@@ -14,9 +14,19 @@ import Suppressor: @suppress_err
 
 
 
+using ValueShapes
+
+# #extras for NEstedSamplers
+using NestedSamplers,AbstractMCMC
+using StatsFuns: logaddexp
+using StatsBase: sample, Weights
+
+
+AbstractMCMC.setprogress!(true)
+Random.seed!(8452)
 
 #Exports
-export KalmanFilter,infer_parameters, plotter
+export KalmanFilter,infer_parameters,infer_parameters2, plotter,setup,KF
 
 
 
@@ -28,9 +38,11 @@ include("GW.jl")
 include("guessed_parameters.jl")
 include("synthetic_data.jl")
 include("model.jl")
+include("priors.jl")
 #include("unscented_kalman_filter.jl")
 #include("extended_kalman_filter.jl")
-include("bayesian_inference.jl")
+include("bayesian_inference_BAT.jl")
+include("bayesian_inference_NS.jl")
 include("linear_kalman_filter.jl")
 
 include("plotting.jl")
