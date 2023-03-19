@@ -25,23 +25,23 @@ function infer_parameters(::Type{NF}=Float64;              # number format, use 
 
 
 
-println("hello from the inference module")
+    println("hello from the inference module")
 
 
-likelihood = let observations = measurement, PTA = PTA, model = setting, known_params =  true_par_values
+    likelihood = let observations = measurement, PTA = PTA, model = setting, known_params =  true_par_values
 
 
-    params -> begin
+        params -> begin
 
-        # println("PArAMS are")
-        # println(params)
-        # println("attempt eval")
-        ll_value = KF(observations,PTA,known_params,params,model)
+            # println("PArAMS are")
+            # println(params)
+            # println("attempt eval")
+            ll_value = KF(observations,PTA,known_params,params,model)
 
-        # Wrap `ll_value` in `LogDVal` so BAT knows it's a log density-value.
-        return LogDVal(ll_value)
+            # Wrap `ll_value` in `LogDVal` so BAT knows it's a log density-value.
+            return LogDVal(ll_value)
+        end
     end
-end
 
 
 
@@ -88,11 +88,6 @@ l#val = likelihood(blobprior)
 
 
 #println("output lval = ", lval)
-
-
-
-
-
 
 
 

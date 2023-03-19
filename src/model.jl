@@ -4,14 +4,14 @@
 Transition function which takes the state of sigma points and advances
 by dt using a Euler step.
 """
-function F_function(parameters,dt::NF) where {NF<:AbstractFloat}
-    @unpack γ = parameters 
+function F_function(γ::Vector{NF},dt::NF) where {NF<:AbstractFloat}
+    #@unpack γ = parameters 
     value = exp.(-γ.*dt)
     return Diagonal(value) 
 end 
 
-function T_function(parameters,t,dt) where {NF<:AbstractFloat}
-    @unpack f0, ḟ0,γ = parameters
+function T_function(f0::Vector{NF}, ḟ0::Vector{NF},γ::Vector{NF},t,dt) where {NF<:AbstractFloat}
+    #@unpack f0, ḟ0,γ = parameters
     value = f0 + ḟ0*(t+dt) - exp.(-γ.*dt).*(f0+ḟ0*t)
     return value
 end 

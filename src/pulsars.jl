@@ -35,7 +35,6 @@ function setup_PTA(P::SystemParameters)
     d = pulsars[:,"DIST"]*1e3*pc/c #this is in units of s^-1
     γ = 1e-13 .* (pulsars[:,"gamma"] ./ pulsars[:,"gamma"]) #for every pulsar let γ be 1e-13
    
-
     δ = pulsars[:,"DECJD"]
     α = pulsars[:,"RAJD"]
 

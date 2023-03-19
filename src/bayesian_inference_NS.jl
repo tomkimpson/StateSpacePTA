@@ -18,63 +18,77 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
         seed = P.seed # Integer or nothing 
         state,measurement = create_synthetic_data(PTA,GW,seed) #BAT.jl currently requires a particular (older) version of DE.jl, which throws annoying warnings relating to depreceated features in Julia 1.9
         setting = :GW
-        true_par_values = guess_parameters(PTA,P)
 
 
-        likelihood = let observations = measurement, PTA = PTA, model = setting, known_params =  true_par_values
+        known_parameters = set_known_parameters(P)
+        #true_par_values = guess_parameters(PTA,P)
 
 
-            params -> begin
         
-                # println("PArAMS are")
-                # println(params)
-                # println("attempt eval")
-                ll_value = KF(observations,PTA,known_params,params,model)
-        
-                # Wrap `ll_value` in `LogDVal` so BAT knows it's a log density-value.
-                return ll_value #LogDVal(ll_value)
+        psr_priors = set_pulsar_priors(PTA)
+        gw_priors = [Uniform(1e-8,1e-6)] #priors on ω
+        priors = [gw_priors ; psr_priors]
+
+
+    
+        likelihood = let observations = measurement, PTA = PTA, model = setting, known_params =  known_parameters
+
+            params -> begin               
+                ll_value = KF(observations,
+                              PTA,
+                              known_params,
+                              params)
+                return ll_value 
             end
         end
 
 
-    # function logl(x)
-        
-    #     dx1 = x .- μ1
-    #     dx2 = x .- μ2
-    #     f1 = -dx1' * (inv_σ * dx1) / 2
-    #     f2 = -dx2' * (inv_σ * dx2) / 2
-    #     return logaddexp(f1, f2)
-    # end
 
-    priors = [
-        Uniform(9e-8,2e-7)
-    ]
 
-    # create the model
-    # or model = NestedModel(logl, prior_transform)
-    model = NestedModel(likelihood, priors);
+     model = NestedModel(likelihood, priors);
+     spl = Nested(1, 100)
+     chain, state = sample(model, spl; dlogz=1e3, param_names=["x"])
 
-    #best_val = likelihood([GW.ω])
-   # println(best_val)
+
+    # #Define the priors 
+    # priors = [
+    #     Dirac(1e-7) #priors on ω
+    # ]
+
+
+
+
+
+#     #Define the priors 
+#     priors = [
+#         Uniform(1e-8,1e-6) #priors on ω
+#     ]
+
+# #     # create the model
+# #     # or model = NestedModel(logl, prior_transform)
+#     model = NestedModel(likelihood, priors);
+
+# #     #best_val = likelihood([GW.ω])
+# #    # println(best_val)
 
    
-    println("START THE SAMPLER")
+#     println("START THE SAMPLER")
+#     println(model)
 
-    # create our sampler
-    # 2 parameters, 1000 active points, multi-ellipsoid. See docstring
-    spl = Nested(1, 50)
-    # by default, uses dlogz for convergence. Set the keyword args here
-    # currently Chains and Array are support chain_types
-    #chain, state = sample(model, spl; dlogz=0.2, param_names=["x"])
-    chain, state = sample(model, spl; maxlogl=-6e6, param_names=["x"])
+#     # create our sampler
+#     # 2 parameters, 1000 active points, multi-ellipsoid. See docstring
+#     spl = Nested(1, 100)
+#     # by default, uses dlogz for convergence. Set the keyword args here
+#     # currently Chains and Array are support chain_types
+#     chain, state = sample(model, spl; dlogz=1e3, param_names=["x"])
+#     #chain, state = sample(model, spl; maxlogl=-6e6, param_names=["x"])
+#     # optionally resample the chain using the weights
+#     chain_res = sample(chain, Weights(vec(chain["weights"])), length(chain));
 
-    # optionally resample the chain using the weights
-    chain_res = sample(chain, Weights(vec(chain["weights"])), length(chain));
-
-    display(chain_res)
+#     display(chain_res)
 
 
-    return chain,state,chain_res
+    #return chain,state,chain_res
 
     
 

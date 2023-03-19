@@ -102,31 +102,41 @@ end
 
 
 
-"""
-Given some data recover the state and determine the likelihood
-"""
+# """
+# Given some data recover the state and determine the likelihood
+# """
+# function KF(observations::Matrix{NF},
+#              PTA::Pulsars,
+#              parameters::GuessedParameters,
+#              ω_tuple::Vector{Float64},
+#              model::Symbol
+#              ) where {NF<:AbstractFloat}
 function KF(observations::Matrix{NF},
              PTA::Pulsars,
-             parameters::GuessedParameters,
-             ω_tuple::Vector{Float64},
-             model::Symbol
+             known_parameters::KnownParameters,  # this is a struct with values set specifically. It can be unpacked using @unpack
+             unknown_parameters::Vector{Float64} # this is a vector with values sampled from a distribution
              ) where {NF<:AbstractFloat}
 
 
-
-    ω = ω_tuple[1]
+    println("WELCOME TO THE KALMAN FILTER")
+    println(typeof(unknown_parameters))
+ 
     @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
-    @unpack h,ι,δ,α,ψ,Φ0,d,γ,σp,σm = parameters 
+    @unpack h,ι,δ,α,ψ,Φ0,σp,σm = known_parameters 
 
+    #Unpack the unknow parameters 
+    #Todo: make this a mapping function 
+    ω = unknown_parameters[1]
+    f0 = unknown_parameters[2:11]
+    ḟ0 = unknown_parameters[12:21]
+    d  = unknown_parameters[22:31]
+    γ  = unknown_parameters[32:41]
 
     #Set the dimension of the state space 
     Npulsars = size(observations)[1]
     L = Npulsars 
     N = size(observations)[2]     # number of timesteps
   
-
-
-
     #Initialise x and P
     x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
     P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
@@ -145,7 +155,7 @@ function KF(observations::Matrix{NF},
 
     #Define the time-constant GW quantities
     m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
-   # prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
 
     # #Set what measurement model to use
     # if model == :GW
@@ -161,29 +171,21 @@ function KF(observations::Matrix{NF},
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
 
     
-    #x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
-
-
-
-
-
-
-
-    # for i=2:N
+    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
+    for i=2:N
      
 
 
-    #     observation           = observations[:,i] #column-major slicing
-    #     ti                    = t[i]
-    #     #x_predict,P_predict   = predict(x,P,parameters,ti,dt,Q)
-    #     # x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product)
-    #     update(x,P, observation,ti,R,ω,Φ0,prefactor,dot_product)
+        observation           = observations[:,i] #column-major slicing
+        ti                    = t[i]
+        x_predict,P_predict   = predict(x,P,f0,ḟ0,γ,ti,dt,Q)
+        x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product)
 
-    #     likelihood +=1.0 #l
+        likelihood +=l
         
          
       
-    #  end 
+     end 
 
     return likelihood
     
@@ -244,14 +246,17 @@ end
 
 function predict(x::Vector{NF},
                  P::LinearAlgebra.Diagonal{NF, Vector{NF}},
-                 parameters::GuessedParameters,
+                 #parameters::GuessedParameters,
+                 f0::Vector{NF},
+                 ḟ0::Vector{NF},
+                 γ::Vector{NF},
                  t::NF,
                  dt::NF,
                  Q::LinearAlgebra.Diagonal{NF, Vector{NF}}) where {NF<:AbstractFloat}
 
     
-    F = F_function(parameters,dt)
-    T = T_function(parameters,t,dt)
+    F = F_function(γ,dt)
+    T = T_function(f0, ḟ0, γ,t,dt)
 
     xp = F*x .+ T 
     Pp = F*P*F' + Q
