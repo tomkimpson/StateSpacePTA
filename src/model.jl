@@ -12,7 +12,24 @@ end
 
 function T_function(f0::Vector{NF}, ḟ0::Vector{NF},γ::Vector{NF},t,dt) where {NF<:AbstractFloat}
     #@unpack f0, ḟ0,γ = parameters
+    println("Welcome to the T function")
+    # println("f0:  ")
+    # println(f0)
+
+    # println("ḟ0:  ")
+    # println(ḟ0)
+
+    # println("γ:  ")
+    # println(γ)
+
+    # println("t")
+    # println(t)
+
+    # println("dt:")
+    # println(dt)
+
     value = f0 + ḟ0*(t+dt) - exp.(-γ.*dt).*(f0+ḟ0*t)
+    println(value)
     return value
 end 
 

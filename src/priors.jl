@@ -78,7 +78,7 @@ function set_pulsar_priors(PTA::Pulsars)
 
     @unpack f0, ḟ0, d, γ = PTA
 
-    frac = 0.10
+    frac = 0.001
     f_prior = [set_distribution_limits(x,frac) for x in f0]
     ḟ_prior = [set_distribution_limits(x,frac) for x in ḟ0]
     d_prior = [set_distribution_limits(x,frac) for x in d]

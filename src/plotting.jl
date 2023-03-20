@@ -28,6 +28,8 @@ function plotter(t,states,measurements,model_state_predictions,null_state_predic
     #Plot the predictions
     if model_state_predictions != nothing
         model_prediction_i = model_state_predictions[:,psr_index] #psr index now indexes second axis sicne state predictions are a different shape! Annoying!
+        println("final prediction: ", last(model_prediction_i))
+        println("final mesurement: ", last(measurement_i))
 
         plot!(tplot,state_i,subplot=2,label="State")   
         plot!(tplot,model_prediction_i,subplot=2,label="Prediction")    

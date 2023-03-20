@@ -15,9 +15,9 @@ class SyntheticData:
         t = pulsars.t
         Npsr = len(pulsars.f)
 
-        f0 = pulsars.f#.reshape(Npsr,1)
-        fdot = pulsars.fdot#.reshape(Npsr,1)
-        gamma = pulsars.gamma#.reshape(Npsr,1)
+        f0 = pulsars.f
+        fdot = pulsars.fdot
+        gamma = pulsars.gamma
         sigma_p = np.full((Npsr,1),pulsars.sigma_p**2)
         
 

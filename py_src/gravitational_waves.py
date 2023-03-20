@@ -6,13 +6,15 @@ class GWs:
 
 
 
+
+
     def __init__(self,P):
 
 
-        m,n                 = principal_axes(np.pi/2.0 - P.delta_gw,P.alpha_gw,P.psi_gw)    
+        m,n                 = principal_axes(np.pi/2.0 - P["delta_gw"],P["alpha_gw"],P["psi_gw"])    
         self.n              = np.cross(m,n)            
     
-        hp,hx               = h_amplitudes(P.h,P.iota_gw) 
+        hp,hx               = h_amplitudes(P["h"],P["iota_gw"]) 
 
         e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)])
         e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
@@ -22,14 +24,20 @@ class GWs:
         self.Hij                 = hp * e_plus + hx * e_cross
 
 
-        self.omega_gw = P.omega_gw
-        self.phi0_gw = P.phi0_gw
-
+        #assing some quantities to self
+        self.omega_gw = P["omega_gw"]
+        self.phi0_gw = P["phi0_gw"]
+        self.psi_gw = P["psi_gw"]
+        self.iota_gw = P["iota_gw"]
+        self.delta_gw = P["delta_gw"]
+        self.alpha_gw = P["alpha_gw"]
+        self.h = P["h"]
 
 def gw_prefactor(n,q, Hij,ω, d):
     dot_product  = np.array([1.0 + np.dot(n,q[i,:]) for i in range(len(q))])
     hbar         = np.array([np.sum([[Hij[i,j]*q[k,i]*q[k,j] for i in range(3)]for j in range(3)]) for k in range(len(q))]) # Size Npulsars. Is there a vectorised way to do this?
     ratio        = hbar / dot_product
+
     Hcoefficient = 1.0 - cos(ω*d*dot_product)
     prefactor    = 0.5*ratio*Hcoefficient
 

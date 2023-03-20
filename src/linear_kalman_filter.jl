@@ -95,8 +95,8 @@ function KF(observations::Matrix{NF},
       
      end 
 
-    #return x_results, likelihood
-    return likelihood
+    return x_results, likelihood
+    #return likelihood
 
 
 
@@ -126,7 +126,13 @@ function KF(observations::Matrix{NF},
     @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
     @unpack h,ι,δ,α,ψ,Φ0,σp,σm = known_parameters 
 
-    print(unknown_parameters)
+
+
+
+
+
+
+
     #Unpack the unknow parameters 
     #Todo: make this a mapping function 
     ω = unknown_parameters[1]
@@ -141,14 +147,14 @@ function KF(observations::Matrix{NF},
     N = size(observations)[2]     # number of timesteps
   
     #Initialise x and P
-    x = 1.12*observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+    x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
     P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
    
     #Calculate the time-independent Q-matrix
     Q = Q_function(γ,σp,dt)
     
 
-    println("The q matrix is")
+    #println("The q matrix is")
     #display(Q)
     #Calculate measurement noise matrix
     R = R_function(Npulsars,σm)
@@ -177,12 +183,57 @@ function KF(observations::Matrix{NF},
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
 
 
-   
-    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
+    println("Welcome to the linear Kalman filter in Julia")
+    println("You have chosen the following settings:")
 
+    println("f0")
+    println(f0)
+
+    println("f0̇")
+    println( ḟ0 )
+
+    println("gamma")
+    println(γ)
+
+    println("d")
+    println(d)
+
+    println("Φ0")
+    println(known_parameters.Φ0)
+
+    println("ψ")
+    println(known_parameters.ψ)
+
+    println("ι")
+    println(known_parameters.ι)
+
+    println("δ")
+    println(known_parameters.δ)
+
+    println("α")
+    println(known_parameters.α)
+
+    println("h")
+    println(known_parameters.h)
+
+    println("σp")
+    println(known_parameters.σp)
+  
+    println("σm")
+    println(known_parameters.σm)
+    
+    println("ω")
+    println(ω)
+    println("START")
+
+    println(x)
+    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
+    println(x)
     x_results[1,:] = x 
-    for i=2:N
- 
+    for i=2:5
+        println("-----------------------------------------")
+        println(i)
+        println(x)
 
   
 
@@ -197,7 +248,7 @@ function KF(observations::Matrix{NF},
          
      end 
 
-
+    
     return likelihood,x_results
     
 
@@ -257,6 +308,15 @@ function update(x::Vector{NF},
    
     #And finally get the likelihood
     l = get_likelihood(S,y)
+
+    
+    println("Output from update:")
+    println("xnew:", "  ", xnew)
+    #println("x:", "  ", x)
+    #println("K*y:", "  ", K*y)
+    #println(Pnew)
+
+
     return xnew, Pnew,l
 end 
 
@@ -272,11 +332,20 @@ function predict(x::Vector{NF},
                  Q::LinearAlgebra.Diagonal{NF, Vector{NF}}) where {NF<:AbstractFloat}
 
     
+    println("Input to predict:  ", x)
+
     F = F_function(γ,dt)
     T = T_function(f0, ḟ0, γ,t,dt)
 
     xp = F*x .+ T 
+
+    println("F function: ", F)
+    println("T function: ", T)
     Pp = F*P*F' + Q
+
+    println("Output to predict:  ", x)
+
+
     return xp,Pp
 
 end 

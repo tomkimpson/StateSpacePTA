@@ -26,6 +26,7 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
 
         
         psr_priors = set_pulsar_priors(PTA)
+        #psr_priors= set_single_pulsar_priors(PTA)
         gw_priors = [Uniform(1e-8,1e-6)] #priors on ω
         priors = [gw_priors ; psr_priors]
         prior_names = []
@@ -33,13 +34,14 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
         prefix_result = randstring(12)
         psr_prior_names = [randstring(12) for i in psr_priors]
         prior_names = ["omega" ; psr_prior_names]
-        println(prior_names)
+        
 
 
     
         likelihood = let observations = measurement, PTA = PTA, model = setting, known_params =  known_parameters
 
-            params -> begin               
+            params -> begin   
+            #println("hellow from params")            
                 ll_value = KF(observations,
                               PTA,
                               known_params,
@@ -51,22 +53,22 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
 
 
     psr_priors= set_single_pulsar_priors(PTA)
-    params = [1e-8;psr_priors]
-   # params = Float64.(a)
-    #println(typeof(params))
-    ll_value,model_state_predictions = KF(measurement,PTA,known_parameters,params)
+    params = [1e-7;psr_priors]
+    ll_value,model_state_predictions  = KF(measurement,PTA,known_parameters,params)
     println("likelihood = ")
     println(ll_value)
 
 
-    plotter(PTA.t,state,measurement,model_state_predictions,nothing,5)
+    #plotter(PTA.t,state,measurement,model_state_predictions,nothing,2)
 
 
+#     println(priors)
 
-
-     #model = NestedModel(likelihood, priors);
-    # spl = Nested(1, 100)
-     #chain, state = sample(model, spl; dlogz=1e3, param_names=prior_names)
+#      model = NestedModel(likelihood, priors);
+#      spl = Nested(1, 100)
+#      #chain, state = sample(model, spl; dlogz=1e3, param_names=prior_names)
+#      chain, state = sample(model, spl; maxlogl=-6e6, param_names=prior_names)
+# #     #chain, state = sample(model, spl; maxlogl=-6e6, param_names=["x"])
 
 
     # #Define the priors 
