@@ -73,10 +73,12 @@ function KF(observations::Matrix{NF},
     #println(1, "  ", x[1], "  ", x[2]," ", x[3])
     #println(1, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
     
+   # display(P)
     x,P = update(x,P, observations[:,1],t[1],parameters,q,R)
+
     #x_results[1,:] = x  
     for i=2:N
-
+        #display(P)
        # println(i, "  ", x[1], "  ", x[2]," ", x[3])
        # println(i, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
 
@@ -118,12 +120,13 @@ function KF(observations::Matrix{NF},
              ) where {NF<:AbstractFloat}
 
 
-    println("WELCOME TO THE KALMAN FILTER")
-    println(typeof(unknown_parameters))
+    #println("WELCOME TO THE KALMAN FILTER")
+    #println(typeof(unknown_parameters))
  
     @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
     @unpack h,ι,δ,α,ψ,Φ0,σp,σm = known_parameters 
 
+    print(unknown_parameters)
     #Unpack the unknow parameters 
     #Todo: make this a mapping function 
     ω = unknown_parameters[1]
@@ -138,17 +141,20 @@ function KF(observations::Matrix{NF},
     N = size(observations)[2]     # number of timesteps
   
     #Initialise x and P
-    x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+    x = 1.12*observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
     P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
    
     #Calculate the time-independent Q-matrix
     Q = Q_function(γ,σp,dt)
     
+
+    println("The q matrix is")
+    #display(Q)
     #Calculate measurement noise matrix
     R = R_function(Npulsars,σm)
 
     #Initialise an array to hold the results
-    #x_results = zeros(NF,N,L)
+    x_results = zeros(NF,N,L)
 
     #Initialise a likelihood variable
     likelihood = NF(0.0)
@@ -170,11 +176,15 @@ function KF(observations::Matrix{NF},
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
 
-    
-    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
-    for i=2:N
-     
 
+   
+    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
+
+    x_results[1,:] = x 
+    for i=2:N
+ 
+
+  
 
         observation           = observations[:,i] #column-major slicing
         ti                    = t[i]
@@ -182,12 +192,13 @@ function KF(observations::Matrix{NF},
         x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product)
 
         likelihood +=l
-        
+        x_results[i,:] = x 
          
-      
+         
      end 
 
-    return likelihood
+
+    return likelihood,x_results
     
 
 end 
@@ -221,25 +232,31 @@ function update(x::Vector{NF},
                 prefactor::Vector{NF},
                 dot_product::Vector{NF}) where {NF<:AbstractFloat}
 
-    #H = H_function(parameters,t,q,ω) 
+    #Define the measurement matrix
     H = H_function(t, ω,Φ0,prefactor,dot_product)
-    HT = H #we can set this as H', but our H is diagonal. Is Julia smart enough to make the optimisation itself, or should we set manually? H vs H' vs transpose(H)
-    y = observation .- H*x     
-    S = H*P*HT .+ R 
-    K = P*HT*inv(S)
-    xnew = x .+ K*y
+
+    #And its transpose 
+    ## we can set this as H', but our H is diagonal. Is Julia smart enough to make the optimisation itself, or should we set manually? H vs H' vs transpose(H)
+    HT = H 
+
+   
+    y = observation .- H*x   # Innovation
+    S = H*P*HT .+ R          # Innovation covariance 
+    K = P*HT*inv(S)          # Kalman gain
+    xnew = x .+ K*y          # Updated x
 
     #Update the covariance 
     #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
     # P = (I-KH)P(I-KH)' + KRK' which is more numerically stable
     # and works for non-optimal K vs the equation
     # P = (I-KH)P usually seen in the literature.
+    # In practice for this pulsar problem I have also found this expression more numerically stable
+    # ...despite the extra cost
     I_KH = I - (K*H)
-    #Pnew = I_KH * P * I_KH' .+ K * R * K'
-    Pnew = I_KH*P
+    Pnew = I_KH * P * I_KH' .+ K * R * K'
+   
+    #And finally get the likelihood
     l = get_likelihood(S,y)
-
-
     return xnew, Pnew,l
 end 
 
@@ -269,8 +286,9 @@ end
 function get_likelihood(P::LinearAlgebra.Diagonal{NF, Vector{NF}},innovation::Vector{NF}) where {NF<:AbstractFloat}
     M = size(P)[1]
     x = P \ innovation
+    #println("DET:", det(P))
     #everything is diagonal --logdet(S) = 0 ?
-    return -NF(0.5) * (only(transpose(innovation) * x) +M*log(NF(2.0)*π))
+    return -NF(0.5) * (logdet(P) + only(transpose(innovation) * x) +M*log(NF(2.0)*π))
 
 end 
 

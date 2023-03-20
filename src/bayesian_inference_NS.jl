@@ -28,6 +28,12 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
         psr_priors = set_pulsar_priors(PTA)
         gw_priors = [Uniform(1e-8,1e-6)] #priors on ω
         priors = [gw_priors ; psr_priors]
+        prior_names = []
+
+        prefix_result = randstring(12)
+        psr_prior_names = [randstring(12) for i in psr_priors]
+        prior_names = ["omega" ; psr_prior_names]
+        println(prior_names)
 
 
     
@@ -44,10 +50,23 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
 
 
 
+    psr_priors= set_single_pulsar_priors(PTA)
+    params = [1e-8;psr_priors]
+   # params = Float64.(a)
+    #println(typeof(params))
+    ll_value,model_state_predictions = KF(measurement,PTA,known_parameters,params)
+    println("likelihood = ")
+    println(ll_value)
 
-     model = NestedModel(likelihood, priors);
-     spl = Nested(1, 100)
-     chain, state = sample(model, spl; dlogz=1e3, param_names=["x"])
+
+    plotter(PTA.t,state,measurement,model_state_predictions,nothing,5)
+
+
+
+
+     #model = NestedModel(likelihood, priors);
+    # spl = Nested(1, 100)
+     #chain, state = sample(model, spl; dlogz=1e3, param_names=prior_names)
 
 
     # #Define the priors 
@@ -83,7 +102,7 @@ function infer_parameters2(::Type{NF}=Float64;              # number format, use
 #     chain, state = sample(model, spl; dlogz=1e3, param_names=["x"])
 #     #chain, state = sample(model, spl; maxlogl=-6e6, param_names=["x"])
 #     # optionally resample the chain using the weights
-#     chain_res = sample(chain, Weights(vec(chain["weights"])), length(chain));
+     #chain_res = sample(chain, Weights(vec(chain["weights"])), length(chain));
 
 #     display(chain_res)
 

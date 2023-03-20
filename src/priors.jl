@@ -87,6 +87,13 @@ function set_pulsar_priors(PTA::Pulsars)
 end 
 
 
+function set_single_pulsar_priors(PTA::Pulsars)
+
+    @unpack f0, ḟ0, d, γ = PTA
+
+    return [f0;ḟ0; d; γ]
+end 
+
 
 
 function set_distribution_limits(x,frac)
