@@ -9,8 +9,15 @@ class BilbyLikelihood(bilby.Likelihood):
         self.model = KalmanModel
         
     def log_likelihood(self):
-        ll,xres,P = self.model.likelihood(self.parameters)
+
+        try:
+            ll, xres, P = self.model.likelihood(self.parameters)
+        except np.linalg.LinAlgError:
+            ll= -np.inf
+        if np.isnan(ll):
+            ll = -np.inf
         return ll
+            
 
 def BilbySampler(KalmanFilter,init_parameters,priors):
    

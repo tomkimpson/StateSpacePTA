@@ -12,21 +12,10 @@ from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
 from priors import priors_dict,bilby_priors_dict
+from bilby_wrapper import BilbyLikelihood
 
 import numpy as np
 import bilby
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__=="__main__":
@@ -36,7 +25,7 @@ if __name__=="__main__":
     PTA = Pulsars(P)               #setup the PTA
     GW  = GWs(P)                   #setup GW related constants and functions. This is a dict, not a class, for interaction later with Bilby 
     data = SyntheticData(PTA,GW,1) #generate some synthetic data
-    #plot_statespace(PTA.t,data.intrinsic_frequency,data.f_measured,1) #plot it if needed
+    # plot_statespace(PTA.t,data.intrinsic_frequency,data.f_measured,1) #plot it if needed
 
     #Define the model 
     model = LinearModel
@@ -46,13 +35,15 @@ if __name__=="__main__":
 
     # Run the KF once with the correct parameters
     # guessed_parameters = priors_dict(PTA,GW)
-    # model_state_predictions,model_likelihood = KF.likelihood(guessed_parameters)
-    #print("likelihood = ", model_likelihood)
-    # plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,model_state_predictions,1)
+    # print(guessed_parameters)
+    # model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters)
+    # print("likelihood = ", model_likelihood)
+    # # t,states,measurements,predictions,psr_index
+    # plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
     #Bilby 
-   # init_parameters,priors = bilby_priors_dict(PTA)
-    #BilbySampler(KF,init_parameters,priors)
+    init_parameters, priors = bilby_priors_dict(PTA)
+    BilbySampler(KF,init_parameters,priors)
 
 
 

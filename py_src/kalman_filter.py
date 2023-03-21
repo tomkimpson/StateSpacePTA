@@ -44,6 +44,8 @@ class KalmanFilter:
 
         #print("likelihood")
         #print(np.linalg.slogdet(S)[-1], innovation, x, M*np.log(2*np.pi) )
+        # -0.5*(slogdet(InnCov)[1] + Inn.T @ solve(InnCov, Inn)
+        #            +  np.log(2*np.pi))
         return -0.5*(np.linalg.slogdet(S)[-1] + innovation @ x + M*np.log(2*np.pi))
 
 
@@ -68,7 +70,7 @@ class KalmanFilter:
 
 
 
-    def update(self,x,P, observation,t,parameters,R,prefactor,dot_product):
+    def update(self, x, P, observation,t,parameters,R,prefactor,dot_product):
 
         H = self.model.H_function(t,parameters["omega_gw"],parameters["phi0_gw"],prefactor,dot_product)
 
@@ -126,7 +128,7 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.eye(self.Npsr) * 1e9 #1e-13*1e9 
+        P = np.eye(self.Npsr) * 1e5 #1e-13*1e9 
 
         #GW quantities
         gw = GWs(parameters)
@@ -179,30 +181,10 @@ class KalmanFilter:
         # print("ω")
         # print(parameters["omega_gw"])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         #The first update step
        
 
-        x,P,l = self.update(x,P, self.observations[0,:],self.t[0],parameters,R,prefactor,dot_product)
+        x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
         
         likelihood +=l
 
@@ -221,16 +203,13 @@ class KalmanFilter:
             obs = self.observations[i,:]
             ti = self.t[i]
 
-            x_predict,P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
+            x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
             x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
             likelihood +=l
 
             x_results[i,:] = x
-
-
-        
-
-        return likelihood, x_results,P
+            
+        return likelihood, x_results, P
 
       
 
