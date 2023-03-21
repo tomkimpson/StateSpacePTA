@@ -51,8 +51,8 @@ if __name__=="__main__":
     # plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,model_state_predictions,1)
 
     #Bilby 
-    init_parameters,priors = bilby_priors_dict(PTA)
-    BilbySampler(KF,init_parameters,priors)
+   # init_parameters,priors = bilby_priors_dict(PTA)
+    #BilbySampler(KF,init_parameters,priors)
 
 
 
