@@ -42,9 +42,31 @@ if __name__=="__main__":
     # plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
     #Bilby 
-    injection_parameters = priors_dict(PTA,GW)
-
     init_parameters, priors = bilby_priors_dict(PTA)
+
+
+    #Manually specify the injection parameters
+    #todo: automate this for generality
+    injection_parameters = dict(
+        omega_gw=5e-7,
+        phi0_gw=0.20,
+        psi_gw=2.50,
+        iota_gw=1.0,
+        delta_gw=1.0,
+        alpha_gw=1.0,
+        h=1e-2,
+        f0=327.8470205611185,
+        fdot=-1.227834e-15,
+        distance=181816860005.41092,
+        gamma=1e-13,
+        sigma_p=1e-8,
+        sigma_m=1e-08
+    )
+
+
+
+
+
 
     print(init_parameters)
     print(priors)

@@ -58,6 +58,33 @@ def priors_dict(pulsar_parameters,GW_parameters):
    return priors
 
 
+def injection_priors_dict(pulsar_parameters,GW_parameters):
+
+
+   priors = dict({
+               "omega_gw": GW_parameters.omega_gw,
+               "phi0_gw":GW_parameters.phi0_gw,
+               "psi_gw":GW_parameters.psi_gw,
+               "iota_gw": GW_parameters.iota_gw,
+               "delta_gw":GW_parameters.delta_gw,
+               "alpha_gw":GW_parameters.alpha_gw,
+               "h": GW_parameters.h,
+               "sigma_p": pulsar_parameters.sigma_p})
+
+
+   return priors
+
+
+
+
+
+
+
+
+
+
+
+
 def bilby_priors_dict(PTA):
 
     init_parameters = {}
