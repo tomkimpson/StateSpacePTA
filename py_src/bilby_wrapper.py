@@ -19,7 +19,7 @@ class BilbyLikelihood(bilby.Likelihood):
         return ll
             
 
-def BilbySampler(KalmanFilter,init_parameters,priors):
+def BilbySampler(KalmanFilter,init_parameters,injection_parameters,priors,label,outdir):
    
     
     likelihood = BilbyLikelihood(KalmanFilter,init_parameters)
@@ -27,7 +27,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors):
  
     # #Run the sampler
     print("RUN THE SAMPLER")
-    result = bilby.run_sampler(likelihood, priors, label = "test46",outdir=".",
+    result = bilby.run_sampler(likelihood, priors, injection_parameters = injection_parameters,label = label,outdir=outdir,
                             sampler ='dynesty',check_point_plot=False,
                             sample='rwalk', walks=10, npoints=100,
                             npool=6,plot=True,resume=False)

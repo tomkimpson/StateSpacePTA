@@ -33,17 +33,22 @@ if __name__=="__main__":
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA)
 
-    # Run the KF once with the correct parameters
+    # # Run the KF once with the correct parameters
     # guessed_parameters = priors_dict(PTA,GW)
-    # print(guessed_parameters)
+    # # print(guessed_parameters)
     # model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters)
-    # print("likelihood = ", model_likelihood)
-    # # t,states,measurements,predictions,psr_index
+    # # print("likelihood = ", model_likelihood)
+    # # # t,states,measurements,predictions,psr_index
     # plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
     #Bilby 
+    injection_parameters = priors_dict(PTA,GW)
+
     init_parameters, priors = bilby_priors_dict(PTA)
-    BilbySampler(KF,init_parameters,priors)
+
+    print(init_parameters)
+    print(priors)
+    BilbySampler(KF,init_parameters,priors,injection_parameters,"testrun2", "../data/nested_sampling")
 
 
 

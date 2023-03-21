@@ -18,6 +18,9 @@ def add_to_priors_dict(x,label,dict_A):
     return dict_A
 
 
+"""
+Add the X
+"""
 def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 
 
@@ -62,31 +65,29 @@ def bilby_priors_dict(PTA):
 
     #Add all the GW quantities
     init_parameters["omega_gw"] = None
-    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
-    # priors["omega_gw"] = 1e-7
+    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, name='omega_gw', latex_label=r'\omega')
+  
 
     init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.LogUniform(1e-2, 1e0, 'phi0_gw')
-    # priors["phi0_gw"] = 0.20
+    priors["phi0_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='phi0_gw', latex_label=r'\Phi_0')
+  
 
     init_parameters["psi_gw"] = None
-    priors["psi_gw"] = bilby.core.prior.LogUniform(1e0, 1e1, 'psi_gw')
-    # priors["psi_gw"] = 2.5
+    priors["psi_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='psi_gw', latex_label=r'\psi')
+  
 
     init_parameters["iota_gw"] = None
-    priors["iota_gw"] = 0.0
+    priors["iota_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='iota_gw', latex_label=r'\iota')
 
     init_parameters["delta_gw"] = None
-    priors["delta_gw"] = 0.0
+    priors["delta_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='delta_gw', latex_label=r'\delta')
 
     init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.LogUniform(1e-1, 1e1, 'alpha_gw')
-    # priors["alpha_gw"] = 1.0
+    priors["alpha_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='alpha_gw', latex_label=r'\alpha')
+
 
     init_parameters["h"] = None
-    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
-    # priors["h"] = 1e-2
-
+    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0,  name='h', latex_label=r'h')
 
 
     init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors)
@@ -99,11 +100,10 @@ def bilby_priors_dict(PTA):
 
     #Noises
     init_parameters["sigma_p"] = None
-    priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
-    # priors["sigma_p"] = 1e-1
+    priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3,  name='sigma_p', latex_label=r'\sigma_p')
 
     init_parameters["sigma_m"] = None
-    # priors["sigma_m"] = bilby.core.prior.LogUniform(1e-12, 1e-2, 'omega')
+
     priors["sigma_m"] = 1e-8
 
 
