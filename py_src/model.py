@@ -17,26 +17,12 @@ class LinearModel:
         value = np.exp(-gamma*dt)
         return np.diag(value)
 
-#f,fdot,gamma,t,self.dt
+
     def T_function(f0,fdot,gamma,t,dt):
       
-        print("Welcome to the T function")
-        # print("f0:  ")
-        # print(f0)
-
-        # print("ḟ0:  ")
-        # print(ḟ0)
-
-        # print("γ:  ")
-        # print(γ)
-
-        # print("t")
-        # print(t)
-
-        # print("dt:")
-        # print(dt)
+       
         value = f0 + fdot*(t+dt) - np.exp(-gamma*dt)*(f0+fdot*t)
-        print(value)
+        
         return value
  
 

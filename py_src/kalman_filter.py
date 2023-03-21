@@ -3,6 +3,7 @@
 
 import numpy as np 
 from gravitational_waves import GWs,gw_prefactor
+from scipy.stats import multivariate_normal
 
 class KalmanFilter:
     """
@@ -32,6 +33,10 @@ class KalmanFilter:
         self.Nsteps = self.observations.shape[0]
 
 
+        print("The number of pulsars is:")
+        print(self.Npsr)
+
+
     def get_likelihood(self,S,innovation):
 
         M = S.shape[1]
@@ -43,7 +48,22 @@ class KalmanFilter:
 
 
 
+    def log_likelihood(self,S,innovation):
 
+        """
+        Calculate the log likelihood for a given y,S
+        """
+
+        x=innovation
+        cov=S
+   
+        flat_x = np.asarray(x).flatten()
+        flat_mean = None
+
+
+        l = multivariate_normal.logpdf(flat_x, flat_mean, cov)
+
+        return l
 
 
 
@@ -70,28 +90,23 @@ class KalmanFilter:
         I_KH = np.eye(self.Npsr) - (K@H)
         Pnew = I_KH @ P @I_KH.T + K @ R @ K.T
         
-        l = self.get_likelihood(S,y)
-      
-        print("Output from update:")
-        print("xnew:", "  ", xnew)
-        #print("x:", "  ", x)
-        #print("K*y:", "  ", K@y)
+        #l = self.get_likelihood(S,y)
+        l = self.log_likelihood(S,y)
+       
         return xnew, Pnew,l
 
 
     def predict(self,x,P,f,fdot,gamma,Q,t):
 
-        print("Input to predict: ", x)
 
         F = self.model.F_function(gamma,self.dt)
         T = self.model.T_function(f,fdot,gamma,t,self.dt)
 
-        print("F function: ", F)
-        print("T function: ", T)
+       
         xp = F@x + T 
         Pp = F@P@F.T + Q
 
-        print("Output to predict: ", xp)
+        
 
 
         return xp,Pp
@@ -111,7 +126,7 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.eye(self.Npsr) * 1e-6*1e9 
+        P = np.eye(self.Npsr) * 1e9 #1e-13*1e9 
 
         #GW quantities
         gw = GWs(parameters)
@@ -122,47 +137,47 @@ class KalmanFilter:
         likelihood = 0.0
        
 
-        print("Welcome to the linear Kalman filter in Julia")
-        print("You have chosen the following settings:")
+        # print("Welcome to the linear Kalman filter in Julia")
+        # print("You have chosen the following settings:")
 
-        print("f0")
-        print(f)
+        # print("f0")
+        # print(f)
 
-        print("f0̇")
-        print(fdot)
+        # print("f0̇")
+        # print(fdot)
 
-        print("gamma")
-        print(gamma)
+        # print("gamma")
+        # print(gamma)
 
-        print("d")
-        print(d)
+        # print("d")
+        # print(d)
 
-        print("Φ0")
-        print(parameters["phi0_gw"])
+        # print("Φ0")
+        # print(parameters["phi0_gw"])
 
-        print("ψ")
-        print(parameters["psi_gw"])
+        # print("ψ")
+        # print(parameters["psi_gw"])
 
-        print("ι")
-        print(parameters["iota_gw"])
+        # print("ι")
+        # print(parameters["iota_gw"])
 
-        print("δ")
-        print(parameters["delta_gw"])
+        # print("δ")
+        # print(parameters["delta_gw"])
 
-        print("α")
-        print(parameters["alpha_gw"])
+        # print("α")
+        # print(parameters["alpha_gw"])
 
-        print("h")
-        print(parameters["h"])
+        # print("h")
+        # print(parameters["h"])
 
-        print("σp")
-        print(parameters["sigma_p"])
+        # print("σp")
+        # print(parameters["sigma_p"])
     
-        print("σm")
-        print(parameters["sigma_m"])
+        # print("σm")
+        # print(parameters["sigma_m"])
         
-        print("ω")
-        print(parameters["omega_gw"])
+        # print("ω")
+        # print(parameters["omega_gw"])
 
 
 
@@ -185,11 +200,10 @@ class KalmanFilter:
 
 
         #The first update step
-        print("START")
-        print(x)
+       
 
         x,P,l = self.update(x,P, self.observations[0,:],self.t[0],parameters,R,prefactor,dot_product)
-        print(x)
+        
         likelihood +=l
 
         #Place to store results
@@ -203,10 +217,7 @@ class KalmanFilter:
         for i in np.arange(1,self.Nsteps):
         #for i in np.arange(1,5):
 
-            print("-----------------------------------------")
             
-            print(i+1)
-            print(x)
             obs = self.observations[i,:]
             ti = self.t[i]
 
@@ -217,8 +228,9 @@ class KalmanFilter:
             x_results[i,:] = x
 
 
-        print("likelihood = ", likelihood)
-        return likelihood, x_results
+        
+
+        return likelihood, x_results,P
 
       
 

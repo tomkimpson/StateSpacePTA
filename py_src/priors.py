@@ -63,7 +63,7 @@ def bilby_priors_dict(PTA):
 
     #Add all the GW quantities
     init_parameters["omega_gw"] = None
-    priors["omega_gw"] = bilby.core.prior.LogUniform(2*np.pi*1e-9, 2*np.pi*1e-6, 'omega')
+    priors["omega_gw"] = bilby.core.prior.LogUniform(9.75e-8, 1.025e-7, 'omega')
 
     init_parameters["phi0_gw"] = None
     priors["phi0_gw"] = 0.20

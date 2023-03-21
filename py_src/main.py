@@ -36,7 +36,7 @@ if __name__=="__main__":
     PTA = Pulsars(P)               #setup the PTA
     GW  = GWs(P)                   #setup GW related constants and functions. This is a dict, not a class, for interaction later with Bilby 
     data = SyntheticData(PTA,GW,1) #generate some synthetic data
-    #plot_statespace(PTA.t,data.intrinsic_frequency,data.f_measured,1)
+    #plot_statespace(PTA.t,data.intrinsic_frequency,data.f_measured,1) #plot it if needed
 
     #Define the model 
     model = LinearModel
@@ -44,23 +44,73 @@ if __name__=="__main__":
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA)
 
-    # # #Run the KF
+    # Run the KF once with the correct parameters
     # guessed_parameters = priors_dict(PTA,GW)
-    
     # model_state_predictions,model_likelihood = KF.likelihood(guessed_parameters)
-    # print(model_likelihood)
+    #print("likelihood = ", model_likelihood)
     # plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,model_state_predictions,1)
 
     #Bilby 
-    
     init_parameters,priors = bilby_priors_dict(PTA)
-    #guessed_parameters = priors.sample()
-    guessed_parameters = priors_dict(PTA,GW)
+    BilbySampler(KF,init_parameters,priors)
 
-    print(guessed_parameters["omega_gw"])
-    model_likelihood,model_state_predictions = KF.likelihood(guessed_parameters)
-    plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,model_state_predictions,1)
 
-    #BilbySampler(KF,init_parameters,priors)
+
+
+
+    #use the below to generate a rough plot of likelihood vs parameter
+
+
+
+
+
+
+
+
+#     xx = []
+#     yy = []
+#     zz = []
+#     N = 100
+#     omegas = np.logspace(-8,-6,num=N)
+#     omegas = np.linspace(9e-8,1.1e-7,num=N)
+#     omegas=np.arange(9e-8,1.1e-7,1e-9)
+#     for i in range(len(omegas)):
+#         #guessed_parameters = priors.sample()
+#         guessed_parameters = priors_dict(PTA,GW)
+
+#         #omega = guessed_parameters["omega_gw"]
+#         guessed_parameters["omega_gw"] = omegas[i]
+#         model_likelihood,model_state_predictions,P = KF.likelihood(guessed_parameters)
+
+#         xx.extend([guessed_parameters["omega_gw"]])
+#         yy.extend([abs(model_likelihood)])
+#         zz.extend([P[0]])
+
+
+# #    # xx.extend([1e-7])
+
+# #     guessed_parameters = priors_dict(PTA,GW)
+# #     guessed_parameters["omega_gw"] = 1e-6
+# #     model_likelihood,model_state_predictions,P = KF.likelihood(guessed_parameters)
+# #    # print(P)
+# #     yy.extend([abs(model_likelihood)])
+# #     .extend([abs(model_likelihood)])
+
+# #     print(model_likelihood)
+
+#     import matplotlib.pyplot as plt
+#     plt.scatter(xx,zz)
+#     plt.plot(xx,zz)
+
+#     plt.xscale('log')
+#     plt.axvline(1e-7,linestyle="--", c = '0.5')
+#     plt.yscale('log')
+#     plt.xlabel("omega")
+#     plt.ylabel("log L ")
+
+#     plt.show()
+
+
+
     
 

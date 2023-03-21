@@ -9,7 +9,7 @@ class BilbyLikelihood(bilby.Likelihood):
         self.model = KalmanModel
         
     def log_likelihood(self):
-        ll = self.model.likelihood(self.parameters)
+        ll,xres,P = self.model.likelihood(self.parameters)
         return ll
 
 def BilbySampler(KalmanFilter,init_parameters,priors):
@@ -23,6 +23,6 @@ def BilbySampler(KalmanFilter,init_parameters,priors):
     result = bilby.run_sampler(likelihood, priors, label = "test46",outdir=".",
                             sampler ='dynesty',check_point_plot=False,
                             sample='rwalk', walks=10, npoints=100,
-                            npool=4,plot=True,resume=False)
+                            npool=6,plot=True,resume=False)
 
     return result
