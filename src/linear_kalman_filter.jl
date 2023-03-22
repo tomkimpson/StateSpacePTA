@@ -1,106 +1,106 @@
 
 
 
-"""
-Given some data recover the state and determine the likelihood
-"""
-function KF(observations::Matrix{NF},
-             PTA::Pulsars,
-             parameters::GuessedParameters,
-                     model::Symbol
-                      ) where {NF<:AbstractFloat}
+# """
+# Given some data recover the state and determine the likelihood
+# """
+# function KF(observations::Matrix{NF},
+#              PTA::Pulsars,
+#              parameters::GuessedParameters,
+#                      model::Symbol
+#                       ) where {NF<:AbstractFloat}
 
    
 
-    println("******************************************************************")
-    println("******************************************************************")
-    println("******************************************************************")
-    println("******************************************************************")
+#     println("******************************************************************")
+#     println("******************************************************************")
+#     println("******************************************************************")
+#     println("******************************************************************")
 
 
-    @info "Running the Kalman filter for the measurement model defined via: ", model
+#     @info "Running the Kalman filter for the measurement model defined via: ", model
 
-    @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
-    @unpack γ,σp,σm = parameters #Get some of the parameters that we want to infer 
+#     @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
+#     @unpack γ,σp,σm = parameters #Get some of the parameters that we want to infer 
 
-    #Set the dimension of the state space 
-    Npulsars = size(observations)[1]
-    L = Npulsars 
-    N = size(observations)[2]     # number of timesteps
-    @info "Size of the state space is: ", L 
-    @info "Number of observations is : ", N
+#     #Set the dimension of the state space 
+#     Npulsars = size(observations)[1]
+#     L = Npulsars 
+#     N = size(observations)[2]     # number of timesteps
+#     @info "Size of the state space is: ", L 
+#     @info "Number of observations is : ", N
 
 
 
-    #Initialise x and P
-    x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
-    #P = I(L) * σm*1e9 
-    P = I(L) * 1e-6*1e9 
+#     #Initialise x and P
+#     x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+#     #P = I(L) * σm*1e9 
+#     P = I(L) * 1e-6*1e9 
 
-    #println(σm)
-    #P = I(L) * 1e-15
+#     #println(σm)
+#     #P = I(L) * 1e-15
 
-    #tmp_sigma = NF(1e-3)
-    #P = diagm(fill(tmp_sigma ,L)) #maybe we want the uncertainty in the frequencies and the uncertainty in the parameters to be different?
+#     #tmp_sigma = NF(1e-3)
+#     #P = diagm(fill(tmp_sigma ,L)) #maybe we want the uncertainty in the frequencies and the uncertainty in the parameters to be different?
    
 
-    #Calculate the time-independent Q-matrix
-    Q = Q_function(γ,σp,dt)
+#     #Calculate the time-independent Q-matrix
+#     Q = Q_function(γ,σp,dt)
     
 
 
-    #Calculate measurement noise matrix
-    R = R_function(Npulsars,σm)
+#     #Calculate measurement noise matrix
+#     R = R_function(Npulsars,σm)
 
-    #Initialise an array to hold the results
-    x_results = zeros(NF,N,L)
+#     #Initialise an array to hold the results
+#     x_results = zeros(NF,N,L)
 
-    #Initialise a likelihood variable
-    likelihood = NF(0.0)
+#     #Initialise a likelihood variable
+#     likelihood = NF(0.0)
 
-    #Set what measurement model to use
-    # if model == :GW
-    #     measurement_function = H_function
-    # elseif model == :null
-    #     measurement_function = null_function
-    # else
-    #     println("Model is not defined. Choose one of :GW or :null" )
-    #     return
-    # end 
+#     #Set what measurement model to use
+#     # if model == :GW
+#     #     measurement_function = H_function
+#     # elseif model == :null
+#     #     measurement_function = null_function
+#     # else
+#     #     println("Model is not defined. Choose one of :GW or :null" )
+#     #     return
+#     # end 
     
-    #Update step first, then iterate over remainders
-    #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
-    #println(1, "  ", x[1], "  ", x[2]," ", x[3])
-    #println(1, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
+#     #Update step first, then iterate over remainders
+#     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
+#     #println(1, "  ", x[1], "  ", x[2]," ", x[3])
+#     #println(1, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
     
-   # display(P)
-    x,P = update(x,P, observations[:,1],t[1],parameters,q,R)
+#    # display(P)
+#     x,P = update(x,P, observations[:,1],t[1],parameters,q,R)
 
-    #x_results[1,:] = x  
-    for i=2:N
-        #display(P)
-       # println(i, "  ", x[1], "  ", x[2]," ", x[3])
-       # println(i, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
+#     #x_results[1,:] = x  
+#     for i=2:N
+#         #display(P)
+#        # println(i, "  ", x[1], "  ", x[2]," ", x[3])
+#        # println(i, "  ", P[1,1], "  ", P[2,2]," ", P[3,3])
 
 
-        observation = observations[:,i]
-        #println(observation[1], "  ", observation[2]," ", observation[3])
-        ti = t[i]
-        x_predict,P_predict   = predict(x,P,parameters,ti,dt,Q)
-        x,P,l                 = update(x_predict,P_predict, observation,ti,parameters,q,R)
+#         observation = observations[:,i]
+#         #println(observation[1], "  ", observation[2]," ", observation[3])
+#         ti = t[i]
+#         x_predict,P_predict   = predict(x,P,parameters,ti,dt,Q)
+#         x,P,l                 = update(x_predict,P_predict, observation,ti,parameters,q,R)
 
-        likelihood +=l
-        #x_results[i,:] = x 
+#         likelihood +=l
+#         #x_results[i,:] = x 
          
       
-     end 
+#      end 
 
-    return x_results, likelihood
-    #return likelihood
+#     return x_results, likelihood
+#     #return likelihood
 
 
 
-end 
+# end 
 
 
 
@@ -113,18 +113,17 @@ end
 #              ω_tuple::Vector{Float64},
 #              model::Symbol
 #              ) where {NF<:AbstractFloat}
+
 function KF(observations::Matrix{NF},
              PTA::Pulsars,
-             known_parameters::KnownParameters,  # this is a struct with values set specifically. It can be unpacked using @unpack
-             unknown_parameters::Vector{Float64} # this is a vector with values sampled from a distribution
+             parameters::GuessedParameters
              ) where {NF<:AbstractFloat}
 
 
-    #println("WELCOME TO THE KALMAN FILTER")
-    #println(typeof(unknown_parameters))
  
     @unpack q,dt,t = PTA         #Get the parameters related to the PTA 
-    @unpack h,ι,δ,α,ψ,Φ0,σp,σm = known_parameters 
+   
+    @unpack ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ = parameters 
 
 
 
@@ -133,13 +132,13 @@ function KF(observations::Matrix{NF},
 
 
 
-    #Unpack the unknow parameters 
-    #Todo: make this a mapping function 
-    ω = unknown_parameters[1]
-    f0 = unknown_parameters[2:11]
-    ḟ0 = unknown_parameters[12:21]
-    d  = unknown_parameters[22:31]
-    γ  = unknown_parameters[32:41]
+    # #Unpack the unknow parameters 
+    # #Todo: make this a mapping function 
+    # ω = unknown_parameters[1]
+    # f0 = unknown_parameters[2:11]
+    # ḟ0 = unknown_parameters[12:21]
+    # d  = unknown_parameters[22:31]
+    # γ  = unknown_parameters[32:41]
 
     #Set the dimension of the state space 
     Npulsars = size(observations)[1]
@@ -153,9 +152,6 @@ function KF(observations::Matrix{NF},
     #Calculate the time-independent Q-matrix
     Q = Q_function(γ,σp,dt)
     
-
-    #println("The q matrix is")
-    #display(Q)
     #Calculate measurement noise matrix
     R = R_function(Npulsars,σm)
 
@@ -181,54 +177,8 @@ function KF(observations::Matrix{NF},
     
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
-
-
-    println("Welcome to the linear Kalman filter in Julia")
-    println("You have chosen the following settings:")
-
-    println("f0")
-    println(f0)
-
-    println("f0̇")
-    println( ḟ0 )
-
-    println("gamma")
-    println(γ)
-
-    println("d")
-    println(d)
-
-    println("Φ0")
-    println(known_parameters.Φ0)
-
-    println("ψ")
-    println(known_parameters.ψ)
-
-    println("ι")
-    println(known_parameters.ι)
-
-    println("δ")
-    println(known_parameters.δ)
-
-    println("α")
-    println(known_parameters.α)
-
-    println("h")
-    println(known_parameters.h)
-
-    println("σp")
-    println(known_parameters.σp)
-  
-    println("σm")
-    println(known_parameters.σm)
-    
-    println("ω")
-    println(ω)
-    println("START")
-
-    println(x)
     x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product)
-    println(x)
+    
     x_results[1,:] = x 
     for i=2:5
         println("-----------------------------------------")

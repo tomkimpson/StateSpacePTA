@@ -9,30 +9,21 @@ function KalmanFilter(::Type{NF}=Float64;              # number format, use Floa
 
 
 
-
-    P = SystemParameters(NF=NF;kwargs...) # Parameters
+    @info "Hello from StateSpacePTA. You are running with NF = ", NF
+    P   = SystemParameters(NF=NF;kwargs...) # Parameters
     PTA = setup_PTA(P)
-    GW = gw_variables(P.NF,P)
-
-    @info "Hello from StateSpacePTA. You are running with NF = ", P.NF
-
+    GW  = gw_variables(P.NF,P)
     seed = P.seed # Integer or nothing 
-    state,measurement = create_synthetic_data(PTA,GW,seed) #BAT.jl currently requires a particular (older) version of DE.jl, which throws annoying warnings relating to depreceated features in Julia 1.9
-
-
-    #plotter(PTA.t,state,measurement,nothing,nothing,4)
+    state,measurement = create_synthetic_data(PTA,GW,seed) 
+    #plotter(PTA.t,state,measurement,nothing,nothing,4) #Plot the states if you want
 
     θ̂ = guess_parameters(PTA,P)
 
 
-    #infer_parameters()
-
-    #println(θ̂)
-
-    #model_state_predictions,model_likelihood = KF(measurement,PTA,θ̂,:GW)
+   
 
     omega_guess = [1e-7]
-    likelihood = KF(measurement,PTA,θ̂,omega_guess,:GW)
+    likelihood = KF(measurement,PTA,θ̂)
 
 
 
@@ -45,7 +36,11 @@ function KalmanFilter(::Type{NF}=Float64;              # number format, use Floa
 
     #plotter(PTA.t,state,measurement,model_state_predictions,nothing,5)
 
+ #infer_parameters()
 
+    #println(θ̂)
+
+    #model_state_predictions,model_likelihood = KF(measurement,PTA,θ̂,:GW)
 
     
     # null_state_predictions,null_likelihood = kalman_filter(measurement,PTA,θ̂,:null)

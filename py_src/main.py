@@ -39,7 +39,7 @@ if __name__=="__main__":
     # model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters,"H0")
     # # print("likelihood = ", model_likelihood)
     # # # t,states,measurements,predictions,psr_index
-    # plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
+    # #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA)
@@ -70,7 +70,7 @@ if __name__=="__main__":
 
     print(init_parameters)
     print(priors)
-    BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA1", "../data/nested_sampling")
+    BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA0", "../data/nested_sampling")
 
 
 

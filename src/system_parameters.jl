@@ -24,7 +24,7 @@ The default values of the keywords define the default model setup.
     h :: Real = 1e-8
 
     #Noise parameters
-    σp::Real = 1e-13
+    σp::Real = 1e-8
     σm::Real = 1e-13
 
     #Random seed

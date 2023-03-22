@@ -12,7 +12,7 @@ class Pulsars:
         c = 3e8 #speed of light in m/s
 
         pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
-        #pulsars = pulsars.head(1) 
+            pulsars = pulsars.head(1) 
         #pulsars = pulsars.sample(5) 
 
         
