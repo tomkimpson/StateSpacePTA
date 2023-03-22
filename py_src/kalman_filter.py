@@ -117,6 +117,13 @@ class KalmanFilter:
 
     def likelihood(self,parameters,model):
         
+
+        print("Welcome to the likelihood functioj")
+        if model == "H1":
+            self.measurement_matrix = self.model.H_function
+        elif model == "H0":
+             self.measurement_matrix = self.model.H0_function
+
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
         
         #Setup Q and R matrices.
@@ -150,10 +157,8 @@ class KalmanFilter:
         x_results[0,:] = x
 
 
-        if model == "H1":
-            self.measurement_matrix = self.model.H_function
-        elif model == "H0":
-             self.measurement_matrix = self.model.H0_function
+
+
 
 
 

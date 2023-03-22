@@ -37,7 +37,7 @@ class LinearModel:
     Measurement function which takes the state and returns the measurement
     """
     def H0_function(t,omega,phi0,prefactor,dot_product):
-        GW_factor = 1.0 #gw_modulation(t, omega,phi0,prefactor,dot_product)
+        GW_factor = np.ones_like(dot_product) #gw_modulation(t, omega,phi0,prefactor,dot_product)
         return np.diag(GW_factor) 
   
 
