@@ -11,13 +11,25 @@ class BilbyLikelihood(bilby.Likelihood):
     def log_likelihood(self):
 
         try:
-            ll, xres, P = self.model.likelihood(self.parameters)
+            ll, xres, P = self.model.likelihood(self.parameters,"H1")
         except np.linalg.LinAlgError:
             ll= -np.inf
         if np.isnan(ll):
             ll = -np.inf
         return ll
-            
+    
+    def noise_log_likelihood(self):
+        try:
+            ll, xres, P = self.model.likelihood(self.parameters,"H0")
+        except np.linalg.LinAlgError:
+            ll= -np.inf
+        if np.isnan(ll):
+            ll = -np.inf
+        return ll
+
+
+
+
 
 def BilbySampler(KalmanFilter,init_parameters,priors,injection_parameters,label,outdir):
    
@@ -27,7 +39,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,injection_parameters,label,
  
     # #Run the sampler
     print("RUN THE SAMPLER")
-    result = bilby.run_sampler(likelihood, priors, injection_parameters=injection_parameters,label = label,outdir=outdir,
+    result = bilby.run_sampler(likelihood, priors,label = label,outdir=outdir,
                             sampler ='dynesty',check_point_plot=False,
                             sample='rwalk', walks=10, npoints=100,
                             npool=6,plot=True,resume=False)

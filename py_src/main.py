@@ -70,7 +70,7 @@ if __name__=="__main__":
 
     print(init_parameters)
     print(priors)
-    BilbySampler(KF,init_parameters,priors,injection_parameters,"testrun2", "../data/nested_sampling")
+    BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA1", "../data/nested_sampling")
 
 
 

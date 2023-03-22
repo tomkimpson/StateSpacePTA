@@ -72,7 +72,7 @@ class KalmanFilter:
 
     def update(self, x, P, observation,t,parameters,R,prefactor,dot_product):
 
-        H = self.model.H_function(t,parameters["omega_gw"],parameters["phi0_gw"],prefactor,dot_product)
+        H = self.measurement_matrix(t,parameters["omega_gw"],parameters["phi0_gw"],prefactor,dot_product)
 
         y = observation - np.dot(H,x) 
         
@@ -115,7 +115,7 @@ class KalmanFilter:
 
 
 
-    def likelihood(self,parameters):
+    def likelihood(self,parameters,model):
         
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
         
@@ -139,51 +139,8 @@ class KalmanFilter:
         likelihood = 0.0
        
 
-        # print("Welcome to the linear Kalman filter in Julia")
-        # print("You have chosen the following settings:")
-
-        # print("f0")
-        # print(f)
-
-        # print("f0̇")
-        # print(fdot)
-
-        # print("gamma")
-        # print(gamma)
-
-        # print("d")
-        # print(d)
-
-        # print("Φ0")
-        # print(parameters["phi0_gw"])
-
-        # print("ψ")
-        # print(parameters["psi_gw"])
-
-        # print("ι")
-        # print(parameters["iota_gw"])
-
-        # print("δ")
-        # print(parameters["delta_gw"])
-
-        # print("α")
-        # print(parameters["alpha_gw"])
-
-        # print("h")
-        # print(parameters["h"])
-
-        # print("σp")
-        # print(parameters["sigma_p"])
-    
-        # print("σm")
-        # print(parameters["sigma_m"])
-        
-        # print("ω")
-        # print(parameters["omega_gw"])
 
         #The first update step
-       
-
         x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
         
         likelihood +=l
@@ -192,6 +149,11 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         x_results[0,:] = x
 
+
+        if model == "H1":
+            self.measurement_matrix = self.model.H_function
+        elif model == "H0":
+             self.measurement_matrix = self.model.H0_function
 
 
 
