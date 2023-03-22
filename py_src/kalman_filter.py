@@ -117,8 +117,6 @@ class KalmanFilter:
 
     def likelihood(self,parameters,model):
         
-
-        print("Welcome to the likelihood functioj")
         if model == "H1":
             self.measurement_matrix = self.model.H_function
         elif model == "H0":
