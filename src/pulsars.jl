@@ -4,9 +4,10 @@
 struct Pulsars{NF<:AbstractFloat}
 
     f0 :: Vector{NF} 
+    ḟ0 :: Vector{NF}
     d :: Vector{NF}
     γ :: Vector{NF}
-    n :: Vector{NF} 
+    #n :: Vector{NF} 
     q :: Matrix{NF} 
     t :: Vector{NF}
 
@@ -26,14 +27,14 @@ function setup_PTA(P::SystemParameters)
     load_file = pkgdir(StateSpacePTA, "data", "NANOGrav_pulsars.csv")
 
     pulsars = DataFrame(CSV.File(load_file))
-
+    pulsars = first(pulsars,10)#.sample(2) 
 
 
     f = pulsars[:,"F0"]
+    ḟ = pulsars[:,"F1"] 
     d = pulsars[:,"DIST"]*1e3*pc/c #this is in units of s^-1
-    γ = pulsars[:,"gamma"]
-    n = pulsars[:,"n"]
-
+    γ = 1e-13 .* (pulsars[:,"gamma"] ./ pulsars[:,"gamma"]) #for every pulsar let γ be 1e-13
+   
     δ = pulsars[:,"DECJD"]
     α = pulsars[:,"RAJD"]
 
@@ -45,7 +46,7 @@ function setup_PTA(P::SystemParameters)
     t = collect(0:step_seconds:end_seconds)
    
 
-    return Pulsars{P.NF}(f,d,γ,n,q,t,P.σp, P.σm,step_seconds) #convert to type NF 
+    return Pulsars{P.NF}(f,ḟ,d,γ,q,t,P.σp, P.σm,step_seconds) #convert to type NF 
 
 
 end 

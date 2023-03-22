@@ -2,13 +2,31 @@ module StateSpacePTA
 
 #Imports 
 import Parameters: @with_kw, @unpack
-using LinearAlgebra,DataFrames,CSV,DifferentialEquations, Noise,Plots,Statistics,DelimitedFiles, JLD, Random,Logging
+#using LinearAlgebra,DifferentialEquations, Noise,Plots,Statistics,DelimitedFiles, JLD, Random,Logging
+
+using CSV,DataFrames, LinearAlgebra, Random, Noise, Plots, Statistics,BAT, IntervalSets,Distributions,DifferentialEquations
+#DataFrames, CSV
+
+import StatsBase: Histogram #just for testing, can remove later
+
+import Suppressor: @suppress_err
 
 
 
+
+using ValueShapes
+
+# #extras for NEstedSamplers
+using NestedSamplers,AbstractMCMC
+using StatsFuns: logaddexp
+using StatsBase: sample, Weights
+
+
+AbstractMCMC.setprogress!(true)
+Random.seed!(8452)
 
 #Exports
-export UKF, plotter
+export KalmanFilter,infer_parameters,infer_parameters2, plotter,setup,KF
 
 
 
@@ -20,7 +38,13 @@ include("GW.jl")
 include("guessed_parameters.jl")
 include("synthetic_data.jl")
 include("model.jl")
-include("kalman_filter.jl")
+include("priors.jl")
+#include("unscented_kalman_filter.jl")
+#include("extended_kalman_filter.jl")
+include("bayesian_inference_BAT.jl")
+include("bayesian_inference_NS.jl")
+include("linear_kalman_filter.jl")
+
 include("plotting.jl")
 include("run.jl")
 
