@@ -146,9 +146,9 @@ class KalmanFilter:
 
 
         #The first update step
-        x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
+        #x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
         
-        likelihood +=l
+        #likelihood +=l
 
         #Place to store results
         x_results = np.zeros((self.Nsteps,self.Npsr))
@@ -165,16 +165,17 @@ class KalmanFilter:
         #for i in np.arange(1,5):
 
             
-            obs = self.observations[i,:]
-            ti = self.t[i]
+            # obs = self.observations[i,:]
+            # ti = self.t[i]
 
-            x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
-            x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
-            likelihood +=l
+            # x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
+            # x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
+            # likelihood +=l
 
-            x_results[i,:] = x
+            # x_results[i,:] = x
             
-        return likelihood, x_results, P
+        #return likelihood, x_results, P
+         return 1,2,3
 
       
 

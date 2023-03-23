@@ -15,20 +15,26 @@ The default values of the keywords define the default model setup.
     cadence::Real = 7.0   # sampling interval in days
 
     #GW parameters
-    ω  ::Real = 1e-7      
+    ω  ::Real = 5e-7      
     Φ0 ::Real = 0.20      
     ψ  ::Real = 2.5 
-    ι  ::Real = 0.0
-    δ  ::Real = 0.0
+    ι  ::Real = 1.0
+    δ  ::Real = 1.0
     α :: Real = 1.0
-    h :: Real = 1e-8
+    h :: Real = 1e-2
 
     #Noise parameters
     σp::Real = 1e-8
-    σm::Real = 1e-13
+    σm::Real = 1e-10
 
     #Random seed
     seed::Int64 = 0 #0 is defined to be no seeding - different for each run!
+
+    #Number of pulsars 
+    Npsr::Int64 = 0 #0 is the default for ALL
+
+    #Plotting settings
+    psr_index::Int64 = 1 #which psr to plot
 
     
     #Guessed parameters

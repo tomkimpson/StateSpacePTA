@@ -3,58 +3,21 @@ solution,model = orbit(NF,kwargs...)
 
 Runs StateSpacePTA.jl with number format `NF` and any additional parameters in the keyword arguments
 `kwargs...`. Any unspecified parameters will use the default values as defined in `src/system_parameters.jl`."""
-function KalmanFilter(::Type{NF}=Float64;              # number format, use Float64 as default
+function run_all(::Type{NF}=Float64;              # number format, use Float64 as default
            kwargs...                        # all additional non-default parameters
            ) where {NF<:AbstractFloat}
 
 
-
-    @info "Hello from StateSpacePTA. You are running with NF = ", NF
-    P   = SystemParameters(NF=NF;kwargs...) # Parameters
-    PTA = setup_PTA(P)
-    GW  = gw_variables(P.NF,P)
-    seed = P.seed # Integer or nothing 
-    state,measurement = create_synthetic_data(PTA,GW,seed) 
-    #plotter(PTA.t,state,measurement,nothing,nothing,4) #Plot the states if you want
-
-    θ̂ = guess_parameters(PTA,P)
-
-
-   
-
-    omega_guess = [1e-7]
-    likelihood = KF(measurement,PTA,θ̂)
-
-
-
-
-
-
-    #model_state_predictions,model_likelihood = EKF(measurement,PTA,θ̂,:GW)
-
-    #model_state_predictions,model_likelihood = UKF(measurement,PTA,:GW)
-
-    #plotter(PTA.t,state,measurement,model_state_predictions,nothing,5)
-
- #infer_parameters()
-
-    #println(θ̂)
-
-    #model_state_predictions,model_likelihood = KF(measurement,PTA,θ̂,:GW)
-
+    state,measurements,PTA,θ̂,P = setup(NF=NF;kwargs...)
     
-    # null_state_predictions,null_likelihood = kalman_filter(measurement,PTA,θ̂,:null)
+    model_likelihood,model_predictions = KF(measurements,PTA,θ̂,:GW)
+    null_likelihood,null_predictions = KF(measurements,PTA,θ̂,:null)
 
-    # test_statistic = NF(2.0) * (model_likelihood - null_likelihood)
+    @info "LogLikelihoods are: ", model_likelihood, " for the H1 and ", null_likelihood, " for H0"
+    @info "This gives a Bayes factor of: ", model_likelihood - null_likelihood
 
+    plotter(PTA.t,state,measurements,model_predictions,null_predictions,P.psr_index) #Plot the predictions,
 
-    # output_dictionary = Dict("time" => PTA.t, "state" => state, "measurement" => measurement,
-    #                          "TS" => test_statistic,
-    #                          "model_predictions" => model_state_predictions, "model_likelihood" => model_likelihood,
-    #                          "null_predictions" => null_state_predictions, "null_likelihood" => null_likelihood,)
-
-
-    # return output_dictionary
 end
 
 
@@ -69,15 +32,14 @@ function setup(::Type{NF}=Float64;              # number format, use Float64 as 
     PTA = setup_PTA(P)
     GW = gw_variables(P.NF,P)
 
-    @info "Hello from StateSpacePTA. You are running with NF = ", P.NF
+    @info "Hello from StateSpacePTA. You are running with NF = ", P.NF, " and a GW strain h = ", P.h
 
     seed = P.seed # Integer or nothing 
     state,measurement = create_synthetic_data(PTA,GW,seed) #BAT.jl currently requires a particular (older) version of DE.jl, which throws annoying warnings relating to depreceated features in Julia 1.9
 
     θ̂ = guess_parameters(PTA,P)
 
-
-    return measurement,PTA,θ̂
+    return state,measurement,PTA,θ̂,P
 
 
 end 

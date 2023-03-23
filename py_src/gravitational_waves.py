@@ -34,6 +34,29 @@ class GWs:
         self.h = P["h"]
 
 def gw_prefactor(n,q, Hij,ω, d):
+
+    a = np.array([[1, 0],
+                [0, 1]])
+    b = np.array([1, 2])
+
+    print(a.shape)
+    print(b.shape)
+    print(np.matmul(a,b))
+
+    print (q.shape)
+    print(n.shape)
+    
+    print(len(np.matmul(q,n)))
+
+    option1 = [np.dot(n,q[i,:]) for i in range(len(q))]
+    option2 = np.matmul(q,n)
+
+    print(option1)
+    print(option2)
+    print(option1 == option2)
+    #print(option2)
+
+
     dot_product  = np.array([1.0 + np.dot(n,q[i,:]) for i in range(len(q))])
     hbar         = np.array([np.sum([[Hij[i,j]*q[k,i]*q[k,j] for i in range(3)]for j in range(3)]) for k in range(len(q))]) # Size Npulsars. Is there a vectorised way to do this?
     ratio        = hbar / dot_product

@@ -17,6 +17,7 @@ from bilby_wrapper import BilbyLikelihood
 import numpy as np
 import bilby
 
+import time 
 
 if __name__=="__main__":
 
@@ -33,44 +34,56 @@ if __name__=="__main__":
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA)
 
-    # # # Run the KF once with the correct parameters
-    # guessed_parameters = priors_dict(PTA,GW)
-    # # print(guessed_parameters)
-    # model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters,"H0")
-    # # print("likelihood = ", model_likelihood)
-    # # # t,states,measurements,predictions,psr_index
-    # #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
+    # # Run the KF once with the correct parameters
+    guessed_parameters = priors_dict(PTA,GW)
+    # print(guessed_parameters)
+
+    t1_start = time.perf_counter()
+    model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters,"H1")
+    t1_end = time.perf_counter()
+
+
+    print("Run time was: ", t1_end - t1_start)
+    # null_likelihood, null_state_predictions, null_covariance_predictions = KF.likelihood(guessed_parameters,"H0")
+    # print(model_likelihood)
+    # print(null_likelihood)
+    # dlogz = model_likelihood - null_likelihood
+    # print("dlogz = ", dlogz)
+    # print("likelihood = ", model_likelihood)
+    # # t,states,measurements,predictions,psr_index
+    #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
     #Bilby 
-    init_parameters, priors = bilby_priors_dict(PTA)
+
+    # init_parameters, priors = bilby_priors_dict(PTA)
 
 
-    #Manually specify the injection parameters
-    #todo: automate this for generality
-    injection_parameters = dict(
-        omega_gw=5e-7,
-        phi0_gw=0.20,
-        psi_gw=2.50,
-        iota_gw=1.0,
-        delta_gw=1.0,
-        alpha_gw=1.0,
-        h=1e-2,
-        f0=327.8470205611185,
-        fdot=-1.227834e-15,
-        distance=181816860005.41092,
-        gamma=1e-13,
-        sigma_p=1e-8,
-        sigma_m=1e-08
-    )
+    # # #Manually specify the injection parameters
+    # # #todo: automate this for generality
+    # injection_parameters = dict(
+    #     omega_gw=5e-7,
+    #     phi0_gw=0.20,
+    #     psi_gw=2.50,
+    #     iota_gw=1.0,
+    #     delta_gw=1.0,
+    #     alpha_gw=1.0,
+    #     h=1e-2,
+    #     f0=327.8470205611185,
+    #     fdot=-1.227834e-15,
+    #     distance=181816860005.41092,
+    #     gamma=1e-13,
+    #     sigma_p=1e-8,
+    #     sigma_m=1e-08
+    # )
 
 
 
 
 
 
-    print(init_parameters)
-    print(priors)
-    BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA0", "../data/nested_sampling")
+    # print(init_parameters)
+    # print(priors)
+    # BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA2", "../data/nested_sampling")
 
 
 

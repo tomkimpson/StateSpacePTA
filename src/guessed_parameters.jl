@@ -40,3 +40,10 @@ function guess_parameters(pulsars::Pulsars,P::SystemParameters)
 
 end 
 
+
+
+function priors_to_struct()
+
+
+
+end 

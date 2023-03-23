@@ -27,7 +27,11 @@ function setup_PTA(P::SystemParameters)
     load_file = pkgdir(StateSpacePTA, "data", "NANOGrav_pulsars.csv")
 
     pulsars = DataFrame(CSV.File(load_file))
-    pulsars = first(pulsars,10)#.sample(2) 
+    
+    @info "The number of pulsars selected for this problem is: ", P.Npsr
+    if P.Npsr != 0 #i.e. if 0 then just select all the pulsars in the PTA
+        pulsars = first(pulsars,P.Npsr)
+    end 
 
 
     f = pulsars[:,"F0"]
