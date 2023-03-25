@@ -35,169 +35,76 @@ if __name__=="__main__":
     KF = KalmanFilter(model,data.f_measured,PTA)
 
     # # Run the KF once with the correct parameters
-    guessed_parameters = priors_dict(PTA,GW)
-    # print(guessed_parameters)
+    # guessed_parameters = priors_dict(PTA,GW)
+    # # print(guessed_parameters)
+    # t1 = time.perf_counter()
+    # #model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters)
+    # model_likelihood = KF.likelihood(guessed_parameters)
 
-    # t1_start = time.perf_counter()
-    # model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters,"H1")
-    # t1_end = time.perf_counter()
-
-
-    # print("Run time was: ", t1_end - t1_start)
-    # null_likelihood, null_state_predictions, null_covariance_predictions = KF.likelihood(guessed_parameters,"H0")
-    # print(model_likelihood)
-    # print(null_likelihood)
-    # dlogz = model_likelihood - null_likelihood
-    # print("dlogz = ", dlogz)
+    # t2=time.perf_counter()
+    # print("Runtime = ", t2-t1)
     # print("likelihood = ", model_likelihood)
     # # t,states,measurements,predictions,psr_index
     #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
-    #Bilby 
-    init_parameters, priors = bilby_priors_dict(PTA)
+    # #Bilby 
+    #init_parameters, priors = bilby_priors_dict(PTA)
+    #BilbySampler(KF,init_parameters,priors)
 
 
-    def my_prior_transform(cube):
-        params = cube.copy()
+    # for i in range(100):
+    #     p = priors.sample()
+    
+    # #t1 = time.perf_counter()
+    # #model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters)
+    #     model_likelihood = KF.likelihood(p)
 
-        # transform amplitude parameter: log-uniform prior
-        i = 0
-        for k, v in priors.items():
-            
-            if i == 0:
-                i+= 1
-                continue
-            print(i,k,v)
-            params[i] = v
-            i+= 1
-            
+    #     #t2=time.perf_counter()
+    # #print("Runtime = ", t2-t1)
+    #     print("likelihood = ", i,  model_likelihood)
 
-        lo = 1e-9
-        hi = 1e-6
-        params[0] = 10**(cube[0] * (np.log10(hi) - np.log10(lo)) + np.log10(lo))
 
 
-        
-        return params
+    #Uncomment the below use the below to generate a rough plot of likelihood vs parameter
 
 
-    param_names = list(priors.keys())
-    print(param_names)
-    import ultranest
+    xx = []
+    yy = []
 
-    sampler = ultranest.ReactiveNestedSampler(param_names, KF.likelihood, my_prior_transform)
+    N = 100
 
+    omegas=np.arange(4e-7,6e-7,1e-9)
+    hs = np.logspace(-3,-1,100)
+    #for i in range(len(omegas)):
+    for i in range(len(hs)):
 
+        print(i, hs[i])
+        guessed_parameters = priors_dict(PTA,GW)
 
+        #omega = guessed_parameters["omega_gw"]
+        #guessed_parameters["omega_gw"] = omegas[i]
+        guessed_parameters["h"] = hs[i]
+        #model_likelihood,model_state_predictions,P = KF.likelihood(guessed_parameters)
+        model_likelihood = KF.likelihood(guessed_parameters)
 
-    # # #Manually specify the injection parameters
-    # # #todo: automate this for generality
-    # injection_parameters = dict(
-    #     omega_gw=5e-7,
-    #     phi0_gw=0.20,
-    #     psi_gw=2.50,
-    #     iota_gw=1.0,
-    #     delta_gw=1.0,
-    #     alpha_gw=1.0,
-    #     h=1e-2,
-    #     f0=327.8470205611185,
-    #     fdot=-1.227834e-15,
-    #     distance=181816860005.41092,
-    #     gamma=1e-13,
-    #     sigma_p=1e-8,
-    #     sigma_m=1e-08
-    # )
 
+        #xx.extend([guessed_parameters["omega_gw"]])
+        xx.extend([guessed_parameters["h"]])
 
+        yy.extend([abs(model_likelihood)])
 
 
+    import matplotlib.pyplot as plt
+    plt.scatter(xx,yy)
+    plt.plot(xx,yy)
 
+    plt.xscale('log')
+    #plt.axvline(5e-7,linestyle="--", c = '0.5')
+    plt.yscale('log')
+    plt.xlabel("omega")
+    plt.ylabel("log L ")
 
-    # print(init_parameters)
-    # print(priors)
-    # BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA3", "../data/nested_sampling")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# SCRATCH SPACE
-
-
-    #use the below to generate a rough plot of likelihood vs parameter
-
-
-
-
-
-
-
-
-#     xx = []
-#     yy = []
-#     zz = []
-#     N = 100
-#     omegas = np.logspace(-8,-6,num=N)
-#     omegas = np.linspace(9e-8,1.1e-7,num=N)
-#     omegas=np.arange(9e-8,1.1e-7,1e-9)
-#     for i in range(len(omegas)):
-#         #guessed_parameters = priors.sample()
-#         guessed_parameters = priors_dict(PTA,GW)
-
-#         #omega = guessed_parameters["omega_gw"]
-#         guessed_parameters["omega_gw"] = omegas[i]
-#         model_likelihood,model_state_predictions,P = KF.likelihood(guessed_parameters)
-
-#         xx.extend([guessed_parameters["omega_gw"]])
-#         yy.extend([abs(model_likelihood)])
-#         zz.extend([P[0]])
-
-
-# #    # xx.extend([1e-7])
-
-# #     guessed_parameters = priors_dict(PTA,GW)
-# #     guessed_parameters["omega_gw"] = 1e-6
-# #     model_likelihood,model_state_predictions,P = KF.likelihood(guessed_parameters)
-# #    # print(P)
-# #     yy.extend([abs(model_likelihood)])
-# #     .extend([abs(model_likelihood)])
-
-# #     print(model_likelihood)
-
-#     import matplotlib.pyplot as plt
-#     plt.scatter(xx,zz)
-#     plt.plot(xx,zz)
-
-#     plt.xscale('log')
-#     plt.axvline(1e-7,linestyle="--", c = '0.5')
-#     plt.yscale('log')
-#     plt.xlabel("omega")
-#     plt.ylabel("log L ")
-
-#     plt.show()
+    plt.show()
 
 
 

@@ -12,7 +12,8 @@ class Pulsars:
         c = 3e8 #speed of light in m/s
 
         pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
-        #pulsars = pulsars.head(1) 
+        #pulsars = pulsars.head(2) 
+
         #pulsars = pulsars.sample(5) 
 
         
@@ -28,6 +29,17 @@ class Pulsars:
 
     
         self.q = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
+
+        #Create a flattened vector for optimised calculations later
+        self.q_products = np.zeros((len(self.f),9))
+        k = 0
+        for n in range(len(self.f)):
+            k = 0
+            for i in range(3):
+                for j in range(3):
+                    self.q_products[n,k] = self.q[n,i]*self.q[n,j]
+                    k+=1
+        
       
     
         self.dt = SystemParameters["cadence"] * 24*3600 #from days to step_seconds
@@ -40,6 +52,9 @@ class Pulsars:
 
         self.sigma_p =  SystemParameters["sigma_p"] 
         self.sigma_m =  SystemParameters["sigma_m"]
+
+
+        print("self.sigma p is:", self.sigma_p)
 
         self.Npsr = len(self.f)
 

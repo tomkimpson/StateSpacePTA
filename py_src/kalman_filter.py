@@ -2,7 +2,7 @@
 
 
 import numpy as np 
-from gravitational_waves import GWs,gw_prefactor
+from gravitational_waves import GWs,gw_prefactor,gw_prefactor_optimised#,#gw_modulation_vectorized
 from scipy.stats import multivariate_normal
 
 class KalmanFilter:
@@ -27,6 +27,7 @@ class KalmanFilter:
         self.observations = Observations
         self.dt = PTA.dt
         self.q = PTA.q
+        self.q_products = PTA.q_products.T
         self.t = PTA.t
 
         self.Npsr = self.observations.shape[-1]
@@ -36,6 +37,13 @@ class KalmanFilter:
         print("The number of pulsars is:")
         print(self.Npsr)
 
+
+        # #Initialise x and P
+        self.x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
+        #self.P = np.eye(self.Npsr) * 1e5 #1e-13*1e9 
+        self.P = np.ones(self.Npsr)*1e5
+
+        self.identity = np.ones(self.Npsr)
 
     def get_likelihood(self,S,innovation):
 
@@ -49,140 +57,147 @@ class KalmanFilter:
         return -0.5*(np.linalg.slogdet(S)[-1] + innovation @ x + M*np.log(2*np.pi))
 
 
+    def get_vector_likelihood(self,S,innovation):
+        x = innovation / S 
+        #slogdet = np.log(np.prod(S)) 
+        #return -0.5*(slogdet + innovation * x + self.Npsr*np.log(2*np.pi))
+        #print(innovation)
+        #print(x)
+        return -0.5*(innovation @ x + self.Npsr*np.log(2*np.pi))
 
-    def log_likelihood(self,S,innovation):
 
-        """
-        Calculate the log likelihood for a given y,S
-        """
 
-        x=innovation
-        cov=S
+
+
+
+
+
+
+    # def log_likelihood(self,S,innovation):
+
+    #     """
+    #     Calculate the log likelihood for a given y,S
+    #     """
+
+    #     x=innovation
+    #     cov=S
    
-        flat_x = np.asarray(x).flatten()
-        flat_mean = None
+    #     flat_x = np.asarray(x).flatten()
+    #     flat_mean = None
 
 
-        l = multivariate_normal.logpdf(flat_x, flat_mean, cov)
+    #     l = multivariate_normal.logpdf(flat_x, flat_mean, cov)
 
-        return l
-
-
+    #     return l
 
 
-    def update(self, x, P, observation,t,parameters,R,prefactor,dot_product):
 
-        H = self.measurement_matrix(t,parameters["omega_gw"],parameters["phi0_gw"],prefactor,dot_product)
 
-        y = observation - np.dot(H,x) 
-        
-        
-        S = H@P@H + R #H is diagonal, no need to transpose
+    def update(self, x, P, observation,R,H):
 
-       
-        K = P@H.T@np.linalg.inv(S)
-        xnew = x + K@y
+      
+       # H = self.model.H_function_i(modulation_factors)
 
     
-    #     #Update the covariance 
-    #     #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
-    #     # P = (I-KH)P(I-KH)' + KRK' which is more numerically stable
-    #     # and works for non-optimal K vs the equation
-    #     # P = (I-KH)P usually seen in the literature.
-        I_KH = np.eye(self.Npsr) - (K@H)
-        Pnew = I_KH @ P @I_KH.T + K @ R @ K.T
+        y = observation - H*x
+        S = H*P*H + R
+        K = P*H/S
+        xnew = x + K*y
+        I_KH = self.identity - K*H 
+        Pnew = I_KH * P
+
+        #print("Innovatin covariance is:")
+        #print(S)
         
-        l = self.get_likelihood(S,y) #this seems to be cheaper to evaluate?
-       #l = self.log_likelihood(S,y)
-       
+        l = self.get_vector_likelihood(S,y)
+        #print(l)
+
         return xnew, Pnew,l
 
 
-    def predict(self,x,P,f,fdot,gamma,Q,t):
+   # def predict(self,x,P,f,fdot,gamma,Q,t):
 
+    def predict(self,x,P,F,T,Q):
 
-        F = self.model.F_function(gamma,self.dt)
-        T = self.model.T_function(f,fdot,gamma,t,self.dt)
+       # F = self.model.F_function(gamma,self.dt)
+        #T = self.model.T_function(f,fdot,gamma,t,self.dt)
 
        
-        xp = F@x + T 
-        Pp = F@P@F.T + Q
+        xp = F*x + T 
+        Pp = F*P*F + Q
 
         
-
-
         return xp,Pp
 
 
 
     def likelihood(self,parameters):
         
-        model = "H1"
-        if model == "H1":
-            self.measurement_matrix = self.model.H_function
-        elif model == "H0":
-             self.measurement_matrix = self.model.H0_function
 
-        print("THESE ARE THE PARAMETERS")
-        print(len(parameters))
-        print(parameters)
-
-        map_vector_to_dicts(parameters)
-        
+        #print(parameters)
+        #Two different methods for mapping the parameters dict to a vector
+        #Performance seems about the same
         #f,fdot,gamma,d = map_dicts_to_vector(parameters)
+        f,fdot,gamma,d = map_dicts_to_vector2(parameters,self.Npsr)
+       
         
         # #Setup Q and R matrices.
         # #These are time-independent functions of the parameters
         Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
         R = self.model.R_function(self.Npsr,parameters["sigma_m"])
 
+        #Initial values for x and P
+        x = self.x 
+        P = self.P
 
-
-        #Initialise x and P
-        x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.eye(self.Npsr) * 1e5 #1e-13*1e9 
-
-        #GW quantities
-        gw = GWs(parameters)
-        prefactor, dot_product =gw_prefactor(gw.n,self.q, gw.Hij, gw.omega_gw,d)
-       
+        #Compute quantities that depend on the system parameters but are constant in time       
+        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+                               parameters["alpha_gw"],
+                               parameters["psi_gw"],
+                               self.q,
+                               self.q_products,
+                               parameters["h"],
+                               parameters["iota_gw"],
+                               parameters["omega_gw"],
+                               d,
+                               self.t,
+                               parameters["phi0_gw"]
+                               )
+        
+        #modulation_factors = gw_modulation_vectorized(self.t,parameters["omega_gw"],,prefactor,dot_product)
+    
+        #Precompute all the transition and control matrices
+        F = self.model.F_function(gamma,self.dt)
+        #print("gamma vector = ")
+        #print(gamma)
+        T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
+        
 
         #Initialise the likelihood
         likelihood = 0.0
-       
+        i = 0
+        x,P,l= self.update(x,P, self.observations[i,:],R,modulation_factors[i,:])
+        likelihood +=l
 
-
-        #The first update step
-        x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
+       #Place to store results
+        #x_results = np.zeros((self.Nsteps,self.Npsr))
+        #x_results[0,:] = x
         
-        #likelihood +=l
-
-        #Place to store results
-        x_results = np.zeros((self.Nsteps,self.Npsr))
-        x_results[0,:] = x
-
-
-
-
-
-
-
 
         for i in np.arange(1,self.Nsteps):
-        
+            #print(i)
+            x_predict, P_predict   = self.predict(x,P,F,T[i,:],Q)
 
-            
-            obs = self.observations[i,:]
-            ti = self.t[i]
 
-            x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
-            x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
+            x,P,l = self.update(x_predict,P_predict, self.observations[i,:],R,modulation_factors[i,:])
             likelihood +=l
 
-            x_results[i,:] = x
+            #x_results[i,:] = x
             
-        return likelihood, x_results, P
-        return 1,2,3
+        #return 1,2,3
+
+        #print("finishing - get the l: ", likelihood)
+        return likelihood#, x_results, P
 
       
 
@@ -206,28 +221,24 @@ def map_dicts_to_vector(parameters_dict):
     return f,fdot,gamma,d
 
 
+#self.Npsr
+def map_dicts_to_vector2(parameters_dict,N):
 
+    #print("map_dicts_to_vector2")
 
-"""
-Useful function which maps repeted quantities in the dictionary to a
-vector
-"""
-def map_vector_to_dicts(vector):
+    xx = np.array([*parameters_dict.values()])
+    #print(parameters_dict)
+    #print(xx)
+    #print("-------------")
 
-    Npsr = int((len(vector) - 9)/4)
-    print(Npsr)
+    buffer = 7
+    f = xx[buffer:buffer+N]
+    fdot = xx[buffer+N: buffer+2*N]
+    d = xx[buffer+2*N: buffer+3*N]
+    gamma = xx[buffer+3*N:buffer+4*N]
 
-    constants = vector[0:7]
-    sigmas = [vector[-2],vector[-1]]
-    print(constants)
-
-    f = np.array([val for key, val in parameters_dict.items() if "f0" in key])
-    fdot = np.array([val for key, val in parameters_dict.items() if "fdot" in key])
-    gamma = np.array([val for key, val in parameters_dict.items() if "gamma" in key])
-    d = np.array([val for key, val in parameters_dict.items() if "distance" in key])
 
     return f,fdot,gamma,d
-
 
 
 
