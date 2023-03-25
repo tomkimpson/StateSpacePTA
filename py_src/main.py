@@ -38,12 +38,12 @@ if __name__=="__main__":
     guessed_parameters = priors_dict(PTA,GW)
     # print(guessed_parameters)
 
-    t1_start = time.perf_counter()
-    model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters,"H1")
-    t1_end = time.perf_counter()
+    # t1_start = time.perf_counter()
+    # model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters,"H1")
+    # t1_end = time.perf_counter()
 
 
-    print("Run time was: ", t1_end - t1_start)
+    # print("Run time was: ", t1_end - t1_start)
     # null_likelihood, null_state_predictions, null_covariance_predictions = KF.likelihood(guessed_parameters,"H0")
     # print(model_likelihood)
     # print(null_likelihood)
@@ -54,8 +54,40 @@ if __name__=="__main__":
     #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
     #Bilby 
+    init_parameters, priors = bilby_priors_dict(PTA)
 
-    # init_parameters, priors = bilby_priors_dict(PTA)
+
+    def my_prior_transform(cube):
+        params = cube.copy()
+
+        # transform amplitude parameter: log-uniform prior
+        i = 0
+        for k, v in priors.items():
+            
+            if i == 0:
+                i+= 1
+                continue
+            print(i,k,v)
+            params[i] = v
+            i+= 1
+            
+
+        lo = 1e-9
+        hi = 1e-6
+        params[0] = 10**(cube[0] * (np.log10(hi) - np.log10(lo)) + np.log10(lo))
+
+
+        
+        return params
+
+
+    param_names = list(priors.keys())
+    print(param_names)
+    import ultranest
+
+    sampler = ultranest.ReactiveNestedSampler(param_names, KF.likelihood, my_prior_transform)
+
+
 
 
     # # #Manually specify the injection parameters
@@ -83,7 +115,7 @@ if __name__=="__main__":
 
     # print(init_parameters)
     # print(priors)
-    # BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA2", "../data/nested_sampling")
+    # BilbySampler(KF,init_parameters,priors,injection_parameters,"PTA3", "../data/nested_sampling")
 
 
 

@@ -27,6 +27,23 @@ function parameter_estimation_ultranest(::Type{NF}=Float64;              # numbe
 
    
     
+    prior_transform = let dist=dist
+        (u::AbstractVector{<:Real}) -> begin
+            x0 = minimum.(dist.v)
+            Δx = maximum.(dist.v) .- x0
+            u .* Δx .+ x0
+        end
+    end
+
+
+
+
+
+
+
+
+
+
     model = NestedModel(likelihood, priors)
     spl = Nested(length(priors), 50) #X parameters, Y active points, multi-ellipsoid. See docstring
     display(prior_names)

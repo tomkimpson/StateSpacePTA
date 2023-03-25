@@ -77,9 +77,9 @@ class KalmanFilter:
         y = observation - np.dot(H,x) 
         
         
-        S = H@P@H.T + R #H is diagonal, transpose is a waste. Kept in for generality
+        S = H@P@H + R #H is diagonal, no need to transpose
 
-        
+       
         K = P@H.T@np.linalg.inv(S)
         xnew = x + K@y
 
@@ -92,8 +92,8 @@ class KalmanFilter:
         I_KH = np.eye(self.Npsr) - (K@H)
         Pnew = I_KH @ P @I_KH.T + K @ R @ K.T
         
-        #l = self.get_likelihood(S,y)
-        l = self.log_likelihood(S,y)
+        l = self.get_likelihood(S,y) #this seems to be cheaper to evaluate?
+       #l = self.log_likelihood(S,y)
        
         return xnew, Pnew,l
 
@@ -115,17 +115,24 @@ class KalmanFilter:
 
 
 
-    def likelihood(self,parameters,model):
+    def likelihood(self,parameters):
         
+        model = "H1"
         if model == "H1":
             self.measurement_matrix = self.model.H_function
         elif model == "H0":
              self.measurement_matrix = self.model.H0_function
 
-        f,fdot,gamma,d = map_dicts_to_vector(parameters)
+        print("THESE ARE THE PARAMETERS")
+        print(len(parameters))
+        print(parameters)
+
+        map_vector_to_dicts(parameters)
         
-        #Setup Q and R matrices.
-        #These are time-independent functions of the parameters
+        #f,fdot,gamma,d = map_dicts_to_vector(parameters)
+        
+        # #Setup Q and R matrices.
+        # #These are time-independent functions of the parameters
         Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
         R = self.model.R_function(self.Npsr,parameters["sigma_m"])
 
@@ -146,7 +153,7 @@ class KalmanFilter:
 
 
         #The first update step
-        #x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
+        x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
         
         #likelihood +=l
 
@@ -162,20 +169,20 @@ class KalmanFilter:
 
 
         for i in np.arange(1,self.Nsteps):
-        #for i in np.arange(1,5):
+        
 
             
-            # obs = self.observations[i,:]
-            # ti = self.t[i]
+            obs = self.observations[i,:]
+            ti = self.t[i]
 
-            # x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
-            # x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
-            # likelihood +=l
+            x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
+            x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
+            likelihood +=l
 
-            # x_results[i,:] = x
+            x_results[i,:] = x
             
-        #return likelihood, x_results, P
-         return 1,2,3
+        return likelihood, x_results, P
+        return 1,2,3
 
       
 
@@ -190,6 +197,29 @@ vector
 """
 def map_dicts_to_vector(parameters_dict):
 
+
+    f = np.array([val for key, val in parameters_dict.items() if "f0" in key])
+    fdot = np.array([val for key, val in parameters_dict.items() if "fdot" in key])
+    gamma = np.array([val for key, val in parameters_dict.items() if "gamma" in key])
+    d = np.array([val for key, val in parameters_dict.items() if "distance" in key])
+
+    return f,fdot,gamma,d
+
+
+
+
+"""
+Useful function which maps repeted quantities in the dictionary to a
+vector
+"""
+def map_vector_to_dicts(vector):
+
+    Npsr = int((len(vector) - 9)/4)
+    print(Npsr)
+
+    constants = vector[0:7]
+    sigmas = [vector[-2],vector[-1]]
+    print(constants)
 
     f = np.array([val for key, val in parameters_dict.items() if "f0" in key])
     fdot = np.array([val for key, val in parameters_dict.items() if "fdot" in key])

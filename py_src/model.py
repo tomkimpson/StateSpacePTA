@@ -19,10 +19,7 @@ class LinearModel:
 
 
     def T_function(f0,fdot,gamma,t,dt):
-      
-       
         value = f0 + fdot*(t+dt) - np.exp(-gamma*dt)*(f0+fdot*t)
-        
         return value
  
 

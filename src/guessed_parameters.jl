@@ -41,9 +41,19 @@ function guess_parameters(pulsars::Pulsars,P::SystemParameters)
 end 
 
 
+function guess_parameters(f::Vector{Float64}, pulsars::Pulsars,P::SystemParameters)
 
-function priors_to_struct()
+    @unpack ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,σp_guess,σm_guess = P
+    @unpack ḟ0,d,γ = pulsars
 
+    f0 = f
+    
+   
+    return GuessedParameters{P.NF}(f0,ḟ0,d,γ,
+                                   ω_guess,Φ0_guess,ψ_guess,ι_guess,δ_guess,α_guess,h_guess,
+                                   σp_guess,σm_guess) #convert to type NF 
 
 
 end 
+
+

@@ -13,15 +13,12 @@ class GWs:
 
         m,n                 = principal_axes(np.pi/2.0 - P["delta_gw"],P["alpha_gw"],P["psi_gw"])    
         self.n              = np.cross(m,n)            
-    
         hp,hx               = h_amplitudes(P["h"],P["iota_gw"]) 
+        e_plus              = np.tensordot(m, m, axes=0) - np.tensordot(n, n, axes=0)
+        e_cross             = np.tensordot(m, n, axes=0) - np.tensordot(n, m, axes=0) 
+        self.Hij            = hp * e_plus + hx * e_cross
 
-        e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)])
-        e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
-    
 
- 
-        self.Hij                 = hp * e_plus + hx * e_cross
 
 
         #assing some quantities to self
@@ -35,32 +32,9 @@ class GWs:
 
 def gw_prefactor(n,q, Hij,ω, d):
 
-    a = np.array([[1, 0],
-                [0, 1]])
-    b = np.array([1, 2])
-
-    print(a.shape)
-    print(b.shape)
-    print(np.matmul(a,b))
-
-    print (q.shape)
-    print(n.shape)
-    
-    print(len(np.matmul(q,n)))
-
-    option1 = [np.dot(n,q[i,:]) for i in range(len(q))]
-    option2 = np.matmul(q,n)
-
-    print(option1)
-    print(option2)
-    print(option1 == option2)
-    #print(option2)
-
-
-    dot_product  = np.array([1.0 + np.dot(n,q[i,:]) for i in range(len(q))])
-    hbar         = np.array([np.sum([[Hij[i,j]*q[k,i]*q[k,j] for i in range(3)]for j in range(3)]) for k in range(len(q))]) # Size Npulsars. Is there a vectorised way to do this?
+    dot_product  = 1.0 + np.matmul(q,n)
+    hbar         =    [np.einsum('ij,i,j->', Hij, q[k,:], q[k,:]) for k in range(len(q))]
     ratio        = hbar / dot_product
-
     Hcoefficient = 1.0 - cos(ω*d*dot_product)
     prefactor    = 0.5*ratio*Hcoefficient
 
@@ -72,7 +46,6 @@ def gw_modulation(t,omega,phi0,prefactor,dot_product):
     return GW_factor
 
 def principal_axes(theta,phi,psi):
-
 
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
     m2 = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta))
