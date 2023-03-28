@@ -15,6 +15,7 @@ class LinearModel:
     def F_function(gamma,dt):
     
         value = np.exp(-gamma*dt)
+        #print("value = ", value )
         #return np.diag(value)
         return value
 
@@ -23,20 +24,13 @@ class LinearModel:
       
         tensor_product =  np.outer(t+dt,fdot) #This has shape(n times, n pulsars)
 
-        # print("size of tp: ", tensor_product.shape)
-        # print("size of f0: ", f0.shape)
-        # #print("size of fdot*dt", (fdot*dt).shape)
-        # print(f0)
-        # print(tensor_product)
-        # print("-------------------")
-
-        # print(f0 + tensor_product)
-       
-
-        #print("GAmma values = ", gamma)
-        #value = f0 + fdot*(t+dt) - np.exp(-gamma*dt)*(f0+fdot*t)
         value = f0 + tensor_product + fdot*dt - np.exp(-gamma*dt)*(f0+tensor_product)
 
+        # print("Tfunction: ", f0)
+        # print("tensor product:",tensor_product)
+        # print("fdot * dt", fdot*dt)
+        # print("exP:", np.exp(-gamma*dt))
+        # print("f0 + tp: ", f0+tensor_product)
         
         return value
  
@@ -62,9 +56,9 @@ class LinearModel:
     Returns a Q matrix 
     """
     def Q_function(gamma,sigma_p,dt):
+
         
         value = sigma_p**2 * (np.exp(2.0*gamma* dt) - 1.) / (2.0 * gamma)
-        #return np.diag(value) 
         return value #this is now a vector
      
 

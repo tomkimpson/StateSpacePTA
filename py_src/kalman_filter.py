@@ -34,8 +34,8 @@ class KalmanFilter:
         self.Nsteps = self.observations.shape[0]
 
 
-        print("The number of pulsars is:")
-        print(self.Npsr)
+        print("The number of pulsars is: ",self.Npsr)
+        
 
 
         # #Initialise x and P
@@ -109,6 +109,7 @@ class KalmanFilter:
         #print("Innovatin covariance is:")
         #print(S)
         
+    
         l = self.get_vector_likelihood(S,y)
         #print(l)
 
@@ -122,11 +123,14 @@ class KalmanFilter:
        # F = self.model.F_function(gamma,self.dt)
         #T = self.model.T_function(f,fdot,gamma,t,self.dt)
 
-       
-        xp = F*x + T 
-        Pp = F*P*F + Q
-
         
+        # print ("F = ", F)
+        # print("x = ",x)
+        # print ("T = ", T)
+        # print('-----------')
+        xp = F*x + T 
+        #print("Predict: ", F*x, T, xp)
+        Pp = F*P*F + Q
         return xp,Pp
 
 
@@ -146,6 +150,8 @@ class KalmanFilter:
         Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
         R = self.model.R_function(self.Npsr,parameters["sigma_m"])
 
+
+
         #Initial values for x and P
         x = self.x 
         P = self.P
@@ -163,6 +169,78 @@ class KalmanFilter:
                                self.t,
                                parameters["phi0_gw"]
                                )
+        
+        #modulation_factors = gw_modulation_vectorized(self.t,parameters["omega_gw"],,prefactor,dot_product)
+    
+        #Precompute all the transition and control matrices
+        F = self.model.F_function(gamma,self.dt)
+        #print("gamma vector = ")
+        #print(gamma)
+        T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
+        
+
+
+        #Initialise the likelihood
+        likelihood = 0.0
+        i = 0
+        x,P,l= self.update(x,P, self.observations[i,:],R,modulation_factors[i,:])
+        likelihood +=l
+
+       #Place to store results
+        #x_results = np.zeros((self.Nsteps,self.Npsr))
+        #x_results[0,:] = x
+        
+
+        for i in np.arange(1,self.Nsteps):
+            #print(i)
+            x_predict, P_predict   = self.predict(x,P,F,T[i,:],Q)
+
+
+            x,P,l = self.update(x_predict,P_predict, self.observations[i,:],R,modulation_factors[i,:])
+            likelihood +=l
+
+            #x_results[i,:] = x
+            
+        #return 1,2,3
+
+        #print("finishing - get the l: ", likelihood)
+        #print("likelihood = ", likelihood)
+        return likelihood#, x_results, P
+
+      
+
+    def null_likelihood(self,parameters):
+        
+
+
+        f,fdot,gamma,d = map_dicts_to_vector2(parameters,self.Npsr)
+       
+        
+        # #Setup Q and R matrices.
+        # #These are time-independent functions of the parameters
+        Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
+        R = self.model.R_function(self.Npsr,parameters["sigma_m"])
+
+        #Initial values for x and P
+        x = self.x 
+        P = self.P
+
+        #Compute quantities that depend on the system parameters but are constant in time       
+        # modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+        #                        parameters["alpha_gw"],
+        #                        parameters["psi_gw"],
+        #                        self.q,
+        #                        self.q_products,
+        #                        parameters["h"],
+        #                        parameters["iota_gw"],
+        #                        parameters["omega_gw"],
+        #                        d,
+        #                        self.t,
+        #                        parameters["phi0_gw"]
+        #                        )
+
+
+        modulation_factors = np.ones((self.Nsteps, self.Npsr)) #there is no GW.
         
         #modulation_factors = gw_modulation_vectorized(self.t,parameters["omega_gw"],,prefactor,dot_product)
     
@@ -199,7 +277,110 @@ class KalmanFilter:
         #print("finishing - get the l: ", likelihood)
         return likelihood#, x_results, P
 
-      
+
+
+
+
+
+
+
+
+
+
+
+
+    """
+    Identical to the above likelihood() function, but also returns predictions for the sates
+    This could be included in the above function with some `if` conditions,
+    but I prefer to keep the likelihood function clean for use with Bilby/ Nested Sampling
+    """
+    def likelihood_and_states(self,parameters):
+        
+
+        
+
+        #print(parameters)
+
+
+        #Two different methods for mapping the parameters dict to a vector
+        #Performance seems about the same
+        f,fdot,gamma,d = map_dicts_to_vector(parameters)
+        #print(gamma.dtype)
+        #f,fdot,gamma,d = map_dicts_to_vector2(parameters,self.Npsr)
+        #print(gamma.dtype)
+        #print('-------------------------')
+
+        #gamma = np.array(gamma,dtype=np.object)
+        #print("gamma type:", gamma.dtype)
+        
+        # #Setup Q and R matrices.
+        # #These are time-independent functions of the parameters
+        Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
+        R = self.model.R_function(self.Npsr,parameters["sigma_m"])
+
+        #Initial values for x and P
+        x = self.x 
+        P = self.P
+
+
+        #print("Q =", Q)
+
+
+        #Compute quantities that depend on the system parameters but are constant in time       
+        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+                               parameters["alpha_gw"],
+                               parameters["psi_gw"],
+                               self.q,
+                               self.q_products,
+                               parameters["h"],
+                               parameters["iota_gw"],
+                               parameters["omega_gw"],
+                               d,
+                               self.t,
+                               parameters["phi0_gw"]
+                               )
+        
+        #modulation_factors = gw_modulation_vectorized(self.t,parameters["omega_gw"],,prefactor,dot_product)
+    
+        #Precompute all the transition and control matrices
+        F = self.model.F_function(gamma,self.dt)
+        T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
+        
+
+
+        #print("T matrix is: ", T)
+
+
+        #Initialise the likelihood
+        likelihood = 0.0
+        i = 0
+        x,P,l= self.update(x,P, self.observations[i,:],R,modulation_factors[i,:])
+        likelihood +=l
+
+       #Place to store results
+        x_results = np.zeros((self.Nsteps,self.Npsr))
+        x_results[0,:] = x
+        
+
+        for i in np.arange(1,self.Nsteps):
+            #print(i)
+            x_predict, P_predict   = self.predict(x,P,F,T[i,:],Q)
+            #print("x predict = ", x_predict)
+
+
+            x,P,l = self.update(x_predict,P_predict, self.observations[i,:],R,modulation_factors[i,:])
+            likelihood +=l
+
+            x_results[i,:] = x
+            
+
+        return likelihood, x_results 
+
+
+
+
+
+
 
 
 

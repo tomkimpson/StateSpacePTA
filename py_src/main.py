@@ -35,7 +35,7 @@ if __name__=="__main__":
     KF = KalmanFilter(model,data.f_measured,PTA)
 
     # # Run the KF once with the correct parameters
-    # guessed_parameters = priors_dict(PTA,GW)
+    #guessed_parameters = priors_dict(PTA,GW)
     # # print(guessed_parameters)
     # t1 = time.perf_counter()
     # #model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters)
@@ -47,9 +47,31 @@ if __name__=="__main__":
     # # t,states,measurements,predictions,psr_index
     #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
 
+
+    true_parameters = priors_dict(PTA,GW)
+    model_likelihood = KF.likelihood(true_parameters)
+    print("The log likelihood with the true parameters is: ", model_likelihood)
+
+
+
+
+    # tolerance = 0.02
+    # dlogz = np.abs(model_likelihood)*tolerance
+    dlogz=0.10
+    
+
     # #Bilby 
-    #init_parameters, priors = bilby_priors_dict(PTA)
-    #BilbySampler(KF,init_parameters,priors)
+    init_parameters, priors = bilby_priors_dict(PTA,P)
+    BilbySampler(KF,init_parameters,priors,"diagonal88","../data/nested_sampling",dlogz)
+
+   
+    
+   #p = priors.sample()
+   # 
+    #print(p)
+   # model_likelihood = KF.likelihood(p)
+   # print(p["f00"], p["omega_gw"])
+    #print(model_likelihood)
 
 
     # for i in range(100):
@@ -65,48 +87,39 @@ if __name__=="__main__":
 
 
 
-    #Uncomment the below use the below to generate a rough plot of likelihood vs parameter
 
+    #guessed_parameters = priors_dict(PTA,GW)
+    #print(guessed_parameters)
 
-    xx = []
-    yy = []
+#327.8470205611185
 
-    N = 100
+    #fs = np.arange(325,330,0.10)
+    # fs = np.arange(1e-3,1e-1,1e-3)
 
-    omegas=np.arange(4e-7,6e-7,1e-9)
-    hs = np.logspace(-3,-1,100)
-    #for i in range(len(omegas)):
-    for i in range(len(hs)):
+    # xx = []
+    # yy = []
+    # for i in fs:
+    #     guessed_parameters = priors_dict(PTA,GW)
+        
+    #     #guessed_parameters["f00"] = i 
+    #     guessed_parameters["h"] = i 
 
-        print(i, hs[i])
-        guessed_parameters = priors_dict(PTA,GW)
+        
+    #     guessed_parameters["sigma_p"] = 1e-3
+    #     guessed_parameters["omega_gw"] = 1e-7
+        
+        
+        
+    #     model_likelihood = KF.likelihood(guessed_parameters)
 
-        #omega = guessed_parameters["omega_gw"]
-        #guessed_parameters["omega_gw"] = omegas[i]
-        guessed_parameters["h"] = hs[i]
-        #model_likelihood,model_state_predictions,P = KF.likelihood(guessed_parameters)
-        model_likelihood = KF.likelihood(guessed_parameters)
-
-
-        #xx.extend([guessed_parameters["omega_gw"]])
-        xx.extend([guessed_parameters["h"]])
-
-        yy.extend([abs(model_likelihood)])
-
-
-    import matplotlib.pyplot as plt
-    plt.scatter(xx,yy)
-    plt.plot(xx,yy)
-
-    plt.xscale('log')
-    #plt.axvline(5e-7,linestyle="--", c = '0.5')
-    plt.yscale('log')
-    plt.xlabel("omega")
-    plt.ylabel("log L ")
-
-    plt.show()
+    #     xx.extend([i])
+    #     yy.extend([model_likelihood])
 
 
 
-    
-
+    # print(xx)
+    # print(yy)    
+    # import matplotlib.pyplot as plt 
+    # plt.scatter(xx,yy)
+    # plt.axvline(1e-2)
+    # plt.show()

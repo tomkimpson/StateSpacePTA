@@ -12,7 +12,7 @@ class Pulsars:
         c = 3e8 #speed of light in m/s
 
         pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
-        #pulsars = pulsars.head(2) 
+        pulsars = pulsars.head(2) 
 
         #pulsars = pulsars.sample(5) 
 
@@ -24,8 +24,8 @@ class Pulsars:
         self.gamma = np.ones_like(self.f) * 1e-13  #for every pulsar let γ be 1e-13
    
 
-        self.δ = pulsars["DECJD"].to_numpy()
-        self.α = pulsars["RAJD"].to_numpy()
+        #self.δ = pulsars["DECJD"].to_numpy()
+        #self.α = pulsars["RAJD"].to_numpy()
 
     
         self.q = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
@@ -54,7 +54,6 @@ class Pulsars:
         self.sigma_m =  SystemParameters["sigma_m"]
 
 
-        print("self.sigma p is:", self.sigma_p)
 
         self.Npsr = len(self.f)
 
