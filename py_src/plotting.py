@@ -111,18 +111,18 @@ def iterate_over_priors(variable, variable_range,true_parameters,KF):
         
         guessed_parameters[variable] = v 
         model_likelihood,model_state_predictions = KF.likelihood_and_states(guessed_parameters)
-        likelihoods[i] = np.abs(model_likelihood)
+        likelihoods[i] = model_likelihood
         i+=1 
 
     return likelihoods
 
 
 from priors import priors_dict
-def likelihoods_over_priors(parameters,priors,PTA,GW,KF,sigma_p):
+def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
 
 
     plt.style.use('science')
-    true_parameters = priors_dict(PTA,GW)
+    true_parameters = priors_dict(PTA,P)
     true_parameters["sigma_p"] = sigma_p
     
 

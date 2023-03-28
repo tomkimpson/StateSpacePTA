@@ -64,17 +64,17 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 
 
 
-def priors_dict(pulsar_parameters,GW_parameters):
+def priors_dict(pulsar_parameters,P):
 
 
    priors = dict({
-               "omega_gw": GW_parameters.omega_gw,
-               "phi0_gw":GW_parameters.phi0_gw,
-               "psi_gw":GW_parameters.psi_gw,
-               "iota_gw": GW_parameters.iota_gw,
-               "delta_gw":GW_parameters.delta_gw,
-               "alpha_gw":GW_parameters.alpha_gw,
-               "h": GW_parameters.h})
+               "omega_gw": P["omega_gw"],
+               "phi0_gw":P["phi0_gw"],
+               "psi_gw":P["psi_gw"],
+               "iota_gw": P["iota_gw"],
+               "delta_gw":P["delta_gw"],
+               "alpha_gw":P["alpha_gw"],
+               "h": P["h"]})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
    priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
@@ -149,13 +149,13 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'alpha_gw')
+    #priors["alpha_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'alpha_gw')
     priors["alpha_gw"] = P["alpha_gw"]
 
 
     init_parameters["h"] = None
-    #priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
-    priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
+    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
+    #priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
 
     #priors["h"] = P["h"]
 
@@ -172,8 +172,8 @@ def bilby_priors_dict(PTA,P):
     #Noises
     init_parameters["sigma_p"] = None
     #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
-    #priors["sigma_p"] = 1e-3 #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
-    priors["sigma_p"] = P["sigma_p"] #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
+    priors["sigma_p"] = 1e-3 #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
+    #priors["sigma_p"] = P["sigma_p"] #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
 
 
     init_parameters["sigma_m"] = None

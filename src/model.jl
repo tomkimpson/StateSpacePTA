@@ -47,6 +47,7 @@ Returns a Q matrix of size N x N pulsars
 """
 function Q_function(γ::Vector{NF},σp::NF,dt::NF) where {NF<:AbstractFloat}
     value = σp^2 .* ((exp.(NF(2.0).*γ .* dt) .- NF(1.0)) ./ (NF(2.0) .* γ))
+    push!(value,0.0) #add a 0
     return Diagonal(value) 
 end 
 
