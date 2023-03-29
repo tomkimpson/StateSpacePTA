@@ -8,16 +8,18 @@ class Pulsars:
     def __init__(self,SystemParameters):
 
 
-        pc = 3e16     # parsec in m
-        c = 3e8 #speed of light in m/s
+
+        NF = SystemParameters["NF"]
+
+        pc = NF(3e16)     # parsec in m
+        c  = NF(3e8)      # speed of light in m/s
 
         pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
-        pulsars = pulsars.head(1) 
-
-        #pulsars = pulsars.sample(5) 
-
+        if SystemParameters["Npsr"] != 0:
+            pulsars = pulsars.head(SystemParameters["Npsr"]) #can also use  pulsars.sample(N) to randonly sample 
+       
         
-
+        #Extract the parameters
         self.f = pulsars["F0"].to_numpy()
         self.fdot = pulsars["F1"] .to_numpy()
         self.d = pulsars["DIST"].to_numpy()*1e3*pc/c #this is in units of s^-1
@@ -26,23 +28,26 @@ class Pulsars:
 
         self.δ = pulsars["DECJD"].to_numpy()
         self.α = pulsars["RAJD"].to_numpy()
-
-    
         self.q = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
-      
-    
-        self.dt = SystemParameters["cadence"] * 24*3600 #from days to step_seconds
-        end_seconds = SystemParameters["T"]* 365*24*3600 #from years to second
+        
+        #Create a flattened q-vector for optimised calculations later
+        self.q_products = np.zeros((len(self.f),9))
+        k = 0
+        for n in range(len(self.f)):
+            k = 0
+            for i in range(3):
+                for j in range(3):
+                    self.q_products[n,k] = self.q[n,i]*self.q[n,j]
+                    k+=1
+        self.q_products = self.q_products.T
 
-
-        self.t = np.arange(0,end_seconds,self.dt)
-
-
-
+        #Assign some other useful quantities to self
+        self.dt      = SystemParameters["cadence"] * 24*3600 #from days to step_seconds
+        end_seconds  = SystemParameters["T"]* 365*24*3600 #from years to second
+        self.t       = np.arange(0,end_seconds,self.dt)
         self.sigma_p =  SystemParameters["sigma_p"] 
         self.sigma_m =  SystemParameters["sigma_m"]
-
-        self.Npsr = len(self.f)
+        self.Npsr    = SystemParameters["Npsr"]
 
 
 
