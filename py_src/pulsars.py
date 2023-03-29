@@ -47,7 +47,7 @@ class Pulsars:
         self.t       = np.arange(0,end_seconds,self.dt)
         self.sigma_p =  SystemParameters["sigma_p"] 
         self.sigma_m =  SystemParameters["sigma_m"]
-        self.Npsr    = SystemParameters["Npsr"]
+        self.Npsr    = len(self.f)
 
 
 

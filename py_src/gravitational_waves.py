@@ -2,17 +2,19 @@
 
 from numpy import sin,cos 
 import numpy as np 
+from numba import jit 
 
 """
 Given the GW parameters, the pulsar parameters and the time,
 compute the frequency correction factor.
 Returns an object of shape (n times, n pulsars)
 """
+@jit(nopython=True)
 def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
-        print("Calling gw optiised")
+        
         m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
         gw_direction        = np.cross(m,n)
       
@@ -46,7 +48,7 @@ def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
-
+@jit(nopython=True)
 def principal_axes(theta,phi,psi):
 
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
@@ -61,7 +63,7 @@ def principal_axes(theta,phi,psi):
 
     return m,n
 
-
+@jit(nopython=True)
 def h_amplitudes(h,ι): 
 
     hplus = h*(1.0 + cos(ι)**2)

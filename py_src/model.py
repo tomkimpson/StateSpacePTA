@@ -1,9 +1,7 @@
 
 
 import numpy as np
-
-#from gravitational_waves import gw_modulation
-
+from numba import jit 
 class LinearModel:
 
     """
@@ -11,39 +9,39 @@ class LinearModel:
     
     """
 
-
+    """
+    The diagonal F matrix as a vector
+    """
+    @jit(nopython=True)
     def F_function(gamma,dt):
-    
-        value = np.exp(-gamma*dt)
-        return np.diag(value)
+        return np.exp(-gamma*dt)
 
 
+    """
+    The control vector
+    """
+    @jit(nopython=True)
     def T_function(f0,fdot,gamma,t,dt):
-      
-       
-        value = f0 + fdot*(t+dt) - np.exp(-gamma*dt)*(f0+fdot*t)
-        
+
+        fdot_time =  np.outer(t+dt,fdot) #This has shape(n times, n pulsars)
+        value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
+
         return value
- 
+
 
     """
-    Measurement function which takes the state and returns the measurement
+    The diagonal Q matrix as a vector
     """
-    def H_function(GW_factor):
-        #GW_factor = gw_modulation(t, omega,phi0,prefactor,dot_product)
-        return np.diag(GW_factor) 
-  
-
-    """
-    Returns a Q matrix 
-    """
+    @jit(nopython=True)
     def Q_function(gamma,sigma_p,dt):
-        
-        value = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
-        return np.diag(value) 
+        return -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
      
 
-    def R_function(L, sigma_m):
-        return np.diag(np.full(L,sigma_m**2)) 
+    """
+    The R matrix as a scalar
+    """
+    @jit(nopython=True)
+    def R_function(sigma_m):
+        return sigma_m**2
      
 
