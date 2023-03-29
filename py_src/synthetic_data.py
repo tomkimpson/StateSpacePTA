@@ -3,24 +3,27 @@
 import sdeint
 import numpy as np 
 
-from gravitational_waves import gw_prefactor,gw_modulation
+from gravitational_waves import gw_prefactor_optimised
 class SyntheticData:
     
     
     
     
-    def __init__(self,pulsars,GW,seed):
+    def __init__(self,pulsars,P):
 
 
+        #Load some PTA related quantities
         t = pulsars.t
-        Npsr = len(pulsars.f)
+        Npsr = pulsars.Npsr 
 
+        #...and the pulsar parameters
         f0 = pulsars.f
         fdot = pulsars.fdot
         gamma = pulsars.gamma
-        sigma_p = np.full((Npsr,1),pulsars.sigma_p**2)
+        sigma_p = np.full((Npsr,1),pulsars.sigma_p)
         
 
+        #First get the intrinstic pulsar evolution by solving the ito equation
         def f(x,t): 
             return -gamma * x + gamma*(f0 + fdot*t) + fdot  
         def g(x,t): 
@@ -29,33 +32,30 @@ class SyntheticData:
        
         self.intrinsic_frequency = sdeint.itoint(f,g,f0, t)
 
-        
-        prefactor, dot_product =gw_prefactor(GW.n,pulsars.q, GW.Hij, GW.omega_gw, pulsars.d)
 
 
 
 
-        f_measured_clean = np.zeros((len(t),Npsr))
 
+       #Now calculate the modulation factor due to the GW
+        modulation_factors = gw_prefactor_optimised(
+                               P["delta_gw"],
+                               P["alpha_gw"],
+                               P["psi_gw"],
+                               pulsars.q,
+                               pulsars.q_products,
+                               P["h"],
+                               P["iota_gw"],
+                               P["omega_gw"],
+                               pulsars.d,
+                               pulsars.t,
+                               P["phi0_gw"]
+                               )
 
-        for i in range(len(t)):
+        #The measured frequency, no noise
+        f_measured_clean= self.intrinsic_frequency * modulation_factors
 
-           GW_factor = gw_modulation(t[i], GW.omega_gw,GW.phi0_gw,prefactor,dot_product)
-           f_measured_clean[i,:] = self.intrinsic_frequency[i,:] * GW_factor
-    
-
+        #...and now add some mean zero Gaussian noise
         measurement_noise = np.random.normal(0, pulsars.sigma_m,f_measured_clean.shape) # Measurement noise
- 
         self.f_measured = f_measured_clean + measurement_noise
 
-        
-
-
-    # f_measured = add_gauss(f_measured_clean,σm,0.0)
-    # # f_measured = zeros(NF,size(q)[1],length(t))
-    # # for i=1:size(q)[1]
-    # #   println
-    # #   f_measured[i,:] = add_gauss(f_measured_clean[i,:], σm, 0.0) #does this do the correct thing?   
-    # # end
-    
-    # return intrinsic_frequency,f_measured

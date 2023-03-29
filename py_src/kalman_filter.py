@@ -2,7 +2,7 @@
 
 
 import numpy as np 
-from gravitational_waves import GWs,gw_prefactor
+from gravitational_waves import gw_prefactor_optimised
 from scipy.stats import multivariate_normal
 
 class KalmanFilter:
@@ -28,13 +28,11 @@ class KalmanFilter:
         self.dt = PTA.dt
         self.q = PTA.q
         self.t = PTA.t
+        self.q = PTA.q
+        self.q_products = PTA.q_products
 
         self.Npsr = self.observations.shape[-1]
         self.Nsteps = self.observations.shape[0]
-
-
-        print("The number of pulsars is:")
-        print(self.Npsr)
 
 
     def get_likelihood(self,S,innovation):
@@ -70,15 +68,14 @@ class KalmanFilter:
 
 
 
-    def update(self, x, P, observation,t,parameters,R,prefactor,dot_product):
+    def update(self, x, P, observation,t,parameters,R,modulation_factors):
 
-        H = self.model.H_function(t,parameters["omega_gw"],parameters["phi0_gw"],prefactor,dot_product)
+        H = self.model.H_function(modulation_factors)
 
         y = observation - np.dot(H,x) 
         
         
-        S = H@P@H.T + R #H is diagonal, transpose is a waste. Kept in for generality
-
+        S = H@P@H.T + R 
         
         K = P@H.T@np.linalg.inv(S)
         xnew = x + K@y
@@ -94,6 +91,9 @@ class KalmanFilter:
         
         #l = self.get_likelihood(S,y)
         l = self.log_likelihood(S,y)
+
+
+        #print("Covariance = ", S)
        
         return xnew, Pnew,l
 
@@ -128,63 +128,28 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.eye(self.Npsr) * 1e5 #1e-13*1e9 
+        P = np.eye(self.Npsr) * parameters["sigma_m"]*1e10 #1e-13*1e9 
 
         #GW quantities
-        gw = GWs(parameters)
-        prefactor, dot_product =gw_prefactor(gw.n,self.q, gw.Hij, gw.omega_gw,d)
-       
+
+        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+                               parameters["alpha_gw"],
+                               parameters["psi_gw"],
+                               self.q,
+                               self.q_products,
+                               parameters["h"],
+                               parameters["iota_gw"],
+                               parameters["omega_gw"],
+                               d,
+                               self.t,
+                               parameters["phi0_gw"]
+                               )
 
         #Initialise the likelihood
         likelihood = 0.0
-       
+              
 
-        # print("Welcome to the linear Kalman filter in Julia")
-        # print("You have chosen the following settings:")
-
-        # print("f0")
-        # print(f)
-
-        # print("f0̇")
-        # print(fdot)
-
-        # print("gamma")
-        # print(gamma)
-
-        # print("d")
-        # print(d)
-
-        # print("Φ0")
-        # print(parameters["phi0_gw"])
-
-        # print("ψ")
-        # print(parameters["psi_gw"])
-
-        # print("ι")
-        # print(parameters["iota_gw"])
-
-        # print("δ")
-        # print(parameters["delta_gw"])
-
-        # print("α")
-        # print(parameters["alpha_gw"])
-
-        # print("h")
-        # print(parameters["h"])
-
-        # print("σp")
-        # print(parameters["sigma_p"])
-    
-        # print("σm")
-        # print(parameters["sigma_m"])
-        
-        # print("ω")
-        # print(parameters["omega_gw"])
-
-        #The first update step
-       
-
-        x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,prefactor,dot_product)
+        x,P,l = self.update(x,P, self.observations[0,:], self.t[0],parameters,R,modulation_factors[0,:])
         
         likelihood +=l
 
@@ -197,14 +162,12 @@ class KalmanFilter:
 
 
         for i in np.arange(1,self.Nsteps):
-        #for i in np.arange(1,5):
-
             
             obs = self.observations[i,:]
             ti = self.t[i]
 
             x_predict, P_predict   = self.predict(x,P,f,fdot,gamma,Q,ti)
-            x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,prefactor,dot_product)
+            x,P,l = self.update(x_predict,P_predict, obs,ti,parameters,R,modulation_factors[i,:])
             likelihood +=l
 
             x_results[i,:] = x
@@ -216,10 +179,8 @@ class KalmanFilter:
 
 
 
-
-
 """
-Useful function which maps repeted quantities in the dictionary to a
+Useful function which maps repeated quantities in the dictionary to a
 vector
 """
 def map_dicts_to_vector(parameters_dict):

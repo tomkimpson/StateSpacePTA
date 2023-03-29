@@ -1,6 +1,7 @@
 import bilby
 import sys
 import numpy as np 
+import sys
 class BilbyLikelihood(bilby.Likelihood):
 
     def __init__(self,KalmanModel,parameters):
@@ -16,6 +17,8 @@ class BilbyLikelihood(bilby.Likelihood):
             ll= -np.inf
         if np.isnan(ll):
             ll = -np.inf
+
+        sys.exit()
         return ll
             
 
@@ -27,9 +30,9 @@ def BilbySampler(KalmanFilter,init_parameters,priors):
  
     # #Run the sampler
     print("RUN THE SAMPLER")
-    result = bilby.run_sampler(likelihood, priors, label = "test48",outdir=".",
+    result = bilby.run_sampler(likelihood, priors, label = "test_drop",outdir=".",
                             sampler ='dynesty',check_point_plot=False,
-                            sample='rwalk', walks=10, npoints=100,dlogz=5,
+                            sample='rwalk', walks=10, npoints=100,
                             npool=6,plot=True,resume=False)
 
     return result
