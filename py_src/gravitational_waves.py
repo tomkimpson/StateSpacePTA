@@ -2,110 +2,52 @@
 
 from numpy import sin,cos 
 import numpy as np 
-
-
-
-from numba import jit
-# class GWs:
+class GWs:
 
 
 
 
 
-#     def __init__(self,P):
+    def __init__(self,P):
 
 
-#         m,n                 = principal_axes(np.pi/2.0 - P["delta_gw"],P["alpha_gw"],P["psi_gw"])    
-#         self.n              = np.cross(m,n)            
+        m,n                 = principal_axes(np.pi/2.0 - P["delta_gw"],P["alpha_gw"],P["psi_gw"])    
+        self.n              = np.cross(m,n)            
     
-#         hp,hx               = h_amplitudes(P["h"],P["iota_gw"]) 
+        hp,hx               = h_amplitudes(P["h"],P["iota_gw"]) 
 
-#         e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)])
-#         e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
+        e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)])
+        e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
     
 
  
-#         self.Hij                 = hp * e_plus + hx * e_cross
+        self.Hij                 = hp * e_plus + hx * e_cross
 
 
-#         #assing some quantities to self
-#         self.omega_gw = P["omega_gw"]
-#         self.phi0_gw = P["phi0_gw"]
-#         self.psi_gw = P["psi_gw"]
-#         self.iota_gw = P["iota_gw"]
-#         self.delta_gw = P["delta_gw"]
-#         self.alpha_gw = P["alpha_gw"]
-#         self.h = P["h"]
+        #assing some quantities to self
+        self.omega_gw = P["omega_gw"]
+        self.phi0_gw = P["phi0_gw"]
+        self.psi_gw = P["psi_gw"]
+        self.iota_gw = P["iota_gw"]
+        self.delta_gw = P["delta_gw"]
+        self.alpha_gw = P["alpha_gw"]
+        self.h = P["h"]
 
-# def gw_prefactor(n,q, Hij,ω, d):
-#     dot_product  = np.array([1.0 + np.dot(n,q[i,:]) for i in range(len(q))])
-#     hbar         = np.array([np.sum([[Hij[i,j]*q[k,i]*q[k,j] for i in range(3)]for j in range(3)]) for k in range(len(q))]) # Size Npulsars. Is there a vectorised way to do this?
-#     ratio        = hbar / dot_product
+def gw_prefactor(n,q, Hij,ω, d):
+    dot_product  = np.array([1.0 + np.dot(n,q[i,:]) for i in range(len(q))])
+    hbar         = np.array([np.sum([[Hij[i,j]*q[k,i]*q[k,j] for i in range(3)]for j in range(3)]) for k in range(len(q))]) # Size Npulsars. Is there a vectorised way to do this?
+    ratio        = hbar / dot_product
 
-#     Hcoefficient = 1.0 - cos(ω*d*dot_product)
-#     prefactor    = 0.5*ratio*Hcoefficient
+    Hcoefficient = 1.0 - cos(ω*d*dot_product)
+    prefactor    = 0.5*ratio*Hcoefficient
 
-#     return prefactor,dot_product
+    return prefactor,dot_product
 
+def gw_modulation(t,omega,phi0,prefactor,dot_product):
+    time_variation = cos(-omega*t *dot_product + phi0)
+    GW_factor = 1.0 - prefactor * time_variation
+    return GW_factor
 
-
-@jit(nopython=True)
-def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
-
-
-
-        m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
-        gw_direction        = np.cross(m,n)
-        #dot_product         = 1.0 + np.matmul(q,gw_direction)
-        dot_product         = 1.0 + np.dot(q,gw_direction)
-       
-
-
-        #e_plus              = np.tensordot(m, m, axes=0) - np.tensordot(n, n, axes=0)
-        #e_cross             = np.tensordot(m, n, axes=0) - np.tensordot(n, m, axes=0) 
-
-        
-        e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)])
-        e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
-
-        hp,hx               = h_amplitudes(h,iota) 
-        Hij                 = hp * e_plus + hx * e_cross
-        Hij_flat            = Hij.flatten()
-
-
-        #hbar                 = np.matmul(Hij_flat,q_products)
-        hbar                = np.dot(Hij_flat,q_products)
-
-
-       
-       
-
-        prefactor    = 0.5*(hbar / dot_product)*(1.0 - cos(omega*d*dot_product))
-
-
-        tensor = np.outer(t,dot_product) #This has shape(n times, n pulsars)
-        time_variation = cos(-omega*tensor + phi0)
-
-        GW_factor = 1.0 - prefactor * time_variation
-        return GW_factor #This has shape(n times, n pulsars)
-
-
-
-# def gw_modulation(t,omega,phi0,prefactor,dot_product):
-#     time_variation = cos(-omega*t *dot_product + phi0)
-#     GW_factor = 1.0 - prefactor * time_variation
-#     return GW_factor
-
-
-# def gw_modulation_vectorized(t,omega,phi0,prefactor,dot_product):
-#     tensor = np.outer(t,dot_product) #This has shape(n times, n pulsars)
-#     time_variation = cos(-omega*tensor + phi0)
-#     GW_factor = 1.0 - prefactor * time_variation
-    
-#     return GW_factor #This has shape(n times, n pulsars)
-
-
-@jit(nopython=True)
 def principal_axes(theta,phi,psi):
 
 
@@ -121,7 +63,6 @@ def principal_axes(theta,phi,psi):
 
     return m,n
 
-@jit(nopython=True)
 def h_amplitudes(h,ι): 
 
 

@@ -4,7 +4,6 @@
 import bilby
 
 import numpy as np
-import random
 
 def add_to_priors_dict(x,label,dict_A):
 
@@ -19,22 +18,7 @@ def add_to_priors_dict(x,label,dict_A):
     return dict_A
 
 
-
-def add_to_priors_dict_erroneous(x,label,dict_A,tol):
-
-
-    i = 0
-    for f in x:
-        value = random.uniform(f*(1-tol), f*(1+tol))
-        key = label+str(i)
-        dict_A[key] = value
-        i+= 1
-
-    return dict_A
-
-
-
-def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
+def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 
 
     
@@ -48,49 +32,9 @@ def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
     return init_parameters,priors
 
 
-def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 
 
-    
-    i = 0
-    for f in x:
-        key = label+str(i)
-        init_parameters[key] = None
-        priors[key] = bilby.core.prior.Uniform(f*0.95,f*1.05, key)
-        i+= 1
-
-    return init_parameters,priors
-
-
-
-
-def priors_dict(pulsar_parameters,P):
-
-
-   priors = dict({
-               "omega_gw": P["omega_gw"],
-               "phi0_gw":P["phi0_gw"],
-               "psi_gw":P["psi_gw"],
-               "iota_gw": P["iota_gw"],
-               "delta_gw":P["delta_gw"],
-               "alpha_gw":P["alpha_gw"],
-               "h": P["h"]})
-   priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
-   priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
-   priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
-
-  
-   return priors
-
-
-
-"""
-Define the pulsar parameters as being slightly wrong from their true values by a random factor < tol
-"""
-def erroneous_priors_dict(pulsar_parameters,GW_parameters,tol):
+def priors_dict(pulsar_parameters,GW_parameters):
 
 
    priors = dict({
@@ -100,26 +44,18 @@ def erroneous_priors_dict(pulsar_parameters,GW_parameters,tol):
                "iota_gw": GW_parameters.iota_gw,
                "delta_gw":GW_parameters.delta_gw,
                "alpha_gw":GW_parameters.alpha_gw,
-               "h": GW_parameters.h})
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.f,"f0",priors,tol)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.fdot,"fdot",priors,tol)
+               "h": GW_parameters.h,
+               "sigma_p": pulsar_parameters.sigma_p,
+               "sigma_m": pulsar_parameters.sigma_m})
+   priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
+   priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.gamma,"gamma",priors,tol)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
+   priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
 
-  
    return priors
 
 
-
-
-
-
-
-
-
-def bilby_priors_dict(PTA,P):
+def bilby_priors_dict(PTA):
 
     init_parameters = {}
     priors = bilby.core.prior.PriorDict()
@@ -127,58 +63,48 @@ def bilby_priors_dict(PTA,P):
     #Add all the GW quantities
     init_parameters["omega_gw"] = None
     priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
-    #priors["omega_gw"] =P["omega_gw"]
-
+    # priors["omega_gw"] = 1e-7
 
     init_parameters["phi0_gw"] = None
-    #priors["phi0_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'phi0_gw')
-    priors["phi0_gw"] =P["phi0_gw"]
+    priors["phi0_gw"] = bilby.core.prior.LogUniform(1e-2, 1e0, 'phi0_gw')
+    # priors["phi0_gw"] = 0.20
 
     init_parameters["psi_gw"] = None
-    #priors["psi_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'psi_gw')
-    priors["psi_gw"] =P["psi_gw"]
+    priors["psi_gw"] = bilby.core.prior.LogUniform(1e0, 1e1, 'psi_gw')
+    # priors["psi_gw"] = 2.5
 
     init_parameters["iota_gw"] = None
-    #priors["iota_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'iota_gw')
-    priors["iota_gw"] = P["iota_gw"]
-
+    priors["iota_gw"] = 0.0
 
     init_parameters["delta_gw"] = None
-    #priors["delta_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'delta_gw')
-    priors["delta_gw"] = P["delta_gw"]
-
+    priors["delta_gw"] = 0.0
 
     init_parameters["alpha_gw"] = None
-    #priors["alpha_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'alpha_gw')
-    priors["alpha_gw"] = P["alpha_gw"]
-
+    priors["alpha_gw"] = bilby.core.prior.LogUniform(1e-1, 1e1, 'alpha_gw')
+    # priors["alpha_gw"] = 1.0
 
     init_parameters["h"] = None
     priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
-    #priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
-
-    #priors["h"] = P["h"]
+    # priors["h"] = 1e-2
 
 
-   
+
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.d,"distance",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.gamma,"gamma",init_parameters,priors)
 
 
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.fdot,"fdot",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
 
 
     #Noises
     init_parameters["sigma_p"] = None
-    #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
-    priors["sigma_p"] = 1e-3 #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
-    #priors["sigma_p"] = P["sigma_p"] #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
-
+    priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
+    # priors["sigma_p"] = 1e-1
 
     init_parameters["sigma_m"] = None
     # priors["sigma_m"] = bilby.core.prior.LogUniform(1e-12, 1e-2, 'omega')
-    priors["sigma_m"] = P["sigma_m"]
+    priors["sigma_m"] = 1e-8
 
 
     return init_parameters,priors

@@ -10,35 +10,16 @@ class BilbyLikelihood(bilby.Likelihood):
         
     def log_likelihood(self):
 
-        
         try:
-            ll = self.model.likelihood(self.parameters)
-            #print("log likelihood = ", ll )
-
-            
+            ll, xres, P = self.model.likelihood(self.parameters)
         except np.linalg.LinAlgError:
             ll= -np.inf
         if np.isnan(ll):
             ll = -np.inf
-
         return ll
-    
-
-
-    # def noise_log_likelihood(self):
-        
-    #     try:
-    #         ll = self.model.null_likelihood(self.parameters)
-            
-    #     except np.linalg.LinAlgError:
-    #         ll= -np.inf
-    #     if np.isnan(ll):
-    #         ll = -np.inf
-
-    #     return ll
             
 
-def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir,dlogz):
+def BilbySampler(KalmanFilter,init_parameters,priors):
    
     
     likelihood = BilbyLikelihood(KalmanFilter,init_parameters)
@@ -46,14 +27,9 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir,dlogz):
  
     # #Run the sampler
     print("RUN THE SAMPLER")
-    result = bilby.run_sampler(likelihood, priors, 
-                             label = label,
-                             outdir=outdir,
-                            sampler ='dynesty',
-                            check_point_plot=False,
-                            sample='auto', 
-                            #walks=10, 
-                            npoints=200,dlogz=dlogz,
-                            npool=6, plot=True,resume=False)
+    result = bilby.run_sampler(likelihood, priors, label = "test48",outdir=".",
+                            sampler ='dynesty',check_point_plot=False,
+                            sample='rwalk', walks=10, npoints=100,dlogz=5,
+                            npool=6,plot=True,resume=False)
 
     return result
