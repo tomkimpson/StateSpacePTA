@@ -63,15 +63,15 @@ def bilby_priors_dict(PTA):
     #Add all the GW quantities
     init_parameters["omega_gw"] = None
     priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
-    # priors["omega_gw"] = 1e-7
+    
 
     init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.LogUniform(1e-2, 1e0, 'phi0_gw')
-    # priors["phi0_gw"] = 0.20
+    #priors["phi0_gw"] = bilby.core.prior.LogUniform(1e-2, 1e0, 'phi0_gw')
+    priors["phi0_gw"] = 0.20
 
     init_parameters["psi_gw"] = None
-    priors["psi_gw"] = bilby.core.prior.LogUniform(1e0, 1e1, 'psi_gw')
-    # priors["psi_gw"] = 2.5
+    #priors["psi_gw"] = bilby.core.prior.LogUniform(1e0, 1e1, 'psi_gw')
+    priors["psi_gw"] = 2.5
 
     init_parameters["iota_gw"] = None
     priors["iota_gw"] = 0.0
@@ -80,12 +80,12 @@ def bilby_priors_dict(PTA):
     priors["delta_gw"] = 0.0
 
     init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.LogUniform(1e-1, 1e1, 'alpha_gw')
-    # priors["alpha_gw"] = 1.0
+    #priors["alpha_gw"] = bilby.core.prior.LogUniform(1e-1, 1e1, 'alpha_gw')
+    priors["alpha_gw"] = 1.0
 
     init_parameters["h"] = None
     priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
-    # priors["h"] = 1e-2
+    #priors["h"] = 1e-2
 
 
 
@@ -99,12 +99,12 @@ def bilby_priors_dict(PTA):
 
     #Noises
     init_parameters["sigma_p"] = None
-    priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
-    # priors["sigma_p"] = 1e-1
+    #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
+    priors["sigma_p"] = 1e-14
 
     init_parameters["sigma_m"] = None
     # priors["sigma_m"] = bilby.core.prior.LogUniform(1e-12, 1e-2, 'omega')
-    priors["sigma_m"] = 1e-8
+    priors["sigma_m"] = 1e-10
 
 
     return init_parameters,priors

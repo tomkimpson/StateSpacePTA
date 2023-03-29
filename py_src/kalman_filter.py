@@ -87,8 +87,6 @@ class KalmanFilter:
         self.Npsr = self.observations.shape[-1]
         self.Nsteps = self.observations.shape[0]
 
-        self.initial_x = self.observations[0,:]  # guess that the intrinsic frequencies is the same as the measured frequency
-        self.initial_P = np.ones(self.Npsr) * 1e10 #1e10 is an arbitrary factor
 
     
 
@@ -113,12 +111,12 @@ class KalmanFilter:
 
 
         #Initialise x and P
-        x = self.initial_x
-        P = parameters["sigma_m"] * self.initial_P 
+        x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
+        P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
 
        
         #Precompute the influence of the GW
-        #Again this does not depend on the states and so can be precomputed
+        #Agan this does not depend on the states and so can be precomputed
         modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
                                parameters["alpha_gw"],
                                parameters["psi_gw"],
@@ -139,19 +137,98 @@ class KalmanFilter:
         x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
         likelihood +=l
 
+        #Place to store results
+        #x_results = np.zeros((self.Nsteps,self.Npsr))
+        #x_results[0,:] = x
+
+
+
+
 
         for i in np.arange(1,self.Nsteps):
             
             obs = self.observations[i,:]
+           
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
             x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:])
             likelihood +=l
 
-          
+            #x_results[i,:] = x
             
-        return likelihood 
+        return likelihood  #x_results
 
       
+
+
+    def likelihood_and_states(self,parameters):
+        
+        #Bilby takes a dict
+        #For us this is annoying - map some quantities to be vectors
+        f,fdot,gamma,d = map_dicts_to_vector(parameters)
+        
+        #Precompute all the transition and control matrices as well as Q and R matrices.
+        #F,Q,R are time-independent functions of the parameters
+        #T is time dependent, but does not depend on states and so can be precomputed
+        Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
+        R = self.model.R_function(parameters["sigma_m"])
+        F = self.model.F_function(gamma,self.dt)
+        T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
+
+
+        #Initialise x and P
+        x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
+        P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
+
+       
+        #Precompute the influence of the GW
+        #Agan this does not depend on the states and so can be precomputed
+        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+                               parameters["alpha_gw"],
+                               parameters["psi_gw"],
+                               self.q,
+                               self.q_products,
+                               parameters["h"],
+                               parameters["iota_gw"],
+                               parameters["omega_gw"],
+                               d,
+                               self.t,
+                               parameters["phi0_gw"]
+                               )
+
+        #Initialise the likelihood
+        likelihood = 0.0
+              
+
+        x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
+        likelihood +=l
+
+        #Place to store results
+        x_results = np.zeros((self.Nsteps,self.Npsr))
+        x_results[0,:] = x
+
+
+
+
+
+        for i in np.arange(1,self.Nsteps):
+            
+            obs = self.observations[i,:]
+           
+            x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
+            x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:])
+            likelihood +=l
+
+            x_results[i,:] = x
+            
+        return likelihood, x_results
+
+
+
+
+
+
+
+
 
 
 

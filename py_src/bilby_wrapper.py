@@ -12,13 +12,14 @@ class BilbyLikelihood(bilby.Likelihood):
     def log_likelihood(self):
 
         try:
-            ll, xres, P = self.model.likelihood(self.parameters)
+            #ll, xres, P = self.model.likelihood(self.parameters)
+            ll = self.model.likelihood(self.parameters)
+
         except np.linalg.LinAlgError:
             ll= -np.inf
         if np.isnan(ll):
             ll = -np.inf
 
-        sys.exit()
         return ll
             
 
@@ -30,9 +31,9 @@ def BilbySampler(KalmanFilter,init_parameters,priors):
  
     # #Run the sampler
     print("RUN THE SAMPLER")
-    result = bilby.run_sampler(likelihood, priors, label = "test_drop",outdir=".",
+    result = bilby.run_sampler(likelihood, priors, label = "JIT1_omega3",outdir=".",
                             sampler ='dynesty',check_point_plot=False,
-                            sample='rwalk', walks=10, npoints=100,
+                            sample='rwalk', walks=10, npoints=100,dlogz=1.0,
                             npool=6,plot=True,resume=False)
 
     return result

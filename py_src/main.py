@@ -20,11 +20,10 @@ import bilby
 if __name__=="__main__":
 
 
-    P   = SystemParameters(Npsr=3)       #define the system parameters as a class
+    P   = SystemParameters(Npsr=0)       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
-    #GW  = GWs(P)                   #setup GW related constants and functions. This is a dict, not a class, for interaction later with Bilby 
     data = SyntheticData(PTA,P) #generate some synthetic data
-    # plot_statespace(PTA.t,data.intrinsic_frequency,data.f_measured,1) #plot it if needed
+    
 
     #Define the model 
     model = LinearModel
@@ -32,18 +31,15 @@ if __name__=="__main__":
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA)
 
-    # Run the KF once with the correct parameters
-    
+    # Run the KF once with the correct parameters.
+    # This allows JIT precompile
     guessed_parameters = priors_dict(PTA,P)
-    #guessed_parameters["omega_gw"] = 1e-3
-    model_likelihood, model_state_predictions, model_covariance_predictions = KF.likelihood(guessed_parameters)
-    print("likelihood = ", model_likelihood)
-    # # t,states,measurements,predictions,psr_index
-    plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 0)
-
+    model_likelihood = KF.likelihood(guessed_parameters)
+    print("Ideal likelihood = ", model_likelihood)
+   
     #Bilby 
-    #init_parameters, priors = bilby_priors_dict(PTA)
-    #BilbySampler(KF,init_parameters,priors)
+    init_parameters, priors = bilby_priors_dict(PTA)
+    BilbySampler(KF,init_parameters,priors)
 
 
 
