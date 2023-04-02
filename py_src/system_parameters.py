@@ -12,8 +12,8 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      Ω=   5e-7,           # GW angular frequency
                      Φ0 = 0.20,        # GW phase offset at t=0
                      ψ =  2.50,         # GW polarisation angle
-                     ι =  0.0,          # GW source inclination
-                     δ =  0.0,          # GW source declination
+                     ι =  0.4,          # GW source inclination
+                     δ =  1.0,          # GW source declination
                      α =  1.0,          # GW source right ascension
                      h =  1e-2,         # GW strain
                      σp = 1e-16,       # process noise standard deviation
