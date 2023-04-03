@@ -23,7 +23,7 @@ class Pulsars:
         self.f = pulsars["F0"].to_numpy(dtype=NF)
         self.fdot = pulsars["F1"] .to_numpy(dtype=NF)
         self.d = pulsars["DIST"].to_numpy(dtype=NF)*1e3*pc/c #this is in units of s^-1
-        self.gamma = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
+        self.gamma = np.ones_like(self.f,dtype=NF) * 1e-6  #for every pulsar let γ be 1e-13
    
 
         self.δ = pulsars["DECJD"].to_numpy()

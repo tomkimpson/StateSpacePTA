@@ -9,15 +9,15 @@ Function that returns a dict of parameters which define the system
 def SystemParameters(NF=np.float64,    # the number format of the arguments
                      T = 10,           # how long to integrate for in years
                      cadence=7,        # the interval between observations
-                     Ω=   5e-7,           # GW angular frequency
+                     Ω=   5e-7,        # GW angular frequency
                      Φ0 = 0.20,        # GW phase offset at t=0
-                     ψ =  2.50,         # GW polarisation angle
-                     ι =  0.4,          # GW source inclination
-                     δ =  0.8,          # GW source declination
-                     α =  1.0,          # GW source right ascension
-                     h =  1e-2,         # GW strain
+                     ψ =  2.50,        # GW polarisation angle
+                     ι =  0.4,         # GW source inclination
+                     δ =  0.4,         # GW source declination
+                     α =  4.80,        # GW source right ascension
+                     h =  1e-2,        # GW strain
                      σp = 1e-16,       # process noise standard deviation
-                     σm = 1e-10,        # measurement noise standard deviation
+                     σm = 1e-10,       # measurement noise standard deviation
                      Npsr = 0          # Number of pulsars to use in PTA. 0 = all
                      ): 
 

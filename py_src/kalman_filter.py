@@ -11,7 +11,7 @@ from numba import jit
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-@jit(nopython=True)
+#@jit(nopython=True)
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
@@ -22,7 +22,7 @@ def log_likelihood(S,innovation):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-@jit(nopython=True)
+#@jit(nopython=True)
 def update(x, P, observation,R,H):
 
     
@@ -50,7 +50,7 @@ def update(x, P, observation,R,H):
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-@jit(nopython=True)
+#@jit(nopython=True)
 def predict(x,P,F,T,Q): 
     xp = F*x + T 
     Pp = F*P*F + Q   
