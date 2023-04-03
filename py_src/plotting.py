@@ -180,3 +180,55 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
 
    
     plt.show()
+
+
+
+
+
+
+from scipy import interpolate
+
+def SNR_plots(x,y,xlabel):
+
+    plt.style.use('science')
+   
+    
+
+    h,w = 20,12
+    rows = 1
+    cols = 1
+    fig, ax = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
+    
+
+    ax.scatter(x,y)
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    ax.axhline(7,linestyle='--', c='0.5')
+
+    f = interpolate.interp1d(y, x)
+
+    xc = f(7.0)
+    ax.axvline(xc,linestyle='--', c='0.5')
+    print("Cutoff value = ", xc)
+
+    
+
+    fs=18
+    ax.set_xlabel(xlabel, fontsize=fs)
+    ax.set_ylabel(r'$\Lambda$', fontsize=fs)
+    
+    ax.xaxis.set_tick_params(labelsize=fs-4)
+    ax.yaxis.set_tick_params(labelsize=fs-4)
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -86,6 +86,7 @@ class KalmanFilter:
 
         self.Npsr = self.observations.shape[-1]
         self.Nsteps = self.observations.shape[0]
+        self.NF = PTA.NF
 
 
     
@@ -100,6 +101,9 @@ class KalmanFilter:
         #Bilby takes a dict
         #For us this is annoying - map some quantities to be vectors
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
+
+
+      
         
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
@@ -166,6 +170,11 @@ class KalmanFilter:
         #For us this is annoying - map some quantities to be vectors
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
         
+
+        # for key,value in parameters.items():
+        #     print(key, type(value))
+        #print(parameters)
+
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
@@ -175,11 +184,14 @@ class KalmanFilter:
         T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
 
+        
+
+
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
+        P = np.ones(self.Npsr,dtype=self.NF) * parameters["sigma_m"]*1e10 
 
-       
+      
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
         modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
@@ -194,16 +206,20 @@ class KalmanFilter:
                                self.t,
                                parameters["phi0_gw"]
                                )
+        
+
+        
 
         #Initialise the likelihood
-        likelihood = 0.0
+        likelihood = self.NF(0.0)
               
 
         x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
         likelihood +=l
 
+  
         #Place to store results
-        x_results = np.zeros((self.Nsteps,self.Npsr))
+        x_results = np.zeros((self.Nsteps,self.Npsr),dtype=self.NF)
         x_results[0,:] = x
 
 
@@ -231,6 +247,11 @@ class KalmanFilter:
         #For us this is annoying - map some quantities to be vectors
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
         
+
+        # for key,value in parameters.items():
+        #     print(key, type(value))
+        #print(parameters)
+
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
@@ -240,11 +261,14 @@ class KalmanFilter:
         T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
 
+        
+
+
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
+        P = np.ones(self.Npsr,dtype=self.NF) * parameters["sigma_m"]*1e10 
 
-       
+      
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
         modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
@@ -260,17 +284,20 @@ class KalmanFilter:
                                parameters["phi0_gw"]
                                )
         
-        null_modulation_factors = np.ones_like(modulation_factors)
+        null_modulation_factors = np.ones_like(modulation_factors,dtype=self.NF)
+        
 
         #Initialise the likelihood
-        likelihood = 0.0
+        likelihood = self.NF(0.0)
               
 
         x,P,l = update(x,P, self.observations[0,:],R,null_modulation_factors[0,:])
         likelihood +=l
 
+      
+
         #Place to store results
-        x_results = np.zeros((self.Nsteps,self.Npsr))
+        x_results = np.zeros((self.Nsteps,self.Npsr),dtype=self.NF)
         x_results[0,:] = x
 
 
