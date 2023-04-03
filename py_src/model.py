@@ -12,7 +12,7 @@ class LinearModel:
     """
     The diagonal F matrix as a vector
     """
-    #@jit(nopython=True)
+    @jit(nopython=True)
     def F_function(gamma,dt):
         return np.exp(-gamma*dt)
 
@@ -20,7 +20,7 @@ class LinearModel:
     """
     The control vector
     """
-    #@jit(nopython=True)
+    @jit(nopython=True)
     def T_function(f0,fdot,gamma,t,dt):
 
         fdot_time =  np.outer(t+dt,fdot) #This has shape(n times, n pulsars)
@@ -32,7 +32,7 @@ class LinearModel:
     """
     The diagonal Q matrix as a vector
     """
-    #@jit(nopython=True)
+    @jit(nopython=True)
     def Q_function(gamma,sigma_p,dt):
         return -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
      
@@ -40,7 +40,7 @@ class LinearModel:
     """
     The R matrix as a scalar
     """
-    #@jit(nopython=True)
+    @jit(nopython=True)
     def R_function(sigma_m):
         return sigma_m**2
      
