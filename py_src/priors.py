@@ -57,7 +57,7 @@ def priors_dict(pulsar_parameters,GW_parameters):
    print("GW strain = ",priors["h"] )
    return priors
 
-
+#https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict(PTA):
 
     init_parameters = {}
