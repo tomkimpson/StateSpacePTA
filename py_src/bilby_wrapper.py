@@ -34,6 +34,6 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     result = bilby.run_sampler(likelihood, priors, label = label,outdir=outdir,
                             sampler ='dynesty',check_point_plot=False,
                             sample='rwalk', walks=10, npoints=400,dlogz=0.10,
-                            npool=10,plot=False,resume=True)
+                            npool=10,plot=False,resume=False)
 
     return result

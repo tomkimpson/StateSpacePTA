@@ -80,7 +80,7 @@ def bilby_priors_dict(PTA):
     #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'iota_gw')
 
     init_parameters["delta_gw"] = None
-    priors["delta_gw"] = 0.0
+    priors["delta_gw"] = 1.0
 
     init_parameters["alpha_gw"] = None
     priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
