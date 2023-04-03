@@ -14,16 +14,19 @@ function KF(observations::Matrix{NF},
 
     #Set the dimension of the state space 
     Npulsars = size(observations)[1]
-    L = Npulsars 
+    L = Npulsars + 1 #N psr frequencies plus 1 omega
     N = size(observations)[2]     # number of timesteps
   
     #Initialise x and P
     x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+    push!(x,1e-7) #guess what omega is 
+   
     P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
    
     #Calculate the time-independent Q-matrix
     Q = Q_function(γ,σp,dt)
-    
+
+
     #Calculate measurement noise matrix
     R = R_function(Npulsars,σm)
 
@@ -35,7 +38,7 @@ function KF(observations::Matrix{NF},
 
     #Define the time-constant GW quantities
     m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
-    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+    
 
 
     #Set what measurement model to use
@@ -51,7 +54,11 @@ function KF(observations::Matrix{NF},
     
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
-    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product,measurement_function)
+
+    println("Start the update step ")
+    ω = x[end]
+    x,P,l = update(x,P, observations[:,1],t[1],R,ω,Φ0,measurement_function,n̄,q,Hij,d)
+    #x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,measurement_function)
 
 
 
@@ -61,7 +68,8 @@ function KF(observations::Matrix{NF},
         observation           = observations[:,i] #column-major slicing
         ti                    = t[i]
         x_predict,P_predict   = predict(x,P,f0,ḟ0,γ,ti,dt,Q)
-        x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product,measurement_function)
+        #x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product,measurement_function)
+        x,P,l = update(x_predict,P_predict, observation,ti,R,ω,Φ0,measurement_function,n̄,q,Hij,d)
 
         likelihood +=l
         x_results[i,:] = x 
@@ -90,7 +98,7 @@ function KF(observations::Matrix{NF},
  
     @unpack q,dt,t = PTA     
           
-    ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ = read_vector(parameters)  # All unknown parameters
+    h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ = read_vector(parameters)  # All unknown parameters
 
     #println(ω, " ", h, " ", " ", ι," ",δ, " ",α, " ", ψ," ",Φ0," ",σp, " ",σm, " ", f0, " ",ḟ0, " ",d," ",γ)
     #Set the dimension of the state space 
@@ -116,7 +124,7 @@ function KF(observations::Matrix{NF},
 
     #Define the time-constant GW quantities
     m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
-    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+    #prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
 
 
     #Set what measurement model to use
@@ -132,8 +140,11 @@ function KF(observations::Matrix{NF},
     
     #Update step first, then iterate over remainders
     #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
-    x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,prefactor,dot_product,measurement_function)
 
+    ω = x[end]
+    x,P,l = update(x,P, observations[:,1],t[1],R,ω,Φ0,measurement_function,n̄,q,Hij,d)
+
+    #return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
 
 
     
@@ -142,7 +153,10 @@ function KF(observations::Matrix{NF},
         observation           = observations[:,i] #column-major slicing
         ti                    = t[i]
         x_predict,P_predict   = predict(x,P,f0,ḟ0,γ,ti,dt,Q)
-        x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product,measurement_function)
+        #x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product,measurement_function)
+
+        ω = x_predict[end]
+        x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,measurement_function,n̄,q,Hij,d)
 
         likelihood +=l
         x_results[i,:] = x 
@@ -160,13 +174,6 @@ end
 
 
 
-
-
-
-
-
-
-
 function update(x::Vector{NF},
                 P::LinearAlgebra.Diagonal{NF, Vector{NF}}, 
                 observation::Vector{NF},
@@ -174,19 +181,43 @@ function update(x::Vector{NF},
                 R::LinearAlgebra.Diagonal{NF, Vector{NF}},
                 ω::NF,
                 Φ0::NF,
-                prefactor::Vector{NF},
-                dot_product::Vector{NF},
-                measurement_function::Function) where {NF<:AbstractFloat}
+                #prefactor::Vector{NF},
+                #dot_product::Vector{NF},
+                measurement_function::Function,
+                n̄::Vector{NF},
+                q:: Matrix{NF},
+                Hij::Matrix{NF},
+                d::Vector{NF}
+                ) where {NF<:AbstractFloat}
 
     #Define the measurement matrix
+
+    println("welcome to update")
+    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+
+
+
+    println("measurement funtion")
     H = measurement_function(t, ω,Φ0,prefactor,dot_product)
+
+
+    println("Hx is as follows:")
+    Hx = H * x[1:end-1]
+    display(Hx)
 
     #And its transpose 
     # we can set this as H', but our H is diagonal. Is Julia smart enough to make the optimisation itself, or should we set manually? H vs H' vs transpose(H)
+    
+    jacobian = 
+    
     HT = H 
 
-   
+    println("innovatin is:")
     y = observation .- H*x   # Innovation
+    display(y)
+
+
+    pritln("innovatin covariance is:")
     S = H*P*HT .+ R          # Innovation covariance 
     K = P*HT*inv(S)          # Kalman gain
     xnew = x .+ K*y          # Updated x
@@ -260,7 +291,8 @@ function read_vector(x::Vector{NF}) where {NF<:AbstractFloat}
 
 
 
-    return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
+    #return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
+    return h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
 
 
 end 

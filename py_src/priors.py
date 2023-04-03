@@ -18,9 +18,6 @@ def add_to_priors_dict(x,label,dict_A):
     return dict_A
 
 
-"""
-Add the X
-"""
 def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 
 
@@ -40,14 +37,15 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 def priors_dict(pulsar_parameters,GW_parameters):
 
 
+
    priors = dict({
-               "omega_gw": GW_parameters.omega_gw,
-               "phi0_gw":GW_parameters.phi0_gw,
-               "psi_gw":GW_parameters.psi_gw,
-               "iota_gw": GW_parameters.iota_gw,
-               "delta_gw":GW_parameters.delta_gw,
-               "alpha_gw":GW_parameters.alpha_gw,
-               "h": GW_parameters.h,
+               "omega_gw": GW_parameters["omega_gw"],
+               "phi0_gw":  GW_parameters["phi0_gw"],
+               "psi_gw":   GW_parameters["psi_gw"],
+               "iota_gw":  GW_parameters["iota_gw"],
+               "delta_gw": GW_parameters["delta_gw"],
+               "alpha_gw": GW_parameters["alpha_gw"],
+               "h":        GW_parameters["h"],
                "sigma_p": pulsar_parameters.sigma_p,
                "sigma_m": pulsar_parameters.sigma_m})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
@@ -55,36 +53,11 @@ def priors_dict(pulsar_parameters,GW_parameters):
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
    priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
 
+   print("Defining the priors dict. Number of pulsars = ", len(pulsar_parameters.f))
+   print("GW strain = ",priors["h"] )
    return priors
 
-
-def injection_priors_dict(pulsar_parameters,GW_parameters):
-
-
-   priors = dict({
-               "omega_gw": GW_parameters.omega_gw,
-               "phi0_gw":GW_parameters.phi0_gw,
-               "psi_gw":GW_parameters.psi_gw,
-               "iota_gw": GW_parameters.iota_gw,
-               "delta_gw":GW_parameters.delta_gw,
-               "alpha_gw":GW_parameters.alpha_gw,
-               "h": GW_parameters.h,
-               "sigma_p": pulsar_parameters.sigma_p})
-
-
-   return priors
-
-
-
-
-
-
-
-
-
-
-
-
+#https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict(PTA):
 
     init_parameters = {}
@@ -92,37 +65,33 @@ def bilby_priors_dict(PTA):
 
     #Add all the GW quantities
     init_parameters["omega_gw"] = None
-    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-6, name='omega_gw', latex_label=r'$\omega$')
-  
+    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
+    
 
     init_parameters["phi0_gw"] = None
-    #priors["phi0_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='phi0_gw', latex_label=r'\Phi_0')
-    priors["phi0_gw"] = 0.20
-  
+    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'phi0_gw')
+    #priors["phi0_gw"] = 0.20
 
     init_parameters["psi_gw"] = None
-    #priors["psi_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='psi_gw', latex_label=r'\psi')
-    priors["psi_gw"] = 2.50
-  
+    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+    #priors["psi_gw"] = 2.5
 
     init_parameters["iota_gw"] = None
-    #priors["iota_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='iota_gw', latex_label=r'\iota')
-    priors["iota_gw"] = 1.0
+    priors["iota_gw"] = 0.40
+    #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'iota_gw')
 
     init_parameters["delta_gw"] = None
-    #priors["delta_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='delta_gw', latex_label=r'\delta')
-    priors["delta_gw"] = 1.0
-
+    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'delta_gw')
+    #priors["delta_gw"] = 1.0
 
     init_parameters["alpha_gw"] = None
-    #priors["alpha_gw"] = bilby.core.prior.Uniform(1e-1, 2*np.pi,  name='alpha_gw', latex_label=r'\alpha')
-    priors["alpha_gw"] = 1.0
-
-
+    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
+    #priors["alpha_gw"] = 1.0
 
     init_parameters["h"] = None
-    #priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0,  name='h', latex_label=r'h')
-    priors["h"] = 1e-2
+    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
+    #priors["h"] = 1e-2
+
 
 
     init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors)
@@ -135,10 +104,11 @@ def bilby_priors_dict(PTA):
 
     #Noises
     init_parameters["sigma_p"] = None
-    #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3,  name='sigma_p', latex_label=r'\sigma_p')
-    priors["sigma_p"] = 1e-8
+    #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
+    priors["sigma_p"] = 1e-14
 
     init_parameters["sigma_m"] = None
+    # priors["sigma_m"] = bilby.core.prior.LogUniform(1e-12, 1e-2, 'omega')
     priors["sigma_m"] = 1e-10
 
 

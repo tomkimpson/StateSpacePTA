@@ -11,10 +11,10 @@ function run_all(::Type{NF}=Float64;              # number format, use Float64 a
     state,measurements,PTA,θ̂,P = setup(NF=NF;kwargs...)
     
     model_likelihood,model_predictions = KF(measurements,PTA,θ̂,:GW)
-    null_likelihood,null_predictions = KF(measurements,PTA,θ̂,:null)
+    #null_likelihood,null_predictions = KF(measurements,PTA,θ̂,:null)
 
-    @info "LogLikelihoods are: ", model_likelihood, " for the H1 and ", null_likelihood, " for H0"
-    @info "This gives a Bayes factor of: ", model_likelihood - null_likelihood
+   # @info "LogLikelihoods are: ", model_likelihood, " for the H1 and ", null_likelihood, " for H0"
+    #@info "This gives a Bayes factor of: ", model_likelihood - null_likelihood
 
     plotter(PTA.t,state,measurements,model_predictions,null_predictions,P.psr_index) #Plot the predictions,
 

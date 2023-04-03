@@ -17,9 +17,99 @@
   {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
+\bibitem[\protect\citeauthoryear{{Abbott} et~al.,}{{Abbott}
+  et~al.}{2019}]{2019PhRvX...9c1040A}
+{Abbott} B.~P.,  et~al., 2019, \mn@doi [Physical Review X]
+  {10.1103/PhysRevX.9.031040}, \href
+  {https://ui.adsabs.harvard.edu/abs/2019PhRvX...9c1040A} {9, 031040}
+
+\bibitem[\protect\citeauthoryear{{Abbott} et~al.,}{{Abbott}
+  et~al.}{2021}]{2021PhRvX..11b1053A}
+{Abbott} R.,  et~al., 2021, \mn@doi [Physical Review X]
+  {10.1103/PhysRevX.11.021053}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021PhRvX..11b1053A} {11, 021053}
+
+\bibitem[\protect\citeauthoryear{{Acernese} et~al.,}{{Acernese}
+  et~al.}{2015}]{2015CQGra..32b4001A}
+{Acernese} F.,  et~al., 2015, \mn@doi [Classical and Quantum Gravity]
+  {10.1088/0264-9381/32/2/024001}, \href
+  {https://ui.adsabs.harvard.edu/abs/2015CQGra..32b4001A} {32, 024001}
+
+\bibitem[\protect\citeauthoryear{{Amaro-Seoane} et~al.,}{{Amaro-Seoane}
+  et~al.}{2017}]{LISApaper}
+{Amaro-Seoane} P.,  et~al., 2017, arXiv e-prints, \href
+  {https://ui.adsabs.harvard.edu/abs/2017arXiv170200786A} {p. arXiv:1702.00786}
+
+\bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
+  et~al.}{2022}]{2022MNRAS.510.4873A}
+{Antoniadis} J.,  et~al., 2022, \mn@doi [\mnras] {10.1093/mnras/stab3418},
+  \href {https://ui.adsabs.harvard.edu/abs/2022MNRAS.510.4873A} {510, 4873}
+
+\bibitem[\protect\citeauthoryear{{Armano} et~al.,}{{Armano}
+  et~al.}{2019}]{2019arXiv190308924A}
+{Armano} M.,  et~al., 2019, arXiv e-prints, \href
+  {https://ui.adsabs.harvard.edu/abs/2019arXiv190308924A} {p. arXiv:1903.08924}
+
+\bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
+  et~al.}{2020}]{2020ApJ...905L..34A}
+{Arzoumanian} Z.,  et~al., 2020, \mn@doi [\apjl] {10.3847/2041-8213/abd401},
+  \href {https://ui.adsabs.harvard.edu/abs/2020ApJ...905L..34A} {905, L34}
+
+\bibitem[\protect\citeauthoryear{{Babak} et~al.,}{{Babak}
+  et~al.}{2016}]{Babak2016}
+{Babak} S.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stv2092}, \href
+  {https://ui.adsabs.harvard.edu/abs/2016MNRAS.455.1665B} {455, 1665}
+
+\bibitem[\protect\citeauthoryear{{Ferdman} et~al.,}{{Ferdman}
+  et~al.}{2010}]{2010CQGra..27h4014F}
+{Ferdman} R.~D.,  et~al., 2010, \mn@doi [Classical and Quantum Gravity]
+  {10.1088/0264-9381/27/8/084014}, \href
+  {https://ui.adsabs.harvard.edu/abs/2010CQGra..27h4014F} {27, 084014}
+
+\bibitem[\protect\citeauthoryear{{Hellings} \& {Downs}}{{Hellings} \&
+  {Downs}}{1983}]{Hellings}
+{Hellings} R.~W.,  {Downs} G.~S.,  1983, \mn@doi [\apjl] {10.1086/183954},
+  \href {https://ui.adsabs.harvard.edu/abs/1983ApJ...265L..39H} {265, L39}
+
+\bibitem[\protect\citeauthoryear{Hobbs \& Dai}{Hobbs \&
+  Dai}{2017}]{10.1093/nsr/nwx126}
+Hobbs G.,  Dai S.,  2017, \mn@doi [National Science Review]
+  {10.1093/nsr/nwx126}, 4, 707
+
+\bibitem[\protect\citeauthoryear{{Kerr} et~al.,}{{Kerr}
+  et~al.}{2020}]{2020PASA...37...20K}
+{Kerr} M.,  et~al., 2020, \mn@doi [\pasa] {10.1017/pasa.2020.11}, \href
+  {https://ui.adsabs.harvard.edu/abs/2020PASA...37...20K} {37, e020}
+
+\bibitem[\protect\citeauthoryear{{LIGO Scientific Collaboration} et~al.,}{{LIGO
+  Scientific Collaboration} et~al.}{2015}]{aLIGO}
+{LIGO Scientific Collaboration} et~al., 2015, \mn@doi [Classical and Quantum
+  Gravity] {10.1088/0264-9381/32/7/074001}, \href
+  {https://ui.adsabs.harvard.edu/abs/2015CQGra..32g4001L} {32, 074001}
+
+\bibitem[\protect\citeauthoryear{{Perera} et~al.,}{{Perera}
+  et~al.}{2019}]{2019MNRAS.490.4666P}
+{Perera} B.~B.~P.,  et~al., 2019, \mn@doi [\mnras] {10.1093/mnras/stz2857},
+  \href {https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.4666P} {490, 4666}
+
+\bibitem[\protect\citeauthoryear{Sanidas, Battye  \& Stappers}{Sanidas
+  et~al.}{2012}]{PTAstring}
+Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
+  {10.1103/PhysRevD.85.122003}, 85, 122003
+
 \bibitem[\protect\citeauthoryear{Vargas \& Melatos}{Vargas \&
   Melatos}{2023}]{Vargas}
 Vargas A.,  Melatos A.,  2023, TBD, 1, 1
+
+\bibitem[\protect\citeauthoryear{{Verbiest}, {Os{\l}owski}  \&
+  {Burke-Spolaor}}{{Verbiest} et~al.}{2021}]{2021hgwa.bookE...4V}
+{Verbiest} J.~P.~W.,  {Os{\l}owski} S.,   {Burke-Spolaor} S.,  2021, in ,
+  Handbook of Gravitational Wave Astronomy.
+p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
+
+\bibitem[\protect\citeauthoryear{{Xue} et~al.,}{{Xue} et~al.}{2021}]{PTAphase}
+{Xue} X.,  et~al., 2021, \mn@doi [\prl] {10.1103/PhysRevLett.127.251303}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021PhRvL.127y1303X} {127, 251303}
 
 \makeatother
 \end{thebibliography}
