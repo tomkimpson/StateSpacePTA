@@ -6,7 +6,7 @@
 from system_parameters import SystemParameters
 from pulsars import Pulsars
 from synthetic_data import SyntheticData
-from plotting import plot_all
+#from plotting import plot_all
 from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
@@ -39,7 +39,7 @@ if __name__=="__main__":
    
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA)
-    BilbySampler(KF,init_parameters,priors,label="run_0304b",outdir="../data/nested_sampling/")
+    BilbySampler(KF,init_parameters,priors,label="run_0304c",outdir="../data/nested_sampling/")
 
 
 

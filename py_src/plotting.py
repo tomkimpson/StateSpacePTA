@@ -5,6 +5,8 @@ import numpy as np
 import json
 import pandas as pd 
 import corner
+import scienceplots
+
 def plot_statespace(t,states,measurements,psr_index):
 
 
