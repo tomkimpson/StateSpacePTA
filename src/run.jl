@@ -1,5 +1,5 @@
 """
-solution,model = orbit(NF,kwargs...)
+solution,model = run_all(NF,kwargs...)
 
 Runs StateSpacePTA.jl with number format `NF` and any additional parameters in the keyword arguments
 `kwargs...`. Any unspecified parameters will use the default values as defined in `src/system_parameters.jl`."""
@@ -9,14 +9,8 @@ function run_all(::Type{NF}=Float64;              # number format, use Float64 a
 
 
     state,measurements,PTA,θ̂,P = setup(NF=NF;kwargs...)
-    
-    model_likelihood,model_predictions = KF(measurements,PTA,θ̂,:GW)
-    #null_likelihood,null_predictions = KF(measurements,PTA,θ̂,:null)
+    #model_likelihood,model_predictions = KF(measurements,PTA,θ̂,:GW)
 
-   # @info "LogLikelihoods are: ", model_likelihood, " for the H1 and ", null_likelihood, " for H0"
-    #@info "This gives a Bayes factor of: ", model_likelihood - null_likelihood
-
-    plotter(PTA.t,state,measurements,model_predictions,null_predictions,P.psr_index) #Plot the predictions,
 
 end
 
@@ -30,16 +24,33 @@ function setup(::Type{NF}=Float64;              # number format, use Float64 as 
 
     P = SystemParameters(NF=NF;kwargs...) # Parameters
     PTA = setup_PTA(P)
-    GW = gw_variables(P.NF,P)
+    GW_parameters = gw_variables(P)
 
     @info "Hello from StateSpacePTA. You are running with NF = ", P.NF, " and a GW strain h = ", P.h
 
     seed = P.seed # Integer or nothing 
-    state,measurement = create_synthetic_data(PTA,GW,seed) #BAT.jl currently requires a particular (older) version of DE.jl, which throws annoying warnings relating to depreceated features in Julia 1.9
+    state,measurement = create_synthetic_data(PTA,GW_parameters,seed) 
 
-    θ̂ = guess_parameters(PTA,P)
+   # θ̂ = guess_parameters(PTA,P)
 
     return state,measurement,PTA,θ̂,P
 
 
 end 
+
+
+
+
+
+
+
+
+
+
+#     #null_likelihood,null_predictions = KF(measurements,PTA,θ̂,:null)
+
+#    # @info "LogLikelihoods are: ", model_likelihood, " for the H1 and ", null_likelihood, " for H0"
+#     #@info "This gives a Bayes factor of: ", model_likelihood - null_likelihood
+
+#     plotter(PTA.t,state,measurements,model_predictions,null_predictions,P.psr_index) #Plot the predictions,
+

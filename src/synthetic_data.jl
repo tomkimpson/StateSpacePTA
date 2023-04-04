@@ -4,12 +4,12 @@
 
 function create_synthetic_data(
                                pulsars::Pulsars,
-                               GW::gravitational_wave,
+                               GW::GW_Parameters,
                                seed::Int64) 
 
 
-    @unpack f0, ḟ0,q,t,d,γ,σp,σm = pulsars 
-    @unpack n̄,Hij,ω,Φ0 = GW
+    @unpack f0, ḟ0,q,t,d,γ,σp,σm,q = pulsars 
+    #@unpack n̄,Hij,ω,Φ0 = GW
 
 
     NF = eltype(t)
@@ -23,36 +23,45 @@ function create_synthetic_data(
     
     #Evolve the pulsar frequencyz
     f(du,u,p,t) = (du .= -γ.*u .+ γ.*(f0 .+ ḟ0*t) .+ ḟ0)
-    g(du,u,p,t) = (du .= σp^2) 
+    g(du,u,p,t) = (du .= σp) 
     noise = WienerProcess(0., 0.) # WienerProcess(t0,W0) where t0 is the initial value of time and W0 the initial value of the process
    
     tspan = (first(t),last(t))
     prob = SDEProblem(f,g,f0,tspan,tstops=t,noise=noise)
     intrinsic_frequency = solve(prob,EM())
     
-    #Create some useful quantities that relate the GW and pulsar variables 
-    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
+
+
+    
+    gw_factor = gw_frequency_modulation_factor(GW,q,d,t)
+    println(size(gw_factor))
+    println(size(intrinsic_frequency))
+    f_measured_clean = gw_factor .* intrinsic_frequency
+
+    println(size(f_measured_clean))
+    #Now determine the modulation factor due to the GW create some useful quantities that relate the GW and pulsar variables 
+    #prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
 
    
-    #Iterate through time. Really should vectorise all this...
-    #But loops fast in Julia...
-    f_measured_clean = zeros(NF,size(q)[1],length(t))
+  #   #Iterate through time. Really should vectorise all this...
+  #   #But loops fast in Julia...
+  #   f_measured_clean = zeros(NF,size(q)[1],length(t))
 
 
-   for i =1:length(t)
+  #  for i =1:length(t)
 
-       GW_factor = gw_modulation(t[i], ω,Φ0,prefactor,dot_product)
-       f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
-    end
+  #      GW_factor = gw_modulation(t[i], ω,Φ0,prefactor,dot_product)
+  #      f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
+  #   end
 
 
-    f_measured = add_gauss(f_measured_clean,σm,0.0)
+  #   f_measured = add_gauss(f_measured_clean,σm,0.0)
     # f_measured = zeros(NF,size(q)[1],length(t))
     # for i=1:size(q)[1]
     #   println
     #   f_measured[i,:] = add_gauss(f_measured_clean[i,:], σm, 0.0) #does this do the correct thing?   
     # end
     
-    return intrinsic_frequency,f_measured
-
+    #return intrinsic_frequency,f_measured
+    return 1.0, 1.0
 end 

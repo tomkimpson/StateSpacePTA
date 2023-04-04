@@ -12,8 +12,9 @@ import StatsBase: Histogram #just for testing, can remove later
 import Suppressor: @suppress_err
 
 
+using TensorOperations
 
-using Optim
+#using Optim
 
 using ValueShapes
 
@@ -41,7 +42,7 @@ include("synthetic_data.jl")
 include("model.jl")
 include("priors.jl")
 include("linear_kalman_filter.jl")
-include("nested_samplers.jl")
+#include("nested_samplers.jl")
 include("plotting.jl")
 include("run.jl")
 
