@@ -8,7 +8,7 @@ function plotter(t,states,measurements,model_state_predictions,null_state_predic
 
 
     #Plot the state
-    plt = plot(tplot,state_i,layout=grid(2,2, heights=(0.5,0.5)), size=(1000,1000),legend=false,link = :x)
+    plt = plot(tplot,state_i,layout=grid(2,2, heights=(0.5,0.5)), size=(1200,600),legend=false,link = :x)
     plot!(ylabel="f STATE [Hz]",subplot=1)
 
     @info "The variance in the state is:", var(state_i)
@@ -25,7 +25,7 @@ function plotter(t,states,measurements,model_state_predictions,null_state_predic
 
     #Plot the predictions
     if model_state_predictions != nothing
-        model_prediction_i = model_state_predictions[:,psr_index] #psr index now indexes second axis sicne state predictions are a different shape! Annoying!
+        model_prediction_i = model_state_predictions[psr_index,:] 
     
         plot!(tplot,state_i,subplot=2,label="State")   
         plot!(tplot,model_prediction_i,subplot=2,label="Prediction")    

@@ -18,13 +18,13 @@ The default values of the keywords define the default model setup.
     ω      ::Real = 5e-7      
     Φ0     ::Real = 0.20      
     ψ      ::Real = 2.5 
-    cos_ι  ::Real = 0.50
-    δ  ::Real = 1.0
-    α :: Real = 1.0
+    cos_ι  ::Real = 0.921060994 #this is cos(0.4)
+    δ  ::Real = 0.40
+    α :: Real = 4.80
     h :: Real = 1e-2
 
     #Noise parameters
-    σp::Real = 1e-8
+    σp::Real = 1e-16
     σm::Real = 1e-10
 
 

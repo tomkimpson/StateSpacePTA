@@ -9,17 +9,12 @@ function create_synthetic_data(
 
 
     @unpack f0, ḟ0,q,t,d,γ,σp,σm,q = pulsars 
-    #@unpack n̄,Hij,ω,Φ0 = GW
 
-
-    NF = eltype(t)
-        
     if seed == 0
         Random.seed!()
     else
       Random.seed!(seed)
     end 
-
     
     #Evolve the pulsar frequencyz
     f(du,u,p,t) = (du .= -γ.*u .+ γ.*(f0 .+ ḟ0*t) .+ ḟ0)
@@ -30,38 +25,14 @@ function create_synthetic_data(
     prob = SDEProblem(f,g,f0,tspan,tstops=t,noise=noise)
     intrinsic_frequency = solve(prob,EM())
     
-
-
-    
-    gw_factor = gw_frequency_modulation_factor(GW,q,d,t)
-    println(size(gw_factor))
-    println(size(intrinsic_frequency))
-    f_measured_clean = gw_factor .* intrinsic_frequency
-
-    println(size(f_measured_clean))
-    #Now determine the modulation factor due to the GW create some useful quantities that relate the GW and pulsar variables 
-    #prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
-
+    #Get the modulation factor due to GW 
+    @unpack δ,α,ψ,h,cos_ι,ω,Φ0 = GW
+    gw_factor = gw_frequency_modulation_factor(δ,α,ψ,h,cos_ι,ω,Φ0,q,d,t)
    
-  #   #Iterate through time. Really should vectorise all this...
-  #   #But loops fast in Julia...
-  #   f_measured_clean = zeros(NF,size(q)[1],length(t))
-
-
-  #  for i =1:length(t)
-
-  #      GW_factor = gw_modulation(t[i], ω,Φ0,prefactor,dot_product)
-  #      f_measured_clean[:,i] = intrinsic_frequency[:,i] .* GW_factor
-  #   end
-
-
-  #   f_measured = add_gauss(f_measured_clean,σm,0.0)
-    # f_measured = zeros(NF,size(q)[1],length(t))
-    # for i=1:size(q)[1]
-    #   println
-    #   f_measured[i,:] = add_gauss(f_measured_clean[i,:], σm, 0.0) #does this do the correct thing?   
-    # end
-    
-    #return intrinsic_frequency,f_measured
-    return 1.0, 1.0
+    #The measured frequency without noise 
+    f_measured_clean = gw_factor .* intrinsic_frequency
+    #The measured frequency with noise 
+    f_measured = add_gauss(f_measured_clean, σm, 0.0)    
+    return intrinsic_frequency,f_measured
+  
 end 

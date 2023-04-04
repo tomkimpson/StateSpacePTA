@@ -119,6 +119,8 @@ class KalmanFilter:
         P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
 
        
+     
+
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
         modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
@@ -184,14 +186,15 @@ class KalmanFilter:
         T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
 
-        
-
-
+    
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr,dtype=self.NF) * parameters["sigma_m"]*1e10 
 
-      
+    
+
+
+
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
         modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
@@ -227,6 +230,7 @@ class KalmanFilter:
 
 
         for i in np.arange(1,self.Nsteps):
+        #for i in np.arange(1,3):
             
             obs = self.observations[i,:]
            

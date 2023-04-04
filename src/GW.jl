@@ -26,14 +26,14 @@ end
 Calculate the modulation factor that maps from state space to measurement space 
 Accepts as arguments gw_parameters, pulsar locations (q), pulsar distances (d) and observation times (t).
 """
-function gw_frequency_modulation_factor(GW::GW_Parameters,q::Matrix{NF},d::Vector{NF},t::Vector{NF}) where {NF<:AbstractFloat}
+function gw_frequency_modulation_factor(δ::NF,α::NF,ψ::NF,h::NF,cos_ι::NF,ω::NF,Φ0::NF,q::Matrix{NF},d::Vector{NF},t::Vector{NF}) where {NF<:AbstractFloat}
 
 
-    @unpack δ,α,ψ,h,cos_ι,ω,Φ0 = GW
+   
 
 
     #
-    m,n                  = principal_axes(NF(π/2.0) - GW.δ,GW.α,GW.ψ)  
+    m,n                  = principal_axes(NF(π/2.0) - δ,α,ψ)  
     gw_direction         = cross(m,n)
     dot_product = NF(1.0) .+ q * gw_direction
 
@@ -53,6 +53,12 @@ function gw_frequency_modulation_factor(GW::GW_Parameters,q::Matrix{NF},d::Vecto
 
     
 end 
+
+
+
+
+
+
 
 
 

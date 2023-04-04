@@ -3,297 +3,124 @@ Given some observations and a specification of the PTA and parameters,
 recover the state and determine the likelihood
 """
 function KF(observations::Matrix{NF},
-             PTA::Pulsars,
-             parameters::GuessedParameters,
-             model::Symbol
-             ) where {NF<:AbstractFloat}
+            PTA::Pulsars,
+            parameters::KalmanParameters
+            ) where {NF<:AbstractFloat}
 
  
-    @unpack q,dt,t = PTA                                  # Get the known parameters related to the PTA    
-    @unpack ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ = parameters  # All unknown parameters
 
-    #Set the dimension of the state space 
-    Npulsars = size(observations)[1]
-    L = Npulsars + 1 #N psr frequencies plus 1 omega
-    N = size(observations)[2]     # number of timesteps
-  
-    #Initialise x and P
-    x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
-    push!(x,1e-7) #guess what omega is 
-   
-    P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
-   
-    #Calculate the time-independent Q-matrix
+    @unpack q,d,dt,t = PTA 
+    @unpack γ, σp,σm,f0,ḟ0,δ,α,ψ,h,cos_ι,ω,Φ0 = parameters 
+
+    #Precompute all the transition and control matrices as well as Q and R matrices.
+    #F,Q,R are time-independent functions of the parameters
+    #T is time dependent, but does not depend on states and so can be precomputed    
     Q = Q_function(γ,σp,dt)
+    R = R_function(σm)
+    F = F_function(γ,dt)
+    T = T_function(f0,ḟ0,γ,t,dt) #ntimes x npulsars
 
 
-    #Calculate measurement noise matrix
-    R = R_function(Npulsars,σm)
 
-    #Initialise an array to hold the results
-    x_results = zeros(NF,N,L)
+    #Initialise x and P 
+    x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
+    P = ones(length(x)) * σm*1e10
 
-    #Initialise a likelihood variable
+    #Precompute the influence of the GW
+    #This does not depend on the states, only the parameters 
+    gw_factor = gw_frequency_modulation_factor(δ,α,ψ,h,cos_ι,ω,Φ0,q,d,t)
+
+    #Initialise the likelihood
     likelihood = NF(0.0)
 
-    #Define the time-constant GW quantities
-    m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
+    #Initialise an array to hold the results
+    x_results = zero(observations)  #could also use similar?
+
     
-
-
-    #Set what measurement model to use
-    if model == :GW
-        measurement_function = H_function
-    elseif model == :null
-        measurement_function = null_function
-    else
-        println("Model is not defined. Choose one of :GW or :null" )
-        return
+    #Perform the first update step 
+    i=1
+    x,P,l = update(x,P, observations[:,i],R,gw_factor[:,i])
+    likelihood += l
+    x_results[:,i] = x 
+    
+    for i =2:length(t)
+        x_predict, P_predict = predict(x,P,F,T[:,i],Q)
+        x,P,l                = update(x_predict,P_predict, observations[:,i],R,gw_factor[:,i]) 
+        likelihood += l
+        x_results[:,i] = x 
     end
 
-    
-    #Update step first, then iterate over remainders
-    #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
 
-    println("Start the update step ")
-    ω = x[end]
-    x,P,l = update(x,P, observations[:,1],t[1],R,ω,Φ0,measurement_function,n̄,q,Hij,d)
-    #x,P = update(x,P, observations[:,1],t[1],R,ω,Φ0,measurement_function)
-
-
-
-    
-    x_results[1,:] = x 
-    for i=2:N
-        observation           = observations[:,i] #column-major slicing
-        ti                    = t[i]
-        x_predict,P_predict   = predict(x,P,f0,ḟ0,γ,ti,dt,Q)
-        #x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product,measurement_function)
-        x,P,l = update(x_predict,P_predict, observation,ti,R,ω,Φ0,measurement_function,n̄,q,Hij,d)
-
-        likelihood +=l
-        x_results[i,:] = x 
-         
-         
-     end 
-
-    
     return likelihood,x_results
-    
-
 end 
 
 
+function update(x::Vector{NF},P::Vector{NF},observation::Vector{NF},R::NF,H::Vector{NF}) where {NF<:AbstractFloat}
 
-"""
-Given some observations and a specification of the PTA and parameters, 
-recover the state and determine the likelihood
-"""
-function KF(observations::Matrix{NF},
-             PTA::Pulsars,
-             parameters::Vector{NF},
-             model::Symbol
-             ) where {NF<:AbstractFloat}
 
- 
-    @unpack q,dt,t = PTA     
-          
-    h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ = read_vector(parameters)  # All unknown parameters
+    y    = observation .- H.*x #innovatin
+    S    = H.*P.*H .+ R        #innovatin covariance 
+    K    = P.*H ./S            #Kalman gain
+    xnew = x .+ K.*y            #updated state
+    I_KH = NF(1.0) .- K.*H
+    Pnew = I_KH .* P .* I_KH .+ K .* R .* K #updated covariance
 
-    #println(ω, " ", h, " ", " ", ι," ",δ, " ",α, " ", ψ," ",Φ0," ",σp, " ",σm, " ", f0, " ",ḟ0, " ",d," ",γ)
-    #Set the dimension of the state space 
-    Npulsars = size(observations)[1]
-    L = Npulsars 
-    N = size(observations)[2]     # number of timesteps
-  
-    #Initialise x and P
-    x = observations[:,1] # guess that the intrinsic frequencies is the same as the measured frequency
-    P = I(L) * 1e-6*1e9  #P = I(L) * σm*1e9 
-   
-    #Calculate the time-independent Q-matrix
-    Q = Q_function(γ,σp,dt)
+    #...and get the likelihood
+    l = log_likelihood(S,y)
     
-    #Calculate measurement noise matrix
-    R = R_function(Npulsars,σm)
+    return xnew,Pnew,l
 
-    #Initialise an array to hold the results
-    x_results = zeros(NF,N,L)
-
-    #Initialise a likelihood variable
-    likelihood = NF(0.0)
-
-    #Define the time-constant GW quantities
-    m,n,n̄,Hij = gw_variables(h,ι, δ, α, ψ)
-    #prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
-
-
-    #Set what measurement model to use
-    if model == :GW
-        measurement_function = H_function
-    elseif model == :null
-        measurement_function = null_function
-    else
-        println("Model is not defined. Choose one of :GW or :null" )
-        return
-    end
-
-    
-    #Update step first, then iterate over remainders
-    #See e.g. https://github.com/meyers-academic/baboo/blob/f5619df23b2465373443e02cd52e1003ed66c0ac/baboo/kalman.py#L167
-
-    ω = x[end]
-    x,P,l = update(x,P, observations[:,1],t[1],R,ω,Φ0,measurement_function,n̄,q,Hij,d)
-
-    #return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
-
-
-    
-    x_results[1,:] = x 
-    for i=2:N
-        observation           = observations[:,i] #column-major slicing
-        ti                    = t[i]
-        x_predict,P_predict   = predict(x,P,f0,ḟ0,γ,ti,dt,Q)
-        #x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,prefactor,dot_product,measurement_function)
-
-        ω = x_predict[end]
-        x,P,l                 = update(x_predict,P_predict, observation,ti,R,ω,Φ0,measurement_function,n̄,q,Hij,d)
-
-        likelihood +=l
-        x_results[i,:] = x 
-         
-         
-     end 
-
-    
-    return likelihood,x_results
-    
-
-end 
-
-
-
-
-
-function update(x::Vector{NF},
-                P::LinearAlgebra.Diagonal{NF, Vector{NF}}, 
-                observation::Vector{NF},
-                t::NF,
-                R::LinearAlgebra.Diagonal{NF, Vector{NF}},
-                ω::NF,
-                Φ0::NF,
-                #prefactor::Vector{NF},
-                #dot_product::Vector{NF},
-                measurement_function::Function,
-                n̄::Vector{NF},
-                q:: Matrix{NF},
-                Hij::Matrix{NF},
-                d::Vector{NF}
-                ) where {NF<:AbstractFloat}
-
-    #Define the measurement matrix
-
-    println("welcome to update")
-    prefactor,dot_product = gw_prefactor(n̄,q,Hij,ω,d)
-
-
-
-    println("measurement funtion")
-    H = measurement_function(t, ω,Φ0,prefactor,dot_product)
-
-
-    println("Hx is as follows:")
-    Hx = H * x[1:end-1]
-    display(Hx)
-
-    #And its transpose 
-    # we can set this as H', but our H is diagonal. Is Julia smart enough to make the optimisation itself, or should we set manually? H vs H' vs transpose(H)
-    
-    jacobian = 
-    
-    HT = H 
-
-    println("innovatin is:")
-    y = observation .- H*x   # Innovation
-    display(y)
-
-
-    pritln("innovatin covariance is:")
-    S = H*P*HT .+ R          # Innovation covariance 
-    K = P*HT*inv(S)          # Kalman gain
-    xnew = x .+ K*y          # Updated x
-
-    #Update the covariance 
-    #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
-    # P = (I-KH)P(I-KH)' + KRK' which is more numerically stable
-    # and works for non-optimal K vs the equation
-    # P = (I-KH)P usually seen in the literature.
-    # In practice for this pulsar problem I have also found this expression more numerically stable
-    # ...despite the extra cost of operations
-    I_KH = I - (K*H)
-    Pnew = I_KH * P * I_KH' .+ K * R * K'
-   
-    #And finally get the likelihood
-    l = get_likelihood(S,y)
-
-
-    return xnew, Pnew,l
 end 
 
 function predict(x::Vector{NF},
-                 P::LinearAlgebra.Diagonal{NF, Vector{NF}},
-                 #parameters::GuessedParameters,
-                 f0::Vector{NF},
-                 ḟ0::Vector{NF},
-                 γ::Vector{NF},
-                 t::NF,
-                 dt::NF,
-                 Q::LinearAlgebra.Diagonal{NF, Vector{NF}}) where {NF<:AbstractFloat}
+                 P::Vector{NF},
+                 F::Vector{NF},
+                 T::Vector{NF},
+                 Q::Vector{NF} 
+               ) where {NF<:AbstractFloat}
 
-    
-    F = F_function(γ,dt)
-    T = T_function(f0, ḟ0, γ,t,dt)
-    xp = F*x .+ T 
-    Pp = F*P*F' + Q
-
+    xp = F.*x .+ T 
+    Pp = F.*P.*F .+ Q
     return xp,Pp
 
 end 
 
-function get_likelihood(P::LinearAlgebra.Diagonal{NF, Vector{NF}},innovation::Vector{NF}) where {NF<:AbstractFloat}
-    M = size(P)[1]
-    x = P \ innovation
-    return -NF(0.5) * (logdet(P) + only(transpose(innovation) * x) +M*log(NF(2.0)*π))
+function log_likelihood(S::Vector{NF}, innovation::Vector{NF}) where {NF<:AbstractFloat}
+    N = length(S)
+    x = innovation ./ S 
+    slogdet = sum(log.(S))
+    return -NF(0.5) * (slogdet + innovation⋅x) +N*log(NF(2.0)*π)
 end 
 
 
-function read_vector(x::Vector{NF}) where {NF<:AbstractFloat}
+# function read_vector(x::Vector{NF}) where {NF<:AbstractFloat}
 
-    # Vector of length x 
-    # The last 9 elements are single parameters shared between every pulsar, including σp 
-    # The first elements are f0,ḟ0,d,γ
-    Npsr = Int64((length(x) - 9) / 4)
-
-
-    f0 = x[1:Npsr]
-    ḟ0 = x[Npsr+1:2*Npsr]
-    d  = x[2*Npsr+1:3*Npsr]
-    γ  = x[3*Npsr+1:4*Npsr]
-
-    ω  = x[4*Npsr + 1]
-    Φ0 = x[4*Npsr + 2]
-    ψ  = x[4*Npsr + 3]
-    ι  = x[4*Npsr + 4]
-    δ  = x[4*Npsr + 5]
-    α  = x[4*Npsr + 6]
-    h  = x[4*Npsr + 7]
-    σp = x[4*Npsr + 8]
-    σm = x[4*Npsr + 9]
+#     # Vector of length x 
+#     # The last 9 elements are single parameters shared between every pulsar, including σp 
+#     # The first elements are f0,ḟ0,d,γ
+#     Npsr = Int64((length(x) - 9) / 4)
 
 
+#     f0 = x[1:Npsr]
+#     ḟ0 = x[Npsr+1:2*Npsr]
+#     d  = x[2*Npsr+1:3*Npsr]
+#     γ  = x[3*Npsr+1:4*Npsr]
 
-    #return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
-    return h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
+#     ω  = x[4*Npsr + 1]
+#     Φ0 = x[4*Npsr + 2]
+#     ψ  = x[4*Npsr + 3]
+#     ι  = x[4*Npsr + 4]
+#     δ  = x[4*Npsr + 5]
+#     α  = x[4*Npsr + 6]
+#     h  = x[4*Npsr + 7]
+#     σp = x[4*Npsr + 8]
+#     σm = x[4*Npsr + 9]
 
 
-end 
+
+#     #return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
+#     return h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
+
+
+# end 
 

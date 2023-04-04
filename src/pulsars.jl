@@ -42,10 +42,11 @@ function setup_PTA(P::SystemParameters)
     f = pulsars[:,"F0"]
     ḟ = pulsars[:,"F1"] 
     d = pulsars[:,"DIST"]*1e3*pc/c #this is in units of s^-1
-    γ = fill(P.γ ,length(P.Npsr)) 
+    γ = fill(P.γ ,P.Npsr) 
     δ = pulsars[:,"DECJD"]
     α = pulsars[:,"RAJD"]
     q = unit_vector(π/2.0 .-δ, α)
+
     
     #Timing variables 
     step_seconds = P.cadence * 24*3600       # from days to seconds

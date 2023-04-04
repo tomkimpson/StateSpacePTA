@@ -1,56 +1,53 @@
 
 
 
-function set_priors(θ::GuessedParameters)
+# function set_priors(θ::GuessedParameters)
 
 
 
-    @unpack f0,ḟ0,d,γ,ω,Φ0,ψ,ι,δ,α,h,σp,σm = θ 
+#     @unpack f0,ḟ0,d,γ,ω,Φ0,ψ,ι,δ,α,h,σp,σm = θ 
 
-    # Set the priors on each of the pulsar parameters
-    f_prior = Dirac.(f0)
-    ḟ_prior = Dirac.(ḟ0)
-    d_prior = Dirac.(d)
-    γ_prior = Dirac.(γ)
+#     # Set the priors on each of the pulsar parameters
+#     f_prior = Dirac.(f0)
+#     ḟ_prior = Dirac.(ḟ0)
+#     d_prior = Dirac.(d)
+#     γ_prior = Dirac.(γ)
 
-    # GW parameters 
-    ω_prior  = LogUniform(1e-9,1e-6)
-    Φ0_prior = Dirac(Φ0)  
-    ψ_prior  = Dirac(ψ)
-    ι_prior  = Dirac(ι)
-    δ_prior  = Dirac(δ)
-    α_prior  = Dirac(α)
-    h_prior  = Dirac(h)
+#     # GW parameters 
+#     ω_prior  = LogUniform(1e-9,1e-6)
+#     Φ0_prior = Dirac(Φ0)  
+#     ψ_prior  = Dirac(ψ)
+#     ι_prior  = Dirac(ι)
+#     δ_prior  = Dirac(δ)
+#     α_prior  = Dirac(α)
+#     h_prior  = Dirac(h)
     
-    # Noise parameters 
-    σp_prior= Dirac(σp)
-    σm_prior= Dirac(σm)
+#     # Noise parameters 
+#     σp_prior= Dirac(σp)
+#     σm_prior= Dirac(σm)
 
 
-    #Concat. There is probably a clever way to do this...
-    priors = [f_prior ; ḟ_prior; d_prior;γ_prior; ω_prior;Φ0_prior;ψ_prior;ι_prior;δ_prior;α_prior;h_prior;σp_prior;σm_prior]
+#     #Concat. There is probably a clever way to do this...
+#     priors = [f_prior ; ḟ_prior; d_prior;γ_prior; ω_prior;Φ0_prior;ψ_prior;ι_prior;δ_prior;α_prior;h_prior;σp_prior;σm_prior]
  
-    f_names = name_those_parameters(f_prior,"f")
-    ḟ_names = name_those_parameters(f_prior,"ḟ")
-    d_names = name_those_parameters(f_prior,"d")
-    γ_names = name_those_parameters(f_prior,"γ")
+#     f_names = name_those_parameters(f_prior,"f")
+#     ḟ_names = name_those_parameters(f_prior,"ḟ")
+#     d_names = name_those_parameters(f_prior,"d")
+#     γ_names = name_those_parameters(f_prior,"γ")
  
-    prior_names = [f_names ; ḟ_names; d_names; γ_names; "ω";"Φ0";"ψ";"ι";"δ";"α";"h";"σp";"σm"]
+#     prior_names = [f_names ; ḟ_names; d_names; γ_names; "ω";"Φ0";"ψ";"ι";"δ";"α";"h";"σp";"σm"]
 
 
 
-    @assert length(priors) == length(prior_names)
-    return priors,prior_names
+#     @assert length(priors) == length(prior_names)
+#     return priors,prior_names
    
-    # return GuessedParameters{P.NF}(f0,ḟ0,d,γ,
-    #                                ω ,Φ0 ,ψ ,ι ,δ ,α ,h ,
-    #                                σp ,σm ) #convert to type NF 
+#     # return GuessedParameters{P.NF}(f0,ḟ0,d,γ,
+#     #                                ω ,Φ0 ,ψ ,ι ,δ ,α ,h ,
+#     #                                σp ,σm ) #convert to type NF 
 
 
-end 
-
-
-
+# end 
 
 
 
@@ -61,10 +58,13 @@ end
 
 
 
-function name_those_parameters(x,label)    
-    names = [label*string(i) for i=1:length(x)]
-    return names
-end 
+
+
+
+# function name_those_parameters(x,label)    
+#     names = [label*string(i) for i=1:length(x)]
+#     return names
+# end 
 
 
 

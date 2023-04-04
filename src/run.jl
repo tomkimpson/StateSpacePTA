@@ -9,8 +9,10 @@ function run_all(::Type{NF}=Float64;              # number format, use Float64 a
 
 
     state,measurements,PTA,θ̂,P = setup(NF=NF;kwargs...)
-    #model_likelihood,model_predictions = KF(measurements,PTA,θ̂,:GW)
+    
+    model_likelihood,model_predictions = KF(measurements,PTA,θ̂)
 
+    return model_likelihood,model_predictions
 
 end
 
@@ -31,7 +33,7 @@ function setup(::Type{NF}=Float64;              # number format, use Float64 as 
     seed = P.seed # Integer or nothing 
     state,measurement = create_synthetic_data(PTA,GW_parameters,seed) 
 
-   # θ̂ = guess_parameters(PTA,P)
+    θ̂ = kalman_parameters(PTA,P)
 
     return state,measurement,PTA,θ̂,P
 
