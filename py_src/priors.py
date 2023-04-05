@@ -53,8 +53,8 @@ def priors_dict(pulsar_parameters,GW_parameters):
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
    priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
 
-   print("Defining the priors dict. Number of pulsars = ", len(pulsar_parameters.f))
-   print("GW strain = ",priors["h"] )
+   #print("Defining the priors dict. Number of pulsars = ", len(pulsar_parameters.f))
+   #print("GW strain = ",priors["h"] )
    return priors
 
 #https://arxiv.org/pdf/2008.12320.pdf
@@ -69,24 +69,25 @@ def bilby_priors_dict(PTA):
     
 
     init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'phi0_gw')
-    #priors["phi0_gw"] = 0.20
+    #priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'phi0_gw')
+    priors["phi0_gw"] = 0.20
 
     init_parameters["psi_gw"] = None
-    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
-    #priors["psi_gw"] = 2.5
+    #priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+    priors["psi_gw"] = 2.5
 
     init_parameters["iota_gw"] = None
     priors["iota_gw"] = 0.40
     #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'iota_gw')
 
     init_parameters["delta_gw"] = None
-    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'delta_gw')
-    #priors["delta_gw"] = 1.0
+    #priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'delta_gw')
+    #priors["delta_gw"] = bilby.core.prior.Cosine(-np.pi/2.0, np.pi/2.0, 'delta_gw')
+    priors["delta_gw"] = 0.40
 
     init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
-    #priors["alpha_gw"] = 1.0
+    #priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
+    priors["alpha_gw"] = 4.80
 
     init_parameters["h"] = None
     priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')

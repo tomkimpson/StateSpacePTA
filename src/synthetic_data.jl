@@ -33,6 +33,7 @@ function create_synthetic_data(
     f_measured_clean = gw_factor .* intrinsic_frequency
     #The measured frequency with noise 
     f_measured = add_gauss(f_measured_clean, σm, 0.0)    
+
     return intrinsic_frequency,f_measured
   
 end 

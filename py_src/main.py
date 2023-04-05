@@ -20,7 +20,7 @@ import bilby
 if __name__=="__main__":
 
 
-    P   = SystemParameters(Npsr=0)       #define the system parameters as a class
+    P   = SystemParameters(Npsr=1)       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
     data = SyntheticData(PTA,P) #generate some synthetic data
     
@@ -39,7 +39,7 @@ if __name__=="__main__":
    
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA)
-    BilbySampler(KF,init_parameters,priors,label="run_0404b",outdir="../data/nested_sampling/")
+    BilbySampler(KF,init_parameters,priors,label="run_0504b_omega_and_h2",outdir="../data/nested_sampling/")
 
 
 

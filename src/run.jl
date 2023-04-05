@@ -28,10 +28,8 @@ function setup(::Type{NF}=Float64;              # number format, use Float64 as 
     PTA = setup_PTA(P)
     GW_parameters = gw_variables(P)
 
-    @info "Hello from StateSpacePTA. You are running with NF = ", P.NF, " and a GW strain h = ", P.h
-
-    seed = P.seed # Integer or nothing 
-    state,measurement = create_synthetic_data(PTA,GW_parameters,seed) 
+    #@info "Hello from StateSpacePTA. You are running with NF = ", P.NF, " and a GW strain h = ", P.h
+    state,measurement = create_synthetic_data(PTA,GW_parameters,P.seed) 
 
     θ̂ = kalman_parameters(PTA,P)
 

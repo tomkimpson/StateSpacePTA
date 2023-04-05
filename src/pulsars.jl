@@ -32,17 +32,17 @@ function setup_PTA(P::SystemParameters)
     
     if P.Npsr != 0 #i.e. if 0 then just select all the pulsars in the PTA
         pulsars = first(pulsars,P.Npsr) #else select the first N pulsars 
-        @info "The number of pulsars selected for this problem is: ", P.Npsr
+       # @info "The number of pulsars selected for this problem is: ", P.Npsr
 
-    else
-        @info "All pulsars selected"
+    #else
+       # @info "All pulsars selected"
     end 
 
     #Define the pulsar parameters 
     f = pulsars[:,"F0"]
     ḟ = pulsars[:,"F1"] 
     d = pulsars[:,"DIST"]*1e3*pc/c #this is in units of s^-1
-    γ = fill(P.γ ,P.Npsr) 
+    γ = fill(P.γ ,length(f)) 
     δ = pulsars[:,"DECJD"]
     α = pulsars[:,"RAJD"]
     q = unit_vector(π/2.0 .-δ, α)

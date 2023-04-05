@@ -12,6 +12,9 @@ function KF(observations::Matrix{NF},
     @unpack q,d,dt,t = PTA 
     @unpack γ, σp,σm,f0,ḟ0,δ,α,ψ,h,cos_ι,ω,Φ0 = parameters 
 
+
+#    println("Running with omega = ", ω)
+
     #Precompute all the transition and control matrices as well as Q and R matrices.
     #F,Q,R are time-independent functions of the parameters
     #T is time dependent, but does not depend on states and so can be precomputed    

@@ -252,9 +252,7 @@ class KalmanFilter:
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
         
 
-        # for key,value in parameters.items():
-        #     print(key, type(value))
-        #print(parameters)
+    
 
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters

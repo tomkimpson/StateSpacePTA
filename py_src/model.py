@@ -25,9 +25,6 @@ class LinearModel:
 
        
         fdot_time =  np.outer(t+dt,fdot) #This has shape(n times, n pulsars)
-
-
-        print(fdot_time)
         value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
 
         return value

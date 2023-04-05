@@ -37,7 +37,7 @@ class SyntheticData:
 
 
 
-       #Now calculate the modulation factor due to the GW
+        #Now calculate the modulation factor due to the GW
         modulation_factors = gw_prefactor_optimised(
                                P["delta_gw"],
                                P["alpha_gw"],
