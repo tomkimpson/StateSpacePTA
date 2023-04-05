@@ -53,8 +53,8 @@ class LinearModel:
     @jit(nopython=True)
     def Q_function(gamma,sigma_p,dt):
 
-        
-        value = sigma_p**2 * (np.exp(2.0*gamma* dt) - 1.) / (2.0 * gamma)
+        print("The input sigma to the Q function = ",sigma_p )
+        value = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
         return value #this is now a vector
      
 

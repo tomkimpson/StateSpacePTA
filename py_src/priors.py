@@ -144,8 +144,8 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["delta_gw"] = None
-    #priors["delta_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'delta_gw')
-    priors["delta_gw"] = P["delta_gw"]
+    priors["delta_gw"] = bilby.core.prior.Cosine(-np.pi/2, np.pi/2, 'delta_gw')
+    #priors["delta_gw"] = P["delta_gw"]
 
 
     init_parameters["alpha_gw"] = None
@@ -172,7 +172,7 @@ def bilby_priors_dict(PTA,P):
     #Noises
     init_parameters["sigma_p"] = None
     #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
-    priors["sigma_p"] = 1e-10 #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
+    priors["sigma_p"] = 1e-3 #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
     #priors["sigma_p"] = P["sigma_p"] #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
 
 

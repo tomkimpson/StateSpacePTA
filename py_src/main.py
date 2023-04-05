@@ -65,7 +65,7 @@ if __name__=="__main__":
     # #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA,P)
     dlogz=0.10
-    BilbySampler(KF,init_parameters,priors,"likelihood_test51","../data/nested_sampling",dlogz)
+    BilbySampler(KF,init_parameters,priors,"likelihood_test54","../data/nested_sampling",dlogz)
 
    
 

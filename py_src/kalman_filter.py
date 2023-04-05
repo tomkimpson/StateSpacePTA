@@ -41,7 +41,7 @@ def get_vector_likelihood(S,innovation,factor):
     ff = len(innovation)*np.log(2*np.pi)
 
 
-    #print("Likelihood:",slogdet,innovation @ x, ff )
+    print("Likelihood:",slogdet,innovation @ x, ff )
     slogdet=0.0
     return -0.5*(slogdet+innovation @ x + ff)
 
@@ -50,7 +50,7 @@ def get_vector_likelihood(S,innovation,factor):
 def update(x, P, observation,R,H,factor):
 
  
-    print("H = ", H)
+    #print("H = ", H)
    # print("Pin = ", P)
 
     y = observation - H*x
