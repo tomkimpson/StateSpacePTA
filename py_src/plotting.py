@@ -1,6 +1,6 @@
 
 import matplotlib.pyplot as plt 
-import scienceplots
+#import scienceplots
 import corner 
 import json
 import pandas as pd

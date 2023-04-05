@@ -35,9 +35,13 @@ import numba
 @jit(nopython=True)
 def get_vector_likelihood(S,innovation,factor):
     x = innovation / S 
-    #slogdet = np.sum(np.log(S)) #Uses log rules and diagonality of covariance "matrix"
+    slogdet = np.sum(np.log(S)) #Uses log rules and diagonality of covariance "matrix"
     
+    #print("log of innovation covariance:", np.log(S))
     ff = len(innovation)*np.log(2*np.pi)
+
+
+    #print("Likelihood:",slogdet,innovation @ x, ff )
     slogdet=0.0
     return -0.5*(slogdet+innovation @ x + ff)
 
@@ -46,6 +50,9 @@ def get_vector_likelihood(S,innovation,factor):
 def update(x, P, observation,R,H,factor):
 
  
+    print("H = ", H)
+   # print("Pin = ", P)
+
     y = observation - H*x
     S = H*P*H + R
     K = P*H/S
@@ -68,17 +75,19 @@ def update(x, P, observation,R,H,factor):
     # In practice for this pulsar problem I have also found this expression more numerically stable
     # ...despite the extra cost of operations
     #I_KH = I - (K*H)
-    Pnew = I_KH * P * I_KH + K * R * K
-    #Pnew = I_KH * P
+    #Pnew = I_KH * P * I_KH + K * R * K
+    Pnew = I_KH * P
 
         
+   # print("P out = ", Pnew )
+   #print("Ikh = ", I_KH)
 
 
 
     l = get_vector_likelihood(S,y,factor)
 
 
-
+    #print("---------------------------------")
 
     return xnew, Pnew,l
 
@@ -92,6 +101,11 @@ def update(x, P, observation,R,H,factor):
 def predict(x,P,F,T,Q):
     xp = F*x + T 
     Pp = F*P*F + Q
+
+    #print("P predict:",F*P*F)
+    #print("Q =" , Q)
+
+    #print("f =", F)
     return xp,Pp
 
 
