@@ -20,7 +20,7 @@ import bilby
 if __name__=="__main__":
 
 
-    P   = SystemParameters(Npsr=1)       #define the system parameters as a class
+    P   = SystemParameters()       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
     data = SyntheticData(PTA,P) #generate some synthetic data
     
@@ -38,8 +38,8 @@ if __name__=="__main__":
     print("Ideal likelihood = ", model_likelihood)
    
     #Bilby 
-    init_parameters, priors = bilby_priors_dict(PTA)
-    BilbySampler(KF,init_parameters,priors,label="run_0504b_omega_and_h2",outdir="../data/nested_sampling/")
+    init_parameters, priors = bilby_priors_dict(PTA,P)
+    BilbySampler(KF,init_parameters,priors,label="canonical_example2",outdir="../data/nested_sampling/")
 
 
 
