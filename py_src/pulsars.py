@@ -16,8 +16,9 @@ class Pulsars:
 
         pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
         if SystemParameters["Npsr"] != 0:
-            pulsars = pulsars.head(SystemParameters["Npsr"]) #can also use  pulsars.sample(N) to randonly sample 
-       
+            #pulsars = pulsars.head(SystemParameters["Npsr"]) #can also use  pulsars.sample(N) to randonly sample 
+            pulsars = pulsars.sample(SystemParameters["Npsr"]) #can also use  pulsars.sample(N) to randonly sample 
+
         
         #Extract the parameters
         self.f = pulsars["F0"].to_numpy(dtype=NF)

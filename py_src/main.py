@@ -18,6 +18,8 @@ import bilby
 
 
 if __name__=="__main__":
+    import multiprocessing
+    multiprocessing.set_start_method("fork")
 
 
     P   = SystemParameters()       #define the system parameters as a class
@@ -39,7 +41,7 @@ if __name__=="__main__":
    
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA,P)
-    BilbySampler(KF,init_parameters,priors,label="canonical_example2",outdir="../data/nested_sampling/")
+    BilbySampler(KF,init_parameters,priors,label="alpha_narrow_prior",outdir="../data/nested_sampling/")
 
 
 

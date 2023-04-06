@@ -24,7 +24,11 @@ class LinearModel:
     def T_function(f0,fdot,gamma,t,dt):
 
        
-        fdot_time =  np.outer(t+dt,fdot) #This has shape(n times, n pulsars)
+        #fdot_time =  np.outer(t+dt,fdot) #This has shape(n times, n pulsars)
+        #value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
+        
+        
+        fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
         value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
 
         return value

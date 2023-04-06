@@ -40,7 +40,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                             sample='auto', 
                             #walks=10, 
                             npoints=100,dlogz=0.10,
-                            npool=4, plot=True,resume=False)
+                            npool=4, plot=True,resume=True)
 
 
 

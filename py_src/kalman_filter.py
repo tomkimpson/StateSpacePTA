@@ -16,7 +16,7 @@ def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
     #slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
-    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
+    #eturn -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
     return -0.5*(innovation @ x + N*np.log(2*np.pi))
 
 
