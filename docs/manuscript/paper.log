@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  6 APR 2023 17:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  6 APR 2023 17:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -376,6 +376,33 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen171
+\captionmargin=\dimen172
+\caption@leftmargin=\dimen173
+\caption@rightmargin=\dimen174
+\caption@width=\dimen175
+\caption@indent=\dimen176
+\caption@parindent=\dimen177
+\caption@hangindent=\dimen178
+\abovecaptionskip=\skip60
+\belowcaptionskip=\skip61
+Package caption Info: Document class w/o caption stuff detected.
+)
+\c@caption@flags=\count294
+\c@continuedfloat=\count295
+Package caption Info: hyperref package is loaded.
+)
+\c@subfigure=\count296
+\c@subtable=\count297
+)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
@@ -402,20 +429,20 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 \XKV@toks=\toks24
 \XKV@tempa@toks=\toks25
 )
-\XKV@depth=\count294
+\XKV@depth=\count298
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count295
+\etb@tempcnta=\count299
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count296
-\decimalpart=\count297
+\integerpart=\count300
+\decimalpart=\count301
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 )
@@ -429,8 +456,8 @@ LaTeX Font Info:    Setting ntxOsF sub-encoding to TS1/0 on input line 21.
 LaTeX Font Info:    Setting ntxTOsF sub-encoding to TS1/0 on input line 21.
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/kastrup/binhex.tex)
-\ntx@tmpcnta=\count298
-\ntx@cnt=\count299
+\ntx@tmpcnta=\count302
+\ntx@cnt=\count303
 
 ntx@otftextfalse
 (/usr/local/texlive/2022/texmf-dist/tex/latex/fontaxes/fontaxes.sty
@@ -461,11 +488,11 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
-\tx@cntz=\count300
+\tx@cntz=\count304
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count301
-\tx@IsAlNum=\count302
+\tx@Isdigit=\count305
+\tx@IsAlNum=\count306
 \tx@tA=\toks26
 \tx@tB=\toks27
 \tx@su=\read2
@@ -576,7 +603,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count303
+\l__color_backend_stack_int=\count307
 \l__pdf_internal_box=\box97
 )
 (./paper.aux
@@ -689,7 +716,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count304
+\c@section@level=\count308
 )
 LaTeX Info: Redefining \ref on input line 82.
 LaTeX Info: Redefining \pageref on input line 82.
@@ -701,16 +728,16 @@ LaTeX Info: Redefining \nameref on input line 82.
 
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count305
-\scratchdimen=\dimen171
+\scratchcounter=\count309
+\scratchdimen=\dimen179
 \scratchbox=\box98
-\nofMPsegments=\count306
-\nofMParguments=\count307
+\nofMPsegments=\count310
+\nofMParguments=\count311
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count308
-\MPscratchDim=\dimen172
-\MPnumerator=\count309
-\makeMPintoPDFobject=\count310
+\MPscratchCnt=\count312
+\MPscratchDim=\dimen180
+\MPnumerator=\count313
+\makeMPintoPDFobject=\count314
 \everyMPtoPDFconversion=\toks30
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -721,8 +748,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@mv@tabular=\count311
-\c@mv@boldtabular=\count312
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+\c@mv@tabular=\count315
+\c@mv@boldtabular=\count316
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 16.0pt on input line 85.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
@@ -857,41 +886,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 332--334
 
  []
 
-<images/pulsars.png, id=251, 481.0773pt x 299.9205pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
+
+ []
+
+<images/KF1.png, id=252, 736.6722pt x 500.3493pt>
+File: images/KF1.png Graphic file (type png)
+<use images/KF1.png>
+Package pdftex.def Info: images/KF1.png  used on input line 374.
+(pdftex.def)             Requested size: 244.0pt x 165.72655pt.
+<images/KF2.png, id=254, 725.8317pt x 490.2315pt>
+File: images/KF2.png Graphic file (type png)
+<use images/KF2.png>
+Package pdftex.def Info: images/KF2.png  used on input line 380.
+(pdftex.def)             Requested size: 244.0pt x 164.79893pt.
+<images/pulsars.png, id=257, 481.0773pt x 299.9205pt>
 File: images/pulsars.png Graphic file (type png)
 <use images/pulsars.png>
-Package pdftex.def Info: images/pulsars.png  used on input line 443.
+Package pdftex.def Info: images/pulsars.png  used on input line 418.
 (pdftex.def)             Requested size: 195.20074pt x 121.69595pt.
-[4
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.495 \end{equation}
-                     <./images/pulsars.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 499--501
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 474--476
 
  []
 
 
 LaTeX Warning: Reference `fig:mean and std of nets' on page 5 undefined on inpu
-t line 512.
+t line 487.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 538--540
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 513--515
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
+
+ []
+
+[5 <./images/KF1.png> <./images/KF2.png> <./images/pulsars.png>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 602.
+(Font)              scaled to size 7.3pt on input line 577.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 602.
-(./paper.bbl [5]) [6
+(Font)              scaled to size 5.5pt on input line 577.
+ (./paper.bbl)
+[6
 
 ] (./paper.aux)
 
@@ -908,13 +948,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: BA4AF2A4A46754C42793098FC6C53CA1;3073.
  ) 
 Here is how much of TeX's memory you used:
- 14894 strings out of 478268
- 220578 string characters out of 5846348
- 523098 words of memory out of 5000000
- 32674 multiletter control sequences out of 15000+600000
+ 16329 strings out of 478268
+ 248591 string characters out of 5846348
+ 545735 words of memory out of 5000000
+ 34095 multiletter control sequences out of 15000+600000
  572972 words of font info for 198 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,1434b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,1434b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -935,10 +975,10 @@ ublic/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/n
 ewtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztm
 b.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></u
 sr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (6 pages, 410027 bytes).
+Output written on paper.pdf (6 pages, 1079482 bytes).
 PDF statistics:
- 410 PDF objects out of 1000 (max. 8388607)
- 375 compressed objects within 4 object streams
- 121 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 384 compressed objects within 4 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 184 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,7 +34,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%% AUTHORS - PLACE YOUR OWN MACROS HERE %%%%%%
-
+\usepackage{subcaption}
 % Please keep new commands to a minimum, and use \newcommand not \def to avoid
 % overwriting existing commands. Example:
 %\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
@@ -343,66 +343,53 @@ where $H$ is the measurement matrix and $v$ a Gaussian measurement noise. The un
 \begin{equation}
 	\dot{x} = Fx + Gu + w
 \end{equation}
-where $x$ are the state variables, $F$ the system dynamics matrix, $G u$ the control matrix/vector and $w$ a stochastic zero-mean process which .  By comparison with the preceding equations Eqs. 	\ref{eq:state1} - 	\ref{eq:state2} it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations, then for our formulation, the various components that make up the Kalman filter are as follows: 
+where $x$ are the state variables, $F$ the system dynamics matrix, $G u$ the control matrix/vector and $w$ a stochastic zero-mean process which .  By comparison with the preceding equations Eqs. 	\ref{eq:state1} - 	\ref{eq:state2} it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations, then for our formulation, the components that make up the Kalman filter are as follows: 
 \begin{equation}
 	F_i = F_{i+1} = e^{-\gamma \Delta t}
 \end{equation}
 \begin{align}
 	T_i &= \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} N(t') dt' \\
-	    & =
+	    & = f_{\rm EM}(0) + \dot{f}_{\rm EM}(0)  (\Delta t + t_i) - e^{-\gamma \Delta t} (f_{\rm EM}(0) + \dot{f}_{\rm EM}(0)t_i)
 \end{align}
-
-
-
-
-
-
-The Kalman filter includes the effect of process noise and measurement noise via the defines a measurement noise matrix $R = E[v v^T]$
-defines a process noise matrix $Q = E[w w^T]$.
-
 \begin{equation}
-	\eta_i = \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} \sigma dt'
+	H_i = 1 -A(\theta_{\rm GW}) \cos(-\Omega t_i (1 + n\cdot q ) + \Phi_0)
 \end{equation}
+and $A$ is a constant that is given by  Eq. \ref{eq:state2}. The Kalman filter includes the effect of process noise $w$ and the measurement noise $v$ via the definition of a process noise matrix $Q = E[w w^T]$ and a measurement noise matrix $R = E[v v^T]$, which have the discrete form,
+\begin{equation}
+	Q_i  \delta_{ij}= \langle \eta_i \eta_j^T \rangle = \frac{- \sigma^2}{2 \gamma} \left( e^{-2 \gamma \Delta t} -1\right)
+\end{equation}
+\begin{equation}
+	R_i = R_{i+1} = \Sigma^2
+\end{equation}
+For our formulation we are concerned only with the linear Kalman filter since the measurements are a linear function of the states and the state transitions are also linear. Extension to non-linear problems is straighforward using either an extended Kalman filter, the unscented Kalman filter or the particle filter. For a full review of the  Kalman filter equations which may e unfamilar to some, we refer the reader to the appendix X of \cite{Melatos2023}. \newline 
+
+
+
+\noindent In order for the Kalman filter to function successfully, the parameters of the model, which appear in the various Kalman matrices, must be accurate (e.g. Fig \ref{fig:four figures}). The filter tracks the error in the
 
 
 
 
+The Kalman filte rprovides an estiamte In this way, 
 
 
+\begin{figure*}
+	%\centering % Not needed
+	\begin{subfigure}[b]{1\columnwidth}
+		\includegraphics[width=\textwidth]{images/KF1}
+		\caption{}
+		\label{fig:6MB_BFS}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{1\columnwidth}
+		\includegraphics[width=\textwidth]{images/KF2}
+		\caption{}
+		\label{fig:25MB_bfs}
+	\end{subfigure}
+	\label{fig:four figures}
+\end{figure*}
 
 
-
-
-
-
-
-
-
-
-
-Whilst for our problem we only need concern ourselves with linear stuff
-
-%Extensions to non-linear state-transitions
-%[i.e. 𝑭𝑿 → 𝑓 (𝑿) in equation (11)], and non-linear measurement
-%equations [i.e. 𝑪𝑿 → 𝑐(𝑿) in equation (10)] can be achieved using a range of tools such as the extended Kalman filter (Jazwinski
-%1970), the unscented Kalman filter (Julier & Uhlmann 1997; Wan
-%& Merwe 2000; Julier & Uhlmann 2004), or particle filters (Del
-%Moral 1997).
-%The full set of Kalma
-%
-for a full review we refer the reader to X
-
-
-
-
-
-the state the states are related to a measurement via
-
-where this is that is this
-
-
-
-By comaprison with the state space equations we derived earlier (Eqs A to B) we can see that our continuous equations map ideally onto this structure. In particular, for our system our state $\bar{x}$ is simply the frequencies of each individual pulsar $= (f_1, f_2, f_3,...)$
 
 
 

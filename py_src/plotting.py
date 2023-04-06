@@ -31,7 +31,7 @@ def plot_statespace(t,states,measurements,psr_index):
 
 
 
-def plot_all(t,states,measurements,predictions,psr_index):
+def plot_all(t,states,measurements,predictions,psr_index,savefig=None):
 
     plt.style.use('science')
 
@@ -63,6 +63,9 @@ def plot_all(t,states,measurements,predictions,psr_index):
 
     plt.subplots_adjust(wspace=0.1, hspace=0.1)
     #plt.rcParams["font.family"] = "fantasy"
+
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
    
     plt.show()
 

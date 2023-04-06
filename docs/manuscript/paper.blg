@@ -10,66 +10,48 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-I was expecting a `,' or a `}'---line 453 of file example.bib
- :  
- :  author = {{Melatos}, A. and {O'Neill}, N.~J. and {Meyers}, P.~M. and {O'Leary}, J.},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-`author' is a missing field, not a string, for entry Melatos2023
-while executing---line 1706 of file mnras.bst
-`author' is a missing field, not a string, for entry Melatos2023
-while executing---line 1706 of file mnras.bst
-Warning--empty author in Melatos2023
-Warning--empty year in Melatos2023
-"ArXiv e-prints" is a string literal, `journal' is a missing field
----they aren't the same literal types for entry Melatos2023
-while executing---line 1822 of file mnras.bst
-Warning--empty journal in Melatos2023
-"ArXiv e-prints" is a string literal, `journal' is a missing field
----they aren't the same literal types for entry Melatos2023
-while executing---line 1822 of file mnras.bst
 Warning--empty publisher in 2021hgwa.bookE...4V
 You've used 21 entries,
             2881 wiz_defined-function locations,
-            909 strings with 86285 characters,
-and the built_in function-call counts, 9846 in all, are:
-= -- 991
-> -- 491
-< -- 26
-+ -- 244
-- -- 35
-* -- 1205
-:= -- 1347
+            910 strings with 86357 characters,
+and the built_in function-call counts, 10040 in all, are:
+= -- 1018
+> -- 506
+< -- 27
++ -- 240
+- -- 42
+* -- 1225
+:= -- 1379
 add.period$ -- 0
 call.type$ -- 21
 change.case$ -- 42
 chr.to.int$ -- 21
-cite$ -- 27
-duplicate$ -- 523
-empty$ -- 517
-format.name$ -- 113
-if$ -- 1809
+cite$ -- 22
+duplicate$ -- 528
+empty$ -- 515
+format.name$ -- 122
+if$ -- 1855
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 21
 newline$ -- 77
-num.names$ -- 108
-pop$ -- 110
+num.names$ -- 114
+pop$ -- 100
 preamble$ -- 1
 purify$ -- 84
 quote$ -- 0
-skip$ -- 355
+skip$ -- 363
 stack$ -- 0
-substring$ -- 793
-swap$ -- 246
+substring$ -- 817
+swap$ -- 257
 text.length$ -- 87
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 189
-warning$ -- 4
-while$ -- 139
+warning$ -- 1
+while$ -- 142
 width$ -- 0
-write$ -- 219
-(There were 5 error messages)
+write$ -- 223
+(There was 1 warning)

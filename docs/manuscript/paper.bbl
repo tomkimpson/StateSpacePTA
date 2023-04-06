@@ -91,8 +91,11 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   Gravity] {10.1088/0264-9381/32/7/074001}, \href
   {https://ui.adsabs.harvard.edu/abs/2015CQGra..32g4001L} {32, 074001}
 
-\bibitem[\protect\citeauthoryear{Kalman}{Mel}{}]{Melatos2023}
-
+\bibitem[\protect\citeauthoryear{{Melatos}, {O'Neill}, {Meyers}  \&
+  {O'Leary}}{{Melatos} et~al.}{2021}]{Melatos2023}
+{Melatos} A.,  {O'Neill} N.~J.,  {Meyers} P.~M.,   {O'Leary} J.,  2021, \mn@doi
+  [\mnras] {10.1093/mnras/stab1952}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.3349M} {506, 3349}
 
 \bibitem[\protect\citeauthoryear{{Meyers}, {O'Neill}, {Melatos}  \&
   {Evans}}{{Meyers} et~al.}{2021}]{Meyers2021}
