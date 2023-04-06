@@ -1,8 +1,9 @@
 name: Bilby
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - python=3.9
-  - bilby
+  - bilby=2.0.2=pyhd8ed1ab_0
   - numba
 prefix: /Users/t1/miniconda3/envs/Bilby
