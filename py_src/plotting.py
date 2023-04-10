@@ -142,7 +142,7 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
     
 
     h,w = 20,12
-    rows = 5
+    rows = 6
     cols = 2
     fig, axes_object = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
     
