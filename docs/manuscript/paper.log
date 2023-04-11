@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  6 APR 2023 17:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  11 APR 2023 14:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -848,92 +848,120 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 139.
+(Font)              scaled to size 8.0pt on input line 129.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 139.
+(Font)              scaled to size 6.2pt on input line 129.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 139.
+e 129.
+
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 139.
+(Font)              scaled to size 8.0pt on input line 129.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 164.
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--208
+(Font)              scaled to size 9.0pt on input line 167.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 209.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
 
  []
 
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 219.
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 235--237
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--240
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 332--334
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--365
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
 
-<images/KF1.png, id=252, 736.6722pt x 500.3493pt>
+<images/KF1.png, id=275, 736.6722pt x 500.3493pt>
 File: images/KF1.png Graphic file (type png)
 <use images/KF1.png>
-Package pdftex.def Info: images/KF1.png  used on input line 374.
+Package pdftex.def Info: images/KF1.png  used on input line 388.
 (pdftex.def)             Requested size: 244.0pt x 165.72655pt.
-<images/KF2.png, id=254, 725.8317pt x 490.2315pt>
+<images/KF2.png, id=277, 725.8317pt x 490.2315pt>
 File: images/KF2.png Graphic file (type png)
 <use images/KF2.png>
-Package pdftex.def Info: images/KF2.png  used on input line 380.
+Package pdftex.def Info: images/KF2.png  used on input line 394.
 (pdftex.def)             Requested size: 244.0pt x 164.79893pt.
-<images/pulsars.png, id=257, 481.0773pt x 299.9205pt>
+[4]
+<images/pulsars.png, id=310, 481.0773pt x 299.9205pt>
 File: images/pulsars.png Graphic file (type png)
 <use images/pulsars.png>
-Package pdftex.def Info: images/pulsars.png  used on input line 418.
+Package pdftex.def Info: images/pulsars.png  used on input line 467.
 (pdftex.def)             Requested size: 195.20074pt x 121.69595pt.
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
+<images/corner_example.png, id=311, 810.8694pt x 827.0097pt>
+File: images/corner_example.png Graphic file (type png)
+<use images/corner_example.png>
+Package pdftex.def Info: images/corner_example.png  used on input line 480.
+(pdftex.def)             Requested size: 406.40155pt x 414.50075pt.
 
- []
-
-
-LaTeX Warning: Reference `fig:mean and std of nets' on page 5 undefined on inpu
-t line 487.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 513--515
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
+Underfull \hbox (badness 10000) in paragraph at lines 504--506
 
  []
 
 [5 <./images/KF1.png> <./images/KF2.png> <./images/pulsars.png>]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 577.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 577.
- (./paper.bbl)
-[6
 
-] (./paper.aux)
+LaTeX Warning: Reference `fig:mean and std of nets' on page 6 undefined on inpu
+t line 517.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--547
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
+
+ []
+
+[6 <./images/corner_example.png>]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 609.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 609.
+ (./paper.bbl
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
+186.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 8.0pt on input line 186.
+) [7]
+(./paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -945,14 +973,14 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: BA4AF2A4A46754C42793098FC6C53CA1;3073.
+(rerunfilecheck)             Checksum: 4565CFA60C8E3D9D66EB756D0AF617AF;2767.
  ) 
 Here is how much of TeX's memory you used:
- 16329 strings out of 478268
- 248591 string characters out of 5846348
- 545735 words of memory out of 5000000
- 34095 multiletter control sequences out of 15000+600000
- 572972 words of font info for 198 fonts, out of 8000000 for 9000
+ 16420 strings out of 478268
+ 250331 string characters out of 5846348
+ 547428 words of memory out of 5000000
+ 34169 multiletter control sequences out of 15000+600000
+ 573294 words of font info for 199 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,1434b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -970,15 +998,16 @@ xlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}</usr/local/texlive
 texmf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2022/texmf
 -dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/p
-ublic/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/n
-ewtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztm
-b.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (6 pages, 1079482 bytes).
+/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
+/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/
+newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/t
+xsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on paper.pdf (7 pages, 1857592 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 384 compressed objects within 4 object streams
- 124 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 496 PDF objects out of 1000 (max. 8388607)
+ 451 compressed objects within 5 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

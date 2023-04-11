@@ -40,6 +40,12 @@
 {Amaro-Seoane} P.,  et~al., 2017, arXiv e-prints, \href
   {https://ui.adsabs.harvard.edu/abs/2017arXiv170200786A} {p. arXiv:1702.00786}
 
+\bibitem[\protect\citeauthoryear{{Antonelli}, {Basu}  \& {Haskell}}{{Antonelli}
+  et~al.}{2023}]{Antonelli2023}
+{Antonelli} M.,  {Basu} A.,   {Haskell} B.,  2023, \mn@doi [\mnras]
+  {10.1093/mnras/stad256}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023MNRAS.520.2813A} {520, 2813}
+
 \bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
   et~al.}{2022}]{2022MNRAS.510.4873A}
 {Antoniadis} J.,  et~al., 2022, \mn@doi [\mnras] {10.1093/mnras/stab3418},
@@ -60,6 +66,17 @@
 {Babak} S.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stv2092}, \href
   {https://ui.adsabs.harvard.edu/abs/2016MNRAS.455.1665B} {455, 1665}
 
+\bibitem[\protect\citeauthoryear{{Caballero} et~al.,}{{Caballero}
+  et~al.}{2016}]{Caballero2016}
+{Caballero} R.~N.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stw179},
+  \href {https://ui.adsabs.harvard.edu/abs/2016MNRAS.457.4421C} {457, 4421}
+
+\bibitem[\protect\citeauthoryear{{Cordes} \& {Shannon}}{{Cordes} \&
+  {Shannon}}{2010}]{Cordes2010}
+{Cordes} J.~M.,  {Shannon} R.~M.,  2010, \mn@doi [arXiv e-prints]
+  {10.48550/arXiv.1010.3785}, \href
+  {https://ui.adsabs.harvard.edu/abs/2010arXiv1010.3785C} {p. arXiv:1010.3785}
+
 \bibitem[\protect\citeauthoryear{{Ferdman} et~al.,}{{Ferdman}
   et~al.}{2010}]{2010CQGra..27h4014F}
 {Ferdman} R.~D.,  et~al., 2010, \mn@doi [Classical and Quantum Gravity]
@@ -76,6 +93,12 @@
 Hobbs G.,  Dai S.,  2017, \mn@doi [National Science Review]
   {10.1093/nsr/nwx126}, 4, 707
 
+\bibitem[\protect\citeauthoryear{{Hobbs}, {Lyne}  \& {Kramer}}{{Hobbs}
+  et~al.}{2010}]{Hobbs2010glitch}
+{Hobbs} G.,  {Lyne} A.~G.,   {Kramer} M.,  2010, \mn@doi [\mnras]
+  {10.1111/j.1365-2966.2009.15938.x}, \href
+  {https://ui.adsabs.harvard.edu/abs/2010MNRAS.402.1027H} {402, 1027}
+
 \bibitem[\protect\citeauthoryear{Kalman}{Kalman}{1960}]{Kalman1}
 Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   {10.1115/1.3662552}, 82, 35
@@ -91,6 +114,27 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   Gravity] {10.1088/0264-9381/32/7/074001}, \href
   {https://ui.adsabs.harvard.edu/abs/2015CQGra..32g4001L} {32, 074001}
 
+\bibitem[\protect\citeauthoryear{{Lam} et~al.,}{{Lam} et~al.}{2019}]{Lam2019}
+{Lam} M.~T.,  et~al., 2019, \mn@doi [\apj] {10.3847/1538-4357/ab01cd}, \href
+  {https://ui.adsabs.harvard.edu/abs/2019ApJ...872..193L} {872, 193}
+
+\bibitem[\protect\citeauthoryear{{Lasky}, {Melatos}, {Ravi}  \&
+  {Hobbs}}{{Lasky} et~al.}{2015}]{Lasky2015}
+{Lasky} P.~D.,  {Melatos} A.,  {Ravi} V.,   {Hobbs} G.,  2015, \mn@doi [\mnras]
+  {10.1093/mnras/stv540}, \href
+  {https://ui.adsabs.harvard.edu/abs/2015MNRAS.449.3293L} {449, 3293}
+
+\bibitem[\protect\citeauthoryear{{Melatos} \& {Link}}{{Melatos} \&
+  {Link}}{2014}]{Melatos2014}
+{Melatos} A.,  {Link} B.,  2014, \mn@doi [\mnras] {10.1093/mnras/stt1828},
+  \href {https://ui.adsabs.harvard.edu/abs/2014MNRAS.437...21M} {437, 21}
+
+\bibitem[\protect\citeauthoryear{{Melatos}, {Peralta}  \& {Wyithe}}{{Melatos}
+  et~al.}{2008}]{Melatos2008}
+{Melatos} A.,  {Peralta} C.,   {Wyithe} J.~S.~B.,  2008, \mn@doi [\apj]
+  {10.1086/523349}, \href
+  {https://ui.adsabs.harvard.edu/abs/2008ApJ...672.1103M} {672, 1103}
+
 \bibitem[\protect\citeauthoryear{{Melatos}, {O'Neill}, {Meyers}  \&
   {O'Leary}}{{Melatos} et~al.}{2021}]{Melatos2023}
 {Melatos} A.,  {O'Neill} N.~J.,  {Meyers} P.~M.,   {O'Leary} J.,  2021, \mn@doi
@@ -103,6 +147,11 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   \mn@doi [\mnras] {10.1093/mnras/stab1952}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.3349M} {506, 3349}
 
+\bibitem[\protect\citeauthoryear{{Parthasarathy} et~al.,}{{Parthasarathy}
+  et~al.}{2021}]{Parthasarathy2021}
+{Parthasarathy} A.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab037},
+  \href {https://ui.adsabs.harvard.edu/abs/2021MNRAS.502..407P} {502, 407}
+
 \bibitem[\protect\citeauthoryear{{Perera} et~al.,}{{Perera}
   et~al.}{2019}]{2019MNRAS.490.4666P}
 {Perera} B.~B.~P.,  et~al., 2019, \mn@doi [\mnras] {10.1093/mnras/stz2857},
@@ -113,6 +162,15 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
 Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
   {10.1103/PhysRevD.85.122003}, 85, 122003
 
+\bibitem[\protect\citeauthoryear{{Shannon} \& {Cordes}}{{Shannon} \&
+  {Cordes}}{2010}]{Shannon2010}
+{Shannon} R.~M.,  {Cordes} J.~M.,  2010, \mn@doi [\apj]
+  {10.1088/0004-637X/725/2/1607}, \href
+  {https://ui.adsabs.harvard.edu/abs/2010ApJ...725.1607S} {725, 1607}
+
+\bibitem[\protect\citeauthoryear{Skilling}{Skilling}{2006}]{Skilling}
+Skilling J.,  2006, \mn@doi [Bayesian Analysis] {10.1214/06-BA127}, 1, 833
+
 \bibitem[\protect\citeauthoryear{Vargas \& Melatos}{Vargas \&
   Melatos}{2023}]{Vargas}
 Vargas A.,  Melatos A.,  2023, TBD, 1, 1
@@ -122,6 +180,10 @@ Vargas A.,  Melatos A.,  2023, TBD, 1, 1
 {Verbiest} J.~P.~W.,  {Os{\l}owski} S.,   {Burke-Spolaor} S.,  2021, in ,
   Handbook of Gravitational Wave Astronomy.
 p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
+
+\bibitem[\protect\citeauthoryear{{Wang}}{{Wang}}{2015}]{Wang2015}
+{Wang} Y.,  2015, in Journal of Physics Conference Series. p. 012019
+  (\mn@eprint {arXiv} {1505.00402}), \mn@doi{10.1088/1742-6596/610/1/012019}
 
 \bibitem[\protect\citeauthoryear{{Xue} et~al.,}{{Xue} et~al.}{2021}]{PTAphase}
 {Xue} X.,  et~al., 2021, \mn@doi [\prl] {10.1103/PhysRevLett.127.251303}, \href

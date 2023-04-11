@@ -71,7 +71,7 @@ def plot_all(t,states,measurements,predictions,psr_index,savefig=None):
 
 
 
-def plot_custom_corner(path,labels, injection_parameters,axes_scales):
+def plot_custom_corner(path,labels, injection_parameters,axes_scales,savefig):
 
 
     # Opening JSON file
@@ -99,6 +99,10 @@ def plot_custom_corner(path,labels, injection_parameters,axes_scales):
                         quantiles=[0.16, 0.84],
                         truths=injection_parameters,
                         axes_scales = axes_scales)
+    
+
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
     
     # fig.set_figwidth(12)
     # fig.set_figheight(8)

@@ -65,7 +65,7 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-\author[Kimpson]{Kimpson$^{1}$, Melatos,O'Leary, , Evans, others, etc. %
+\author[Kimpson]{Kimpson$^{1}$, Melatos, O'Leary, Evans, others, etc. etc. %
 \thanks{Contact e-mail: \href{mailto:mn@ras.ac.uk}{mn@ras.ac.uk}}%
 \thanks{Present address: Science magazine, AAAS Science International, \mbox{82-88}~Hills Road, Cambridge CB2~1LQ, UK}%
 \\
@@ -111,25 +111,28 @@ editorials, notices -- miscellaneous
 
 
 
-The detection of high frequency ($\sim 1$Hz) gravitational waves (GWs) from coalescing BH binaries with ground-based detectors such as LIGO/Virgo \citep{aLIGO,2015CQGra..32b4001A} is now a routine enterprise \citep[e.g.][]{2019PhRvX...9c1040A,2021PhRvX..11b1053A}. Gravitational radiation from sources which radiate in the mill-Hz regime are expected to be detectable from $\sim 2030$ with the space-based Laser Interferometer Space Antenna, \citep{LISApaper} especially given the early success by the pathfinder mission \citep{2019arXiv190308924A}. Detecting GWs from systems which evolve over even longer timescales, $\mathcal{O}$(years), has necessitated the development of novel astrophysical methods, since it is practically impossible to engineer interferometric detectors with sufficiently long baselines. The foremost technique for the detection of GWs in this nano-Hz regime is a via timing an ensemble of milliseconds pulsars; a pulsar timing array (PTA) \citep{2021hgwa.bookE...4V}. The presence  of a nano-Hz gravitational wave will influence the propagation of the pulsar radio beacon, leaving a characteristic impression on the pulsar timing signal. By measuring the modulation of the received pulsar signal in this way, one can effectively construct a detector with a baseline on the scale of parsecs. \newline 
+The detection of high frequency ($\sim1$ Hz) gravitational waves (GWs) from coalescing BH binaries with ground-based detectors such as LIGO/Virgo \citep{aLIGO,2015CQGra..32b4001A} is now a routine enterprise \citep[e.g.][]{2019PhRvX...9c1040A,2021PhRvX..11b1053A}. Gravitational radiation from sources which radiate in the mill-Hz regime are expected to be detectable from $\sim 2030$ with the space-based Laser Interferometer Space Antenna, \citep{LISApaper} especially given the early success by the pathfinder mission \citep{2019arXiv190308924A}. Detecting GWs from systems which evolve over even longer timescales, $\mathcal{O}$(years), has necessitated the development of novel astrophysical methods, since it is practically impossible to engineer interferometric detectors with sufficiently long baselines. The foremost technique for the detection of GWs in this nano-Hz regime is a via timing an ensemble of milliseconds pulsars; a pulsar timing array (PTA) \citep{2021hgwa.bookE...4V}. The presence  of a nano-Hz gravitational wave will influence the propagation of the pulsar radio beacon, leaving a characteristic impression on the pulsar timing signal. By measuring the modulation of the received pulsar signal in this way, one can effectively construct a detector with a baseline on the scale of parsecs. \newline 
 
 
 \noindent Multiple PTA detectors have now been built over the last few decades, including the North American Nanohertz Observatory for Gravitational Waves \citep[NANOGrav,][]{2020ApJ...905L..34A}, the Parkes Pulsar Timing array \citep[PPTA][]{2020PASA...37...20K}, and the European Pulsar Timing Array \citep[EPTA,][]{2010CQGra..27h4014F}. These previously disparate efforts have now been joined in international collaboration, along with a number of newer PTAs, under the umbrella of the International Pulsar Timing Array \citep[IPTA][]{2019MNRAS.490.4666P}. The primary target of PTA observations is the gravitational radiation emitted from the inspiral of supermassive black hole binaries (SMBHBs) with masses $\sim\mathcal{ 10^7 M_{\odot}}$. These GW signals from SMBHBs can be broadly classified into either deterministic or stochastic. For the former, sufficiently bright and near binaries may be resolvable with PTAs, allowing the very earliest stages of their evolution and coalescence to be investigated. For the latter, the incoherent superposition of multiple weaker SMBHBs sources leads to a stochastic background detectable at nano-Hz frequencies. Other potential sources for PTAs include cosmic strings \citep[e.g.][]{PTAstring} and cosmological phase transitions \citep[e.g.][]{PTAphase}, but the deterministic and stochastic GW signals from SMBHBs remain the primary targets. \newline 
 
-
-
 \noindent The detection of loud, resolved sources with a PTA typically involves a parametrised model for the pulsar timing residuals induced by the modulation of the pulsar signal by a GW. One can then search for evidence that this model describes the data via the usual Bayesian likelihood techniques, and try to estimate the parameters of the model \citep[e.g.][]{Babak2016}. For detecting the stochastic background the approach is different; one measures the correlation in pulsar timing residuals between any two pair of pulsars. The presence of a GW induces a characteristic correlation function as a function of the angular separation between the pulsars; the Hellings-Downs curve \citep{Hellings}. For both classes of source, detection of GW signals in the timing residuals of a PTA is a challenging enterprise, and currently neither a stochastic background nor an individually resolved source has yet been detected \citep{2022MNRAS.510.4873A, 10.1093/nsr/nwx126}. \newline 
 
 
-\noindent Motivated by the difficulties faced by the classic PTA analysis methods, in this work we present a novel approach to formulate PTA analysis and GW detection as a state-space problem. This approach enables the state-space evolution to be tracked optimally, and for a specific realisation of the pulsar process noise (i.e. the spin wandering of the pulsar) infer both the system parameters and the detectability of the GW signal. For this initial exploratory study we will focus exclusively on resolved, monochromatic GW sources. 
+
+
+\noindent The sensitivity of a PTA to a GW signal is heavily dependent on the total level of noise \citep{Wang2015}. In particular, the intrinsic pulsar timing noise - i.e.  random variations in the pulse arrival time - has been identified as a key factor limiting the sensitivity of PTAs to GW signals \citep{Shannon2010,Lasky2015,Caballero2016}. This pulsar timing noise has multiple potential theorized causes including microglitches \citep{Melatos2008}, glitch recovery \citep{Hobbs2010glitch}, fluctuations in both the internal and external stochastic torques \citep{Antonelli2023} and superfluid turbulence \citep{Melatos2014}. In order to mitigate the influence of timing noise, PTAs are typically composed of millisecond pulsars which are known to be much more stable rotators with minimal timing noise. However, 
+timing noise in MSPs could be a `latent' phenomenon \citep{Shannon2010}; as we increase the length of observation spans and the timing precision required to detect gravitational waves, timing noise in MSPs may become emergent and more apparent, analogous to that seen in younger pulsars. In addition to timing noise there are also secondary noise sources one must consider such as phase jitter noise and radiometer noise \citep{Cordes2010,Lam2019,Parthasarathy2021}. \newline 
+
+
+\noindent In the standard approach to PTA-GW analysis, timing noise is nuisance which must be accurately modelled and subtracted and fundamentally limits the sensitivity of the PTA detector to a GW signal and its ability to infer the source parameters. Motivated by these challenges faced by the classic PTA analysis methods, in this work we present a novel approach to formulate PTA analysis and GW detection as a state-space problem. This approach enables the pulsar state-space evolution to be tracked optimally, given a specific realisation of the pulsar process noise (i.e. the spin wandering of the pulsar), and determine both the presence of a GW signal in the pulsar data, and  infer the underlying source parameters. For this initial exploratory study we will focus exclusively on resolved, monochromatic GW sources. \newline 
+
+
+This paper is organised as follows:
 
 
 
 
-This paper is organised as follows.
-
-
-\footnote{1. Introduce PTAs generally. 2.Types of astrophysical source to be detected with PTAs. 3. Previous methods. 4. Challenges/problems of previous methods. 5. Our approach and its potential advantages. }
 
 
 
@@ -335,7 +338,7 @@ Whilst the GW parameters are shared between measurements for each pulsar, the pu
 \noindent We will use a Kalman filter in order to obtain likelihood estimates of the data given a set of parameters. We will now review the Kalman filter and the associated likelihood in Section \label{sec:kalman_filter} before going on to discuss how to use nested sampling methods in conjunction with the filter for detection (model selection) and parameter estimation
 
 \subsection{Kalman Filtering}\label{sec:kalman_filter}
-The Kalman filter \citep{Kalman1} is a algorithmic technique for recovering a set of system state variables $\bar{x}$ given some noisy measurements $\bar{z}$. It is a common technique in signal processing that has also been applied more recently with great success in astrophysics \citep[e.g.][]{Meyers2021,Melatos2023}. The linear Kalman filter operates on measurements that are related to states via a linear transformation
+The Kalman filter \citep{Kalman1} is a algorithmic technique for recovering a set of system state variables, $\bar{x}$, given some noisy measurements, $\bar{z}$. It is a common technique in signal processing that has also been applied more recently with great success in astrophysics \citep[e.g.][]{Meyers2021,Melatos2023}. The linear Kalman filter operates on measurements that are related to states via a linear transformation
 \begin{equation}
 	z = Hx + v
 \end{equation}
@@ -343,7 +346,7 @@ where $H$ is the measurement matrix and $v$ a Gaussian measurement noise. The un
 \begin{equation}
 	\dot{x} = Fx + Gu + w
 \end{equation}
-where $x$ are the state variables, $F$ the system dynamics matrix, $G u$ the control matrix/vector and $w$ a stochastic zero-mean process which .  By comparison with the preceding equations Eqs. 	\ref{eq:state1} - 	\ref{eq:state2} it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations, then for our formulation, the components that make up the Kalman filter are as follows: 
+where $x$ are the state variables, $F$ the system dynamics matrix, $G u$ the control matrix/vector and $w$ a stochastic zero-mean process which .  By comparison with the preceding equations, Eqs. 	\ref{eq:state1} - 	\ref{eq:state2}, it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations,$\Delta t$, then for our formulation the components that make up the Kalman filter are as follows: 
 \begin{equation}
 	F_i = F_{i+1} = e^{-\gamma \Delta t}
 \end{equation}
@@ -361,16 +364,22 @@ and $A$ is a constant that is given by  Eq. \ref{eq:state2}. The Kalman filter i
 \begin{equation}
 	R_i = R_{i+1} = \Sigma^2
 \end{equation}
-For our formulation we are concerned only with the linear Kalman filter since the measurements are a linear function of the states and the state transitions are also linear. Extension to non-linear problems is straighforward using either an extended Kalman filter, the unscented Kalman filter or the particle filter. For a full review of the  Kalman filter equations which may e unfamilar to some, we refer the reader to the appendix X of \cite{Melatos2023}. \newline 
+For our formulation we are concerned only with the linear Kalman filter since the measurements are a linear function of the states and the state transitions are also linear. Extension to non-linear problems is straightforward using either an extended Kalman filter, the unscented Kalman filter or the particle filter. For a full review of the  Kalman filter equations which may bee familiar to some, we refer the reader to the appendices of \cite{Melatos2023} and  \cite{Meyers2021}. \newline 
 
 
 
-\noindent In order for the Kalman filter to function successfully, the parameters of the model, which appear in the various Kalman matrices, must be accurate (e.g. Fig \ref{fig:four figures}). The filter tracks the error in the
+\noindent In order for the Kalman filter to function successfully, the parameters of the model, which appear in the various Kalman matrices, must be accurate. Erroneous or inaccurate parameters lead to inaccurate predictions of the underlying states (e.g. Fig \ref{fig:four figures}). 
 
 
 
 
-The Kalman filte rprovides an estiamte In this way, 
+
+The filter tracks the error in its predictions of the underlying states by projecting the state predictions back into measurement space $\hat{z}$. These measurement predictions can then be compared against the true observed measurements. The Gaussian log-likelihood as a function of the parameters is,
+\begin{eqnarray}
+	\log \mathcal{L} =  -\frac{1}{2} (N \log 2 \pi + \log \sigma^2 + \frac{y^2}{x})
+\end{eqnarray}
+where this is this is that....
+This likelihood provided by the Kalman filter can then be used for Bayesian inference based techniques of the underlying system parameters, which we will now explore in more detail.  
 
 
 \begin{figure*}
@@ -386,37 +395,72 @@ The Kalman filte rprovides an estiamte In this way,
 		\caption{}
 		\label{fig:25MB_bfs}
 	\end{subfigure}
+\caption{TK: caption needed}
 	\label{fig:four figures}
 \end{figure*}
 
 
 
-
-
-here is an example for an arbitary GW and arbitrary pulsar with good and bad parameters 
 \subsection{Nested Sampling}
-
-We can use NS for both param estimation and 
-
-
-
-\section{Validation on synthetic data}
-
+Nested Sampling \cite{Skilling} is an integration algorithm used for evaluating integrals of the Bayesian form
+\begin{eqnarray}
+	Z = \int L \pi (\theta) d \theta
+\end{eqnarray}
+where this is this is that... i.e. the model evidence. It is a highly advantageous approach over the usual MCMC-type approaches which are used solely for calculating the posterior but can be highly computationally expensive, does not return an evidence, and can struggle on multi-modal problems. 
 
 
 
+ 
+Within the astrophysical community, it was first adopted in cosmology, CITE CITE but has become a widespread technique used wihin astronomy, astrophysics, particle physics and materials science CITE 
 
+
+Nested sampling genearlly works by algorithmically evolving a set of "live points" that seek to describe an underlying probability distribution. For a full review we refer the reader to original works by \cite{Skilling} and a recent review from a physics sciences perspective from \textbf{ASHTON}
+
+
+
+
+Multiple nested sampling libraries exist. For gravitational astrophysics it is common to use the dynesty sampler CITE, via the Bilby gravitational wave inference library and we continue to follow this precedent. 
 
 
 
 \subsection{PTA pulsars}
-Throughout this work it will be necessary to select a group of pulsars to make up our PTA. We will take the 47 pulsars that make up the NANOGrav PTA \citep{2020ApJ...905L..34A}
+
+In order to proceed, it is now necessary to specify a PTA configuration. 
+
+
+As discussed, multiple separate PTA detectors exist under the umbrella of the IPTA. Going forward we will take the 47 pulsars that make up the NANOGrav PTA \citep{2020ApJ...905L..34A}. NANOGrav is selected simply as a well-representative example of the typical pulsars that make up a PTA. Our results and formulation are not contingent on the choice of PTA, and naturally extend to other PTAs or PTAs with more pulsars.  
+
+
+
+Within the state-space forumulation, the pulsar evolution is governed by a set of 5 parameters $\bar{\theta}_{\rm PSR}$ for each pulsar. The parameters $f_{\rm EM} (0) $,$ \dot{f}_{\rm EM} (0)$ and $d$ are well specified via existing pulsar datasets. We take the frequency and frequency derivative as returned from the pulsar datasets to simply be the values now at $t=0$. The pulsar distances are also known, though less well constrained. Going forward we take the distances retuned from the datasets as the true values of the pulsars that make up our synthetic PTA. 
+
+
+
+The specification of $\gamma$ and $\sigma$ are more involved. $\gamma$ specifies an effective timescale of reversion to the mean
+
+
+\textbf{TK: discussion on how to select these two parameters c.f. Andres }
 
 
 
 
 
-In order to proceed and explore how well this state-space formulation works, we will need to specify a selection of pulsars to make up our PTA. We will take the 47 pulsars that make up the NANOGrav PTA. For each pulsar, we need to specify the complete set of $\bar{\theta}_{\rm PSR}$ as well as $\sigma$. The parameters $f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d$ are straightforward to set and can be read directly from  the current "present day" best estimates of the pulsar frequency, derivative and distance. 
+
+
+
+
+
+
+
+
+In order to proceed and explore how well this state-space formulation works, we will need to specify a selection of pulsars to make up our PTA. We will take the 47 pulsars that make up the NANOGrav PTA. 
+
+
+
+
+
+
+For each pulsar, we need to specify the complete set of $\bar{\theta}_{\rm PSR}$ as well as $\sigma$. The parameters $f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d$ are straightforward to set and can be read directly from  the current "present day" best estimates of the pulsar frequency, derivative and distance. 
 
 
 \begin{figure}
@@ -426,43 +470,24 @@ In order to proceed and explore how well this state-space formulation works, we 
 \end{figure}
 
 
-\subsection{Detection}
 
 
-
-\subsection{Parameter Estimation}
-
-
+\subsection{Parameter estimation on synthetic data}
+We are now in a position to try to infer the parameters of our system 
 
 
-
-
-
-
-
-
-
-\section{Kalman filtering}
-
-
-
-\section{Parameter estimation}
+\begin{figure*}
+	\includegraphics[width=0.8\textwidth]{images/corner_example}
+	\caption{Example corner plot}
+	\label{fig:corner}
+\end{figure*}
 
 
 
 
 
+\subsection{Detection on synthetic data}
 
-
-
-
-
-
-
-\subsection{Nested sampling}
-
-
-\section{Detection}
 
 
 
@@ -493,7 +518,9 @@ where $X$ is the RHS of Eq. \ref{eq:final} and $N_M$ a Gaussian measurement nois
 
 
 
-
+Quality vs quantity: 
+This is important as it measn we dont need to do this for all pulsars, just a few. 
+%https://arxiv.org/abs/2211.03201
 
 
 
@@ -581,6 +608,29 @@ In the case where the states are just the intrinsic pulsar frequencies, we can w
 \end{equation}
 where $\bar{A} = \text{diag}(\gamma_1, \gamma_2,...)$,  $\bar{X} = \text{diag}(f_1, f_2,...)$, $\bar{N} =\text{diag}(\gamma_1[a_1+b_1t] + b_1, ...)$
 and we have let $a = f_{EM}(0)$, $b = \dot{f}_{\rm EM}(0)$.
+
+
+
+
+
+
+
+\section{Discussion}
+
+\section{Conclusion}
+
+PTAs are all about MSPs for small timing noise. Maybe we can get away with large timing noise, and use more pulsars?
+
+
+Radiomenter noise. In theory well known but this could also be estimated via this approach 
+
+
+
+
+
+
+
+
 
 
 \subsection{References}
