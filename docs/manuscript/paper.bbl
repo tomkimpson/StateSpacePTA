@@ -162,6 +162,11 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
 Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
   {10.1103/PhysRevD.85.122003}, 85, 122003
 
+\bibitem[\protect\citeauthoryear{Sesana, Vecchio  \& Colacino}{Sesana
+  et~al.}{2008}]{Sesana10}
+Sesana A.,  Vecchio A.,   Colacino C.~N.,  2008, \mn@doi [Monthly Notices of
+  the Royal Astronomical Society] {10.1111/j.1365-2966.2008.13682.x}, 390, 192
+
 \bibitem[\protect\citeauthoryear{{Shannon} \& {Cordes}}{{Shannon} \&
   {Cordes}}{2010}]{Shannon2010}
 {Shannon} R.~M.,  {Cordes} J.~M.,  2010, \mn@doi [\apj]
@@ -170,6 +175,11 @@ Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
 
 \bibitem[\protect\citeauthoryear{Skilling}{Skilling}{2006}]{Skilling}
 Skilling J.,  2006, \mn@doi [Bayesian Analysis] {10.1214/06-BA127}, 1, 833
+
+\bibitem[\protect\citeauthoryear{Tarafdar et~al.,}{Tarafdar
+  et~al.}{2022}]{ipta}
+Tarafdar P.,  et~al., 2022, \mn@doi [Publications of the Astronomical Society
+  of Australia] {10.1017/pasa.2022.46}, 39, e053
 
 \bibitem[\protect\citeauthoryear{Vargas \& Melatos}{Vargas \&
   Melatos}{2023}]{Vargas}
@@ -188,6 +198,10 @@ p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
 \bibitem[\protect\citeauthoryear{{Xue} et~al.,}{{Xue} et~al.}{2021}]{PTAphase}
 {Xue} X.,  et~al., 2021, \mn@doi [\prl] {10.1103/PhysRevLett.127.251303}, \href
   {https://ui.adsabs.harvard.edu/abs/2021PhRvL.127y1303X} {127, 251303}
+
+\bibitem[\protect\citeauthoryear{Zhu et~al.,}{Zhu et~al.}{2015}]{Zhu10}
+Zhu X.-J.,  et~al., 2015, \mn@doi [Monthly Notices of the Royal Astronomical
+  Society] {10.1093/mnras/stv381}, 449, 1650
 
 \makeatother
 \end{thebibliography}

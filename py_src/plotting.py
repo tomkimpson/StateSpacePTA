@@ -195,7 +195,7 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
 
 from scipy import interpolate
 
-def SNR_plots(x,y,xlabel):
+def SNR_plots(x,y,xlabel,savefig=None):
 
     plt.style.use('science')
    
@@ -227,6 +227,9 @@ def SNR_plots(x,y,xlabel):
     ax.xaxis.set_tick_params(labelsize=fs-4)
     ax.yaxis.set_tick_params(labelsize=fs-4)
 
+
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
 
 
