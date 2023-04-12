@@ -201,7 +201,7 @@ def SNR_plots(x,y,xlabel,savefig=None):
    
     
 
-    h,w = 20,12
+    h,w = 12,8
     rows = 1
     cols = 1
     fig, ax = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)

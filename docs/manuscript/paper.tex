@@ -148,7 +148,7 @@ where $f_{\rm EM}$ is the solution of the electromagnetic spindown equation,$\do
 \begin{equation}
 	\langle \xi(t) \xi(t') \rangle = \sigma^2 \delta(t - t')
 \end{equation}
-For PTA analysis, we are concerned with timescales on the order of years. Consequently, we can express the EM spindown straightforwardly as
+for variance $\sigma^2$. For PTA analysis, we are concerned with timescales on the order of years. Consequently, we can express the EM spindown straightforwardly as
 \begin{equation}
 	f_{\rm EM} (t) = f_{\rm EM}(0) + \dot{f}_{\rm EM} (0)t
 \end{equation}  
@@ -157,27 +157,25 @@ Completely, the frequency evolution is then given by the solution of the stochas
 	\frac{df}{dt} = -\gamma	 [f - f_{\rm EM}(0) - \dot{f}_{\rm EM} (0)t] + \dot{f}_{\rm EM} (0) + \xi(t)
 	\label{eq:frequency_evolution_expanded}
 \end{equation}
-As emphasised in \cite{Vargas}, this model for the frequency evolution is a phenomenological model that aims to qualitatively reproduce the typical behaviour of observed pulsars, rather than being derived from a physical model of the neutron star \citep[e.g. a model of the neutron star crust and superfluid components][]{Meyers2021}. However, for our purposes of exploring the detection of GWs via a state space formulation it will prove sufficiently accurate and appropriate.
+As emphasised in \cite{Vargas}, this model for the frequency evolution is a phenomenological model that aims to qualitatively reproduce the typical behaviour of observed pulsars, rather than being derived from a physical model of the neutron star \citep[e.g. a model of the neutron star crust and superfluid, components][]{Meyers2021}. For our purposes of exploring the detection of GWs via a state space formulation it will prove sufficiently accurate and appropriate.
 
 \subsection{Modulation of pulsar frequency due to a GW}
-In the presence of a GW, the $f(t)$ measured by an observer on Earth is different from that measured by an observer in the local NS reference frame. We want to determine how the GW influences the received frequency
+In the presence of a GW, the $f(t)$  measured by an observer in the local NS reference frame is different from that measured by an observer on Earth. We want to determine quantitatively determine this difference - how the GW influences the received pulse frequency.
 
 \subsubsection{Plane GW perturbation}
 We take a gravitational plane wave that perturbs a background Minkowski spacetime as
 \begin{equation}
 	g_{\mu \nu} = \eta_{\mu \nu} + H_{\mu \nu} e^{i(\Omega(\bar{n} \cdot \bar{x} - t) + \Phi_0)	}
 \end{equation}
-for spatial coordinates $\bar{x}$, \textcolor{red}{(TK: We have a notation conflict between $x$ = state and $x$ = coordinates)} where the GW has a constant angular frequency $\Omega$, propagates in the $\bar{n}$-direction and has a phase offset of  $\Phi_0$. We emphasise that $\Omega$ has no time dependence - we are concerned solely with monochromatic sources. Note that we are free to choose our coordinate system such that $\Phi_0$ is the GW phase at $t=0$ \textit{at the Earth.}\footnote{\textbf{TK: This point is important, since the phase offset is then the same between multiple pulsars. See also Melatos 2022 PT12}}. The amplitude tensor $H_{\mu \nu}$ has zero temporal components ($H_{0 \mu} = H_{\mu 0} = 0$) whilst the spatial part is
+for Minkowski metric $ \eta_{\mu \nu}$, spatial coordinates $\bar{x}$, \textcolor{red}{(TK: We have a notation conflict between $x$ = state and $x$ = coordinates)} where the GW has a constant angular frequency $\Omega$, propagates in the $\bar{n}$-direction and has a phase offset of  $\Phi_0$. We emphasise that $\Omega$ has no time dependence - we are concerned solely with monochromatic sources. Note that we are free to choose our coordinate system such that $\Phi_0$ is the GW phase at $t=0$ \textit{at the Earth.}\footnote{\textcolor{red}{TK: This point is important, since the phase offset is then the same between multiple pulsars. See also Melatos 2022 PT12}}. The amplitude tensor $H_{\mu \nu}$ has zero temporal components ($H_{0 \mu} = H_{\mu 0} = 0$) whilst the spatial part is
 \begin{align}
 	H_{ij} = h_+ e_{ij}^+(\bar{n}) + h_{\times} e_{ij}^{\times}(\bar{n})
 \end{align}
 where  $h_{+,\times}$ are the polarisation amplitudes of the gravitational plane wave. The polarisation tensors $e_{ij}^{+,\times}$ are uniquely defined by the principal axes of the wave:
-\begin{equation}
-	e_{a b}^{+}(\hat{\Omega}) =\hat{m}_a \hat{m}_b-\hat{n}_a \hat{n}_b
-\end{equation}
-\begin{equation}
+\begin{align}
+	e_{a b}^{+}(\hat{\Omega}) =\hat{m}_a \hat{m}_b-\hat{n}_a \hat{n}_b \\
 		e_{a b}^{\times}(\hat{\Omega}) =\hat{m}_a \hat{n}_b+\hat{n}_a \hat{m}_b
-\end{equation}
+\end{align}
 which are in turn specified via the location of the GW source on the sky (via $\theta$, $\phi$ coordinates) and the polarisation angle $\psi$
 \begin{align}
 	\vec{m} & =(\sin \phi \cos \psi-\sin \psi \cos \phi \cos \theta) \hat{x} \nonumber \\
@@ -205,7 +203,7 @@ which are in turn specified via the location of the GW source on the sky (via $\
 \begin{equation}
 	p_t(t_1)|_{\rm Earth} = p_t(t_0)|_{\rm source} + \int_{t = t_0}^{t=t_1} \dot{p}_t dt
 \end{equation}
-\noindent where the overdot denotes a derivative w.r.t. $t$. Since the influence of the GW perturbation on $\dot{p}_t$ is small, we can relate the source emission and receiver times as $t_1 = t_0 + d$ and consider the photon trajectory to be an unperturbed path. \footnote{\textbf{TK: See also e.g. Maggiore, Meltaos who takes the same approach...}} \newline 
+\noindent where the overdot denotes a derivative w.r.t. $t$. Since the influence of the GW perturbation on $\dot{p}_t$ is small, we can relate the source emission and receiver times as $t_1 = t_0 + d$ and consider the photon trajectory to be an unperturbed path. \footnote{\textcolor{red}{TK: See also e.g. Maggiore, Meltaos who takes the same approach...}} \newline 
 
 \noindent To complete our expression, we now just need to determine $\dot{p}_t$ and integrate it.
 
@@ -227,14 +225,14 @@ The Hamiltonian in covariant notation can be written as
 \begin{equation}
 	\frac{d p_{t}}{d \lambda} = -\frac{i\Omega}{2} H_{ij}p^i p^j  e^{i(\Omega(\bar{n}\cdot \bar{x} - t))+\Phi_0}
 \end{equation}
-\footnote{\textbf{TK: This is equivalent to Melatos 2018, Eq 5 for the specific case of a GW propagating in the $z$-direction, with zero phase offset}.}
+\footnote{\textcolor{red}{TK: This is equivalent to Melatos 2018, Eq 5 for the specific case of a GW propagating in the $z$-direction, with zero phase offset}.}
 
 
 \noindent Therefore the derivative w.r.t coordinate time $t$ is,
 \begin{equation}
 	\dot{p}_t = \frac{d p_{t}}{d \lambda} \left(\frac{dt}{d\lambda}\right)^{-1} = \frac{d p_{t}}{d \lambda} \left(\frac{1}{p^t}\right)
 \end{equation}
-\noindent Note that $\dot{p}_t$ is entirely a function of the GW perturbation. In the Minkowski case the spacetime is stationary and so $p_t$ should be conserved along the geodesic. It will prove useful to recognise that $p^{\mu} = \omega(1,-q^x,-q^y,-q^z)$ where $\bar{q}$ is the unit vector between the Earth and pulsar and $\omega$ is the \textit{constant} photon angular frequency. Given the small effect of the GW perturbation, at first order we can identify $\omega$ as either the frequency at source or observer \footnote{see Melatos 2022, PT16}. We will consider  the pulsar locations to be constant with respect to the Earth. TK: \textbf{This may have already been "done" during the barycentreing when pulsar TOAs are generated, in which case $q$ is the vector from the SSB to the pulsar}. Similarly we can express the spatial coordinates as $\bar{x}(t) = -\bar{q}t$. \newline  
+\noindent Note that $\dot{p}_t$ is entirely a function of the GW perturbation. In the Minkowski case the spacetime is stationary and so $p_t$ should be conserved along the geodesic. It will prove useful to recognise that $p^{\mu} = \omega(1,-q^x,-q^y,-q^z)$ where $\bar{q}$ is the unit vector between the Earth and pulsar and $\omega$ is the \textit{constant} photon angular frequency. Given the small effect of the GW perturbation, at first order we can identify $\omega$ as either the frequency at source or observer \footnote{ \textcolor{red}{TK: see Melatos 2022, PT16}}. We will consider  the pulsar locations to be constant with respect to the Earth. In practice, the pulsar locations vary with respect to the Earth, but are constant with respect to the solar system barycentre (SSB). This barycentering correction is typically applied during the pulsar detection process. Our conclusions are generally unchanged by this choice - it is straightforward to transform $q$ if needed into a vector between the SSB and pulsar. The spatial coordinates along the photon path are related to the pulsar as $\bar{x}(t) = -\bar{q}t$. \newline  
 
 
 \noindent Bringing this all together we can write $\dot{p}_t$ in a condensed form as,
@@ -245,7 +243,7 @@ where
 \begin{equation}
 	\gamma = -\Omega (1 + \bar{n}\cdot \bar{q}) 
 \end{equation}
-\footnote{compare with Melatos 2022, PT11}
+\footnote{\textcolor{red}{TK: compare with Melatos 2022, PT11}}
 \noindent and
 \begin{equation}
 	A = -\frac{i\Omega \omega}{2} H_{ij}q^i q^j 
@@ -271,14 +269,14 @@ or alternatively, with $h_{ij} = g_{ij} - \eta_{ij}$,
 \end{equation}
 
 \subsection{State-space structure} \label{sec3}
-We now have a model for the evolution of the pulsar frequency states and the measured frequency timeseries. We can express the intrinsic frequency evolution, Eq. \ref{eq:frequency_evolution_expanded}, in a alternative form as,
+We now have a model for the evolution of the intrinsic pulsar frequency states and the measured frequency timeseries. We can express the intrinsic frequency evolution, Eq. \ref{eq:frequency_evolution_expanded}, in a alternative form as,
 \begin{equation}
-	df = A f dt + N(t) dt + \sigma dB(t)
+	df = \mathcal{A} f dt + N(t) dt + \sigma dB(t)
 	\label{eq:state1}
 \end{equation}
-where $A = -\gamma$, $N(t) = \gamma(f_{\rm EM}(0) + \dot{f}_{\rm EM}(0) t) +\dot{f}_{\rm EM}(0)$ and $dB(t)$ denotes increments of Brownian motion (Wiener process). This equation is easily identified as an Ornstein-Uhlenbeck process which has a general solution given by,
+where $\mathcal{A} = -\gamma$, $N(t) = \gamma(f_{\rm EM}(0) + \dot{f}_{\rm EM}(0) t) +\dot{f}_{\rm EM}(0)$ and $dB(t)$ denotes increments of Brownian motion (Wiener process). This equation is easily identified as an Ornstein-Uhlenbeck process which has a general solution given by \citep{gardiner2009stochastic},
 \begin{equation}
-	f(t) = e^{At}f(0) + \int_0^t e^{A(t-t')} N(t') dt' + \int_0^t e^{A(t-t')} \sigma dB(t')
+	f(t) = e^{\mathcal{A}t}f(0) + \int_0^t e^{\mathcal{A}(t-t')} N(t') dt' + \int_0^t e^{\mathcal{A}(t-t')} \sigma dB(t')
 \end{equation} 
 If we move from a solution in continuous time to discrete time then
 \begin{equation}
@@ -296,17 +294,17 @@ where
 \end{equation}
 Given the discrete solution $f(\bar{t})$ where $\bar{t} = (t_1, t_2, ...,t_N)$ the intrinsic frequency can be related to the measured frequency as 
 \begin{equation}
-	f_M = f g(\bar{\theta},t) + N_M
+	f_M (\bar{t})= f g(\bar{\theta},\bar{t}) + N_M
 \end{equation}
-where $g(\theta,t)$ ("measurement function")is a function of some parameters, $\bar{\theta}$ and time $t$, whilst $N_M$ is a Gaussian measurement noise that satisfies 
+where $g(\theta,t)$ ("measurement function") is a function of some constant parameters, $\bar{\theta}$, and discrete time $\bar{t}$, whilst $N_M$ is a Gaussian measurement noise that satisfies 
 \begin{equation}
 	\langle N_M(t) N_M(t') \rangle = \Sigma^2 \delta(t - t')
 \end{equation}
-The measurement function follows from Eq. \ref{eq:freq_shift}
+for variance $\Sigma^2$. The measurement function follows from Eq. \ref{eq:freq_shift}
 \begin{equation} \label{eq:final}
 	g(\bar{\theta},t) = 1 - \frac{1}{2} \frac{h_{ij}(t) q^i q^j}{1 + \bar{n} \cdot \bar{q}}[1 - e^{i \Omega(1+\bar{n} \cdot \bar{q}) d}]
 \end{equation}
-or in a more concise form where we have switched to a trigonometric form of the equations,
+or in a more concise form where we have switched to a trigonometric form of the equations and made the time dependence explicit,
 \begin{equation} 
 	g(\bar{\theta},t) = 1 -A \cos(-\Omega t (1 + n\cdot q ) + \Phi_0)
 \end{equation}
@@ -318,12 +316,12 @@ where
 
 
 \section{Detection and parameter estimation}
-Given the proceeding state-space model we will now try to use this model to infer the unknown parameters of the system. Let's first review and categorise all the parameters of model. We can generally separate these into parameters which correspond to the intrinsic frequency evolution of the pulsar, the GW parameters and the noise parameters i.e.
+Let's  review and categorise all the parameters of above state-space model. We can generally separate these into parameters which correspond to the intrinsic frequency evolution of the pulsar, the GW parameters and the noise parameters i.e.
 \begin{equation}
 	\bar{\theta} =  \bar{\theta}_{\rm PSR} \cup \bar{\theta}_{\rm GW} \cup \bar{\theta}_{\rm noise}
 \end{equation}
 \begin{equation}
-	\bar{\theta}_{\rm PSR} = [\gamma, f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d]
+	\bar{\theta}_{\rm PSR} = [\gamma, f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d]^{(N)}
 \end{equation}
 \begin{equation}
 	\bar{\theta}_{\rm GW} = [h_{+}, h_{\times}, \delta, \alpha, \psi, \Omega, \Phi_0]
@@ -331,22 +329,40 @@ Given the proceeding state-space model we will now try to use this model to infe
 \begin{equation}
 	\bar{\theta}_{\rm noise} = [\sigma, \Sigma]
 \end{equation}
-Whilst the GW parameters are shared between measurements for each pulsar, the pulsar parameters are clearly not. For a PTA dataset of N pulsars we have $7 + 5N$ parameters to estimate. For now we will consider the measurement noise to be known, although in principle this too could be estimated. Note that whilst this is a large parameter space, in general the pulsar parameters are much better constrained than the GW parameters: for example we have rough estimates for the pulsar distances accurate to $\sim$ 10$\%$, but we have no prior information on the source location. \newline 
+\textcolor{red}{TK: $\sigma$ is currently a parameter shared between all pulsars in current code implementation. Probably need to update this since different pulsars have different process noise, but need to check identifiability and likelihood curves - only enters the Kalman filter only through the process noise matrix...}. Whilst the GW parameters are shared between measurements for each pulsar, the pulsar parameters are clearly not. For a PTA dataset of $N$ pulsars we have $7 + 5N$ parameters to estimate. For now we will consider the measurement noise to be known, although in principle this too could be estimated. Note that whilst this is a large parameter space, in general the pulsar parameters are much better constrained than the GW parameters: for example we have rough estimates for the pulsar distances accurate to $\sim$ 10$\%$, but we have no prior information on the source location. \newline 
 
-\noindent We will use a Kalman filter in order to obtain likelihood estimates of the data given a set of parameters. We will now review the Kalman filter and the associated likelihood in Section \label{sec:kalman_filter} before going on to discuss how to use nested sampling methods in conjunction with the filter for detection (model selection) and parameter estimation
+\noindent We want be able to infer the values of the model parameters and look for evidence of a GW signal in a data stream. To this end, we will use a Kalman filter in to obtain likelihood estimates of the data given a set of parameters. We will then deploy the Kalman filter in conjunction with a nested sampling technique for optimisation of the parameters over the likelihood. We will now review the Kalman filter and the associated likelihood in Section \ref{sec:kalman_filter} before going on in Section \ref{sec:nested_sampling} to discuss how to use nested sampling methods together with the filter for detection (model selection) and parameter estimation. We go on to discuss our choice of pulsars to make up our PTA in Section \ref{sec:pta_pulsars}, before deploying these techniques in Sections \ref{sec:param_estimation} , \ref{sec:detection} for parameter estimation and model selection.
 
 \subsection{Kalman Filtering}\label{sec:kalman_filter}
+\begin{figure*}
+	%\centering % Not needed
+	\begin{subfigure}[b]{1\columnwidth}
+		\includegraphics[width=\textwidth]{images/KF1}
+		\caption{Using correct parameters}
+		\label{fig:6MB_BFS}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{1\columnwidth}
+		\includegraphics[width=\textwidth]{images/KF2}
+		\caption{Using incorrect parameters}
+		\label{fig:25MB_bfs}
+	\end{subfigure}
+	\caption{Application of a Kalman filter to recover the intrinsic frequency states (top panels) given a measured frequency signal (bottom panels) which has been modulated by the presence of a gravitational wave. In the case where the parameters of the filter are accurate (subfigure (a)) the underlying states are also recovered accurately. Conversely, when the parameters fed to the filter are inaccurate (subfigure (b)) the filter cannot recover the state. \textcolor{red}{TK: this needs to be just one stacked figure.}}
+	\label{fig:four figures}
+\end{figure*}
+
 The Kalman filter \citep{Kalman1} is a algorithmic technique for recovering a set of system state variables, $\bar{x}$, given some noisy measurements, $\bar{z}$. It is a common technique in signal processing that has also been applied more recently with great success in astrophysics \citep[e.g.][]{Meyers2021,Melatos2023}. The linear Kalman filter operates on measurements that are related to states via a linear transformation
 \begin{equation}
-	z = Hx + v
+	\bar{z} = \bar{H} \bar{x} + \bar{v}
 \end{equation}
-where $H$ is the measurement matrix and $v$ a Gaussian measurement noise. The underlying states are the solutions to the state-space equation 
+where $\bar{H}$ is the measurement matrix and $\bar{v}$ a Gaussian measurement noise. The underlying states are the solutions to the state-space equation 
 \begin{equation}
-	\dot{x} = Fx + Gu + w
+	\dot{\bar{x}} = \bar{F} \bar{x} + \bar{G}\bar{u} + \bar{w}
 \end{equation}
-where $x$ are the state variables, $F$ the system dynamics matrix, $G u$ the control matrix/vector and $w$ a stochastic zero-mean process which .  By comparison with the preceding equations, Eqs. 	\ref{eq:state1} - 	\ref{eq:state2}, it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations,$\Delta t$, then for our formulation the components that make up the Kalman filter are as follows: 
+for the system dynamics matrix,$\bar{F}$,  control model $G$, control vector $\bar{u}$, and $w$ a stochastic zero-mean process. By comparison with the preceding equations, Eqs. 	\ref{eq:state1} - 	\ref{eq:state2}, it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations, $\Delta t$, then for our formulation the components that make up the Kalman filter are as follows: 
 \begin{equation}
 	F_i = F_{i+1} = e^{-\gamma \Delta t}
+	\label{eq:fmatrix}
 \end{equation}
 \begin{align}
 	T_i &= \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} N(t') dt' \\
@@ -355,175 +371,112 @@ where $x$ are the state variables, $F$ the system dynamics matrix, $G u$ the con
 \begin{equation}
 	H_i = 1 -A(\theta_{\rm GW}) \cos(-\Omega t_i (1 + n\cdot q ) + \Phi_0)
 \end{equation}
-and $A$ is a constant that is given by  Eq. \ref{eq:state2}. The Kalman filter includes the effect of process noise $w$ and the measurement noise $v$ via the definition of a process noise matrix $Q = E[w w^T]$ and a measurement noise matrix $R = E[v v^T]$, which have the discrete form,
+where the $i$ subscript labels the value at the $i$-th timestep, and $A$ is a constant that is given by  Eq. \ref{eq:state2}. \newline 
+
+
+\noindent The Kalman filter includes the effect of process noise $\bar{w}$ and the measurement noise $\bar{v}$ via the definition of a process noise matrix $Q = E[w w^T]$ and a measurement noise matrix $R = E[v v^T]$, which have the discrete form,
 \begin{equation}
 	Q_i  \delta_{ij}= \langle \eta_i \eta_j^T \rangle = \frac{- \sigma^2}{2 \gamma} \left( e^{-2 \gamma \Delta t} -1\right)
 \end{equation}
 \begin{equation}
 	R_i = R_{i+1} = \Sigma^2
+	\label{eq:rmatix}
 \end{equation}
-For our formulation we are concerned only with the linear Kalman filter since the measurements are a linear function of the states and the state transitions are also linear. Extension to non-linear problems is straightforward using either an extended Kalman filter, the unscented Kalman filter or the particle filter. For a full review of the  Kalman filter equations which may bee familiar to some, we refer the reader to the appendices of \cite{Melatos2023} and  \cite{Meyers2021}. \newline 
+The above equations, Eqs. \ref{eq:fmatrix} - 	\ref{eq:rmatix}, apply to an operation on a single state. The extension to $N$ states is straightforward, since one just needs to construct a diagonal matrix for each of the Kalman components where each non-zero element corresponds to a separate pulsar frequency. For our formulation we are concerned only with the linear Kalman filter since the measurements are a linear function of the states and the state transitions are also linear. Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, the unscented Kalman filter \citep{882463van} or the particle filter \citep{Simon10}. For a full review of the  Kalman filter equations in an astrophysical context, which may be unfamiliar to some, we refer the reader to the appendices of \cite{Melatos2023} and  \cite{Meyers2021}. \newline 
 
 
 
-\noindent In order for the Kalman filter to function successfully, the parameters of the model, which appear in the various Kalman matrices, must be accurate. Erroneous or inaccurate parameters lead to inaccurate predictions of the underlying states (e.g. Fig \ref{fig:four figures}). 
-
-
-
-
-
-The filter tracks the error in its predictions of the underlying states by projecting the state predictions back into measurement space $\hat{z}$. These measurement predictions can then be compared against the true observed measurements. The Gaussian log-likelihood as a function of the parameters is,
+\noindent In order for the Kalman filter to function successfully, the parameters of the model, which appear in the various Kalman matrices, must be accurate. Erroneous or inaccurate parameters lead to inaccurate predictions of the underlying states (e.g. Fig \ref{fig:four figures}). The filter tracks the error in its predictions of the underlying states by projecting the state predictions back into measurement space, $\hat{x} \rightarrow \hat{z}$. These measurement predictions can then be compared against the true observed measurements i.e. $ \epsilon = \bar{z} - \hat{z}$. The Gaussian log-likelihood at timestep $i$, as a function of the parameters is,
 \begin{eqnarray}
-	\log \mathcal{L} =  -\frac{1}{2} (N \log 2 \pi + \log \sigma^2 + \frac{y^2}{x})
+	\log \mathcal{L}_i =  -\frac{1}{2} (N \log 2 \pi + \log \det |S_i| + \epsilon_i^T S_i^{-1} \epsilon_i)
 \end{eqnarray}
-where this is this is that....
-This likelihood provided by the Kalman filter can then be used for Bayesian inference based techniques of the underlying system parameters, which we will now explore in more detail.  
+where $S_i$ is the covariance matrix of the error $\epsilon_i$. The net log-likelihood is simply the sum over all timesteps. 
 
 
-\begin{figure*}
-	%\centering % Not needed
-	\begin{subfigure}[b]{1\columnwidth}
-		\includegraphics[width=\textwidth]{images/KF1}
-		\caption{}
-		\label{fig:6MB_BFS}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{1\columnwidth}
-		\includegraphics[width=\textwidth]{images/KF2}
-		\caption{}
-		\label{fig:25MB_bfs}
-	\end{subfigure}
-\caption{TK: caption needed}
-	\label{fig:four figures}
-\end{figure*}
-
-
-
-\subsection{Nested Sampling}
-Nested Sampling \cite{Skilling} is an integration algorithm used for evaluating integrals of the Bayesian form
+\subsection{Nested Sampling}\label{sec:nested_sampling}
+Nested Sampling \citep{Skilling} is an integration algorithm used for evaluating integrals of the Bayesian evidence form,
 \begin{eqnarray}
-	Z = \int L \pi (\theta) d \theta
+	Z = \int \mathcal{L} \pi (\theta) d \theta
 \end{eqnarray}
-where this is this is that... i.e. the model evidence. It is a highly advantageous approach over the usual MCMC-type approaches which are used solely for calculating the posterior but can be highly computationally expensive, does not return an evidence, and can struggle on multi-modal problems. 
+where $\pi (\theta)$ is the prior which is a function of a set of unknown parameters $\theta$. The primary advantage of nested sampling is the ability to compute this evidence integral, which is key for model selection, and proves difficult without considerable extra cost for the usual Markov Chain Monte Carlo (MCMC) approaches. Nested sampling is also typically less computationally intensive than MCMC and can handle multi-modal problems \citep{Ashton2022}. For these reasons, it has enjoyed widespread adoption in the physical sciences, particularly within the cosmological community \citep{Mukherjee2006,Feroz2008,Handley2015}, but has also commonly been applied in astrophysics \citep{UltraNest2021}, particle physics \citep{proceedings2019033014} and materials science \citep{2009arXiv0906materials}. Within this work we also use nested sampling for parameter estimation and model selection. \newline 
+
+
+\noindent Multiple nested sampling libraries exist. For gravitational astrophysics it is common to use the dynesty sampler CITE, via the Bilby gravitational wave inference library and we continue to follow this precedent. 
+\textcolor{red}{TK: we may end up not even using Bilby/dynesty so leaving this section unfilled for now. Do we need a very short description of how nested sampling works?}
 
 
 
- 
-Within the astrophysical community, it was first adopted in cosmology, CITE CITE but has become a widespread technique used wihin astronomy, astrophysics, particle physics and materials science CITE 
-
-
-Nested sampling genearlly works by algorithmically evolving a set of "live points" that seek to describe an underlying probability distribution. For a full review we refer the reader to original works by \cite{Skilling} and a recent review from a physics sciences perspective from \textbf{ASHTON}
-
-
-
-
-Multiple nested sampling libraries exist. For gravitational astrophysics it is common to use the dynesty sampler CITE, via the Bilby gravitational wave inference library and we continue to follow this precedent. 
-
-
-
-\subsection{PTA pulsars}
-
-In order to proceed, it is now necessary to specify a PTA configuration. 
-
-
-As discussed, multiple separate PTA detectors exist under the umbrella of the IPTA. Going forward we will take the 47 pulsars that make up the NANOGrav PTA \citep{2020ApJ...905L..34A}. NANOGrav is selected simply as a well-representative example of the typical pulsars that make up a PTA. Our results and formulation are not contingent on the choice of PTA, and naturally extend to other PTAs or PTAs with more pulsars.  
-
-
-
-Within the state-space forumulation, the pulsar evolution is governed by a set of 5 parameters $\bar{\theta}_{\rm PSR}$ for each pulsar. The parameters $f_{\rm EM} (0) $,$ \dot{f}_{\rm EM} (0)$ and $d$ are well specified via existing pulsar datasets. We take the frequency and frequency derivative as returned from the pulsar datasets to simply be the values now at $t=0$. The pulsar distances are also known, though less well constrained. Going forward we take the distances retuned from the datasets as the true values of the pulsars that make up our synthetic PTA. 
-
-
-
-The specification of $\gamma$ and $\sigma$ are more involved. $\gamma$ specifies an effective timescale of reversion to the mean
-
-
-\textbf{TK: discussion on how to select these two parameters c.f. Andres }
-
-
-
-
-
-
-
-
-
-
-
-
-
-In order to proceed and explore how well this state-space formulation works, we will need to specify a selection of pulsars to make up our PTA. We will take the 47 pulsars that make up the NANOGrav PTA. 
-
-
-
-
-
-
-For each pulsar, we need to specify the complete set of $\bar{\theta}_{\rm PSR}$ as well as $\sigma$. The parameters $f_{\rm EM}(0), \dot{f}_{\rm EM}(0),d$ are straightforward to set and can be read directly from  the current "present day" best estimates of the pulsar frequency, derivative and distance. 
-
-
+\subsection{PTA pulsars}\label{sec:pta_pulsars}
 \begin{figure}
 	\includegraphics[width=0.8\columnwidth]{images/pulsars}
 	\caption{Spatial distribution and distances of NANOGrav pulsars}
 	\label{fig:pulsar_distrib}
 \end{figure}
+\noindent With our Kalman filter and nested sampling techniques in hand, in order to proceed it is necessary to specify a PTA configuration. As discussed, multiple separate PTA detectors exist under the umbrella of the IPTA. Going forward we will take the 47 pulsars that make up the NANOGrav PTA \citep{2020ApJ...905L..34A}. NANOGrav is selected simply as a well-representative example of the typical pulsars that make up a PTA. Our results and formulation are not contingent on the choice of PTA, and naturally extend to other PTAs or PTAs with more pulsars.  \newline 
 
 
 
-
-\subsection{Parameter estimation on synthetic data}
-We are now in a position to try to infer the parameters of our system 
+\noindent Within our state-space formulation, the pulsar evolution is governed by a set of 5 parameters, $\bar{\theta}_{\rm PSR}$ for each pulsar. The parameters $f_{\rm EM} (0) $,$ \dot{f}_{\rm EM} (0)$ and $d$ are well specified via existing pulsar datasets. We take the frequency and frequency derivative as returned from the pulsar datasets to simply be the values now at $t=0$. The pulsar distances are also known, though less well constrained. Going forward we take the distances retuned from the datasets as the true values of the pulsars that make up our synthetic PTA. The specification of $\gamma$ and $\sigma$ are more involved. $\gamma$ specifies an effective timescale of reversion to the mean \textcolor{red}{TK: Need some discussion and though on how to choose these two parameters to be astrophysically reasonable c.f. A. Vargas}
 
 
+
+\subsection{Parameter estimation on synthetic data}\label{sec:param_estimation}
+We are now in a position to try to infer the parameters of a GW system. We take our NANOGrav PTA and create a synthetic noisy dataset using the parameters described in Table \ref{tab:toy_example_parameters}.
+\begin{table}
+	\centering
+	\begin{tabular}{lc}
+		Parameter & Value  \\
+		\hline
+		$\omega$       & $5 \times 10^{-7}$  \\
+		$\alpha$          & $1.0$  \\
+		$\delta$              & $1.0$   \\
+		$\psi$              & $2.50$  \\
+		$\iota$             & $1.0$  \\
+		$\Phi_0$          & $0.20$  \\
+		$h$ & 1e-2 \\
+		$\sigma_{\rm p}$ & $10^{-13}$ \\
+		$\sigma_{\rm m}$ & $10^{-10}$ \\
+		$T_{obs}$ & 10 \text{ years} \\
+		$\Delta t$ & 7 \text{ days} \\
+		\hline
+	\end{tabular}
+	\caption{GW parameters used for generating synthetic data. There is nothing special about these parameters - they are just chosen arbitrarily.}
+	\label{tab:toy_example_parameters}
+\end{table}
+\noindent Given this synthetic data, we can try to use our KF + NS approach to recover some of the parameters. The results for inference on 5 parameters, $\omega. \Phi_0, \psi, \iota, h$ are shown in Fig \ref{fig:corner}. \textcolor{red}{TK: likelihood plots for each parameter could also be of interest to include here? Need to expand this section greatly for more astrophysical systems and more unknown parameters}
 \begin{figure*}
 	\includegraphics[width=0.8\textwidth]{images/corner_example}
-	\caption{Example corner plot}
+	\caption{Example corner plot. Aside: for this run the $\sigma_p$ value fed to the filter is different from that used to generate the data.}
 	\label{fig:corner}
 \end{figure*}
 
 
 
+\subsection{Detection on synthetic data}\label{sec:detection}
 
+In addition to estimating the parameters of the system, we are also interested in how detectable a GW is using PTA + state space method. We can use our state-space tools  to try to solve the problem of GW detection with a PTA i.e. \textit{"Is there evidence of a GW in my data?"}We can frame this as a model selection procedure where we have two models/hypotheses:
 
-\subsection{Detection on synthetic data}
+\begin{itemize}
+\item Null Model, $M_0$. There is no GW in the data. In this case the measurement model of the Kalman filter simply returns the frequency states i.e. $g(t,\theta)= 0$
+\item Alternative model, $M_1$. There is a GW in the data. The measurement model uses the full expression for $g(t,\theta)$
+\end{itemize}
 
-
-We are interested in how detectable a GW is using PTA + state space method
-
-We can use our state-space tools  to try to solve the problem of GW detection with a PTA i.e. "Is there evidence of a GW in my data?. 
-
-We can frame this as a model selection procedure where we have two models/hypotheses:
-
-
-* **Null Model** $M_0$. There is no GW in the data. In this case the measurement model of the Kalman filter simply returns the frequency states i.e. $g(t,\theta)= 0$
-* **Alternative model** $M_1$. There is a GW in the data. The measurement model uses the full expression for $g(t,\theta)$
 
 
 In order to accept the alternative hypothesis $M_1$ over $M_0$ there are two approaches we could take:
 
-1. The first is a fully Bayesian search over all the parameters for each model, calculating the evidence for each model and then determining the Bayes ratio. This is perhaps the most consistent way, but it is obviously expensive and at this stage we are keen to explore how detectability varies with e.g. GW strain.
+\begin{enumerate}
+	\item The first is a fully Bayesian search over all the parameters for each model, calculating the evidence for each model and then determining the Bayes ratio. This is perhaps the most consistent way, but it is obviously expensive and at this stage we are keen to explore how detectability varies with e.g. GW strain.
+	\item The second method is to recognize that $M_0$ and $M_1$ are hierarchically nested models and we can perform a likelihood ratio test. That is, given the maximum likelihood estimators $\hat{\theta}$ of the true parameters $\theta$, the likelihood of each model can be calculate. These likelihoods are just  point estimates of the Bayes factor numerator/denominators. They can then be compared via the likelihood ratio $\Lambda$. 
+\end{enumerate}
+Given the cheap cost we proceed with the second method. For the likelihood ratio test we do not perform any kind of maximum likelihood search over the parameters for each of the models. Instead we just artificially set the maximum likelihood estimators to be equal to the true parameters of the system i.e. $\hat{\theta} = \theta$. We assume that any maximum likelihood algorithm would converge to these parameters. This is obviously an oversimplification but will serve our purposes for now. \newline 
 
 
-2. The second method is to recognize that $M_0$ and $M_1$ are hierarchically nested models and we can perform a likelihood ratio test. That is, given the maximum likelihood estimators $\hat{\theta}$ of the true parameters $\theta$, the likelihood of each model can be calculate. These likelihoods are just  point estimates of the Bayes factor numerator/denominators. They can then be compared via the likelihood ratio $\Lambda$. 
+\noindent Interpreting the likelihood ratio $\Lambda$ also needs some consideration, since we have to account for the increased model complexity of $M_1$. Bayes factors penalise complexity by construction since one must integrate over a larger parameter space. There are many different ways to do this, AIC, BIC, Wilks Theorem... \newline 
 
 
-Given the cheap cost we proceed with the second method.
 
-Likelihood ratio test
-For the likelihood ratio test we do not perform any kind of maximum likelihood search over the parameters for each of the models. Instead we just artificially set the maximum likelihood estimators to be equal to the true parameters of the system i.e. $\hat{\theta} = \theta$. We assume that any maximum likelihood algorithm would converge to these parameters. This is obviously an oversimplification but will serve our purposes for now.
-
-
-Interpreting the likelihood ratio $\Lambda$ also needs some consideration, since we have to account for the increased model complexity of $M_1$. Bayes factors penalise complexity by construction since one must integrate over a larger parameter space. 
-
-There are many different ways to do this:
-
-* AIC
-* BIC
-* Wilks Theorem
-* ...
-
-
-In practice we will use different criteria to check they agree.
-
+\noindent 
 
 
 
@@ -542,8 +495,8 @@ In practice we will use different criteria to check they agree.
 		\caption{}
 		\label{fig:25MB_bfs}
 	\end{subfigure}
-	\caption{TK: caption needed}
-	\label{fig:four figures}
+	\caption{Likelihood ratio vs strain for \textit{(a)} full PTA and \textit{(b)} a single randomly chosen pulsar. Horizontal dashed line shows the minimum detectable cutoff, vertical dashed line is the corresponding GW strain.}
+	\label{fig:snr_detection}
 \end{figure}
 
 
@@ -555,21 +508,20 @@ In practice we will use different criteria to check they agree.
 
 \section{Discussion}
 
+Points to discuss:
+
+\begin{itemize}
+	\item Non constant time sampling? Different pulsars sampled at different times...
+\end{itemize}
+
 \section{Conclusion}
 
-PTAs are all about MSPs for small timing noise. Maybe we can get away with large timing noise, and use more pulsars?
+Questions 
 
-
-Radiomenter noise. In theory well known but this could also be estimated via this approach 
-
-
-
-
-Quality vs quantity: 
-This is important as it measn we dont need to do this for all pulsars, just a few. 
-%https://arxiv.org/abs/2211.03201
-
-
+\begin{itemize}
+	\item PTAs like MSPs for small timing noise. Can we get away with large timing noise, and use more pulsars? Some pulsars are more useful than others, e.g. arXiv 2211.03201
+	\item Can we also estimate radiometer noise? Is this useful?
+\end{itemize}
 
 
 
