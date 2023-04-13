@@ -15,9 +15,11 @@ The log likelihood, designed for diagonal matrices where S is considered as a ve
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
-    #slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
+    slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     #eturn -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    return -0.5*(innovation @ x + N*np.log(2*np.pi))
+    #print ("L = ", slogdet, innovation**2 , S , N*np.log(2*np.pi))
+    #return -0.5*(innovation @ x + N*np.log(2*np.pi))
+    return np.sum(innovation**2)
 
 
 """
@@ -33,6 +35,13 @@ def update(x, P, observation,R,H):
     xnew = x + K*y
 
 
+    # print("Innovation = ")
+    # print(y)
+    # print("Innovation covariance = ")
+    # print(S)
+    # print("Covariance = ")
+    # print(P)
+
     #Update the covariance 
     #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
     # P = (I-KH)P(I-KH)' + KRK' which is more numerically stable
@@ -40,6 +49,10 @@ def update(x, P, observation,R,H):
     # P = (I-KH)P usually seen in the literature.
     I_KH = 1.0 - K*H
     Pnew = I_KH * P * I_KH + K * R * K
+
+
+    #print("Updated estimate of P = ")
+    #print(Pnew)
     
     #And get the likelihood
     l = log_likelihood(S,y)
@@ -139,7 +152,7 @@ class KalmanFilter:
 
         #Initialise the likelihood
         likelihood = 0.0
-              
+            
 
         x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
         likelihood +=l
@@ -191,6 +204,9 @@ class KalmanFilter:
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr,dtype=self.NF) * parameters["sigma_m"]*1e10 
+        
+       # print("Initial P")
+        #print(P)
 
     
 

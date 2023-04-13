@@ -143,6 +143,7 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
     plt.style.use('science')
     true_parameters = priors_dict(PTA,P)
     true_parameters["sigma_p"] = sigma_p
+    #true_parameters["alpha_gw"] = 2.0
     
 
     h,w = 20,12
@@ -175,7 +176,7 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
             ax.set_xscale('log')
             #ax.set_yscale('log')
 
-        ax.set_yscale('log')
+        #ax.set_yscale('log')
         i+=1
 
 
