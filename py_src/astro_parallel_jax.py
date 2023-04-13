@@ -72,7 +72,7 @@ print("Shape of the data is ", y.shape)
 
 
 
-def kalman_filter(y, F, Q, R, x0, P0, H_fn,T_fn):
+def kalman_filter(y, F, Q, R, x0, P1, H_fn,T_fn):
 
 
 
@@ -122,9 +122,12 @@ def kalman_filter(y, F, Q, R, x0, P0, H_fn,T_fn):
     # Initialize state estimates
     x_hat0 = jnp.zeros((n_dim,))
     x_hat0 = x_hat0.at[...].set(x0)
+
+    print("Initial guess of x = ")
+    print(x_hat0)
     
     P0 = jnp.zeros((n_dim,))
-    P0 = P0.at[...].set(P0)
+    P0 = P0.at[...].set(P1)
     
 
 
@@ -143,6 +146,7 @@ def kalman_filter(y, F, Q, R, x0, P0, H_fn,T_fn):
     innovation = y_t - H_t * x_hat0
 
     x_hat = x_hat0 + K_t * innovation
+    print(x_hat0,  K_t, innovation)
         
 
     I_KH = 1.0 - K_t*H_t
@@ -162,8 +166,8 @@ def kalman_filter(y, F, Q, R, x0, P0, H_fn,T_fn):
     P0 = P0.at[...].set(P)
     
 
-    print("Initial states guess = ")
-    print(x_hat0)
+    print("After the update step:")
+    print(x_hat)
 
 
     # Iterate over observations using scan
