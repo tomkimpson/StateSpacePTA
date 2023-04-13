@@ -1,6 +1,6 @@
 
 from numpy import sin, cos
-import numpy as np 
+import jax.numpy as np
 import pandas as pd 
 class Pulsars:
 
@@ -38,7 +38,11 @@ class Pulsars:
             k = 0
             for i in range(3):
                 for j in range(3):
-                    self.q_products[n,k] = self.q[n,i]*self.q[n,j]
+                    #self.q_products[n,k] = self.q[n,i]*self.q[n,j]
+
+                    y = self.q[n,i]*self.q[n,j]
+                    self.q_products = self.q_products.at[n,k].set(y) #= 
+
                     k+=1
         self.q_products = self.q_products.T
 

@@ -1,15 +1,18 @@
 
 
-from numpy import sin,cos 
-import numpy as np 
-from numba import jit 
+
+import jax.numpy as np
+from jax import jit
+
+
 
 """
 Given the GW parameters, the pulsar parameters and the time,
 compute the frequency correction factor.
 Returns an object of shape (n times, n pulsars)
 """
-@jit(nopython=True)
+#@jit(nopython=True)
+@jit
 def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
@@ -36,11 +39,11 @@ def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
-        prefactor    = 0.5*(hbar / dot_product)*(1.0 - cos(omega*d*dot_product))
+        prefactor    = 0.5*(hbar / dot_product)*(1.0 - np.cos(omega*d*dot_product))
 
 
         tensor = np.outer(t,dot_product) #This has shape(n times, n pulsars)
-        time_variation = cos(-omega*tensor + phi0)
+        time_variation = np.cos(-omega*tensor + phi0)
 
         GW_factor = 1.0 - prefactor * time_variation
         return GW_factor #This has shape(n times, n pulsars)
@@ -48,26 +51,26 @@ def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
-@jit(nopython=True)
+@jit
 def principal_axes(theta,phi,psi):
 
-    m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
-    m2 = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta))
-    m3 = sin(psi)*sin(theta)
-    m = [m1,m2,m3]
+    m1 = np.sin(phi)*np.cos(psi) - np.sin(psi)*np.cos(phi)*np.cos(theta)
+    m2 = -(np.cos(phi)*np.cos(psi) + np.sin(psi)*np.sin(phi)*np.cos(theta))
+    m3 = np.sin(psi)*np.sin(theta)
+    m = np.array([m1,m2,m3])
 
-    n1 = -sin(phi)*sin(psi) - cos(psi)*cos(phi)*cos(theta)
-    n2 = cos(phi)*sin(psi) - cos(psi)*sin(phi)*cos(theta)
-    n3 = cos(psi)*sin(theta)
-    n = [n1,n2,n3]
+    n1 = -np.sin(phi)*np.sin(psi) - np.cos(psi)*np.cos(phi)*np.cos(theta)
+    n2 = np.cos(phi)*np.sin(psi) - np.cos(psi)*np.sin(phi)*np.cos(theta)
+    n3 = np.cos(psi)*np.sin(theta)
+    n = np.array([n1,n2,n3])
 
     return m,n
 
-@jit(nopython=True)
+@jit
 def h_amplitudes(h,ι): 
 
-    hplus = h*(1.0 + cos(ι)**2)
-    hcross = h*(-2.0*cos(ι))
+    hplus = h*(1.0 + np.cos(ι)**2)
+    hcross = h*(-2.0*np.cos(ι))
 
     return hplus,hcross
 

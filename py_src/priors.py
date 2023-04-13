@@ -3,7 +3,7 @@
 
 import bilby
 
-import numpy as np
+import jax.numpy as jnp
 import random
 
 def add_to_priors_dict(x,label,dict_A):

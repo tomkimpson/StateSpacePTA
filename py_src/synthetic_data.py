@@ -1,7 +1,12 @@
 
 
 import sdeint
-import numpy as np 
+import jax.numpy as np
+
+
+
+from jax import random
+
 
 from gravitational_waves import gw_prefactor_optimised
 class SyntheticData:
@@ -56,6 +61,12 @@ class SyntheticData:
         f_measured_clean= self.intrinsic_frequency * modulation_factors
 
         #...and now add some mean zero Gaussian noise
-        measurement_noise = np.random.normal(0, pulsars.sigma_m,f_measured_clean.shape) # Measurement noise
+        key = random.PRNGKey(758493)  # Random seed is explicit in JAX
+        #measurement_noise = random.normal(key=key,0, pulsars.sigma_m,f_measured_clean.shape) # Measurement noise
+
+        measurement_noise = 0.0 + pulsars.sigma_m * random.normal(key, f_measured_clean.shape) #https://github.com/google/jax/discussions/6341
+
+
+
         self.f_measured = f_measured_clean + measurement_noise
 
