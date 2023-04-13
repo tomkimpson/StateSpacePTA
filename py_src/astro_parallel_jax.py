@@ -40,32 +40,21 @@ LOG2PI = math.log(2 * math.pi)
 
 
 
-from system_parameters import SystemParameters
+from system_parameters import SystemParameters,SystemParams
 from pulsars import Pulsars
 from synthetic_data import SyntheticData
+
 P   = SystemParameters()       #define the system parameters as a class
+params = SystemParams()
 PTA = Pulsars(P)               #setup the PTA
 data = SyntheticData(PTA,P)    # generate some synthetic data
-
-
 y = data.f_measured
-print("Shape of the data is ", y.shape)
 
 
 
 
 
 
-
-
-# def mvn_logpdf(x, mean, cov):
-#     n = mean.shape[0]
-#     upper = jsc.linalg.cholesky(cov, lower=False)
-#     log_det = 2 * jnp.sum(jnp.log(jnp.abs(jnp.diag(upper))))
-#     diff = x - mean
-#     scaled_diff = jsc.linalg.solve_triangular(upper, diff.T, lower=False)
-#     distance = jnp.sum(scaled_diff * scaled_diff, 0)
-#     return -0.5 * (distance + n * LOG2PI + log_det)
 
 
 
@@ -113,18 +102,15 @@ def kalman_filter(y, F, Q, R, x0, P1, H_fn,T_fn):
 
         return (x_hat, P,log_likelihood), (x_hat, P,log_likelihood)
 
-    print("You are inside the JAX KF")
     n_obs, n_dim = y.shape
 
-    print(n_obs,n_dim)
-    print(len(x0))
+   
 
     # Initialize state estimates
     x_hat0 = jnp.zeros((n_dim,))
     x_hat0 = x_hat0.at[...].set(x0)
 
-    print("Initial guess of x = ")
-    print(x_hat0)
+   
     
     P0 = jnp.zeros((n_dim,))
     P0 = P0.at[...].set(P1)
@@ -166,9 +152,6 @@ def kalman_filter(y, F, Q, R, x0, P1, H_fn,T_fn):
     P0 = P0.at[...].set(P)
     
 
-    print("After the update step:")
-    print(x_hat)
-
 
     # Iterate over observations using scan
     _, (x_hat, P,log_likelihood) = lax.scan(body, (x_hat0, P0,log_likelihood), jnp.arange(1, n_obs))
@@ -184,81 +167,123 @@ def kalman_filter(y, F, Q, R, x0, P1, H_fn,T_fn):
 
 
 
-n_obs, n_dim = y.shape
-blob = jnp.arange(1, n_obs)
-print(blob)
-gamma = PTA.gamma
-dt = PTA.dt
-f0 = PTA.f
-fdot = PTA.fdot
-t = PTA.t
-sigma_p= PTA.sigma_p
-sigma_m= PTA.sigma_m
+
+def prior_model():
+    omega = yield Prior(tfpd.Uniform(low=4.5e-7, high = 5.5e-7), name='omega')
+    return omega
 
 
-omega_gw  =P["omega_gw"]
-#omega_gw = 4e-7
-phi0_gw  =P["phi0_gw"]
-psi_gw   =P["psi_gw"]
-iota_gw  =P["iota_gw"]
-delta_gw =P["delta_gw"]
-alpha_gw =P["alpha_gw"]
-h        =P["h"]
-d = PTA.d
 
 
-F = np.exp(-gamma*dt)
+def log_likelihood(omega): 
+
+    
+    #Define some parameters from the global scope by hand
+    gamma = PTA.gamma
+    dt = PTA.dt
+    f0 = PTA.f
+    fdot = PTA.fdot
+    t = PTA.t
+    sigma_p= PTA.sigma_p
+    sigma_m= PTA.sigma_m
 
 
-fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
-T_fn = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
+    #omega_gw  =P["omega_gw"]
+    #omega_gw = 4e-7
+    phi0_gw  =params.phi0_gw
+    psi_gw   =params.psi_gw
+    iota_gw  =params.iota_gw
+    delta_gw =params.delta_gw
+    alpha_gw =params.alpha_gw
+    h        =params.h
+    d = PTA.d
 
 
-Q = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
-R = sigma_m**2
+
+    F = np.exp(-gamma*dt)
 
 
-print("F matrix")
+    fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
+    T_fn = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
 
 
-x0 = y[0,:]
-P0 = np.ones(len(x0)) * sigma_m*1e10 
+    Q = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
+    R = sigma_m**2
+
+
+    x0 = y[0,:]
+    P0 = np.ones(len(x0)) * sigma_m*1e10 
+
+
+
+    H_fn = gw_prefactor_optimised(delta_gw,
+                                                    alpha_gw,
+                                                    psi_gw,
+                                                    PTA.q,
+                                                    PTA.q_products,
+                                                    h,
+                                                    iota_gw,
+                                                    omega,
+                                                    d,
+                                                    t,
+                                                    phi0_gw
+                                                    )
+
+
+    x,P,l = kalman_filter(y, F, Q, R, x0, P0, H_fn,T_fn)
+
+
+    value = np.sum(l)
+    print("Returned likelihood is: ", value)
+
+    return value
+
+
+
+#value = log_likelihood(4e-7)
+#print(value.dtype)
+
+
+model = Model(prior_model=prior_model, log_likelihood=log_likelihood)
+print("Perform a sanity check")
+model.sanity_check(random.PRNGKey(0), S=100)
+
+
+from jaxns import ExactNestedSampler
+from jaxns import TerminationCondition
+
+print("--------------Attepting to run nested sampler-----------------")
+# Create the nested sampler class. In this case without any tuning.
+ns = exact_ns = ExactNestedSampler(model=model, num_live_points=100, num_parallel_samplers=1,
+                                   max_samples=1e4)
+
+termination_reason, state = exact_ns(random.PRNGKey(42),
+                                     term_cond=TerminationCondition(live_evidence_frac=1e-2))
+results = exact_ns.to_results(state, termination_reason)
+
+print("COMPLETED")
+print(exact_ns.summary(results))
+
+exact_ns.plot_cornerplot(results)
+
+
+
+
+
 
  
-H_fn = gw_prefactor_optimised(delta_gw,
-                                                alpha_gw,
-                                                psi_gw,
-                                                PTA.q,
-                                                PTA.q_products,
-                                                h,
-                                                iota_gw,
-                                                omega_gw,
-                                                d,
-                                                t,
-                                                phi0_gw
-                                                )
-
-
-print("x0 shape = ", x0.shape)
-x,P,l = kalman_filter(y, F, Q, R, x0, P0, H_fn,T_fn)
 
 
 
 
-
-print("The value of x is:")
-print(x.shape)
-print(y.shape)
-
-
-#y_state = 
+#print("likelihood shape = ", np.sum(l))
 
 
 from plotting import plot_all
 
 
 
-plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x,psr_index =1,savefig=None)
+#plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x,psr_index =1,savefig=None)
 
 
 
@@ -315,9 +340,6 @@ plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x,psr_index =1,savefig=N
 # #Kalman filter
 
 
-# def prior_model():
-#     omega = yield Prior(tfpd.Uniform(low=3e-7, high = 7e-7), name='omega')
-#     return omega
 
 
 
@@ -325,24 +347,6 @@ plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x,psr_index =1,savefig=N
 
 
 
-
-# def log_likelihood(omega): 
-
-#     fms, fPs,lPs = kf(car_tracking_model, ys[:100])
-
-
-#     return jnp.sum(lPs)
-
-
-
-
-
-
-
-
-# model = Model(prior_model=prior_model, log_likelihood=log_likelihood)
-# print("Perform a sanity check")
-# model.sanity_check(random.PRNGKey(0), S=100)
 
 
 
