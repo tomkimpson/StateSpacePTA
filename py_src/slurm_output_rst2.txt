@@ -1,0 +1,218 @@
+15:33 bilby INFO    : Running for label 'all_gw_ozstar', output will be saved to '../data/nested_sampling/'
+15:33 bilby INFO    : Analysis priors:
+15:33 bilby INFO    : omega_gw=LogUniform(minimum=1e-09, maximum=1e-05, name='omega_gw', latex_label='omega_gw', unit=None, boundary=None)
+15:33 bilby INFO    : phi0_gw=Uniform(minimum=0.0, maximum=3.141592653589793, name='phi0_gw', latex_label='phi0_gw', unit=None, boundary=None)
+15:33 bilby INFO    : psi_gw=Uniform(minimum=0.0, maximum=3.141592653589793, name='psi_gw', latex_label='psi_gw', unit=None, boundary=None)
+15:33 bilby INFO    : iota_gw=Uniform(minimum=0.0, maximum=1.5707963267948966, name='iota_gw', latex_label='iota_gw', unit=None, boundary=None)
+15:33 bilby INFO    : delta_gw=Cosine(minimum=-1.5707963267948966, maximum=1.5707963267948966, name='delta_gw', latex_label='delta_gw', unit=None, boundary=None)
+15:33 bilby INFO    : alpha_gw=Uniform(minimum=0.0, maximum=3.141592653589793, name='alpha_gw', latex_label='alpha_gw', unit=None, boundary=None)
+15:33 bilby INFO    : h=LogUniform(minimum=0.0001, maximum=1.0, name='h', latex_label='h', unit=None, boundary=None)
+15:33 bilby INFO    : f00=327.8470205611185
+15:33 bilby INFO    : f01=205.53069910059
+15:33 bilby INFO    : f02=303.0909794113198
+15:33 bilby INFO    : f03=326.600561967271
+15:33 bilby INFO    : f04=348.5592316999902
+15:33 bilby INFO    : f05=112.94972319066429
+15:33 bilby INFO    : f06=346.5319964932129
+15:33 bilby INFO    : f07=215.6088104676294
+15:33 bilby INFO    : f08=190.2678373613727
+15:33 bilby INFO    : f09=193.7156834116254
+15:33 bilby INFO    : f010=238.004053174088
+15:33 bilby INFO    : f011=172.642909924795
+15:33 bilby INFO    : f012=125.2002451675204
+15:33 bilby INFO    : f013=277.9377069492822
+15:33 bilby INFO    : f014=317.3789419337929
+15:33 bilby INFO    : f015=316.12398422451724
+15:33 bilby INFO    : f016=216.3733370950632
+15:33 bilby INFO    : f017=218.811840394717
+15:33 bilby INFO    : f018=170.93736991146392
+15:33 bilby INFO    : f019=266.8691669720664
+15:33 bilby INFO    : f020=245.4261196602377
+15:33 bilby INFO    : f021=607.6775384652
+15:33 bilby INFO    : f022=367.7671211299739
+15:33 bilby INFO    : f023=244.391377738396
+15:33 bilby INFO    : f024=186.4940783438289
+15:33 bilby INFO    : f025=465.135238339217
+15:33 bilby INFO    : f026=339.3156871298895
+15:33 bilby INFO    : f027=200.658805294298
+15:33 bilby INFO    : f028=216.171230573016
+15:33 bilby INFO    : f029=130.78951613875947
+15:33 bilby INFO    : f030=263.9807142255208
+15:33 bilby INFO    : f031=641.928222127829
+15:33 bilby INFO    : f032=192.8565208431179
+15:33 bilby INFO    : f033=315.443563681749
+15:33 bilby INFO    : f034=163.0479129097612
+15:33 bilby INFO    : f035=191.4509120380344
+15:33 bilby INFO    : f036=345.2781364654948
+15:33 bilby INFO    : f037=168.0966779772235
+15:33 bilby INFO    : f038=420.189443214863
+15:33 bilby INFO    : f039=62.29588783082522
+15:33 bilby INFO    : f040=320.5922923290326
+15:33 bilby INFO    : f041=335.8162133708968
+15:33 bilby INFO    : f042=279.5965821510426
+15:33 bilby INFO    : f043=275.7078326240928
+15:33 bilby INFO    : f044=192.5919636477142
+15:33 bilby INFO    : f045=290.25460815391
+15:33 bilby INFO    : f046=207.96816335831227
+15:33 bilby INFO    : fdot0=-1.227834e-15
+15:33 bilby INFO    : fdot1=-4.297e-16
+15:33 bilby INFO    : fdot2=-6.4737e-16
+15:33 bilby INFO    : fdot3=-1.022991e-15
+15:33 bilby INFO    : fdot4=-4.1895e-16
+15:33 bilby INFO    : fdot5=-6.2782e-17
+15:33 bilby INFO    : fdot6=-1.46389e-15
+15:33 bilby INFO    : fdot7=-1.6868e-16
+15:33 bilby INFO    : fdot8=-6.2003e-16
+15:33 bilby INFO    : fdot9=-6.96131e-16
+15:33 bilby INFO    : fdot10=-3.9329e-16
+15:33 bilby INFO    : fdot11=-3.474e-16
+15:33 bilby INFO    : fdot12=-3.80975e-16
+15:33 bilby INFO    : fdot13=-7.33846e-16
+15:33 bilby INFO    : fdot14=-9.69443e-16
+15:33 bilby INFO    : fdot15=-2.81542e-16
+15:33 bilby INFO    : fdot16=-8.64392e-16
+15:33 bilby INFO    : fdot17=-4.08387e-16
+15:33 bilby INFO    : fdot18=-7.04774e-16
+15:33 bilby INFO    : fdot19=-2.151992e-15
+15:33 bilby INFO    : fdot20=-5.38155e-16
+15:33 bilby INFO    : fdot21=-4.853e-15
+15:33 bilby INFO    : fdot22=-1.11907e-15
+15:33 bilby INFO    : fdot23=-5.2065e-16
+15:33 bilby INFO    : fdot24=-6.20476e-16
+15:33 bilby INFO    : fdot25=-4.0719e-15
+15:33 bilby INFO    : fdot26=-1.614814e-15
+15:33 bilby INFO    : fdot27=-3.89748e-16
+15:33 bilby INFO    : fdot28=-7.90875e-16
+15:33 bilby INFO    : fdot29=-4.39475e-16
+15:33 bilby INFO    : fdot30=-6.65848e-16
+15:33 bilby INFO    : fdot31=-4.330987e-14
+15:33 bilby INFO    : fdot32=-6.44814e-16
+15:33 bilby INFO    : fdot33=-3.148e-16
+15:33 bilby INFO    : fdot34=-7.9062e-16
+15:33 bilby INFO    : fdot35=-1.76854e-16
+15:33 bilby INFO    : fdot36=-9.5291e-16
+15:33 bilby INFO    : fdot37=-3.1496e-16
+15:33 bilby INFO    : fdot38=-9.25931e-16
+15:33 bilby INFO    : fdot39=-1.156186e-16
+15:33 bilby INFO    : fdot40=-1.51379e-15
+15:33 bilby INFO    : fdot41=-1.7183e-16
+15:33 bilby INFO    : fdot42=-9.392e-16
+15:33 bilby INFO    : fdot43=-1.52788e-15
+15:33 bilby INFO    : fdot44=-5.1439e-16
+15:33 bilby INFO    : fdot45=-2.0477e-16
+15:33 bilby INFO    : fdot46=-4.178455630932531e-16
+15:33 bilby INFO    : distance0=181816860005.41092
+15:33 bilby INFO    : distance1=32362224272.807774
+15:33 bilby INFO    : distance2=160300000000.0
+15:33 bilby INFO    : distance3=95000000000.0
+15:33 bilby INFO    : distance4=71428052144.98288
+15:33 bilby INFO    : distance5=121950332930.45859
+15:33 bilby INFO    : distance6=115000000000.0
+15:33 bilby INFO    : distance7=372200000000.0
+15:33 bilby INFO    : distance8=70000000000.0
+15:33 bilby INFO    : distance9=122000000000.0
+15:33 bilby INFO    : distance10=90300000000.0
+15:33 bilby INFO    : distance11=126900000000.0
+15:33 bilby INFO    : distance12=68400000000.0
+15:33 bilby INFO    : distance13=188677873590.52078
+15:33 bilby INFO    : distance14=70000000000.0
+15:33 bilby INFO    : distance15=151514050004.5091
+15:33 bilby INFO    : distance16=74000000000.0
+15:33 bilby INFO    : distance17=131060646137.58327
+15:33 bilby INFO    : distance18=147057754416.14117
+15:33 bilby INFO    : distance19=166665455004.96002
+15:33 bilby INFO    : distance20=39500000000.0
+15:33 bilby INFO    : distance21=714900000000.0
+15:33 bilby INFO    : distance22=208331818756.20007
+15:33 bilby INFO    : distance23=208331818756.20007
+15:33 bilby INFO    : distance24=120000000000.0
+15:33 bilby INFO    : distance25=700000000000.0
+15:33 bilby INFO    : distance26=114000000000.0
+15:33 bilby INFO    : distance27=149600000000.0
+15:33 bilby INFO    : distance28=136500000000.0
+15:33 bilby INFO    : distance29=111110303336.64005
+15:33 bilby INFO    : distance30=120100000000.0
+15:33 bilby INFO    : distance31=350000000000.0
+15:33 bilby INFO    : distance32=121800000000.0
+15:33 bilby INFO    : distance33=694000000000.0
+15:33 bilby INFO    : distance34=630400000000.0
+15:33 bilby INFO    : distance35=243900665860.9172
+15:33 bilby INFO    : distance36=139900000000.0
+15:33 bilby INFO    : distance37=174000000000.0
+15:33 bilby INFO    : distance38=138887879170.80002
+15:33 bilby INFO    : distance39=71428052144.98288
+15:33 bilby INFO    : distance40=60000000000.0
+15:33 bilby INFO    : distance41=180000000000.0
+15:33 bilby INFO    : distance42=97086672818.42332
+15:33 bilby INFO    : distance43=158700000000.0
+15:33 bilby INFO    : distance44=86300000000.0
+15:33 bilby INFO    : distance45=166665455004.96002
+15:33 bilby INFO    : distance46=101099999999.99998
+15:33 bilby INFO    : gamma0=1e-13
+15:33 bilby INFO    : gamma1=1e-13
+15:33 bilby INFO    : gamma2=1e-13
+15:33 bilby INFO    : gamma3=1e-13
+15:33 bilby INFO    : gamma4=1e-13
+15:33 bilby INFO    : gamma5=1e-13
+15:33 bilby INFO    : gamma6=1e-13
+15:33 bilby INFO    : gamma7=1e-13
+15:33 bilby INFO    : gamma8=1e-13
+15:33 bilby INFO    : gamma9=1e-13
+15:33 bilby INFO    : gamma10=1e-13
+15:33 bilby INFO    : gamma11=1e-13
+15:33 bilby INFO    : gamma12=1e-13
+15:33 bilby INFO    : gamma13=1e-13
+15:33 bilby INFO    : gamma14=1e-13
+15:33 bilby INFO    : gamma15=1e-13
+15:33 bilby INFO    : gamma16=1e-13
+15:33 bilby INFO    : gamma17=1e-13
+15:33 bilby INFO    : gamma18=1e-13
+15:33 bilby INFO    : gamma19=1e-13
+15:33 bilby INFO    : gamma20=1e-13
+15:33 bilby INFO    : gamma21=1e-13
+15:33 bilby INFO    : gamma22=1e-13
+15:33 bilby INFO    : gamma23=1e-13
+15:33 bilby INFO    : gamma24=1e-13
+15:33 bilby INFO    : gamma25=1e-13
+15:33 bilby INFO    : gamma26=1e-13
+15:33 bilby INFO    : gamma27=1e-13
+15:33 bilby INFO    : gamma28=1e-13
+15:33 bilby INFO    : gamma29=1e-13
+15:33 bilby INFO    : gamma30=1e-13
+15:33 bilby INFO    : gamma31=1e-13
+15:33 bilby INFO    : gamma32=1e-13
+15:33 bilby INFO    : gamma33=1e-13
+15:33 bilby INFO    : gamma34=1e-13
+15:33 bilby INFO    : gamma35=1e-13
+15:33 bilby INFO    : gamma36=1e-13
+15:33 bilby INFO    : gamma37=1e-13
+15:33 bilby INFO    : gamma38=1e-13
+15:33 bilby INFO    : gamma39=1e-13
+15:33 bilby INFO    : gamma40=1e-13
+15:33 bilby INFO    : gamma41=1e-13
+15:33 bilby INFO    : gamma42=1e-13
+15:33 bilby INFO    : gamma43=1e-13
+15:33 bilby INFO    : gamma44=1e-13
+15:33 bilby INFO    : gamma45=1e-13
+15:33 bilby INFO    : gamma46=1e-13
+15:33 bilby INFO    : sigma_p=0.001
+15:33 bilby INFO    : sigma_m=1e-10
+15:33 bilby INFO    : Analysis likelihood class: <class 'bilby_wrapper.BilbyLikelihood'>
+15:33 bilby INFO    : Analysis likelihood noise evidence: nan
+15:33 bilby INFO    : Single likelihood evaluation took 5.660e-03 s
+15:33 bilby INFO    : Using sampler Dynesty with kwargs {'nlive': 1000, 'bound': 'live', 'sample': 'auto', 'periodic': None, 'reflective': None, 'update_interval': 600, 'first_update': None, 'npdim': None, 'rstate': None, 'queue_size': 64, 'pool': None, 'use_pool': None, 'live_points': None, 'logl_args': None, 'logl_kwargs': None, 'ptform_args': None, 'ptform_kwargs': None, 'gradient': None, 'grad_args': None, 'grad_kwargs': None, 'compute_jac': False, 'enlarge': None, 'bootstrap': None, 'walks': 100, 'facc': 0.2, 'slices': None, 'fmove': 0.9, 'max_move': 100, 'update_func': None, 'ncdim': None, 'blob': False, 'save_history': False, 'history_filename': None, 'maxiter': None, 'maxcall': None, 'dlogz': 20.0, 'logl_max': inf, 'n_effective': None, 'add_live': True, 'print_progress': True, 'print_func': <bound method Dynesty._print_func of <bilby.core.sampler.dynesty.Dynesty object at 0x1477b574e970>>, 'save_bounds': False, 'checkpoint_file': None, 'checkpoint_every': 60, 'resume': False}
+15:33 bilby INFO    : Checkpoint every check_point_delta_t = 600s
+15:33 bilby INFO    : Using dynesty version 2.1.0
+15:33 bilby INFO    : Live-point based bound method requested with dynesty sample 'auto', overwriting to 'multi'
+15:33 bilby INFO    : Setting up multiproccesing pool with 64 processes
+Ideal likelihood =  -34983.82608988766
+RUN THE SAMPLER
+15:33 bilby INFO    : Reading resume file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+15:33 bilby INFO    : Resume file successfully loaded.
+1211it [00:00, ?it/s]1211it [21:59, ?it/s, bound:25472 nc:152512 ncall:1.5e+07 eff:0.0% logz=-24070.69+/-0.15 dlogz:173.526>20]15:55 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+1212it [28:03, 363.29s/it, bound:25542 nc:42596 ncall:1.5e+07 eff:0.0% logz=-24070.54+/-0.14 dlogz:173.354>20]1213it [39:13, 543.77s/it, bound:25668 nc:75964 ncall:1.6e+07 eff:0.0% logz=-24070.38+/-0.15 dlogz:173.186>20]16:12 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+1214it [53:00, 673.20s/it, bound:25825 nc:94293 ncall:1.6e+07 eff:0.0% logz=-24070.23+/-0.15 dlogz:173.023>20]16:26 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+1215it [1:24:03, 1143.00s/it, bound:26177 nc:211573 ncall:1.6e+07 eff:0.0% logz=-24069.94+/-0.19 dlogz:172.857>20]16:57 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+1216it [1:25:38, 764.82s/it, bound:26195 nc:10845 ncall:1.6e+07 eff:0.0% logz=-24069.67+/-0.21 dlogz:172.624>20]  1217it [1:30:32, 604.96s/it, bound:26252 nc:34209 ncall:1.6e+07 eff:0.0% logz=-24069.45+/-0.19 dlogz:172.318>20]1218it [1:40:34, 603.78s/it, bound:26365 nc:68311 ncall:1.6e+07 eff:0.0% logz=-24069.23+/-0.17 dlogz:172.038>20]17:14 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+1219it [2:34:13, 1436.39s/it, bound:26959 nc:356611 ncall:1.6e+07 eff:0.0% logz=-24069.05+/-0.15 dlogz:373.647>20]18:07 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle
+1220it [3:31:12, 2056.37s/it, bound:27605 nc:387768 ncall:1.7e+07 eff:0.0% logz=-24068.88+/-0.15 dlogz:373.456>20]19:04 bilby INFO    : Written checkpoint file ../data/nested_sampling//all_gw_ozstar_resume.pickle

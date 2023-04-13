@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #SBATCH --ntasks=1
-#SBATCH --mem=4000MB
-#SBATCH --time=24:00:00
+#SBATCH --mem=8000MB
+#SBATCH --time=48:00:00
 #SBATCH --job-name=NestedSampling
-#SBATCH --output=slurm_output.txt
+#SBATCH --output=likelihood_expt.txt
 
 source ~/.bashrc
 conda activate OzStar
