@@ -39,22 +39,19 @@ class SyntheticData:
 
 
 
-
-
-
         #Now calculate the modulation factor due to the GW
         modulation_factors = gw_prefactor_optimised(
-                               P["delta_gw"],
-                               P["alpha_gw"],
-                               P["psi_gw"],
+                               P.delta_gw,
+                               P.alpha_gw,
+                               P.psi_gw,
                                pulsars.q,
                                pulsars.q_products,
-                               P["h"],
-                               P["iota_gw"],
-                               P["omega_gw"],
+                               P.h,
+                               P.iota_gw,
+                               P.omega_gw,
                                pulsars.d,
                                pulsars.t,
-                               P["phi0_gw"]
+                               P.phi0_gw
                                )
 
         #The measured frequency, no noise
@@ -62,8 +59,6 @@ class SyntheticData:
 
         #...and now add some mean zero Gaussian noise
         key = random.PRNGKey(758493)  # Random seed is explicit in JAX
-        #measurement_noise = random.normal(key=key,0, pulsars.sigma_m,f_measured_clean.shape) # Measurement noise
-
         measurement_noise = 0.0 + pulsars.sigma_m * random.normal(key, f_measured_clean.shape) #https://github.com/google/jax/discussions/6341
 
 
