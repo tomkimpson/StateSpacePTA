@@ -131,23 +131,23 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'phi0_gw')
-    #priors["phi0_gw"] =P["phi0_gw"]
+    #priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'phi0_gw')
+    priors["phi0_gw"] =P["phi0_gw"]
 
     init_parameters["psi_gw"] = None
     #priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw',boundary="periodic")
-    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
-    #priors["psi_gw"] =P["psi_gw"]
+    #priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+    priors["psi_gw"] =P["psi_gw"]
 
     init_parameters["iota_gw"] = None
-    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-    #priors["iota_gw"] = P["iota_gw"]
+    #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+    priors["iota_gw"] = P["iota_gw"]
 
 
     init_parameters["delta_gw"] = None
     #priors["delta_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'delta_gw')
-    priors["delta_gw"] = bilby.core.prior.Cosine(-np.pi/2, np.pi/2, 'delta_gw')
-    #priors["delta_gw"] = P["delta_gw"]
+    #priors["delta_gw"] = bilby.core.prior.Cosine(-np.pi/2, np.pi/2, 'delta_gw')
+    priors["delta_gw"] = P["delta_gw"]
 
 
     init_parameters["alpha_gw"] = None

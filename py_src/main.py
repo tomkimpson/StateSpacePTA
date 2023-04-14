@@ -22,7 +22,7 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters()       #define the system parameters as a class
+    P   = SystemParameters(Npsr=5)       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
     data = SyntheticData(PTA,P) #generate some synthetic data
     
@@ -41,7 +41,7 @@ if __name__=="__main__":
    
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA,P)
-    BilbySampler(KF,init_parameters,priors,label="all_gw",outdir="../data/nested_sampling/")
+    BilbySampler(KF,init_parameters,priors,label="default2",outdir="../data/nested_sampling/")
 
 
 

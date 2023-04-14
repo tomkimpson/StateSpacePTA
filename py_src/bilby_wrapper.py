@@ -37,10 +37,8 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                              outdir=outdir,
                             sampler ='dynesty',
                             check_point_plot=False,
-                            sample='auto', 
-                            #walks=10, 
-                            npoints=100,dlogz=0.10,
-                            npool=10, plot=True,resume=True)
+                            npoints=100,dlogz=0.1,
+                            npool=10, plot=True,resume=False)
 
 
 
