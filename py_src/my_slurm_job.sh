@@ -4,7 +4,7 @@
 #SBATCH --mem=8000MB
 #SBATCH --time=48:00:00
 #SBATCH --job-name=NestedSampling
-#SBATCH --output=likelihood_expt.txt
+#SBATCH --output=outputs/acceptance_walk.txt
 
 source ~/.bashrc
 conda activate OzStar
