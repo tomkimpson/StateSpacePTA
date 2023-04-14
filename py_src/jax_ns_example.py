@@ -1,49 +1,28 @@
-# Python specific imports that will make our job easier and our code prettier
-from collections import namedtuple
-from functools import partial
-import time
-from tqdm.auto import trange, tqdm
 
-# JAX specific imports that we will use to code the logic
-from jax import jit, vmap, make_jaxpr, device_put, devices
 from jax.config import config
-from jax.core import eval_jaxpr  # this will serve as a proxy compiler as JAX doesn't have an AOT function
-from jax.lax import associative_scan, psum, scan
-import jax.numpy as jnp
-import jax.scipy as jsc
+config.update("jax_enable_x64", True)
 
-# Auxiliary libraries that we will use to report results and create the data
-import math
-import matplotlib.pyplot as plt
+# JAX
 import jax.numpy as np
-
-
-from jaxns import Prior, Model
-import tensorflow_probability.substrates.jax as tfp
-tfpd = tfp.distributions
-
-
 from jax import random
 from jax import lax
 
+#jaxns
+from jaxns import Prior, Model
+import tensorflow_probability.substrates.jax as tfp
+tfpd = tfp.distributions
+tfb = tfp.bijectors
+
+
+
+from numpyro.distributions import LogUniform
+
+
+import matplotlib.pyplot as plt
 from gravitational_waves import gw_prefactor_optimised
-from jax.scipy.stats import multivariate_normal
-
-
-
-config.update("jax_enable_x64", True)  # We use this so that we have the same precision as the pure numpy implementation
-                                       # This can be useful in particular for large observations (long running series)
-
-
-LOG2PI = math.log(2 * math.pi)
-
-
-
-
 from system_parameters import SystemParameters
 from pulsars import Pulsars
 from synthetic_data import SyntheticData
-import sys
 from copy import deepcopy
 
 
@@ -208,10 +187,10 @@ def kalman_filter(y, F, Q, R, H_fn,T_fn,initial_x, initial_P):
     n_obs, n_dim = y.shape
 
     # Initialize state estimates
-    x_hat0 = jnp.zeros((n_dim,))
+    x_hat0 = np.zeros((n_dim,))
     x_hat0 = x_hat0.at[...].set(initial_x)
 
-    P0 = jnp.zeros((n_dim,))
+    P0 = np.zeros((n_dim,))
     P0 = P0.at[...].set(initial_P)
     
 
@@ -225,17 +204,17 @@ def kalman_filter(y, F, Q, R, H_fn,T_fn,initial_x, initial_P):
     #Assign to variabless
     x_hat0 = x_hat0.at[...].set(x_hat)
     P0 = P0.at[...].set(P)
-    log_likelihood = jnp.float64(ll)
+    log_likelihood = np.float64(ll)
     
 
 
     # Now tterate over observations using scan
-    _, (x_hat, P,log_likelihood) = lax.scan(body, (x_hat0, P0,log_likelihood), jnp.arange(1, n_obs))
+    _, (x_hat, P,log_likelihood) = lax.scan(body, (x_hat0, P0,log_likelihood), np.arange(1, n_obs))
 
 
     # Prepend initial state estimate and error covariance
-    x_hat = jnp.concatenate((x_hat0[jnp.newaxis, :], x_hat), axis=0)
-    P = jnp.concatenate((P0[jnp.newaxis, :], P), axis=0)
+    x_hat = np.concatenate((x_hat0[np.newaxis, :], x_hat), axis=0)
+    P = np.concatenate((P0[np.newaxis, :], P), axis=0)
 
     return x_hat, P,log_likelihood
 
@@ -254,7 +233,7 @@ initial_P = np.ones(len(initial_x)) * PTA.sigma_m*1e10
 x_result,P_result,l_result = kalman_filter(y, F, Q, R, H_fn,T_fn,initial_x, initial_P)
 
 from plotting import plot_all
-plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x_result,psr_index =1,savefig=None)
+#plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x_result,psr_index =1,savefig=None)
 
 
 
@@ -271,7 +250,7 @@ plot_all(PTA.t,data.intrinsic_frequency,data.f_measured,x_result,psr_index =1,sa
 Function of one parameter
 Classes of P,PTA and data y are inherited from the global scope
 """
-def likelihood_function(omega):
+def likelihood_function(omega,phi_0):
 
     #Create class "copies"
     P1 = deepcopy(P)
@@ -279,10 +258,12 @@ def likelihood_function(omega):
 
 
     P1.omega_gw = omega #reassign the value of omega in this new class
+    P1.phi0_gw = phi_0 #reassign the value of omega in this new class
 
-    F, Q, R,H_fn,T_fn = setup_kalman_machinery(P,PTA)
+
+    F, Q, R,H_fn,T_fn = setup_kalman_machinery(P1,PTA1)
     initial_x = y[0,:]
-    initial_P = np.ones(len(initial_x)) * PTA.sigma_m*1e10 
+    initial_P = np.ones(len(initial_x)) * PTA1.sigma_m*1e10 
 
 
     x_result,P_result,l_result = kalman_filter(y, F, Q, R, H_fn,T_fn,initial_x, initial_P)
@@ -295,12 +276,88 @@ def likelihood_function(omega):
 
 
 
+
+
+
+
+# lower_bound = 1e-8
+# upper_bound = 1e-6
+
+# # Define the log-uniform distribution using TFP's TransformedDistribution class
+# log_uniform = tfp.distributions.TransformedDistribution(
+#     distribution=tfp.distributions.Uniform(np.log(lower_bound), np.log(upper_bound)),
+#     bijector=tfp.bijectors.Exp())
+
+
+
+# import seaborn as sns 
+
+# samples = log_uniform.sample(10000, seed=random.PRNGKey(0))
+# #print(samples)
+# log_samples = np.log(samples)
+# sns.distplot(log_samples)
+# #plt.xscale('log')
+# plt.show()
+# sys.exit()
+
+
+
+
+# xx = np.logspace(-8,-6,int(1e3))
+# yy = []
+# for x in xx:
+#     lval = likelihood_function(x)
+#     yy.extend([lval])
+
+
+# plt.plot(xx,yy)
+# plt.xscale('log')
+# plt.show()
+
+#sys.exit()
+
+
+
+
+
+
+
+
+
+
 """
 The prior on omega
 """
 def prior_model():
-    omega = yield Prior(tfpd.Uniform(low=4.5e-7, high = 5.5e-7), name='omega')
-    return omega
+    #omega = yield Prior(tfpd.Uniform(low=1e-9, high = 1e-6), name='omega')
+    
+    
+    phi_0 = yield Prior(tfpd.Uniform(low=0.0, high = np.pi), name='phi_0')
+ 
+
+
+
+    
+    lower_bound = 1e-8
+    upper_bound = 1e-6
+
+    # Define the log-uniform distribution using TFP's TransformedDistribution class
+    log_uniform = tfp.distributions.TransformedDistribution(
+        distribution=tfp.distributions.Uniform(np.log(lower_bound), np.log(upper_bound)),
+        bijector=tfp.bijectors.Exp())
+
+
+
+    omega = yield Prior(log_uniform, name='omega')
+
+
+
+
+
+    return omega,phi_0
+
+
+
 
 
 
@@ -321,15 +378,19 @@ from jaxns import TerminationCondition
 print("--------------Attepting to run nested sampler-----------------")
 
 # Create the nested sampler class. In this case without any tuning.
-ns = exact_ns = ExactNestedSampler(model=model, num_live_points=100, num_parallel_samplers=1,
+ns = exact_ns = ExactNestedSampler(model=model, 
+                                   num_live_points=100, num_parallel_samplers=1,
                                    max_samples=1e4)
 
 termination_reason, state = exact_ns(random.PRNGKey(42),
-                                     term_cond=TerminationCondition(live_evidence_frac=1e-2))
+                                     term_cond=TerminationCondition(live_evidence_frac=1e-1))
 results = exact_ns.to_results(state, termination_reason)
 
 print("COMPLETED")
 print(exact_ns.summary(results))
+exact_ns.plot_diagnostics(results)
+print("Attempting a save")
+exact_ns.save_results(results=results,save_file="test_save.npz")
 exact_ns.plot_cornerplot(results)
 
 
