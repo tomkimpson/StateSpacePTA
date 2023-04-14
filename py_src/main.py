@@ -41,7 +41,7 @@ if __name__=="__main__":
    
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA,P)
-    BilbySampler(KF,init_parameters,priors,label="random_walk4_ozstar",outdir="../data/nested_sampling/")
+    BilbySampler(KF,init_parameters,priors,label="random_walk5_ozstar",outdir="../data/nested_sampling/")
 
 
 
