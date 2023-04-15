@@ -86,6 +86,15 @@ def plot_custom_corner(path,labels, injection_parameters,axes_scales,savefig):
     y = df.to_numpy() 
 
 
+    print(df)
+
+    df2 = pd.DataFrame(data["posterior"]["content"]) # posterior
+
+    print(df2)
+
+    print("Median values:")
+    print(df.median())
+
     plt.style.use('science')
 
     
@@ -94,7 +103,7 @@ def plot_custom_corner(path,labels, injection_parameters,axes_scales,savefig):
                         show_titles=True,
                         smooth=True, 
                         smooth1d=True,
-                        labels=labels,
+                        # labels=labels,
                         truth_color='C2',
                         quantiles=[0.16, 0.84],
                         truths=injection_parameters,
