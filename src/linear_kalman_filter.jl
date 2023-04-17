@@ -96,34 +96,5 @@ function log_likelihood(S::Vector{NF}, innovation::Vector{NF}) where {NF<:Abstra
 end 
 
 
-# function read_vector(x::Vector{NF}) where {NF<:AbstractFloat}
 
-#     # Vector of length x 
-#     # The last 9 elements are single parameters shared between every pulsar, including σp 
-#     # The first elements are f0,ḟ0,d,γ
-#     Npsr = Int64((length(x) - 9) / 4)
-
-
-#     f0 = x[1:Npsr]
-#     ḟ0 = x[Npsr+1:2*Npsr]
-#     d  = x[2*Npsr+1:3*Npsr]
-#     γ  = x[3*Npsr+1:4*Npsr]
-
-#     ω  = x[4*Npsr + 1]
-#     Φ0 = x[4*Npsr + 2]
-#     ψ  = x[4*Npsr + 3]
-#     ι  = x[4*Npsr + 4]
-#     δ  = x[4*Npsr + 5]
-#     α  = x[4*Npsr + 6]
-#     h  = x[4*Npsr + 7]
-#     σp = x[4*Npsr + 8]
-#     σm = x[4*Npsr + 9]
-
-
-
-#     #return ω, h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
-#     return h,ι,δ,α,ψ,Φ0,σp,σm,f0,ḟ0,d,γ 
-
-
-# end 
 

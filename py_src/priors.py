@@ -131,8 +131,8 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["phi0_gw"] = None
-    #priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'phi0_gw')
-    priors["phi0_gw"] =P["phi0_gw"]
+    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'phi0_gw')
+    #priors["phi0_gw"] =P["phi0_gw"]
 
     init_parameters["psi_gw"] = None
     #priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw',boundary="periodic")
@@ -156,10 +156,10 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["h"] = None
-    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
+    #priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e0, 'h')
     #priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
 
-    #priors["h"] = P["h"]
+    priors["h"] = P["h"]
 
 
    

@@ -443,14 +443,20 @@ We are now in a position to try to infer the parameters of a GW system. We take 
 	\caption{GW parameters used for generating synthetic data. There is nothing special about these parameters - they are just chosen arbitrarily.}
 	\label{tab:toy_example_parameters}
 \end{table}
-\noindent Given this synthetic data, we can try to use our KF + NS approach to recover some of the parameters. The results for inference on 5 parameters, $\omega. \Phi_0, \psi, \iota, h$ are shown in Fig \ref{fig:corner}. \textcolor{red}{TK: likelihood plots for each parameter could also be of interest to include here? Need to expand this section greatly for more astrophysical systems and more unknown parameters}
+\noindent Given this synthetic data, we can try to use our KF + NS approach to recover some of the parameters. The results for inference on 5 parameters, $\omega. \Phi_0, \psi, \iota, h$ are shown in Fig \ref{fig:corner2}. \textcolor{red}{TK: likelihood plots for each parameter could also be of interest to include here? Need to expand this section greatly for more astrophysical systems and more unknown parameters}
+%\begin{figure*}
+%	\includegraphics[width=0.8\textwidth]{images/corner_example}
+%	\caption{Example corner plot. Aside: for this run the $\sigma_p$ value fed to the filter is different from that used to generate the data.}
+%	\label{fig:corner}
+%\end{figure*}
+
+
+
 \begin{figure*}
-	\includegraphics[width=0.8\textwidth]{images/corner_example}
+	\includegraphics[width=0.8\textwidth]{images/canonical_example}
 	\caption{Example corner plot. Aside: for this run the $\sigma_p$ value fed to the filter is different from that used to generate the data.}
-	\label{fig:corner}
+	\label{fig:corner2}
 \end{figure*}
-
-
 
 \subsection{Detection on synthetic data}\label{sec:detection}
 
@@ -483,21 +489,43 @@ Given the cheap cost we proceed with the second method. For the likelihood ratio
 
 
 \begin{figure}
-	%\centering % Not needed
-	\begin{subfigure}[b]{1\columnwidth}
-		\includegraphics[width=\textwidth]{images/snr_canonical}
-		\caption{}
-		\label{fig:6MB_BFS}
-	\end{subfigure}
-	\\
-	\begin{subfigure}[b]{1\columnwidth}
-		\includegraphics[width=\textwidth]{images/snr_canonical_1psr}
-		\caption{}
-		\label{fig:25MB_bfs}
-	\end{subfigure}
-	\caption{Likelihood ratio vs strain for \textit{(a)} full PTA and \textit{(b)} a single randomly chosen pulsar. Horizontal dashed line shows the minimum detectable cutoff, vertical dashed line is the corresponding GW strain.}
-	\label{fig:snr_detection}
+	\includegraphics[width=\columnwidth]{images/snr_canonical}
+	\caption{Likelihood ratio vs strain for \textit{(a)} full PTA and \textit{(b)} a single randomly chosen pulsar. Horizontal dashed line shows the minimum detectable cutoff, vertical dashed lines are the corresponding GW strains.}
+	\label{fig:SNR}
 \end{figure}
+
+
+
+
+
+\begin{figure*}
+	\includegraphics[width=0.8\textwidth]{images/snr_mollewide}
+	\caption{stuff}
+	\label{fig:mollewide}
+\end{figure*}
+
+
+
+
+%
+%
+%
+%\begin{figure}
+%	%\centering % Not needed
+%	\begin{subfigure}[b]{1\columnwidth}
+%		\includegraphics[width=\textwidth]{images/snr_canonical}
+%		\caption{}
+%		\label{fig:6MB_BFS}
+%	\end{subfigure}
+%	\\
+%	\begin{subfigure}[b]{1\columnwidth}
+%		\includegraphics[width=\textwidth]{images/snr_canonical_1psr}
+%		\caption{}
+%		\label{fig:25MB_bfs}
+%	\end{subfigure}
+%	\caption{}
+%	\label{fig:snr_detection}
+%\end{figure}
 
 
 

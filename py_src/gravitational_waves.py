@@ -12,9 +12,8 @@ Returns an object of shape (n times, n pulsars)
 @jit(nopython=True)
 def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
+        #print("alpha = ", alpha)
 
-
-        
         m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
         gw_direction        = np.cross(m,n)
       

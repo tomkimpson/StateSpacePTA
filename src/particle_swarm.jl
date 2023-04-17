@@ -19,10 +19,10 @@ kwargs...                        # all additional non-default parameters
         params -> begin 
 
 
-            ω=params[1]
+            α=params[1]
             δ = params[2]
 
-            P1 = SystemParameters(NF=Float64,ω_guess=ω,δ_guess=δ) 
+            P1 = SystemParameters(NF=Float64,α_guess=α,δ_guess=δ) 
             θ̂1 = kalman_parameters(PTA,P1)
 
 
@@ -35,14 +35,14 @@ kwargs...                        # all additional non-default parameters
         end
 
 
-    truths = [θ̂.ω;θ̂.δ]
-    x0 = [2e-7;0.30]
-    lower_limits = [2e-9;-π/2.0]
-    upper_limits = [1e-6;π/2.0]
+    truths = [θ̂.α;θ̂.δ]
+    x0 = [0.8;0.8]
+    lower_limits = [0.0;0.0]
+    upper_limits = [π/2.0;π/2.0]
 
 
 
-    nparticles = Int64(10*length(truths))
+    nparticles = Int64(100*length(truths))
     opt = optimize(optimisation_wrapper, 
                    x0, 
                    ParticleSwarm(lower_limits,upper_limits,nparticles),

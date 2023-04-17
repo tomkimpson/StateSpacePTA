@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  15 APR 2023 15:33
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  17 APR 2023 14:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -731,18 +731,6 @@ sX-Regular.otf
 (./paper.aux
 
 LaTeX Warning: Label `eq:final' multiply defined.
-
-
-LaTeX Warning: Label `fig:6MB_BFS' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:6MB_BFS' multiply defined.
-
-
-LaTeX Warning: Label `fig:25MB_bfs' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:25MB_bfs' multiply defined.
 
 )
 \openout1 = `paper.aux'.
@@ -1520,22 +1508,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 415--416
  []
 
 [5]
-File: images/corner_example.png Graphic file (type bmp)
-<images/corner_example.png>
+File: images/canonical_example.png Graphic file (type bmp)
+<images/canonical_example.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
 File: images/snr_canonical.png Graphic file (type bmp)
 <images/snr_canonical.png>
-File: images/snr_canonical_1psr.png Graphic file (type bmp)
-<images/snr_canonical_1psr.png>
+File: images/snr_mollewide.png Graphic file (type bmp)
+<images/snr_mollewide.png>
 (./paper.bbl
 Requested font "[lmmono8-regular]:" at 8.0pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmmono8-regular
@@ -1547,7 +1535,7 @@ arXiv e-prints[][], [][]p.
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1968) has occurred while \output is active []
 
 
 Underfull \hbox (badness 6859) in paragraph at lines 246--249
@@ -1574,12 +1562,16 @@ eries. p. 012019
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3679) has occurred while \output is active []
 
  [7])
 [8
 
-] (./paper.aux)
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
+(./paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1591,12 +1583,12 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 0214429A2A20234932E2B1F7C6F6BBE3;2291.
  ) 
 Here is how much of TeX's memory you used:
- 18226 strings out of 476179
- 335903 string characters out of 5809545
+ 18227 strings out of 476179
+ 335873 string characters out of 5809545
  698909 words of memory out of 5000000
- 38640 multiletter control sequences out of 15000+600000
+ 38641 multiletter control sequences out of 15000+600000
  518044 words of font info for 178 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  88i,15n,99p,1525b,625s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on paper.pdf (8 pages).
+Output written on paper.pdf (9 pages).

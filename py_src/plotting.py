@@ -82,15 +82,21 @@ def plot_custom_corner(path,labels, injection_parameters,axes_scales,savefig):
     data = json.load(f)
 
     #Make it a dataframe. Nice for surfacing
-    df = pd.DataFrame(data["samples"]["content"]) # posterior
+    df = pd.DataFrame(data["posterior"]["content"]) # posterior
     y = df.to_numpy() 
 
+    print ("The size of the posterior df is")
+    print(len(df))
 
-    print(df)
+    print("The size of the samples df is")
+    print(len(pd.DataFrame(data["samples"]["content"])))
 
-    df2 = pd.DataFrame(data["posterior"]["content"]) # posterior
 
-    print(df2)
+    #print(df)
+
+    #df2 = pd.DataFrame(data["samples"]["content"]) # posterior
+
+    #print(df2)
 
     print("Median values:")
     print(df.median())
@@ -200,12 +206,30 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
 
 
 
+def plot_likelihood(x,y):
+
+    h,w = 20,12
+    rows = 1
+    cols = 1
+    fig, ax = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
+
+
+    z = [x for _, x in sorted(zip(y, x))]
+
+    print(sorted(x))
+
+    ax.plot(sorted(x),z)
+
+
+    plt.show()
+
+
 
 
 
 from scipy import interpolate
 
-def SNR_plots(x,y,xlabel,savefig=None):
+def SNR_plots(x,y1,y2,xlabel,savefig=None):
 
     plt.style.use('science')
    
@@ -217,18 +241,32 @@ def SNR_plots(x,y,xlabel,savefig=None):
     fig, ax = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
     
 
-    ax.scatter(x,y)
+    ax.scatter(x,y1,label="Full PTA",c="C0")
+    ax.scatter(x,y2,label="Single Pulsar",c="C2")
+
+    
+
     ax.set_xscale('log')
     ax.set_yscale('log')
     ax.axhline(7,linestyle='--', c='0.5')
 
-    f = interpolate.interp1d(y, x)
-
-    xc = f(7.0)
-    ax.axvline(xc,linestyle='--', c='0.5')
-    print("Cutoff value = ", xc)
-
+    f1 = interpolate.interp1d(y1, x)
+    xc = f1(7.0)
+    ax.axvline(xc,linestyle='--', c='C0')
+    print("Cutoff value y1 = ", xc)
+    idx = np.where(y1 > 7.0)[0]
+    ax.plot(x[idx],y1[idx],c="C0")
     
+    
+    f2 = interpolate.interp1d(y2, x)
+    xc = f2(7.0)
+    ax.axvline(xc,linestyle='--', c='C2')
+    print("Cutoff value y2 = ", xc)
+    idx = np.where(y2 > 7.0)[0]
+    ax.plot(x[idx],y2[idx],c="C2")
+
+
+
 
     fs=18
     ax.set_xlabel(xlabel, fontsize=fs)
@@ -237,9 +275,10 @@ def SNR_plots(x,y,xlabel,savefig=None):
     ax.xaxis.set_tick_params(labelsize=fs-4)
     ax.yaxis.set_tick_params(labelsize=fs-4)
 
-
+    ax.legend()
     if savefig != None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
+
 
 
 
