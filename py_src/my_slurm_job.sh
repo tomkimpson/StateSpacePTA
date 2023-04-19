@@ -4,7 +4,7 @@
 #SBATCH --mem=8000MB
 #SBATCH --time=48:00:00
 #SBATCH --job-name=NestedSampling
-#SBATCH --output=outputs/random_walk6.txt
+#SBATCH --output=outputs/ozstarA1.txt
 
 source ~/.bashrc
 conda activate OzStar
