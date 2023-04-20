@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  21 APR 2023 08:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  21 APR 2023 08:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1726,7 +1726,7 @@ Package rerunfilecheck Info: File `LectureNotes_Math571.out' has not changed.
 Here is how much of TeX's memory you used:
  32141 strings out of 478268
  606165 string characters out of 5846348
- 1006853 words of memory out of 5000000
+ 1005746 words of memory out of 5000000
  49403 multiletter control sequences out of 15000+600000
  541320 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1743,7 +1743,7 @@ type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/u
 rw/palatino/uplb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/up
 lri8a.pfb>
-Output written on LectureNotes_Math571.pdf (5 pages, 149782 bytes).
+Output written on LectureNotes_Math571.pdf (5 pages, 149683 bytes).
 PDF statistics:
  156 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams
