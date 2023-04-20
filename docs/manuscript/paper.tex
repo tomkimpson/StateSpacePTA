@@ -478,9 +478,21 @@ In order to accept the alternative hypothesis $M_1$ over $M_0$ there are two app
 Given the cheap cost we proceed with the second method. For the likelihood ratio test we do not perform any kind of maximum likelihood search over the parameters for each of the models. Instead we just artificially set the maximum likelihood estimators to be equal to the true parameters of the system i.e. $\hat{\theta} = \theta$. We assume that any maximum likelihood algorithm would converge to these parameters. This is obviously an oversimplification but will serve our purposes for now. \newline 
 
 
-\noindent Interpreting the likelihood ratio $\Lambda$ also needs some consideration, since we have to account for the increased model complexity of $M_1$. Bayes factors penalise complexity by construction since one must integrate over a larger parameter space. There are many different ways to do this, AIC, BIC, Wilks Theorem... \newline 
+\noindent Interpreting the likelihood ratio $\Lambda$ also needs some consideration, since we have to account for the increased model complexity of $M_1$. Bayes factors penalise complexity by construction since one must integrate over a larger parameter space. There are many different ways to do this - fot now we will consider two: Akaike information criterion (AIC) and Wilks Theorem. For the latter, Wilks' Theorem which states that for a large number of samples \footnote{What counts as large? See \url{https://www.osti.gov/servlets/purl/1529145}} the distribution of the test statistic approaches the chi-squared distribution under the null hypothesis i.e. 
+\begin{equation}
+	2 \log \Lambda \rightarrow \chi^2
+\end{equation}
+One can then compute $p$-values where the number of degrees of freedom is equal to the difference in the number of parameters of the two models; $M_1$ has 7 extra parameters over $M_0$ corresponding to the 7 parameters of $\bar{\theta}_{\rm GW}$. With 7 degrees of freedom and a target tolerance of 5(1) \% the test statistic is $\sim 14 (18.5)$. \newline 
 
-
+An alternative approach is to use the AIC which is given by,
+\begin{equation}
+	\text{AIC} = 2k - 2\log\ \mathcal{L} 
+\end{equation}
+where $k$ is the number of degrees of freedom. The AIC can be computed for each model and the model with the minimum AIC is preferred. This can be straightforwardly mapped into a relative condition
+\begin{equation}
+	\log \mathcal{L}_1 - 	\log \mathcal{L}_0 > 7 
+\end{equation}
+Note this is the same as the Wilks case!
 
 \noindent 
 
@@ -500,7 +512,7 @@ Given the cheap cost we proceed with the second method. For the likelihood ratio
 
 \begin{figure*}
 	\includegraphics[width=0.8\textwidth]{images/snr_mollewide}
-	\caption{stuff}
+	\caption{\textcolor{red}{TK: Just a placeholder. Likelihood ratio for a given $h$. Maybe more interesting, but more expensive, to get minimum detectable h?}}
 	\label{fig:mollewide}
 \end{figure*}
 

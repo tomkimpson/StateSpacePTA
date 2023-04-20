@@ -71,7 +71,7 @@ def plot_all(t,states,measurements,predictions,psr_index,savefig=None):
 
 
 
-def plot_custom_corner(path,labels, injection_parameters,axes_scales,savefig):
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig):
 
 
     # Opening JSON file
@@ -82,53 +82,46 @@ def plot_custom_corner(path,labels, injection_parameters,axes_scales,savefig):
     data = json.load(f)
 
     #Make it a dataframe. Nice for surfacing
-    df = pd.DataFrame(data["posterior"]["content"]) # posterior
-    y = df.to_numpy() 
-
-    print ("The size of the posterior df is")
-    print(len(df))
-
-    print("The size of the samples df is")
-    print(len(pd.DataFrame(data["samples"]["content"])))
+    df = pd.DataFrame(data["samples"]["content"]) # posterior
 
 
-    #print(df)
+    #Make it a dataframe. Nice for surfacing
+    df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
+    df_samples = pd.DataFrame(data["samples"]["content"]) # posterior
 
-    #df2 = pd.DataFrame(data["samples"]["content"]) # posterior
 
-    #print(df2)
+
+    #Now make it a numpy array
+    y_post = df_posterior[variables_to_plot].to_numpy()
+    y_samp = df_samples.to_numpy() 
+
+
+    print("Number of samples:")
+    print(len(df_posterior))
 
     print("Median values:")
-    print(df.median())
+    print(df_posterior.median())
 
     plt.style.use('science')
 
     
-    fig = corner.corner(y,
+    fig = corner.corner(y_post, 
                         color='C0',
                         show_titles=True,
-                        smooth=True, 
-                        smooth1d=True,
-                        # labels=labels,
+                        smooth=True,smooth1d=True,
                         truth_color='C2',
                         quantiles=[0.16, 0.84],
-                        truths=injection_parameters,
+                        truths = injection_parameters,
+                        range=ranges,
+                        labels = labels,
+                        label_kwargs=dict(fontsize=16),
                         axes_scales = axes_scales)
-    
+        
 
     if savefig != None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
     
-    # fig.set_figwidth(12)
-    # fig.set_figheight(8)
-
-    # axes = fig.get_axes()
-    # axes[0].set_xlim(-1e-9,1e-5)
-    # axes[0].set_xscale('log')
-
-       
     
-
     plt.show()
 
 
