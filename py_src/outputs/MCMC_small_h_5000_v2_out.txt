@@ -4340,3 +4340,835 @@ RUN THE SAMPLER
 12:24 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
 12:24 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
 12:24 bilby INFO    : Checkpoint finished
+1.19e+04|1 day, 3:29:29|9.97e+02(AD)|t=3|n=4056|a=0.13|e=1.1e-02%|93.82ms/ev|maxl=-22545.24|ETF=6:38:31
+1.20e+04|1 day, 3:30:34|9.97e+02(AD)|t=3|n=4058|a=0.13|e=1.1e-02%|92.62ms/ev|maxl=-22545.24|ETF=6:32:37
+1.20e+04|1 day, 3:31:38|9.97e+02(AD)|t=3|n=4061|a=0.13|e=1.1e-02%|91.70ms/ev|maxl=-22545.24|ETF=6:27:27
+1.20e+04|1 day, 3:32:40|9.97e+02(AD)|t=3|n=4064|a=0.13|e=1.1e-02%|88.01ms/ev|maxl=-22545.24|ETF=6:10:42
+1.20e+04|1 day, 3:33:44|9.97e+02(AD)|t=3|n=4066|a=0.13|e=1.1e-02%|91.01ms/ev|maxl=-22545.24|ETF=6:22:29
+1.20e+04|1 day, 3:34:50|9.97e+02(AD)|t=3|n=4069|a=0.13|e=1.1e-02%|94.41ms/ev|maxl=-22545.24|ETF=6:35:31
+1.20e+04|1 day, 3:35:53|9.97e+02(AD)|t=3|n=4071|a=0.13|e=1.1e-02%|90.36ms/ev|maxl=-22545.24|ETF=6:17:43
+1.20e+04|1 day, 3:36:57|9.97e+02(AD)|t=3|n=4074|a=0.13|e=1.1e-02%|91.56ms/ev|maxl=-22545.24|ETF=6:21:30
+1.20e+04|1 day, 3:38:01|9.97e+02(AD)|t=3|n=4077|a=0.13|e=1.1e-02%|91.42ms/ev|maxl=-22545.24|ETF=6:19:42
+1.20e+04|1 day, 3:39:05|9.97e+02(AD)|t=3|n=4079|a=0.13|e=1.1e-02%|91.49ms/ev|maxl=-22545.24|ETF=6:19:11
+1.20e+04|1 day, 3:40:10|9.97e+02(AD)|t=3|n=4082|a=0.13|e=1.1e-02%|93.19ms/ev|maxl=-22545.24|ETF=6:24:58
+1.20e+04|1 day, 3:41:15|9.97e+02(AD)|t=3|n=4084|a=0.13|e=1.1e-02%|92.08ms/ev|maxl=-22545.24|ETF=6:19:32
+1.20e+04|1 day, 3:42:18|9.97e+02(AD)|t=3|n=4087|a=0.13|e=1.1e-02%|90.88ms/ev|maxl=-22545.24|ETF=6:13:22
+1.20e+04|1 day, 3:43:21|9.97e+02(AD)|t=3|n=4089|a=0.13|e=1.1e-02%|90.11ms/ev|maxl=-22545.24|ETF=6:09:25
+1.20e+04|1 day, 3:44:26|9.97e+02(AD)|t=3|n=4092|a=0.13|e=1.1e-02%|91.86ms/ev|maxl=-22545.24|ETF=6:15:21
+1.21e+04|1 day, 3:45:30|9.97e+02(AD)|t=3|n=4095|a=0.13|e=1.1e-02%|91.22ms/ev|maxl=-22545.24|ETF=6:11:30
+1.21e+04|1 day, 3:46:34|9.97e+02(AD)|t=3|n=4097|a=0.13|e=1.1e-02%|92.09ms/ev|maxl=-22545.24|ETF=6:14:13
+1.21e+04|1 day, 3:47:40|9.97e+02(AD)|t=3|n=4100|a=0.13|e=1.1e-02%|94.55ms/ev|maxl=-22545.24|ETF=6:22:55
+1.21e+04|1 day, 3:48:43|9.97e+02(AD)|t=3|n=4102|a=0.13|e=1.1e-02%|89.92ms/ev|maxl=-22545.24|ETF=6:03:21
+1.21e+04|1 day, 3:49:45|9.97e+02(AD)|t=3|n=4105|a=0.13|e=1.1e-02%|89.05ms/ev|maxl=-22545.24|ETF=5:58:37
+1.21e+04|1 day, 3:50:48|9.97e+02(AD)|t=3|n=4108|a=0.13|e=1.1e-02%|89.36ms/ev|maxl=-22545.24|ETF=5:58:41
+1.21e+04|1 day, 3:51:51|9.97e+02(AD)|t=3|n=4110|a=0.13|e=1.1e-02%|90.33ms/ev|maxl=-22545.24|ETF=6:01:47
+1.21e+04|1 day, 3:52:56|9.97e+02(AD)|t=3|n=4113|a=0.13|e=1.1e-02%|92.09ms/ev|maxl=-22545.24|ETF=6:07:35
+1.21e+04|1 day, 3:54:00|9.97e+02(AD)|t=3|n=4115|a=0.13|e=1.1e-02%|91.18ms/ev|maxl=-22545.24|ETF=6:03:06
+1.21e+04|1 day, 3:55:02|9.97e+02(AD)|t=3|n=4118|a=0.13|e=1.1e-02%|89.55ms/ev|maxl=-22545.24|ETF=5:55:24
+1.21e+04|1 day, 3:56:04|9.97e+02(AD)|t=3|n=4121|a=0.13|e=1.1e-02%|88.46ms/ev|maxl=-22545.24|ETF=5:49:53
+1.21e+04|1 day, 3:57:07|9.97e+02(AD)|t=3|n=4123|a=0.13|e=1.1e-02%|90.45ms/ev|maxl=-22545.24|ETF=5:56:56
+1.21e+04|1 day, 3:58:12|9.97e+02(AD)|t=3|n=4126|a=0.13|e=1.1e-02%|91.94ms/ev|maxl=-22545.24|ETF=6:01:34
+12:54 bilby INFO    : Checkpoint start
+12:54 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+12:54 bilby INFO    : Zero-temperature proposals:
+12:54 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.1e+05,scale:0.064,)
+12:54 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.1e+05,)
+12:54 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.2e+03,)
+12:54 bilby INFO    : KDEProposal(acceptance_ratio:0.044,n:3.9e+05,trained:1,)
+12:54 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.5}
+12:54 bilby INFO    : Temperature swaps = 4046
+12:54 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4127|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4176|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4326|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5268|swap=1.00|conv=True|
+12:54 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4176|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4037|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4176|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4326|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=4659|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4326|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4326|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4486|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=4846|swap=1.00|conv=False|
+12:54 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=4659|swap=-|conv=False|
+12:54 bilby INFO    : Creating diagnostic plots
+12:54 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+12:55 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+12:55 bilby INFO    : Checkpoint finished
+1.21e+04|1 day, 3:59:16|9.97e+02(AD)|t=3|n=4128|a=0.13|e=1.1e-02%|92.05ms/ev|maxl=-22545.24|ETF=6:01:12
+1.22e+04|1 day, 4:00:21|9.97e+02(AD)|t=3|n=4131|a=0.13|e=1.1e-02%|92.26ms/ev|maxl=-22545.24|ETF=6:00:46
+1.22e+04|1 day, 4:01:24|9.97e+02(AD)|t=3|n=4134|a=0.13|e=1.1e-02%|90.72ms/ev|maxl=-22545.24|ETF=5:53:31
+1.22e+04|1 day, 4:02:28|9.97e+02(AD)|t=3|n=4136|a=0.13|e=1.1e-02%|90.81ms/ev|maxl=-22545.24|ETF=5:53:04
+1.22e+04|1 day, 4:03:31|9.97e+02(AD)|t=3|n=4139|a=0.13|e=1.1e-02%|90.22ms/ev|maxl=-22545.24|ETF=5:49:34
+1.22e+04|1 day, 4:04:36|9.97e+02(AD)|t=3|n=4141|a=0.13|e=1.1e-02%|92.47ms/ev|maxl=-22545.24|ETF=5:57:26
+1.22e+04|1 day, 4:05:39|9.97e+02(AD)|t=3|n=4144|a=0.13|e=1.1e-02%|89.88ms/ev|maxl=-22545.24|ETF=5:46:12
+1.22e+04|1 day, 4:06:43|9.97e+02(AD)|t=3|n=4147|a=0.13|e=1.1e-02%|91.33ms/ev|maxl=-22545.24|ETF=5:50:35
+1.22e+04|1 day, 4:07:46|9.97e+02(AD)|t=3|n=4149|a=0.13|e=1.1e-02%|90.32ms/ev|maxl=-22545.24|ETF=5:45:51
+1.22e+04|1 day, 4:08:48|9.97e+02(AD)|t=3|n=4152|a=0.13|e=1.1e-02%|88.50ms/ev|maxl=-22545.24|ETF=5:37:42
+1.22e+04|1 day, 4:09:50|9.97e+02(AD)|t=3|n=4154|a=0.13|e=1.1e-02%|89.44ms/ev|maxl=-22545.24|ETF=5:40:29
+1.22e+04|1 day, 4:10:54|9.97e+02(AD)|t=3|n=4157|a=0.13|e=1.1e-02%|91.26ms/ev|maxl=-22545.24|ETF=5:46:10
+1.22e+04|1 day, 4:11:59|9.97e+02(AD)|t=3|n=4160|a=0.13|e=1.1e-02%|92.46ms/ev|maxl=-22545.24|ETF=5:49:29
+1.22e+04|1 day, 4:13:03|9.97e+02(AD)|t=3|n=4162|a=0.13|e=1.1e-02%|90.76ms/ev|maxl=-22545.24|ETF=5:42:16
+1.22e+04|1 day, 4:14:07|9.97e+02(AD)|t=3|n=4165|a=0.13|e=1.1e-02%|91.87ms/ev|maxl=-22545.24|ETF=5:45:11
+1.22e+04|1 day, 4:15:12|9.97e+02(AD)|t=3|n=4167|a=0.13|e=1.1e-02%|92.75ms/ev|maxl=-22545.24|ETF=5:47:40
+1.23e+04|1 day, 4:16:15|9.97e+02(AD)|t=3|n=4170|a=0.13|e=1.1e-02%|90.83ms/ev|maxl=-22545.24|ETF=5:39:15
+1.23e+04|1 day, 4:17:19|9.97e+02(AD)|t=3|n=4172|a=0.13|e=1.1e-02%|91.55ms/ev|maxl=-22545.24|ETF=5:41:07
+1.23e+04|1 day, 4:18:25|9.97e+02(AD)|t=3|n=4175|a=0.13|e=1.1e-02%|93.77ms/ev|maxl=-22545.24|ETF=5:48:06
+1.23e+04|1 day, 4:19:30|9.97e+02(AD)|t=3|n=4178|a=0.13|e=1.1e-02%|92.72ms/ev|maxl=-22545.24|ETF=5:42:57
+1.23e+04|1 day, 4:20:34|9.97e+02(AD)|t=3|n=4180|a=0.13|e=1.1e-02%|91.64ms/ev|maxl=-22545.24|ETF=5:38:08
+1.23e+04|1 day, 4:21:39|9.97e+02(AD)|t=3|n=4183|a=0.13|e=1.1e-02%|92.20ms/ev|maxl=-22545.24|ETF=5:38:58
+1.23e+04|1 day, 4:22:41|9.97e+02(AD)|t=3|n=4185|a=0.13|e=1.1e-02%|88.67ms/ev|maxl=-22545.24|ETF=5:25:11
+1.23e+04|1 day, 4:23:45|9.97e+02(AD)|t=3|n=4188|a=0.13|e=1.1e-02%|91.92ms/ev|maxl=-22545.24|ETF=5:35:52
+1.23e+04|1 day, 4:24:48|9.97e+02(AD)|t=3|n=4191|a=0.13|e=1.1e-02%|89.84ms/ev|maxl=-22545.24|ETF=5:27:02
+1.23e+04|1 day, 4:25:51|9.97e+02(AD)|t=3|n=4193|a=0.13|e=1.1e-02%|90.08ms/ev|maxl=-22545.24|ETF=5:27:06
+1.23e+04|1 day, 4:26:54|9.97e+02(AD)|t=3|n=4196|a=0.13|e=1.1e-02%|90.17ms/ev|maxl=-22545.24|ETF=5:26:14
+1.23e+04|1 day, 4:27:59|9.97e+02(AD)|t=3|n=4198|a=0.13|e=1.1e-02%|93.04ms/ev|maxl=-22545.24|ETF=5:35:46
+13:24 bilby INFO    : Checkpoint start
+13:25 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+13:25 bilby INFO    : Zero-temperature proposals:
+13:25 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.2e+05,scale:0.064,)
+13:25 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.2e+05,)
+13:25 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.3e+03,)
+13:25 bilby INFO    : KDEProposal(acceptance_ratio:0.044,n:3.9e+05,trained:1,)
+13:25 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.6}
+13:25 bilby INFO    : Temperature swaps = 4112
+13:25 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4200|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4244|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4396|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5354|swap=1.00|conv=True|
+13:25 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4244|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4102|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4244|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4396|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=4735|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4396|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4396|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4559|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=4925|swap=1.00|conv=False|
+13:25 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=4735|swap=-|conv=False|
+13:25 bilby INFO    : Creating diagnostic plots
+13:25 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+13:25 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+13:25 bilby INFO    : Checkpoint finished
+1.23e+04|1 day, 4:29:04|9.97e+02(AD)|t=3|n=4201|a=0.13|e=1.1e-02%|91.86ms/ev|maxl=-22545.24|ETF=5:30:16
+1.23e+04|1 day, 4:30:06|9.97e+02(AD)|t=3|n=4204|a=0.13|e=1.1e-02%|89.38ms/ev|maxl=-22545.24|ETF=5:20:10
+1.24e+04|1 day, 4:31:08|9.97e+02(AD)|t=3|n=4206|a=0.13|e=1.1e-02%|88.40ms/ev|maxl=-22545.24|ETF=5:15:52
+1.24e+04|1 day, 4:32:10|9.97e+02(AD)|t=3|n=4209|a=0.13|e=1.1e-02%|89.18ms/ev|maxl=-22545.24|ETF=5:17:26
+1.24e+04|1 day, 4:33:14|9.97e+02(AD)|t=3|n=4211|a=0.13|e=1.1e-02%|90.33ms/ev|maxl=-22545.24|ETF=5:20:42
+1.24e+04|1 day, 4:34:16|9.97e+02(AD)|t=3|n=4214|a=0.13|e=1.1e-02%|88.98ms/ev|maxl=-22545.24|ETF=5:14:42
+1.24e+04|1 day, 4:35:20|9.97e+02(AD)|t=3|n=4217|a=0.13|e=1.1e-02%|92.14ms/ev|maxl=-22545.24|ETF=5:24:38
+1.24e+04|1 day, 4:36:24|9.97e+02(AD)|t=3|n=4219|a=0.13|e=1.1e-02%|90.83ms/ev|maxl=-22545.24|ETF=5:19:13
+1.24e+04|1 day, 4:37:28|9.97e+02(AD)|t=3|n=4222|a=0.13|e=1.1e-02%|90.98ms/ev|maxl=-22545.24|ETF=5:18:30
+1.24e+04|1 day, 4:38:31|9.97e+02(AD)|t=3|n=4224|a=0.13|e=1.1e-02%|90.65ms/ev|maxl=-22545.24|ETF=5:16:32
+1.24e+04|1 day, 4:39:35|9.97e+02(AD)|t=3|n=4227|a=0.13|e=1.1e-02%|91.10ms/ev|maxl=-22545.24|ETF=5:16:52
+1.24e+04|1 day, 4:40:39|9.97e+02(AD)|t=3|n=4230|a=0.13|e=1.1e-02%|91.62ms/ev|maxl=-22545.24|ETF=5:17:27
+1.24e+04|1 day, 4:41:44|9.97e+02(AD)|t=3|n=4232|a=0.13|e=1.1e-02%|92.25ms/ev|maxl=-22545.24|ETF=5:18:48
+1.24e+04|1 day, 4:42:46|9.97e+02(AD)|t=3|n=4235|a=0.13|e=1.1e-02%|89.04ms/ev|maxl=-22545.24|ETF=5:06:31
+1.24e+04|1 day, 4:43:50|9.97e+02(AD)|t=3|n=4237|a=0.13|e=1.1e-02%|91.41ms/ev|maxl=-22545.24|ETF=5:13:50
+1.24e+04|1 day, 4:44:52|9.97e+02(AD)|t=3|n=4240|a=0.13|e=1.1e-02%|88.66ms/ev|maxl=-22545.24|ETF=5:03:12
+1.25e+04|1 day, 4:45:56|9.97e+02(AD)|t=3|n=4242|a=0.13|e=1.1e-02%|91.00ms/ev|maxl=-22545.24|ETF=5:10:23
+1.25e+04|1 day, 4:46:59|9.97e+02(AD)|t=3|n=4245|a=0.13|e=1.1e-02%|90.87ms/ev|maxl=-22545.24|ETF=5:08:44
+1.25e+04|1 day, 4:48:01|9.97e+02(AD)|t=3|n=4248|a=0.13|e=1.1e-02%|87.69ms/ev|maxl=-22545.24|ETF=4:56:44
+1.25e+04|1 day, 4:49:03|9.97e+02(AD)|t=3|n=4250|a=0.13|e=1.1e-02%|89.31ms/ev|maxl=-22545.24|ETF=5:01:24
+1.25e+04|1 day, 4:50:06|9.97e+02(AD)|t=3|n=4253|a=0.13|e=1.1e-02%|90.40ms/ev|maxl=-22545.24|ETF=5:03:52
+1.25e+04|1 day, 4:51:10|9.97e+02(AD)|t=3|n=4255|a=0.13|e=1.1e-02%|91.38ms/ev|maxl=-22545.24|ETF=5:06:21
+1.25e+04|1 day, 4:52:14|9.97e+02(AD)|t=3|n=4258|a=0.13|e=1.1e-02%|90.11ms/ev|maxl=-22545.24|ETF=5:00:52
+1.25e+04|1 day, 4:53:18|9.97e+02(AD)|t=3|n=4261|a=0.13|e=1.1e-02%|91.87ms/ev|maxl=-22545.24|ETF=5:05:30
+1.25e+04|1 day, 4:54:21|9.97e+02(AD)|t=3|n=4263|a=0.13|e=1.1e-02%|90.85ms/ev|maxl=-22545.24|ETF=5:01:19
+1.25e+04|1 day, 4:55:25|9.97e+02(AD)|t=3|n=4266|a=0.13|e=1.1e-02%|90.91ms/ev|maxl=-22545.24|ETF=5:00:15
+1.25e+04|1 day, 4:56:29|9.97e+02(AD)|t=3|n=4268|a=0.13|e=1.1e-02%|90.87ms/ev|maxl=-22545.24|ETF=4:59:19
+1.25e+04|1 day, 4:57:33|9.97e+02(AD)|t=3|n=4271|a=0.13|e=1.1e-02%|92.24ms/ev|maxl=-22545.24|ETF=5:02:35
+13:55 bilby INFO    : Checkpoint start
+13:55 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+13:55 bilby INFO    : Zero-temperature proposals:
+13:55 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.3e+05,scale:0.064,)
+13:55 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.2e+05,)
+13:55 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.3e+03,)
+13:55 bilby INFO    : KDEProposal(acceptance_ratio:0.044,n:4e+05,trained:1,)
+13:55 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.5}
+13:55 bilby INFO    : Temperature swaps = 4178
+13:55 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4273|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4312|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4467|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5440|swap=1.00|conv=True|
+13:55 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4312|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4168|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4312|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4467|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=4811|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4467|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4467|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4632|swap=1.00|conv=False|
+13:55 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5004|swap=1.00|conv=True|
+13:55 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=4811|swap=-|conv=False|
+13:55 bilby INFO    : Creating diagnostic plots
+13:55 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+13:55 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+13:55 bilby INFO    : Checkpoint finished
+1.25e+04|1 day, 4:58:38|9.97e+02(AD)|t=3|n=4274|a=0.13|e=1.1e-02%|93.15ms/ev|maxl=-22545.24|ETF=5:04:19
+1.25e+04|1 day, 4:59:42|9.97e+02(AD)|t=3|n=4276|a=0.13|e=1.1e-02%|90.96ms/ev|maxl=-22545.24|ETF=4:56:20
+1.26e+04|1 day, 5:00:46|9.97e+02(AD)|t=3|n=4279|a=0.13|e=1.1e-02%|91.51ms/ev|maxl=-22545.24|ETF=4:56:54
+1.26e+04|1 day, 5:01:51|9.97e+02(AD)|t=3|n=4281|a=0.13|e=1.1e-02%|93.03ms/ev|maxl=-22545.24|ETF=5:00:59
+1.26e+04|1 day, 5:02:55|9.97e+02(AD)|t=3|n=4284|a=0.13|e=1.1e-02%|90.76ms/ev|maxl=-22545.24|ETF=4:52:26
+1.26e+04|1 day, 5:03:58|9.97e+02(AD)|t=3|n=4287|a=0.13|e=1.1e-02%|90.70ms/ev|maxl=-22545.24|ETF=4:51:01
+1.26e+04|1 day, 5:05:02|9.97e+02(AD)|t=3|n=4289|a=0.13|e=1.1e-02%|91.11ms/ev|maxl=-22545.24|ETF=4:51:30
+1.26e+04|1 day, 5:06:06|9.97e+02(AD)|t=3|n=4292|a=0.13|e=1.1e-02%|91.29ms/ev|maxl=-22545.24|ETF=4:50:51
+1.26e+04|1 day, 5:07:09|9.97e+02(AD)|t=3|n=4294|a=0.13|e=1.1e-02%|90.42ms/ev|maxl=-22545.24|ETF=4:47:15
+1.26e+04|1 day, 5:08:14|9.97e+02(AD)|t=3|n=4297|a=0.13|e=1.1e-02%|92.64ms/ev|maxl=-22545.24|ETF=4:53:04
+1.26e+04|1 day, 5:09:19|9.97e+02(AD)|t=3|n=4300|a=0.13|e=1.1e-02%|93.17ms/ev|maxl=-22545.24|ETF=4:53:28
+1.26e+04|1 day, 5:10:24|9.97e+02(AD)|t=3|n=4302|a=0.13|e=1.1e-02%|91.68ms/ev|maxl=-22545.24|ETF=4:47:58
+1.26e+04|1 day, 5:11:27|9.97e+02(AD)|t=3|n=4305|a=0.13|e=1.1e-02%|90.05ms/ev|maxl=-22545.24|ETF=4:41:37
+1.26e+04|1 day, 5:12:30|9.97e+02(AD)|t=3|n=4307|a=0.13|e=1.1e-02%|90.19ms/ev|maxl=-22545.24|ETF=4:41:15
+1.26e+04|1 day, 5:13:33|9.97e+02(AD)|t=3|n=4310|a=0.13|e=1.1e-02%|89.83ms/ev|maxl=-22545.24|ETF=4:38:54
+1.26e+04|1 day, 5:14:37|9.97e+02(AD)|t=3|n=4312|a=0.13|e=1.1e-02%|91.37ms/ev|maxl=-22545.24|ETF=4:42:52
+1.26e+04|1 day, 5:15:42|9.97e+02(AD)|t=3|n=4315|a=0.13|e=1.1e-02%|92.88ms/ev|maxl=-22545.24|ETF=4:46:18
+1.27e+04|1 day, 5:16:46|9.97e+02(AD)|t=3|n=4318|a=0.13|e=1.1e-02%|91.50ms/ev|maxl=-22545.24|ETF=4:40:48
+1.27e+04|1 day, 5:17:48|9.97e+02(AD)|t=3|n=4320|a=0.13|e=1.1e-02%|89.12ms/ev|maxl=-22545.24|ETF=4:32:42
+1.27e+04|1 day, 5:18:53|9.97e+02(AD)|t=3|n=4323|a=0.13|e=1.1e-02%|92.67ms/ev|maxl=-22545.24|ETF=4:42:18
+1.27e+04|1 day, 5:19:55|9.97e+02(AD)|t=3|n=4325|a=0.13|e=1.1e-02%|89.16ms/ev|maxl=-22545.24|ETF=4:30:49
+1.27e+04|1 day, 5:20:58|9.97e+02(AD)|t=3|n=4328|a=0.13|e=1.1e-02%|90.22ms/ev|maxl=-22545.24|ETF=4:32:50
+1.27e+04|1 day, 5:22:03|9.97e+02(AD)|t=3|n=4331|a=0.13|e=1.1e-02%|92.07ms/ev|maxl=-22545.24|ETF=4:37:10
+1.27e+04|1 day, 5:23:08|9.97e+02(AD)|t=3|n=4333|a=0.13|e=1.1e-02%|93.06ms/ev|maxl=-22545.24|ETF=4:39:18
+1.27e+04|1 day, 5:24:12|9.97e+02(AD)|t=3|n=4336|a=0.13|e=1.1e-02%|90.75ms/ev|maxl=-22545.24|ETF=4:31:09
+1.27e+04|1 day, 5:25:14|9.97e+02(AD)|t=3|n=4338|a=0.13|e=1.1e-02%|88.95ms/ev|maxl=-22545.24|ETF=4:24:59
+1.27e+04|1 day, 5:26:16|9.97e+02(AD)|t=3|n=4341|a=0.13|e=1.1e-02%|89.08ms/ev|maxl=-22545.24|ETF=4:24:09
+1.27e+04|1 day, 5:27:19|9.97e+02(AD)|t=3|n=4344|a=0.13|e=1.1e-02%|90.23ms/ev|maxl=-22545.24|ETF=4:26:21
+1.27e+04|1 day, 5:28:25|9.97e+02(AD)|t=3|n=4346|a=0.13|e=1.1e-02%|93.74ms/ev|maxl=-22545.24|ETF=4:35:52
+14:25 bilby INFO    : Checkpoint start
+14:25 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+14:25 bilby INFO    : Zero-temperature proposals:
+14:25 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.3e+05,scale:0.064,)
+14:25 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.3e+05,)
+14:25 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.4e+03,)
+14:25 bilby INFO    : KDEProposal(acceptance_ratio:0.045,n:4.1e+05,trained:1,)
+14:25 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.5}
+14:25 bilby INFO    : Temperature swaps = 4244
+14:25 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4346|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4380|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4537|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5526|swap=1.00|conv=True|
+14:25 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4380|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4234|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4380|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4537|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=4887|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4537|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4537|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4705|swap=1.00|conv=False|
+14:25 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5083|swap=1.00|conv=True|
+14:25 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=4887|swap=-|conv=False|
+14:25 bilby INFO    : Creating diagnostic plots
+14:25 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+14:25 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+14:25 bilby INFO    : Checkpoint finished
+1.27e+04|1 day, 5:29:30|9.97e+02(AD)|t=3|n=4349|a=0.13|e=1.1e-02%|92.51ms/ev|maxl=-22545.24|ETF=4:30:59
+1.27e+04|1 day, 5:30:33|9.97e+02(AD)|t=3|n=4351|a=0.13|e=1.1e-02%|90.46ms/ev|maxl=-22545.24|ETF=4:24:11
+1.28e+04|1 day, 5:31:37|9.97e+02(AD)|t=3|n=4354|a=0.13|e=1.1e-02%|91.12ms/ev|maxl=-22545.24|ETF=4:24:53
+1.28e+04|1 day, 5:32:40|9.97e+02(AD)|t=3|n=4357|a=0.13|e=1.1e-02%|90.11ms/ev|maxl=-22545.24|ETF=4:20:43
+1.28e+04|1 day, 5:33:44|9.97e+02(AD)|t=3|n=4359|a=0.13|e=1.1e-02%|91.78ms/ev|maxl=-22545.24|ETF=4:24:43
+1.28e+04|1 day, 5:34:46|9.97e+02(AD)|t=3|n=4362|a=0.13|e=1.1e-02%|88.80ms/ev|maxl=-22545.24|ETF=4:14:56
+1.28e+04|1 day, 5:35:51|9.97e+02(AD)|t=3|n=4364|a=0.13|e=1.1e-02%|92.50ms/ev|maxl=-22545.24|ETF=4:24:43
+1.28e+04|1 day, 5:36:57|9.97e+02(AD)|t=3|n=4367|a=0.13|e=1.1e-02%|94.33ms/ev|maxl=-22545.24|ETF=4:28:41
+1.28e+04|1 day, 5:38:03|9.97e+02(AD)|t=3|n=4370|a=0.13|e=1.1e-02%|94.43ms/ev|maxl=-22545.24|ETF=4:27:43
+1.28e+04|1 day, 5:39:07|9.97e+02(AD)|t=3|n=4372|a=0.13|e=1.1e-02%|91.62ms/ev|maxl=-22545.24|ETF=4:18:55
+1.28e+04|1 day, 5:40:11|9.97e+02(AD)|t=3|n=4375|a=0.13|e=1.1e-02%|90.60ms/ev|maxl=-22545.24|ETF=4:14:49
+1.28e+04|1 day, 5:41:15|9.97e+02(AD)|t=3|n=4377|a=0.13|e=1.1e-02%|92.16ms/ev|maxl=-22545.24|ETF=4:18:21
+1.28e+04|1 day, 5:42:18|9.97e+02(AD)|t=3|n=4380|a=0.13|e=1.1e-02%|89.10ms/ev|maxl=-22545.24|ETF=4:08:35
+1.28e+04|1 day, 5:43:21|9.97e+02(AD)|t=3|n=4382|a=0.13|e=1.1e-02%|90.24ms/ev|maxl=-22545.24|ETF=4:10:57
+1.28e+04|1 day, 5:44:22|9.97e+02(AD)|t=3|n=4385|a=0.13|e=1.1e-02%|87.38ms/ev|maxl=-22545.24|ETF=4:01:49
+1.28e+04|1 day, 5:45:26|9.97e+02(AD)|t=3|n=4388|a=0.13|e=1.1e-02%|91.22ms/ev|maxl=-22545.24|ETF=4:11:13
+1.29e+04|1 day, 5:46:30|9.97e+02(AD)|t=3|n=4390|a=0.13|e=1.1e-02%|91.32ms/ev|maxl=-22545.24|ETF=4:10:41
+1.29e+04|1 day, 5:47:33|9.97e+02(AD)|t=3|n=4393|a=0.13|e=1.1e-02%|90.08ms/ev|maxl=-22545.24|ETF=4:06:03
+1.29e+04|1 day, 5:48:37|9.97e+02(AD)|t=3|n=4395|a=0.13|e=1.1e-02%|91.19ms/ev|maxl=-22545.24|ETF=4:08:16
+1.29e+04|1 day, 5:49:40|9.97e+02(AD)|t=3|n=4398|a=0.13|e=1.1e-02%|90.46ms/ev|maxl=-22545.24|ETF=4:05:02
+1.29e+04|1 day, 5:50:45|9.97e+02(AD)|t=3|n=4401|a=0.13|e=1.1e-02%|92.54ms/ev|maxl=-22545.24|ETF=4:09:25
+1.29e+04|1 day, 5:51:49|9.97e+02(AD)|t=3|n=4403|a=0.13|e=1.1e-02%|92.33ms/ev|maxl=-22545.24|ETF=4:08:03
+1.29e+04|1 day, 5:52:54|9.97e+02(AD)|t=3|n=4406|a=0.13|e=1.1e-02%|92.94ms/ev|maxl=-22545.24|ETF=4:08:25
+1.29e+04|1 day, 5:53:57|9.97e+02(AD)|t=3|n=4408|a=0.13|e=1.1e-02%|89.45ms/ev|maxl=-22545.24|ETF=3:58:17
+1.29e+04|1 day, 5:54:59|9.97e+02(AD)|t=3|n=4411|a=0.13|e=1.1e-02%|88.58ms/ev|maxl=-22545.24|ETF=3:54:47
+1.29e+04|1 day, 5:56:02|9.97e+02(AD)|t=3|n=4414|a=0.13|e=1.1e-02%|89.51ms/ev|maxl=-22545.24|ETF=3:56:02
+1.29e+04|1 day, 5:57:05|9.97e+02(AD)|t=3|n=4416|a=0.13|e=1.1e-02%|90.29ms/ev|maxl=-22545.24|ETF=3:57:16
+1.29e+04|1 day, 5:58:06|9.97e+02(AD)|t=3|n=4419|a=0.13|e=1.1e-02%|87.38ms/ev|maxl=-22545.24|ETF=3:48:27
+14:55 bilby INFO    : Checkpoint start
+14:55 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+14:55 bilby INFO    : Zero-temperature proposals:
+14:55 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.4e+05,scale:0.064,)
+14:55 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.4e+05,)
+14:55 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.4e+03,)
+14:55 bilby INFO    : KDEProposal(acceptance_ratio:0.045,n:4.1e+05,trained:1,)
+14:55 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.3, 'h': 2.5}
+14:55 bilby INFO    : Temperature swaps = 4310
+14:55 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4420|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4448|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4608|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5612|swap=1.00|conv=True|
+14:55 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4448|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4300|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4448|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4608|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=4963|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4608|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4608|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4779|swap=1.00|conv=False|
+14:55 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5162|swap=1.00|conv=True|
+14:55 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=4963|swap=-|conv=False|
+14:55 bilby INFO    : Creating diagnostic plots
+14:55 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+14:55 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+14:55 bilby INFO    : Checkpoint finished
+1.29e+04|1 day, 5:59:11|9.97e+02(AD)|t=3|n=4421|a=0.13|e=1.1e-02%|93.04ms/ev|maxl=-22545.24|ETF=4:02:24
+1.29e+04|1 day, 6:00:15|9.97e+02(AD)|t=3|n=4424|a=0.13|e=1.1e-02%|90.50ms/ev|maxl=-22545.24|ETF=3:54:34
+1.30e+04|1 day, 6:01:19|9.97e+02(AD)|t=3|n=4427|a=0.13|e=1.1e-02%|91.80ms/ev|maxl=-22545.24|ETF=3:56:42
+1.30e+04|1 day, 6:02:24|9.97e+02(AD)|t=3|n=4429|a=0.13|e=1.1e-02%|92.84ms/ev|maxl=-22545.24|ETF=3:58:33
+1.30e+04|1 day, 6:03:28|9.97e+02(AD)|t=3|n=4432|a=0.13|e=1.1e-02%|91.91ms/ev|maxl=-22545.24|ETF=3:54:54
+1.30e+04|1 day, 6:04:34|9.97e+02(AD)|t=3|n=4434|a=0.13|e=1.1e-02%|93.83ms/ev|maxl=-22545.24|ETF=3:58:58
+1.30e+04|1 day, 6:05:38|9.97e+02(AD)|t=3|n=4437|a=0.13|e=1.1e-02%|91.37ms/ev|maxl=-22545.24|ETF=3:51:29
+1.30e+04|1 day, 6:06:41|9.97e+02(AD)|t=3|n=4440|a=0.13|e=1.1e-02%|90.71ms/ev|maxl=-22545.24|ETF=3:48:34
+1.30e+04|1 day, 6:07:46|9.97e+02(AD)|t=3|n=4442|a=0.13|e=1.1e-02%|91.99ms/ev|maxl=-22545.24|ETF=3:50:59
+1.30e+04|1 day, 6:08:50|9.97e+02(AD)|t=3|n=4445|a=0.13|e=1.1e-02%|92.24ms/ev|maxl=-22545.24|ETF=3:50:22
+1.30e+04|1 day, 6:09:54|9.97e+02(AD)|t=3|n=4447|a=0.13|e=1.1e-02%|91.38ms/ev|maxl=-22545.24|ETF=3:47:23
+1.30e+04|1 day, 6:11:01|9.97e+02(AD)|t=3|n=4450|a=0.13|e=1.1e-02%|95.18ms/ev|maxl=-22545.24|ETF=3:55:34
+1.30e+04|1 day, 6:12:05|9.97e+02(AD)|t=3|n=4452|a=0.13|e=1.1e-02%|91.52ms/ev|maxl=-22545.24|ETF=3:45:41
+1.30e+04|1 day, 6:13:08|9.97e+02(AD)|t=3|n=4455|a=0.13|e=1.1e-02%|90.14ms/ev|maxl=-22545.24|ETF=3:41:03
+1.30e+04|1 day, 6:14:12|9.97e+02(AD)|t=3|n=4458|a=0.13|e=1.1e-02%|90.91ms/ev|maxl=-22545.24|ETF=3:41:43
+1.30e+04|1 day, 6:15:17|9.97e+02(AD)|t=3|n=4460|a=0.13|e=1.1e-02%|93.41ms/ev|maxl=-22545.24|ETF=3:46:59
+1.30e+04|1 day, 6:16:22|9.97e+02(AD)|t=3|n=4463|a=0.13|e=1.1e-02%|93.47ms/ev|maxl=-22545.24|ETF=3:45:51
+1.31e+04|1 day, 6:17:26|9.97e+02(AD)|t=3|n=4465|a=0.13|e=1.1e-02%|90.32ms/ev|maxl=-22545.24|ETF=3:37:26
+1.31e+04|1 day, 6:18:29|9.97e+02(AD)|t=3|n=4468|a=0.13|e=1.1e-02%|91.08ms/ev|maxl=-22545.24|ETF=3:38:03
+1.31e+04|1 day, 6:19:32|9.97e+02(AD)|t=3|n=4471|a=0.13|e=1.1e-02%|89.02ms/ev|maxl=-22545.24|ETF=3:31:55
+1.31e+04|1 day, 6:20:35|9.97e+02(AD)|t=3|n=4473|a=0.13|e=1.1e-02%|90.36ms/ev|maxl=-22545.24|ETF=3:34:16
+1.31e+04|1 day, 6:21:38|9.97e+02(AD)|t=3|n=4476|a=0.13|e=1.1e-02%|89.94ms/ev|maxl=-22545.24|ETF=3:32:04
+1.31e+04|1 day, 6:22:42|9.97e+02(AD)|t=3|n=4478|a=0.13|e=1.1e-02%|92.25ms/ev|maxl=-22545.24|ETF=3:36:42
+1.31e+04|1 day, 6:23:47|9.97e+02(AD)|t=3|n=4481|a=0.13|e=1.1e-02%|92.51ms/ev|maxl=-22545.24|ETF=3:36:03
+1.31e+04|1 day, 6:24:50|9.97e+02(AD)|t=3|n=4484|a=0.13|e=1.1e-02%|90.04ms/ev|maxl=-22545.24|ETF=3:29:04
+1.31e+04|1 day, 6:25:53|9.97e+02(AD)|t=3|n=4486|a=0.13|e=1.1e-02%|90.17ms/ev|maxl=-22545.24|ETF=3:28:34
+1.31e+04|1 day, 6:26:56|9.97e+02(AD)|t=3|n=4489|a=0.13|e=1.1e-02%|89.44ms/ev|maxl=-22545.24|ETF=3:25:40
+1.31e+04|1 day, 6:27:59|9.97e+02(AD)|t=3|n=4491|a=0.13|e=1.1e-02%|89.46ms/ev|maxl=-22545.24|ETF=3:24:54
+15:25 bilby INFO    : Checkpoint start
+15:25 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+15:25 bilby INFO    : Zero-temperature proposals:
+15:25 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.5e+05,scale:0.064,)
+15:25 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.4e+05,)
+15:25 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.5e+03,)
+15:25 bilby INFO    : KDEProposal(acceptance_ratio:0.045,n:4.2e+05,trained:1,)
+15:25 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.3, 'h': 2.5}
+15:25 bilby INFO    : Temperature swaps = 4375
+15:25 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4492|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4516|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4678|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5697|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4516|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4366|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4516|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4678|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5039|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4678|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4678|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4852|swap=1.00|conv=False|
+15:25 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5241|swap=1.00|conv=True|
+15:25 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5039|swap=-|conv=True|
+15:25 bilby INFO    : Creating diagnostic plots
+15:25 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+15:26 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+15:26 bilby INFO    : Checkpoint finished
+1.31e+04|1 day, 6:29:02|9.97e+02(AD)|t=3|n=4494|a=0.13|e=1.1e-02%|90.13ms/ev|maxl=-22545.24|ETF=3:25:13
+1.31e+04|1 day, 6:30:06|9.97e+02(AD)|t=3|n=4497|a=0.13|e=1.1e-02%|91.91ms/ev|maxl=-22545.24|ETF=3:28:02
+1.31e+04|1 day, 6:31:10|9.97e+02(AD)|t=3|n=4499|a=0.13|e=1.1e-02%|91.68ms/ev|maxl=-22545.24|ETF=3:26:41
+1.32e+04|1 day, 6:32:14|9.97e+02(AD)|t=3|n=4502|a=0.13|e=1.1e-02%|91.63ms/ev|maxl=-22545.24|ETF=3:25:21
+1.32e+04|1 day, 6:33:19|9.97e+02(AD)|t=3|n=4504|a=0.13|e=1.1e-02%|92.98ms/ev|maxl=-22545.24|ETF=3:27:32
+1.32e+04|1 day, 6:34:24|9.97e+02(AD)|t=3|n=4507|a=0.13|e=1.1e-02%|92.23ms/ev|maxl=-22545.24|ETF=3:24:37
+1.32e+04|1 day, 6:35:27|9.97e+02(AD)|t=3|n=4510|a=0.13|e=1.1e-02%|90.01ms/ev|maxl=-22545.24|ETF=3:18:27
+1.32e+04|1 day, 6:36:30|9.97e+02(AD)|t=3|n=4512|a=0.13|e=1.1e-02%|90.02ms/ev|maxl=-22545.24|ETF=3:17:40
+1.32e+04|1 day, 6:37:33|9.97e+02(AD)|t=3|n=4515|a=0.13|e=1.1e-02%|89.78ms/ev|maxl=-22545.24|ETF=3:15:56
+1.32e+04|1 day, 6:38:37|9.97e+02(AD)|t=3|n=4517|a=0.13|e=1.1e-02%|91.02ms/ev|maxl=-22545.24|ETF=3:17:50
+1.32e+04|1 day, 6:39:42|9.97e+02(AD)|t=3|n=4520|a=0.13|e=1.1e-02%|93.11ms/ev|maxl=-22545.24|ETF=3:21:06
+1.32e+04|1 day, 6:40:49|9.97e+02(AD)|t=3|n=4522|a=0.13|e=1.1e-02%|95.68ms/ev|maxl=-22545.24|ETF=3:25:47
+1.32e+04|1 day, 6:41:52|9.97e+02(AD)|t=3|n=4525|a=0.13|e=1.1e-02%|90.10ms/ev|maxl=-22545.24|ETF=3:12:34
+1.32e+04|1 day, 6:42:55|9.97e+02(AD)|t=3|n=4528|a=0.13|e=1.1e-02%|89.70ms/ev|maxl=-22545.24|ETF=3:10:30
+1.32e+04|1 day, 6:43:58|9.97e+02(AD)|t=3|n=4530|a=0.13|e=1.1e-02%|90.73ms/ev|maxl=-22545.24|ETF=3:11:53
+1.32e+04|1 day, 6:45:04|9.97e+02(AD)|t=3|n=4533|a=0.13|e=1.1e-02%|93.87ms/ev|maxl=-22545.24|ETF=3:17:16
+1.32e+04|1 day, 6:46:07|9.97e+02(AD)|t=3|n=4535|a=0.13|e=1.1e-02%|90.38ms/ev|maxl=-22545.24|ETF=3:09:07
+1.33e+04|1 day, 6:47:12|9.97e+02(AD)|t=3|n=4538|a=0.13|e=1.1e-02%|92.74ms/ev|maxl=-22545.24|ETF=3:12:48
+1.33e+04|1 day, 6:48:17|9.97e+02(AD)|t=3|n=4541|a=0.13|e=1.1e-02%|92.70ms/ev|maxl=-22545.24|ETF=3:11:27
+1.33e+04|1 day, 6:49:21|9.97e+02(AD)|t=3|n=4543|a=0.13|e=1.1e-02%|91.17ms/ev|maxl=-22545.24|ETF=3:07:29
+1.33e+04|1 day, 6:50:25|9.97e+02(AD)|t=3|n=4546|a=0.13|e=1.1e-02%|91.70ms/ev|maxl=-22545.24|ETF=3:07:20
+1.33e+04|1 day, 6:51:28|9.97e+02(AD)|t=3|n=4548|a=0.13|e=1.1e-02%|89.68ms/ev|maxl=-22545.24|ETF=3:02:24
+1.33e+04|1 day, 6:52:30|9.97e+02(AD)|t=3|n=4551|a=0.13|e=1.1e-02%|89.40ms/ev|maxl=-22545.24|ETF=3:00:38
+1.33e+04|1 day, 6:53:33|9.97e+02(AD)|t=3|n=4554|a=0.13|e=1.1e-02%|90.27ms/ev|maxl=-22545.24|ETF=3:01:10
+1.33e+04|1 day, 6:54:35|9.97e+02(AD)|t=3|n=4556|a=0.13|e=1.1e-02%|88.45ms/ev|maxl=-22545.24|ETF=2:56:43
+1.33e+04|1 day, 6:55:41|9.97e+02(AD)|t=3|n=4734|a=0.13|e=1.1e-02%|94.03ms/ev|maxl=-22545.24|ETF=1:48:22
+1.33e+04|1 day, 6:56:44|9.97e+02(AD)|t=3|n=4737|a=0.13|e=1.1e-02%|89.88ms/ev|maxl=-22545.24|ETF=1:42:25
+1.33e+04|1 day, 6:57:47|9.97e+02(AD)|t=3|n=4740|a=0.13|e=1.1e-02%|89.84ms/ev|maxl=-22545.24|ETF=1:41:13
+15:55 bilby INFO    : Checkpoint start
+15:56 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+15:56 bilby INFO    : Zero-temperature proposals:
+15:56 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.5e+05,scale:0.064,)
+15:56 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.5e+05,)
+15:56 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.5e+03,)
+15:56 bilby INFO    : KDEProposal(acceptance_ratio:0.045,n:4.3e+05,trained:1,)
+15:56 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.6, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.3, 'h': 2.5}
+15:56 bilby INFO    : Temperature swaps = 4441
+15:56 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4741|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4584|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4748|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5783|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4584|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4431|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4584|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4748|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5115|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4748|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4748|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4925|swap=1.00|conv=False|
+15:56 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5320|swap=1.00|conv=True|
+15:56 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5115|swap=-|conv=True|
+15:56 bilby INFO    : Creating diagnostic plots
+15:56 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+15:56 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+15:56 bilby INFO    : Checkpoint finished
+1.33e+04|1 day, 6:58:50|9.97e+02(AD)|t=3|n=4742|a=0.13|e=1.1e-02%|89.62ms/ev|maxl=-22545.24|ETF=1:40:11
+1.33e+04|1 day, 6:59:53|9.97e+02(AD)|t=3|n=4745|a=0.13|e=1.1e-02%|90.59ms/ev|maxl=-22545.24|ETF=1:40:06
+1.33e+04|1 day, 7:00:58|9.97e+02(AD)|t=3|n=4748|a=0.13|e=1.1e-02%|92.50ms/ev|maxl=-22545.24|ETF=1:41:00
+1.33e+04|1 day, 7:02:03|9.97e+02(AD)|t=3|n=4750|a=0.13|e=1.1e-02%|92.59ms/ev|maxl=-22545.24|ETF=1:40:18
+1.34e+04|1 day, 7:03:06|9.97e+02(AD)|t=3|n=4753|a=0.13|e=1.1e-02%|89.93ms/ev|maxl=-22545.24|ETF=1:36:15
+1.34e+04|1 day, 7:04:10|9.97e+02(AD)|t=3|n=4756|a=0.13|e=1.1e-02%|91.51ms/ev|maxl=-22545.24|ETF=1:36:45
+1.34e+04|1 day, 7:05:14|9.97e+02(AD)|t=3|n=4758|a=0.13|e=1.1e-02%|91.34ms/ev|maxl=-22545.24|ETF=1:35:46
+1.34e+04|1 day, 7:06:17|9.97e+02(AD)|t=3|n=4761|a=0.13|e=1.1e-02%|90.04ms/ev|maxl=-22545.24|ETF=1:33:14
+1.34e+04|1 day, 7:07:20|9.97e+02(AD)|t=3|n=4764|a=0.13|e=1.1e-02%|90.35ms/ev|maxl=-22545.24|ETF=1:32:23
+1.34e+04|1 day, 7:08:23|9.97e+02(AD)|t=3|n=4766|a=0.13|e=1.1e-02%|90.50ms/ev|maxl=-22545.24|ETF=1:31:45
+1.34e+04|1 day, 7:09:27|9.97e+02(AD)|t=3|n=4769|a=0.13|e=1.1e-02%|90.85ms/ev|maxl=-22545.24|ETF=1:30:56
+1.34e+04|1 day, 7:10:33|9.97e+02(AD)|t=3|n=4772|a=0.13|e=1.1e-02%|93.81ms/ev|maxl=-22545.24|ETF=1:32:41
+1.34e+04|1 day, 7:11:37|9.97e+02(AD)|t=3|n=4775|a=0.13|e=1.1e-02%|91.71ms/ev|maxl=-22545.24|ETF=1:29:25
+1.34e+04|1 day, 7:12:41|9.97e+02(AD)|t=3|n=4777|a=0.13|e=1.1e-02%|91.10ms/ev|maxl=-22545.24|ETF=1:28:01
+1.34e+04|1 day, 7:13:43|9.97e+02(AD)|t=3|n=4780|a=0.13|e=1.1e-02%|89.51ms/ev|maxl=-22545.24|ETF=1:25:20
+1.34e+04|1 day, 7:14:48|9.97e+02(AD)|t=3|n=4783|a=0.13|e=1.1e-02%|92.82ms/ev|maxl=-22545.24|ETF=1:27:16
+1.34e+04|1 day, 7:15:51|9.97e+02(AD)|t=3|n=4785|a=0.13|e=1.1e-02%|90.17ms/ev|maxl=-22545.24|ETF=1:24:00
+1.34e+04|1 day, 7:16:54|9.97e+02(AD)|t=3|n=4788|a=0.13|e=1.1e-02%|89.83ms/ev|maxl=-22545.24|ETF=1:22:31
+1.35e+04|1 day, 7:17:57|9.97e+02(AD)|t=3|n=4791|a=0.13|e=1.1e-02%|90.32ms/ev|maxl=-22545.24|ETF=1:21:48
+1.35e+04|1 day, 7:19:03|9.97e+02(AD)|t=3|n=4793|a=0.13|e=1.1e-02%|93.58ms/ev|maxl=-22545.24|ETF=1:23:56
+1.35e+04|1 day, 7:20:08|9.97e+02(AD)|t=3|n=4796|a=0.13|e=1.1e-02%|92.54ms/ev|maxl=-22545.24|ETF=1:21:48
+1.35e+04|1 day, 7:21:12|9.97e+02(AD)|t=3|n=4799|a=0.13|e=1.1e-02%|92.21ms/ev|maxl=-22545.24|ETF=1:20:18
+1.35e+04|1 day, 7:22:17|9.97e+02(AD)|t=3|n=4801|a=0.13|e=1.1e-02%|92.24ms/ev|maxl=-22545.24|ETF=1:19:32
+1.35e+04|1 day, 7:23:22|9.97e+02(AD)|t=3|n=4804|a=0.13|e=1.1e-02%|92.95ms/ev|maxl=-22545.24|ETF=1:18:56
+1.35e+04|1 day, 7:24:26|9.97e+02(AD)|t=3|n=4807|a=0.13|e=1.1e-02%|91.76ms/ev|maxl=-22545.24|ETF=1:16:44
+1.35e+04|1 day, 7:25:30|9.97e+02(AD)|t=3|n=4810|a=0.13|e=1.1e-02%|90.78ms/ev|maxl=-22545.24|ETF=1:14:44
+1.35e+04|1 day, 7:26:34|9.97e+02(AD)|t=3|n=4812|a=0.13|e=1.1e-02%|92.17ms/ev|maxl=-22545.24|ETF=1:15:05
+1.35e+04|1 day, 7:27:39|9.97e+02(AD)|t=3|n=4815|a=0.13|e=1.1e-02%|92.80ms/ev|maxl=-22545.24|ETF=1:14:23
+16:26 bilby INFO    : Checkpoint start
+16:26 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+16:26 bilby INFO    : Zero-temperature proposals:
+16:26 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.6e+05,scale:0.064,)
+16:26 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.6e+05,)
+16:26 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.6e+03,)
+16:26 bilby INFO    : KDEProposal(acceptance_ratio:0.045,n:4.3e+05,trained:1,)
+16:26 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.6, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.4}
+16:26 bilby INFO    : Temperature swaps = 4507
+16:26 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4817|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4652|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4819|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5869|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4652|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4497|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4652|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4819|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5190|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4819|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4819|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=4998|swap=1.00|conv=False|
+16:26 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5398|swap=1.00|conv=True|
+16:26 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5190|swap=-|conv=True|
+16:26 bilby INFO    : Creating diagnostic plots
+16:26 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+16:26 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+16:26 bilby INFO    : Checkpoint finished
+1.35e+04|1 day, 7:28:43|9.97e+02(AD)|t=3|n=4818|a=0.13|e=1.1e-02%|91.46ms/ev|maxl=-22545.24|ETF=1:12:08
+1.35e+04|1 day, 7:29:47|9.97e+02(AD)|t=3|n=4820|a=0.13|e=1.1e-02%|91.10ms/ev|maxl=-22545.24|ETF=1:11:03
+1.35e+04|1 day, 7:30:51|9.97e+02(AD)|t=3|n=4823|a=0.13|e=1.1e-02%|91.35ms/ev|maxl=-22545.24|ETF=1:10:03
+1.35e+04|1 day, 7:31:53|9.97e+02(AD)|t=3|n=4826|a=0.13|e=1.1e-02%|89.43ms/ev|maxl=-22545.24|ETF=1:07:25
+1.36e+04|1 day, 7:32:57|9.97e+02(AD)|t=3|n=4828|a=0.13|e=1.1e-02%|90.95ms/ev|maxl=-22545.24|ETF=1:07:47
+1.36e+04|1 day, 7:34:01|9.97e+02(AD)|t=3|n=4831|a=0.13|e=1.1e-02%|91.07ms/ev|maxl=-22545.24|ETF=1:06:41
+1.36e+04|1 day, 7:35:05|9.97e+02(AD)|t=3|n=4834|a=0.13|e=1.1e-02%|92.08ms/ev|maxl=-22545.24|ETF=1:06:14
+1.36e+04|1 day, 7:36:09|9.97e+02(AD)|t=3|n=4836|a=0.13|e=1.1e-02%|90.89ms/ev|maxl=-22545.24|ETF=1:04:35
+1.36e+04|1 day, 7:37:12|9.97e+02(AD)|t=3|n=4839|a=0.13|e=1.1e-02%|89.81ms/ev|maxl=-22545.24|ETF=1:02:39
+1.36e+04|1 day, 7:38:15|9.97e+02(AD)|t=3|n=4842|a=0.13|e=1.1e-02%|90.04ms/ev|maxl=-22545.24|ETF=1:01:38
+1.36e+04|1 day, 7:39:18|9.97e+02(AD)|t=3|n=4845|a=0.13|e=1.1e-02%|90.10ms/ev|maxl=-22545.24|ETF=1:00:31
+1.36e+04|1 day, 7:40:22|9.97e+02(AD)|t=3|n=4847|a=0.13|e=1.1e-02%|91.47ms/ev|maxl=-22545.24|ETF=1:00:38
+1.36e+04|1 day, 7:41:24|9.97e+02(AD)|t=3|n=4850|a=0.13|e=1.1e-02%|88.46ms/ev|maxl=-22545.24|ETF=0:57:29
+1.36e+04|1 day, 7:42:25|9.97e+02(AD)|t=3|n=4853|a=0.13|e=1.1e-02%|88.02ms/ev|maxl=-22545.24|ETF=0:56:04
+1.36e+04|1 day, 7:43:28|9.97e+02(AD)|t=3|n=4855|a=0.13|e=1.1e-02%|89.41ms/ev|maxl=-22545.24|ETF=0:56:10
+1.36e+04|1 day, 7:44:32|9.97e+02(AD)|t=3|n=4858|a=0.13|e=1.1e-02%|90.85ms/ev|maxl=-22545.24|ETF=0:55:54
+1.36e+04|1 day, 7:45:37|9.97e+02(AD)|t=3|n=4861|a=0.13|e=1.1e-02%|93.27ms/ev|maxl=-22545.24|ETF=0:56:10
+1.36e+04|1 day, 7:46:40|9.97e+02(AD)|t=3|n=4863|a=0.13|e=1.1e-02%|90.70ms/ev|maxl=-22545.24|ETF=0:53:50
+1.36e+04|1 day, 7:47:44|9.97e+02(AD)|t=3|n=4866|a=0.13|e=1.1e-02%|91.11ms/ev|maxl=-22545.24|ETF=0:52:54
+1.37e+04|1 day, 7:48:47|9.97e+02(AD)|t=3|n=4869|a=0.13|e=1.1e-02%|90.41ms/ev|maxl=-22545.24|ETF=0:51:19
+1.37e+04|1 day, 7:49:51|9.97e+02(AD)|t=3|n=4871|a=0.13|e=1.1e-02%|90.50ms/ev|maxl=-22545.24|ETF=0:50:35
+1.37e+04|1 day, 7:50:53|9.97e+02(AD)|t=3|n=4874|a=0.13|e=1.1e-02%|88.93ms/ev|maxl=-22545.24|ETF=0:48:33
+1.37e+04|1 day, 7:51:58|9.97e+02(AD)|t=3|n=4877|a=0.13|e=1.1e-02%|92.98ms/ev|maxl=-22545.24|ETF=0:49:33
+1.37e+04|1 day, 7:53:04|9.97e+02(AD)|t=3|n=4880|a=0.13|e=1.1e-02%|93.96ms/ev|maxl=-22545.24|ETF=0:48:51
+1.37e+04|1 day, 7:54:09|9.97e+02(AD)|t=3|n=4882|a=0.13|e=1.1e-02%|93.46ms/ev|maxl=-22545.24|ETF=0:47:47
+1.37e+04|1 day, 7:55:14|9.97e+02(AD)|t=3|n=4704|a=0.13|e=1.1e-02%|91.65ms/ev|maxl=-22545.24|ETF=2:02:04
+1.37e+04|1 day, 7:56:17|9.97e+02(AD)|t=3|n=4707|a=0.13|e=1.1e-02%|90.64ms/ev|maxl=-22545.24|ETF=1:59:30
+1.37e+04|1 day, 7:57:21|9.97e+02(AD)|t=3|n=4709|a=0.13|e=1.1e-02%|91.14ms/ev|maxl=-22545.24|ETF=1:59:20
+1.37e+04|1 day, 7:58:25|9.97e+02(AD)|t=3|n=4712|a=0.13|e=1.1e-02%|91.38ms/ev|maxl=-22545.24|ETF=1:58:25
+16:56 bilby INFO    : Checkpoint start
+16:56 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+16:56 bilby INFO    : Zero-temperature proposals:
+16:56 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.7e+05,scale:0.064,)
+16:56 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.6e+05,)
+16:56 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.6e+03,)
+16:56 bilby INFO    : KDEProposal(acceptance_ratio:0.046,n:4.4e+05,trained:1,)
+16:56 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.3, 'h': 2.4}
+16:56 bilby INFO    : Temperature swaps = 4573
+16:56 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4712|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4721|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4890|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=5955|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4721|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4563|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4721|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4890|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5266|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4890|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4890|swap=1.00|conv=False|
+16:56 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=5071|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5478|swap=1.00|conv=True|
+16:56 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5266|swap=-|conv=True|
+16:56 bilby INFO    : Creating diagnostic plots
+16:56 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+16:56 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+16:56 bilby INFO    : Checkpoint finished
+1.37e+04|1 day, 7:59:29|9.97e+02(AD)|t=3|n=4714|a=0.13|e=1.1e-02%|92.31ms/ev|maxl=-22545.24|ETF=1:58:47
+1.37e+04|1 day, 8:00:34|9.97e+02(AD)|t=3|n=4717|a=0.13|e=1.1e-02%|92.12ms/ev|maxl=-22545.24|ETF=1:57:19
+1.37e+04|1 day, 8:01:37|9.97e+02(AD)|t=3|n=4720|a=0.13|e=1.1e-02%|90.70ms/ev|maxl=-22545.24|ETF=1:54:16
+1.37e+04|1 day, 8:02:40|9.97e+02(AD)|t=3|n=4722|a=0.13|e=1.1e-02%|89.14ms/ev|maxl=-22545.24|ETF=1:51:30
+1.38e+04|1 day, 8:03:42|9.97e+02(AD)|t=3|n=4725|a=0.13|e=1.1e-02%|89.49ms/ev|maxl=-22545.24|ETF=1:50:44
+1.38e+04|1 day, 8:04:43|9.97e+02(AD)|t=3|n=4727|a=0.13|e=1.1e-02%|87.17ms/ev|maxl=-22545.24|ETF=1:47:05
+1.38e+04|1 day, 8:05:46|9.97e+02(AD)|t=3|n=4730|a=0.13|e=1.1e-02%|90.08ms/ev|maxl=-22545.24|ETF=1:49:26
+1.38e+04|1 day, 8:06:50|9.97e+02(AD)|t=3|n=4732|a=0.13|e=1.1e-02%|90.33ms/ev|maxl=-22545.24|ETF=1:48:56
+1.38e+04|1 day, 8:07:55|9.97e+02(AD)|t=3|n=4735|a=0.13|e=1.1e-02%|93.62ms/ev|maxl=-22545.24|ETF=1:51:38
+1.38e+04|1 day, 8:08:58|9.97e+02(AD)|t=3|n=4738|a=0.13|e=1.1e-02%|89.04ms/ev|maxl=-22545.24|ETF=1:44:59
+1.38e+04|1 day, 8:10:02|9.97e+02(AD)|t=3|n=4740|a=0.13|e=1.1e-02%|91.94ms/ev|maxl=-22545.24|ETF=1:47:33
+1.38e+04|1 day, 8:11:05|9.97e+02(AD)|t=3|n=4743|a=0.13|e=1.1e-02%|90.71ms/ev|maxl=-22545.24|ETF=1:44:54
+1.38e+04|1 day, 8:12:06|9.97e+02(AD)|t=3|n=4745|a=0.13|e=1.1e-02%|86.31ms/ev|maxl=-22545.24|ETF=1:39:02
+1.38e+04|1 day, 8:13:09|9.97e+02(AD)|t=3|n=4748|a=0.13|e=1.1e-02%|90.29ms/ev|maxl=-22545.24|ETF=1:42:23
+1.38e+04|1 day, 8:14:13|9.97e+02(AD)|t=3|n=4751|a=0.13|e=1.1e-02%|91.02ms/ev|maxl=-22545.24|ETF=1:41:59
+1.38e+04|1 day, 8:15:15|9.97e+02(AD)|t=3|n=4753|a=0.13|e=1.1e-02%|89.06ms/ev|maxl=-22545.24|ETF=1:38:59
+1.38e+04|1 day, 8:16:18|9.97e+02(AD)|t=3|n=4756|a=0.13|e=1.1e-02%|90.58ms/ev|maxl=-22545.24|ETF=1:39:27
+1.38e+04|1 day, 8:17:21|9.97e+02(AD)|t=3|n=4758|a=0.13|e=1.1e-02%|89.41ms/ev|maxl=-22545.24|ETF=1:37:21
+1.39e+04|1 day, 8:18:23|9.97e+02(AD)|t=3|n=4761|a=0.13|e=1.1e-02%|88.41ms/ev|maxl=-22545.24|ETF=1:35:04
+1.39e+04|1 day, 8:19:27|9.97e+02(AD)|t=3|n=4764|a=0.13|e=1.1e-02%|91.05ms/ev|maxl=-22545.24|ETF=1:36:41
+1.39e+04|1 day, 8:20:29|9.97e+02(AD)|t=3|n=4766|a=0.13|e=1.1e-02%|89.67ms/ev|maxl=-22545.24|ETF=1:34:25
+1.39e+04|1 day, 8:21:32|9.97e+02(AD)|t=3|n=4769|a=0.13|e=1.1e-02%|89.76ms/ev|maxl=-22545.24|ETF=1:33:18
+1.39e+04|1 day, 8:22:35|9.97e+02(AD)|t=3|n=4771|a=0.13|e=1.1e-02%|90.00ms/ev|maxl=-22545.24|ETF=1:32:44
+1.39e+04|1 day, 8:23:38|9.97e+02(AD)|t=3|n=4774|a=0.13|e=1.1e-02%|89.76ms/ev|maxl=-22545.24|ETF=1:31:17
+1.39e+04|1 day, 8:24:41|9.97e+02(AD)|t=3|n=4777|a=0.13|e=1.1e-02%|90.41ms/ev|maxl=-22545.24|ETF=1:30:43
+1.39e+04|1 day, 8:25:46|9.97e+02(AD)|t=3|n=4779|a=0.13|e=1.1e-02%|91.86ms/ev|maxl=-22545.24|ETF=1:31:21
+1.39e+04|1 day, 8:26:50|9.97e+02(AD)|t=3|n=4782|a=0.13|e=1.1e-02%|92.46ms/ev|maxl=-22545.24|ETF=1:30:41
+1.39e+04|1 day, 8:27:54|9.97e+02(AD)|t=3|n=4784|a=0.13|e=1.1e-02%|90.52ms/ev|maxl=-22545.24|ETF=1:27:59
+17:26 bilby INFO    : Checkpoint start
+17:26 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+17:26 bilby INFO    : Zero-temperature proposals:
+17:26 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.7e+05,scale:0.064,)
+17:26 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.7e+05,)
+17:26 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.7e+03,)
+17:26 bilby INFO    : KDEProposal(acceptance_ratio:0.046,n:4.4e+05,trained:1,)
+17:26 bilby INFO    : Current taus={'omega_gw': 1.8, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.4}
+17:26 bilby INFO    : Temperature swaps = 4639
+17:26 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4785|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4789|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=4961|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=6041|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4789|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4629|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4789|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=4961|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5343|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=4961|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=4961|swap=1.00|conv=False|
+17:26 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=5145|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5557|swap=1.00|conv=True|
+17:26 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5343|swap=-|conv=True|
+17:26 bilby INFO    : Creating diagnostic plots
+17:26 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+17:26 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+17:26 bilby INFO    : Checkpoint finished
+1.39e+04|1 day, 8:28:54|9.97e+02(AD)|t=3|n=4787|a=0.13|e=1.1e-02%|86.40ms/ev|maxl=-22545.24|ETF=1:22:49
+1.39e+04|1 day, 8:29:57|9.97e+02(AD)|t=3|n=4790|a=0.13|e=1.1e-02%|89.50ms/ev|maxl=-22545.24|ETF=1:24:34
+1.39e+04|1 day, 8:31:00|9.97e+02(AD)|t=3|n=4792|a=0.13|e=1.1e-02%|89.68ms/ev|maxl=-22545.24|ETF=1:23:56
+1.39e+04|1 day, 8:32:02|9.97e+02(AD)|t=3|n=4795|a=0.13|e=1.1e-02%|89.38ms/ev|maxl=-22545.24|ETF=1:22:27
+1.40e+04|1 day, 8:33:05|9.97e+02(AD)|t=3|n=4797|a=0.13|e=1.1e-02%|90.32ms/ev|maxl=-22545.24|ETF=1:22:30
+1.40e+04|1 day, 8:34:09|9.97e+02(AD)|t=3|n=4800|a=0.13|e=1.1e-02%|90.07ms/ev|maxl=-22545.24|ETF=1:21:03
+1.40e+04|1 day, 8:35:13|9.97e+02(AD)|t=3|n=4802|a=0.13|e=1.1e-02%|91.62ms/ev|maxl=-22545.24|ETF=1:21:38
+1.40e+04|1 day, 8:36:17|9.97e+02(AD)|t=3|n=4805|a=0.13|e=1.1e-02%|91.75ms/ev|maxl=-22545.24|ETF=1:20:30
+1.40e+04|1 day, 8:37:21|9.97e+02(AD)|t=3|n=4808|a=0.13|e=1.1e-02%|92.22ms/ev|maxl=-22545.24|ETF=1:19:40
+1.40e+04|1 day, 8:38:25|9.97e+02(AD)|t=3|n=4810|a=0.13|e=1.1e-02%|90.67ms/ev|maxl=-22545.24|ETF=1:17:31
+1.40e+04|1 day, 8:39:28|9.97e+02(AD)|t=3|n=4813|a=0.13|e=1.1e-02%|90.28ms/ev|maxl=-22545.24|ETF=1:15:58
+1.40e+04|1 day, 8:40:31|9.97e+02(AD)|t=3|n=4815|a=0.13|e=1.1e-02%|90.31ms/ev|maxl=-22545.24|ETF=1:15:10
+1.40e+04|1 day, 8:41:36|9.97e+02(AD)|t=3|n=4818|a=0.13|e=1.1e-02%|92.33ms/ev|maxl=-22545.24|ETF=1:15:37
+1.40e+04|1 day, 8:42:39|9.97e+02(AD)|t=3|n=4821|a=0.13|e=1.1e-02%|90.31ms/ev|maxl=-22545.24|ETF=1:12:44
+1.40e+04|1 day, 8:43:43|9.97e+02(AD)|t=3|n=4823|a=0.13|e=1.1e-02%|90.91ms/ev|maxl=-22545.24|ETF=1:12:24
+1.40e+04|1 day, 8:44:48|9.97e+02(AD)|t=3|n=4826|a=0.13|e=1.1e-02%|92.69ms/ev|maxl=-22545.24|ETF=1:12:34
+1.40e+04|1 day, 8:45:54|9.97e+02(AD)|t=3|n=4828|a=0.13|e=1.1e-02%|94.05ms/ev|maxl=-22545.24|ETF=1:12:47
+1.40e+04|1 day, 8:46:57|9.97e+02(AD)|t=3|n=4831|a=0.13|e=1.1e-02%|90.37ms/ev|maxl=-22545.24|ETF=1:08:43
+1.40e+04|1 day, 8:48:00|9.97e+02(AD)|t=3|n=4834|a=0.13|e=1.1e-02%|90.84ms/ev|maxl=-22545.24|ETF=1:07:51
+1.41e+04|1 day, 8:49:03|9.97e+02(AD)|t=3|n=4836|a=0.13|e=1.1e-02%|89.93ms/ev|maxl=-22545.24|ETF=1:06:21
+1.41e+04|1 day, 8:50:07|9.97e+02(AD)|t=3|n=4839|a=0.13|e=1.1e-02%|90.78ms/ev|maxl=-22545.24|ETF=1:05:46
+1.41e+04|1 day, 8:51:10|9.97e+02(AD)|t=3|n=4841|a=0.13|e=1.1e-02%|90.22ms/ev|maxl=-22545.24|ETF=1:04:33
+1.41e+04|1 day, 8:52:13|9.97e+02(AD)|t=3|n=4844|a=0.13|e=1.1e-02%|90.24ms/ev|maxl=-22545.24|ETF=1:03:20
+1.41e+04|1 day, 8:53:15|9.97e+02(AD)|t=3|n=4847|a=0.13|e=1.1e-02%|87.59ms/ev|maxl=-22545.24|ETF=1:00:18
+1.41e+04|1 day, 8:54:20|9.97e+02(AD)|t=3|n=4849|a=0.13|e=1.1e-02%|93.53ms/ev|maxl=-22545.24|ETF=1:03:33
+1.41e+04|1 day, 8:55:24|9.97e+02(AD)|t=3|n=4852|a=0.13|e=1.1e-02%|91.63ms/ev|maxl=-22545.24|ETF=1:01:01
+1.41e+04|1 day, 8:56:26|9.97e+02(AD)|t=3|n=4854|a=0.13|e=1.1e-02%|89.02ms/ev|maxl=-22545.24|ETF=0:58:29
+1.41e+04|1 day, 8:57:30|9.97e+02(AD)|t=3|n=4857|a=0.13|e=1.1e-02%|90.95ms/ev|maxl=-22545.24|ETF=0:58:31
+17:56 bilby INFO    : Checkpoint start
+17:56 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+17:56 bilby INFO    : Zero-temperature proposals:
+17:56 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.8e+05,scale:0.064,)
+17:56 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.8e+05,)
+17:56 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.8e+03,)
+17:56 bilby INFO    : KDEProposal(acceptance_ratio:0.046,n:4.5e+05,trained:1,)
+17:56 bilby INFO    : Current taus={'omega_gw': 1.7, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.6, 'delta_gw': 2.4, 'alpha_gw': 2.4, 'h': 2.4}
+17:56 bilby INFO    : Temperature swaps = 4705
+17:56 bilby INFO    : Temp:0<->1|beta=1|hot-samp=4859|swap=1.00|conv=False|
+17:56 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=4857|swap=1.00|conv=False|
+17:56 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=5031|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=6127|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=4857|swap=1.00|conv=False|
+17:56 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=4695|swap=1.00|conv=False|
+17:56 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=4857|swap=1.00|conv=False|
+17:56 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=5031|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5419|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=5031|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=5031|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=5218|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=5636|swap=1.00|conv=True|
+17:56 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5419|swap=-|conv=True|
+17:56 bilby INFO    : Creating diagnostic plots
+17:57 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+17:57 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+17:57 bilby INFO    : Checkpoint finished
+1.41e+04|1 day, 8:58:33|9.97e+02(AD)|t=3|n=4860|a=0.13|e=1.1e-02%|89.54ms/ev|maxl=-22545.24|ETF=0:56:24
+1.41e+04|1 day, 8:59:36|9.97e+02(AD)|t=3|n=4862|a=0.13|e=1.1e-02%|90.80ms/ev|maxl=-22545.24|ETF=0:56:23
+1.41e+04|1 day, 9:00:42|9.97e+02(AD)|t=3|n=4865|a=0.13|e=1.1e-02%|93.09ms/ev|maxl=-22545.24|ETF=0:56:33
+1.41e+04|1 day, 9:01:46|9.97e+02(AD)|t=3|n=4867|a=0.13|e=1.1e-02%|92.20ms/ev|maxl=-22545.24|ETF=0:55:10
+1.41e+04|1 day, 9:02:52|9.97e+02(AD)|t=3|n=4870|a=0.13|e=1.1e-02%|93.97ms/ev|maxl=-22545.24|ETF=0:54:58
+1.42e+04|1 day, 9:03:55|9.97e+02(AD)|t=3|n=4872|a=0.13|e=1.1e-02%|89.89ms/ev|maxl=-22545.24|ETF=0:51:46
+1.42e+04|1 day, 9:04:57|9.97e+02(AD)|t=3|n=4875|a=0.13|e=1.1e-02%|88.42ms/ev|maxl=-22545.24|ETF=0:49:44
+1.42e+04|1 day, 9:05:59|9.97e+02(AD)|t=3|n=4878|a=0.13|e=1.1e-02%|89.34ms/ev|maxl=-22545.24|ETF=0:49:02
+1.42e+04|1 day, 9:07:03|9.97e+02(AD)|t=3|n=4880|a=0.13|e=1.1e-02%|91.31ms/ev|maxl=-22545.24|ETF=0:49:18
+1.42e+04|1 day, 9:08:05|9.97e+02(AD)|t=3|n=4883|a=0.13|e=1.1e-02%|88.73ms/ev|maxl=-22545.24|ETF=0:46:42
+1.42e+04|1 day, 9:09:09|9.97e+02(AD)|t=3|n=4885|a=0.13|e=1.1e-02%|91.82ms/ev|maxl=-22545.24|ETF=0:47:30
+1.42e+04|1 day, 9:10:15|9.97e+02(AD)|t=3|n=4888|a=0.13|e=1.1e-02%|93.21ms/ev|maxl=-22545.24|ETF=0:46:58
+1.42e+04|1 day, 9:11:20|9.97e+02(AD)|t=3|n=4891|a=0.13|e=1.1e-02%|92.80ms/ev|maxl=-22545.24|ETF=0:45:31
+1.42e+04|1 day, 9:12:23|9.97e+02(AD)|t=3|n=4893|a=0.13|e=1.1e-02%|90.39ms/ev|maxl=-22545.24|ETF=0:43:31
+1.42e+04|1 day, 9:13:27|9.97e+02(AD)|t=3|n=4896|a=0.13|e=1.1e-02%|91.10ms/ev|maxl=-22545.24|ETF=0:42:38
+1.42e+04|1 day, 9:14:32|9.97e+02(AD)|t=3|n=4898|a=0.13|e=1.1e-02%|92.60ms/ev|maxl=-22545.24|ETF=0:42:30
+1.42e+04|1 day, 9:15:35|9.97e+02(AD)|t=3|n=4901|a=0.13|e=1.1e-02%|91.34ms/ev|maxl=-22545.24|ETF=0:40:41
+1.42e+04|1 day, 9:16:40|9.97e+02(AD)|t=3|n=4904|a=0.13|e=1.1e-02%|91.47ms/ev|maxl=-22545.24|ETF=0:39:30
+1.42e+04|1 day, 9:17:42|9.97e+02(AD)|t=3|n=4906|a=0.13|e=1.1e-02%|89.92ms/ev|maxl=-22545.24|ETF=0:38:02
+1.43e+04|1 day, 9:18:46|9.97e+02(AD)|t=3|n=4909|a=0.13|e=1.1e-02%|91.23ms/ev|maxl=-22545.24|ETF=0:37:21
+1.43e+04|1 day, 9:19:50|9.97e+02(AD)|t=3|n=4911|a=0.13|e=1.1e-02%|90.60ms/ev|maxl=-22545.24|ETF=0:36:17
+1.43e+04|1 day, 9:20:54|9.97e+02(AD)|t=3|n=4914|a=0.13|e=1.1e-02%|92.28ms/ev|maxl=-22545.24|ETF=0:35:42
+1.43e+04|1 day, 9:21:58|9.97e+02(AD)|t=3|n=4917|a=0.13|e=1.1e-02%|90.86ms/ev|maxl=-22545.24|ETF=0:33:56
+1.43e+04|1 day, 9:23:01|9.97e+02(AD)|t=3|n=4919|a=0.13|e=1.1e-02%|90.60ms/ev|maxl=-22545.24|ETF=0:33:01
+1.43e+04|1 day, 9:24:03|9.97e+02(AD)|t=3|n=4922|a=0.13|e=1.1e-02%|88.47ms/ev|maxl=-22545.24|ETF=0:31:03
+1.43e+04|1 day, 9:25:07|9.97e+02(AD)|t=3|n=4924|a=0.13|e=1.1e-02%|90.34ms/ev|maxl=-22545.24|ETF=0:30:53
+1.43e+04|1 day, 9:26:10|9.97e+02(AD)|t=3|n=4927|a=0.13|e=1.1e-02%|90.07ms/ev|maxl=-22545.24|ETF=0:29:35
