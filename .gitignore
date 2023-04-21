@@ -1,3 +1,4 @@
 /Manifest.toml
 data/nested_sampling/*
 data/*.npz
+py_src/__pycache__/*
