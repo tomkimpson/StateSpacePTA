@@ -3,3 +3,7 @@ data/nested_sampling/*
 data/*.npz
 py_src/outputs/*
 py_src/__pycache__
+py_src/__pycache__/*
+
+
+
