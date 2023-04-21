@@ -140,28 +140,31 @@ def bilby_priors_dict(PTA,P):
     #priors["psi_gw"] =P["psi_gw"]
 
     init_parameters["iota_gw"] = None
-    #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-    priors["iota_gw"] = P["iota_gw"]
+    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+    #priors["iota_gw"] = P["iota_gw"]
 
 
     init_parameters["delta_gw"] = None
     #priors["delta_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'delta_gw')
-    #priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-    priors["delta_gw"] = P["delta_gw"]
+    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+    #priors["delta_gw"] = P["delta_gw"]
 
 
     init_parameters["alpha_gw"] = None
-    #priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
-    priors["alpha_gw"] = P["alpha_gw"]
+    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+    #priors["alpha_gw"] = P["alpha_gw"]
 
 
     init_parameters["h"] = None
     #priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
 
-    #priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'h')
+    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'h')
     #priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
 
-    priors["h"] = P["h"]
+    #priors["h"] = P["h"]
+
+
+   
 
 
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)

@@ -100,7 +100,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     print(len(df_posterior))
 
     print("Median values:")
-    print(df_posterior.median())
+    print(df_posterior.median().head(10))
 
     plt.style.use('science')
 
