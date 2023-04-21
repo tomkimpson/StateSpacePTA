@@ -30,23 +30,29 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
 
  
     # #Run the sampler
-    print("RUN THE SAMPLER - MCMC")
+    print("RUN THE SAMPLER")
 
 
+    # result = bilby.run_sampler(likelihood,priors,
+	# 	               label=label,
+    #                            outdir=outdir,
+	# 		       sampler="bilby_mcmc",
+	# 		       npool=32,
+	# 		       ntemps=32,
+    #                            nsamples=5000,
+    #                            thin_by_nact=1
+	# 		       )
 
-    result = bilby.run_sampler(likelihood, priors, sampler="bilby_mcmc", nsamples=1000,label="MCMCtestrun") #https://lscsoft.docs.ligo.org/bilby/bilby-mcmc-guide.html
-
-
-
-
-    # result = bilby.run_sampler(likelihood, priors, 
-    #                          label = label,
-    #                          outdir=outdir,
-    #                         sampler ='dynesty',
-    #                         sample='rwalk',
-    #                         check_point_plot=False,
-    #                         npoints=100,dlogz=0.1,
-    #                         npool=10, plot=True,resume=False)
+    result = bilby.run_sampler(likelihood, priors, 
+                               label = label,
+                               outdir=outdir,
+                               sampler ='dynesty', #sampler=bilby_mcmc, dynesty
+			                   sample='rwalk',
+                               check_point_plot=False,
+                               npoints=500,
+			                   dlogz=1e-4,
+                               npool=32,
+			                   plot=True,resume=False)
 
 
 
