@@ -32,11 +32,6 @@ class SyntheticData:
        
         self.intrinsic_frequency = sdeint.itoint(f,g,f0, t)
 
-
-
-
-
-
         #Now calculate the modulation factor due to the GW
         modulation_factors = gw_prefactor_optimised(
                                P["delta_gw"],

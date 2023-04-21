@@ -16,6 +16,7 @@ from bilby_wrapper import BilbyLikelihood
 import numpy as np
 import bilby
 
+from plotting import plot_all
 
 if __name__=="__main__":
     import multiprocessing
@@ -38,10 +39,18 @@ if __name__=="__main__":
     guessed_parameters = priors_dict(PTA,P)
     model_likelihood = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
+
+
+    # Run the KFwith the correct parameters
+    true_parameters = priors_dict(PTA,P)
+    model_likelihood, model_state_predictions = KF.likelihood_and_states(true_parameters)
+    print("Model likelihood is: ", model_likelihood)
+    plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, model_state_predictions, 1,savefig=None)
+
    
     #Bilby 
-    init_parameters, priors = bilby_priors_dict(PTA,P)
-    BilbySampler(KF,init_parameters,priors,label="example_2_parameters",outdir="../data/nested_sampling/")
+    #init_parameters, priors = bilby_priors_dict(PTA,P)
+    #BilbySampler(KF,init_parameters,priors,label="example_2_parameters",outdir="../data/nested_sampling/")
 
 
 

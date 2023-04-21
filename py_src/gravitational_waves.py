@@ -1,5 +1,3 @@
-
-
 from numpy import sin,cos 
 import numpy as np 
 from numba import jit 
@@ -11,38 +9,37 @@ Returns an object of shape (n times, n pulsars)
 """
 @jit(nopython=True)
 def gw_prefactor_optimised(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+        
+        print("welcome to gw_prefactor_optimised")
 
-        #print("alpha = ", alpha)
-
-        m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
+        #GW direction axes
+        m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)   
         gw_direction        = np.cross(m,n)
-      
-        dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
+        dot_product         = 1.0 + np.dot(q,gw_direction)                 # matmul might be a bit faster, but np.dot has JIT support
 
-
-
-
+        #GW polarization tensors
         e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)]) #tensordot might be a bit faster, but list comprehension has JIT support
         e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
 
+        #Plus and cross strain amplitudes
         hp,hx               = h_amplitudes(h,iota) 
+
+        #The 3x3 Hij tensor, which is then flattened
         Hij                 = hp * e_plus + hx * e_cross
         Hij_flat            = Hij.flatten()
 
-        hbar                = np.dot(Hij_flat,q_products)
+        #H_ij q^i q^j
+        hbar                = np.dot(Hij_flat,q_products) #length = Npsr
+        
+
+        #h_ij q^i q^j evaluated at Earth
+        time_variation = np.exp(1j*(-omega*t+phi0))
+        hij = np.outer(time_variation,hbar) #This has shape(ntimes,npulsars)
 
 
-
-
-
-        prefactor    = 0.5*(hbar / dot_product)*(1.0 - cos(omega*d*dot_product))
-
-
-        tensor = np.outer(t,dot_product) #This has shape(n times, n pulsars)
-        time_variation = cos(-omega*tensor + phi0)
-
-        GW_factor = 1.0 - prefactor * time_variation
-        return GW_factor #This has shape(n times, n pulsars)
+        #The complete factor
+        GW_factor = 1.0 - 0.50 * (hij/dot_product) * (1.0 - np.exp(1j*omega*dot_product*d))
+        return np.real(GW_factor) #This has shape(n times, n pulsars)
 
 
 
