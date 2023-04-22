@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  21 APR 2023 08:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  22 APR 2023 13:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1403,7 +1403,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\hook_use:n' on input line 63.
 
-(./LectureNotes_Math571.aux)
+(./LectureNotes_Math571.aux
+
+LaTeX Warning: Label `eq:measureent' multiply defined.
+
+)
 \openout1 = `LectureNotes_Math571.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
@@ -1425,8 +1429,7 @@ LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 Package hyperref Info: Link coloring ON on input line 66.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1652,12 +1655,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
 LaTeX Warning: Marginpar on page  moved.
 
-
-LaTeX Warning: Marginpar on page  moved.
-
 [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Marginpar on page  moved.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 100--102
 
  []
@@ -1678,7 +1682,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.153 \end{equation}
+l.148 \end{equation}
                      [2]
 
 LaTeX Warning: Marginpar on page  moved.
@@ -1693,8 +1697,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.201 \begin{equation}
-                       [3]
+l.198 \end{equation}
+                     [3]
 
 LaTeX Warning: Marginpar on page  moved.
 
@@ -1703,10 +1707,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.242 \end{equation}
+l.243 \end{equation}
                      [4]
 
 LaTeX Warning: Marginpar on page  moved.
+
+
+Overfull \hbox (105.64714pt too wide) detected at line 264
+[]
+ []
 
 
 Package bibentry Warning: You have used \nobibliography* 
@@ -1718,16 +1727,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.248 \end{document}
+l.285 \end{document}
                      [5] (./LectureNotes_Math571.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `LectureNotes_Math571.out' has not changed.
 (rerunfilecheck)             Checksum: C84B76D390000A2D32484DE3053C814D;402.
  ) 
 Here is how much of TeX's memory you used:
- 32141 strings out of 478268
- 606165 string characters out of 5846348
- 1005746 words of memory out of 5000000
- 49403 multiletter control sequences out of 15000+600000
+ 32150 strings out of 478268
+ 606285 string characters out of 5846348
+ 1005830 words of memory out of 5000000
+ 49404 multiletter control sequences out of 15000+600000
  541320 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,12n,117p,1017b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1743,10 +1755,10 @@ type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/u
 rw/palatino/uplb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/up
 lri8a.pfb>
-Output written on LectureNotes_Math571.pdf (5 pages, 149683 bytes).
+Output written on LectureNotes_Math571.pdf (5 pages, 151964 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
  92189 words of extra memory for PDF output out of 106986 (max. 10000000)
 

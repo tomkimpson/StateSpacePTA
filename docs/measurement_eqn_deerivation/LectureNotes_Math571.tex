@@ -239,10 +239,47 @@ which is exactly the expression derived in Melatos 2022.
 There was previously some confusion over the presence of a single $\Phi_0$ parameter that was shared between multiple pulsars. Does this cause $\tau = 0$ to be a special time when all pulsars are in phase and then go on to evolve to be out of phase? This is just due to some sloppy transcription of equations in another document. Ignoring measurement noise, the measured photon frequency is related to the emitted photon frequency  as
 \begin{equation}
 	f_{\rm measured} = f_{\rm emitted} \left(1 - \frac{1}{2} \frac{ h_{ij} (\tau; \bar{x}= 0)q^i q^j }{(1 + \bar{n}\cdot \bar{q}) }  \left(1 -e^{i \Omega (1 + \bar{n}\cdot \bar{q})  d}\right) \right)
+	\label{eq:measureent}
 \end{equation}
 Now the pulsar frequencies remain in phase and $\tau=0$ is no longer a special time. \footnote{This expression is slightly different from the (erroneous) one typed up in the manuscript! We have dropped a $1+ \bar{n} \cdot \bar{q}$ factor that was wrongly typed up in the other document}
 
 
+ \subsection{Trigonometric form}
  
+ 
+ Lets express Eq. \ref{eq:measureent} as
+ 
+ \begin{equation}
+ 	f_{\rm measured} = f_{\rm emitted} \, g(\tau; \bar{\theta})
+ 	\label{eq:measureent}
+ \end{equation}
+where $\bar{\theta}$ is a set of parameters of the system. Lets write this in terms of the real part of the trig expansion. Let $a = -\Omega \tau +\Phi_0$ and $b =\Omega (1 + \bar{n}\cdot \bar{q})  d $
+ \begin{align}
+	g(\tau; \bar{\theta}) &= 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } e^{ia} \left(1 -e^{i b}\right) \\
+	&= 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } [\cos(a) + i \sin(a)] \left(1 -[\cos(b) + i \sin(b)]\right) \\ 
+	&= 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left( \cos(a) + i \sin(a) - \cos(a) \cos(b) -i \cos(a) \sin(b) -i \sin(a) \cos(b) + \sin(a) \sin(b)\right) \\
+	& \stackrel{\rm Re}{=} 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left( \cos(a) - \cos(a) \cos(b) + \sin(a) \sin(b)\right) \\
+	& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left( \cos(a) - \cos(a + b) \right) \\
+	& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left[ \cos(-\Omega \tau +\Phi_0) - \cos(-\Omega \tau +\Phi_0 + \Omega (1 + \bar{n}\cdot \bar{q})  d) \right]
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
