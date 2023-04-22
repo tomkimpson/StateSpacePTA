@@ -5222,3 +5222,270 @@ RUN THE SAMPLER
 1.43e+04|1 day, 9:29:21|9.97e+02(AD)|t=3|n=4935|a=0.13|e=1.1e-02%|91.40ms/ev|maxl=-22545.24|ETF=0:26:43
 1.43e+04|1 day, 9:30:26|9.97e+02(AD)|t=3|n=4937|a=0.13|e=1.1e-02%|92.52ms/ev|maxl=-22545.24|ETF=0:26:13
 1.43e+04|1 day, 9:31:31|9.97e+02(AD)|t=3|n=4940|a=0.13|e=1.1e-02%|92.79ms/ev|maxl=-22545.24|ETF=0:25:03
+1.43e+04|1 day, 9:32:35|9.97e+02(AD)|t=3|n=4942|a=0.13|e=1.1e-02%|90.58ms/ev|maxl=-22545.24|ETF=0:23:38
+1.44e+04|1 day, 9:33:39|9.97e+02(AD)|t=3|n=4945|a=0.13|e=1.1e-02%|92.13ms/ev|maxl=-22545.24|ETF=0:22:48
+1.44e+04|1 day, 9:34:43|9.97e+02(AD)|t=3|n=4948|a=0.13|e=1.1e-02%|91.04ms/ev|maxl=-22545.24|ETF=0:21:18
+1.44e+04|1 day, 9:35:46|9.97e+02(AD)|t=3|n=4950|a=0.13|e=1.1e-02%|90.99ms/ev|maxl=-22545.24|ETF=0:20:28
+1.44e+04|1 day, 9:36:52|9.97e+02(AD)|t=3|n=4953|a=0.13|e=1.1e-02%|92.86ms/ev|maxl=-22545.24|ETF=0:19:38
+1.44e+04|1 day, 9:37:56|9.97e+02(AD)|t=3|n=4955|a=0.13|e=1.1e-02%|91.55ms/ev|maxl=-22545.24|ETF=0:18:32
+1.44e+04|1 day, 9:39:01|9.97e+02(AD)|t=3|n=4958|a=0.13|e=1.1e-02%|93.94ms/ev|maxl=-22545.24|ETF=0:17:45
+1.44e+04|1 day, 9:40:06|9.97e+02(AD)|t=3|n=4961|a=0.13|e=1.1e-02%|92.35ms/ev|maxl=-22545.24|ETF=0:16:12
+1.44e+04|1 day, 9:41:10|9.97e+02(AD)|t=3|n=4963|a=0.13|e=1.1e-02%|91.34ms/ev|maxl=-22545.24|ETF=0:15:12
+1.44e+04|1 day, 9:42:12|9.97e+02(AD)|t=3|n=4966|a=0.13|e=1.1e-02%|88.28ms/ev|maxl=-22545.24|ETF=0:13:30
+1.44e+04|1 day, 9:43:14|9.97e+02(AD)|t=3|n=4968|a=0.13|e=1.1e-02%|89.35ms/ev|maxl=-22545.24|ETF=0:12:51
+1.44e+04|1 day, 9:44:16|9.97e+02(AD)|t=3|n=4971|a=0.13|e=1.1e-02%|87.78ms/ev|maxl=-22545.24|ETF=0:11:27
+1.44e+04|1 day, 9:45:19|9.97e+02(AD)|t=3|n=4974|a=0.13|e=1.1e-02%|89.83ms/ev|maxl=-22545.24|ETF=0:10:30
+1.44e+04|1 day, 9:46:19|9.97e+02(AD)|t=3|n=4976|a=0.13|e=1.1e-02%|86.51ms/ev|maxl=-22545.24|ETF=0:09:20
+1.44e+04|1 day, 9:47:24|9.97e+02(AD)|t=3|n=4979|a=0.13|e=1.1e-02%|92.32ms/ev|maxl=-22545.24|ETF=0:08:43
+1.44e+04|1 day, 9:48:27|9.97e+02(AD)|t=3|n=4981|a=0.13|e=1.1e-02%|90.80ms/ev|maxl=-22545.24|ETF=0:07:45
+1.45e+04|1 day, 9:49:32|9.97e+02(AD)|t=3|n=4984|a=0.13|e=1.1e-02%|92.47ms/ev|maxl=-22545.24|ETF=0:06:39
+1.45e+04|1 day, 9:50:35|9.97e+02(AD)|t=3|n=4987|a=0.13|e=1.1e-02%|89.52ms/ev|maxl=-22545.24|ETF=0:05:14
+1.45e+04|1 day, 9:51:38|9.97e+02(AD)|t=3|n=4989|a=0.13|e=1.1e-02%|90.60ms/ev|maxl=-22545.24|ETF=0:04:29
+1.45e+04|1 day, 9:52:44|9.97e+02(AD)|t=3|n=4992|a=0.13|e=1.1e-02%|93.52ms/ev|maxl=-22545.24|ETF=0:03:22
+1.45e+04|1 day, 9:53:49|9.97e+02(AD)|t=3|n=4994|a=0.13|e=1.1e-02%|93.35ms/ev|maxl=-22545.24|ETF=0:02:31
+1.45e+04|1 day, 9:54:51|9.97e+02(AD)|t=3|n=4997|a=0.13|e=1.1e-02%|89.23ms/ev|maxl=-22545.24|ETF=0:01:12
+1.45e+04|1 day, 9:55:53|9.97e+02(AD)|t=3|n=5000|a=0.13|e=1.1e-02%|87.84ms/ev|maxl=-22545.24|ETF=0
+18:55 bilby INFO    : Reached convergence: exiting sampling
+18:55 bilby INFO    : Starting to close worker pool.
+18:55 bilby INFO    : Finished closing worker pool.
+18:55 bilby INFO    : Checkpoint start
+18:55 bilby INFO    : Written checkpoint file ../data/nested_sampling//MCMC_small_h_5000_v2_resume.pickle
+18:55 bilby INFO    : Zero-temperature proposals:
+18:55 bilby INFO    : AdaptiveGaussianProposal(acceptance_ratio:0.21,n:4.9e+05,scale:0.064,)
+18:55 bilby INFO    : DifferentialEvolutionProposal(acceptance_ratio:0.13,n:4.9e+05,)
+18:55 bilby INFO    : UniformProposal(acceptance_ratio:1,n:3.9e+03,)
+18:55 bilby INFO    : KDEProposal(acceptance_ratio:0.046,n:4.6e+05,trained:1,)
+18:55 bilby INFO    : Current taus={'omega_gw': 1.7, 'phi0_gw': 2.7, 'psi_gw': 2.3, 'iota_gw': 2.5, 'delta_gw': 2.3, 'alpha_gw': 2.4, 'h': 2.4}
+18:55 bilby INFO    : Temperature swaps = 4832
+18:55 bilby INFO    : Temp:0<->1|beta=1|hot-samp=5000|swap=1.00|conv=False|
+18:55 bilby INFO    : Temp:1<->2|beta=0.8625|hot-samp=5358|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:2<->3|beta=0.7692|hot-samp=6029|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:3<->4|beta=0.6664|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:4<->5|beta=0.5891|hot-samp=5787|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:5<->6|beta=0.5078|hot-samp=6579|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:6<->7|beta=0.45|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:7<->8|beta=0.3967|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:8<->9|beta=0.3453|hot-samp=6029|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:9<->10|beta=0.3083|hot-samp=5564|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:10<->11|beta=0.2678|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:11<->12|beta=0.2338|hot-samp=5359|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:12<->13|beta=0.2062|hot-samp=5359|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:13<->14|beta=0.1833|hot-samp=5166|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:14<->15|beta=0.1599|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:15<->16|beta=0.1389|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:16<->17|beta=0.1242|hot-samp=5358|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:17<->18|beta=0.11|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:18<->19|beta=0.09722|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:19<->20|beta=0.08223|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:20<->21|beta=0.07322|hot-samp=5359|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:21<->22|beta=0.06417|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:22<->23|beta=0.05639|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:23<->24|beta=0.04971|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:24<->25|beta=0.04339|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:25<->26|beta=0.03783|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:26<->27|beta=0.03383|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:27<->28|beta=0.02925|hot-samp=5787|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:28<->29|beta=0.02568|hot-samp=5565|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:29<->30|beta=0.0228|hot-samp=5788|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:30<->31|beta=0.0203|hot-samp=6030|swap=1.00|conv=True|
+18:55 bilby INFO    : Temp:31<->32|beta=0.0175|hot-samp=5788|swap=-|conv=True|
+18:55 bilby INFO    : Creating diagnostic plots
+18:55 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+18:55 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+18:55 bilby INFO    : Checkpoint finished
+18:55 bilby INFO    : Log-evidence of -22150.70+/-63.23 calculated using thermodynamic method
+18:55 bilby INFO    : Log-evidence of -22150.70+/-0.00 calculated using stepping_stone method
+18:55 bilby INFO    : Sampling time: 1 day, 9:55:53.401426
+<frozen importlib._bootstrap>:228: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 88 from C header, got 96 from PyObject
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1374: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  posterior[key] = priors[key].peak
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1401: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  data_frame['log_likelihood'] = getattr(
+/fred/oz022/tkimpson/conda_envs/OzStar/lib/python3.9/site-packages/bilby/core/result.py:1407: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  data_frame['log_prior'] = self.log_prior_evaluations
+18:55 bilby INFO    : Summary of results:
+nsamples: 6750
+ln_noise_evidence:    nan
+ln_evidence: -22150.696 +/-  0.000
+ln_bayes_factor:    nan +/-  0.000
+
