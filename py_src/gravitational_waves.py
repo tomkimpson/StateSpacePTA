@@ -88,7 +88,7 @@ def gw_prefactor_optimised_old(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi
 
 
 #### TRIG FORM
-# @jit(nopython=True)
+@jit(nopython=True)
 def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
      
@@ -114,11 +114,11 @@ def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,ph
         
         little_a = -omega*t + phi0
         little_b = omega*dot_product*d
+        
 
-       
-        blob = np.add.outer(little_a, little_b)
-      
-
+        little_a = little_a.reshape((522,1))
+        little_b = little_b.reshape((1,len(dot_product)))
+        blob = little_a+little_b
 
         trig_block = cos(little_a).reshape((522,1)) - cos(blob)
 

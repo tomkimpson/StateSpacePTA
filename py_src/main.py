@@ -47,9 +47,9 @@ if __name__=="__main__":
     # print("Ideal likelihood = ", model_likelihood)
 
 
-    # #Bilby 
-    # init_parameters, priors = bilby_priors_dict(PTA,P)
-    # BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")
+    #Bilby 
+    init_parameters, priors = bilby_priors_dict(PTA,P)
+    BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")
 
 
 
