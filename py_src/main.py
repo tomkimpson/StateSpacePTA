@@ -43,8 +43,8 @@ if __name__=="__main__":
     print("Ideal likelihood = ", model_likelihood)
    
 
-    # model_likelihood = KF.likelihood(guessed_parameters)
-    # print("Ideal likelihood = ", model_likelihood)
+    model_likelihood = KF.likelihood(guessed_parameters)
+    print("Ideal likelihood = ", model_likelihood)
 
 
     #Bilby 

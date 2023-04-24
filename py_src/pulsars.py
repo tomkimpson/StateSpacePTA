@@ -31,6 +31,7 @@ class Pulsars:
         self.α = pulsars["RAJD"].to_numpy()
         self.q = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
         
+
         #Create a flattened q-vector for optimised calculations later
         self.q_products = np.zeros((len(self.f),9))
         k = 0
@@ -55,10 +56,14 @@ class Pulsars:
 
 def unit_vector(theta,phi):
 
-
     qx = sin(theta) * cos(phi)
     qy = sin(theta) * sin(phi)
     qz = cos(theta)
 
     return np.array([qx, qy, qz]).T
 
+
+
+#def convert_dec_to_theta(dec):
+
+    
