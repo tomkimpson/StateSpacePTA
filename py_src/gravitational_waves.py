@@ -2,7 +2,7 @@ from numpy import sin,cos
 import numpy as np 
 from numba import jit 
 
-
+import sys
 
 
 
@@ -55,7 +55,7 @@ compute the frequency correction factor.
 Returns an object of shape (n times, n pulsars)
 Uses the trigonometric form of the equations
 """
-@jit(nopython=True)
+# @jit(nopython=True)
 def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
      
@@ -78,17 +78,14 @@ def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,ph
         #H_ij q^i q^j
         hbar                = np.dot(Hij_flat,q_products) #length = Npsr
         
-        
         little_a = -omega*t + phi0
         little_b = omega*dot_product*d
-        
-
         little_a = little_a.reshape((522,1))
         little_b = little_b.reshape((1,len(dot_product)))
         blob = little_a+little_b
+    
 
         trig_block = cos(little_a).reshape((522,1)) - cos(blob)
-
         GW_factor = 1 - 0.50*(hbar/dot_product)*trig_block
 
         #h_ij q^i q^j evaluated at Earth
