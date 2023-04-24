@@ -15,8 +15,8 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      ψ =  2.50,        # GW polarisation angle
                      δ =  1.0,         # GW source declination
                      α =  1.0,         # GW source right ascension
-                     hp =  0.013,      # GW plus strain
-                     hx = -0.012,      # GW cross strain
+                     hp =  1.3e-10,      # GW plus strain
+                     hx = -1.2e-10,      # GW cross strain
                      σp = 1e-13,       # process noise standard deviation
                      σm = 1e-10,       # measurement noise standard deviation
                      Npsr = 0          # Number of pulsars to use in PTA. 0 = all

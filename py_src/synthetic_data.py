@@ -46,47 +46,7 @@ class SyntheticData:
                                pulsars.t,
                                P["phi0_gw"]
                                )
-        
-        # #Now calculate the modulation factor due to the GW
-        # modulation_factors1 = gw_prefactor_optimised_exp(
-        #                        P["delta_gw"],
-        #                        P["alpha_gw"],
-        #                        P["psi_gw"],
-        #                        pulsars.q,
-        #                        pulsars.q_products,
-        #                        P["h"],
-        #                        P["iota_gw"],
-        #                        P["omega_gw"],
-        #                        pulsars.d,
-        #                        pulsars.t,
-        #                        P["phi0_gw"]
-        #                        )
-        
-
-        #         #Now calculate the modulation factor due to the GW
-        # modulation_factors2 = gw_prefactor_optimised_trig(
-        #                        P["delta_gw"],
-        #                        P["alpha_gw"],
-        #                        P["psi_gw"],
-        #                        pulsars.q,
-        #                        pulsars.q_products,
-        #                        P["h"],
-        #                        P["iota_gw"],
-        #                        P["omega_gw"],
-        #                        pulsars.d,
-        #                        pulsars.t,
-        #                        P["phi0_gw"]
-        #                        )
-
-
-
-        # print("compare mods")
-        # print(modulation_factors1 == modulation_factors2)
-        # print(modulation_factors1 - modulation_factors2)
-
-
-
-
+     
 
         #The measured frequency, no noise
         f_measured_clean= self.intrinsic_frequency * modulation_factors

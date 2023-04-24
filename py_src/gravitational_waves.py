@@ -112,7 +112,7 @@ gw_prefactor_optimised = gw_prefactor_optimised_trig
 
 @jit(nopython=True)
 def principal_axes(theta,phi,psi):
-
+    
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
     m2 = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta))
     m3 = sin(psi)*sin(theta)

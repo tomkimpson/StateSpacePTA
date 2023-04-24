@@ -165,10 +165,10 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["hp"] = None
-    priors["hp"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'hp')
+    priors["hp"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'hp')
 
     init_parameters["hx"] = None
-    priors["hx"] = bilby.core.prior.Uniform(-2e-3, 0.0, 'hx')
+    priors["hx"] = bilby.core.prior.Uniform(-1e-9, -1e-11, 'hx')
 
 
 
