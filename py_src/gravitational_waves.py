@@ -16,7 +16,7 @@ Returns an object of shape (n times, n pulsars)
 Uses the exponential form of the equations and then selects the real part
 """
 @jit(nopython=True)
-def gw_prefactor_optimised_exp(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def gw_prefactor_optimised_exp(delta,alpha,psi,q,q_products,hp,hx,omega,d,t,phi0):
         
 
         #GW direction axes
@@ -29,7 +29,7 @@ def gw_prefactor_optimised_exp(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi
         e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
 
         #Plus and cross strain amplitudes
-        hp,hx               = h_amplitudes(h,iota) 
+        #hp,hx               = h_amplitudes(h,iota) 
 
         #The 3x3 Hij tensor, which is then flattened
         Hij                 = hp * e_plus + hx * e_cross
@@ -56,7 +56,7 @@ Returns an object of shape (n times, n pulsars)
 Uses the trigonometric form of the equations
 """
 @jit(nopython=True)
-def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,hp,hx,omega,d,t,phi0):
 
      
         m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
@@ -70,7 +70,7 @@ def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,ph
         e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)]) #tensordot might be a bit faster, but list comprehension has JIT support
         e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
 
-        hp,hx               = h_amplitudes(h,iota) 
+        #hp,hx               = h_amplitudes(h,iota) 
         Hij                 = hp * e_plus + hx * e_cross
         Hij_flat            = Hij.flatten()
 
@@ -125,13 +125,13 @@ def principal_axes(theta,phi,psi):
 
     return m,n
 
-@jit(nopython=True)
-def h_amplitudes(h,ι): 
+# @jit(nopython=True)
+# def h_amplitudes(h,ι): 
 
-    hplus = h*(1.0 + cos(ι)**2)
-    hcross = h*(-2.0*cos(ι))
+#     hplus = h*(1.0 + cos(ι)**2)
+#     hcross = h*(-2.0*cos(ι))
 
-    return hplus,hcross
+#     return hplus,hcross
 
 
 

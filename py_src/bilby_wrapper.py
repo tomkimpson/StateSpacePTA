@@ -41,7 +41,6 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
 	  		                    ntemps=32,
                                 nsamples=3000,
                                 resume=True,
-	 		       #burn_in_nact=100,
                                 thin_by_nact=1
 	 		       )
 
