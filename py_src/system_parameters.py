@@ -13,10 +13,10 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      Ω=   5e-7,        # GW angular frequency
                      Φ0 = 0.20,        # GW phase offset at t=0
                      ψ =  2.50,        # GW polarisation angle
+                     ι = 1.0,          # GW source inclination
                      δ =  1.0,         # GW source declination
                      α =  1.0,         # GW source right ascension
-                     hp =  1.3e-10,      # GW plus strain
-                     hx = -1.2e-10,      # GW cross strain
+                     h =  1e-2,        # GW plus strain
                      σp = 1e-13,       # process noise standard deviation
                      σm = 1e-10,       # measurement noise standard deviation
                      Npsr = 0          # Number of pulsars to use in PTA. 0 = all
@@ -29,10 +29,10 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                "omega_gw": NF(Ω),
                "phi0_gw":  NF(Φ0),
                "psi_gw":   NF(ψ),
+               "iota_gw":  NF(ι),
                "delta_gw": NF(δ),
                "alpha_gw": NF(α),
-               "hp":       NF(hp),
-               "hx":       NF(hx),
+               "h":       NF(h),
                "sigma_p":  NF(σp),
                "sigma_m":  NF(σm),
                "Npsr":     Npsr})
