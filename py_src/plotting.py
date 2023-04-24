@@ -100,7 +100,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     print(len(df_posterior))
 
     print("Median values:")
-    print(df_posterior.median())
+    print(df_posterior.median().head(10))
 
     plt.style.use('science')
 
@@ -151,8 +151,9 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
     plt.style.use('science')
     true_parameters = priors_dict(PTA,P)
     true_parameters["sigma_p"] = sigma_p
-    #true_parameters["alpha_gw"] = 2.0
+    #
     
+    print("likelihoods_over_priors")
 
     h,w = 20,12
     rows = 6
@@ -182,7 +183,8 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
         if key in logvalues:
            
             ax.set_xscale('log')
-            #ax.set_yscale('log')
+        
+        ax.set_yscale('log')
 
         #ax.set_yscale('log')
         i+=1
