@@ -165,7 +165,7 @@ def bilby_priors_dict(PTA,P):
 
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.fdot,"fdot",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.d,"distance",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
 
 
