@@ -33,30 +33,31 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     print("RUN THE SAMPLER")
 
 
-    # # result = bilby.run_sampler(likelihood,priors,
-	# #  	               label=label,
-    # #                             outdir=outdir,
-	# #  		       sampler="bilby_mcmc",
-	# #  		       npool=32,
-	# #  		       ntemps=32,
-    # #                           nsamples=500,
-	# # 		       #burn_in_nact=100,
-    # #                             thin_by_nact=1
-	#  		       )
+    result = bilby.run_sampler(likelihood,priors,
+	  	                       label=label,
+                                outdir=outdir,
+	  		                    sampler="bilby_mcmc",
+	  		                    npool=32,
+	  		                    ntemps=32,
+                                nsamples=3000,
+                                resume=True,
+	 		       #burn_in_nact=100,
+                                thin_by_nact=1
+	 		       )
 
-    result = bilby.run_sampler(likelihood, priors, 
-                              label = label,
-                              outdir=outdir,
-                              sampler ='dynesty', #sampler=bilby_mcmc, dynesty
-			                  sample='rwalk',
-                              check_point_plot=False,
-                              npoints=500,
-			                  #logl_max=-23000,
-			                  #walks=200,
-                              dlogz=1e-3,
-			                  #logz=1e-4,
-                              npool=32,
-			                  plot=True,resume=False)
+    # result = bilby.run_sampler(likelihood, priors, 
+    #                           label = label,
+    #                           outdir=outdir,
+    #                           sampler ='dynesty', #sampler=bilby_mcmc, dynesty
+	# 		                  sample='rwalk',
+    #                           check_point_plot=False,
+    #                           npoints=500,
+	# 		                  #logl_max=-23000,
+	# 		                  #walks=200,
+    #                           dlogz=1e-3,
+	# 		                  #logz=1e-4,
+    #                           npool=32,
+	# 		                  plot=True,resume=False)
 
 
 

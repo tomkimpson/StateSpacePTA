@@ -131,7 +131,7 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.Uniform(0.11, 0.35, 'phi0_gw')
+    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'phi0_gw')
     #priors["phi0_gw"] =P["phi0_gw"]
 
     init_parameters["psi_gw"] = None
