@@ -32,15 +32,19 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     # #Run the sampler
     print("RUN THE SAMPLER")
 
-
+    #https://lscsoft.docs.ligo.org/bilby/api/bilby.bilby_mcmc.sampler.Bilby_MCMC.html
     result = bilby.run_sampler(likelihood,priors,
 	  	                       label=label,
                                 outdir=outdir,
 	  		                    sampler="bilby_mcmc",
 	  		                    npool=32,
 	  		                    ntemps=32,
-                                nsamples=3000,
-                                resume=True,
+                                nensemble = 10,
+                                nsamples=1000,
+                                resume=False,
+                                diagnostic=True,
+                                stop_after_convergence=True,
+                                initial_sample_method="maximise",
                                 thin_by_nact=1
 	 		       )
 
