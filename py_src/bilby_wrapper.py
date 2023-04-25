@@ -56,7 +56,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               check_point_plot=False,
                               npoints=1000,
                               walks=100,
-                              bound='single',
+                              #bound='single',
 			                  #logl_max=-23000,
 			                  #walks=400,
                               dlogz=1e-6,
