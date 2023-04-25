@@ -4,7 +4,9 @@
 import numpy as np 
 from gravitational_waves import gw_prefactor_optimised
 
-from numba import jit 
+from numba import jit,config
+from system_parameters import disable_JIT
+config.DISABLE_JIT = disable_JIT
 
 
 
@@ -162,7 +164,7 @@ class KalmanFilter:
 
             #x_results[i,:] = x
             
-        return likelihood/ 35153.018054569664 #/22660.0  #x_results
+        return likelihood
 
       
 

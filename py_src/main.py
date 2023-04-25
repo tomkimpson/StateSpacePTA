@@ -19,6 +19,10 @@ import sys
 
 arg_name = sys.argv[1]
 
+from numba import jit, config
+
+from system_parameters import disable_JIT
+config.DISABLE_JIT = disable_JIT
 
 if __name__=="__main__":
     import multiprocessing
@@ -42,7 +46,7 @@ if __name__=="__main__":
     model_likelihood = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
    
-
+   
     model_likelihood = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
 

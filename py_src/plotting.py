@@ -136,8 +136,10 @@ def iterate_over_priors(variable, variable_range,true_parameters,KF):
     for v in variable_range:
         
         guessed_parameters[variable] = v 
-        model_likelihood,model_state_predictions = KF.likelihood_and_states(guessed_parameters)
+        model_likelihood = KF.likelihood(guessed_parameters)
+        #print(model_likelihood)
         likelihoods[i] = np.abs(model_likelihood)
+        #print(likelihoods[i] )
         i+=1 
 
     return likelihoods
@@ -180,9 +182,9 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
         ax.set_xlabel(key, fontsize = 16)
         ax.axvline(value,linestyle='--', c='C2')
 
-        if key in logvalues:
+        #if key in logvalues:
            
-            ax.set_xscale('log')
+           # ax.set_xscale('log')
         
         ax.set_yscale('log')
 
@@ -196,7 +198,8 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
     title = r"Likelihood Identifiability with $\sigma_p = $" + str(sigma_p)
     fig.suptitle(title, fontsize=20)
 
-   
+    print("setting linear xscale")
+    ax.set_xscale("linear")
     plt.show()
 
 
@@ -215,7 +218,7 @@ def plot_likelihood(x,y):
 
     ax.plot(sorted(x),z)
 
-
+    print("PLOTTING LIKELIHOOD")
     plt.show()
 
 

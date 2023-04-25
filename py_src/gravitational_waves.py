@@ -1,10 +1,11 @@
 from numpy import sin,cos 
 import numpy as np 
-from numba import jit 
+from numba import jit,config 
 
 import sys
 
-
+from system_parameters import disable_JIT
+config.DISABLE_JIT = disable_JIT
 
 
 

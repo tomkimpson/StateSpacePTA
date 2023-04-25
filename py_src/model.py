@@ -1,7 +1,11 @@
 
 
 import numpy as np
-from numba import jit 
+from numba import jit,config
+
+from system_parameters import disable_JIT
+config.DISABLE_JIT = disable_JIT
+
 class LinearModel:
 
     """
