@@ -32,7 +32,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     # #Run the sampler
     print("RUN THE SAMPLER")
 
-    https://lscsoft.docs.ligo.org/bilby/api/bilby.bilby_mcmc.sampler.Bilby_MCMC.html
+   # https://lscsoft.docs.ligo.org/bilby/api/bilby.bilby_mcmc.sampler.Bilby_MCMC.html
     result = bilby.run_sampler(likelihood,priors,
 	  	                       label=label,
                                 outdir=outdir,
