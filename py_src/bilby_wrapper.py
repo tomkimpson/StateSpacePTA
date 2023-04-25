@@ -51,8 +51,8 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     result = bilby.run_sampler(likelihood, priors, 
                               label = label,
                               outdir=outdir,
-                              sampler ='rwalk_dynesty', #sampler=bilby_mcmc, dynesty
-			                  sample='rwalk',
+                              sampler ='dynesty', #sampler=bilby_mcmc, dynesty
+			                  sample='rwalk_dynesty',
                               check_point_plot=False,
                               npoints=500,
 			                  #logl_max=-23000,
