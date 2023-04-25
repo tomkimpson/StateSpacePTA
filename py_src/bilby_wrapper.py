@@ -11,16 +11,16 @@ class BilbyLikelihood(bilby.Likelihood):
         
     def log_likelihood(self):
 
-        try:
+        #try:
             #ll, xres, P = self.model.likelihood(self.parameters)
             ll = self.model.likelihood(self.parameters)
 
-        except np.linalg.LinAlgError:
-            ll= -np.inf
-        if np.isnan(ll):
-            ll = -np.inf
+        #except np.linalg.LinAlgError:
+            #ll= -np.inf
+        #if np.isnan(ll):
+            #ll = -np.inf
 
-        return ll
+        #return ll
             
 
 def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
