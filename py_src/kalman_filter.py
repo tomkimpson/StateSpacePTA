@@ -162,7 +162,7 @@ class KalmanFilter:
 
             #x_results[i,:] = x
             
-        return likelihood  #x_results
+        return likelihood/ 35153.018054569664 #/22660.0  #x_results
 
       
 
