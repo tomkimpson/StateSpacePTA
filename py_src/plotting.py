@@ -138,7 +138,7 @@ def iterate_over_priors(variable, variable_range,true_parameters,KF):
         guessed_parameters[variable] = v 
         model_likelihood = KF.likelihood(guessed_parameters)
         #print(model_likelihood)
-        likelihoods[i] = np.abs(model_likelihood)
+        likelihoods[i] = model_likelihood
         #print(likelihoods[i] )
         i+=1 
 

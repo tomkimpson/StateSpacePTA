@@ -19,8 +19,9 @@ def log_likelihood(S,innovation):
     N = len(x)
     #slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    return -0.5*(innovation @ x + N*np.log(2*np.pi))
-    #return -np.sum(innovation**2)
+    #return -0.5*(innovation @ x + N*np.log(2*np.pi))
+
+    return -np.sum(innovation**2)
 
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
