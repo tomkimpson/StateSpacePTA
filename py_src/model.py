@@ -51,6 +51,6 @@ class LinearModel:
     """
     @jit(nopython=True)
     def R_function(sigma_m):
-        return sigma_m**2
+        return 1.0 #sigma_m**2
      
 

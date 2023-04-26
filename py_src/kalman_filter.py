@@ -2,7 +2,7 @@
 
 
 import numpy as np 
-from gravitational_waves import gw_prefactor_optimised
+from gravitational_waves import gw_model
 
 from numba import jit,config
 from system_parameters import disable_JIT
@@ -127,7 +127,7 @@ class KalmanFilter:
 
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+        modulation_factors = gw_model(parameters["delta_gw"],
                                parameters["alpha_gw"],
                                parameters["psi_gw"],
                                self.q,
@@ -201,7 +201,7 @@ class KalmanFilter:
 
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+        modulation_factors = gw_model(parameters["delta_gw"],
                                parameters["alpha_gw"],
                                parameters["psi_gw"],
                                self.q,
@@ -277,7 +277,7 @@ class KalmanFilter:
       
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = gw_prefactor_optimised(parameters["delta_gw"],
+        modulation_factors = gw_model(parameters["delta_gw"],
                                parameters["alpha_gw"],
                                parameters["psi_gw"],
                                self.q,

@@ -54,8 +54,8 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               sampler ='dynesty', #sampler=bilby_mcmc, dynesty
 			                  sample='rwalk_dynesty',
                               check_point_plot=False,
-                              npoints=1000,
-                              walks=100,
+                              npoints=100,
+                              #walks=100,
                               #bound='single',
 			                  #logl_max=-23000,
 			                  #walks=400,
