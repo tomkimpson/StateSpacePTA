@@ -3,7 +3,7 @@
 import sdeint
 import numpy as np 
 
-from gravitational_waves import gw_prefactor_optimised,gw_prefactor_optimised_exp,gw_prefactor_optimised_trig
+from gravitational_waves import gw_prefactor_optimised,gw_prefactor_optimised_exp,gw_prefactor_optimised_trig,gw_prefactor_optimised_trig2
 class SyntheticData:
     
     
@@ -33,7 +33,7 @@ class SyntheticData:
         self.intrinsic_frequency = sdeint.itoint(f,g,f0, t)
 
         #Now calculate the modulation factor due to the GW
-        modulation_factors = gw_prefactor_optimised(
+        modulation_factors = gw_prefactor_optimised_trig2(
                                P["delta_gw"],
                                P["alpha_gw"],
                                P["psi_gw"],
