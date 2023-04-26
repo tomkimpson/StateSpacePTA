@@ -83,7 +83,7 @@ def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,ph
         little_b = omega*dot_product*d
         little_a = little_a.reshape((522,1))
         little_b = little_b.reshape((1,len(dot_product)))
-        blob = little_a+little_b
+        blob = little_a#+little_b
     
 
         trig_block = cos(little_a).reshape((522,1)) - cos(blob)
