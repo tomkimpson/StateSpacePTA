@@ -161,7 +161,7 @@ def gw_prefactor_optimised_trig_earth(delta,alpha,psi,q,q_products,h,iota,omega,
 
 
 gw_synthetic_data = gw_prefactor_optimised_trig
-gw_model = gw_prefactor_optimised_trig_earth
+gw_model = gw_prefactor_optimised_trig
 
  
 
