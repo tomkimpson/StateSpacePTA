@@ -64,52 +64,20 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors):
 
 
 
-def priors_dict(pulsar_parameters,P):
+def priors_dict(P,data):
 
 
    priors = dict({
-               "omega_gw": P["omega_gw"],
                "phi0_gw":P["phi0_gw"],
-               "psi_gw":P["psi_gw"],
-               "iota_gw":P["iota_gw"],
-               "delta_gw":P["delta_gw"],
-               "alpha_gw":P["alpha_gw"],
-               "h": P["h"]})
-   priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
-   priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
-   priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
+               "Ai":data.Ai,
+               "phase_i":data.phase_i % 2*np.pi})
+  
 
   
    return priors
 
 
 
-"""
-Define the pulsar parameters as being slightly wrong from their true values by a random factor < tol
-"""
-def erroneous_priors_dict(pulsar_parameters,GW_parameters,tol):
-
-
-   priors = dict({
-               "omega_gw": GW_parameters.omega_gw,
-               "phi0_gw":GW_parameters.phi0_gw,
-               "psi_gw":GW_parameters.psi_gw,
-               "iota_gw": GW_parameters.iota_gw,
-               "delta_gw":GW_parameters.delta_gw,
-               "alpha_gw":GW_parameters.alpha_gw,
-               "h": GW_parameters.h})
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.f,"f0",priors,tol)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.fdot,"fdot",priors,tol)
-   priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.gamma,"gamma",priors,tol)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
-
-  
-   return priors
 
 
 

@@ -47,7 +47,7 @@ class KalmanFilter:
 
     """
 
-    def __init__(self,Model, Observations,PTA,Ai,phase_i):
+    def __init__(self,Model, Observations,PTA):
 
         """
         Initialize the class. 
@@ -72,18 +72,17 @@ class KalmanFilter:
         self.sigma_p = PTA.sigma_p
         self.sigma_m = PTA.sigma_m
 
-        self.Ai = Ai 
-        self.phase_i = phase_i
+
 
 
     def update(self,x,P,observation):
 
         #print("This is the update step")
-        hx = self.model.h_function(x)
-        H = self.model.H_function(x)
+        hx = self.model.h_function(x,self.Ai,self.phase_i)
+        H = self.model.H_function(x,self.Ai,self.phase_i)
 
        
-        print(x)
+        #print("x in:", x)
         
         y    = observation - hx
         #print(y)
@@ -108,6 +107,13 @@ class KalmanFilter:
     
         #And get the likelihood
         l = log_likelihood(S,y)
+
+
+        #print("x out:", xnew)
+
+
+        #print("-------------------")
+
         
         return xnew, Pnew,l
 
@@ -130,10 +136,11 @@ class KalmanFilter:
 
 
 
-    def likelihood(self):
+    def likelihood(self,parameters):
         
 
-
+        self.Ai = parameters["Ai"]
+        self.phase_i = parameters["phase_i"]
 
       
         
@@ -147,32 +154,21 @@ class KalmanFilter:
         
 
         #Initialise x and P
-        x = np.zeros(2+3*self.Npsr)
-        x[0] = 0.20 #guess of the initial phase 
-        x[1] = 6e-7 #guess of the omega
+        x = np.zeros(2+self.Npsr)
+        x[0] = parameters["phi0_gw"] #guess of the initial phase 
+        x[1] = 1e-9 # initial guess of the omega
         x[2:2+self.Npsr] = self.observations[0,:]
-        x[2+self.Npsr: 2+self.Npsr+self.Npsr] = self.Ai
-        x[2+self.Npsr+self.Npsr:] = self.phase_i
+        
 
 
-        # for i in range(len(x)):
-        #     print(i, x[i])
-        # sys.exit()
                 
         P = np.eye(len(x)) * self.sigma_p*1e10 #initial uncertainty on the states
-        P[0,0] = 0.00
-        P[1,1] = 1e-7
+        P[0,0] = 1e-10 #0.00 #uncertainty on initial phase
+        P[1,1] = 1e-7 #uncertainty on omega_gw guess
 
         for i in range(self.Npsr):
-            P[2+i,2+i] = 10
+            P[2+i,2+i] = 1e-1 #uncertainty on frequencies
 
-        
-        for i in range(self.Npsr):
-            P[2+self.Npsr,2+self.Npsr+i] = 1e-12
-
-        for i in range(self.Npsr):
-            P[2+self.Npsr+self.Npsr,2+self.Npsr+self.Npsr+i] = 1e-12
-   
 
         #Initialise the likelihood
         likelihood = 0.0
@@ -184,8 +180,6 @@ class KalmanFilter:
         #Place to store results
         x_results = np.zeros((self.Nsteps,len(x)))
         x_results[0,:] = x
-
-
 
 
 

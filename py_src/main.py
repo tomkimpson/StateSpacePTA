@@ -54,14 +54,21 @@ if __name__=="__main__":
     
 
 
+
+
+
+
     # #Initialise the Kalman filter
-    KF = KalmanFilter(model,data.f_measured,PTA,data.Ai, data.phase_i % 2*np.pi)
+    KF = KalmanFilter(model,data.f_measured,PTA)
 
     # # Run the KF once with the correct parameters.
-    #guessed_parameters = priors_dict(PTA,P)
-    model_likelihood,state_predictions = KF.likelihood()
-   
+    guessed_parameters = priors_dict(P,data)
 
+
+
+    model_likelihood,state_predictions = KF.likelihood(guessed_parameters)
+   
+    print("Inferred omega:", state_predictions[-1,1])
 
     import matplotlib.pyplot as plt 
     plt.plot(PTA.t, state_predictions[:,1])
