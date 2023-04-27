@@ -16,7 +16,7 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      ι = 1.0,          # GW source inclination
                      δ =  1.0,         # GW source declination
                      α =  1.0,         # GW source right ascension
-                     h =  1e-6,        # GW plus strain
+                     h =  1e-10,        # GW plus strain
                      σp = 1e-13,       # process noise standard deviation
                      σm = 1e-12,       # measurement noise standard deviation
                      Npsr = 0          # Number of pulsars to use in PTA. 0 = all

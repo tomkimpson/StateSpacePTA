@@ -21,6 +21,20 @@ class BilbyLikelihood(bilby.Likelihood):
             #ll = -np.inf
 
         return ll
+    
+
+    def noise_log_likelihood(self):
+
+        #try:
+            #ll, xres, P = self.model.likelihood(self.parameters)
+        ll = self.model.noise_log_likelihood(self.parameters)
+
+        #except np.linalg.LinAlgError:
+            #ll= -np.inf
+        #if np.isnan(ll):
+            #ll = -np.inf
+
+        return ll
             
 
 def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
@@ -33,36 +47,36 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     print("RUN THE SAMPLER")
 
    # https://lscsoft.docs.ligo.org/bilby/api/bilby.bilby_mcmc.sampler.Bilby_MCMC.html
-    result = bilby.run_sampler(likelihood,priors,
-	  	                       label=label,
-                                outdir=outdir,
-	  		                    sampler="bilby_mcmc",
-	  		                    npool=32,
-	  		                    ntemps=32,
-                                #nensemble = 10,
-                                nsamples=500,
-                                resume=False,
-                                diagnostic=True,
-                                #stop_after_convergence=True,
-                                #initial_sample_method="maximise",
-                                thin_by_nact=1
-	 		       )
+    # result = bilby.run_sampler(likelihood,priors,
+	#   	                       label=label,
+    #                             outdir=outdir,
+	#   		                    sampler="bilby_mcmc",
+	#   		                    npool=32,
+	#   		                    ntemps=32,
+    #                             #nensemble = 10,
+    #                             nsamples=500,
+    #                             resume=False,
+    #                             diagnostic=True,
+    #                             #stop_after_convergence=True,
+    #                             #initial_sample_method="maximise",
+    #                             thin_by_nact=1
+	#  		       )
 
-    # result = bilby.run_sampler(likelihood, priors, 
-    #                           label = label,
-    #                           outdir=outdir,
-    #                           sampler ='dynesty', #sampler=bilby_mcmc, dynesty
-	# 		                  sample='rwalk_dynesty',
-    #                           check_point_plot=False,
-    #                           npoints=1000,
-    #                           walks=100,
-    #                           bound='single',
-	# 		                  #logl_max=-23000,
-	# 		                  #walks=400,
-    #                           dlogz=1e-6,
-	# 		                  #logz=1e-4,
-    #                           npool=32,
-	# 		                  plot=True,resume=False)
+    result = bilby.run_sampler(likelihood, priors, 
+                              label = label,
+                              outdir=outdir,
+                              sampler ='dynesty', #sampler=bilby_mcmc, dynesty
+			                  sample='rwalk_dynesty',
+                              check_point_plot=False,
+                              npoints=1000,
+                              walks=100,
+                              bound='single',
+			                  #logl_max=-23000,
+			                  #walks=400,
+                              dlogz=1e-6,
+			                  #logz=1e-4,
+                              npool=32,
+			                  plot=True,resume=False)
 
 
 
