@@ -83,7 +83,7 @@ class KalmanFilter:
         H = self.model.H_function(x)
 
        
-        #print(x)
+        print(x)
         
         y    = observation - hx
         #print(y)
@@ -148,7 +148,7 @@ class KalmanFilter:
 
         #Initialise x and P
         x = np.zeros(2+3*self.Npsr)
-        x[0] = 0.60 #guess of the intital phase 
+        x[0] = 0.20 #guess of the initial phase 
         x[1] = 6e-7 #guess of the omega
         x[2:2+self.Npsr] = self.observations[0,:]
         x[2+self.Npsr: 2+self.Npsr+self.Npsr] = self.Ai
@@ -160,7 +160,7 @@ class KalmanFilter:
         # sys.exit()
                 
         P = np.eye(len(x)) * self.sigma_p*1e10 #initial uncertainty on the states
-        P[0,0] = 0.10
+        P[0,0] = 0.00
         P[1,1] = 1e-7
 
         for i in range(self.Npsr):

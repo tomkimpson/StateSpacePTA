@@ -48,9 +48,9 @@ if __name__=="__main__":
     #Define the model 
     model = EKF
 
-    print(PTA.f)
-    print(data.Ai)
-    print(data.phase_i)
+    # print(PTA.f)
+    # print(data.Ai)
+    # print(data.phase_i)
     
 
 
