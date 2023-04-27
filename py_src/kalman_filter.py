@@ -17,9 +17,14 @@ The log likelihood, designed for diagonal matrices where S is considered as a ve
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
-    slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
-    return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    #return -0.5*(innovation @ x + N*np.log(2*np.pi))
+    #slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
+    #print("slogdet:", S)
+    #print(np.log(S))
+
+    #print("slogdet:", slogdet)
+    #print("x:", x)
+    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
+    return -0.5*(innovation @ x + N*np.log(2*np.pi))
 
     #return -np.sum(innovation**2)
 
@@ -31,9 +36,12 @@ def update(x, P, observation,R,H):
 
     
     y    = observation - H*x
+   
     S    = H*P*H + R  
     K    = P*H/S 
     xnew = x + K*y
+
+   
 
 
     #Update the covariance 
@@ -57,7 +65,7 @@ Kalman predict step for diagonal matrices where everything is considered as a 1d
 @jit(nopython=True)
 def predict(x,P,F,T,Q): 
     xp = F*x + T 
-    Pp = F*P*F + Q   
+    Pp = F*P*F + Q  
     return xp,Pp
 
 
@@ -146,6 +154,7 @@ class KalmanFilter:
 
         x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
         likelihood +=l
+
 
         #Place to store results
         #x_results = np.zeros((self.Nsteps,self.Npsr))
@@ -248,7 +257,7 @@ class KalmanFilter:
     
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr,dtype=self.NF) * parameters["sigma_m"]*1e10 
+        P = np.ones(self.Npsr,dtype=self.NF) * 0.10 #parameters["sigma_m"]*1e10 
 
     
 
@@ -279,7 +288,8 @@ class KalmanFilter:
         x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
         likelihood +=l
 
-  
+       
+
         #Place to store results
         x_results = np.zeros((self.Nsteps,self.Npsr),dtype=self.NF)
         x_results[0,:] = x
@@ -294,7 +304,10 @@ class KalmanFilter:
             obs = self.observations[i,:]
            
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
+           
+
             x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:])
+            
             likelihood +=l
 
             x_results[i,:] = x
