@@ -24,7 +24,7 @@ true_value_2= float(sys.argv[4])
 
 
 
-container = np.load(f"../data/{p1}_{p2}_surface_data2.npz")
+container = np.load(f"../data/{p1}_{p2}_surface_data_large_h_normalised.npz")
 
 
 data_dict = {name: container[name] for name in container}
@@ -40,16 +40,21 @@ Z = z
 
 
 
-
+print("Likelihood variance: ", np.var(z))
+print("Likelihood max:", np.max(z))
+print("Likelihood min:", np.min(z))
+print("Likelihood max - min:", np.max(z) - np.min(z))
 
 
 fig = plt.figure(figsize=(12, 8))
 ax = fig.add_subplot(111, projection='3d')
 ax.plot_surface(X, Y, Z.T, cmap='viridis', alpha=0.6)
 #ax.scatter(X, Y, Z.T, color='black', alpha=0.5, linewidths=1)
-#ax.set(xlabel='$omega$', ylabel='$delta$')
+ax.set(xlabel=p1, ylabel=p2,zlabel="Log L")
 #ax.set_zlabel('$f(y_1, y_2)$', labelpad=10)
 
 ax.scatter(true_value_2,true_value_1,np.max(Z),c='r',s=100)
+
+#ax.set_zlim(-1e24,50000)
 
 plt.show()
