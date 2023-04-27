@@ -193,23 +193,8 @@ class KalmanFilter:
 
        
      
-
-        #Precompute the influence of the GW
-        #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = gw_model(parameters["delta_gw"],
-                               parameters["alpha_gw"],
-                               parameters["psi_gw"],
-                               self.q,
-                               self.q_products,
-                               parameters["h"],
-                               parameters["iota_gw"],
-                               parameters["omega_gw"],
-                               d,
-                               self.t,
-                               parameters["phi0_gw"]
-                               )
         
-        modulation_factors = np.ones_like(modulation_factors) #the modulation factor is now just unity
+        modulation_factors = np.ones((len(self.t),self.Npsr)) #the modulation factor is now just unity
 
         #Initialise the likelihood
         likelihood = 0.0
