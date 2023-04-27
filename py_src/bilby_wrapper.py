@@ -23,18 +23,18 @@ class BilbyLikelihood(bilby.Likelihood):
         return ll
     
 
-    def noise_log_likelihood(self):
+    # def noise_log_likelihood(self):
 
-        #try:
-            #ll, xres, P = self.model.likelihood(self.parameters)
-        ll = self.model.noise_log_likelihood(self.parameters)
+    #     #try:
+    #         #ll, xres, P = self.model.likelihood(self.parameters)
+    #     ll = self.model.noise_log_likelihood(self.parameters)
 
-        #except np.linalg.LinAlgError:
-            #ll= -np.inf
-        #if np.isnan(ll):
-            #ll = -np.inf
+    #     #except np.linalg.LinAlgError:
+    #         #ll= -np.inf
+    #     #if np.isnan(ll):
+    #         #ll = -np.inf
 
-        return ll
+    #     return ll
             
 
 def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
