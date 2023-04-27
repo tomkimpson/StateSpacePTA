@@ -87,6 +87,7 @@ class KalmanFilter:
         y    = observation - hx
         #print(y)
         S    = H@P@H.T + self.R  
+       
         K    = P@H.T@np.linalg.inv(S) 
 
         xnew = x + K@y
