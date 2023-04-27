@@ -3,7 +3,11 @@
 import sdeint
 import numpy as np 
 
-from gravitational_waves import gw_synthetic_data
+from gravitational_waves import compute_prefactors,gw_modulation
+
+
+
+import sys
 class SyntheticData:
     
     
@@ -32,21 +36,18 @@ class SyntheticData:
        
         self.intrinsic_frequency = sdeint.itoint(f,g,f0, t)
 
-        #Now calculate the modulation factor due to the GW
-        modulation_factors = gw_synthetic_data(
-                               P["delta_gw"],
-                               P["alpha_gw"],
-                               P["psi_gw"],
-                               pulsars.q,
-                               pulsars.q_products,
-                               P["h"],
-                               P["iota_gw"],
-                               P["omega_gw"],
-                               pulsars.d,
-                               pulsars.t,
-                               P["phi0_gw"]
-                               )
-     
+
+
+        self.Ai, self.phase_i = compute_prefactors(P["omega_gw"],P["delta_gw"],P["alpha_gw"],P["psi_gw"],P["h"], P["iota_gw"],pulsars.q,pulsars.q_products,pulsars.d)
+
+      
+    
+        modulation_factors = np.zeros((len(t),Npsr))
+        for i in range(len(t)):
+            gw_phase = P["omega_gw"]*t[i] + P["phi0_gw"]
+            modulation_factors[i,:] = gw_modulation(self.Ai,gw_phase,self.phase_i)
+
+       
 
         #The measured frequency, no noise
         f_measured_clean= self.intrinsic_frequency * modulation_factors

@@ -5,7 +5,7 @@ import numpy as np
 import json
 import pandas as pd 
 import corner
-import scienceplots
+#import scienceplots
 
 def plot_statespace(t,states,measurements,psr_index):
 
@@ -27,6 +27,20 @@ def plot_statespace(t,states,measurements,psr_index):
     ax2.plot(tplot,measurement_i)
     plt.show()
 
+
+
+def plot_measurement(t,measurements,psr_index):
+    tplot = t / (365*24*3600)
+    
+    measurement_i = measurements[:,psr_index]
+
+    h,w = 12,8
+    rows = 1
+    cols = 1
+    fig, ax1 = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=True)
+
+    ax1.plot(tplot,measurement_i)
+    plt.show()
 
 
 
