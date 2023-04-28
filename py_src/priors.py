@@ -90,17 +90,17 @@ def priors_dict(pulsar_parameters,P):
 """
 Define the pulsar parameters as being slightly wrong from their true values by a random factor < tol
 """
-def erroneous_priors_dict(pulsar_parameters,GW_parameters,tol):
+def erroneous_priors_dict(pulsar_parameters,P,tol):
 
 
    priors = dict({
-               "omega_gw": GW_parameters.omega_gw,
-               "phi0_gw":GW_parameters.phi0_gw,
-               "psi_gw":GW_parameters.psi_gw,
-               "iota_gw": GW_parameters.iota_gw,
-               "delta_gw":GW_parameters.delta_gw,
-               "alpha_gw":GW_parameters.alpha_gw,
-               "h": GW_parameters.h})
+               "omega_gw": P["omega_gw"]*tol,
+               "phi0_gw":P["phi0_gw"]*tol,
+               "psi_gw":P["psi_gw"],
+               "iota_gw":P["iota_gw"]*tol,
+               "delta_gw":P["delta_gw"],
+               "alpha_gw":P["alpha_gw"]*tol,
+               "h": P["h"]})
    priors = add_to_priors_dict_erroneous(pulsar_parameters.f,"f0",priors,tol)
    priors = add_to_priors_dict_erroneous(pulsar_parameters.fdot,"fdot",priors,tol)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
@@ -140,19 +140,19 @@ def bilby_priors_dict(PTA,P):
     #priors["psi_gw"] =P["psi_gw"]
 
     init_parameters["iota_gw"] = None
-    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-    #priors["iota_gw"] = P["iota_gw"]
+    #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+    priors["iota_gw"] = P["iota_gw"]
 
 
     init_parameters["delta_gw"] = None
     #priors["delta_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'delta_gw')
-    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-    #priors["delta_gw"] = P["delta_gw"]
+    #priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+    priors["delta_gw"] = P["delta_gw"]
 
 
     init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
-    #priors["alpha_gw"] = P["alpha_gw"]
+    #priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+    priors["alpha_gw"] = P["alpha_gw"]
 
 
     init_parameters["h"] = None

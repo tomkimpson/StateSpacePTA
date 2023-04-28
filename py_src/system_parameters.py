@@ -16,9 +16,9 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      ι = 1.0,          # GW source inclination
                      δ =  1.0,         # GW source declination
                      α =  1.0,         # GW source right ascension
-                     h =  1e-10,        # GW plus strain
-                     σp = 0.0,       # process noise standard deviation
-                     σm = 1e-13,       # measurement noise standard deviation
+                     h =  1e-2,        # GW plus strain
+                     σp = 1e-13,       # process noise standard deviation
+                     σm = 0.0,       # measurement noise standard deviation
                      Npsr = 0          # Number of pulsars to use in PTA. 0 = all
                      ): 
 
@@ -32,7 +32,7 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                "iota_gw":  NF(ι),
                "delta_gw": NF(δ),
                "alpha_gw": NF(α),
-               "h":       NF(h),
+               "h":        NF(h),
                "sigma_p":  NF(σp),
                "sigma_m":  NF(σm),
                "Npsr":     Npsr})

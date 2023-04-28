@@ -43,7 +43,7 @@ class LinearModel:
     """
     @jit(nopython=True)
     def Q_function(gamma,sigma_p,dt):
-        return -sigma_p**2 #* (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
+        return -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
      
 
     """

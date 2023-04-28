@@ -66,7 +66,7 @@ def gw_prefactor_optimised_trig(delta,alpha,psi,q,q_products,h,iota,omega,d,t,ph
         dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
 
 
-
+        #print("THE GW STRAIN = ", h)
 
         e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)]) #tensordot might be a bit faster, but list comprehension has JIT support
         e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
@@ -160,8 +160,8 @@ def gw_prefactor_optimised_trig_earth(delta,alpha,psi,q,q_products,h,iota,omega,
 
 
 
-gw_synthetic_data = gw_prefactor_optimised_trig_earth
-gw_model = gw_prefactor_optimised_trig_earth
+gw_synthetic_data = gw_prefactor_optimised_trig#_earth
+gw_model = gw_prefactor_optimised_trig#_earth
 
  
 

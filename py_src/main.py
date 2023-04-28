@@ -10,7 +10,7 @@ from synthetic_data import SyntheticData
 from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
-from priors import priors_dict,bilby_priors_dict
+from priors import priors_dict,bilby_priors_dict,erroneous_priors_dict
 from bilby_wrapper import BilbyLikelihood
 
 import numpy as np
@@ -29,7 +29,7 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters(Npsr=1)       #define the system parameters as a class
+    P   = SystemParameters(h=1e-10)       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
     data = SyntheticData(PTA,P) #generate some synthetic data
     
@@ -40,15 +40,24 @@ if __name__=="__main__":
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA)
 
-    # Run the KF once with the correct parameters.
-    # This allows JIT precompile
+
+
+    # #np.save("small_h_data_for_joe", data.f_measured)
+
+    # f_measured = np.load("large_h_data_for_joe.npy")
+    # print(f_measured.shape)
+    # sys.exit()
+
+    #Run the KF once with the correct parameters.
+    #This allows JIT precompile
     guessed_parameters = priors_dict(PTA,P)
     model_likelihood = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
    
    
-    model_likelihood = KF.likelihood(guessed_parameters)
-    print("Ideal likelihood = ", model_likelihood)
+    wrong_parameters = erroneous_priors_dict(PTA,P,1e-1)
+    model_likelihood = KF.likelihood(wrong_parameters)
+    print("Wrong likelihood = ", model_likelihood)
 
 
     #Bilby 

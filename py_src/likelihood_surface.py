@@ -55,6 +55,6 @@ ax.set(xlabel=p1, ylabel=p2,zlabel="Log L")
 
 ax.scatter(true_value_2,true_value_1,np.max(Z),c='r',s=100)
 
-#ax.set_zlim(-1e24,50000)
+#ax.set_zlim(-4e18,1.0)
 
 plt.show()

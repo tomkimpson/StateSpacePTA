@@ -23,8 +23,9 @@ def log_likelihood(S,innovation):
 
     #print("slogdet:", slogdet)
     #print("x:", x)
-    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    return -0.5*(innovation @ x + N*np.log(2*np.pi))
+    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))*1e18
+    #return -0.5*(innovation @ x + N*np.log(2*np.pi))#*1e16
+    return -np.log(np.abs(innovation @ innovation))
 
     #return -np.sum(innovation**2)
 
@@ -36,12 +37,21 @@ def update(x, P, observation,R,H):
 
     
     y    = observation - H*x
-   
+
+
+    #print("innovation  ", y)
+
+    #print(y)
+    #print(H[0])
+    #print(P)
+    #print(R)
     S    = H*P*H + R  
     K    = P*H/S 
     xnew = x + K*y
 
    
+    #print("S = ", S)
+    #print("---------------------------------")
 
 
     #Update the covariance 
@@ -128,7 +138,7 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
+        P = np.ones(self.Npsr) * 0.10 #parameters["sigma_m"]*1e10 
 
        
      
@@ -165,6 +175,8 @@ class KalmanFilter:
 
 
         for i in np.arange(1,self.Nsteps):
+        #for i in np.arange(1,3):
+
             
             obs = self.observations[i,:]
            
