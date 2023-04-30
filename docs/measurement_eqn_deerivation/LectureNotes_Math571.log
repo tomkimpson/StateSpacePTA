@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  30 APR 2023 13:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  1 MAY 2023 08:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1442,7 +1442,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.198 \end{equation}
+l.195 \end{equation}
                      [3]
 
 LaTeX Warning: Marginpar on page  moved.
@@ -1451,8 +1451,8 @@ LaTeX Warning: Marginpar on page  moved.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.243 \end{equation}
-                     [4]
+l.240 \begin{equation}
+                       [4]
 
 LaTeX Warning: Marginpar on page  moved.
 
@@ -1462,6 +1462,17 @@ Overfull \hbox (105.64714pt too wide) detected at line 264
  []
 
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.274 \end{equation}
+                     [5]
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.327 \end{equation}
+                     [6]
+
 Package bibentry Warning: You have used \nobibliography* 
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
@@ -1470,27 +1481,27 @@ Package bibentry Warning: You have used \nobibliography*
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.285 \end{document}
-                     [5] (./LectureNotes_Math571.aux)
+l.342 \end{document}
+                     [7] (./LectureNotes_Math571.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `LectureNotes_Math571.out' has not changed.
-(rerunfilecheck)             Checksum: C84B76D390000A2D32484DE3053C814D;402.
+(rerunfilecheck)             Checksum: C5D1600B69FEBBB4519376C65020F3C8;619.
  ) 
 Here is how much of TeX's memory you used:
- 32146 strings out of 478268
- 606379 string characters out of 5846348
- 1005761 words of memory out of 5000000
- 49402 multiletter control sequences out of 15000+600000
- 541320 words of font info for 290 fonts, out of 8000000 for 9000
+ 32194 strings out of 478268
+ 606888 string characters out of 5846348
+ 1008057 words of memory out of 5000000
+ 49408 multiletter control sequences out of 15000+600000
+ 544286 words of font info for 311 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,12n,117p,1087b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on LectureNotes_Math571.pdf (5 pages, 151964 bytes).
+Output written on LectureNotes_Math571.pdf (7 pages, 161987 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
- 50 named destinations out of 1000 (max. 500000)
- 92189 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 204 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 92197 words of extra memory for PDF output out of 106986 (max. 10000000)
 

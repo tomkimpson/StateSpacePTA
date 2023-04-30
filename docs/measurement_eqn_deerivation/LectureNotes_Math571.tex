@@ -266,13 +266,70 @@ where $\bar{\theta}$ is a set of parameters of the system. Lets write this in te
 
 
 
-
-
-
-
-
-
-
+\section{Discretization of state equations}
+We will take as our model of the intrinsic pulsar frequency $f$ a variation of the phenomenological model of Vargas \& Melatos. Within this model, $f$ evolves according to a combination of both deterministic torques (i.e. electromagnetic spin-down) and stochastic torques (i.e. `spin wandering', achromatic variations in the pulse TOA intrinsic to the star). The deterministic torque is taken to arise from the pulsar magnetic dipole, with braking index $n=3$ whilst the stochastic torque is a simple white noise process. Specifically, the frequency evolves according to a Ornstein-Uhlenbeck process (equivalently a Langevin equation) with a time-dependent drift parameter:
+\begin{equation}
+	\frac{df}{dt} = -\gamma	 [f - f_{\rm EM} (t)] + \dot{f}_{\rm EM} + \xi(t)
+	\label{eq:frequency_evolution}
+\end{equation}
+where $f_{\rm EM}$ is the solution of the electromagnetic spindown equation,$\dot{f}_{\rm EM}$ is the spin derivative, $\gamma$ a proportionality constant that specifies the mean-reversion timescale, and $\xi(t)$ a white noise process that satisfies,
+\begin{equation}
+	\langle \xi(t) \xi(t') \rangle = \sigma^2 \delta(t - t')
+\end{equation}
+for variance $\sigma^2$. For PTA analysis, we are concerned with timescales on the order of years. Consequently, we can express the EM spindown straightforwardly as
+\begin{equation}
+	f_{\rm EM} (t) = f_{\rm EM}(0) + \dot{f}_{\rm EM} (0)t
+\end{equation}  
+Completely, the frequency evolution is then given by the solution of the stochastic differential equation,
+\begin{equation}
+	\frac{df}{dt} = -\gamma	 [f - f_{\rm EM}(0) - \dot{f}_{\rm EM} (0)t] + \dot{f}_{\rm EM} (0) + \xi(t)
+	\label{eq:frequency_evolution_expanded}
+\end{equation}
+We can express the intrinsic frequency evolution, Eq. \ref{eq:frequency_evolution_expanded}, in a alternative form as,
+\begin{equation}
+	df = \mathcal{A} f dt + N(t) dt + \sigma dB(t)
+	\label{eq:state1}
+\end{equation}
+where $\mathcal{A} = -\gamma$, $N(t) = \gamma(f_{\rm EM}(0) + \dot{f}_{\rm EM}(0) t) +\dot{f}_{\rm EM}(0)$ and $dB(t)$ denotes increments of Brownian motion (Wiener process). This equation is easily identified as an Ornstein-Uhlenbeck process which has a general solution given by,
+\begin{equation}
+	f(t) = e^{\mathcal{A}t}f(0) + \int_0^t e^{\mathcal{A}(t-t')} N(t') dt' + \int_0^t e^{\mathcal{A}(t-t')} \sigma dB(t')
+\end{equation} 
+If we move from a solution in continuous time to discrete time then
+\begin{equation}
+	f(t_{i+1}) = F_i f(t_i) + T_i + \eta_i
+\end{equation}
+where
+\begin{equation}
+	F_i = e^{A (t_{i+1} - t_i)}
+\end{equation}
+\begin{equation}
+	T_i = \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} N(t') dt'
+\end{equation}
+\begin{equation}
+	\eta_i = \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} \sigma dt'
+\end{equation}
+\noindent  If we specialize to the case of constant time sampling between our observations, $\Delta t$, then for our formulation the components that make up the Kalman filter are as follows: 
+\begin{equation}
+	F_i = F_{i+1} = e^{-\gamma \Delta t}
+	\label{eq:fmatrix}
+\end{equation}
+\begin{align}
+	T_i &= \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} N(t') dt' \\
+	& = f_{\rm EM}(0) + \dot{f}_{\rm EM}(0)  (\Delta t + t_i) - e^{-\gamma \Delta t} (f_{\rm EM}(0) + \dot{f}_{\rm EM}(0)t_i)
+\end{align}
+whilst the discrete process noise matrix is
+\begin{equation}
+	Q_i  \delta_{ij}= \langle \eta_i \eta_j^T \rangle = \frac{- \sigma^2}{2 \gamma} \left( e^{-2 \gamma \Delta t} -1\right)
+\end{equation}
+At this point we can also specify our measurement matrix from Eq \ref{eq:measureent}
+\begin{equation}
+	H_i = g(t_i; \bar{\theta})
+\end{equation}
+and the measurement noise matrix 
+\begin{equation}
+	R_i = R_{i+1} = \Sigma^2
+	\label{eq:rmatix}
+\end{equation}
 
 
 

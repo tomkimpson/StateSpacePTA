@@ -1,11 +1,11 @@
 # Fdb version 3
-["bibtex LectureNotes_Math571"] 1682823998 "LectureNotes_Math571.aux" "LectureNotes_Math571.bbl" "LectureNotes_Math571" 1682824257
-  "LectureNotes_Math571.aux" 1682824257 2131 09b323c0a52be798df7cbace800b6af8 "pdflatex"
+["bibtex LectureNotes_Math571"] 1682892450 "LectureNotes_Math571.aux" "LectureNotes_Math571.bbl" "LectureNotes_Math571" 1682892452
+  "LectureNotes_Math571.aux" 1682892452 2701 afe8cb7101795f23ae2d28ecd322c89b "pdflatex"
   (generated)
   "LectureNotes_Math571.bbl"
   "LectureNotes_Math571.blg"
-["pdflatex"] 1682824255 "/Users/t1/github_repos/StateSpacePTA/docs/measurement_eqn_deerivation/LectureNotes_Math571.tex" "LectureNotes_Math571.pdf" "LectureNotes_Math571" 1682824257
-  "/Users/t1/github_repos/StateSpacePTA/docs/measurement_eqn_deerivation/LectureNotes_Math571.tex" 1682824254 13344 dcca0bedcaf1377ecfada97be3d09d31 ""
+["pdflatex"] 1682892450 "/Users/t1/github_repos/StateSpacePTA/docs/measurement_eqn_deerivation/LectureNotes_Math571.tex" "LectureNotes_Math571.pdf" "LectureNotes_Math571" 1682892452
+  "/Users/t1/github_repos/StateSpacePTA/docs/measurement_eqn_deerivation/LectureNotes_Math571.tex" 1682892439 17067 282bf406b4eb6387b95c63312129f16f ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -257,11 +257,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651583895 2826439 4a940b04d36128448ce90d50481cbcbe ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "LectureNotes_Math571.aux" 1682824257 2131 09b323c0a52be798df7cbace800b6af8 "pdflatex"
+  "LectureNotes_Math571.aux" 1682892452 2701 afe8cb7101795f23ae2d28ecd322c89b "pdflatex"
   "LectureNotes_Math571.bbl" 0 -1 0 "bibtex LectureNotes_Math571"
-  "LectureNotes_Math571.out" 1682824257 402 c84b76d390000a2d32484de3053c814d "pdflatex"
-  "LectureNotes_Math571.tex" 1682824254 13344 dcca0bedcaf1377ecfada97be3d09d31 ""
-  "LectureNotes_Math571.toc" 1682824257 759 e9a09a9845c7835b16fda51e1c61a0e5 "pdflatex"
+  "LectureNotes_Math571.out" 1682892452 619 c5d1600b69febbb4519376c65020f3c8 "pdflatex"
+  "LectureNotes_Math571.tex" 1682892439 17067 282bf406b4eb6387b95c63312129f16f ""
+  "LectureNotes_Math571.toc" 1682892452 847 ec71f72652e84ab6f4eaf3a5c0666e7b "pdflatex"
   (generated)
   "LectureNotes_Math571.aux"
   "LectureNotes_Math571.log"

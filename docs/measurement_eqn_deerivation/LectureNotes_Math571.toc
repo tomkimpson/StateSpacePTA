@@ -7,4 +7,5 @@
 \contentsline {subsection}{\numberline {2.4}Explicit expression and comparison with Melatos 22}{}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}The $\Phi _0$ issue}{}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Trigonometric form}{}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Discretization of state equations}{}{section.3}%
 \contentsfinish 
