@@ -37,16 +37,22 @@ if __name__=="__main__":
     #Define the model 
     model = LinearModel
 
+
+    #Scale the data
+    print(data.f_measured.shape)
+    print(PTA.f.shape)
+
+
+    scaled_measurement_data = data.f_measured / PTA.f
+    
+
+    
+
+
+
     #Initialise the Kalman filter
-    KF = KalmanFilter(model,data.f_measured,PTA)
+    KF = KalmanFilter(model,scaled_measurement_data,PTA)
 
-
-
-    # #np.save("small_h_data_for_joe", data.f_measured)
-
-    # f_measured = np.load("large_h_data_for_joe.npy")
-    # print(f_measured.shape)
-    # sys.exit()
 
     #Run the KF once with the correct parameters.
     #This allows JIT precompile
@@ -54,10 +60,11 @@ if __name__=="__main__":
     model_likelihood = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
    
-   
-    wrong_parameters = erroneous_priors_dict(PTA,P,1e-1)
-    model_likelihood = KF.likelihood(wrong_parameters)
-    print("Wrong likelihood = ", model_likelihood)
+    # from plotting import plot_all
+    # plot_all(PTA.t, data.intrinsic_frequency / PTA.f, scaled_measurement_data, model_state_predictions, 1,savefig=None)
+    # wrong_parameters = erroneous_priors_dict(PTA,P,1e-1)
+    # model_likelihood = KF.likelihood(wrong_parameters)
+    # print("Wrong likelihood = ", model_likelihood)
 
 
     #Bilby 

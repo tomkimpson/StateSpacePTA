@@ -17,16 +17,10 @@ The log likelihood, designed for diagonal matrices where S is considered as a ve
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
-    #slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
-    #print("slogdet:", S)
-    #print(np.log(S))
-
-    #print("slogdet:", slogdet)
-    #print("x:", x)
-    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))*1e18
-    #return -0.5*(innovation @ x + N*np.log(2*np.pi))#*1e16
+    slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
+    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
+    
     return -np.log(np.abs(innovation @ innovation))
-
     #return -np.sum(innovation**2)
 
 """
@@ -38,13 +32,6 @@ def update(x, P, observation,R,H):
     
     y    = observation - H*x
 
-
-    #print("innovation  ", y)
-
-    #print(y)
-    #print(H[0])
-    #print(P)
-    #print(R)
     S    = H*P*H + R  
     K    = P*H/S 
     xnew = x + K*y
@@ -130,8 +117,8 @@ class KalmanFilter:
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
-        Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt)
-        R = self.model.R_function(parameters["sigma_m"])
+        Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt,f)
+        R = self.model.R_function(parameters["sigma_m"],f)
         F = self.model.F_function(gamma,self.dt)
         T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
@@ -167,8 +154,8 @@ class KalmanFilter:
 
 
         #Place to store results
-        #x_results = np.zeros((self.Nsteps,self.Npsr))
-        #x_results[0,:] = x
+        x_results = np.zeros((self.Nsteps,self.Npsr))
+        x_results[0,:] = x
 
 
 
@@ -184,9 +171,9 @@ class KalmanFilter:
             x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:])
             likelihood +=l
 
-            #x_results[i,:] = x
+            x_results[i,:] = x
             
-        return likelihood
+        return likelihood#,x_results
 
       
 
