@@ -22,7 +22,7 @@ with open('slurm.sh','w') as g:
 
     g.write("source ~/.bashrc \n")
     g.write("conda activate OzStar \n")
-    g.write(f"python main.py {arg_name}")
+    g.write(f"time python main.py {arg_name}")
     
     
     
