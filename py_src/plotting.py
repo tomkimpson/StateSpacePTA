@@ -31,27 +31,45 @@ def plot_statespace(t,states,measurements,psr_index):
 
 
 
-def plot_all(t,states,measurements,predictions,psr_index,savefig=None):
+def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')
 
     tplot = t / (365*24*3600)
     state_i = states[:,psr_index]
     measurement_i = measurements[:,psr_index]
-    prediction_i = predictions[:,psr_index]
+    prediction_i = predictions_x[:,psr_index]
+
 
 
     h,w = 12,8
-    rows = 2
+    rows = 4
     cols = 1
-    fig, (ax1,ax2) = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=True)
+    fig, (ax1,ax2,ax3,ax4) = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
 
     ax1.plot(tplot,state_i,label='state')
     ax1.plot(tplot,prediction_i,label = 'prediction')
-    ax2.plot(tplot,measurement_i,c='C2')
+    ax2.plot(tplot,measurement_i,label="measurement",c="C3")
 
+
+    try:
+        prediction_i_y = predictions_y[:,psr_index]
+        ax2.plot(tplot,prediction_i_y,label="prediction",c="C4")
+
+        #Residuals
+        residuals = prediction_i_y-measurement_i
+        ax3.plot(tplot,residuals)
+
+        print("Mean residual:", np.mean(residuals))
+        ax4.hist(residuals,bins=50)
+
+    except:
+        print("Exception")
+        pass 
 
     ax1.legend()
+    ax2.legend()
+
 
     fs=18
     ax2.set_xlabel('t [years]', fontsize=fs)
@@ -136,7 +154,7 @@ def iterate_over_priors(variable, variable_range,true_parameters,KF):
     for v in variable_range:
         
         guessed_parameters[variable] = v 
-        model_likelihood = KF.likelihood(guessed_parameters)
+        model_likelihood,xres,yres = KF.likelihood(guessed_parameters)
         #print(model_likelihood)
         likelihoods[i] = model_likelihood
         #print(likelihoods[i] )

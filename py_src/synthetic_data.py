@@ -53,5 +53,6 @@ class SyntheticData:
 
         #...and now add some mean zero Gaussian noise
         measurement_noise = np.random.normal(0, pulsars.sigma_m,f_measured_clean.shape) # Measurement noise
+        #print("The measurement noise is:", measurement_noise)
         self.f_measured = f_measured_clean + measurement_noise
 

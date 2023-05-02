@@ -29,7 +29,7 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters(h=1e-12,Npsr=20)       #define the system parameters as a class
+    P   = SystemParameters(h=1e-10,σm=1e-12,Npsr=20)       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
     data = SyntheticData(PTA,P) #generate some synthetic data
     
@@ -39,12 +39,12 @@ if __name__=="__main__":
 
 
     #Scale the data
-    print(data.f_measured.shape)
-    print(PTA.f.shape)
+    #print(data.f_measured.shape)
+    #print(PTA.f.shape)
 
 
-    scaled_measurement_data = data.f_measured / PTA.f
-    scaled_measurement_data = data.f_measured / PTA.f
+    #scaled_measurement_data = data.f_measured / PTA.f
+    #scaled_measurement_data = data.f_measured / PTA.f
 
 
     
@@ -52,7 +52,7 @@ if __name__=="__main__":
 
 
     #Initialise the Kalman filter
-    KF = KalmanFilter(model,scaled_measurement_data,PTA)
+    KF = KalmanFilter(model,data.f_measured,PTA)
 
 
     #Run the KF once with the correct parameters.

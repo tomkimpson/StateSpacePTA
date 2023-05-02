@@ -13,7 +13,7 @@ class BilbyLikelihood(bilby.Likelihood):
 
         #try:
             #ll, xres, P = self.model.likelihood(self.parameters)
-        ll = self.model.likelihood(self.parameters)
+        ll,xres,yres = self.model.likelihood(self.parameters)
 
         #except np.linalg.LinAlgError:
             #ll= -np.inf

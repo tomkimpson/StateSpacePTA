@@ -2,7 +2,7 @@
 
 import numpy as np 
 
-
+σm=1e-8
 """
 Function that returns a dict of parameters which define the system
 """
@@ -18,7 +18,7 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      α =  1.0,         # GW source right ascension
                      h =  1e-2,        # GW plus strain
                      σp = 1e-13,       # process noise standard deviation
-                     σm = 0.0,       # measurement noise standard deviation
+                     σm = 1e-8,        # measurement noise standard deviation
                      Npsr = 0          # Number of pulsars to use in PTA. 0 = all
                      ): 
 
@@ -43,4 +43,4 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
 
 
 
-disable_JIT = False 
+disable_JIT = True 

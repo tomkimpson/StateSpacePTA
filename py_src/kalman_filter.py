@@ -18,10 +18,32 @@ def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
-    #return -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    
-    return -np.log(np.abs(innovation @ innovation))
+    value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
+    return value
+    #return -np.log(np.abs(value))
+    #return -np.log(np.abs(innovation @ innovation))
     #return -np.sum(innovation**2)
+
+
+# def log_likelihood(obs,p,S):
+
+
+#     N = len(obs)
+
+#     lx = np.log(obs)
+
+#     inn = lx - p 
+#     xx = inn / S 
+
+#     #value = -0.5*(2*np.sum(lx) + inn @ inn )
+
+
+#     value = -inn @ inn
+
+#     return value 
+
+
+
 
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
@@ -37,10 +59,6 @@ def update(x, P, observation,R,H):
     xnew = x + K*y
 
    
-    #print("S = ", S)
-    #print("---------------------------------")
-
-
     #Update the covariance 
     #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
     # P = (I-KH)P(I-KH)' + KRK' which is more numerically stable
@@ -51,6 +69,7 @@ def update(x, P, observation,R,H):
     
     #And get the likelihood
     l = log_likelihood(S,y)
+    #l = log_likelihood(observation,H*x,S)
     
     return xnew, Pnew,l
 
@@ -155,7 +174,10 @@ class KalmanFilter:
 
         #Place to store results
         x_results = np.zeros((self.Nsteps,self.Npsr))
+        y_results = np.zeros_like(x_results)
         x_results[0,:] = x
+        y_results[0,:] = modulation_factors[0,:]*x
+
 
 
 
@@ -172,8 +194,10 @@ class KalmanFilter:
             likelihood +=l
 
             x_results[i,:] = x
+            y_results[i,:] = modulation_factors[i,:]*x
+
             
-        return likelihood#,x_results
+        return likelihood,x_results,y_results
 
       
 

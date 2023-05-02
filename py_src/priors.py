@@ -156,28 +156,24 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["h"] = None
-    priors["h"] = bilby.core.prior.LogUniform(1e-13, 1e-11, 'h')
+    priors["h"] = bilby.core.prior.LogUniform(1e-11, 1e-9, 'h')
     #priors["h"] = P["h"]
-
-
 
 
 
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.fdot,"fdot",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.d,"distance",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
 
 
     #Noises
     init_parameters["sigma_p"] = None
-    #priors["sigma_p"] = bilby.core.prior.LogUniform(1e-8, 1e-3, 'sigma_p')
-    priors["sigma_p"] = 1e-3 #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
-    #priors["sigma_p"] = P["sigma_p"] #this is a bigger value. Note that when sigmap is too small, we are going to hit float epsilon issues....
+    #priors["sigma_p"] = P["sigma_p"] 
+    priors["sigma_p"] = P["sigma_p"] 
 
 
     init_parameters["sigma_m"] = None
-    # priors["sigma_m"] = bilby.core.prior.LogUniform(1e-12, 1e-2, 'omega')
     priors["sigma_m"] = P["sigma_m"]
 
 
