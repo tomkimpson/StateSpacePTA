@@ -29,7 +29,7 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters(h=1e-10,σm=1e-12,σp=1e-15,Npsr=20)       #define the system parameters as a class
+    P   = SystemParameters(h=1e-6,σm=1e-11,σp=1e-15,Npsr=20)       #define the system parameters as a class
     PTA = Pulsars(P)               #setup the PTA
     data = SyntheticData(PTA,P) #generate some synthetic data
     

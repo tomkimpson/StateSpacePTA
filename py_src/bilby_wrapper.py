@@ -75,7 +75,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
 			                  #walks=400,
                               dlogz=1e-1,
 			                  #logz=1e-4,
-                              npool=8,
+                              npool=32,
 			                  plot=True,resume=False)
 
 

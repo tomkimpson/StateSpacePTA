@@ -26,22 +26,6 @@ def log_likelihood(S,innovation):
     #return -np.sum(innovation**2)
 
 
-# def log_likelihood(obs,p,S):
-
-
-#     N = len(obs)
-
-#     lx = np.log(obs)
-
-#     inn = lx - p 
-#     xx = inn / S 
-
-#     #value = -0.5*(2*np.sum(lx) + inn @ inn )
-
-
-#     value = -inn @ inn
-
-#     return value 
 
 
 
@@ -145,7 +129,7 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * 0.10 #parameters["sigma_m"]*1e10 
+        P = np.ones(self.Npsr) * parameters["sigma_m"]*1e10 
 
        
      

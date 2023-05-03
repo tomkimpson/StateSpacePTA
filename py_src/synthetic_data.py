@@ -29,8 +29,9 @@ class SyntheticData:
         def g(x,t): 
             return sigma_p
 
-       
-        self.intrinsic_frequency = sdeint.itoint(f,g,f0, t)
+        np.random.seed(1234)
+        generator = np.random.default_rng(1234)
+        self.intrinsic_frequency = sdeint.itoint(f,g,f0, t,generator=generator)
 
         #Now calculate the modulation factor due to the GW
         modulation_factors = gw_synthetic_data(

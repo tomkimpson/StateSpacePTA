@@ -6,6 +6,7 @@ import json
 import pandas as pd 
 import corner
 import scienceplots
+import sys 
 
 def plot_statespace(t,states,measurements,psr_index):
 
@@ -117,30 +118,41 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     print("Number of samples:")
     print(len(df_posterior))
 
-    print("Median values:")
-    print(df_posterior.median().head(10))
+    print("Medians/Variances")
+
+    medians = df_posterior[variables_to_plot].median()
+    variances = df_posterior[variables_to_plot].var()
+
+    for i in range(len(medians)):
+        print(variables_to_plot[i], medians[i], variances[i])
+   # print(df_posterior[variables_to_plot].median())
 
     plt.style.use('science')
 
-    
-    fig = corner.corner(y_post, 
-                        color='C0',
-                        show_titles=True,
-                        smooth=True,smooth1d=True,
-                        truth_color='C2',
-                        quantiles=[0.16, 0.84],
-                        truths = injection_parameters,
-                        range=ranges,
-                        labels = labels,
-                        label_kwargs=dict(fontsize=16),
-                        axes_scales = axes_scales)
-        
+    try: 
+        fig = corner.corner(y_post, 
+                            color='C0',
+                            show_titles=True,
+                            smooth=True,smooth1d=True,
+                            truth_color='C2',
+                            quantiles=[0.16, 0.84],
+                            truths = injection_parameters,
+                            range=ranges,
+                            labels = labels,
+                            label_kwargs=dict(fontsize=16),
+                            axes_scales = axes_scales)
+            
 
-    if savefig != None:
-        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
-    
-    
-    plt.show()
+        if savefig != None:
+            plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
+        
+        
+        plt.show()
+
+    except:    # Get current system exception
+        ex_type, ex_value, ex_traceback = sys.exc_info()
+        print(ex_type, ex_value)
+        plt.close()
 
 
 def iterate_over_priors(variable, variable_range,true_parameters,KF):
