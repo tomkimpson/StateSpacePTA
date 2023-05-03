@@ -156,7 +156,7 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["h"] = None
-    priors["h"] = bilby.core.prior.LogUniform(1e-13, 1e-11, 'h')
+    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'h')
     #priors["h"] = P["h"]
 
 
@@ -170,7 +170,7 @@ def bilby_priors_dict(PTA,P):
     #Noises
     init_parameters["sigma_p"] = None
     #priors["sigma_p"] = P["sigma_p"] 
-    priors["sigma_p"] = P["sigma_p"]
+    priors["sigma_p"] = 1e-3
 
 
     init_parameters["sigma_m"] = None

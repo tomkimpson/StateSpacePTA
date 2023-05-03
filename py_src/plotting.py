@@ -111,7 +111,6 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
 
     #Now make it a numpy array
-    y_post = df_posterior[variables_to_plot].to_numpy()
     y_samp = df_samples.to_numpy() 
 
 
@@ -123,9 +122,24 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     medians = df_posterior[variables_to_plot].median()
     variances = df_posterior[variables_to_plot].var()
 
+    selected_variables = []
+    selected_injections = []
+    selected_labels = []
     for i in range(len(medians)):
         print(variables_to_plot[i], medians[i], variances[i])
-   # print(df_posterior[variables_to_plot].median())
+
+        if variances[i] > 1e-40:
+            selected_variables.extend([variables_to_plot[i]])
+            selected_injections.extend([injection_parameters[i]])
+            selected_labels.extend([labels[i]])
+        else:
+            print("Note! ", variables_to_plot[i], " has zero variance and will not be plotted")
+   
+
+
+    
+    y_post = df_posterior[selected_variables].to_numpy()
+
 
     plt.style.use('science')
 
@@ -136,9 +150,9 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
                             smooth=True,smooth1d=True,
                             truth_color='C2',
                             quantiles=[0.16, 0.84],
-                            truths = injection_parameters,
+                            truths = selected_injections,
                             range=ranges,
-                            labels = labels,
+                            labels = selected_labels,
                             label_kwargs=dict(fontsize=16),
                             axes_scales = axes_scales)
             
