@@ -23,7 +23,7 @@ This file is a record of discussions, interesting points and suggestions from gr
 
 
 * Try for more physical (i.e. smaller!) GW strains
-    * Major obstruction over last few weeks
+    * Major obstruction over last few weeks. 
 
 
 * Be clear on how single source PTA analyses are currently done 
