@@ -1,0 +1,342 @@
+\documentclass{tufte-handout} % A4 paper and 11pt font size
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{mathpazo} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning,matrix,arrows}
+\usepackage{float}
+\usepackage{tikz-cd}
+\usepackage{caption}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\normalfont \bfseries} % Make all sections centered, the default font and small caps
+\usepackage{enumerate}
+\usepackage{pythonhighlight}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\allowdisplaybreaks
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+
+\usepackage{hyperref}
+\hypersetup{  
+	colorlinks=true,
+	urlcolor=cyan,
+}
+
+\urlstyle{same}
+
+% Turn on numbering for section and subsection headings
+\setcounter{secnumdepth}{2}
+
+
+\geometry{
+	left=13mm, % left margin
+	textwidth=130mm, % main text block
+	marginparsep=8mm, % gutter between main text block and margin notes
+	marginparwidth=55mm % width of margin notes
+}
+\fontsize{10}{20}\selectfont
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{	
+	\normalfont\normalsize 
+	{Melbourne University} \\ [0pt] % Your university, school and/or department name(s)
+	\huge Notes on state-space formulation of PTA problem% The assignment title
+}\author{T. Kimpson} % Your name
+\date{\vspace{-5pt}\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+\justifying 
+\maketitle
+
+
+\pagenumbering{gobble} %turn off page numbering
+\tableofcontents
+
+
+
+
+\section{Preamble}
+
+
+These notes collect some ideas around how to formulate the PTA data analysis as a state-space problem. \newline 
+
+\noindent We will frequently reference previous works from A.Melatos, in particular Melatos 2018 (GR assignment UniMelb) and Melatos 2022 (private communication at UniMelb). \newline 
+
+\noindent Geometric units ($c=\hbar = G = 1$) are used throughout, with the usual convention of Roman indices ($i,j$) for spatial indices. Note that $i$ is used for both labelling tensor indices and as the imaginary number - I trust the difference to be obvious from the context.\newline
+
+
+
+\section{Derivation of pulsar frequency modulation due to GW}
+We want to know how the pulse frequency from a pulsar is influenced by a passing gravitational wave (GW). \newline 
+
+\noindent We will consider the pulse frequency as a photon with covariant 4-momentum $p_{\mu}$  \footnote{See Melatos 2022 for nuances and discussion around this construction of "pulse train as photon"} \newline 
+
+\noindent We take a gravitational plane wave that perturbs a background Minkowski spacetime as \footnote{c.f. Melatos 2018, Equation 1}
+\begin{equation}
+g_{\mu \nu} = \eta_{\mu \nu} + H_{\mu \nu} e^{i(\Omega(\bar{n} \cdot \bar{x} - t) + \Phi_0)	}
+\end{equation}
+where the GW has angular frequency $\Omega$, propagates in the $\bar{n}$-direction and has a phase offset of  $\Phi_0$. Note that we are free to choose our coordinate system such that $\Phi_0$ is the GW phase at $t=0$ \textit{at the Earth.} The amplitude tensor $H_{\mu \nu}$ has zero temporal components ($H_{0 \mu} = H_{\mu 0} = 0$) whilst the spatial part is
+\begin{align}
+	H_{ij} = h_+ e_{ij}^+(\bar{n}) + h_{\times} e_{ij}^{\times}(\bar{n})
+\end{align}
+\noindent Note that we use a convention where the amplitudes $h_{+,\times}$ label the \textit{constant} amplitudes of the gravitational plane wave. All time variation in the strain is a result of the exponential term. This is in contrast to the notation used by some authors \footnote{see e.g. arXiv:1003.0677} where the amplitudes include the time variability $h_{+,\times} = h_{+,\times}(t)$. The polarisation tensors $e_{ij}^{+,\times}$ are uniquely defined by the principal axes of the wave. \newline 
+
+
+\subsection{Setting up the problem}
+The frequency of a photon with 4-momentum $p_{\mu}$ recorded by an observer with 4-velocity $u^{\mu}$ is 
+\begin{equation}
+	\nu = p_{\alpha} u^{\alpha}
+\end{equation}
+
+
+\noindent We consider both our emitter and receiver to be stationary, such that  
+\begin{equation}
+u^{\alpha}|_{\rm emitter} = u^{\alpha}|_{\rm receiver} = (1,0,0,0)
+\end{equation}
+
+
+
+\noindent Consequently the frequency can be identified with the temporal component of the covariant 4-momentum,
+\begin{equation}
+\nu = p_t
+\end{equation}
+
+
+\noindent The expression for the evolution of the pulse frequency as measured by the observer on Earth is then,
+
+\begin{equation}
+	p_t(\tau)|_{\rm Earth} = p_t(t_0)|_{\rm source} + \int_{t = t_0}^{t=\tau} \dot{p}_t dt
+	\end{equation}
+
+\noindent where the overdot denotes a derivative w.r.t. $t$. Since the influence of the GW perturbation on $\dot{p}_t$ is small, we can relate the source emission and receiver times as $\tau = t_0 + d$ and consider the photon trajectory to be an unperturbed path. \footnote{See also e.g. Maggiore who takes the same approach...} \newline 
+
+
+\noindent To complete our expression, we now just need to determine $\dot{p}_t$ and integrate it.
+
+
+\subsection{Hamiltonian Mechanics}
+
+The Hamiltonian in covariant notation can be written as 
+
+\begin{equation}
+H(x^{\mu}, p_{\mu}) = \frac{1}{2} g_{\mu \nu} p^{\mu} p^{\nu},
+\end{equation}
+
+\noindent which if we substitute in our expression for the perturbed metric is
+
+\begin{equation}
+H = \frac{1}{2} \eta_{\mu \nu} p^{\mu} p^{\nu} + \frac{1}{2} H_{ij}p^i p^j e^{i(\Omega(\bar{n} \cdot \bar{x} - t) + \Phi_0)	}
+\end{equation}
+
+\noindent Hamilton's equations are
+\begin{equation}
+\frac{dx^{\mu}}{d\lambda} = \frac{\partial H}{\partial p_{\mu}} , \, \, \frac{dp_{\mu}}{d \lambda} = -\frac{\partial H}{\partial x^{\mu}} 
+\end{equation}
+
+\noindent for affine parameter $\lambda$. The derivative of the temporal component of the covariant momenta is then,
+\begin{equation}
+\frac{d p_{t}}{d \lambda} = -\frac{i\Omega}{2} H_{ij}p^i p^j  e^{i(\Omega(\bar{n}\cdot \bar{x} - t)+\Phi_0)}
+\end{equation}
+\footnote{This is equivalent to Melatos 2018, Eq 5 for the specific case of a GW propagating in the $z$-direction, with zero phase offset.}
+
+
+\noindent Therefore the derivative w.r.t coordinate time $t$ is,
+\begin{equation}
+\dot{p}_t = \frac{d p_{t}}{d \lambda} \left(\frac{dt}{d\lambda}\right)^{-1} = \frac{d p_{t}}{d \lambda} \left(\frac{1}{p^t}\right)
+\end{equation}
+It will be useful to recognise that we can express the photon momentum in terms of the  unit vector between the Earth and pulsar $\bar{q}$
+\begin{equation}
+	p^{\mu} = \omega(1,-q^x,-q^y,-q^z)
+\end{equation}
+where $\omega$ is the \textit{constant} photon angular frequency. Given the small effect of the GW perturbation, at first order we can identify $\omega$ as either the frequency at source or observer (see Melatos 2022, PT16). Similarly, we can parameterize the spatial coordinates $\bar{x}$ as,
+\begin{equation}
+	\bar{x}(t) = - \bar{q} (t - \tau)
+\end{equation} 
+Note that when our integration variable $t = \tau$ (i.e. the photon is at Earth) then $\bar{x}(t=\tau) = 0$ which is what we expect given our chosen coordinate system. Also note that $\dot{p}_t$ is entirely a function of the GW perturbation. In the Minkowski case the spacetime is stationary and so $p_t$ should be conserved along the geodesic. \newline 
+
+
+
+
+
+\noindent Bringing this all together 
+
+
+\begin{align}
+	\dot{p}_t &= \frac{d p_{t}}{d \lambda} \left(\frac{1}{p^t}\right) \\  
+	&= -\frac{i\Omega}{2} H_{ij}p^i p^j  e^{i(\Omega(\bar{n}\cdot \bar{x} - t)+\Phi_0)} \left(\frac{1}{p^t}\right)
+	\\
+	&= \frac{-i\Omega \omega^2}{2} H_{ij}q^i q^j  e^{i(\Omega(\bar{n}\cdot \bar{x} - t)+\Phi_0)} \left(\frac{1}{\omega}\right) \\
+	& = \frac{-i\Omega \omega}{2} H_{ij}q^i q^j  e^{i(\Omega(\bar{n}\cdot [- \bar{q} (t - \tau)] - t)+\Phi_0)} \\
+				& = \frac{-i\Omega \omega}{2} H_{ij}q^i q^j  e^{i(-\Omega t (1+ \bar{n} \cdot \bar{q}) + \Omega \tau  \bar{n} \cdot \bar{q} +\Phi_0)} \\
+						& =A e^{i (\gamma t + B)}
+\end{align}
+with 
+\begin{equation}
+	A = -\frac{i\Omega \omega}{2} H_{ij}q^i q^j 
+\end{equation}
+\begin{equation}
+	\gamma = -\Omega (1 + \bar{n}\cdot \bar{q}) 
+\end{equation}
+\footnote{compare with Melatos 2022, PT11}
+and 
+\begin{equation}
+	B = \Omega \tau \bar{n} \cdot \bar{q}  +\Phi_0
+\end{equation}
+
+\subsection{Performing the integral}
+
+The frequency shift experienced by the observer relative to the source due to a GW is then
+\begin{align}
+p_t(\tau)|_{\rm Earth} - p_t(\tau - d)|_{\rm source} &= A \int_{t = \tau - d}^{t=\tau} e^{i (\gamma t + B)}dt  \\
+&=\frac{-iA}{\gamma} e^{i B} \left(e^{i \gamma \tau} -e^{i \gamma (\tau - d)}\right) \\
+&=\frac{-iA}{\gamma} e^{i \Omega \tau \bar{n} \cdot \bar{q}} e^{i \Phi_0}e^{i \gamma \tau} \left(1 -e^{-i \gamma d}\right) \\
+&=\frac{-iA}{\gamma} e^{i \Omega \tau \bar{n} \cdot \bar{q}} e^{i \Phi_0}e^{i (-\Omega (1 + \bar{n}\cdot \bar{q}) ) \tau} \left(1 -e^{-i \gamma d}\right) \\
+&=\frac{-iA}{\gamma} e^{i \Phi_0}e^{-i \Omega \tau} \left(1 -e^{-i \gamma d}\right) \\
+&=\frac{-iA}{\gamma} e^{i(-\Omega \tau +\Phi_0)} \left(1 -e^{-i \gamma d}\right) 
+\label{eq:concise}
+\end{align}
+
+
+
+
+
+
+
+
+\subsection{Explicit expression and comparison with Melatos 22}
+We are now very close with making contact with the expression from Melatos 22. Let's be explicit and sub in our definitions for $A$ and $\gamma$ into \ref{eq:concise}
+
+
+\begin{align}
+p_t(\tau)|_{\rm Earth} - p_t(\tau - d)|_{\rm source} &=-i \frac{-\frac{i\Omega \omega}{2} H_{ij}q^i q^j }{-\Omega (1 + \bar{n}\cdot \bar{q}) } e^{i(-\Omega \tau +\Phi_0)} \left(1 -e^{-i (-\Omega (1 + \bar{n}\cdot \bar{q}) ) d}\right) \\
+&=\frac{\omega}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } e^{i(-\Omega \tau +\Phi_0)} \left(1 -e^{i \Omega (1 + \bar{n}\cdot \bar{q})  d}\right) \\
+&=\frac{\omega}{2} \frac{ h_{ij} (\tau; \bar{x}= 0)q^i q^j }{(1 + \bar{n}\cdot \bar{q}) }  \left(1 -e^{i \Omega (1 + \bar{n}\cdot \bar{q})  d}\right)
+\label{eq:final}
+\end{align}
+which is exactly the expression derived in Melatos 2022. 
+
+
+\subsection{The $\Phi_0$ issue}
+There was previously some confusion over the presence of a single $\Phi_0$ parameter that was shared between multiple pulsars. Does this cause $\tau = 0$ to be a special time when all pulsars are in phase and then go on to evolve to be out of phase? This is just due to some sloppy transcription of equations in another document. Ignoring measurement noise, the measured photon frequency is related to the emitted photon frequency  as
+\begin{equation}
+	f_{\rm measured} = f_{\rm emitted} \left(1 - \frac{1}{2} \frac{ h_{ij} (\tau; \bar{x}= 0)q^i q^j }{(1 + \bar{n}\cdot \bar{q}) }  \left(1 -e^{i \Omega (1 + \bar{n}\cdot \bar{q})  d}\right) \right)
+	\label{eq:measureent}
+\end{equation}
+Now the pulsar frequencies remain in phase and $\tau=0$ is no longer a special time. \footnote{This expression is slightly different from the (erroneous) one typed up in the manuscript! We have dropped a $1+ \bar{n} \cdot \bar{q}$ factor that was wrongly typed up in the other document}
+
+
+ \subsection{Trigonometric form}
+ 
+ 
+ Lets express Eq. \ref{eq:measureent} as
+ 
+ \begin{equation}
+ 	f_{\rm measured} = f_{\rm emitted} \, g(\tau; \bar{\theta})
+ 	\label{eq:measureent}
+ \end{equation}
+where $\bar{\theta}$ is a set of parameters of the system. Lets write this in terms of the real part of the trig expansion. Let $a = -\Omega \tau +\Phi_0$ and $b =\Omega (1 + \bar{n}\cdot \bar{q})  d $
+ \begin{align}
+	g(\tau; \bar{\theta}) &= 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } e^{ia} \left(1 -e^{i b}\right) \\
+	&= 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } [\cos(a) + i \sin(a)] \left(1 -[\cos(b) + i \sin(b)]\right) \\ 
+	&= 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left( \cos(a) + i \sin(a) - \cos(a) \cos(b) -i \cos(a) \sin(b) -i \sin(a) \cos(b) + \sin(a) \sin(b)\right) \\
+	& \stackrel{\rm Re}{=} 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left( \cos(a) - \cos(a) \cos(b) + \sin(a) \sin(b)\right) \\
+	& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left( \cos(a) - \cos(a + b) \right) \\
+	& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left[ \cos(-\Omega \tau +\Phi_0) - \cos(-\Omega \tau +\Phi_0 + \Omega (1 + \bar{n}\cdot \bar{q})  d) \right]
+\end{align}
+
+
+
+
+\section{Discretization of state equations}
+We will take as our model of the intrinsic pulsar frequency $f$ a variation of the phenomenological model of Vargas \& Melatos. Within this model, $f$ evolves according to a combination of both deterministic torques (i.e. electromagnetic spin-down) and stochastic torques (i.e. `spin wandering', achromatic variations in the pulse TOA intrinsic to the star). The deterministic torque is taken to arise from the pulsar magnetic dipole, with braking index $n=3$ whilst the stochastic torque is a simple white noise process. Specifically, the frequency evolves according to a Ornstein-Uhlenbeck process (equivalently a Langevin equation) with a time-dependent drift parameter:
+\begin{equation}
+	\frac{df}{dt} = -\gamma	 [f - f_{\rm EM} (t)] + \dot{f}_{\rm EM} + \xi(t)
+	\label{eq:frequency_evolution}
+\end{equation}
+where $f_{\rm EM}$ is the solution of the electromagnetic spindown equation,$\dot{f}_{\rm EM}$ is the spin derivative, $\gamma$ a proportionality constant that specifies the mean-reversion timescale, and $\xi(t)$ a white noise process that satisfies,
+\begin{equation}
+	\langle \xi(t) \xi(t') \rangle = \sigma^2 \delta(t - t')
+\end{equation}
+for variance $\sigma^2$. For PTA analysis, we are concerned with timescales on the order of years. Consequently, we can express the EM spindown straightforwardly as
+\begin{equation}
+	f_{\rm EM} (t) = f_{\rm EM}(0) + \dot{f}_{\rm EM} (0)t
+\end{equation}  
+Completely, the frequency evolution is then given by the solution of the stochastic differential equation,
+\begin{equation}
+	\frac{df}{dt} = -\gamma	 [f - f_{\rm EM}(0) - \dot{f}_{\rm EM} (0)t] + \dot{f}_{\rm EM} (0) + \xi(t)
+	\label{eq:frequency_evolution_expanded}
+\end{equation}
+We can express the intrinsic frequency evolution, Eq. \ref{eq:frequency_evolution_expanded}, in a alternative form as,
+\begin{equation}
+	df = \mathcal{A} f dt + N(t) dt + \sigma dB(t)
+	\label{eq:state1}
+\end{equation}
+where $\mathcal{A} = -\gamma$, $N(t) = \gamma(f_{\rm EM}(0) + \dot{f}_{\rm EM}(0) t) +\dot{f}_{\rm EM}(0)$ and $dB(t)$ denotes increments of Brownian motion (Wiener process). This equation is easily identified as an Ornstein-Uhlenbeck process which has a general solution given by,
+\begin{equation}
+	f(t) = e^{\mathcal{A}t}f(0) + \int_0^t e^{\mathcal{A}(t-t')} N(t') dt' + \int_0^t e^{\mathcal{A}(t-t')} \sigma dB(t')
+\end{equation} 
+If we move from a solution in continuous time to discrete time then
+\begin{equation}
+	f(t_{i+1}) = F_i f(t_i) + T_i + \eta_i
+\end{equation}
+where
+\begin{equation}
+	F_i = e^{A (t_{i+1} - t_i)}
+\end{equation}
+\begin{equation}
+	T_i = \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} N(t') dt'
+\end{equation}
+\begin{equation}
+	\eta_i = \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} \sigma dt'
+\end{equation}
+\noindent  If we specialize to the case of constant time sampling between our observations, $\Delta t$, then for our formulation the components that make up the Kalman filter are as follows: 
+\begin{equation}
+	F_i = F_{i+1} = e^{-\gamma \Delta t}
+	\label{eq:fmatrix}
+\end{equation}
+\begin{align}
+	T_i &= \int_{t_i}^{t_{i+1}}  e^{A (t_{i+1} - t')} N(t') dt' \\
+	& = f_{\rm EM}(0) + \dot{f}_{\rm EM}(0)  (\Delta t + t_i) - e^{-\gamma \Delta t} (f_{\rm EM}(0) + \dot{f}_{\rm EM}(0)t_i)
+\end{align}
+whilst the discrete process noise matrix is
+\begin{equation}
+	Q_i  \delta_{ij}= \langle \eta_i \eta_j^T \rangle = \frac{- \sigma^2}{2 \gamma} \left( e^{-2 \gamma \Delta t} -1\right)
+\end{equation}
+At this point we can also specify our measurement matrix from Eq \ref{eq:measureent}
+\begin{equation}
+	H_i = g(t_i; \bar{\theta})
+\end{equation}
+and the measurement noise matrix 
+\begin{equation}
+	R_i = R_{i+1} = \Sigma^2
+	\label{eq:rmatix}
+\end{equation}
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -46,13 +46,41 @@ class SyntheticData:
                                pulsars.t,
                                P["phi0_gw"]
                                )
+        
+
+
+
+        # print("DTYPES")
+        # print(f0.dtype)
+        # print(fdot.dtype)
+        # print(gamma.dtype)
+        # print(sigma_p.dtype)
+
+
+       # print(self.intrinsic_frequency.dtype)
+        #print(modulation_factors.dtype)
      
 
         #The measured frequency, no noise
-        f_measured_clean= self.intrinsic_frequency * modulation_factors
+        self.f_measured_clean= self.intrinsic_frequency * modulation_factors
+
+        #print(self.f_measured_clean.dtype)
 
         #...and now add some mean zero Gaussian noise
-        measurement_noise = np.random.normal(0, pulsars.sigma_m,f_measured_clean.shape) # Measurement noise
+
+
+       # rng = np.random.default_rng()
+       # measurement_noise = rng.standard_normal(self.f_measured_clean.shape,dtype=P["NF"]) * pulsars.sigma_m
+
+
+
+        measurement_noise = np.random.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise
+
+
+
+        #print(measurement_noise.dtype)
+
+
         #print("The measurement noise is:", measurement_noise)
-        self.f_measured = f_measured_clean + measurement_noise
+        self.f_measured = self.f_measured_clean + measurement_noise
 

@@ -17,10 +17,11 @@ The log likelihood, designed for diagonal matrices where S is considered as a ve
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
+    
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    #return value
-    return -np.log(np.abs(value))
+    return value
+    #return -np.log(np.abs(value))
     #return -np.log(np.abs(innovation @ innovation))
     #return -np.sum(innovation**2)
 

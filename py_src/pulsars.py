@@ -10,6 +10,7 @@ class Pulsars:
 
 
         NF = SystemParameters["NF"]
+        self.NF = NF 
 
         pc = NF(3e16)     # parsec in m
         c  = NF(3e8)      # speed of light in m/s

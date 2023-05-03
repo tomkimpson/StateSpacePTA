@@ -11,13 +11,20 @@ This file is a record of discussions, interesting points and suggestions from gr
 
 * Is the $\Phi_0$ term correct in the measurement equation? Are all the pulsars really in phase at this time?
 
-    * The measurement equation listed in the manuscript was incorrect. This has now been updated. Some corrections to code implementation of trig form of the measurement equation to account for cross terms. Thanks to Tong, Jackie, Liam. 
+    * The measurement equation listed in the manuscript was incorrect. This has now been updated. Some corrections to code implementation of trig form of the measurement equation to account for cross terms. See Eq. 39 of [additional notes](https://github.com/tomkimpson/StateSpacePTA.jl/blob/main/docs/measurement_eqn_deerivation/LectureNotes_Math571.pdf) Thanks to Tong, Jackie, Liam. 
 
 * Can we reformulate in terms of phase rather than frequency to make contact with observations better?
 
-* Try for more physical (i.e. smaller!) GW strains
+    * TBD. Seems straightforward, just integrate measurement equation w.r.t time. Did Nicholas see any improvements re parameter estimation using phase over frequency, or it is just a choice to be more 
+
 
 * What is going on with $\iota$? Can we infer this parameter? Try a reparameterisation in terms of h_+ and h_\{times}
+    * We can reparameterise in terms of h_+ and h_\{times} straightforwardly, see branch (reparameterize)[https://github.com/tomkimpson/StateSpacePTA.jl/tree/reparameterize]. Does not seem to help parameter estimation (seems to settle on finding hp or hx), although this needs some more exploration. Work halted whilst next point was explored.  
+
+
+* Try for more physical (i.e. smaller!) GW strains
+    * Major obstruction over last few weeks
+
 
 * Be clear on how single source PTA analyses are currently done 
 
@@ -28,4 +35,6 @@ This file is a record of discussions, interesting points and suggestions from gr
     * Inference on all GW parameters + all pulsar distances
     * Inference on all GW parameters + all $\sigma_p$.
 
-* What are reasonable, astrophysical values for $\sigma_p$ and $\gamma$
+    * TBD. Small strain considerations should be solved first.
+
+* What are reasonable, astrophysical values for $\sigma_p$ and $\gamma$?
