@@ -63,8 +63,8 @@ def update(x, P, observation,R,H):
     Pnew = I_KH * P * I_KH + K * R * K
     
     #And get the likelihood
-    #l = log_likelihood(S,y)
-    l = cauchy_likelihood(y,S)
+    l = log_likelihood(S,y)
+    #l = cauchy_likelihood(y,S)
     #l = log_likelihood(observation,H*x,S)
     
     return xnew, Pnew,l
