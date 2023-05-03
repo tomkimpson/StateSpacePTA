@@ -27,7 +27,17 @@ def log_likelihood(S,innovation):
 
 
 
+def cauchy_likelihood(innovation,S):
 
+    x = innovation / (0.8*np.sqrt(S))  
+    N = len(x)
+
+    slogdet = np.sum(np.log(0.8**2 * S))
+    innovation_log = np.sum(np.log(1+x**2))
+    value= -0.5 * (2*N*np.log(np.pi) +slogdet +2* innovation_log)
+
+    #print("cauchy_likelihood")
+    return value 
 
 
 """
@@ -53,7 +63,8 @@ def update(x, P, observation,R,H):
     Pnew = I_KH * P * I_KH + K * R * K
     
     #And get the likelihood
-    l = log_likelihood(S,y)
+    #l = log_likelihood(S,y)
+    l = cauchy_likelihood(y,S)
     #l = log_likelihood(observation,H*x,S)
     
     return xnew, Pnew,l
