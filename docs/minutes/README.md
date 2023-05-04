@@ -23,7 +23,7 @@ Issues:
 
 * Is the $\Phi_0$ term correct in the measurement equation? Are all the pulsars really in phase at this time?
 
-    * The measurement equation listed in the manuscript was incorrect. This has now been updated. Some corrections to code implementation of trig form of the measurement equation to account for cross terms. See Eq. 39 of [additional notes](https://github.com/tomkimpson/StateSpacePTA.jl/blob/main/docs/measurement_eqn_deerivation/LectureNotes_Math571.pdf) Thanks to Tong, Jackie, Liam. 
+    * The measurement equation listed in the manuscript was incorrect. This has now been updated. Some corrections to code implementation of trig form of the measurement equation to account for cross terms. See Eq. 39 of [additional notes](https://github.com/tomkimpson/StateSpacePTA.jl/blob/main/docs/measurement_eqn_derivation/LectureNotes_Math571.pdf) Thanks to Tong, Jackie, Liam. 
 
 * Can we reformulate in terms of phase rather than frequency to make contact with observations better?
 
@@ -31,7 +31,7 @@ Issues:
 
 
 * What is going on with $\iota$? Can we infer this parameter? Try a reparameterisation in terms of h_+ and h_\{times}
-    * We can reparameterise in terms of h_+ and h_\{times} straightforwardly, see branch (reparameterize)[https://github.com/tomkimpson/StateSpacePTA.jl/tree/reparameterize]. Does not seem to help parameter estimation (seems to settle on finding hp or hx), although this needs some more exploration. Work halted whilst next point was explored.  
+    * We can reparameterise in terms of h_+ and h_\{times} straightforwardly, see branch [reparameterize](https://github.com/tomkimpson/StateSpacePTA.jl/tree/reparameterize). Does not seem to help parameter estimation (seems to settle on finding hp or hx), although this needs some more exploration. Work halted whilst next point was explored.  
 
 
 * Try for more physical (i.e. smaller!) GW strains
