@@ -9,11 +9,25 @@ This file is a record of discussions, interesting points and suggestions from gr
 
 ### 04/05
 
-Issues:
 
-* Numerical float precision
 
-* Poor posterior ranges. Is this related to numerical float issues?
+* Suggestions for reparameterisation of $h, \iota$: 
+    * Double check hp, hx results
+    * Try a product of $H_{ij} q^i q^j$
+    * Check  $ \frac{H_{ij} q^i q^j}{1 + n \cdot q }$  Can we invert to recover?
+
+
+* Suggestions for small $h$ issues:
+    * Work down to smaller $h$ graudally. How do the parameters change at each point?
+
+    * Try zero measurement noise 
+
+    * Try quad precision?
+
+    * Try to subtract off the frequency magnitude i.e. normalise by the ephemeris 
+
+    * integration of S/N? Cadence, 10 years?  
+
 
 
 ---

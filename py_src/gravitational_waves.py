@@ -7,7 +7,7 @@ config.DISABLE_JIT = disable_JIT
 
 
 
-#@jit
+@jit(nopython=True)
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
@@ -42,7 +42,7 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, just for the earth terms
 """
-#@jit
+@jit(nopython=True)
 def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     dot_product,hbar,little_a = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
     trig_block = cos(little_a).reshape((len(t),1)) 
@@ -55,7 +55,7 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-#@jit
+@jit(nopython=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
     
@@ -74,9 +74,7 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
-#
-
-#@jit()
+@jit(nopython=True)
 def principal_axes(theta,phi,psi):
     
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
@@ -91,7 +89,7 @@ def principal_axes(theta,phi,psi):
 
     return m,n
 
-#@jit()
+@jit(nopython=True)
 def h_amplitudes(h,ι): 
 
     hplus = h*(1.0 + cos(ι)**2)

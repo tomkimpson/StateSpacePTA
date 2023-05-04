@@ -36,7 +36,7 @@ class LinearModel:
 """
 The diagonal F matrix as a vector
 """
-#@jit(nopython=True)
+@jit(nopython=True)
 def F_function(gamma,dt):
     return np.exp(-gamma*dt)
 
@@ -44,7 +44,7 @@ def F_function(gamma,dt):
 """
 The control vector
 """
-#@jit(nopython=True)
+@jit(nopython=True)
 def T_function(f0,fdot,gamma,t,dt):
 
     
@@ -57,7 +57,7 @@ def T_function(f0,fdot,gamma,t,dt):
 """
 The diagonal Q matrix as a vector
 """
-#@jit(nopython=True)
+@jit(nopython=True)
 def Q_function(gamma,sigma_p,dt):
     value = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
 
@@ -68,7 +68,7 @@ def Q_function(gamma,sigma_p,dt):
 """
 The R matrix as a scalar
 """
-#@jit(nopython=True)
+@jit(nopython=True)
 def R_function(sigma_m):
     return sigma_m**2
     

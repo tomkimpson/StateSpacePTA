@@ -35,7 +35,7 @@ if __name__=="__main__":
     
 
     #Define the model 
-    model = LinearModel
+    model = LinearModel(P)
 
 
     #Initialise the Kalman filter
@@ -45,7 +45,7 @@ if __name__=="__main__":
     #Run the KF once with the correct parameters.
     #This allows JIT precompile
     guessed_parameters = priors_dict(PTA,P)
-    model_likelihood = KF.likelihood(guessed_parameters)
+    model_likelihood, state_predictions,measurement_predictions = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
    
     # from plotting import plot_all
