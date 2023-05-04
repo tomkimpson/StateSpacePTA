@@ -10,6 +10,10 @@ config.DISABLE_JIT = disable_JIT
 
 from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
 
+from system_parameters import scaling_factor_y 
+scaling_factor=scaling_factor_y
+
+
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
@@ -39,10 +43,21 @@ def cauchy_likelihood(S,innovation):
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
 @jit(nopython=True)
-def update(x, P, observation,R,H):
+def update(x, P, observation,R,X_GW,ephemeris):
 
-    
-    y    = observation - H*x
+    H = 1.0 - X_GW 
+    y_predicted = H*x #- X_GW*scaling_factor*ephemeris 
+    print(X_GW*scaling_factor*ephemeris )
+
+    print("observation = ", observation)
+    print("prediction = ", y_predicted)
+
+
+    y    = observation - y_predicted
+
+    print("innovation = ", y)
+
+    print("----------------------------")
 
     S    = H*P*H + R  
     K    = P*H/S 
@@ -104,6 +119,7 @@ class KalmanFilter:
         self.Npsr = self.observations.shape[-1]
         self.Nsteps = self.observations.shape[0]
         self.NF = PTA.NF
+        self.ephemeris = PTA.ephemeris
 
 
 
@@ -138,13 +154,13 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * 0.1 #Guess that the uncertainty is about 0.1 Hz 
-
-       
+        
+        x = np.zeros(self.Npsr) #guess that the initial state is zero. Which it is
+        P = np.ones(self.Npsr) * parameters["sigma_m"]*scaling_factor*1e3 #Guess that the uncertainty is 
     
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = self.H_function(parameters["delta_gw"],
+        X_GW               = self.H_function(parameters["delta_gw"],
                                              parameters["alpha_gw"],
                                              parameters["psi_gw"],
                                              self.q,
@@ -161,7 +177,7 @@ class KalmanFilter:
         likelihood = 0.0
               
 
-        x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
+        x,P,l = update(x,P, self.observations[0,:],R,X_GW[0,:],self.ephemeris[0,:])
         likelihood +=l
 
 
@@ -169,7 +185,7 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = modulation_factors[0,:]*x
+        y_results[0,:] = (1.0 - X_GW[0,:])*x - X_GW[0,:]*scaling_factor*self.ephemeris[0,:]  #modulation_factors[0,:]*x
 
 
 
@@ -182,11 +198,11 @@ class KalmanFilter:
             obs = self.observations[i,:]
            
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
-            x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:])
+            x,P,l = update(x_predict,P_predict, obs,R,X_GW[i,:],self.ephemeris[i,:])
             likelihood +=l
 
             x_results[i,:] = x
-            y_results[i,:] = modulation_factors[i,:]*x
+            y_results[i,:] = (1.0 - X_GW[i,:])*x - X_GW[i,:]*scaling_factor*self.ephemeris[i,:]
 
             
         return likelihood,x_results,y_results

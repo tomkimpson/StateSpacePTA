@@ -3,9 +3,11 @@
 import numpy as np
 from numba import jit,config
 
-from system_parameters import disable_JIT
+from system_parameters import disable_JIT,scaling_factor_x
 config.DISABLE_JIT = disable_JIT
 from gravitational_waves import gw_psr_terms,gw_earth_terms
+
+scaling_factor = scaling_factor_x
 
 class LinearModel:
 
@@ -38,7 +40,7 @@ The diagonal F matrix as a vector
 """
 @jit(nopython=True)
 def F_function(gamma,dt):
-    return np.exp(-gamma*dt)
+    return np.exp(-gamma*scaling_factor*dt)
 
 
 """
@@ -49,9 +51,9 @@ def T_function(f0,fdot,gamma,t,dt):
 
     
     fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
-    value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
+    value = f0 + fdot_time + fdot*dt - np.exp(-gamma*scaling_factor*dt)*(f0+fdot_time)
 
-    return value 
+    return value*scaling_factor
 
 
 """
@@ -59,7 +61,7 @@ The diagonal Q matrix as a vector
 """
 @jit(nopython=True)
 def Q_function(gamma,sigma_p,dt):
-    value = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
+    value = -(sigma_p*scaling_factor)**2 * (np.exp(-2.0*gamma*scaling_factor*dt) - 1.) / (2.0 * gamma*scaling_factor)
 
     #print("The value of the q function is:", value)
     return value 
@@ -70,6 +72,6 @@ The R matrix as a scalar
 """
 @jit(nopython=True)
 def R_function(sigma_m):
-    return sigma_m**2
+    return (sigma_m*scaling_factor)**2 
     
 

@@ -30,6 +30,10 @@ class Pulsars:
         self.gamma = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
         #self.gamma = np.zeros_like(self.f,dtype=NF) #* 1e-13  #for every pulsar let γ be 1e-13
 
+
+
+        print("fdots")
+        print(self.fdot)
    
 
         self.δ = pulsars["DECJD"].to_numpy()
@@ -56,6 +60,8 @@ class Pulsars:
         self.sigma_m =  SystemParameters["sigma_m"]
         self.Npsr    = len(self.f)
         self.NF = NF 
+
+        self.ephemeris = self.f + np.outer(self.t ,self.fdot)
 
 
 

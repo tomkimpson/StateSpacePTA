@@ -4,6 +4,11 @@ import sdeint
 import numpy as np 
 
 from gravitational_waves import gw_earth_terms,gw_psr_terms
+
+
+
+
+import sys 
 class SyntheticData:
     
     
@@ -21,11 +26,12 @@ class SyntheticData:
         fdot = pulsars.fdot
         gamma = pulsars.gamma
         sigma_p = np.full((Npsr,1),pulsars.sigma_p)
-        
 
+        
         #First get the intrinstic pulsar evolution by solving the ito equation
         def f(x,t): 
-            return -gamma * x + gamma*(f0 + fdot*t) + fdot  
+            #print(scale_factor*(-gamma * x + gamma*(f0 + fdot*t) + fdot) )
+            return -gamma * x + gamma*(f0 + fdot*t) + fdot
         def g(x,t): 
             return sigma_p
 
@@ -42,7 +48,7 @@ class SyntheticData:
             print("Attention: You are using just the Earth terms in your synthetic data generation")
 
 
-        modulation_factors = mod_factor(
+        modulation_factors_X = mod_factor(
                                P["delta_gw"],
                                P["alpha_gw"],
                                P["psi_gw"],
@@ -56,8 +62,10 @@ class SyntheticData:
                                P["phi0_gw"]
                                )
         
+        modulation_factors = 1.0 - modulation_factors_X
+        self.modulation_factors = modulation_factors
         #The measured frequency, no noise
         self.f_measured_clean= self.intrinsic_frequency * modulation_factors
         measurement_noise = np.random.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise
-        self.f_measured = self.f_measured_clean + measurement_noise
+        self.f_measured = self.f_measured_clean #+ measurement_noise
 

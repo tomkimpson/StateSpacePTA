@@ -39,7 +39,7 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
     tplot = t / (365*24*3600)
     state_i = states[:,psr_index]
     measurement_i = measurements[:,psr_index]
-    prediction_i = predictions_x[:,psr_index]
+   
 
 
 
@@ -49,11 +49,18 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
     fig, (ax1,ax2,ax3,ax4) = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
 
     ax1.plot(tplot,state_i,label='state')
-    ax1.plot(tplot,prediction_i,label = 'prediction')
     ax2.plot(tplot,measurement_i,label="measurement",c="C3")
 
 
     try:
+
+
+        prediction_i = predictions_x[:,psr_index]
+        ax1.plot(tplot,prediction_i,label = 'prediction')
+
+
+
+
         prediction_i_y = predictions_y[:,psr_index]
         ax2.plot(tplot,prediction_i_y,label="prediction",c="C4")
 

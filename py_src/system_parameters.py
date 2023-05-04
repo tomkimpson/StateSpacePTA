@@ -45,3 +45,5 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
 
 
 disable_JIT = False  
+scaling_factor_x = 1e14
+scaling_factor_y = 1e9
