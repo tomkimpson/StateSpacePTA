@@ -2,11 +2,9 @@
 
 import numpy as np 
 
-σm=1e-8
 """
 Function that returns a dict of parameters which define the system
 """
-
 def SystemParameters(NF=np.float64,    # the number format of the arguments
                      T = 10,           # how long to integrate for in years
                      cadence=7,        # the interval between observations
@@ -19,7 +17,9 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      h =  1e-2,        # GW plus strain
                      σp = 1e-13,       # process noise standard deviation
                      σm = 1e-8,        # measurement noise standard deviation
-                     Npsr = 0          # Number of pulsars to use in PTA. 0 = all
+                     Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
+                     use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
+                     use_psr_terms_in_model=True # do you want the pulsar terms to be in the Kalman measurement model?
                      ): 
 
     data = dict({
@@ -35,12 +35,13 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                "h":        NF(h),
                "sigma_p":  NF(σp),
                "sigma_m":  NF(σm),
-               "Npsr":     Npsr})
+               "Npsr":     Npsr,
+               "psr_terms_data":use_psr_terms_in_data,
+               "psr_terms_model":use_psr_terms_in_model})
 
     return data
    
 
 
 
-
-disable_JIT = True 
+disable_JIT = False  

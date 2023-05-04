@@ -29,26 +29,13 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters(h=1e-2,σm=1e-13,σp=1e-13)       #define the system parameters as a class
-    PTA = Pulsars(P)               #setup the PTA
-    data = SyntheticData(PTA,P) #generate some synthetic data
+    P   = SystemParameters(h=1e-2,σm=1e-13,σp=1e-13)       # define the system parameters as a class
+    PTA = Pulsars(P)                                       # setup the PTA
+    data = SyntheticData(PTA,P)                            # generate some synthetic data
     
 
     #Define the model 
     model = LinearModel
-
-
-    #Scale the data
-    #print(data.f_measured.shape)
-    #print(PTA.f.shape)
-
-
-    #scaled_measurement_data = data.f_measured / PTA.f
-    #scaled_measurement_data = data.f_measured / PTA.f
-
-
-    
-
 
 
     #Initialise the Kalman filter

@@ -6,6 +6,18 @@
 This file is a record of discussions, interesting points and suggestions from group meetings around this PTA project
 
 
+
+### 04/05
+
+Issues:
+
+* Numerical float precision
+
+* Poor posterior ranges. Is this related to numerical float issues?
+
+
+---
+
 ### 20/04
 
 

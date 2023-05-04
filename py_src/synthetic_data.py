@@ -3,7 +3,7 @@
 import sdeint
 import numpy as np 
 
-from gravitational_waves import gw_synthetic_data
+from gravitational_waves import gw_earth_terms,gw_psr_terms
 class SyntheticData:
     
     
@@ -34,7 +34,15 @@ class SyntheticData:
         self.intrinsic_frequency = sdeint.itoint(f,g,f0, t,generator=generator)
 
         #Now calculate the modulation factor due to the GW
-        modulation_factors = gw_synthetic_data(
+        if P["psr_terms_data"]:
+            mod_factor = gw_psr_terms
+            print("Attention: You are including the PSR terms in your synthetic data generation")
+        else:
+            mod_factor = gw_earth_terms
+            print("Attention: You are using just the Earth terms in your synthetic data generation")
+
+
+        modulation_factors = mod_factor(
                                P["delta_gw"],
                                P["alpha_gw"],
                                P["psi_gw"],
@@ -48,40 +56,8 @@ class SyntheticData:
                                P["phi0_gw"]
                                )
         
-
-
-
-        # print("DTYPES")
-        # print(f0.dtype)
-        # print(fdot.dtype)
-        # print(gamma.dtype)
-        # print(sigma_p.dtype)
-
-
-       # print(self.intrinsic_frequency.dtype)
-        #print(modulation_factors.dtype)
-     
-
         #The measured frequency, no noise
         self.f_measured_clean= self.intrinsic_frequency * modulation_factors
-
-        #print(self.f_measured_clean.dtype)
-
-        #...and now add some mean zero Gaussian noise
-
-
-       # rng = np.random.default_rng()
-       # measurement_noise = rng.standard_normal(self.f_measured_clean.shape,dtype=P["NF"]) * pulsars.sigma_m
-
-
-
         measurement_noise = np.random.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise
-
-
-
-        #print(measurement_noise.dtype)
-
-
-        #print("The measurement noise is:", measurement_noise)
         self.f_measured = self.f_measured_clean + measurement_noise
 

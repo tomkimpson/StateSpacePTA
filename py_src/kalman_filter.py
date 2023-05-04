@@ -2,27 +2,27 @@
 
 
 import numpy as np 
-from gravitational_waves import gw_model
+#from gravitational_waves import gw_model
 
 from numba import jit,config
 from system_parameters import disable_JIT
 config.DISABLE_JIT = disable_JIT
 
-
+from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
 
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-@jit(nopython=True)
+#@jit(nopython=True)
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
     
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    #return value
+    return value
     #return -np.log(np.abs(value))
-    return -0.5*(innovation @ x + N*np.log(2*np.pi))
+    #return -0.5*(innovation @ x + N*np.log(2*np.pi))
 
     #return -np.log(np.abs(innovation @ innovation))
     #return -np.sum(innovation**2)
@@ -45,7 +45,7 @@ def cauchy_likelihood(innovation,S):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-@jit(nopython=True)
+#@jit(nopython=True)
 def update(x, P, observation,R,H):
 
     
@@ -76,7 +76,7 @@ def update(x, P, observation,R,H):
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-@jit(nopython=True)
+#@jit(nopython=True)
 def predict(x,P,F,T,Q): 
     xp = F*x + T 
     Pp = F*P*F + Q  
@@ -115,6 +115,12 @@ class KalmanFilter:
         self.NF = PTA.NF
 
 
+
+        #self.F_function = F_function #global
+        #self.T_function = F_function #global
+        #self.Q_function = F_function #global
+        #self.R_function = F_function #global
+        self.H_function = Model.H_function
     
 
 
@@ -134,11 +140,10 @@ class KalmanFilter:
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
-        Q = self.model.Q_function(gamma,parameters["sigma_p"],self.dt,f)
-        R = self.model.R_function(parameters["sigma_m"],f)
-        F = self.model.F_function(gamma,self.dt)
-        T = self.model.T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
-
+        R = R_function(parameters["sigma_m"])
+        Q = Q_function(gamma,parameters["sigma_p"],self.dt)
+        F = F_function(gamma,self.dt)
+        T = T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
         #Initialise x and P
         x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
@@ -149,7 +154,7 @@ class KalmanFilter:
 
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = gw_model(parameters["delta_gw"],
+        modulation_factors = self.H_function(parameters["delta_gw"],
                                parameters["alpha_gw"],
                                parameters["psi_gw"],
                                self.q,
