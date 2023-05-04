@@ -47,6 +47,9 @@ Issues:
     * Inference on all GW parameters + all pulsar distances
     * Inference on all GW parameters + all $\sigma_p$.
 
-    * TBD. Small strain considerations should be solved first.
+        * TBD. Small strain considerations should be solved first.
 
 * What are reasonable, astrophysical values for $\sigma_p$ and $\gamma$?
+
+    $\gamma$ not too important over our timescales. Just something $\gamma^{-1} >> 10 $ years.
+    $\sigma_p$ disussed in notebooks. See discussion relating to numerical float issues.
