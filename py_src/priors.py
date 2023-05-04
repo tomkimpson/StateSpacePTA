@@ -169,8 +169,8 @@ def bilby_priors_dict(PTA,P):
 
     #Noises
     init_parameters["sigma_p"] = None
-    #priors["sigma_p"] = P["sigma_p"] 
-    priors["sigma_p"] = 1e-3
+    priors["sigma_p"] = P["sigma_p"] 
+    #priors["sigma_p"] = 1e-3
 
 
     init_parameters["sigma_m"] = None
