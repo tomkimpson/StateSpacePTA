@@ -24,6 +24,10 @@ from numba import jit, config
 from system_parameters import disable_JIT
 config.DISABLE_JIT = disable_JIT
 
+
+from mpmath import * 
+
+
 if __name__=="__main__":
     import multiprocessing
     multiprocessing.set_start_method("fork")
@@ -34,6 +38,7 @@ if __name__=="__main__":
     data = SyntheticData(PTA,P)                            # generate some synthetic data
     
 
+    #P["sigma_p"] = mpf(P["sigma_p"])
     #Define the model 
     model = LinearModel(P)
 

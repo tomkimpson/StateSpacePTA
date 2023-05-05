@@ -10,8 +10,7 @@ config.DISABLE_JIT = disable_JIT
 
 from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
 
-from system_parameters import scaling_factor_y 
-scaling_factor=scaling_factor_y
+from system_parameters import scaling_factor
 
 
 """
@@ -45,19 +44,18 @@ Kalman update step for diagonal matrices where everything is considered as a 1d 
 @jit(nopython=True)
 def update(x, P, observation,R,X_GW,ephemeris):
 
-    H = 1.0 - X_GW 
-    y_predicted = H*x #- X_GW*scaling_factor*ephemeris 
-    print(X_GW*scaling_factor*ephemeris )
 
-    print("observation = ", observation)
-    print("prediction = ", y_predicted)
+    #print("This is the update func:")
+    #print(x)
+
+    H = scaling_factor*(1.0 - X_GW)
+    y_predicted = H*x - scaling_factor*ephemeris 
+
+   
 
 
     y    = observation - y_predicted
 
-    print("innovation = ", y)
-
-    print("----------------------------")
 
     S    = H*P*H + R  
     K    = P*H/S 
@@ -75,6 +73,7 @@ def update(x, P, observation,R,X_GW,ephemeris):
     #And get the likelihood
     l = log_likelihood(S,y)
     
+    #print("xnew = ", xnew)
     return xnew, Pnew,l
 
 
@@ -84,7 +83,7 @@ Kalman predict step for diagonal matrices where everything is considered as a 1d
 """
 @jit(nopython=True)
 def predict(x,P,F,T,Q): 
-    xp = F*x + T 
+    xp = F*x + T
     Pp = F*P*F + Q  
     return xp,Pp
 
@@ -150,13 +149,18 @@ class KalmanFilter:
         R = R_function(parameters["sigma_m"])
         Q = Q_function(gamma,parameters["sigma_p"],self.dt)
         F = F_function(gamma,self.dt)
-        T = T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
+        T = T_function(f,fdot,gamma,self.t,self.dt) #npulsars
+        #print("shape of T function")
+        #print(T)
 
         #Initialise x and P
-        x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
-        
-        x = np.zeros(self.Npsr) #guess that the initial state is zero. Which it is
-        P = np.ones(self.Npsr) * parameters["sigma_m"]*scaling_factor*1e3 #Guess that the uncertainty is 
+        x = (self.observations[0,:]/scaling_factor + self.ephemeris[0,:]) # guess that the intrinsic frequencies is the same as the measured frequency
+        print("Initial x = ")
+        print(x)
+        #x = np.zeros(self.Npsr) #guess that the initial state is zero. Which it is
+
+
+        P = np.ones(self.Npsr) * 0.1 #parameters["sigma_m"]*1e3 #Guess that the uncertainty is 
     
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
@@ -169,7 +173,7 @@ class KalmanFilter:
                                              parameters["iota_gw"],
                                              parameters["omega_gw"],
                                              d,
-                                            self.t,
+                                             self.t,
                                              parameters["phi0_gw"]
                                             )
 
@@ -185,7 +189,15 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = (1.0 - X_GW[0,:])*x - X_GW[0,:]*scaling_factor*self.ephemeris[0,:]  #modulation_factors[0,:]*x
+
+
+        H = scaling_factor*(1.0 - X_GW[0,:])
+        y_predicted = H*x - scaling_factor*self.ephemeris[0,:] 
+        y_results[0,:] = y_predicted
+
+
+
+        #y_results[0,:] = (1.0 - X_GW[0,:])*x - X_GW[0,:]*self.ephemeris[0,:]  #modulation_factors[0,:]*x
 
 
 
@@ -193,16 +205,27 @@ class KalmanFilter:
 
 
         for i in np.arange(1,self.Nsteps):
+        #for i in np.arange(1,10):
 
             
             obs = self.observations[i,:]
            
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
+            print("x_predict")
+
+            print(x_predict)
             x,P,l = update(x_predict,P_predict, obs,R,X_GW[i,:],self.ephemeris[i,:])
             likelihood +=l
 
             x_results[i,:] = x
-            y_results[i,:] = (1.0 - X_GW[i,:])*x - X_GW[i,:]*scaling_factor*self.ephemeris[i,:]
+
+            H = scaling_factor*(1.0 - X_GW[i,:])
+            y_predicted = H*x - scaling_factor*self.ephemeris[i,:] 
+            y_results[i,:] = y_predicted
+
+
+
+            #y_results[i,:] = (1.0 - X_GW[i,:])*x - X_GW[i,:]*self.ephemeris[i,:]
 
             
         return likelihood,x_results,y_results
