@@ -29,7 +29,7 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters(h=1e-2,σm=1e-13,σp=1e-13)       # define the system parameters as a class
+    P   = SystemParameters(h=1e-2,σp=0.0,σm=1e-13,use_psr_terms_in_data=True,use_psr_terms_in_model=True)       # define the system parameters as a class
     PTA = Pulsars(P)                                       # setup the PTA
     data = SyntheticData(PTA,P)                            # generate some synthetic data
     
@@ -48,13 +48,6 @@ if __name__=="__main__":
     model_likelihood, state_predictions,measurement_predictions = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
    
-    # from plotting import plot_all
-    # plot_all(PTA.t, data.intrinsic_frequency / PTA.f, scaled_measurement_data, model_state_predictions, 1,savefig=None)
-    # wrong_parameters = erroneous_priors_dict(PTA,P,1e-1)
-    # model_likelihood = KF.likelihood(wrong_parameters)
-    # print("Wrong likelihood = ", model_likelihood)
-
-
     #Bilby 
     init_parameters, priors = bilby_priors_dict(PTA,P)
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")

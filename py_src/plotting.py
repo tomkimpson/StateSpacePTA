@@ -76,6 +76,7 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
     ax2.set_xlabel('t [years]', fontsize=fs)
     ax1.set_ylabel(r'$f_p$ [Hz]', fontsize=fs)
     ax2.set_ylabel(r'$f_M$ [Hz]', fontsize=fs)
+    ax2.set_ylabel(r'Residual [Hz]', fontsize=fs)
     ax2.xaxis.set_tick_params(labelsize=fs-4)
     ax2.yaxis.set_tick_params(labelsize=fs-4)
     ax1.yaxis.set_tick_params(labelsize=fs-4)
@@ -83,9 +84,11 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
     plt.subplots_adjust(wspace=0.1, hspace=0.1)
     #plt.rcParams["font.family"] = "fantasy"
 
+
     if savefig != None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
    
+
     plt.show()
 
 
@@ -171,38 +174,31 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
 def iterate_over_priors(variable, variable_range,true_parameters,KF):
 
-    
-    guessed_parameters = true_parameters.copy()
-    likelihoods=np.zeros_like(variable_range)
 
-    
+    guessed_parameters = true_parameters.copy()
+    likelihoods        =np.zeros_like(variable_range)
+
+
     i = 0
     for v in variable_range:
-        
         guessed_parameters[variable] = v 
-        model_likelihood,xres,yres = KF.likelihood(guessed_parameters)
-        #print(model_likelihood)
+        model_likelihood,xres,yres = KF.likelihood(guessed_parameters)    
         likelihoods[i] = model_likelihood
-        #print(likelihoods[i] )
         i+=1 
-
     return likelihoods
 
 
 
-def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
+def likelihoods_over_priors(parameters,priors,PTA,P,KF):
 
 
 
     plt.style.use('science')
     true_parameters = priors_dict(PTA,P)
-    true_parameters["sigma_p"] = sigma_p
-    #
     
-    print("likelihoods_over_priors")
 
     h,w = 20,12
-    rows = 6
+    rows = 4
     cols = 2
     fig, axes_object = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
     
@@ -212,7 +208,7 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
 
 
 
-    logvalues = ["omega_gw", "h"]
+    log_x_values = ["omega_gw", "h"]
 
     i = 0
     for key,value in parameters.items():
@@ -226,24 +222,18 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,sigma_p):
         ax.set_xlabel(key, fontsize = 16)
         ax.axvline(value,linestyle='--', c='C2')
 
-        #if key in logvalues:
-           
-           # ax.set_xscale('log')
-        
-        ax.set_yscale('log')
-
-        #ax.set_yscale('log')
+        if key in log_x_values:
+            ax.set_xscale('log')
+    
         i+=1
 
 
     
 
     plt.subplots_adjust(hspace=0.5)
-    title = r"Likelihood Identifiability with $\sigma_p = $" + str(sigma_p)
+    title = r"Likelihood Identifiability"
     fig.suptitle(title, fontsize=20)
 
-    print("setting linear xscale")
-    ax.set_xscale("linear")
     plt.show()
 
 
