@@ -27,7 +27,7 @@ AbstractMCMC.setprogress!(true)
 Random.seed!(8452)
 
 #Exports
-export setup, KF, run_all, plotter,particle_swarm,SystemParameters,kalman_parameters,black_box #KalmanFilter,infer_parameters,infer_parameters2, plotter,KF
+export particle_swarm_v2, setup, KF, run_all, plotter,particle_swarm,SystemParameters,kalman_parameters,black_box #KalmanFilter,infer_parameters,infer_parameters2, plotter,KF
 
 
 
@@ -42,6 +42,7 @@ include("model.jl")
 include("priors.jl")
 include("linear_kalman_filter.jl")
 include("particle_swarm.jl")
+include("particle_swarm_v2.jl")
 include("blackbox.jl")
 include("plotting.jl")
 include("run.jl")

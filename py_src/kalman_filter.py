@@ -190,7 +190,7 @@ class KalmanFilter:
             x_results[i,:] = x
             y_results[i,:] = modulation_factors[i,:]*x
 
-            
+        #print("omega_gw = ", parameters["omega_gw"],likelihood)
         return likelihood,x_results,y_results
 
      

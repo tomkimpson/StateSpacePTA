@@ -45,7 +45,7 @@ kwargs...                        # all additional non-default parameters
     nparticles = Int64(100*length(truths))
     opt = optimize(optimisation_wrapper, 
                    x0, 
-                   ParticleSwarm(lower_limits,upper_limits,nparticles),
+                   ParticleSwarm(lower_limits,upper_limits,nparticles,threaded=true),
                    Optim.Options(show_trace=true, store_trace=true,iterations = Int64(1e4),show_every=100))
 
 

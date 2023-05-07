@@ -57,43 +57,6 @@ end
 
 
 
-
-
-
-
-
-
-# m,n                 = principal_axes(π/2.0 - P.δ,P.α,P.ψ)    
-# n̄                   = cross(m,n)            
-
-# hp,hx               = h_amplitudes(P.h,P.cos_ι)                                    
-
-
-# Hij                 = hp .* e_plus .+ hx * e_cross
-
-
-
-
-
-
-
-# function gw_variables(h::NF,ι::NF,δ::NF,α::NF,ψ::NF) where {NF<:AbstractFloat} 
-
-#     m,n                 = principal_axes(π/NF(2.0) - δ,α,ψ)    
-#     n̄                   = cross(m,n)            
-    
-#                                     
-#     e_plus              = [m[i]*m[j]-n[i]*n[j] for i=1:3,j=1:3]
-#     e_cross             = [m[i]*n[j]-n[i]*m[j] for i=1:3,j=1:3]
-    
-#     Hij                 = hp .* e_plus .+ hx * e_cross
-    
-#     return m,n,n̄,Hij
-
-# end 
-
-
-
 """
 Given the location of the GW source (θ, ϕ) and the polarisation angle (ψ)
 determine the principal axes of propagation
@@ -128,29 +91,3 @@ function h_amplitudes(h::NF,cos_ι::NF) where {NF<:AbstractFloat}
     return hplus,hcross
 
 end 
-
-# """
-# Get the constant prefactor of the GW correction factor
-# """
-# function gw_prefactor(n̄:: Vector{NF},q::Matrix{NF},Hij::Matrix{NF},ω::NF, d::Vector{NF}) where {NF<:AbstractFloat}
-
-#     dot_product  = [NF(1.0) .+ dot(n̄,q[i,:]) for i=1:size(q)[1]] 
-#     hbar         = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
-#     ratio        = hbar ./ dot_product
-#     Hcoefficient = NF(1.0) .- cos.(ω.*d.*dot_product)
-#     prefactor    = NF(0.5).*ratio.*Hcoefficient
-
-#     return prefactor,dot_product
-
-# end 
-
-# """
-# Get the effect of the GW on the frequency
-# """
-# function gw_modulation(t::NF, ω::NF,Φ0::NF,prefactor:: Vector{NF},dot_product::Vector{NF}) where {NF<:AbstractFloat} 
-#        time_variation = cos.(-ω*t .*dot_product .+ Φ0)
-#        GW_factor = NF(1.0) .- prefactor .* time_variation
-
-#     return GW_factor 
-
-# end 
