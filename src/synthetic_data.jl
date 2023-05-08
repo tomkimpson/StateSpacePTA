@@ -28,7 +28,8 @@ function create_synthetic_data(
     #Get the modulation factor due to GW 
     @unpack δ,α,ψ,h,cos_ι,ω,Φ0 = GW
     gw_factor = gw_frequency_modulation_factor(δ,α,ψ,h,cos_ι,ω,Φ0,q,d,t)
-   
+    
+  
     #The measured frequency without noise 
     f_measured_clean = gw_factor .* intrinsic_frequency
     #The measured frequency with noise 

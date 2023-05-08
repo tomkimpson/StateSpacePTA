@@ -30,26 +30,30 @@ function gw_frequency_modulation_factor(δ::NF,α::NF,ψ::NF,h::NF,cos_ι::NF,ω
 
 
    
-
-
-    #
     m,n                  = principal_axes(NF(π/2.0) - δ,α,ψ)  
     gw_direction         = cross(m,n)
-    dot_product = NF(1.0) .+ q * gw_direction
+    dot_product          = NF(1.0) .+ q * gw_direction
 
     e_plus              = [m[i]*m[j]-n[i]*n[j] for i=1:3,j=1:3]
     e_cross             = [m[i]*n[j]-n[i]*m[j] for i=1:3,j=1:3]
     hp,hx               = h_amplitudes(h,cos_ι)   
     Hij                 = hp * e_plus + hx * e_cross
+
+
+    #Ampltiude terms 
     hbar         = [sum([Hij[i,j]*q[k,i]*q[k,j] for i=1:3,j=1:3]) for k=1:size(q)[1]] # Size Npulsars. Is there a vectorised way to do this?
-    prefactor    = NF(0.5).*(hbar ./ dot_product).*(NF(1.0) .- cos.(ω.*d.*dot_product))
-    tensor_product = t * dot_product' #this has shape(n times, n pulsars)
-    time_variation = cos.(-ω*tensor_product .+ Φ0)
-    GW_factor = NF(1.0) .- prefactor' .* time_variation
+    
+    
+    little_a = -ω*t .+ Φ0
+    little_b = ω.*dot_product.*d
+    
 
     
-    return GW_factor'
-    #@debug @assert size(dot_product)==length(q) # assert is not called unless 
+    blob = little_a .+ little_b'
+    trig_block = cos.(little_a) .- cos.(blob)
+    GW_factor = NF(1.0) .- NF(0.50).*(hbar ./ dot_product) .* trig_block' 
+
+    return GW_factor
 
     
 end 

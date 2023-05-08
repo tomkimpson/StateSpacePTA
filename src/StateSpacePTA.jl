@@ -43,7 +43,6 @@ include("priors.jl")
 include("linear_kalman_filter.jl")
 include("particle_swarm.jl")
 include("particle_swarm_v2.jl")
-include("blackbox.jl")
 include("plotting.jl")
 include("run.jl")
 

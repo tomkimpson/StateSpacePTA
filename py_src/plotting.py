@@ -128,13 +128,15 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     selected_variables = []
     selected_injections = []
     selected_labels = []
+    selected_ranges = []
     for i in range(len(medians)):
         print(variables_to_plot[i], medians[i], variances[i])
 
-        if variances[i] > 1e-40:
+        if variances[i] > 1e-30:
             selected_variables.extend([variables_to_plot[i]])
             selected_injections.extend([injection_parameters[i]])
             selected_labels.extend([labels[i]])
+            #selected_ranges.extend([ranges[i]])
         else:
             print("Note! ", variables_to_plot[i], " has zero variance and will not be plotted")
    
@@ -147,6 +149,9 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     plt.style.use('science')
 
     try: 
+
+        print("selected variabels are")
+        print (selected_variables)
         fig = corner.corner(y_post, 
                             color='C0',
                             show_titles=True,
