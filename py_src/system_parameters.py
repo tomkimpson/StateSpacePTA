@@ -8,7 +8,7 @@ Function that returns a dict of parameters which define the system
 def SystemParameters(NF=np.float64,    # the number format of the arguments
                      T = 10,           # how long to integrate for in years
                      cadence=7,        # the interval between observations
-                     Ω=   5e-7,        # GW angular frequency
+                     Ω=   5.0e-7,        # GW angular frequency
                      Φ0 = 0.20,        # GW phase offset at t=0
                      ψ =  2.50,        # GW polarisation angle
                      ι = 1.0,          # GW source inclination

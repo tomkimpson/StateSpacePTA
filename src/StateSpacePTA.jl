@@ -27,7 +27,7 @@ AbstractMCMC.setprogress!(true)
 Random.seed!(8452)
 
 #Exports
-export particle_swarm_v2, setup, KF, run_all, plotter,particle_swarm,SystemParameters,kalman_parameters,black_box #KalmanFilter,infer_parameters,infer_parameters2, plotter,KF
+export particle_swarm_v2,blackbox, setup, KF, run_all, plotter,particle_swarm,SystemParameters,kalman_parameters,black_box #KalmanFilter,infer_parameters,infer_parameters2, plotter,KF
 
 
 

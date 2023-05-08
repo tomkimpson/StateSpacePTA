@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  8 MAY 2023 11:51
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  8 MAY 2023 15:50
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1163,29 +1163,103 @@ Overfull \vbox (13.79993pt too high) detected at line 24
 
 [1
 
-] [2
-
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+File: images/example_system.png Graphic file (type bmp)
+<images/example_system.png>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 64.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 37.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 64.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 37.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 64.
- [3
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 37.
+ [2
 
-] [4
+] [3
+
+]
+File: images/likelihood_delta_1.png Graphic file (type bmp)
+<images/likelihood_delta_1.png>
+
+[4
+
+]
+File: images/likelihood_delta_2.png Graphic file (type bmp)
+<images/likelihood_delta_2.png>
+ [5
+
+]
+File: images/likelihood_delta_3.png Graphic file (type bmp)
+<images/likelihood_delta_3.png>
+ [6
+
+]
+File: images/likelihood_omega_1.png Graphic file (type bmp)
+<images/likelihood_omega_1.png>
+ [7
+
+]
+File: images/likelihood_omega_2.png Graphic file (type bmp)
+<images/likelihood_omega_2.png>
+ [8
+
+]
+File: images/likelihood_omega_3.png Graphic file (type bmp)
+<images/likelihood_omega_3.png>
+ [9
+
+]
+File: images/all_likelihood_curves.png Graphic file (type bmp)
+<images/all_likelihood_curves.png>
+ [10
+
+] [11
+
+] [12
+
+]
+Overfull \hbox (20.60933pt too wide) detected at line 173
+[]
+ []
+
+[13
+
+]
+File: images/all_likelihood_curves_psr.png Graphic file (type bmp)
+<images/all_likelihood_curves_psr.png>
+
+Overfull \vbox (14.02968pt too high) detected at line 181
+ []
+
+[14
+
+]
+File: images/all_likelihood_curves_psr.png Graphic file (type bmp)
+<images/all_likelihood_curves_psr.png>
+
+Overfull \vbox (14.02968pt too high) detected at line 189
+ []
+
+[15
+
+]
+File: images/canonical_mixed_result.png Graphic file (type bmp)
+<images/canonical_mixed_result.png>
+
+Overfull \vbox (18.63321pt too high) detected at line 197
+ []
+
+[16
 
 ]
 \tf@nav=\write6
@@ -1197,18 +1271,17 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
 \tf@snm=\write8
 \openout8 = `document.snm'.
 
-
-(./document.aux)
+ (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 37377 strings out of 476179
- 940008 string characters out of 5809545
- 1379842 words of memory out of 5000000
- 57433 multiletter control sequences out of 15000+600000
- 472335 words of font info for 54 fonts, out of 8000000 for 9000
+ 37591 strings out of 476179
+ 947299 string characters out of 5809545
+ 1384842 words of memory out of 5000000
+ 57628 multiletter control sequences out of 15000+600000
+ 472351 words of font info for 56 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 128i,13n,125p,1831b,656s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,13n,125p,1831b,752s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.pdf (4 pages).
+Output written on document.pdf (16 pages).

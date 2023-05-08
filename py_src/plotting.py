@@ -76,7 +76,7 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
     ax2.set_xlabel('t [years]', fontsize=fs)
     ax1.set_ylabel(r'$f_p$ [Hz]', fontsize=fs)
     ax2.set_ylabel(r'$f_M$ [Hz]', fontsize=fs)
-    ax2.set_ylabel(r'Residual [Hz]', fontsize=fs)
+    ax3.set_ylabel(r'Residual [Hz]', fontsize=fs)
     ax2.xaxis.set_tick_params(labelsize=fs-4)
     ax2.yaxis.set_tick_params(labelsize=fs-4)
     ax1.yaxis.set_tick_params(labelsize=fs-4)
@@ -194,7 +194,7 @@ def iterate_over_priors(variable, variable_range,true_parameters,KF):
 
 
 
-def likelihoods_over_priors(parameters,priors,PTA,P,KF):
+def likelihoods_over_priors(parameters,priors,PTA,P,KF,title,savefig):
 
 
 
@@ -225,7 +225,12 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF):
         ax = axes[i]
         ax.plot(prior,likelihood)
         ax.set_xlabel(key, fontsize = 16)
-        ax.axvline(value,linestyle='--', c='C2')
+        ax.axvline(value,linestyle='--', c='C2',label="truth")
+
+        idx = np.argmax(likelihood)
+
+
+        ax.axvline(prior[idx],linestyle='--', c='C3',label="maxima")
 
         if key in log_x_values:
             ax.set_xscale('log')
@@ -236,8 +241,14 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF):
     
 
     plt.subplots_adjust(hspace=0.5)
-    title = r"Likelihood Identifiability"
+   
     fig.suptitle(title, fontsize=20)
+    plt.legend()
+
+
+
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
     plt.show()
 

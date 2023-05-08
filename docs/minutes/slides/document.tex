@@ -26,61 +26,175 @@
 	\begin{frame}{}
 	
 	\begin{itemize}
-		\item Problem = overly narrow,biased posteriors 
+		\item \alert{Problem = overly narrow,biased posteriors}. Even for ``easy" systems!
 	\end{itemize}
 
+
+\includegraphics[width=0.5\textwidth,height=0.5\textwidth]{images/example_system}
+
+$h = 10^{-2}, \sigma_m = 10^{-13}, \sigma_p = 0.0$
+
+\end{frame}
+
+
+
+
+	\begin{frame}{}
+	
+	\begin{itemize}
+		\item Why? Very nasty likelihood curves
+	\end{itemize}
+	
+	
+	$$  p(\theta | d) \propto p(d | \theta) \pi({\theta})$$
+	$$ p(\theta | d) \propto \mathcal{L}(\theta) \pi({\theta})$$
+	
+		
+	For uniform prior, posterior shape $\sim$ likelihood shape. 
+
+
 \end{frame}
 
 
 
 \begin{frame}{}
-	A match made in heaven: reduced precision + stochastic rounding \newline 
 	
-	   \centering
-		\begin{tikzpicture}
-    \draw [-,>=stealth, color = black, thick] (-5, 0.0) -- (+5, 0.0); 
-     \draw [densely dashed,>=stealth, color = black, thick] (0.0, -0.50) -- (0.0, +0.5); 
-      \draw [-,>=stealth, color = black, thick] (-3, -0.50) -- (-3, +0.5); 
-	\draw [-,>=stealth, color = black, thick] (+3, -0.50) -- (+3, +0.5); 
-	\node[text=blue] at (3.2, -0.5) {$x_2$};
-	\node[text=blue] at (-2.8, -0.5) {$x_1$};
-	\node[text=blue] at (1.5, 1.2) {$x$};
-	\draw [-stealth,color = blue, thick] (1.5, 1.01) -- (1.5, 0.0); 
-		
-	\draw [-,>=stealth, color = red, thick] (-5, 1.0) -- (+5, 1.0); 
-		
-	\end{tikzpicture}
+	Example: $\mathcal{L}(\delta)$
+	
+\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_delta_1}
+	
+	
+\end{frame}
 
-\raggedright
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\delta)$, zoomed 1
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_delta_2}
+	
+	
+\end{frame}
 
-\begin{itemize}
-	\item Usual way: Round-to-nearest
-	\item Alternatively: Round \alert{stochastically} 
-\end{itemize}
 
-Why bother? $\rightarrow \mathbb{E} \left(\mathcal{R}(x)\right) = x$
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\delta)$, zoomed 2
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_delta_3}
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\omega)$
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_omega_1}
 
 	
 \end{frame}
 
 
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\omega)$, zoomed 1
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_omega_2}
+	
+	
+\end{frame}
 
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\omega)$, zoomed 2
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_omega_3}
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	All likelihood curves for $\bar{\theta}_{\rm GW}$:
+	
+	\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/all_likelihood_curves}
+	
+	
+\end{frame}
 
 
 
 \begin{frame}{}
-\centering
-\vspace{5mm}
-%\includegraphics[width=0.75\textwidth,height=0.75\textwidth]{images/precip_ensemble_timeseries_decadal}
+	
+		\begin{itemize}
+		\item \alert{Problem} = overly narrow,biased posteriors
+		\item Cause: noisy, likelihoods which are "locally Gaussian". Sampling gets stuck in a local optima and infers posteriors widths based on that optima. 
+	\end{itemize}
+	
+	
+	
+\end{frame}
 
-\raggedleft
-\vspace{-1mm}
-\tiny \url{arxiv.org/abs/2207.14598} \normalsize
 
+\begin{frame}{}
+	Potential solutions:
+	
+	\begin{enumerate}
+		\item Don't be a Bayesian: Maximum likelihood / loss optimisation? 
+		\item Be a Bayesian: Drop PSR terms from model?
+		\item other...?
+	\end{enumerate}
+	
+	
 \end{frame}
 
 
 
+\begin{frame}{Option 2: Drop PSR terms from model?}
+	 \begin{equation}
+		f_{\rm measured} = f_{\rm emitted} \, g(\tau; \bar{\theta})
+		\label{eq:measureent}
+	\end{equation}
+	with
+	\begin{align}
+		g(\tau; \bar{\theta}) 
+		& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left[ \cos(-\Omega \tau +\Phi_0) - \cos(-\Omega \tau +\Phi_0 + \Omega (1 + \bar{n}\cdot \bar{q})  d) \right]
+	\end{align}
+
+Generate the fake data using the full expression for $g(\tau; \bar{\theta})$, but use $g'(\tau; \bar{\theta})$ in the Kalman measurement model
+	
+		\begin{align}
+		g'(\tau; \bar{\theta}) 
+		& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left[ \cos(-\Omega \tau +\Phi_0) \right]
+	\end{align}
+\end{frame}
+
+
+\begin{frame}{Option 2: Drop PSR terms from model?}
+	
+		All likelihood curves for $\bar{\theta}_{\rm GW}$:
+		\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/all_likelihood_curves_psr}
+
+\end{frame}
+
+
+\begin{frame}{Option 2: Drop PSR terms from model?}
+	
+	All likelihood curves for $\bar{\theta}_{\rm GW}$:
+	\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/all_likelihood_curves_psr}
+	
+\end{frame}
+
+\begin{frame}{Option 2: Drop PSR terms from model?}
+	
+	
+	\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/canonical_mixed_result}
+	
+	OK, but some biases...
+\end{frame}
 
 
 %	\begin{frame}{}

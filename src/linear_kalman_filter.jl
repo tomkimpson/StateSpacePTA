@@ -69,7 +69,8 @@ function update(x::Vector{NF},P::Vector{NF},observation::Vector{NF},R::NF,H::Vec
     Pnew = I_KH .* P .* I_KH .+ K .* R .* K #updated covariance
 
     #...and get the likelihood
-    l = log_likelihood(S,y)
+    #l = log_likelihood(S,y)
+    l = residuals(y)
     
     return xnew,Pnew,l
 
@@ -97,4 +98,10 @@ end
 
 
 
+function residuals(innovation::Vector{NF}) where {NF<:AbstractFloat}
+
+
+return -log(abs.(innovation⋅innovation))
+
+end 
 
