@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  8 MAY 2023 15:50
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  9 MAY 2023 13:24
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1228,7 +1228,7 @@ File: images/all_likelihood_curves.png Graphic file (type bmp)
 ] [12
 
 ]
-Overfull \hbox (20.60933pt too wide) detected at line 173
+Overfull \hbox (20.60933pt too wide) detected at line 174
 []
  []
 
@@ -1238,7 +1238,7 @@ Overfull \hbox (20.60933pt too wide) detected at line 173
 File: images/all_likelihood_curves_psr.png Graphic file (type bmp)
 <images/all_likelihood_curves_psr.png>
 
-Overfull \vbox (14.02968pt too high) detected at line 181
+Overfull \vbox (14.02968pt too high) detected at line 182
  []
 
 [14
@@ -1247,7 +1247,7 @@ Overfull \vbox (14.02968pt too high) detected at line 181
 File: images/all_likelihood_curves_psr.png Graphic file (type bmp)
 <images/all_likelihood_curves_psr.png>
 
-Overfull \vbox (14.02968pt too high) detected at line 189
+Overfull \vbox (14.02968pt too high) detected at line 190
  []
 
 [15
@@ -1256,7 +1256,7 @@ Overfull \vbox (14.02968pt too high) detected at line 189
 File: images/canonical_mixed_result.png Graphic file (type bmp)
 <images/canonical_mixed_result.png>
 
-Overfull \vbox (18.63321pt too high) detected at line 197
+Overfull \vbox (33.12314pt too high) detected at line 198
  []
 
 [16

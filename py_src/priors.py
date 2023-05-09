@@ -57,6 +57,7 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
         key = label+str(i)
         init_parameters[key] = None
       
+        print(key, f, f-np.abs(f*tol), f+np.abs(f*tol))
         priors[key] = bilby.core.prior.Uniform(f-np.abs(f*tol),f+ np.abs(f*tol), key)
         
         i+= 1
@@ -163,8 +164,8 @@ def bilby_priors_dict(PTA,P):
 
 
 
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.99)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.99)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
 
@@ -176,8 +177,12 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["sigma_m"] = None
-    #priors["sigma_m"] = P["sigma_m"]
-    priors["sigma_m"] = 0.10
+
+    if P["psr_terms_model"]:
+        priors["sigma_m"] = P["sigma_m"]
+    else:
+        priors["sigma_m"] = 0.10 #using just the Earth terms so add some extra noise.
+
 
 
 
