@@ -11,32 +11,12 @@ class BilbyLikelihood(bilby.Likelihood):
         
     def log_likelihood(self):
 
-        #try:
-            #ll, xres, P = self.model.likelihood(self.parameters)
+ 
         ll,xres,yres = self.model.likelihood(self.parameters)
-
-        #except np.linalg.LinAlgError:
-            #ll= -np.inf
-        #if np.isnan(ll):
-            #ll = -np.inf
 
         return ll
     
-
-    # def noise_log_likelihood(self):
-
-    #     #try:
-    #         #ll, xres, P = self.model.likelihood(self.parameters)
-    #     ll = self.model.noise_log_likelihood(self.parameters)
-
-    #     #except np.linalg.LinAlgError:
-    #         #ll= -np.inf
-    #     #if np.isnan(ll):
-    #         #ll = -np.inf
-
-    #     return ll
             
-
 def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
    
     
@@ -65,10 +45,10 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     result = bilby.run_sampler(likelihood, priors, 
                               label = label,
                               outdir=outdir,
-                              sampler ='pymultinest', #sampler=bilby_mcmc, dynesty,ultranest,pymultinest
-			                  #sample='rwalk_dynesty',
+                              sampler ='dynesty', #sampler=bilby_mcmc, dynesty,ultranest,pymultinest
+			                  sample='rwalk_dynesty',
                               check_point_plot=False,
-                              npoints=500,
+                              npoints=2000,
                               dlogz=1e-6,
 			                  #logz=1e-4,
                               npool=32,

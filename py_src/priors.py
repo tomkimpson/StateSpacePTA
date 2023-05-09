@@ -48,15 +48,17 @@ def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
     return init_parameters,priors
 
 
-def add_to_bibly_priors_dict(x,label,init_parameters,priors):
+def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
 
-
+    print("Adding to bilby priors dict: ", label)
     
     i = 0
     for f in x:
         key = label+str(i)
         init_parameters[key] = None
-        priors[key] = bilby.core.prior.Uniform(f*0.95,f*1.05, key)
+      
+        priors[key] = bilby.core.prior.Uniform(f-np.abs(f*tol),f+ np.abs(f*tol), key)
+        
         i+= 1
 
     return init_parameters,priors
@@ -161,8 +163,8 @@ def bilby_priors_dict(PTA,P):
 
 
 
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.fdot,"fdot",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.99)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.99)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
 

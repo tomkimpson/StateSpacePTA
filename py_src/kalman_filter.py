@@ -5,7 +5,7 @@ import numpy as np
 #from gravitational_waves import gw_model
 
 from numba import jit,config
-from system_parameters import disable_JIT
+from system_parameters import disable_JIT,heterodyne
 config.DISABLE_JIT = disable_JIT
 
 from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
@@ -41,10 +41,10 @@ def cauchy_likelihood(S,innovation):
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
 @jit(nopython=True)
-def update(x, P, observation,R,H):
+def update(x, P, observation,R,H,ephemeris):
 
     
-    y    = observation - H*x
+    y    = observation - H*x + ephemeris
 
     S    = H*P*H + R  
     K    = P*H/S 
@@ -63,7 +63,6 @@ def update(x, P, observation,R,H):
     l = log_likelihood(S,y)
     
     return xnew, Pnew,l
-
 
 
 """
@@ -107,28 +106,27 @@ class KalmanFilter:
         self.Nsteps = self.observations.shape[0]
         self.NF = PTA.NF
 
-
-
-        #self.F_function = F_function #global
-        #self.T_function = F_function #global
-        #self.Q_function = F_function #global
-        #self.R_function = F_function #global
         self.H_function = Model.H_function
+
+
+        if heterodyne:
+            print("Running the KF with heterodyned settings")
+            self.ephemeris = PTA.ephemeris 
+            self.x0 =  self.observations[0,:] + self.ephemeris[0,:] 
+
+        else:
+            print("Running the KF with non-heterodyned settings")
+            self.ephemeris = np.zeros_like(PTA.ephemeris)
+            self.x0 =  self.observations[0,:] 
+
     
 
 
-
-
-
-
     def likelihood(self,parameters):
-        
+
         #Bilby takes a dict
         #For us this is annoying - map some quantities to be vectors
         f,fdot,gamma,d = map_dicts_to_vector(parameters)
-
-
-      
         
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
@@ -139,11 +137,10 @@ class KalmanFilter:
         T = T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
         #Initialise x and P
-        x = self.observations[0,:] # guess that the intrinsic frequencies is the same as the measured frequency
+        x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr) * 0.1 #Guess that the uncertainty is about 0.1 Hz 
 
-       
-    
+
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
         modulation_factors = self.H_function(parameters["delta_gw"],
@@ -155,15 +152,23 @@ class KalmanFilter:
                                              parameters["iota_gw"],
                                              parameters["omega_gw"],
                                              d,
-                                            self.t,
+                                             self.t,
                                              parameters["phi0_gw"]
                                             )
+
+
+
+
+
+
+
+
 
         #Initialise the likelihood
         likelihood = 0.0
               
 
-        x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:])
+        x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:],self.ephemeris[0,:])
         likelihood +=l
 
 
@@ -171,26 +176,21 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = modulation_factors[0,:]*x
-
-
-
-
+        y_results[0,:] = modulation_factors[0,:]*x - self.ephemeris[0,:]
 
 
         for i in np.arange(1,self.Nsteps):
 
             
             obs = self.observations[i,:]
-           
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
-            x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:])
+            x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:],self.ephemeris[i,:])
             likelihood +=l
 
             x_results[i,:] = x
-            y_results[i,:] = modulation_factors[i,:]*x
+            y_results[i,:] = modulation_factors[i,:]*x - self.ephemeris[i,:]
 
-        #print("omega_gw = ", parameters["omega_gw"],likelihood)
+
         return likelihood,x_results,y_results
 
      

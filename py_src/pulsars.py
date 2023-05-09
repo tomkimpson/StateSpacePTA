@@ -58,6 +58,8 @@ class Pulsars:
         self.NF = NF 
 
 
+        self.ephemeris = self.f + np.outer(self.t,self.fdot) 
+
 
 def unit_vector(theta,phi):
 

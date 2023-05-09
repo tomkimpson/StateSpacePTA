@@ -74,6 +74,19 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
+"""
+The null model - i.e. no GW
+"""
+@jit(nopython=True)
+def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+    return np.ones((len(t),len(q)))
+    
+
+
+
+
+
+
 @jit(nopython=True)
 def principal_axes(theta,phi,psi):
     

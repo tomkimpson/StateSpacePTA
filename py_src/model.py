@@ -5,7 +5,7 @@ from numba import jit,config
 
 from system_parameters import disable_JIT
 config.DISABLE_JIT = disable_JIT
-from gravitational_waves import gw_psr_terms,gw_earth_terms
+from gravitational_waves import gw_psr_terms,gw_earth_terms,null_model
 
 class LinearModel:
 
@@ -20,12 +20,19 @@ class LinearModel:
         Initialize the class. 
         """
 
-        if P["psr_terms_model"]:
-            print("Attention: You are including the PSR terms in your measurement model")
-            self.H_function = gw_psr_terms
+
+        if P["noise_model"]:
+            print("Attention: You are using just the null measurement model")
+            self.H_function = null_model 
+
         else:
-            print("Attention: You are using just the Earth terms in your measurement model")
-            self.H_function = gw_earth_terms
+
+            if P["psr_terms_model"]:
+                print("Attention: You are including the PSR terms in your measurement model")
+                self.H_function = gw_psr_terms
+            else:
+                print("Attention: You are using just the Earth terms in your measurement model")
+                self.H_function = gw_earth_terms
 
 
 
@@ -60,8 +67,6 @@ The diagonal Q matrix as a vector
 @jit(nopython=True)
 def Q_function(gamma,sigma_p,dt):
     value = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
-
-    #print("The value of the q function is:", value)
     return value 
     
 
@@ -72,4 +77,3 @@ The R matrix as a scalar
 def R_function(sigma_m):
     return sigma_m**2
     
-

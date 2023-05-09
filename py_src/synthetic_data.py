@@ -4,6 +4,8 @@ import sdeint
 import numpy as np 
 
 from gravitational_waves import gw_earth_terms,gw_psr_terms
+
+from system_parameters import heterodyne 
 class SyntheticData:
     
     
@@ -61,3 +63,9 @@ class SyntheticData:
         measurement_noise = np.random.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise
         self.f_measured = self.f_measured_clean + measurement_noise
 
+
+        
+        print ("Heterodyning:", heterodyne)
+        if heterodyne:
+            print("Heterodyning the measured data relative to a reference ephemeris")
+            self.f_measured = self.f_measured - pulsars.ephemeris
