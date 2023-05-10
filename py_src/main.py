@@ -49,6 +49,7 @@ if __name__=="__main__":
     guessed_parameters = priors_dict(PTA,P)
     model_likelihood, state_predictions,measurement_predictions = KF.likelihood(guessed_parameters)
     print("Ideal likelihood = ", model_likelihood)
+    print("True strain = ", h)
     #from plotting import plot_all
     #plot_all(PTA.t, data.intrinsic_frequency, data.f_measured, state_predictions,measurement_predictions, 1,savefig=None)
 
