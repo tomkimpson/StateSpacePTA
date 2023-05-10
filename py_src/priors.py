@@ -159,7 +159,9 @@ def bilby_priors_dict(PTA,P):
 
 
     init_parameters["h"] = None
-    priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'h')
+    #priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'h')
+    priors["h"] = bilby.core.prior.LogUniform(P["h"]/1e2, P["h"]*1e2, 'h') #prior on h is always 2 orders of magnitude either side of true value 
+
     #priors["h"] = P["h"]
 
 
