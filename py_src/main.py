@@ -17,7 +17,9 @@ import numpy as np
 import bilby
 import sys
 
-arg_name = sys.argv[1]
+arg_name = sys.argv[1]  #reference name
+h        =  sys.argv[2] #strain
+noise_model =  eval(sys.argv[3]) #whether to use the H0 or H1 model
 
 from numba import jit, config
 
@@ -29,7 +31,7 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
 
-    P   = SystemParameters(h=1e-8,σp=0.0,σm=1e-13,use_psr_terms_in_data=True,use_psr_terms_in_model=False,noise_model=False)       # define the system parameters as a class
+    P   = SystemParameters(h=h,σp=0.0,σm=1e-13,use_psr_terms_in_data=True,use_psr_terms_in_model=False,noise_model=noise_model)       # define the system parameters as a class
     PTA = Pulsars(P)                                       # setup the PTA
     data = SyntheticData(PTA,P)                            # generate some synthetic data
 
@@ -42,6 +44,7 @@ if __name__=="__main__":
     KF = KalmanFilter(model,data.f_measured,PTA)
 
 
+    sys.exit()
     #Run the KF once with the correct parameters.
     #This allows JIT precompile
     guessed_parameters = priors_dict(PTA,P)

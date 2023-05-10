@@ -3,9 +3,9 @@
 #SBATCH --ntasks=1 
 #SBATCH --mem=8000MB 
 #SBATCH --time=48:00:00 
-#SBATCH --job-name=mcmc_rerun 
-#SBATCH --output=outputs/mcmc_rerun_out.txt 
+#SBATCH --job-name=test1 
+#SBATCH --output=outputs/test1_out.txt 
  
 source ~/.bashrc 
 conda activate OzStar 
-python main.py mcmc_rerun
+time python main.py test1 1e-2 True

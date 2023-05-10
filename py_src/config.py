@@ -9,6 +9,8 @@ import sys
 
 
 arg_name = sys.argv[1]
+h        =  sys.argv[2] #strain
+noise_model =  sys.argv[3] #whether to use the H0 or H1 model
 
 with open('slurm.sh','w') as g:
 
@@ -22,7 +24,7 @@ with open('slurm.sh','w') as g:
 
     g.write("source ~/.bashrc \n")
     g.write("conda activate OzStar \n")
-    g.write(f"time python main.py {arg_name}")
+    g.write(f"time python main.py {arg_name} {h} {noise_model}")
     
     
     
