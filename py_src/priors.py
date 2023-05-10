@@ -180,10 +180,10 @@ def bilby_priors_dict(PTA,P):
 
     init_parameters["sigma_m"] = None
 
-    if P["psr_terms_model"]:
+    if P["measurement_model"] == "pulsar":
         priors["sigma_m"] = P["sigma_m"]
     else:
-        priors["sigma_m"] = 0.10 #using just the Earth terms so add some extra noise.
+        priors["sigma_m"] = 0.10 # using just the Earth terms or the null model so add some extra noise?
 
 
 
