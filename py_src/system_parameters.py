@@ -19,8 +19,7 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      σm = 1e-8,        # measurement noise standard deviation
                      Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
                      use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
-                     use_psr_terms_in_model=True, # do you want the pulsar terms to be in the Kalman measurement model?
-                     noise_model=False, #do you want to use the noise model as the KF measurement matrix? IF True overrrides use_psr_terms_in_model
+                     measurement_model='pulsar' # what do you want the KF measurement model to be?
                      ): 
 
     data = dict({
@@ -38,8 +37,7 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                "sigma_m":  NF(σm),
                "Npsr":     Npsr,
                "psr_terms_data":use_psr_terms_in_data,
-               "psr_terms_model":use_psr_terms_in_model,
-               "noise_model":noise_model})
+               "measurement_model":measurement_model})
 
     return data
    

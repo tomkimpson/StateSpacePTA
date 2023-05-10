@@ -21,19 +21,16 @@ class LinearModel:
         """
 
 
-        if P["noise_model"]:
+        if P["measurement_model"] == "null":
             print("Attention: You are using just the null measurement model")
             self.H_function = null_model 
-
+        elif P["measurement_model"] == "earth":
+            print("Attention: You are using the Earth terms measurement model")
+            self.H_function = gw_earth_terms
+        elif P["measurement_model"] == "pulsar":
+            self.H_function = gw_psr_terms
         else:
-
-            if P["psr_terms_model"]:
-                print("Attention: You are including the PSR terms in your measurement model")
-                self.H_function = gw_psr_terms
-            else:
-                print("Attention: You are using just the Earth terms in your measurement model")
-                self.H_function = gw_earth_terms
-
+            sys.exit("Measurement model not recognized. Stopping.")
 
 
 

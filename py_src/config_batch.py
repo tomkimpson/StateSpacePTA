@@ -10,7 +10,7 @@ import sys
 
 arg_name = sys.argv[1]
 h        =  sys.argv[2] #strain
-noise_model =  sys.argv[3] #whether to use the H0 or H1 model
+measurement_model =  sys.argv[3] #what model to use in KF
 
 with open(f'slurm_jobs/slurm_{arg_name}.sh','w') as g:
 
@@ -24,7 +24,7 @@ with open(f'slurm_jobs/slurm_{arg_name}.sh','w') as g:
 
     g.write("source ~/.bashrc \n")
     g.write("conda activate OzStar \n")
-    g.write(f"time python main.py {arg_name} {h} {noise_model}")
+    g.write(f"time python main.py {arg_name} {h} {measurement_model}")
     
     
     
