@@ -26,9 +26,6 @@ arg_name = sys.argv[1]
 
 from numba import jit, config
 
-from system_parameters import disable_JIT
-config.DISABLE_JIT = disable_JIT
-
 if __name__=="__main__":
     import multiprocessing
     multiprocessing.set_start_method("fork")

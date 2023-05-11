@@ -5,12 +5,11 @@ import numpy as np
 #from gravitational_waves import gw_model
 
 from numba import jit,config
-from system_parameters import disable_JIT,heterodyne,heterodyne_scale_factor
-config.DISABLE_JIT = disable_JIT
+
 
 from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
 
-
+import sys 
 
 from scipy.stats import multivariate_normal
 
@@ -22,20 +21,13 @@ The log likelihood, designed for diagonal matrices where S is considered as a ve
 """
 @jit(nopython=True)
 def log_likelihood(S,innovation):
-
-
-    #print("likelihhod, S = ", S, innovation)
     x = innovation / S 
     N = len(x)
     
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    #print("likelihood parts:",slogdet,innovation, S , N*np.log(2*np.pi)
-#)
-
     return value
-    #return -np.log(np.sum(np.abs(innovation)))
-    #return -np.log(innovation @ innovation)
+
 
 
 @jit(nopython=True)
@@ -57,19 +49,13 @@ Kalman update step for diagonal matrices where everything is considered as a 1d 
 def update(x, P, observation,R,H,ephemeris):
 
     
-    y_predicted = H*x - ephemeris*heterodyne_scale_factor
+    y_predicted = H*x - ephemeris
     y    = observation - y_predicted
-
-
-    #print("Update function:", observation)
-
-    S    = H*P*H + R  
-
-    #("Unceratinty in my innovation is:", H*P*H, R)
+    S    = H*P*H + R 
     K    = P*H/S 
     xnew = x + K*y
 
-   
+
     #Update the covariance 
     #Following FilterPy https://github.com/rlabbe/filterpy/blob/master/filterpy/kalman/EKF.py by using
     # P = (I-KH)P(I-KH)' + KRK' which is more numerically stable
@@ -78,8 +64,6 @@ def update(x, P, observation,R,H,ephemeris):
     I_KH = 1.0 - K*H
     Pnew = I_KH * P * I_KH + K * R * K
 
-    #print("Pnew = ", Pnew)
-    #print("--------------------")
     
     #And get the likelihood
     l = log_likelihood(S,y)
@@ -95,8 +79,6 @@ def predict(x,P,F,T,Q):
     xp = F*x + T 
     Pp = F*P*F + Q  
 
-
-    #print("PREDICT", F*P*F, Q)
     return xp,Pp
 
 
@@ -113,7 +95,7 @@ class KalmanFilter:
 
     """
 
-    def __init__(self,Model, Observations,PTA):
+    def __init__(self,Model, Observations,PTA,heterodyne,heterodyne_scale_factor):
 
         """
         Initialize the class. 
@@ -135,7 +117,7 @@ class KalmanFilter:
 
 
         if heterodyne:
-            print("Running the KF with heterodyned settings")
+            print("Running the Kalman filter with heterodyned settings")
             self.ephemeris = PTA.ephemeris 
             self.x0 =  self.observations[0,:]/heterodyne_scale_factor + self.ephemeris[0,:] 
 
@@ -144,10 +126,30 @@ class KalmanFilter:
             self.ephemeris = np.zeros_like(PTA.ephemeris)
             self.x0 =  self.observations[0,:] 
 
+
+        self.heterodyne_scale_factor = heterodyne_scale_factor
+        self.ephemeris_scaled = self.ephemeris * heterodyne_scale_factor
+
     
 
 
     def likelihood(self,parameters):
+
+
+        #Extract parameter values
+        #GW parameters
+        omega_gw = parameters["omega_gw"].item() 
+        phi0_gw  = parameters["phi0_gw"].item()
+        psi_gw   = parameters["psi_gw"].item()
+        iota_gw  = parameters["iota_gw"].item()
+        delta_gw = parameters["delta_gw"].item()
+        alpha_gw = parameters["alpha_gw"].item()
+        h        = parameters["h"].item()
+        #Noise parameters
+        sigma_m = parameters["sigma_m"].item()*self.heterodyne_scale_factor
+        sigma_p = parameters["sigma_p"].item()
+
+        
 
         #Bilby takes a dict
         #For us this is annoying - map some quantities to be vectors
@@ -156,9 +158,8 @@ class KalmanFilter:
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
-        R = R_function(parameters["sigma_m"]*heterodyne_scale_factor)
-        #print("The R matrix looks like:", R)
-        Q = Q_function(gamma,parameters["sigma_p"],self.dt)
+        R = R_function(sigma_m)
+        Q = Q_function(gamma,sigma_p,self.dt)
         F = F_function(gamma,self.dt)
         T = T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
@@ -168,23 +169,21 @@ class KalmanFilter:
 
 
 
-       # print("Initial guess of the states:", x)
-
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = self.H_function(parameters["delta_gw"],
-                                             parameters["alpha_gw"],
-                                             parameters["psi_gw"],
+        modulation_factors = self.H_function(delta_gw,
+                                             alpha_gw,
+                                             psi_gw,
                                              self.q,
                                              self.q_products,
-                                             parameters["h"],
-                                             parameters["iota_gw"],
-                                             parameters["omega_gw"],
+                                             h,
+                                             iota_gw,
+                                             omega_gw,
                                              d,
                                              self.t,
-                                             parameters["phi0_gw"]
+                                             phi0_gw
                                             )
-        modulation_factors = modulation_factors*heterodyne_scale_factor
+        modulation_factors = modulation_factors*self.heterodyne_scale_factor
 
 
 
@@ -193,7 +192,7 @@ class KalmanFilter:
         likelihood = 0.0
               
        
-        x,P,l,ypred = update(x,P, self.observations[0,:],R,modulation_factors[0,:],self.ephemeris[0,:])
+        x,P,l,ypred = update(x,P, self.observations[0,:],R,modulation_factors[0,:],self.ephemeris_scaled[0,:])
         likelihood +=l
 
 
@@ -201,7 +200,7 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = ypred #modulation_factors[0,:]*x - self.ephemeris[0,:]
+        y_results[0,:] = ypred 
 
 
         for i in np.arange(1,self.Nsteps):
@@ -209,12 +208,12 @@ class KalmanFilter:
             
             obs = self.observations[i,:]
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
-            x,P,l,ypred = update(x_predict,P_predict, obs,R,modulation_factors[i,:],self.ephemeris[i,:])
+            x,P,l,ypred = update(x_predict,P_predict, obs,R,modulation_factors[i,:],self.ephemeris_scaled[i,:])
             likelihood +=l
 
             x_results[i,:] = x
             y_results[i,:] =ypred
-
+            
         return likelihood,x_results,y_results
 
      
@@ -225,10 +224,10 @@ vector. Is there a more efficient way to do this?
 """
 def map_dicts_to_vector(parameters_dict):
 
-    f = np.array([val for key, val in parameters_dict.items() if "f0" in key])
-    fdot = np.array([val for key, val in parameters_dict.items() if "fdot" in key])
-    gamma = np.array([val for key, val in parameters_dict.items() if "gamma" in key])
-    d = np.array([val for key, val in parameters_dict.items() if "distance" in key])
+    f = np.array([val.item() for key, val in parameters_dict.items() if "f0" in key])
+    fdot = np.array([val.item() for key, val in parameters_dict.items() if "fdot" in key])
+    gamma = np.array([val.item() for key, val in parameters_dict.items() if "gamma" in key])
+    d = np.array([val.item() for key, val in parameters_dict.items() if "distance" in key])
 
     return f,fdot,gamma,d
 

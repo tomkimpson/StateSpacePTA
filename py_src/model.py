@@ -3,8 +3,7 @@
 import numpy as np
 from numba import jit,config
 
-from system_parameters import disable_JIT
-config.DISABLE_JIT = disable_JIT
+
 from gravitational_waves import gw_psr_terms,gw_earth_terms,null_model
 
 class LinearModel:
@@ -49,12 +48,11 @@ def F_function(gamma,dt):
 The control vector
 """
 @jit(nopython=True)
-def T_function(f0,fdot,gamma,t,dt):
+def T_function(f0:np.array,fdot,gamma,t,dt):
 
     
     fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
     value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
-
     return value 
 
 

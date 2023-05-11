@@ -166,8 +166,12 @@ def bilby_priors_dict(PTA,P):
 
 
 
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
+    #init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
+    #init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
+    
+    
+    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)
+    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.fdot,"fdot",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
 
@@ -180,10 +184,10 @@ def bilby_priors_dict(PTA,P):
 
     init_parameters["sigma_m"] = None
 
-    if P["measurement_model"] == "pulsar":
-        priors["sigma_m"] = P["sigma_m"]
-    else:
-        priors["sigma_m"] = 0.10 # using just the Earth terms or the null model so add some extra noise?
+    #if P["measurement_model"] == "pulsar":
+    priors["sigma_m"] = P["sigma_m"]
+    #else:
+     #   priors["sigma_m"] = 0.10 # using just the Earth terms or the null model so add some extra noise?
 
 
 

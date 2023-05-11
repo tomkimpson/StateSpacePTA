@@ -19,8 +19,18 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      σm = 1e-8,        # measurement noise standard deviation
                      Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
                      use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
-                     measurement_model='pulsar' # what do you want the KF measurement model to be?
+                     measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
+                     heterodyne=False 
                      ): 
+
+
+    print("***Welcome to the Kalman Filter Nested Sampler for PTA GW systems***")
+
+    if heterodyne:
+        heterodyne_scale_factor = 1e13
+    else:
+        heterodyne_scale_factor = 1.0
+
 
     data = dict({
                "NF":       NF, 
@@ -37,16 +47,10 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                "sigma_m":  NF(σm),
                "Npsr":     Npsr,
                "psr_terms_data":use_psr_terms_in_data,
-               "measurement_model":measurement_model})
+               "measurement_model":measurement_model,
+               "heterodyne":heterodyne,
+               "heterodyne_scale_factor":heterodyne_scale_factor})
 
     return data
    
 
-
-
-disable_JIT = False  
-heterodyne = False 
-if heterodyne:
-    heterodyne_scale_factor = 1e13
-else:
-    heterodyne_scale_factor = 1.0
