@@ -146,7 +146,8 @@ class KalmanFilter:
         alpha_gw = parameters["alpha_gw"].item()
         h        = parameters["h"].item()
         #Noise parameters
-        sigma_m = parameters["sigma_m"].item()*self.heterodyne_scale_factor
+
+        sigma_m = parameters["sigma_m"]*self.heterodyne_scale_factor #dont need an .item(), we always pass it as a float, don't infer it
         sigma_p = parameters["sigma_p"].item()
 
         
@@ -200,7 +201,7 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = ypred 
+        y_results[0,:] = modulation_factors[0,:]*x - self.ephemeris_scaled[0,:] 
 
 
         for i in np.arange(1,self.Nsteps):
@@ -212,7 +213,7 @@ class KalmanFilter:
             likelihood +=l
 
             x_results[i,:] = x
-            y_results[i,:] =ypred
+            y_results[i,:] =modulation_factors[i,:]*x - self.ephemeris_scaled[i,:] 
             
         return likelihood,x_results,y_results
 

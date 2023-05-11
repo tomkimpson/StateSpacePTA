@@ -1,6 +1,7 @@
 
 
 import numpy as np 
+import logging
 
 """
 Function that returns a dict of parameters which define the system
@@ -20,16 +21,17 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                      Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
                      use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
                      measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
-                     heterodyne=False 
+                     heterodyne=False,
+                     heterodyne_scale_factor = 1.0 
                      ): 
 
 
     print("***Welcome to the Kalman Filter Nested Sampler for PTA GW systems***")
 
     if heterodyne:
-        heterodyne_scale_factor = 1e13
+        set_scale_factor = heterodyne_scale_factor
     else:
-        heterodyne_scale_factor = 1.0
+        set_scale_factor = 1.0
 
 
     data = dict({
@@ -49,7 +51,7 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
                "psr_terms_data":use_psr_terms_in_data,
                "measurement_model":measurement_model,
                "heterodyne":heterodyne,
-               "heterodyne_scale_factor":heterodyne_scale_factor})
+               "heterodyne_scale_factor":set_scale_factor})
 
     return data
    

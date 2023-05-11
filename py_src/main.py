@@ -29,13 +29,12 @@ if __name__=="__main__":
     multiprocessing.set_start_method("fork")
 
     #Setup the system
-    P   = SystemParameters(h=h,σp=0.0,σm=1e-13,use_psr_terms_in_data=True,measurement_model=measurement_model,Npsr=2)       # define the system parameters as a dict. Todo: make this a class
+    P   = SystemParameters(h=h,σp=0.0,σm=1e-13,use_psr_terms_in_data=True,measurement_model=measurement_model)       # define the system parameters as a dict. Todo: make this a class
     PTA = Pulsars(P)                                       # setup the PTA
     data = SyntheticData(PTA,P)                            # generate some synthetic data
 
     #Define the model 
     model = LinearModel(P)
-
 
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA,P["heterodyne"],P["heterodyne_scale_factor"])
