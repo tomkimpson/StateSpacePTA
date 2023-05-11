@@ -103,6 +103,9 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     # a dictionary
     data = json.load(f)
 
+
+    print("The evidence is:", data["log_evidence"])
+
     #Make it a dataframe. Nice for surfacing
     df = pd.DataFrame(data["samples"]["content"]) # posterior
 

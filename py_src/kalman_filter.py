@@ -10,6 +10,13 @@ config.DISABLE_JIT = disable_JIT
 
 from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
 
+
+
+from scipy.stats import multivariate_normal
+
+
+
+
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
@@ -20,6 +27,9 @@ def log_likelihood(S,innovation):
     
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
+    #print("likelihood parts:",slogdet,innovation, S , N*np.log(2*np.pi)
+#)
+
     return value
     #return -np.log(np.sum(np.abs(innovation)))
     #return -np.log(innovation @ innovation)
@@ -43,10 +53,12 @@ Kalman update step for diagonal matrices where everything is considered as a 1d 
 @jit(nopython=True)
 def update(x, P, observation,R,H,ephemeris):
 
-    
+    #print("Update:", P)
     y    = observation - H*x + ephemeris
 
     S    = H*P*H + R  
+
+    #("Unceratinty in my innovation is:", S, y)
     K    = P*H/S 
     xnew = x + K*y
 
@@ -58,6 +70,9 @@ def update(x, P, observation,R,H,ephemeris):
     # P = (I-KH)P usually seen in the literature.
     I_KH = 1.0 - K*H
     Pnew = I_KH * P * I_KH + K * R * K
+
+    #print("Pnew = ", Pnew)
+    #print("--------------------")
     
     #And get the likelihood
     l = log_likelihood(S,y)
@@ -72,6 +87,9 @@ Kalman predict step for diagonal matrices where everything is considered as a 1d
 def predict(x,P,F,T,Q): 
     xp = F*x + T 
     Pp = F*P*F + Q  
+
+
+    #print("PREDICT", F*P*F, Q)
     return xp,Pp
 
 

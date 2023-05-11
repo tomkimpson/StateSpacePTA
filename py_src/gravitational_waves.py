@@ -47,7 +47,6 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     dot_product,hbar,little_a = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
     trig_block = cos(little_a).reshape((len(t),1)) 
     GW_factor = 1 - 0.50*(hbar/dot_product)*trig_block
-
     return GW_factor
 
 
@@ -68,7 +67,6 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     blob = little_a+little_b
     trig_block = cos(little_a).reshape((len(t),1)) - cos(blob)
     GW_factor = 1 - 0.50*(hbar/dot_product)*trig_block
-
 
     return GW_factor
 
