@@ -5,7 +5,7 @@ import numpy as np
 
 from gravitational_waves import gw_earth_terms,gw_psr_terms
 
-from system_parameters import heterodyne 
+from system_parameters import heterodyne, heterodyne_scale_factor
 class SyntheticData:
     
     
@@ -68,4 +68,4 @@ class SyntheticData:
         print ("Heterodyning:", heterodyne)
         if heterodyne:
             print("Heterodyning the measured data relative to a reference ephemeris")
-            self.f_measured = self.f_measured - pulsars.ephemeris
+            self.f_measured = heterodyne_scale_factor*(self.f_measured - pulsars.ephemeris)

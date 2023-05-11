@@ -5,7 +5,7 @@ import numpy as np
 #from gravitational_waves import gw_model
 
 from numba import jit,config
-from system_parameters import disable_JIT,heterodyne
+from system_parameters import disable_JIT,heterodyne,heterodyne_scale_factor
 config.DISABLE_JIT = disable_JIT
 
 from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
@@ -22,6 +22,9 @@ The log likelihood, designed for diagonal matrices where S is considered as a ve
 """
 @jit(nopython=True)
 def log_likelihood(S,innovation):
+
+
+    #print("likelihhod, S = ", S, innovation)
     x = innovation / S 
     N = len(x)
     
@@ -53,12 +56,16 @@ Kalman update step for diagonal matrices where everything is considered as a 1d 
 @jit(nopython=True)
 def update(x, P, observation,R,H,ephemeris):
 
-    #print("Update:", P)
-    y    = observation - H*x + ephemeris
+    
+    y_predicted = H*x - ephemeris*heterodyne_scale_factor
+    y    = observation - y_predicted
+
+
+    #print("Update function:", observation)
 
     S    = H*P*H + R  
 
-    #("Unceratinty in my innovation is:", S, y)
+    #("Unceratinty in my innovation is:", H*P*H, R)
     K    = P*H/S 
     xnew = x + K*y
 
@@ -77,7 +84,7 @@ def update(x, P, observation,R,H,ephemeris):
     #And get the likelihood
     l = log_likelihood(S,y)
     
-    return xnew, Pnew,l
+    return xnew, Pnew,l,y_predicted
 
 
 """
@@ -130,7 +137,7 @@ class KalmanFilter:
         if heterodyne:
             print("Running the KF with heterodyned settings")
             self.ephemeris = PTA.ephemeris 
-            self.x0 =  self.observations[0,:] + self.ephemeris[0,:] 
+            self.x0 =  self.observations[0,:]/heterodyne_scale_factor + self.ephemeris[0,:] 
 
         else:
             print("Running the KF with non-heterodyned settings")
@@ -149,7 +156,8 @@ class KalmanFilter:
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
-        R = R_function(parameters["sigma_m"])
+        R = R_function(parameters["sigma_m"]*heterodyne_scale_factor)
+        #print("The R matrix looks like:", R)
         Q = Q_function(gamma,parameters["sigma_p"],self.dt)
         F = F_function(gamma,self.dt)
         T = T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
@@ -158,6 +166,9 @@ class KalmanFilter:
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr) * 0.1 #Guess that the uncertainty is about 0.1 Hz 
 
+
+
+       # print("Initial guess of the states:", x)
 
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
@@ -173,11 +184,7 @@ class KalmanFilter:
                                              self.t,
                                              parameters["phi0_gw"]
                                             )
-
-
-
-
-
+        modulation_factors = modulation_factors*heterodyne_scale_factor
 
 
 
@@ -185,8 +192,8 @@ class KalmanFilter:
         #Initialise the likelihood
         likelihood = 0.0
               
-
-        x,P,l = update(x,P, self.observations[0,:],R,modulation_factors[0,:],self.ephemeris[0,:])
+       
+        x,P,l,ypred = update(x,P, self.observations[0,:],R,modulation_factors[0,:],self.ephemeris[0,:])
         likelihood +=l
 
 
@@ -194,7 +201,7 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = modulation_factors[0,:]*x - self.ephemeris[0,:]
+        y_results[0,:] = ypred #modulation_factors[0,:]*x - self.ephemeris[0,:]
 
 
         for i in np.arange(1,self.Nsteps):
@@ -202,12 +209,11 @@ class KalmanFilter:
             
             obs = self.observations[i,:]
             x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
-            x,P,l = update(x_predict,P_predict, obs,R,modulation_factors[i,:],self.ephemeris[i,:])
+            x,P,l,ypred = update(x_predict,P_predict, obs,R,modulation_factors[i,:],self.ephemeris[i,:])
             likelihood +=l
 
             x_results[i,:] = x
-            y_results[i,:] = modulation_factors[i,:]*x - self.ephemeris[i,:]
-
+            y_results[i,:] =ypred
 
         return likelihood,x_results,y_results
 

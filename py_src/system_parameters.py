@@ -45,4 +45,8 @@ def SystemParameters(NF=np.float64,    # the number format of the arguments
 
 
 disable_JIT = False  
-heterodyne = True 
+heterodyne = False 
+if heterodyne:
+    heterodyne_scale_factor = 1e13
+else:
+    heterodyne_scale_factor = 1.0
