@@ -217,7 +217,6 @@ class KalmanFilter:
             
         return likelihood,x_results,y_results
 
-     
 
 """
 Useful function which maps repeated quantities in the dictionary to a

@@ -30,7 +30,6 @@ class SyntheticData:
         def g(x,t): 
             return sigma_p
 
-        np.random.seed(1234)
         generator = np.random.default_rng(1234)
         self.intrinsic_frequency = sdeint.itoint(f,g,f0, t,generator=generator)
 
@@ -59,7 +58,7 @@ class SyntheticData:
         
         #The measured frequency, no noise
         self.f_measured_clean= self.intrinsic_frequency * modulation_factors
-        measurement_noise = np.random.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise
+        measurement_noise = generator.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise. Seeded
         self.f_measured = self.f_measured_clean + measurement_noise
 
         if P["heterodyne"]:
