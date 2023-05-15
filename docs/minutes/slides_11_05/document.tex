@@ -1,0 +1,249 @@
+% !TeX TS-program = xelatex
+
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{pgfplots}
+\usepackage{xspace}
+
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+%\setsansfont[BoldFont={Fira Sans}]{Fira Sans Light}
+%\setmonofont{Fira Mono}
+%\usepackage[sfdefault]{Fira Sans}
+
+\title{}
+\subtitle{}
+
+\author{}
+
+\date{EE/GW meeting, May 11, 2023}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{frame}{}
+	
+	\begin{itemize}
+		\item \alert{Problem = overly narrow,biased posteriors from nested sampling}. Even for ``easy" systems!
+	\end{itemize}
+
+Here is an easy system: $h = 10^{-2}, \sigma_m = 10^{-13}, \sigma_p = 0.0$ \newline 
+\centering
+\includegraphics[width=0.5\textwidth,height=0.5\textwidth]{images/example_system}
+
+
+\raggedright
+If the true declination $\delta = 1.0$, NS might give us a posterior of $\sim 0.95$ but variance v.v. small and posterior does not capture true value
+
+
+\end{frame}
+
+
+
+
+	\begin{frame}{}
+	
+	\begin{itemize}
+		\item Why? Very nasty likelihood curves
+	\end{itemize}
+	
+	
+	$$  p(\theta | d) \propto p(d | \theta) \pi({\theta})$$
+	$$ p(\theta | d) \propto \mathcal{L}(\theta) \pi({\theta})$$
+	
+		
+	For uniform prior, posterior shape $\sim$ likelihood shape. 
+
+
+\end{frame}
+
+
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\delta)$
+	
+\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_delta_1}
+	
+	
+\end{frame}
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\delta)$, zoomed 1
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_delta_2}
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\delta)$, zoomed 2
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_delta_3}
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\omega)$
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_omega_1}
+
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\omega)$, zoomed 1
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_omega_2}
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	Example: $\mathcal{L}(\omega)$, zoomed 2
+	
+	\includegraphics[width=0.7\textwidth,height=0.6\textwidth]{images/likelihood_omega_3}
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	
+	All likelihood curves for $\bar{\theta}_{\rm GW}$:
+	
+	\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/all_likelihood_curves}
+	
+	
+\end{frame}
+
+
+
+\begin{frame}{}
+	
+		\begin{itemize}
+		\item \alert{Problem} = overly narrow,biased posteriors
+		\item Cause: noisy, likelihoods which are "locally Gaussian". Sampling gets stuck in a local optima and infers posteriors widths based on that optima. 
+%		\item Require $n_{live} > \frac{\rm prior \, volume}{\rm mode \,  footprint} = \frac{X}{\sigma^2}$
+%		\begin{itemize}
+%			\item For $\delta$ require $n_{live} > \frac{2 \pi}{10^{-5}} \sim 10^5 $
+%			\item For $\omega$ require $n_{live} > \frac{10^4}{10^{-11}} \sim 10^7 $ 
+%			\item Currently $n_{live} = 500$ parallelized on 32 cores $\sim 700$ minutes
+%			\item Runtime scales $\mathcal{O}(n_{live}) \rightarrow 8000 $ hours for required $\delta$ sampling (just under 1 year!)
+%
+%		\end{itemize}
+	\end{itemize}
+	
+	
+	
+\end{frame}
+
+
+\begin{frame}{}
+	Potential solutions:
+	
+	\begin{enumerate}
+		\item Better settings for sampler? E.g. more live points (how many?), massively parallel, optimized likelihood evaluations,...
+		\item Maximum likelihood / loss optimisation? 
+		\item Drop PSR terms from model?
+		\item MCMC at higher temperatures (trades off evidence..., less efficient	)
+		\item other...?
+	\end{enumerate}
+	
+	
+\end{frame}
+
+
+
+\begin{frame}{Drop PSR terms from model?}
+	 \begin{equation}
+		f_{\rm measured} = f_{\rm emitted} \, g(\tau; \bar{\theta})
+		\label{eq:measureent}
+	\end{equation}
+	with
+	\begin{align}
+		g(\tau; \bar{\theta}) 
+		& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left[ \cos(-\Omega \tau +\Phi_0) - \cos(-\Omega \tau +\Phi_0 + \Omega (1 + \bar{n}\cdot \bar{q})  d) \right]
+	\end{align}
+
+Generate the fake data using the full expression for $g(\tau; \bar{\theta})$, but use $g'(\tau; \bar{\theta})$ in the Kalman measurement model
+	
+		\begin{align}
+		g'(\tau; \bar{\theta}) 
+		& = 1 - \frac{1}{2} \frac{ H_{ij}q^i q^j }{(1 + \bar{n}\cdot \bar{q}) } \left[ \cos(-\Omega \tau +\Phi_0) \right]
+	\end{align}
+\end{frame}
+
+
+\begin{frame}{Drop PSR terms from model?}
+	
+		All likelihood curves for $\bar{\theta}_{\rm GW}$:
+		\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/all_likelihood_curves_psr}
+
+\end{frame}
+
+
+\begin{frame}{Option 2: Drop PSR terms from model?}
+	
+	
+	\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/canonical_mixed_result}
+	
+	OK, but some biases. c.f. location of the maxima on the previous slide
+\end{frame}
+
+
+
+\begin{frame}{}
+	
+	Lets proceed using this `Earth terms' model for now. 
+	
+	
+   So far we have been considering inference of only the GW terms $\bar{\theta}_{\rm GW}$. It is important to be able to infer the pulsar terms $\bar{\theta}_{\rm PSR}$.
+   
+   
+   Lets try and include $f \, (t=0)$ and $\dot{f} \, (t=0)$ in our nested sampling.
+   
+   We have a uniform prior of $\pm 1 \%$ about the true value for these two parameters 
+	
+	
+	
+
+	
+
+\end{frame}
+
+\begin{frame}{Earth terms model $\bar{\theta}_{\rm GW}$ and $f \, (t=0)$, $\dot{f} \, (t=0)$}
+	\includegraphics[width=0.9\textwidth,height=0.7\textwidth]{images/fprior_earth_corrected_result}
+\end{frame}
+
+
+%	\begin{frame}{}
+	%
+	%Numerical weather and climate modelling 
+	%
+	%        \begin{itemize}
+		%	        \item Reduced precision floats + stochastic rounding
+		%	        \item Automatic Differentiation
+		%        \end{itemize}
+	%    
+	%    \alert{Open call for collaboration!}
+	%    
+	%    
+	%	\end{frame}
+
+
+
+	
+\end{document}

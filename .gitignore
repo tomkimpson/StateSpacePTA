@@ -6,3 +6,4 @@ py_src/__pycache__/bilby_wrapper.cpython-310.pyc
 py_src/__pycache__/*.pyc
 py_src/outputs/*
 docs/minutes/slides/images/*
+docs/minutes/*/*/*.png
