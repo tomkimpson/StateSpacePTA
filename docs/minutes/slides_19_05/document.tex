@@ -100,21 +100,10 @@
 
 
 \begin{frame}[standout]
-	Fin.
+	Backup slides
 \end{frame}
 
 \appendix
-
-\begin{frame}[fragile]{Backup slides}
-	Sometimes, it is useful to add slides at the end of your presentation to
-	refer to during audience questions.
-	
-	The best way to do this is to include the \verb|appendixnumberbeamer|
-	package in your preamble and call \verb|\appendix| before your backup slides.
-	
-	\themename will automatically turn off slide numbering and progress bars for
-	slides in the appendix.
-\end{frame}
 
 
 \begin{frame}[fragile]{Where did $\sigma_m$ value come from?}
@@ -143,18 +132,22 @@ $$\sigma_m \sim 1.6 \times 10^{-12}$$
 \end{frame}
 
 
-	\begin{frame}{}
-	
-	\begin{itemize}
-		\item Why? Very nasty likelihood curves
-	\end{itemize}
-	
-	
-	$$  p(\theta | d) \propto p(d | \theta) \pi({\theta})$$
-	$$ p(\theta | d) \propto \mathcal{L}(\theta) \pi({\theta})$$
-	
+	\begin{frame}{What changed?}
 		
-	For uniform prior, posterior shape $\sim$ likelihood shape. 
+		AM: What changed such that now everything works?
+		
+		\begin{itemize}
+			\item Dropping PSR terms to smooth likelihoods
+			\item \textit{Increasing} measurement noise  
+			\item Don't need too many live points
+			\item Non-default Bilby sampler settings 
+			\begin{itemize}
+				\item e.g. docs recommend `sample=act-walk`or `sample=acceptance-walk`
+				\item More success with `sample=rwalk-dynesty` (not `sample=rwalk` which is the Bilby implementation)
+			\end{itemize}
+		\item Be mindful of float errors - Python/Numpy/Bilby Nans get propagated, rather than error e.g. Fortran.
+		\end{itemize}
+	
 
 
 \end{frame}

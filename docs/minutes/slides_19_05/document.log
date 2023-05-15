@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  15 MAY 2023 15:08
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  16 MAY 2023 07:56
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1304,7 +1304,7 @@ File: images/likelihood_omega_3.png Graphic file (type bmp)
 File: images/canonical_mixed_result.png Graphic file (type bmp)
 <images/canonical_mixed_result.png>
 
-Overfull \vbox (18.92322pt too high) detected at line 271
+Overfull \vbox (18.92322pt too high) detected at line 275
  []
 
 [22
@@ -1334,10 +1334,10 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 5BCEA9CF7D2D9AECE7CAC4018E9F6C5B;81.
  ) 
 Here is how much of TeX's memory you used:
- 37702 strings out of 476179
- 949431 string characters out of 5809545
- 1383842 words of memory out of 5000000
- 57712 multiletter control sequences out of 15000+600000
+ 37729 strings out of 476179
+ 950272 string characters out of 5809545
+ 1383841 words of memory out of 5000000
+ 57739 multiletter control sequences out of 15000+600000
  477077 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,13n,125p,1831b,752s stack positions out of 10000i,1000n,20000p,200000b,200000s
