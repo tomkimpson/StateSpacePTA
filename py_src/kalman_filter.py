@@ -118,7 +118,7 @@ class KalmanFilter:
         self.x0 =  self.observations[0,:] 
 
 
-    def likelihood_class(self,parameters):
+    def likelihood(self,parameters):
 
 
         #Extract parameter values
@@ -151,8 +151,8 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * 0.1 * 1e-6 #Guess that the uncertainty is about 0.1 Hz 
-         
+        P = np.ones(self.Npsr) * sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+
 
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed

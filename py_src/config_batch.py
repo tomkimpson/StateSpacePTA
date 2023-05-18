@@ -1,17 +1,11 @@
 
 
 
-### A python script that accepts a name argument and populates a slurm file 
 
 
 import os
 import sys 
 import numpy as np 
-
-
-# arg_name = sys.argv[1]
-# h        =  sys.argv[2] #strain
-# measurement_model =  sys.argv[3] #what model to use in KF
 
 
 def create_slurm_job(arg_name,h,measurement_model):
