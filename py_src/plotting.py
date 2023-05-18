@@ -28,10 +28,6 @@ def plot_statespace(t,states,measurements,psr_index):
     ax2.plot(tplot,measurement_i)
     plt.show()
 
-
-
-
-
 def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')
@@ -123,7 +119,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     print("Number of samples:")
     print(len(df_posterior))
 
-    print("Medians/Variances")
+    print("Truths/Medians/Variances")
 
     medians = df_posterior[variables_to_plot].median()
     variances = df_posterior[variables_to_plot].var()
@@ -133,9 +129,9 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     selected_labels = []
     selected_ranges = []
     for i in range(len(medians)):
-        print(variables_to_plot[i], medians[i], variances[i])
+        print(injection_parameters[i],variables_to_plot[i], medians[i], variances[i])
 
-        if variances[i] > 1e-30:
+        if variances[i] > 1e-50: #is this necessary anymore?
             selected_variables.extend([variables_to_plot[i]])
             selected_injections.extend([injection_parameters[i]])
             selected_labels.extend([labels[i]])

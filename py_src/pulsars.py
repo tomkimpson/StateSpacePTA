@@ -2,6 +2,8 @@
 from numpy import sin, cos
 import numpy as np 
 import pandas as pd 
+
+
 class Pulsars:
 
 

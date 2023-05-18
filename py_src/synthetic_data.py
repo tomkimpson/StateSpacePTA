@@ -5,6 +5,8 @@ import numpy as np
 
 from gravitational_waves import gw_earth_terms,gw_psr_terms
 
+#from mpmath import mp, mpf 
+#mp.dps = 50
 class SyntheticData:
     
     
@@ -18,14 +20,17 @@ class SyntheticData:
         Npsr = pulsars.Npsr 
 
         #...and the pulsar parameters
-        f0 = pulsars.f
-        fdot = pulsars.fdot
-        gamma = pulsars.gamma
-        sigma_p = np.full((Npsr,1),pulsars.sigma_p)
+        f0 = pulsars.f#* mpf(1.0)
+        fdot = pulsars.fdot#* mpf(1.0)
+        gamma = pulsars.gamma #* mpf(1.0)
+        sigma_p = np.full((Npsr,1),pulsars.sigma_p)#* mpf(1.0)
         
+        #print("dt = ", t[1] - t[0])
+        #print("gamma = ", gamma)
 
         #First get the intrinstic pulsar evolution by solving the ito equation
-        def f(x,t): 
+        def f(x,t):
+            #print(-gamma * x + gamma*(f0 + fdot*t) + fdot)
             return -gamma * x + gamma*(f0 + fdot*t) + fdot  
         def g(x,t): 
             return sigma_p
