@@ -3,56 +3,55 @@
 import numpy as np 
 import logging
 
+logging.basicConfig()
+logging.getLogger(name="KalmanGW").setLevel(logging.INFO)
+
 """
-Function that returns a dict of parameters which define the system
+Class of parameters which define the system
 """
-def SystemParameters(NF=np.float64,    # the number format of the arguments
-                     T = 10,           # how long to integrate for in years
-                     cadence=7,        # the interval between observations
-                     Ω=   5.0e-7,        # GW angular frequency
-                     Φ0 = 0.20,        # GW phase offset at t=0
-                     ψ =  2.50,        # GW polarisation angle
-                     ι = 1.0,          # GW source inclination
-                     δ =  1.0,         # GW source declination
-                     α =  1.0,         # GW source right ascension
-                     h =  1e-2,        # GW plus strain
-                     σp = 1e-13,       # process noise standard deviation
-                     σm = 1e-8,        # measurement noise standard deviation
-                     Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
-                     use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
-                     measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
-                     heterodyne=False,
-                     heterodyne_scale_factor = 1.0 
-                     ): 
+class SystemParameters:
 
 
-    print("***Welcome to the Kalman Filter Nested Sampler for PTA GW systems***")
+    def __init__(self,
+                 NF=np.float64,    # the number format of the arguments
+                 T = 10,           # how long to integrate for in years
+                 cadence=7,        # the interval between observations
+                 Ω=   5.0e-7,        # GW angular frequency
+                 Φ0 = 0.20,        # GW phase offset at t=0
+                 ψ =  2.50,        # GW polarisation angle
+                 ι = 1.0,          # GW source inclination
+                 δ =  1.0,         # GW source declination
+                 α =  1.0,         # GW source right ascension
+                 h =  1e-2,        # GW plus strain
+                 σp = 1e-13,       # process noise standard deviation
+                 σm = 1e-8,        # measurement noise standard deviation
+                 Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
+                 use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
+                 measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
+                 seed = 1234):
 
-    if heterodyne:
-        set_scale_factor = heterodyne_scale_factor
-    else:
-        set_scale_factor = 1.0
+        logging.info("***Welcome to the Kalman Filter Nested Sampler for PTA GW systems***")
+
+        self.NF = NF 
+        self.T = NF(T) 
+        self.cadence = NF(cadence)
+        self.Ω = NF(Ω)
+        self.Φ0 = NF(Φ0)
+        self.ψ = NF(ψ)
+        self.ι = NF(ι)
+        self.δ = NF(δ)
+        self.α = NF(α)
+        self.h = NF(h)
+        self.σp = NF(σp)
+        self.σm = NF(σm)
+        self.Npsr = int(Npsr)
+
+        self.use_psr_terms_in_data = use_psr_terms_in_data 
+        self.measurement_model = measurement_model
+        self.seed = seed
 
 
-    data = dict({
-               "NF":       NF, 
-               "T":        NF(T),
-               "cadence":  NF(cadence),
-               "omega_gw": NF(Ω),
-               "phi0_gw":  NF(Φ0),
-               "psi_gw":   NF(ψ),
-               "iota_gw":  NF(ι),
-               "delta_gw": NF(δ),
-               "alpha_gw": NF(α),
-               "h":        NF(h),
-               "sigma_p":  NF(σp),
-               "sigma_m":  NF(σm),
-               "Npsr":     Npsr,
-               "psr_terms_data":use_psr_terms_in_data,
-               "measurement_model":measurement_model,
-               "heterodyne":heterodyne,
-               "heterodyne_scale_factor":set_scale_factor})
 
-    return data
-   
+        
+    
 
