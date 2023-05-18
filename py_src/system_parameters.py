@@ -30,7 +30,7 @@ class SystemParameters:
                  measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
                  seed = 1234):
 
-        logging.info("***Welcome to the Kalman Filter Nested Sampler for PTA GW systems***")
+        logging.info("Welcome to the Kalman Filter Nested Sampler for PTA GW systems")
 
         self.NF = NF 
         self.T = NF(T) 

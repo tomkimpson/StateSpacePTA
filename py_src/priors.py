@@ -66,57 +66,28 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
 
 
 
-
+"""
+Create a dict of parameters to be consumed by the Kalman likelihood function
+"""
 def priors_dict(pulsar_parameters,P):
 
 
    priors = dict({
-               "omega_gw": P["omega_gw"],
-               "phi0_gw":P["phi0_gw"],
-               "psi_gw":P["psi_gw"],
-               "iota_gw":P["iota_gw"],
-               "delta_gw":P["delta_gw"],
-               "alpha_gw":P["alpha_gw"],
-               "h": P["h"]})
+               "omega_gw": P.Ω,
+               "phi0_gw":P.Φ0,
+               "psi_gw":P.ψ,
+               "iota_gw":P.ι,
+               "delta_gw":P.δ,
+               "alpha_gw":P.α,
+               "h": P.h})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
    priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
-
+   priors = add_to_priors_dict(pulsar_parameters.γ,"gamma",priors)
+   priors["sigma_p"]= pulsar_parameters.σp
+   priors["sigma_m"]= pulsar_parameters.σm
   
    return priors
-
-
-
-"""
-Define the pulsar parameters as being slightly wrong from their true values by a random factor < tol
-"""
-def erroneous_priors_dict(pulsar_parameters,P,tol):
-
-
-   priors = dict({
-               "omega_gw": P["omega_gw"]*tol,
-               "phi0_gw":P["phi0_gw"]*tol,
-               "psi_gw":P["psi_gw"],
-               "iota_gw":P["iota_gw"]*tol,
-               "delta_gw":P["delta_gw"],
-               "alpha_gw":P["alpha_gw"]*tol,
-               "h": P["h"]})
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.f,"f0",priors,tol)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.fdot,"fdot",priors,tol)
-   priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.gamma,"gamma",priors,tol)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
-
-  
-   return priors
-
-
-
-
 
 
 
