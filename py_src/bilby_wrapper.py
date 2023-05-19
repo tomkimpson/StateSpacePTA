@@ -52,6 +52,6 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               dlogz=1e-6,
 			                  #logz=1e-4,
                               npool=32,
-			                  plot=False,resume=True)
+			                  plot=False,resume=False)
 
     return result

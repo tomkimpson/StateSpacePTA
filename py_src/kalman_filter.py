@@ -130,18 +130,19 @@ class KalmanFilter:
         delta_gw = parameters["delta_gw"].item()
         alpha_gw = parameters["alpha_gw"].item()
         h        = parameters["h"].item()
+ 
         #Noise parameters
-
+        #sigma_p is now a vector and is dealt with below with the other PSR quantities
         sigma_m = parameters["sigma_m"] #dont need an .item(), we always pass it as a float, don't infer it
-        sigma_p = parameters["sigma_p"].item()
-
+        
         
 
         #Bilby takes a dict rather than a class
         #For us this is annoying - map some quantities to be vectors
-        f,fdot,gamma,d = map_dicts_to_vector(parameters)
+        f,fdot,gamma,d,sigma_p = map_dicts_to_vector(parameters)
         f_EM = f + np.outer(self.t,fdot) #ephemeris correction
         
+
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
@@ -207,8 +208,9 @@ def map_dicts_to_vector(parameters_dict):
     fdot = np.array([val.item() for key, val in parameters_dict.items() if "fdot" in key])
     gamma = np.array([val.item() for key, val in parameters_dict.items() if "gamma" in key])
     d = np.array([val.item() for key, val in parameters_dict.items() if "distance" in key])
+    sigma_p = np.array([val.item() for key, val in parameters_dict.items() if "sigma_p" in key])
 
-    return f,fdot,gamma,d
+    return f,fdot,gamma,d,sigma_p
 
 
 

@@ -42,13 +42,18 @@ class SystemParameters:
         self.δ = NF(δ)
         self.α = NF(α)
         self.h = NF(h)
-        self.σp = NF(σp)
+        self.σp = σp #can be = None for random assignment. Handle NF conversion in pulsars.py
+
         self.σm = NF(σm)
         self.Npsr = int(Npsr)
 
         self.use_psr_terms_in_data = use_psr_terms_in_data 
         self.measurement_model = measurement_model
         self.seed = seed
+
+
+        if σp ==1.0:
+            logging.info("σp = 1.0 is a special value. \n Assigning process noise amplitudes randomly within a range. \n Please see synthetic_data.py")
 
 
 
