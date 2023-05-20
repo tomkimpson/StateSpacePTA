@@ -35,7 +35,7 @@ class SyntheticData:
         def g(x,t):
             return σp
 
-        self.intrinsic_frequency= sdeint.itoint(f,g,pulsars.fprime, t)
+        self.intrinsic_frequency= sdeint.itoint(f,g,pulsars.fprime, t,generator=generator)
 
         #Now calculate the modulation factor due to the GW
         if P.use_psr_terms_in_data:

@@ -1,4 +1,10 @@
-sbatch slurm_jobs/slurm_run_h1e-09_noise_earth.sh & 
-sbatch slurm_jobs/slurm_run_h1e-09_noise_null.sh & 
-sbatch slurm_jobs/slurm_run_h1e-08_noise_earth.sh & 
-sbatch slurm_jobs/slurm_run_h1e-08_noise_null.sh & 
+sbatch slurm_jobs/slurm_batch_1235.sh & 
+sbatch slurm_jobs/slurm_batch_1236.sh & 
+sbatch slurm_jobs/slurm_batch_1237.sh & 
+sbatch slurm_jobs/slurm_batch_1238.sh & 
+sbatch slurm_jobs/slurm_batch_1239.sh & 
+sbatch slurm_jobs/slurm_batch_1240.sh & 
+sbatch slurm_jobs/slurm_batch_1241.sh & 
+sbatch slurm_jobs/slurm_batch_1242.sh & 
+sbatch slurm_jobs/slurm_batch_1243.sh & 
+sbatch slurm_jobs/slurm_batch_1244.sh & 

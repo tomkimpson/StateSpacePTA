@@ -8,7 +8,7 @@ import sys
 import numpy as np 
 
 
-def create_slurm_job(arg_name,h,measurement_model):
+def create_slurm_job(arg_name,h,measurement_model,seed):
 
     with open(f'slurm_jobs/slurm_{arg_name}.sh','w') as g:
 
@@ -22,27 +22,37 @@ def create_slurm_job(arg_name,h,measurement_model):
 
         g.write("source ~/.bashrc \n")
         g.write("conda activate OzStar \n")
-        g.write(f"time python main.py {arg_name} {h} {measurement_model}")
+        g.write(f"time python main.py {arg_name} {h} {measurement_model} {seed}")
     
     
 
+N = 10
+seeds = np.arange(1235,1235+N,1)
+h = 1e-12 
+model = "earth"
+with open('batch.sh','w') as b: 
 
+    for s in seeds:
+        arg_name = f"batch_{s}"
+        create_slurm_job(arg_name,h,model,s)
+        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+       
 
-h_range = np.logspace(-9,-8,2)
-noise_models = ["earth", "null"]
+# h_range = np.logspace(-9,-8,2)
+# noise_models = ["earth", "null"]
 
-with open('batch.sh','w') as b:
+# with open('batch.sh','w') as b:
 
     
-    for h in h_range:
-        for n in noise_models:
+#     for h in h_range:
+#         for n in noise_models:
 
-            arg_name = f"run_h{h}_noise_{n}"
-            print(arg_name)
-            create_slurm_job(arg_name,h,n)
+#             arg_name = f"run_h{h}_noise_{n}"
+#             print(arg_name)
+#             create_slurm_job(arg_name,h,n,s)
 
 
-            b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+#             b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
     
 
