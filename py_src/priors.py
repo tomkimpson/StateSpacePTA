@@ -225,7 +225,6 @@ def bilby_priors_dict_null(PTA,P):
     return init_parameters,priors
 
 
-
 # https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict_earth(PTA,P):
     

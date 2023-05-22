@@ -16,7 +16,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
         g.write("#!/bin/bash \n \n")  
         g.write("#SBATCH --ntasks=1 \n")  
         g.write("#SBATCH --mem=8000MB \n")  
-        g.write("#SBATCH --time=48:00:00 \n")  
+        g.write("#SBATCH --time=24:00:00 \n")  
         g.write(f"#SBATCH --job-name={arg_name} \n")  
         g.write(f"#SBATCH --output=outputs/{arg_name}_out.txt \n \n")
 

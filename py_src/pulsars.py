@@ -55,7 +55,7 @@ class Pulsars:
         
         #if σp is defined then set all pulsars with that value
         #else assign randomly within a range 
-        generator = np.random.default_rng(SystemParameters.seed)
+        generator = np.random.default_rng(SystemParameters.sigma_p_seed)
         if SystemParameters.σp == None:
             self.σp = generator.uniform(low = 1e-21,high=1e-19,size=self.Npsr)
             logging.info("You are assigning the σp terms randomly")
