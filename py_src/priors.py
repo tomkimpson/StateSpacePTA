@@ -51,6 +51,23 @@ def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
     return init_parameters,priors
 
 
+def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,tol):
+    
+    i = 0
+    for f in x:
+        key = label+str(i)
+        init_parameters[key] = None
+      
+        priors[key] = bilby.core.prior.LogUniform(1e-21,1e-19, key)
+        print("Sigma p true value = ",x, key)
+        
+        i+= 1
+
+    return init_parameters,priors
+
+
+
+
 def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
     
     i = 0
@@ -129,8 +146,11 @@ def bilby_priors_dict(PTA,P):
 
     init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
     init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
+    #init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
     
+
+
     #These guys are all constant     
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
