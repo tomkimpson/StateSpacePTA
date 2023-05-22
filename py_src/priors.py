@@ -142,3 +142,110 @@ def bilby_priors_dict(PTA,P):
 
 
     return init_parameters,priors
+
+
+
+def bilby_priors_dict_null(PTA,P):
+
+    init_parameters = {}
+    priors = bilby.core.prior.PriorDict()
+
+
+
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
+
+
+    init_parameters["sigma_m"] = None
+    priors["sigma_m"] = 1e-11
+
+
+    #We define the GW parameters for consistency but these are not actually used
+    #again a bit hacky. Will need to clear this up, but doing it this way
+    #lets us have a single H_function() type call
+    init_parameters["omega_gw"] = None
+    priors["omega_gw"] = 1.0
+
+
+    init_parameters["phi0_gw"] = None
+    priors["phi0_gw"] = 1.0  
+
+    init_parameters["psi_gw"] = None
+    priors["psi_gw"] = 1.0
+
+    init_parameters["iota_gw"] = None
+    priors["iota_gw"] =1.0 
+
+
+    init_parameters["delta_gw"] = None
+    priors["delta_gw"] =1.0
+
+
+    init_parameters["alpha_gw"] = None
+    priors["alpha_gw"] = 1.0
+
+
+    init_parameters["h"] = None
+    priors["h"] = 1.0
+
+
+    #d can be undefined without any issues
+
+
+
+    return init_parameters,priors
+
+
+
+# https://arxiv.org/pdf/2008.12320.pdf
+def bilby_priors_dict_earth(PTA,P):
+
+    init_parameters = {}
+    priors = bilby.core.prior.PriorDict()
+
+    #Add all the GW quantities
+    init_parameters["omega_gw"] = None
+    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
+
+
+    init_parameters["phi0_gw"] = None
+    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+
+    init_parameters["psi_gw"] = None
+    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+
+    init_parameters["iota_gw"] = None
+    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+
+
+    init_parameters["delta_gw"] = None
+    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+
+
+    init_parameters["alpha_gw"] = None
+    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+
+
+    init_parameters["h"] = None
+    priors["h"] = bilby.core.prior.LogUniform(1e-14, 1e-11, 'h')
+
+
+
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
+    
+    #These guys are all constant     
+    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
+
+
+    init_parameters["sigma_m"] = None
+    priors["sigma_m"] = 1e-11
+
+
+    #distance d can be undefined without any issues
+
+
+    return init_parameters,priors

@@ -75,7 +75,7 @@ The null model - i.e. no GW
 """
 @jit(nopython=True)
 def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
-    return np.ones((len(t),len(q)))
+    return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 
 

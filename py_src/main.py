@@ -9,7 +9,7 @@ from synthetic_data import SyntheticData
 from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
-from priors import priors_dict,bilby_priors_dict
+from priors import priors_dict,bilby_priors_dict,bilby_priors_dict_null,bilby_priors_dict_earth
 from bilby_wrapper import BilbyLikelihood
 
 import numpy as np
@@ -58,8 +58,16 @@ if __name__=="__main__":
     logging.info(f"Ideal likelihood given optimal parameters = {model_likelihood}")
     
    
-    #Bilby 
-    init_parameters, priors = bilby_priors_dict(PTA,P)
+    #Bilby
+     
+    if measurement_model == 'null': 
+        init_parameters, priors = bilby_priors_dict_null(PTA,P)
+    elif measurement_model == 'earth':
+        init_parameters, priors = bilby_priors_dict_earth(PTA,P)
+    elif measurement_model == 'pulsar':
+        init_parameters, priors = bilby_priors_dict(PTA,P)
+
+
     logging.info("Testing KF using parameters sampled from prior")
     params = priors.sample(1)
     model_likelihood, state_predictions,measurement_predictions = KF.likelihood(params)
