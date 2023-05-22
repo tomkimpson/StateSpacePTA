@@ -59,7 +59,7 @@ def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,tol):
         init_parameters[key] = None
       
         priors[key] = bilby.core.prior.LogUniform(1e-21,1e-19, key)
-        logging.info("Sigma p true value = ",x, key)
+        logging.info(f"Sigma p true value is {key} {f}")
         
         i+= 1
 
