@@ -59,7 +59,7 @@ def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,tol):
         init_parameters[key] = None
       
         priors[key] = bilby.core.prior.LogUniform(1e-21,1e-19, key)
-        print("Sigma p true value = ",x, key)
+        logging.info("Sigma p true value = ",x, key)
         
         i+= 1
 
@@ -111,6 +111,10 @@ def priors_dict(pulsar_parameters,P):
 
 # https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict(PTA,P):
+
+
+    logging.info('Using the default bilby priors dict')
+
 
     init_parameters = {}
     priors = bilby.core.prior.PriorDict()
@@ -167,6 +171,9 @@ def bilby_priors_dict(PTA,P):
 
 def bilby_priors_dict_null(PTA,P):
 
+
+    logging.info('Using the null bilby priors dict')
+
     init_parameters = {}
     priors = bilby.core.prior.PriorDict()
 
@@ -221,6 +228,8 @@ def bilby_priors_dict_null(PTA,P):
 
 # https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict_earth(PTA,P):
+    
+    logging.info('Using the earth bilby priors dict')
 
     init_parameters = {}
     priors = bilby.core.prior.PriorDict()
@@ -255,8 +264,8 @@ def bilby_priors_dict_earth(PTA,P):
 
     init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
     init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
-    
+    #init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
     #These guys are all constant     
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
 

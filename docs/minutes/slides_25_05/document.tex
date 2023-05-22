@@ -59,7 +59,7 @@
 	
 	\begin{itemize}
 		\item Earth terms model 
-		\item \alert{Non - Zero process noise  $\sigma_p \neq 0$}
+		\item \alert{Non - zero process noise  $\sigma_p \neq 0$}
 		\item \alert{Heterodyning}
 		\item \alert{Multiple noise realisations}
 	\end{itemize}	
@@ -79,7 +79,7 @@
 	
 	Note the distinction between $ f_{\rm EM}$ and $f^{\, *}_{\rm EM}$
 	
-	$f_{\rm EM}$ is the exact, true solution parametrised by the unknowns $f_0, \dot{f}_0$. This heterodyning is just a change of variables
+	$f_{\rm EM}$ is the exact, true solution parametrised by the unknowns $f_0, \dot{f}_0$. This ``heterodyning" is just a change of variables
 	
 	$f^{\, *}_{\rm EM}$ is a guess of $f_{\rm EM}$ based on the pulsar ephemeris. It is just to scale the equations - it does not remove any degrees of freedom - we still are estimating $f_0, \dot{f}_0$ optimally!
 		
@@ -91,10 +91,15 @@
 		f \, '_{\rm M} = (1 - X)f \, ' - X f_{\rm EM} + \alert{(f_{\rm EM} - f^{\, *}_{\rm EM})} +  N_{\rm G}
 	\end{eqnarray}
 
-	For our case where we have synthetic data we can set $f_{\rm EM} = f^{\, *}_{\rm EM}$, but obviously not true generally - we are trying to estimate $f_{\rm EM}$!
+	For our case where we have synthetic data we can set $f_{\rm EM} = f^{\, *}_{\rm EM}$. In the general ``real-world" case we cannot - but this is just a scaling, not a  fundamental structure viz. d.o.f
 	
+	
+\end{frame}
 
+
+	\begin{frame}{}
 	
+Choice of $\sigma_p$
 	
 \end{frame}
 

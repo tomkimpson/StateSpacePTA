@@ -26,8 +26,8 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-N = 10
-seeds = np.arange(1235,1235+N,1)
+N = 100
+seeds = np.arange(1235+10,1235+10+N,1)
 h = 1e-12 
 model = "earth"
 with open('batch.sh','w') as b: 
