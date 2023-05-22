@@ -261,8 +261,8 @@ def bilby_priors_dict_earth(PTA,P):
 
 
 
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.1)
+    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.1)
     #init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
     init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
     #These guys are all constant     
