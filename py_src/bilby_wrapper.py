@@ -13,7 +13,7 @@ class BilbyLikelihood(bilby.Likelihood):
 
  
         ll,xres,yres = self.model.likelihood(self.parameters)
-
+        
         return ll
     
             

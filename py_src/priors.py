@@ -9,34 +9,9 @@ import logging
 logging.getLogger().setLevel(logging.INFO)
 
 
-def add_to_priors_dict(x,label,dict_A):
-
-
-
-    i = 0
-    for f in x:
-        key = label+str(i)
-        dict_A[key] = f
-        i+= 1
-
-    return dict_A
-
-
-
-def add_to_priors_dict_erroneous(x,label,dict_A,tol):
-
-
-    i = 0
-    for f in x:
-        value = random.uniform(f*(1-tol), f*(1+tol))
-        key = label+str(i)
-        dict_A[key] = value
-        i+= 1
-
-    return dict_A
-
-
-
+"""
+Add  constant prior vector
+"""
 def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
 
 
@@ -51,6 +26,10 @@ def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
     return init_parameters,priors
 
 
+
+"""
+Add  logarithmic prior vector
+"""
 def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #same lower/upper for every one
     
     i = 0
@@ -66,9 +45,10 @@ def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #s
     return init_parameters,priors
 
 
-
-
-def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
+"""
+Add uniform prior vector
+"""
+def add_to_bibly_priors_dict_uniform(x,label,init_parameters,priors,tol):
     
     i = 0
     for f in x:
@@ -81,6 +61,22 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
 
     return init_parameters,priors
 
+
+
+"""
+Helper function to use with priors_dict()
+"""
+def add_to_priors_dict(x,label,dict_A):
+
+
+
+    i = 0
+    for f in x:
+        key = label+str(i)
+        dict_A[key] = f
+        i+= 1
+
+    return dict_A
 
 
 """
@@ -109,172 +105,120 @@ def priors_dict(pulsar_parameters,P):
 
 
 
+def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
+
+
+
+    init_parameters,priors = add_to_bibly_priors_dict_uniform(f,"f0",init_parameters,priors,tol=0.01)      #uniform
+    init_parameters,priors = add_to_bibly_priors_dict_uniform(fdot,"fdot",init_parameters,priors,tol=0.01) #uniform
+    init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-21,1e-19) #log
+    init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           #constant
+
+
+    init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors) #distance not needed unless we are using the PSR model, which we are not using currently
+
+
+    return init_parameters,priors 
+
+
+
+
+def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model,h):
+
+
+    if measurement_model == "null": #set these as constants. Not used in the filter for the null model
+
+        #We define the GW parameters for consistency but these are not actually used
+        #- a bit hacky. Will need to clear this up, but doing it this way
+        #lets us have a single H_function() type call
+
+        logging.info('Using the null priors for the measurement model')
+
+
+        init_parameters["omega_gw"] = None
+        priors["omega_gw"] = 1.0
+
+
+        init_parameters["phi0_gw"] = None
+        priors["phi0_gw"] = 1.0  
+
+        init_parameters["psi_gw"] = None
+        priors["psi_gw"] = 1.0
+
+        init_parameters["iota_gw"] = None
+        priors["iota_gw"] =1.0 
+
+
+        init_parameters["delta_gw"] = None
+        priors["delta_gw"] =1.0
+
+
+        init_parameters["alpha_gw"] = None
+        priors["alpha_gw"] = 1.0
+
+
+        init_parameters["h"] = None
+        priors["h"] = 1.0
+
+    else:
+
+
+        logging.info('Using the GW priors for the measurement model')
+        
+        #Add all the GW quantities
+        init_parameters["omega_gw"] = None
+        priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
+
+
+        init_parameters["phi0_gw"] = None
+        priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+
+        init_parameters["psi_gw"] = None
+        priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+
+        init_parameters["iota_gw"] = None
+        priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+
+
+        init_parameters["delta_gw"] = None
+        priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+
+
+        init_parameters["alpha_gw"] = None
+        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+
+
+        init_parameters["h"] = None
+        priors["h"] = bilby.core.prior.LogUniform(h/100.0, h*10.0, 'h')
+
+
+    return init_parameters,priors 
+
+
+
+
+
 # https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict(PTA,P):
 
 
-    logging.info('Using the default bilby priors dict')
+    logging.info('Setting the bilby priors dict')
 
 
     init_parameters = {}
     priors = bilby.core.prior.PriorDict()
 
-    #Add all the GW quantities
-    init_parameters["omega_gw"] = None
-    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
 
+    #Measurement priors
+    init_parameters,priors = set_prior_on_measurement_parameters(init_parameters,priors,P.measurement_model,P.h) #h is provided to set the prior a few orders of magnitude either side.
 
-    init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+    #State priors
+    init_parameters,priors = set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d)
 
-    init_parameters["psi_gw"] = None
-    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
-
-    init_parameters["iota_gw"] = None
-    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-
-
-    init_parameters["delta_gw"] = None
-    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-
-
-    init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
-
-
-    init_parameters["h"] = None
-    #priors["h"] = bilby.core.prior.LogUniform(P["h"]/1e2, P["h"]*1e2, 'h') #prior on h is always 2 orders of magnitude either side of true value 
-    priors["h"] = bilby.core.prior.LogUniform(1e-14, 1e-11, 'h')
-
-
-
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
-    #init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
-    
-
-
-    #These guys are all constant     
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
-
-
+    #Noise priors
     init_parameters["sigma_m"] = None
     priors["sigma_m"] = 1e-11
 
-
-
-    return init_parameters,priors
-
-
-
-def bilby_priors_dict_null(PTA,P):
-
-
-    logging.info('Using the null bilby priors dict')
-
-    init_parameters = {}
-    priors = bilby.core.prior.PriorDict()
-
-
-
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
-
-
-    init_parameters["sigma_m"] = None
-    priors["sigma_m"] = 1e-11
-
-
-    #We define the GW parameters for consistency but these are not actually used
-    #again a bit hacky. Will need to clear this up, but doing it this way
-    #lets us have a single H_function() type call
-    init_parameters["omega_gw"] = None
-    priors["omega_gw"] = 1.0
-
-
-    init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = 1.0  
-
-    init_parameters["psi_gw"] = None
-    priors["psi_gw"] = 1.0
-
-    init_parameters["iota_gw"] = None
-    priors["iota_gw"] =1.0 
-
-
-    init_parameters["delta_gw"] = None
-    priors["delta_gw"] =1.0
-
-
-    init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = 1.0
-
-
-    init_parameters["h"] = None
-    priors["h"] = 1.0
-
-
-    #d can be undefined without any issues
-
-
-
-    return init_parameters,priors
-
-
-# https://arxiv.org/pdf/2008.12320.pdf
-def bilby_priors_dict_earth(PTA,P):
-    
-    logging.info('Using the earth bilby priors dict')
-
-    init_parameters = {}
-    priors = bilby.core.prior.PriorDict()
-
-    #Add all the GW quantities
-    init_parameters["omega_gw"] = None
-    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
-
-
-    init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
-
-    init_parameters["psi_gw"] = None
-    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
-
-    init_parameters["iota_gw"] = None
-    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-
-
-    init_parameters["delta_gw"] = None
-    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-
-
-    init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
-
-
-    init_parameters["h"] = None
-    #priors["h"] = bilby.core.prior.LogUniform(1e-14, 1e-11, 'h')
-    priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
-
-
-    #Vectorised priors
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.1)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.1)
-    init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,1e-21,1e-19)
-    
-    #These guys are all constant     
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
-
-
-    init_parameters["sigma_m"] = None
-    priors["sigma_m"] = 1e-11
-
-
-    #distance d can be undefined without any issues
 
 
     return init_parameters,priors

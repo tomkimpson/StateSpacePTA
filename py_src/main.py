@@ -9,7 +9,7 @@ from synthetic_data import SyntheticData
 from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
-from priors import priors_dict,bilby_priors_dict,bilby_priors_dict_null,bilby_priors_dict_earth
+from priors import priors_dict,bilby_priors_dict
 from bilby_wrapper import BilbyLikelihood
 
 import numpy as np
@@ -59,20 +59,13 @@ if __name__=="__main__":
     
    
     #Bilby
-     
-    if measurement_model == 'null': 
-        init_parameters, priors = bilby_priors_dict_null(PTA,P)
-    elif measurement_model == 'earth':
-        init_parameters, priors = bilby_priors_dict_earth(PTA,P)
-    elif measurement_model == 'pulsar':
-        init_parameters, priors = bilby_priors_dict(PTA,P)
-
+    init_parameters, priors = bilby_priors_dict(PTA,P)
+   
 
     logging.info("Testing KF using parameters sampled from prior")
     params = priors.sample(1)
     model_likelihood, state_predictions,measurement_predictions = KF.likelihood(params)
     logging.info(f"Non -ideal likelihood for randomly sampled parameters = {model_likelihood}")
-
 
     # #Now run the Bilby sampler
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")
