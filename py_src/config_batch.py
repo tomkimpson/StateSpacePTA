@@ -26,32 +26,32 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-# N = 100
-# seeds = np.arange(1235+10,1235+10+N,1)
-# h = 1e-12 
-# model = "earth"
-# with open('batch.sh','w') as b: 
+N = 100
+seeds = np.arange(1235+10,1235+10+N,1)
+h = 1e-12 
+model = "earth"
+with open('batch.sh','w') as b: 
 
-#     for s in seeds:
-#         arg_name = f"batch_{s}"
-#         create_slurm_job(arg_name,h,model,s)
-#         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+    for s in seeds:
+        arg_name = f"noise_batch_{s}"
+        create_slurm_job(arg_name,h,model,s)
+        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
 
-h_range = np.logspace(-15,-12,10)
-noise_models = ["earth", "null"]
-seed = 1237
+# h_range = np.logspace(-15,-12,10)
+# noise_models = ["earth", "null"]
+# seed = 1237
 
-with open('batch.sh','w') as b:
+# with open('batch.sh','w') as b:
     
-     for h in h_range:
-         for n in noise_models:
+#      for h in h_range:
+#          for n in noise_models:
 
-             arg_name = f"V2Bayes_h_{h}_model_{n}_seed_{seed}"
-             print(arg_name)
-             create_slurm_job(arg_name,h,n,seed)
+#              arg_name = f"V2Bayes_h_{h}_model_{n}_seed_{seed}"
+#              print(arg_name)
+#              create_slurm_job(arg_name,h,n,seed)
 
-             b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+#              b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
     
 
