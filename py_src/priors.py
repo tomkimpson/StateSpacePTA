@@ -51,14 +51,14 @@ def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
     return init_parameters,priors
 
 
-def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,tol):
+def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #same lower/upper for every one
     
     i = 0
     for f in x:
         key = label+str(i)
         init_parameters[key] = None
       
-        priors[key] = bilby.core.prior.LogUniform(1e-21,1e-19, key)
+        priors[key] = bilby.core.prior.LogUniform(lower,upper, key)
         logging.info(f"Sigma p true value is {key} {f}")
         
         i+= 1
@@ -257,14 +257,15 @@ def bilby_priors_dict_earth(PTA,P):
 
 
     init_parameters["h"] = None
-    priors["h"] = bilby.core.prior.LogUniform(1e-14, 1e-11, 'h')
+    #priors["h"] = bilby.core.prior.LogUniform(1e-14, 1e-11, 'h')
+    priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
 
 
-
+    #Vectorised priors
     init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.1)
     init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.1)
-    #init_parameters,priors = add_to_bibly_priors_dict(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,tol=0.01)
+    init_parameters,priors = add_to_bibly_priors_dict_log(PTA.σp,"sigma_p",init_parameters,priors,1e-21,1e-19)
+    
     #These guys are all constant     
     init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.γ,"gamma",init_parameters,priors)
 
