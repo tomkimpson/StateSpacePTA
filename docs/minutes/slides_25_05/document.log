@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  22 MAY 2023 15:18
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  24 MAY 2023 10:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1175,29 +1175,29 @@ Overfull \vbox (32.82372pt too high) detected at line 38
 [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 52.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 53.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 52.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 53.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 52.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 53.
  [3
 
 ] [4
 
 ]
-Overfull \vbox (23.11516pt too high) detected at line 97
+Overfull \vbox (23.11516pt too high) detected at line 99
  []
 
 [5
@@ -1209,10 +1209,10 @@ Overfull \vbox (23.11516pt too high) detected at line 97
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 112.
+(hyperref)                removing `\translate ' on input line 114.
 
 
-Overfull \hbox (20.60933pt too wide) detected at line 133
+Overfull \hbox (20.60933pt too wide) detected at line 135
 []
  []
 
@@ -1222,7 +1222,7 @@ Overfull \hbox (20.60933pt too wide) detected at line 133
 File: images/all_likelihood_curves_psr.png Graphic file (type bmp)
 <images/all_likelihood_curves_psr.png>
 
-Overfull \vbox (13.62968pt too high) detected at line 141
+Overfull \vbox (13.62968pt too high) detected at line 143
  []
 
 [9
@@ -1233,7 +1233,7 @@ Overfull \vbox (13.62968pt too high) detected at line 141
 File: images/canonical_mixed_result_10.png Graphic file (type bmp)
 <images/canonical_mixed_result_10.png>
 
-Overfull \vbox (32.71373pt too high) detected at line 167
+Overfull \vbox (32.71373pt too high) detected at line 169
  []
 
 [11
@@ -1242,7 +1242,7 @@ Overfull \vbox (32.71373pt too high) detected at line 167
 File: images/canonical12_result.png Graphic file (type bmp)
 <images/canonical12_result.png>
 
-Overfull \vbox (32.71373pt too high) detected at line 184
+Overfull \vbox (32.71373pt too high) detected at line 186
  []
 
 [12
@@ -1251,7 +1251,7 @@ Overfull \vbox (32.71373pt too high) detected at line 184
 File: images/canonical12_f_result.png Graphic file (type bmp)
 <images/canonical12_f_result.png>
 
-Overfull \vbox (13.92426pt too high) detected at line 195
+Overfull \vbox (13.92426pt too high) detected at line 197
  []
 
 [13
@@ -1260,7 +1260,7 @@ Overfull \vbox (13.92426pt too high) detected at line 195
 File: images/canonical12_fdot_result.png Graphic file (type bmp)
 <images/canonical12_fdot_result.png>
 
-Overfull \vbox (13.91684pt too high) detected at line 205
+Overfull \vbox (13.91684pt too high) detected at line 207
  []
 
 [14
@@ -1292,25 +1292,25 @@ File: images/sigma_p_hetero.png Graphic file (type bmp)
 
  (./document.vrb)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <12> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 361.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 363.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 361.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 363.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 361.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 363.
  [23
 
 ]
 File: images/likelihood_gamma_1.png Graphic file (type bmp)
 <images/likelihood_gamma_1.png>
 
-Overfull \vbox (28.91658pt too high) detected at line 371
+Overfull \vbox (28.91658pt too high) detected at line 373
  []
 
 [24
 
 ]
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <9> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 400.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 402.
  [25
 
 ]
