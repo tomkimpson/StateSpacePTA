@@ -60,9 +60,9 @@
 	
 	\begin{itemize}
 		\item Earth terms model 
-		\item \alert{Non - zero process noise  $\sigma_p \neq 0$}
-		\item \alert{Heterodyning}
-		\item \alert{Multiple noise realisations}
+		\item \alert{Non - zero process noise  $\sigma_p \neq 0$} $\checkmark$
+		\item \alert{Heterodyning} $\checkmark$
+		\item \alert{Multiple noise realisations} $\checkmark$
 		\item Single set of parameters realisation
 	\end{itemize}	
 	
@@ -99,12 +99,187 @@
 \end{frame}
 
 
-	\begin{frame}{}
+	\begin{frame}[label={first_slide}]
 	
-Choice of $\sigma_p$
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/1237_broad_GW}
+		\only<1>{%
+		\tikz[overlay,remember picture]
+		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.5cm]current page.center){$h = 10^{-12}$, $\sigma_p = \mathcal{U}(10^{-21}, 10^{-19})$};
+	}
+	\only<1>{%
+	\tikz[overlay,remember picture]
+	\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.0cm]current page.center){Heterodyned equations, Full PTA};
+	
+}
+	\only<1>{%
+	\tikz[overlay,remember picture]
+	\node[fill=white,text=black] at ([xshift=1.5cm,yshift=2.5cm]current page.center){$\bar{\theta}_{\rm GW}$, c.f. Slide \ref{first_slide_noise}};
+	
+}
+
+
 	
 \end{frame}
 
+	\begin{frame}{}
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/1237_broad_f}
+	
+		\only<1>{%
+		\tikz[overlay,remember picture]
+		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.5cm]current page.center){Slightly deceptive: very tight priors - to discuss};
+	}
+	
+\end{frame}
+
+
+
+	\begin{frame}{}
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/1237_broad_fdot}
+	
+	\only<1>{%
+		\tikz[overlay,remember picture]
+		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.5cm]current page.center){Slightly deceptive: very tight priors - to discuss};
+	}
+	
+\end{frame}
+
+
+
+
+	\begin{frame}{}
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/1237_broad_sigma_p}
+	
+	\only<1>{%
+		\tikz[overlay,remember picture]
+		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.5cm]current page.center){LogUniform prior};
+	}
+		\only<1>{%
+		\tikz[overlay,remember picture]
+		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.0cm]current page.center){Bad: not super accurate};
+		
+	}
+		\only<1>{%
+	\tikz[overlay,remember picture]
+	\node[fill=white,text=black] at ([xshift=1.9cm,yshift=2.5cm]current page.center){Good: does not impact estimates of $\bar{\theta}_{\rm GW}$};
+	
+}
+\end{frame}
+
+
+
+
+
+%\begin{frame}{}
+%	
+%	
+%	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/1237_broad_sigma_p}
+%	
+%	\only<1>{%
+%		\tikz[overlay,remember picture]
+%		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.5cm]current page.center){LogUniform prior};
+%	}
+%\end{frame}
+
+
+
+
+
+\begin{frame}
+	But what about different realisations of a) measurement noise and b) process noise? 
+	
+	
+
+\end{frame}
+
+
+
+	\begin{frame}[label={first_slide_noise}]
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/stacked_GW_plot}
+	\only<1>{%
+		\tikz[overlay,remember picture]
+		\node[fill=white,text=black] at ([xshift=1.5cm,yshift=3.5cm]current page.center){As Slide \ref{first_slide}, 5 noise realisations};
+	}
+
+\end{frame}
+
+
+
+
+	\begin{frame}
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/stacked_f_plot}
+
+
+	
+\end{frame}
+
+	\begin{frame}
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/stacked_fdto_plot}
+	
+
+	
+\end{frame}
+
+
+	\begin{frame}
+	
+	
+	\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/stacked_sgima_p_plot}
+	
+	
+	
+\end{frame}
+
+
+
+
+\begin{frame}
+	How about 100 noise realisations? 
+\end{frame}
+
+
+	\begin{frame}
+	
+	
+	\includegraphics[width=0.32\textwidth,height=0.85\textwidth]{images/parameter_medians}
+	\includegraphics[width=0.32\textwidth,height=0.85\textwidth]{images/parameter_medians_f}
+	\includegraphics[width=0.32\textwidth,height=0.85\textwidth]{images/parameter_medians_fdot}
+	
+	
+	
+\end{frame}
+
+	\begin{frame}	
+	\centering
+	\includegraphics[width=0.34\textwidth,height=0.85\textwidth]{images/parameter_medians_sigma_p}
+\end{frame}
+
+
+
+\begin{frame}
+	Case examples - iota, h 
+\end{frame}
+
+
+\begin{frame}{Bayes ratios}
+
+
+\includegraphics[width=0.85\textwidth,height=0.85\textwidth]{images/BayesRatioPlot}
+
+
+\end{frame}
 
 
 \begin{frame}[standout]

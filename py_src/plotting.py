@@ -94,8 +94,8 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
 
 
 
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig):
-
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False):
+    plt.style.use('science')
 
     # Opening JSON file
     f = open(path)
@@ -103,22 +103,11 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     # returns JSON object as 
     # a dictionary
     data = json.load(f)
-
-
     print("The evidence is:", data["log_evidence"])
-
-    #Make it a dataframe. Nice for surfacing
-    df = pd.DataFrame(data["samples"]["content"]) # posterior
 
 
     #Make it a dataframe. Nice for surfacing
     df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
-    df_samples = pd.DataFrame(data["samples"]["content"]) # posterior
-
-
-
-    #Now make it a numpy array
-    y_samp = df_samples.to_numpy() 
 
 
     print("Number of samples:")
@@ -128,57 +117,39 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
     medians = df_posterior[variables_to_plot].median()
     variances = df_posterior[variables_to_plot].var()
+    y_post = df_posterior[variables_to_plot].to_numpy()
 
-    selected_variables = []
-    selected_injections = []
-    selected_labels = []
-    selected_ranges = []
     for i in range(len(medians)):
-        print(injection_parameters[i],variables_to_plot[i], medians[i], variances[i])
-
-        if variances[i] > 1e-50: #is this necessary anymore?
-            selected_variables.extend([variables_to_plot[i]])
-            selected_injections.extend([injection_parameters[i]])
-            selected_labels.extend([labels[i]])
-            #selected_ranges.extend([ranges[i]])
-        else:
-            print("Note! ", variables_to_plot[i], " has zero variance and will not be plotted")
-   
+        print(labels[i], injection_parameters[i], medians[i], variances[i])
 
 
-    
-    y_post = df_posterior[selected_variables].to_numpy()
 
 
-    plt.style.use('science')
+    if logscale:
+        y_post = np.log10(y_post)
+        injection_parameters = np.log10(injection_parameters)
+        ranges = np.log10(ranges)
 
-    try: 
 
-        print("selected variabels are")
-        print (selected_variables)
-        fig = corner.corner(y_post, 
-                            color='C0',
-                            show_titles=True,
-                            smooth=True,smooth1d=True,
-                            truth_color='C2',
-                            quantiles=[0.16, 0.84],
-                            truths = selected_injections,
-                            range=ranges,
-                            labels = selected_labels,
-                            label_kwargs=dict(fontsize=16),
-                            axes_scales = axes_scales)
+    fig = corner.corner(y_post, 
+                        color='C0',
+                        show_titles=True,
+                        smooth=True,smooth1d=True,
+                        truth_color='C2',
+                        quantiles=[0.16, 0.84],
+                        truths = injection_parameters,
+                        range=ranges,
+                        labels = labels,
+                        label_kwargs=dict(fontsize=16),
+                        axes_scales = axes_scales)
             
 
-        if savefig != None:
-            plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
         
         
-        plt.show()
+    plt.show()
 
-    except:    # Get current system exception
-        ex_type, ex_value, ex_traceback = sys.exc_info()
-        print(ex_type, ex_value)
-        plt.close()
 
 
 def iterate_over_priors(variable, variable_range,true_parameters,KF):

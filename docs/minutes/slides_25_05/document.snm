@@ -1,1 +1,5 @@
-\beamer@slide {eq:measureent}{8}
+\beamer@slide {first_slide<1>}{6}
+\beamer@slide {first_slide}{6}
+\beamer@slide {first_slide_noise<1>}{11}
+\beamer@slide {first_slide_noise}{11}
+\beamer@slide {eq:measureent}{21}

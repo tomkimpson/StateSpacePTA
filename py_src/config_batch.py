@@ -47,7 +47,7 @@ with open('batch.sh','w') as b:
      for h in h_range:
          for n in noise_models:
 
-             arg_name = f"V4Bayes_h_{h}_model_{n}_seed_{seed}"
+             arg_name = f"V5Bayes_h_{h}_model_{n}_seed_{seed}"
              print(arg_name)
              create_slurm_job(arg_name,h,n,seed)
 
