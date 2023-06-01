@@ -1,0 +1,13 @@
+\frametitle{Where did $\sigma _m$ value come from?}
+The measurement noise is
+
+$$ \sigma_m = f \frac{\sigma_{\rm TOA}}{\rm cadence}$$
+
+So for a MSP ( $f \sim 100 Hz$) observed with a weekly cadence and $\sigma_{\rm TOA} \sim 1 \mu$s:
+
+
+$$\sigma_m \sim 1.6 \times 10^{-10}$$
+
+The very best pulsars might have $\sigma_{\rm TOA} \sim 10$ ns:
+
+$$\sigma_m \sim 1.6 \times 10^{-12}$$
