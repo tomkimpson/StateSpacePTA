@@ -111,10 +111,17 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
 
     init_parameters,priors = add_to_bibly_priors_dict_uniform(f,"f0",init_parameters,priors,tol=0.01)      #uniform
     init_parameters,priors = add_to_bibly_priors_dict_uniform(fdot,"fdot",init_parameters,priors,tol=0.01) #uniform
-    init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-21,1e-19) #log
+
+    #If we set the true process noise to zero, then don't bother searching over this parameter
+    if np.all(σp) == 0.0:
+        logging.info('The true process noise is zero.')
+        logging.info('Not setting a prior for σp') 
+        init_parameters,priors = add_to_bibly_priors_dict_constant(σp,"sigma_p",init_parameters,priors)           #constant
+    else:
+        init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-21,1e-19) #log. 
+    
+    
     init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           #constant
-
-
     init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors) #distance not needed unless we are using the PSR model, which we are not using currently
 
 
