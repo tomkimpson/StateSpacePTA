@@ -41,7 +41,7 @@ if __name__=="__main__":
 
 
     #Setup the system
-    P   = SystemParameters(h=h,σp=None,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed) # define the system parameters as a dict. Todo: make this a class
+    P   = SystemParameters(h=h,Ω=5.0e-9,σp=None,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed) # define the system parameters as a dict. Todo: make this a class
     PTA = Pulsars(P)                                       # setup the PTA
     data = SyntheticData(PTA,P)                            # generate some synthetic data
 
