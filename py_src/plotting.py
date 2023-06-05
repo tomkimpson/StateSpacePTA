@@ -94,7 +94,7 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
 
 
 
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False):
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None):
     plt.style.use('science')
 
     # Opening JSON file
@@ -104,7 +104,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     # a dictionary
     data = json.load(f)
     print("The evidence is:", data["log_evidence"])
-
+    f.close()
 
     #Make it a dataframe. Nice for surfacing
     df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
@@ -130,25 +130,39 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
         injection_parameters = np.log10(injection_parameters)
         ranges = np.log10(ranges)
 
+    import warnings
+    warnings.filterwarnings("error")
 
-    fig = corner.corner(y_post, 
-                        color='C0',
-                        show_titles=True,
-                        smooth=True,smooth1d=True,
-                        truth_color='C2',
-                        quantiles=[0.16, 0.84],
-                        truths = injection_parameters,
-                        range=ranges,
-                        labels = labels,
-                        label_kwargs=dict(fontsize=16),
-                        axes_scales = axes_scales)
+    try:
+
+        fig = corner.corner(y_post, 
+                            color='C0',
+                            show_titles=True,
+                            smooth=True,smooth1d=True,
+                            truth_color='C2',
+                            quantiles=[0.16, 0.84],
+                            truths = injection_parameters,
+                            range=ranges,
+                            labels = labels,
+                            label_kwargs=dict(fontsize=16),
+                            axes_scales = axes_scales)
+                
+
+        if savefig != None:
+            plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
             
+        if title != None:
+            fig.suptitle(title, fontsize=20)  
+        plt.show()
 
-    if savefig != None:
-        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
-        
-        
-    plt.show()
+    except:
+        print("Exception - likely because corner.corner cannot find nice contours since NS did not coverge well")
+        print("There is probably a large difference in the medians and the truth values")
+        print("Skipping plotting")
+        plt.close()
+        pass
+
+    print("**********************************************************************")
 
 
 
