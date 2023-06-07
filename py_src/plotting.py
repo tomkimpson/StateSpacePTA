@@ -28,13 +28,14 @@ def plot_statespace(t,states,measurements,psr_index):
     ax2.plot(tplot,measurement_i)
     plt.show()
 
-def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig=None):
+def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')
 
     tplot = t / (365*24*3600)
     state_i = states[:,psr_index]
     measurement_i = measurements[:,psr_index]
+    measurement_clean_i = measurements_clean[:,psr_index]
 
 
 
@@ -53,6 +54,7 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
         pass
     
     ax2.plot(tplot,measurement_i,label="measurement",c="C3")
+    ax2.plot(tplot,measurement_clean_i,label="measurement_clean",c="C5")
 
 
     try:
