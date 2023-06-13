@@ -124,6 +124,12 @@ The detection of high frequency ($\sim1$ Hz) gravitational waves (GWs) from coal
 \noindent The sensitivity of a PTA to a GW signal is heavily dependent on the total level of noise in the array \citep{Wang2015}. In particular, the intrinsic pulsar timing noise - i.e.  random variations in the pulse arrival time - has been identified as a key factor limiting the sensitivity of PTAs to GW signals \citep{Shannon2010,Lasky2015,Caballero2016}. This pulsar timing noise has multiple potential theorized causes including microglitches \citep{Melatos2008}, glitch recovery \citep{Hobbs2010glitch}, fluctuations in both the internal and external stochastic torques \citep{Antonelli2023} and superfluid turbulence \citep{Melatos2014}. In order to mitigate the influence of timing noise, PTAs are typically composed of millisecond pulsars (MSPs) which are known to be much more stable rotators with minimal timing noise. However, timing noise in MSPs could be a `latent' phenomenon \citep{Shannon2010}; as we increase the length of observation spans and the measurement timing precision to the levels required to detect gravitational waves, the timing noise in MSPs may emerge and become much more apparent, visible in the same way that timing noise is seen in younger pulsars. In addition to timing noise there are also secondary noise sources that must be considered such as phase jitter noise and radiometer noise \citep{Cordes2010,Lam2019,Parthasarathy2021}. \newline 
 
 
+
+THe standard method of detecting single source psr is as follows
+
+drawback is does not account for noises, ooptimal estimators etc etc. 
+
+
 \noindent In the standard approach to PTA-GW analysis, timing noise is a nuisance which must be accurately modelled and subtracted. It fundamentally limits the sensitivity of the PTA detector to a GW signal, and the ability of an observer to infer the GW source parameters. Motivated by these challenges faced by the classic PTA analysis methods, in this work we present a novel approach to formulate PTA analysis and GW detection as a state-space problem. This approach enables the pulsar state-space evolution to be tracked optimally, given a specific realisation of the pulsar process noise (i.e. the spin wandering of the pulsar), and determine both the presence of a GW signal in the pulsar data, and  infer the underlying source parameters. For this initial exploratory study we will focus exclusively on resolved, monochromatic GW sources. \textcolor{red}{TK: This motivation section is weak. Need to think about how to phrase this better. Be clear on the real challenges of the "old" approach and the advantages of the "new" one.} \newline 
 
 
@@ -334,6 +340,14 @@ where
 \begin{equation}
 	\eta_i = \int_{t_i}^{t_{i+1}}  e^{\mathcal{A} (t_{i+1} - t')} \sigma dt'
 \end{equation}
+
+if we specialise to the case of constatn time sampling 
+
+
+
+
+
+
 The discrete solution $f(\bar{t})$ to the intrinsic frequency can be related to the discrete measured frequency via Eq. \ref{eq:main_eq} as,
 \begin{equation}
 	f_M (\bar{t})= f(\bar{t}) g(\bar{\theta},\bar{t}) + N_M
