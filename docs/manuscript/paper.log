@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  8 JUN 2023 07:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  13 JUN 2023 16:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -606,11 +606,7 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count307
 \l__pdf_internal_box=\box97
 )
-(./paper.aux
-
-LaTeX Warning: Label `eq:final' multiply defined.
-
-)
+(./paper.aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 82.
@@ -878,114 +874,120 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
- []
-
-
-Underfull \hbox (badness 1067) in paragraph at lines 146--148
-\T1/ntxtlf/m/n/9 where $\OML/ntxmi/m/it/9 f[]$ \T1/ntxtlf/m/n/9 is the so-lu-ti
-on of the elec-tro-mag-netic spin-down
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 165.
+(Font)              scaled to size 9.0pt on input line 176.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 191.
+(Font)              scaled to size 12.0pt on input line 203.
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 205--207
+Underfull \hbox (badness 10000) in paragraph at lines 256--258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--236
-
+Overfull \hbox (25.26654pt too wide) detected at line 290
+[]
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 331--333
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
-<images/KF1.png, id=256, 736.6722pt x 500.3493pt>
+
+Overfull \hbox (18.861pt too wide) detected at line 344
+$\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
+@ [][] []$  
+ []
+
+<images/KF1.png, id=261, 736.6722pt x 500.3493pt>
 File: images/KF1.png Graphic file (type png)
 <use images/KF1.png>
-Package pdftex.def Info: images/KF1.png  used on input line 340.
+Package pdftex.def Info: images/KF1.png  used on input line 361.
 (pdftex.def)             Requested size: 244.0pt x 165.72655pt.
-<images/KF2.png, id=258, 725.8317pt x 490.2315pt>
+<images/KF2.png, id=263, 725.8317pt x 490.2315pt>
 File: images/KF2.png Graphic file (type png)
 <use images/KF2.png>
-Package pdftex.def Info: images/KF2.png  used on input line 346.
+Package pdftex.def Info: images/KF2.png  used on input line 367.
 (pdftex.def)             Requested size: 244.0pt x 164.79893pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--375
+LaTeX Warning: Reference `eq:state2' on page 4 undefined on input line 383.
+
+
+LaTeX Warning: Reference `eq:state2' on page 4 undefined on input line 395.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--386
+Underfull \hbox (badness 10000) in paragraph at lines 405--407
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 400--402
+Underfull \hbox (badness 10000) in paragraph at lines 421--423
 
  []
 
-<images/pulsars.png, id=325, 481.0773pt x 299.9205pt>
+<images/pulsars.png, id=331, 481.0773pt x 299.9205pt>
 File: images/pulsars.png Graphic file (type png)
 <use images/pulsars.png>
-Package pdftex.def Info: images/pulsars.png  used on input line 411.
+Package pdftex.def Info: images/pulsars.png  used on input line 452.
 (pdftex.def)             Requested size: 195.20074pt x 121.69595pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--416
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
-[5 <./images/KF1.png> <./images/KF2.png> <./images/pulsars.png>]
-<images/canonical_example.png, id=355, 1131.0255pt x 1136.0844pt>
+[5 <./images/KF1.png> <./images/KF2.png>]
+<images/canonical_example.png, id=359, 1131.0255pt x 1136.0844pt>
 File: images/canonical_example.png Graphic file (type png)
 <use images/canonical_example.png>
-Package pdftex.def Info: images/canonical_example.png  used on input line 456.
+Package pdftex.def Info: images/canonical_example.png  used on input line 496.
 (pdftex.def)             Requested size: 406.40155pt x 408.22733pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
 
  []
 
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-481.
+521.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 481.
+(Font)              scaled to size 8.0pt on input line 521.
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--486
+Underfull \hbox (badness 10000) in paragraph at lines 524--526
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 489.
+(Font)              scaled to size 7.3pt on input line 529.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 489.
-<images/snr_canonical.png, id=358, 729.4452pt x 488.3043pt>
+(Font)              scaled to size 5.5pt on input line 529.
+<images/snr_canonical.png, id=362, 729.4452pt x 488.3043pt>
 File: images/snr_canonical.png Graphic file (type png)
 <use images/snr_canonical.png>
-Package pdftex.def Info: images/snr_canonical.png  used on input line 504.
+Package pdftex.def Info: images/snr_canonical.png  used on input line 544.
 (pdftex.def)             Requested size: 244.0pt x 163.33893pt.
-<images/snr_mollewide.png, id=359, 472.164pt x 298.2342pt>
+<images/snr_mollewide.png, id=363, 472.164pt x 298.2342pt>
 File: images/snr_mollewide.png Graphic file (type png)
 <use images/snr_mollewide.png>
-Package pdftex.def Info: images/snr_mollewide.png  used on input line 514.
+Package pdftex.def Info: images/snr_mollewide.png  used on input line 554.
 (pdftex.def)             Requested size: 406.40155pt x 256.6994pt.
-[6] (./paper.bbl
-Underfull \vbox (badness 1383) has occurred while \output is active []
+[6 <./images/pulsars.png>] (./paper.bbl
+Underfull \vbox (badness 1009) has occurred while \output is active []
 
  [7 <./images/canonical_example.png>]
 Underfull \hbox (badness 6493) in paragraph at lines 246--249
@@ -1003,16 +1005,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 0214429A2A20234932E2B1F7C6F6BBE3;2291.
+(rerunfilecheck)             Checksum: C817B3B054E9CAE7F0894C08D38FA9F2;2432.
  ) 
 Here is how much of TeX's memory you used:
- 16505 strings out of 478268
- 252198 string characters out of 5846348
- 547705 words of memory out of 5000000
- 34237 multiletter control sequences out of 15000+600000
+ 16509 strings out of 478268
+ 252272 string characters out of 5846348
+ 549808 words of memory out of 5000000
+ 34243 multiletter control sequences out of 15000+600000
  575205 words of font info for 204 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,1525b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1037,10 +1039,10 @@ newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/t
 xsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/loc
 al/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (9 pages, 2263234 bytes).
+Output written on paper.pdf (9 pages, 2264208 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 517 compressed objects within 6 object streams
- 146 named destinations out of 1000 (max. 500000)
- 143 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 573 PDF objects out of 1000 (max. 8388607)
+ 521 compressed objects within 6 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
