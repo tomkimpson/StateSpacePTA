@@ -63,9 +63,16 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
         #Residuals
         residuals = prediction_i_y-measurement_i
+
+
+        #print("Calculating residual")
+        #print(prediction_i_y)
+        #print(measurement_i)
+
+
         ax3.plot(tplot,residuals)
 
-        print("Mean residual:", np.mean(residuals))
+        print("Mean abs residual:", np.mean(np.abs(residuals)))
         ax4.hist(residuals,bins=50)
 
     except:
@@ -93,6 +100,7 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
    
 
     plt.show()
+    
 
 
 

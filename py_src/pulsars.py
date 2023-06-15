@@ -28,11 +28,30 @@ class Pulsars:
         self.f         = pulsars["F0"].to_numpy(dtype=NF)
         self.fdot      = pulsars["F1"] .to_numpy(dtype=NF)
         self.d         = pulsars["DIST"].to_numpy(dtype=NF)*1e3*pc/c #this is in units of s^-1
-        self.γ     = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
+        self.γ         = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
         self.δ         = pulsars["DECJD"].to_numpy()
         self.α         = pulsars["RAJD"].to_numpy()
-        self.q         = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
 
+
+        if SystemParameters.orthogonal_pulsars:
+            print("Creating orthogonal pulsars")
+            #Overwrite true  RA/DEC
+            GW_direction = unit_vector(np.pi/2.0 -SystemParameters.δ, SystemParameters.α) 
+            print("GW_direction:", GW_direction)
+            for i in range(len(self.f)):
+                v = random_three_vector()
+                psr_directon = np.cross(GW_direction,v) # not a unit vector 
+                mag = np.sqrt(psr_directon.dot(psr_directon))
+                psr_directon = psr_directon/mag #now a unit vector 
+               
+                dec_i, ra_i = convert_vector_to_ra_dec(psr_directon)
+                self.δ[i] = dec_i 
+                self.α[i] = ra_i  
+                #print(np.dot(GW_direction,psr_directon))
+
+
+
+        self.q         = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
         #Create a flattened q-vector for optimised calculations later
         self.q_products = np.zeros((len(self.f),9))
         k = 0
@@ -80,5 +99,32 @@ def unit_vector(theta,phi):
     return np.array([qx, qy, qz]).T
 
 
+def random_three_vector():
+    """
+    Generates a random 3D unit vector (direction) with a uniform spherical distribution
+    Algo from http://stackoverflow.com/questions/5408276/python-uniform-spherical-distribution
+    :return:
+    """
+    phi = np.random.uniform(0,np.pi*2)
+    costheta = np.random.uniform(-1,1)
 
-    
+    theta = np.arccos( costheta )
+    x = np.sin( theta) * np.cos( phi )
+    y = np.sin( theta) * np.sin( phi )
+    z = np.cos( theta )
+    return  np.array([x,y,z])
+
+
+def convert_vector_to_ra_dec(v):
+
+    x,y,z = v[0],v[1],v[2]
+
+
+    r = np.sqrt(x**2 + y**2 + z**2)
+
+    theta = np.arccos(z/r)
+    phi = np.arctan2(y,x)
+
+
+
+    return np.pi/2.0 - theta, phi #dec/ra

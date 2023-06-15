@@ -28,8 +28,10 @@ class SystemParameters:
                  Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
                  use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
                  measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
-                 seed = 1234, #this is the noise seed. It is used for sdeint and gaussian measurement noise
-                 σp_seed=1234): #this is the seed when we randomly generate simga_p parameter values
+                 seed = 1234,       # this is the noise seed. It is used for sdeint and gaussian measurement noise
+                 σp_seed=1234,      # this is the seed when we randomly generate simga_p parameter values
+                 orthogonal_pulsars=False #if True overwrite true RA/DEC of pulsars and create a ring of pulsars perpendicular to GW direction
+                 ): 
 
         logging.info("Welcome to the Kalman Filter Nested Sampler for PTA GW systems")
 
@@ -52,6 +54,7 @@ class SystemParameters:
         self.measurement_model = measurement_model
         self.seed = seed
         self.sigma_p_seed = σp_seed
+        self.orthogonal_pulsars =orthogonal_pulsars
 
         logging.info(f"Random seed is {self.seed}")
         if σp ==1.0:

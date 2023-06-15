@@ -9,9 +9,13 @@ import sys
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
+
+
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
     gw_direction        = np.cross(m,n)
-       
+
+
+
     dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
 
 
@@ -55,8 +59,8 @@ What is the GW modulation factor, including all pulsar terms?
 @jit(nopython=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
-    
     dot_product,hbar,little_a = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
+
 
 
     #Extra pulsar terms
@@ -65,6 +69,7 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     blob = little_a+little_b
     trig_block = cos(little_a).reshape((len(t),1)) - cos(blob)
     GW_factor = 0.50*(hbar/dot_product)*trig_block
+
 
     return GW_factor
 

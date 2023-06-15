@@ -57,15 +57,31 @@
   {https://ui.adsabs.harvard.edu/abs/2019arXiv190308924A} {p. arXiv:1903.08924}
 
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
+  et~al.}{2018}]{NanoGrav2018}
+{Arzoumanian} Z.,  et~al., 2018, \mn@doi [\apj] {10.3847/1538-4357/aabd3b},
+  \href {https://ui.adsabs.harvard.edu/abs/2018ApJ...859...47A} {859, 47}
+
+\bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2020}]{2020ApJ...905L..34A}
 {Arzoumanian} Z.,  et~al., 2020, \mn@doi [\apjl] {10.3847/2041-8213/abd401},
   \href {https://ui.adsabs.harvard.edu/abs/2020ApJ...905L..34A} {905, L34}
+
+\bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
+  et~al.}{2023}]{Arzoumanian2023}
+{Arzoumanian} Z.,  et~al., 2023, \mn@doi [arXiv e-prints]
+  {10.48550/arXiv.2301.03608}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023arXiv230103608A} {p. arXiv:2301.03608}
 
 \bibitem[\protect\citeauthoryear{{Ashton} et~al.,}{{Ashton}
   et~al.}{2022}]{Ashton2022}
 {Ashton} G.,  et~al., 2022, \mn@doi [Nature Reviews Methods Primers]
   {10.1038/s43586-022-00121-x}, \href
   {https://ui.adsabs.harvard.edu/abs/2022NRvMP...2...39A} {2, 39}
+
+\bibitem[\protect\citeauthoryear{Babak \& Sesana}{Babak \&
+  Sesana}{2012}]{Babak2012}
+Babak S.,  Sesana A.,  2012, \mn@doi [Phys. Rev. D]
+  {10.1103/PhysRevD.85.044034}, 85, 044034
 
 \bibitem[\protect\citeauthoryear{{Babak} et~al.,}{{Babak}
   et~al.}{2016}]{Babak2016}
@@ -87,6 +103,11 @@
 {Cordes} J.~M.,  {Shannon} R.~M.,  2010, \mn@doi [arXiv e-prints]
   {10.48550/arXiv.1010.3785}, \href
   {https://ui.adsabs.harvard.edu/abs/2010arXiv1010.3785C} {p. arXiv:1010.3785}
+
+\bibitem[\protect\citeauthoryear{{Ellis}}{{Ellis}}{2013}]{2013CQGra..30v4004E}
+{Ellis} J.~A.,  2013, \mn@doi [Classical and Quantum Gravity]
+  {10.1088/0264-9381/30/22/224004}, \href
+  {https://ui.adsabs.harvard.edu/abs/2013CQGra..30v4004E} {30, 224004}
 
 \bibitem[\protect\citeauthoryear{{Ferdman} et~al.,}{{Ferdman}
   et~al.}{2010}]{2010CQGra..27h4014F}
@@ -116,11 +137,6 @@ Springer Series in Synergetics, Springer Berlin Heidelberg, \url
   {Downs}}{1983}]{Hellings}
 {Hellings} R.~W.,  {Downs} G.~S.,  1983, \mn@doi [\apjl] {10.1086/183954},
   \href {https://ui.adsabs.harvard.edu/abs/1983ApJ...265L..39H} {265, L39}
-
-\bibitem[\protect\citeauthoryear{Hobbs \& Dai}{Hobbs \&
-  Dai}{2017}]{10.1093/nsr/nwx126}
-Hobbs G.,  Dai S.,  2017, \mn@doi [National Science Review]
-  {10.1093/nsr/nwx126}, 4, 707
 
 \bibitem[\protect\citeauthoryear{{Hobbs}, {Lyne}  \& {Kramer}}{{Hobbs}
   et~al.}{2010}]{Hobbs2010glitch}
@@ -152,6 +168,11 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
 {Lasky} P.~D.,  {Melatos} A.,  {Ravi} V.,   {Hobbs} G.,  2015, \mn@doi [\mnras]
   {10.1093/mnras/stv540}, \href
   {https://ui.adsabs.harvard.edu/abs/2015MNRAS.449.3293L} {449, 3293}
+
+\bibitem[\protect\citeauthoryear{{Lentati} et~al.,}{{Lentati}
+  et~al.}{2015}]{Lentati2015}
+{Lentati} L.,  et~al., 2015, \mn@doi [\mnras] {10.1093/mnras/stv1538}, \href
+  {https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.2576L} {453, 2576}
 
 \bibitem[\protect\citeauthoryear{{Melatos} \& {Link}}{{Melatos} \&
   {Link}}{2014}]{Melatos2014}
@@ -198,10 +219,39 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
 {Perera} B.~B.~P.,  et~al., 2019, \mn@doi [\mnras] {10.1093/mnras/stz2857},
   \href {https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.4666P} {490, 4666}
 
+\bibitem[\protect\citeauthoryear{{Rajagopal} \& {Romani}}{{Rajagopal} \&
+  {Romani}}{1995}]{Rajagopal1995}
+{Rajagopal} M.,  {Romani} R.~W.,  1995, \mn@doi [\apj] {10.1086/175813}, \href
+  {https://ui.adsabs.harvard.edu/abs/1995ApJ...446..543R} {446, 543}
+
+\bibitem[\protect\citeauthoryear{{Ravi}, {Wyithe}, {Hobbs}, {Shannon},
+  {Manchester}, {Yardley}  \& {Keith}}{{Ravi}
+  et~al.}{2012}]{Ravi2012singlesource}
+{Ravi} V.,  {Wyithe} J.~S.~B.,  {Hobbs} G.,  {Shannon} R.~M.,  {Manchester}
+  R.~N.,  {Yardley} D.~R.~B.,   {Keith} M.~J.,  2012, \mn@doi [\apj]
+  {10.1088/0004-637X/761/2/84}, \href
+  {https://ui.adsabs.harvard.edu/abs/2012ApJ...761...84R} {761, 84}
+
+\bibitem[\protect\citeauthoryear{{Ravi}, {Wyithe}, {Shannon}  \&
+  {Hobbs}}{{Ravi} et~al.}{2015}]{Ravi2015MNRAS.447.2772R}
+{Ravi} V.,  {Wyithe} J.~S.~B.,  {Shannon} R.~M.,   {Hobbs} G.,  2015, \mn@doi
+  [\mnras] {10.1093/mnras/stu2659}, \href
+  {https://ui.adsabs.harvard.edu/abs/2015MNRAS.447.2772R} {447, 2772}
+
 \bibitem[\protect\citeauthoryear{Sanidas, Battye  \& Stappers}{Sanidas
   et~al.}{2012}]{PTAstring}
 Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
   {10.1103/PhysRevD.85.122003}, 85, 122003
+
+\bibitem[\protect\citeauthoryear{{Sesana}}{{Sesana}}{2013}]{Sesana2013}
+{Sesana} A.,  2013, \mn@doi [Classical and Quantum Gravity]
+  {10.1088/0264-9381/30/22/224014}, \href
+  {https://ui.adsabs.harvard.edu/abs/2013CQGra..30v4014S} {30, 224014}
+
+\bibitem[\protect\citeauthoryear{{Sesana} \& {Vecchio}}{{Sesana} \&
+  {Vecchio}}{2010}]{Sesana2010}
+{Sesana} A.,  {Vecchio} A.,  2010, \mn@doi [\prd] {10.1103/PhysRevD.81.104008},
+  \href {https://ui.adsabs.harvard.edu/abs/2010PhRvD..81j4008S} {81, 104008}
 
 \bibitem[\protect\citeauthoryear{Sesana, Vecchio  \& Colacino}{Sesana
   et~al.}{2008}]{Sesana10}
@@ -251,6 +301,11 @@ Wan E.,  Van Der~Merwe R.,  2000, in Proceedings of the IEEE 2000 Adaptive
 {Wang} Y.,  2015, in Journal of Physics Conference Series. p. 012019
   (\mn@eprint {arXiv} {1505.00402}), \mn@doi{10.1088/1742-6596/610/1/012019}
 
+\bibitem[\protect\citeauthoryear{{Wyithe} \& {Loeb}}{{Wyithe} \&
+  {Loeb}}{2003}]{Wyithe2003}
+{Wyithe} J. S.~B.,  {Loeb} A.,  2003, \mn@doi [\apj] {10.1086/375187}, \href
+  {https://ui.adsabs.harvard.edu/abs/2003ApJ...590..691W} {590, 691}
+
 \bibitem[\protect\citeauthoryear{{Xue} et~al.,}{{Xue} et~al.}{2021}]{PTAphase}
 {Xue} X.,  et~al., 2021, \mn@doi [\prl] {10.1103/PhysRevLett.127.251303}, \href
   {https://ui.adsabs.harvard.edu/abs/2021PhRvL.127y1303X} {127, 251303}
@@ -262,9 +317,20 @@ Zarchan P.,  Musoff H.,  2000, Fundamentals of Kalman Filtering: A Practical
 Progress in astronautics and aeronautics, American Institute of Aeronautics and
   Astronautics, \url {https://books.google.com.au/books?id=AQxRAAAAMAAJ}
 
+\bibitem[\protect\citeauthoryear{{Zhu} et~al.,}{{Zhu}
+  et~al.}{2014}]{Zhu2014PPTA}
+{Zhu} X.~J.,  et~al., 2014, \mn@doi [\mnras] {10.1093/mnras/stu1717}, \href
+  {https://ui.adsabs.harvard.edu/abs/2014MNRAS.444.3709Z} {444, 3709}
+
 \bibitem[\protect\citeauthoryear{Zhu et~al.,}{Zhu et~al.}{2015}]{Zhu10}
 Zhu X.-J.,  et~al., 2015, \mn@doi [Monthly Notices of the Royal Astronomical
   Society] {10.1093/mnras/stv381}, 449, 1650
+
+\bibitem[\protect\citeauthoryear{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs  \&
+  Manchester}{Zhu et~al.}{2016}]{Zhupulsarterms}
+Zhu X.-J.,  Wen L.,  Xiong J.,  Xu Y.,  Wang Y.,  Mohanty S.~D.,  Hobbs G.,
+  Manchester R.~N.,  2016, \mn@doi [Monthly Notices of the Royal Astronomical
+  Society] {10.1093/mnras/stw1446}, 461, 1317
 
 \makeatother
 \end{thebibliography}

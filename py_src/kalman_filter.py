@@ -160,7 +160,7 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+        P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
 
         #Precompute the influence of the GW
@@ -199,6 +199,9 @@ class KalmanFilter:
             obs = self.observations[i,:]
             x_predict, P_predict   = predict(x,P,F,Q)
             x,P,l,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
+            
+           # if i > 250:
+                #print("barp")
             likelihood +=l
 
             x_results[i,:] = x

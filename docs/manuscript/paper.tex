@@ -66,17 +66,18 @@
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
 \author[Kimpson]{Kimpson$^{1}$, Melatos, O'Leary, Evans, others, etc. etc. %
-\thanks{Contact e-mail: \href{mailto:mn@ras.ac.uk}{mn@ras.ac.uk}}%
+\thanks{Contact e-mail: \href{tom.kimpson@unimelb.edu.au}{tom.kimpson@unimelb.edu.au}}%
 \thanks{Present address: Science magazine, AAAS Science International, \mbox{82-88}~Hills Road, Cambridge CB2~1LQ, UK}%
 \\
 % List of institutions
 $^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, UK}
 
 % These dates will be filled out by the publisher
-\date{Last updated 2020 June 10; in original form 2013 September 5}
+%\date{Last updated 2020 June 10; in original form 2013 September 5}
+\date{Last updated \today}
 
 % Enter the current year, for the copyright statements etc.
-\pubyear{2020}
+\pubyear{2023}
 
 % Don't change these lines
 \begin{document}
@@ -106,53 +107,28 @@ editorials, notices -- miscellaneous
 %\tableofcontents
 \endgroup
 \newpage
-
 \section{Introduction}
+The detection of high frequency ($\sim 100$ Hz) gravitational waves (GWs) from coalescing black hole (BH) binaries with ground-based detectors such as LIGO/Virgo \citep{aLIGO,2015CQGra..32b4001A} is now a routine enterprise \citep[e.g.][]{2019PhRvX...9c1040A,2021PhRvX..11b1053A}. GWs from sources which radiate in the mill-Hz regime are expected to be detectable from $\sim 2037$ with the space-based Laser Interferometer Space Antenna, \citep{LISApaper}, especially given the early success by the pathfinder mission \citep{2019arXiv190308924A}. Detecting GWs from systems which evolve over even longer timescales, $\mathcal{O}$(years), has necessitated the development of novel astrophysical methods, since it is practically impossible to engineer interferometric detectors with sufficiently long baselines. The foremost technique for the detection of GWs in this nano-Hz regime is a via timing an ensemble of pulsars; a pulsar timing array \citep[PTA;][]{2021hgwa.bookE...4V}. The presence  of a nHz gravitational wave will influence the propagation of the pulsar radio beacon, leaving a characteristic impression on the received pulsar timing signal. By measuring the modulation of the pulsar signal in this way, one can effectively construct a detector with a baseline on the scale of parsecs. Multiple PTA detectors have now been built over the last few decades, including the North American Nanohertz Observatory for Gravitational Waves \citep[NANOGrav,][]{2020ApJ...905L..34A}, the Parkes Pulsar Timing array \citep[PPTA][]{2020PASA...37...20K}, and the European Pulsar Timing Array \citep[EPTA,][]{2010CQGra..27h4014F}. These previously disparate efforts have now been joined in international collaboration, along with a number of newer PTAs such as the Indian Pulsar Timing Array Project \citep[InPTA,][]{ipta}, under the umbrella of the International Pulsar Timing Array \citep[IPTA][]{2019MNRAS.490.4666P}. \newline 
+
+The primary target of PTA observations is the gravitational radiation emitted from the inspiral of supermassive black hole binaries \citep[SMBHBs;][]{Rajagopal1995,Wyithe2003,Sesana2013,Ravi2015MNRAS.447.2772R}. Other potential sources for PTAs include cosmic strings \citep[e.g.][]{PTAstring} and cosmological phase transitions \citep[e.g.][]{PTAphase}. The incoherent superposition of multiple SMBHBs sources leads to a stochastic GW background detectable at nHz frequencies \citep{Sesana10}. Previous efforts have mainly focused on the detection of this stochastic background via measuring the correlation in the pulsar timing residuals between any two pair of pulsars; the presence of a GW induces a characteristic correlation as a function of the angular separation between the pulsars - the Hellings-Downs curve \citep{Hellings}. However, no GW background has yet been detected \citep{Lentati2015,NanoGrav2018,2022MNRAS.510.4873A}. \newline 
+
+SMBHBs which are sufficiently near and massive may be individually resolvable with PTAs, allowing the very earliest stages of their evolution and coalescence to be investigated \citep{Sesana2010,Zhu10,Babak2012,2013CQGra..30v4004E,Zhupulsarterms}. 
+Moreover, the stochastic GW background itself may be dominated by a few individual binary sources \citep{Ravi2012singlesource}. However, as with the stochastic background, PTA observational efforts to detect individual sources have thus far been unsuccessful \citep{Zhu2014PPTA,Babak2016,Arzoumanian2023}. The intrinsic pulsar timing noise - i.e.  random variations in the pulse arrival time - has been identified as a key factor limiting the sensitivity of PTAs to GW signals \citep{Shannon2010,Lasky2015,Caballero2016}. This pulsar timing noise has multiple potential theorized causes including microglitches \citep{Melatos2008}, glitch recovery \citep{Hobbs2010glitch}, fluctuations in both the internal and external stochastic torques \citep{Antonelli2023} and superfluid turbulence \citep{Melatos2014}. In order to mitigate the influence of timing noise, PTAs are typically composed of millisecond pulsars (MSPs) which are known to be much more stable rotators with minimal timing noise. However, timing noise in MSPs could be a `latent' phenomenon \citep{Shannon2010}; as we increase the length of observation spans and the measurement timing precision to the levels required to detect gravitational waves, the timing noise in MSPs may emerge and become much more apparent, visible in the same way that timing noise is seen in younger pulsars. In addition to timing noise there are also secondary noise sources that must be considered such as phase jitter noise and radiometer noise \citep{Cordes2010,Lam2019,Parthasarathy2021}. \newline 
+
+ 
+In this work we present a novel approach to PTA data analysis for individual monochromatic SMBHB GW sources. This method can self-consistently account for the intrinsic stochastic processes inherent to the pulsar. We formulate PTA analysis as a state-space problem and demonstrate how to track the state-space evolution optimally by using a Kalman filter, determine the presence of a GW signal in the pulsar data and infer the underlying source parameters.  \newline 
+ 
+
+\noindent This paper is organised as follows. In Section \ref{sec:model} we present our state-space model for the pulsar pulse frequency which is subject the influence of a GW. In Section \ref{sec:detect} we discretise the model, develop a Kalman filter to track the state evolution and introduce how to deploy the Kalman filter in conjunction with nested sampling to estimate the system parameters and the model evidence. In Section \ref{sec:testing} we test this new method on synthetic pulsar data. Throughout this work ee adopt the natural units, with $c = G = \hbar = 1$, and a $(-,+,+,+)$ metric signature. \newline 
 
 
-
-The detection of high frequency ($\sim1$ Hz) gravitational waves (GWs) from coalescing black hole (BH) binaries with ground-based detectors such as LIGO/Virgo \citep{aLIGO,2015CQGra..32b4001A} is now a routine enterprise \citep[e.g.][]{2019PhRvX...9c1040A,2021PhRvX..11b1053A}. Gravitational radiation from sources which radiate in the mill-Hz regime are expected to be detectable from $\sim 2037$ with the space-based Laser Interferometer Space Antenna, \citep{LISApaper}, especially given the early success by the pathfinder mission \citep{2019arXiv190308924A}. Detecting GWs from systems which evolve over even longer timescales, $\mathcal{O}$(years), has necessitated the development of novel astrophysical methods, since it is practically impossible to engineer interferometric detectors with sufficiently long baselines. The foremost technique for the detection of GWs in this nano-Hz regime is a via timing an ensemble of milliseconds pulsars; a pulsar timing array (PTA) \citep{2021hgwa.bookE...4V}. The presence  of a nano-Hz gravitational wave will influence the propagation of the pulsar radio beacon, leaving a characteristic impression on the pulsar timing signal. By measuring the modulation of the received pulsar signal in this way, one can effectively construct a detector with a baseline on the scale of parsecs. \newline 
-
-
-\noindent Multiple PTA detectors have now been built over the last few decades, including the North American Nanohertz Observatory for Gravitational Waves \citep[NANOGrav,][]{2020ApJ...905L..34A}, the Parkes Pulsar Timing array \citep[PPTA][]{2020PASA...37...20K}, and the European Pulsar Timing Array \citep[EPTA,][]{2010CQGra..27h4014F}. These previously disparate efforts have now been joined in international collaboration, along with a number of newer PTAs such as the Indian Pulsar Timing Array Project \citep[InPTA,][]{ipta}, under the umbrella of the International Pulsar Timing Array \citep[IPTA][]{2019MNRAS.490.4666P}. The primary target of PTA observations is the gravitational radiation emitted from the inspiral of supermassive black hole binaries (SMBHBs) with masses $\sim 10^7 M_{\odot}$. These GW signals from SMBHBs can be broadly classified into either deterministic or stochastic. For the former, sufficiently bright and near binaries may be resolvable with PTAs, allowing the very earliest stages of their evolution and coalescence to be investigated \citep{Zhu10}. For the latter, the incoherent superposition of multiple weaker SMBHBs sources leads to a stochastic background detectable at nano-Hz frequencies \citep{Sesana10}. Other potential sources for PTAs include cosmic strings \citep[e.g.][]{PTAstring} and cosmological phase transitions \citep[e.g.][]{PTAphase}, but the deterministic and stochastic GW signals from SMBHBs remain the primary targets. \newline 
-
-\noindent The detection of loud, resolved sources with a PTA typically involves a parametrised model for the pulsar timing residuals induced by the modulation of the pulsar signal by a GW. One can then search for evidence that this model describes the data via the usual Bayesian likelihood techniques, and try to estimate the parameters of the model \citep[e.g.][]{Babak2016}. For detecting the stochastic background the approach is different; one measures the correlation in pulsar timing residuals between any two pair of pulsars. The presence of a GW induces a characteristic correlation function as a function of the angular separation between the pulsars; the Hellings-Downs curve \citep{Hellings}. For both classes of source, the detection of GW signals in the timing residuals of a PTA is a challenging enterprise, and currently neither a stochastic background nor an individually resolved source has yet been detected \citep{2022MNRAS.510.4873A, 10.1093/nsr/nwx126}. \newline 
-
-
-
-
-\noindent The sensitivity of a PTA to a GW signal is heavily dependent on the total level of noise in the array \citep{Wang2015}. In particular, the intrinsic pulsar timing noise - i.e.  random variations in the pulse arrival time - has been identified as a key factor limiting the sensitivity of PTAs to GW signals \citep{Shannon2010,Lasky2015,Caballero2016}. This pulsar timing noise has multiple potential theorized causes including microglitches \citep{Melatos2008}, glitch recovery \citep{Hobbs2010glitch}, fluctuations in both the internal and external stochastic torques \citep{Antonelli2023} and superfluid turbulence \citep{Melatos2014}. In order to mitigate the influence of timing noise, PTAs are typically composed of millisecond pulsars (MSPs) which are known to be much more stable rotators with minimal timing noise. However, timing noise in MSPs could be a `latent' phenomenon \citep{Shannon2010}; as we increase the length of observation spans and the measurement timing precision to the levels required to detect gravitational waves, the timing noise in MSPs may emerge and become much more apparent, visible in the same way that timing noise is seen in younger pulsars. In addition to timing noise there are also secondary noise sources that must be considered such as phase jitter noise and radiometer noise \citep{Cordes2010,Lam2019,Parthasarathy2021}. \newline 
-
-
-
-THe standard method of detecting single source psr is as follows
-
-drawback is does not account for noises, ooptimal estimators etc etc. 
-
-
-\noindent In the standard approach to PTA-GW analysis, timing noise is a nuisance which must be accurately modelled and subtracted. It fundamentally limits the sensitivity of the PTA detector to a GW signal, and the ability of an observer to infer the GW source parameters. Motivated by these challenges faced by the classic PTA analysis methods, in this work we present a novel approach to formulate PTA analysis and GW detection as a state-space problem. This approach enables the pulsar state-space evolution to be tracked optimally, given a specific realisation of the pulsar process noise (i.e. the spin wandering of the pulsar), and determine both the presence of a GW signal in the pulsar data, and  infer the underlying source parameters. For this initial exploratory study we will focus exclusively on resolved, monochromatic GW sources. \textcolor{red}{TK: This motivation section is weak. Need to think about how to phrase this better. Be clear on the real challenges of the "old" approach and the advantages of the "new" one.} \newline 
+\section{State-Space Frequency Model}\label{sec:model}
+We want to formulate the PTA analysis as a state-space problem with a separation between the intrinsic pulsar state, and the measurement state recorded by an observer. For this work we will take our state variable to be the intrinsic pulsar pulse frequency $f_{\rm p}(t)$, as measured in the momentarily comoving reference frame of an observer local to the pulsar. We will take our measurement variable to be the pulsar pulse frequency that is measured by an observer at Earth, $f_{\rm m}(t)$.  In Sections \ref{sec:psr_frequency}, \ref{sec:psr_measured} we will describe our model for $f_{\rm p}(t)$ and  $f_{\rm m}(t)$ respectively. 
 
 
 
 
-This is how we usually search for single source PTAs
-
-estimate all unknown parameters optimally
-here is a difference approach 
-
-Typical approaches for 
-
-
-\noindent This paper is organised as follows:  \textcolor{red}{TK: TBD} \newline 
-
-
-\noindent We adopt the natural units, with $c = G = \hbar = 1$, and a
-$(-,+,+,+)$ metric signature. \newline 
-
-
-
-\section{State-Space Model}\label{sec:model}
-We want to formulate the PTA analysis as a state-space problem with a separation between the intrinsic pulsar state, and the measurement state recorded by an observer. For this work we will take our state variable to be the intrinsic pulsar pulse frequency $f_{\rm p}(t)$, as measured in the momentarily comoving reference frame of an observer local to the pulsar. We will take our measurement variable to be the pulsar pulse frequency that is measured by an observer at Earth, $f_{\rm m}(t)$.  In Sections \ref{sec:psr_frequency}, \ref{sec:psr_measured} we will describe our model for $f_{\rm p}(t)$ and  $f_{\rm m}(t)$ respectively. We will go on in Section \ref{sec:statespace} to bring together these two models into a cohesive, discretized state space model. 
+We will go on in Section \ref{sec:statespace} to bring together these two models into a cohesive, discretized state space model. 
 \textcolor{red}{TK: Need some extra discussion here on why this choice of state/measurement space. Why not e.g. phase, TOA, voltage, etc. ?}
 
 \subsection{Evolution of the pulsar frequency} \label{sec:psr_frequency}
@@ -198,7 +174,7 @@ The polarisation tensors $e_{ij}^{+,\times}$ are uniquely defined by the princip
 	e_{a b}^{+}(\hat{\Omega}) =\hat{m}_a \hat{m}_b-\hat{n}_a \hat{n}_b \\
 		e_{a b}^{\times}(\hat{\Omega}) =\hat{m}_a \hat{n}_b+\hat{n}_a \hat{m}_b
 \end{align}
-which are in turn specified via the location of the GW source on the sky (via polar coordinate $\theta$ and azimuthal coodinate $\phi$) and the polarisation angle $\psi$
+which are in turn specified via the location of the GW source on the sky (via polar coordinate $\theta$ and azimuthal coordinate $\phi$) and the polarisation angle $\psi$
 \begin{align}
 	\vec{m} & =(\sin \phi \cos \psi-\sin \psi \cos \phi \cos \theta) \hat{x} \nonumber \\
 	& -(\cos \phi \cos \psi+\sin \psi \sin \phi \cos \theta) \hat{y} \nonumber \\
@@ -299,7 +275,7 @@ where we have identified $\omega$ with $f(\tau - d)|_{\rm source}$.
 
 
 
-\section{Detection and parameter estimation}
+\section{Detection and parameter estimation} \label{sec:detect}
 Let's review and categorise all the free parameters,$\bar{\theta}$, of above model. We can generally separate these into parameters which correspond to the intrinsic frequency evolution of the pulsar and parameters of the GW source
 \begin{equation}
 	\bar{\theta} =  \bar{\theta}_{\rm PSR} \cup \bar{\theta}_{\rm GW}
@@ -452,7 +428,7 @@ For now we will consider the measurement noise to be known, although in principl
 
 
 
-\section{Tests with synthetic data}
+\section{Tests with synthetic data} \label{sec:testing}
 
 
 
