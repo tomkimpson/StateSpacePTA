@@ -4,14 +4,12 @@ import sdeint
 import numpy as np 
 
 from gravitational_waves import gw_earth_terms,gw_psr_terms
+import logging
 
-#from mpmath import mp, mpf 
-#mp.dps = 50
 class SyntheticData:
     
     
-    
-    
+
     def __init__(self,pulsars,P):
 
 
@@ -19,55 +17,52 @@ class SyntheticData:
         t = pulsars.t
         Npsr = pulsars.Npsr 
 
-        #...and the pulsar parameters
-        f0 = pulsars.f#* mpf(1.0)
-        fdot = pulsars.fdot#* mpf(1.0)
-        gamma = pulsars.gamma #* mpf(1.0)
-        sigma_p = np.full((Npsr,1),pulsars.sigma_p)#* mpf(1.0)
+        #Pulsar parameters
+        γ= pulsars.γ  
+        σp= pulsars.σp  
+
+        #Random seeding
+        generator = np.random.default_rng(P.seed)
+
         
-        #print("dt = ", t[1] - t[0])
-        #print("gamma = ", gamma)
+        #Turn σp and γ into diagonal matrices that can be accepted by vectorized sdeint
+        σp = np.diag(σp)
+        γ = np.diag(γ)
 
-        #First get the intrinstic pulsar evolution by solving the ito equation
+        #Integrate the state equation
         def f(x,t):
-            #print(-gamma * x + gamma*(f0 + fdot*t) + fdot)
-            return -gamma * x + gamma*(f0 + fdot*t) + fdot  
-        def g(x,t): 
-            return sigma_p
+            return -γ.dot(x)
+        def g(x,t):
+            return σp
 
-        generator = np.random.default_rng(1234)
-        self.intrinsic_frequency = sdeint.itoint(f,g,f0, t,generator=generator)
+        self.intrinsic_frequency= sdeint.itoint(f,g,pulsars.fprime, t,generator=generator)
 
         #Now calculate the modulation factor due to the GW
-        if P["psr_terms_data"]:
-            mod_factor = gw_psr_terms
-            print("Attention: You are including the PSR terms in your synthetic data generation")
+        if P.use_psr_terms_in_data:
+            GW_function = gw_psr_terms
+            logging.info("You are including the PSR terms in your synthetic data generation")
         else:
-            mod_factor = gw_earth_terms
-            print("Attention: You are using just the Earth terms in your synthetic data generation")
+            GW_function = gw_earth_terms
+            logging.info("You are using just the Earth terms in your synthetic data generation")
 
-
-        modulation_factors = mod_factor(
-                               P["delta_gw"],
-                               P["alpha_gw"],
-                               P["psi_gw"],
-                               pulsars.q,
-                               pulsars.q_products,
-                               P["h"],
-                               P["iota_gw"],
-                               P["omega_gw"],
-                               pulsars.d,
-                               pulsars.t,
-                               P["phi0_gw"]
-                               )
         
+        X_factor = GW_function(
+                                        P.δ,
+                                        P.α,
+                                        P.ψ,
+                                        pulsars.q,
+                                        pulsars.q_products,
+                                        P.h,
+                                        P.ι,
+                                        P.Ω,
+                                        pulsars.d,
+                                        pulsars.t,
+                                        P.Φ0
+                                        )
+            
         #The measured frequency, no noise
-        self.f_measured_clean= self.intrinsic_frequency * modulation_factors
-        measurement_noise = generator.normal(0, pulsars.sigma_m,self.f_measured_clean.shape) # Measurement noise. Seeded
+        self.f_measured_clean= (1.0-X_factor)*self.intrinsic_frequency - X_factor*pulsars.ephemeris
+        
+        measurement_noise = generator.normal(0, pulsars.σm,self.f_measured_clean.shape) # Measurement noise. Seeded
         self.f_measured = self.f_measured_clean + measurement_noise
 
-        if P["heterodyne"]:
-            print("Heterodyning the measured data relative to a reference ephemeris")
-            self.f_measured = P["heterodyne_scale_factor"]*(self.f_measured - pulsars.ephemeris)
-        else:
-            print("No heterodyne corrections")

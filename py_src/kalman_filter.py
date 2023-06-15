@@ -7,7 +7,7 @@ import numpy as np
 from numba import jit,config
 
 
-from model import F_function,T_function,R_function,Q_function #H function is defined via a class init
+from model import F_function,R_function,Q_function #H function is defined via a class init
 
 import sys 
 
@@ -46,10 +46,12 @@ def cauchy_likelihood(S,innovation):
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
 @jit(nopython=True)
-def update(x, P, observation,R,H,ephemeris):
+def update(x, P, observation,R,Xfactor,ephemeris):
 
-    
-    y_predicted = H*x - ephemeris
+
+    H = 1.0 - Xfactor
+
+    y_predicted = H*x - Xfactor*ephemeris
     y    = observation - y_predicted
     S    = H*P*H + R 
     K    = P*H/S 
@@ -75,8 +77,8 @@ def update(x, P, observation,R,H,ephemeris):
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
 @jit(nopython=True)
-def predict(x,P,F,T,Q): 
-    xp = F*x + T 
+def predict(x,P,F,Q): 
+    xp = F*x
     Pp = F*P*F + Q  
 
     return xp,Pp
@@ -95,7 +97,7 @@ class KalmanFilter:
 
     """
 
-    def __init__(self,Model, Observations,PTA,heterodyne,heterodyne_scale_factor):
+    def __init__(self,Model, Observations,PTA):
 
         """
         Initialize the class. 
@@ -112,88 +114,75 @@ class KalmanFilter:
         self.Npsr = self.observations.shape[-1]
         self.Nsteps = self.observations.shape[0]
         self.NF = PTA.NF
-
         self.H_function = Model.H_function
-
-
-        if heterodyne:
-            print("Running the Kalman filter with heterodyned settings")
-            self.ephemeris = PTA.ephemeris 
-            self.x0 =  self.observations[0,:]/heterodyne_scale_factor + self.ephemeris[0,:] 
-
-        else:
-            print("Running the KF with non-heterodyned settings")
-            self.ephemeris = np.zeros_like(PTA.ephemeris)
-            self.x0 =  self.observations[0,:] 
-
-
-        self.heterodyne_scale_factor = heterodyne_scale_factor
-        self.ephemeris_scaled = self.ephemeris * heterodyne_scale_factor
-
-    
+        self.x0 =  self.observations[0,:] 
 
 
     def likelihood(self,parameters):
 
 
         #Extract parameter values
-        #GW parameters
-        omega_gw = parameters["omega_gw"].item() 
-        phi0_gw  = parameters["phi0_gw"].item()
-        psi_gw   = parameters["psi_gw"].item()
-        iota_gw  = parameters["iota_gw"].item()
-        delta_gw = parameters["delta_gw"].item()
-        alpha_gw = parameters["alpha_gw"].item()
-        h        = parameters["h"].item()
+        #To do - remove try/except
+        try: #for the H1 model, these are dicts
+            omega_gw = parameters["omega_gw"].item() 
+            phi0_gw  = parameters["phi0_gw"].item()
+            psi_gw   = parameters["psi_gw"].item()
+            iota_gw  = parameters["iota_gw"].item()
+            delta_gw = parameters["delta_gw"].item()
+            alpha_gw = parameters["alpha_gw"].item()
+            h        = parameters["h"].item()
+        except: #for the null model, these are floats, not dict entries
+            omega_gw = parameters["omega_gw"]
+            phi0_gw  = parameters["phi0_gw"]
+            psi_gw   = parameters["psi_gw"]
+            iota_gw  = parameters["iota_gw"]
+            delta_gw = parameters["delta_gw"]
+            alpha_gw = parameters["alpha_gw"]
+            h        = parameters["h"]
+ 
         #Noise parameters
-
-        sigma_m = parameters["sigma_m"]*self.heterodyne_scale_factor #dont need an .item(), we always pass it as a float, don't infer it
-        sigma_p = parameters["sigma_p"].item()
-
+        sigma_m = parameters["sigma_m"] #dont need an .item(), we always pass it as a float, don't infer it
         
-
-        #Bilby takes a dict
+        
+        #Bilby takes a dict rather than a class
         #For us this is annoying - map some quantities to be vectors
-        f,fdot,gamma,d = map_dicts_to_vector(parameters)
-        
+        f,fdot,gamma,d,sigma_p = map_dicts_to_vector(parameters)
+        f_EM = f + np.outer(self.t,fdot) #ephemeris correction
+
+
+
         #Precompute all the transition and control matrices as well as Q and R matrices.
         #F,Q,R are time-independent functions of the parameters
         #T is time dependent, but does not depend on states and so can be precomputed
         R = R_function(sigma_m)
         Q = Q_function(gamma,sigma_p,self.dt)
         F = F_function(gamma,self.dt)
-        T = T_function(f,fdot,gamma,self.t,self.dt) #ntimes x npulsars
 
         #Initialise x and P
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr) * 0.1 #Guess that the uncertainty is about 0.1 Hz 
-
+        P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
 
         #Precompute the influence of the GW
         #Agan this does not depend on the states and so can be precomputed
-        modulation_factors = self.H_function(delta_gw,
-                                             alpha_gw,
-                                             psi_gw,
-                                             self.q,
-                                             self.q_products,
-                                             h,
-                                             iota_gw,
-                                             omega_gw,
-                                             d,
-                                             self.t,
-                                             phi0_gw
-                                            )
-        modulation_factors = modulation_factors*self.heterodyne_scale_factor
-
-
-
+        X_factor = self.H_function(delta_gw,
+                                    alpha_gw,
+                                    psi_gw,
+                                    self.q,
+                                    self.q_products,
+                                    h,
+                                    iota_gw,
+                                    omega_gw,
+                                    d,
+                                    self.t,
+                                    phi0_gw
+                                )
 
         #Initialise the likelihood
         likelihood = 0.0
               
        
-        x,P,l,ypred = update(x,P, self.observations[0,:],R,modulation_factors[0,:],self.ephemeris_scaled[0,:])
+        x,P,l,ypred = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
         likelihood +=l
 
 
@@ -201,19 +190,22 @@ class KalmanFilter:
         x_results = np.zeros((self.Nsteps,self.Npsr))
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
-        y_results[0,:] = modulation_factors[0,:]*x - self.ephemeris_scaled[0,:] 
+        y_results[0,:] = (1.0 - X_factor[0,:])*x - X_factor[0,:]*f_EM[0,:] 
 
 
         for i in np.arange(1,self.Nsteps):
 
             
             obs = self.observations[i,:]
-            x_predict, P_predict   = predict(x,P,F,T[i,:],Q)
-            x,P,l,ypred = update(x_predict,P_predict, obs,R,modulation_factors[i,:],self.ephemeris_scaled[i,:])
+            x_predict, P_predict   = predict(x,P,F,Q)
+            x,P,l,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
+            
+           # if i > 250:
+                #print("barp")
             likelihood +=l
 
             x_results[i,:] = x
-            y_results[i,:] =modulation_factors[i,:]*x - self.ephemeris_scaled[i,:] 
+            y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
             
         return likelihood,x_results,y_results
 
@@ -228,8 +220,9 @@ def map_dicts_to_vector(parameters_dict):
     fdot = np.array([val.item() for key, val in parameters_dict.items() if "fdot" in key])
     gamma = np.array([val.item() for key, val in parameters_dict.items() if "gamma" in key])
     d = np.array([val.item() for key, val in parameters_dict.items() if "distance" in key])
+    sigma_p = np.array([val.item() for key, val in parameters_dict.items() if "sigma_p" in key])
 
-    return f,fdot,gamma,d
+    return f,fdot,gamma,d,sigma_p
 
 
 

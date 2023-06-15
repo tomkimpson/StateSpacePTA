@@ -5,35 +5,13 @@ import bilby
 
 import numpy as np
 import random
-
-def add_to_priors_dict(x,label,dict_A):
-
-
-
-    i = 0
-    for f in x:
-        key = label+str(i)
-        dict_A[key] = f
-        i+= 1
-
-    return dict_A
+import logging 
+logging.getLogger().setLevel(logging.INFO)
 
 
-
-def add_to_priors_dict_erroneous(x,label,dict_A,tol):
-
-
-    i = 0
-    for f in x:
-        value = random.uniform(f*(1-tol), f*(1+tol))
-        key = label+str(i)
-        dict_A[key] = value
-        i+= 1
-
-    return dict_A
-
-
-
+"""
+Add  constant prior vector
+"""
 def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
 
 
@@ -48,16 +26,35 @@ def add_to_bibly_priors_dict_constant(x,label,init_parameters,priors):
     return init_parameters,priors
 
 
-def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
 
-    print("Adding to bilby priors dict: ", label)
+"""
+Add  logarithmic prior vector
+"""
+def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #same lower/upper for every one
     
     i = 0
     for f in x:
         key = label+str(i)
         init_parameters[key] = None
       
-        print(key, f, f-np.abs(f*tol), f+np.abs(f*tol))
+        priors[key] = bilby.core.prior.LogUniform(lower,upper, key)
+        logging.info(f"Sigma p true value is {key} {f}")
+        
+        i+= 1
+
+    return init_parameters,priors
+
+
+"""
+Add uniform prior vector
+"""
+def add_to_bibly_priors_dict_uniform(x,label,init_parameters,priors,tol):
+    
+    i = 0
+    for f in x:
+        key = label+str(i)
+        init_parameters[key] = None
+      
         priors[key] = bilby.core.prior.Uniform(f-np.abs(f*tol),f+ np.abs(f*tol), key)
         
         i+= 1
@@ -66,56 +63,143 @@ def add_to_bibly_priors_dict(x,label,init_parameters,priors,tol):
 
 
 
+"""
+Helper function to use with priors_dict()
+"""
+def add_to_priors_dict(x,label,dict_A):
 
+
+
+    i = 0
+    for f in x:
+        key = label+str(i)
+        dict_A[key] = f
+        i+= 1
+
+    return dict_A
+
+
+"""
+Create a dict of parameters to be consumed by the Kalman likelihood function
+"""
 def priors_dict(pulsar_parameters,P):
 
 
    priors = dict({
-               "omega_gw": P["omega_gw"],
-               "phi0_gw":P["phi0_gw"],
-               "psi_gw":P["psi_gw"],
-               "iota_gw":P["iota_gw"],
-               "delta_gw":P["delta_gw"],
-               "alpha_gw":P["alpha_gw"],
-               "h": P["h"]})
+               "omega_gw": P.Ω,
+               "phi0_gw":P.Φ0,
+               "psi_gw":P.ψ,
+               "iota_gw":P.ι,
+               "delta_gw":P.δ,
+               "alpha_gw":P.α,
+               "h": P.h})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
    priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict(pulsar_parameters.gamma,"gamma",priors)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
-
+   priors = add_to_priors_dict(pulsar_parameters.γ,"gamma",priors)
+   priors = add_to_priors_dict(pulsar_parameters.σp,"sigma_p",priors)
+   priors["sigma_m"]= pulsar_parameters.σm
   
    return priors
 
 
 
-"""
-Define the pulsar parameters as being slightly wrong from their true values by a random factor < tol
-"""
-def erroneous_priors_dict(pulsar_parameters,P,tol):
 
-
-   priors = dict({
-               "omega_gw": P["omega_gw"]*tol,
-               "phi0_gw":P["phi0_gw"]*tol,
-               "psi_gw":P["psi_gw"],
-               "iota_gw":P["iota_gw"]*tol,
-               "delta_gw":P["delta_gw"],
-               "alpha_gw":P["alpha_gw"]*tol,
-               "h": P["h"]})
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.f,"f0",priors,tol)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.fdot,"fdot",priors,tol)
-   priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
-   priors = add_to_priors_dict_erroneous(pulsar_parameters.gamma,"gamma",priors,tol)
-   priors["sigma_p"]= pulsar_parameters.sigma_p
-   priors["sigma_m"]= pulsar_parameters.sigma_m
-
-  
-   return priors
+def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
 
 
 
+    init_parameters,priors = add_to_bibly_priors_dict_uniform(f,"f0",init_parameters,priors,tol=0.01)      #uniform
+    init_parameters,priors = add_to_bibly_priors_dict_uniform(fdot,"fdot",init_parameters,priors,tol=0.01) #uniform
+
+    #If we set the true process noise to zero, then don't bother searching over this parameter
+    if np.all(σp) == 0.0:
+        logging.info('The true process noise is zero.')
+        logging.info('Not setting a prior for σp') 
+        init_parameters,priors = add_to_bibly_priors_dict_constant(σp,"sigma_p",init_parameters,priors)           #constant
+    else:
+        init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-21,1e-19) #log. 
+    
+    
+    init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           #constant
+    init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors) #distance not needed unless we are using the PSR model, which we are not using currently
+
+
+    return init_parameters,priors 
+
+
+
+
+def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model,h):
+
+
+    if measurement_model == "null": #set these as constants. Not used in the filter for the null model
+
+        #We define the GW parameters for consistency but these are not actually used
+        #- a bit hacky. Will need to clear this up, but doing it this way
+        #lets us have a single H_function() type call
+
+        logging.info('Using the null priors for the measurement model')
+
+
+        init_parameters["omega_gw"] = None
+        priors["omega_gw"] = 1.0
+
+
+        init_parameters["phi0_gw"] = None
+        priors["phi0_gw"] = 1.0  
+
+        init_parameters["psi_gw"] = None
+        priors["psi_gw"] = 1.0
+
+        init_parameters["iota_gw"] = None
+        priors["iota_gw"] =1.0 
+
+
+        init_parameters["delta_gw"] = None
+        priors["delta_gw"] =1.0
+
+
+        init_parameters["alpha_gw"] = None
+        priors["alpha_gw"] = 1.0
+
+
+        init_parameters["h"] = None
+        priors["h"] = 1.0
+
+    else:
+
+
+        logging.info('Using the GW priors for the measurement model')
+        
+        #Add all the GW quantities
+        init_parameters["omega_gw"] = None
+        priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
+
+
+        init_parameters["phi0_gw"] = None
+        priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+
+        init_parameters["psi_gw"] = None
+        priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+
+        init_parameters["iota_gw"] = None
+        priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+
+
+        init_parameters["delta_gw"] = None
+        priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+
+
+        init_parameters["alpha_gw"] = None
+        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+
+
+        init_parameters["h"] = None
+        priors["h"] = bilby.core.prior.LogUniform(h/100.0, h*10.0, 'h')
+
+
+    return init_parameters,priors 
 
 
 
@@ -124,62 +208,21 @@ def erroneous_priors_dict(pulsar_parameters,P,tol):
 # https://arxiv.org/pdf/2008.12320.pdf
 def bilby_priors_dict(PTA,P):
 
+
+    logging.info('Setting the bilby priors dict')
+
+
     init_parameters = {}
     priors = bilby.core.prior.PriorDict()
 
-    #Add all the GW quantities
-    init_parameters["omega_gw"] = None
-    priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-5, 'omega_gw')
-    #priors["omega_gw"] =P["omega_gw"]
 
+    #Measurement priors
+    init_parameters,priors = set_prior_on_measurement_parameters(init_parameters,priors,P.measurement_model,P.h) #h is provided to set the prior a few orders of magnitude either side.
 
-    init_parameters["phi0_gw"] = None
-    priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
-    #priors["phi0_gw"] =P["phi0_gw"]
+    #State priors
+    init_parameters,priors = set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d)
 
-    init_parameters["psi_gw"] = None
-    #priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw',boundary="periodic")
-    priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
-    #priors["psi_gw"] =P["psi_gw"]
-
-    init_parameters["iota_gw"] = None
-    priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-    #priors["iota_gw"] = P["iota_gw"]
-
-
-    init_parameters["delta_gw"] = None
-    #priors["delta_gw"] = bilby.core.prior.Uniform(1e-2, 6.283185, 'delta_gw')
-    priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-    #priors["delta_gw"] = P["delta_gw"]
-
-
-    init_parameters["alpha_gw"] = None
-    priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
-    #priors["alpha_gw"] = P["alpha_gw"]
-
-
-    init_parameters["h"] = None
-    #priors["h"] = bilby.core.prior.LogUniform(1e-4, 1e-1, 'h')
-    #priors["h"] = bilby.core.prior.LogUniform(P["h"]/1e2, P["h"]*1e2, 'h') #prior on h is always 2 orders of magnitude either side of true value 
-    priors["h"] = bilby.core.prior.LogUniform(1e-14, 1e-11, 'h')
-
-
-
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.f,"f0",init_parameters,priors,tol=0.01)
-    init_parameters,priors = add_to_bibly_priors_dict(PTA.fdot,"fdot",init_parameters,priors,tol=0.01)
-    
-    
-    #init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.f,"f0",init_parameters,priors)
-    #init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.fdot,"fdot",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.d,"distance",init_parameters,priors)
-    init_parameters,priors = add_to_bibly_priors_dict_constant(PTA.gamma,"gamma",init_parameters,priors)
-
-
-    #Noises
-    init_parameters["sigma_p"] = None
-    priors["sigma_p"] = P["sigma_p"] 
-
-
+    #Noise priors
     init_parameters["sigma_m"] = None
     priors["sigma_m"] = 1e-11
 

@@ -3,9 +3,9 @@
 import numpy as np
 from numba import jit,config
 
-
+import logging 
 from gravitational_waves import gw_psr_terms,gw_earth_terms,null_model
-
+import sys
 class LinearModel:
 
     """
@@ -18,19 +18,16 @@ class LinearModel:
         """
         Initialize the class. 
         """
-
-
-        if P["measurement_model"] == "null":
-            print("Attention: You are using just the null measurement model")
+        if P.measurement_model == "null":
+            logging.info("You are using just the null measurement model")
             self.H_function = null_model 
-        elif P["measurement_model"] == "earth":
-            print("Attention: You are using the Earth terms measurement model")
+        elif P.measurement_model == "earth":
+            logging.info("You are using the Earth terms measurement model")
             self.H_function = gw_earth_terms
-        elif P["measurement_model"] == "pulsar":
+        elif P.measurement_model == "pulsar":
             self.H_function = gw_psr_terms
         else:
             sys.exit("Measurement model not recognized. Stopping.")
-
 
 
 #These functions have to be outside the class to enable JIT compilation
@@ -43,28 +40,14 @@ The diagonal F matrix as a vector
 def F_function(gamma,dt):
     return np.exp(-gamma*dt)
 
-
-"""
-The control vector
-"""
-@jit(nopython=True)
-def T_function(f0:np.array,fdot,gamma,t,dt):
-
-    
-    fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
-    value = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
-    return value 
-
-
 """
 The diagonal Q matrix as a vector
 """
 @jit(nopython=True)
 def Q_function(gamma,sigma_p,dt):
-    value = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
+    value = sigma_p**2 * (1. - np.exp(-2.0*gamma* dt)) / (2.0 * gamma)
     return value 
     
-
 """
 The R matrix as a scalar
 """

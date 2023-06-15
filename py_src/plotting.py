@@ -28,14 +28,14 @@ def plot_statespace(t,states,measurements,psr_index):
     ax2.plot(tplot,measurement_i)
     plt.show()
 
-def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig=None):
+def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')
 
     tplot = t / (365*24*3600)
     state_i = states[:,psr_index]
     measurement_i = measurements[:,psr_index]
-    prediction_i = predictions_x[:,psr_index]
+    measurement_clean_i = measurements_clean[:,psr_index]
 
 
 
@@ -45,8 +45,16 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
     fig, (ax1,ax2,ax3,ax4) = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
 
     ax1.plot(tplot,state_i,label='state')
-    ax1.plot(tplot,prediction_i,label = 'prediction')
+
+    try:
+
+        prediction_i = predictions_x[:,psr_index]
+        ax1.plot(tplot,prediction_i,label = 'prediction')
+    except:
+        pass
+    
     ax2.plot(tplot,measurement_i,label="measurement",c="C3")
+    ax2.plot(tplot,measurement_clean_i,label="measurement_clean",c="C5")
 
 
     try:
@@ -55,13 +63,19 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
 
         #Residuals
         residuals = prediction_i_y-measurement_i
+
+
+        #print("Calculating residual")
+        #print(prediction_i_y)
+        #print(measurement_i)
+
+
         ax3.plot(tplot,residuals)
 
-        print("Mean residual:", np.mean(residuals))
+        print("Mean abs residual:", np.mean(np.abs(residuals)))
         ax4.hist(residuals,bins=50)
 
     except:
-        print("Exception")
         pass 
 
     ax1.legend()
@@ -86,11 +100,12 @@ def plot_all(t,states,measurements,predictions_x,predictions_y,psr_index,savefig
    
 
     plt.show()
+    
 
 
 
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig):
-
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None):
+    plt.style.use('science')
 
     # Opening JSON file
     f = open(path)
@@ -98,22 +113,11 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     # returns JSON object as 
     # a dictionary
     data = json.load(f)
-
-
     print("The evidence is:", data["log_evidence"])
-
-    #Make it a dataframe. Nice for surfacing
-    df = pd.DataFrame(data["samples"]["content"]) # posterior
-
+    f.close()
 
     #Make it a dataframe. Nice for surfacing
     df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
-    df_samples = pd.DataFrame(data["samples"]["content"]) # posterior
-
-
-
-    #Now make it a numpy array
-    y_samp = df_samples.to_numpy() 
 
 
     print("Number of samples:")
@@ -123,57 +127,53 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
     medians = df_posterior[variables_to_plot].median()
     variances = df_posterior[variables_to_plot].var()
+    y_post = df_posterior[variables_to_plot].to_numpy()
 
-    selected_variables = []
-    selected_injections = []
-    selected_labels = []
-    selected_ranges = []
     for i in range(len(medians)):
-        print(injection_parameters[i],variables_to_plot[i], medians[i], variances[i])
-
-        if variances[i] > 1e-50: #is this necessary anymore?
-            selected_variables.extend([variables_to_plot[i]])
-            selected_injections.extend([injection_parameters[i]])
-            selected_labels.extend([labels[i]])
-            #selected_ranges.extend([ranges[i]])
-        else:
-            print("Note! ", variables_to_plot[i], " has zero variance and will not be plotted")
-   
+        print(labels[i], injection_parameters[i], medians[i], variances[i])
 
 
-    
-    y_post = df_posterior[selected_variables].to_numpy()
 
 
-    plt.style.use('science')
+    if logscale:
+        y_post = np.log10(y_post)
+        injection_parameters = np.log10(injection_parameters)
+        ranges = np.log10(ranges)
 
-    try: 
+    import warnings
+    warnings.filterwarnings("error")
 
-        print("selected variabels are")
-        print (selected_variables)
+    try:
+
         fig = corner.corner(y_post, 
                             color='C0',
                             show_titles=True,
                             smooth=True,smooth1d=True,
                             truth_color='C2',
                             quantiles=[0.16, 0.84],
-                            truths = selected_injections,
+                            truths = injection_parameters,
                             range=ranges,
-                            labels = selected_labels,
+                            labels = labels,
                             label_kwargs=dict(fontsize=16),
                             axes_scales = axes_scales)
-            
+                
 
         if savefig != None:
             plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
-        
-        
+            
+        if title != None:
+            fig.suptitle(title, fontsize=20)  
         plt.show()
 
-    except:    # Get current system exception
-        ex_type, ex_value, ex_traceback = sys.exc_info()
-        print(ex_type, ex_value)
+    except:
+        print("Exception - likely because corner.corner cannot find nice contours since NS did not coverge well")
+        print("There is probably a large difference in the medians and the truth values")
+        print("Skipping plotting")
         plt.close()
+        pass
+
+    print("**********************************************************************")
+
 
 
 def iterate_over_priors(variable, variable_range,true_parameters,KF):

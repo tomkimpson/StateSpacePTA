@@ -1,6 +1,7 @@
 /Manifest.toml
 data/nested_sampling/*
 data/*.npz
+data/*.npy
 data/images/*
 py_src/__pycache__/bilby_wrapper.cpython-310.pyc
 py_src/__pycache__/*.pyc

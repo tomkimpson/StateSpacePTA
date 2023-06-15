@@ -1,0 +1,120 @@
+\documentclass{tufte-handout} % A4 paper and 11pt font size
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{mathpazo} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning,matrix,arrows}
+\usepackage{float}
+\usepackage{tikz-cd}
+\usepackage{caption}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\normalfont \bfseries} % Make all sections centered, the default font and small caps
+\usepackage{enumerate}
+\usepackage{pythonhighlight}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\allowdisplaybreaks
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+
+\usepackage{hyperref}
+\hypersetup{  
+	colorlinks=true,
+	urlcolor=cyan,
+}
+
+\urlstyle{same}
+
+% Turn on numbering for section and subsection headings
+\setcounter{secnumdepth}{2}
+
+
+\geometry{
+	left=13mm, % left margin
+	textwidth=130mm, % main text block
+	marginparsep=8mm, % gutter between main text block and margin notes
+	marginparwidth=55mm % width of margin notes
+}
+\fontsize{10}{20}\selectfont
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{	
+	\normalfont\normalsize 
+	{Melbourne University} \\ [0pt] % Your university, school and/or department name(s)
+	\huge Canonical method for single source detection with PTA% The assignment title
+}\author{T. Kimpson} % Your name
+\date{\vspace{-5pt}\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+\justifying 
+\maketitle
+
+
+\pagenumbering{gobble} %turn off page numbering
+\tableofcontents
+
+
+
+
+\section{Preamble}
+These notes summarise the "canonical" method by which the pulsar/PTA community detect single GW sources (i.e. a supermassive BH binary inspiral, rather than a stochastic background). \newline 
+
+\noindent We will consider \href{https://arxiv.org/abs/1003.0677}{Sesana \& Vecchio 2010} (SV2010 hereafter) and \href{https://arxiv.org/abs/1204.4218}{Ellis et. al. 2012} (Ellis2012 hereafter) as representative of these canonical methods. Other methods exist (e.g. \href{https://ui.adsabs.harvard.edu/abs/2016MNRAS.461.1317Z/abstract}{Zhu et al 2016}) but they are generally derivative of these two original works (e.g. Zhu 2016 uses the same base equations, but then works in the frequency domain and explores impact of PSR terms on SNR). 
+
+
+
+\section{Fundamental Equations}
+Both SV2010 and Ellis2012 treat the PSR timing residual as the fundamental observable. That is, they assume the true PSR evolution is "known" - described by a pulsar timing model. Deviations between this known solution and the what they actually observe at the detector is characterised by a residual. The GW imprints onto these residuals. \newline 
+
+
+\noindent The general approach is as follows:
+
+\begin{enumerate}
+	\item Take the data timeseries for a single pulsar as a residual corrupted by some noise
+	\begin{eqnarray}
+		d_{\alpha}(t) = r_{\alpha}(t) + n_{\alpha}(t)
+	\end{eqnarray}
+
+\item Use TEMPO and least-squares fitting to generate some post-fit residuals $\tilde{r}_{\alpha}(t)$ . i.e. update pulsar parameter estimations given this new data
+
+\item Define a signal model, $s$, for the timing residuals due to the influence of a GW. Define a Gaussian likelihood $\mathcal{L}(s|\tilde{r})$.
+
+\item Drop the pulsar terms and derive an $F$-statistic by analytically maximising over the extrinsic parameters $\left(\frac{\mathcal{M}^{5/3}}{D}, \iota, \Phi_0, \psi \right)$ Note that for a single pulsar the maximisation is ill-poised. At least two pulsars are required. 
+
+\item Perform a maximum likelihood search given the $F$-statistic to search for the intrinsic parameters. 
+
+
+
+ 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
