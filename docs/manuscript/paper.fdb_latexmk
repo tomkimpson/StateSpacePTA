@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1686788847 "paper.aux" "paper.bbl" "paper" 1686788852
+["bibtex paper"] 1686803903 "paper.aux" "paper.bbl" "paper" 1686803908
   "./mnras.bst" 1679443276 43376 8463aa2cc1948e346d5641ca59bb4619 ""
-  "example.bib" 1682042517 122603 e46b44b87491b2a34328bba13b00de96 ""
-  "paper.aux" 1686788852 13538 01bae8ca36879f46ef064f262ba07797 "pdflatex"
+  "example.bib" 1686803896 133317 99e52a177555f8fc5ec9f93b3da853b5 ""
+  "paper.aux" 1686803908 14862 db71523227e013b3f9c245e1a9b1ba9d "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1686788847 "/Users/t1/github_repos/StateSpacePTA/docs/manuscript/paper.tex" "paper.pdf" "paper" 1686788852
-  "/Users/t1/github_repos/StateSpacePTA/docs/manuscript/paper.tex" 1686788836 41636 b627b23a53ea255342c101775b1ba1e5 ""
+["pdflatex"] 1686803903 "/Users/t1/github_repos/StateSpacePTA/docs/manuscript/paper.tex" "paper.pdf" "paper" 1686803908
+  "/Users/t1/github_repos/StateSpacePTA/docs/manuscript/paper.tex" 1686803896 40746 9455762da75c379d866c804c77047cc4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1640468671 2914 8283dfc24eaf1964346f843d7605c2b0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -198,10 +198,10 @@
   "images/snr_canonical.png" 1682042517 165868 4b829bf63eb93acfd48f98c93358cf26 ""
   "images/snr_mollewide.png" 1682042517 408585 99624e799ebeee14a18a96d255c06fc0 ""
   "mnras.cls" 1679443276 62657 f252e2c707372bfc3609684578d8db01 ""
-  "paper.aux" 1686788852 13538 01bae8ca36879f46ef064f262ba07797 "pdflatex"
-  "paper.bbl" 1686788847 12833 6d87c93ce72370988668be0846b7734c "bibtex paper"
-  "paper.out" 1686788852 2432 c817b3b054e9cae7f0894c08d38fa9f2 "pdflatex"
-  "paper.tex" 1686788836 41636 b627b23a53ea255342c101775b1ba1e5 ""
+  "paper.aux" 1686803908 14862 db71523227e013b3f9c245e1a9b1ba9d "pdflatex"
+  "paper.bbl" 1686803903 15931 8ddb56f8a71dd2a50db7920664e2306b "bibtex paper"
+  "paper.out" 1686803908 2485 3e52d08230b1cca349e5c6423531a158 "pdflatex"
+  "paper.tex" 1686803896 40746 9455762da75c379d866c804c77047cc4 ""
   (generated)
   "paper.aux"
   "paper.log"

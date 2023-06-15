@@ -35,6 +35,11 @@
   {10.1088/0264-9381/32/2/024001}, \href
   {https://ui.adsabs.harvard.edu/abs/2015CQGra..32b4001A} {32, 024001}
 
+\bibitem[\protect\citeauthoryear{{Allen}}{{Allen}}{1997}]{Allen1997}
+{Allen} B.,  1997, in {Marck} J.-A.,  {Lasota} J.-P.,  eds, Relativistic
+  Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
+  {gr-qc/9604033}), \mn@doi{10.48550/arXiv.gr-qc/9604033}
+
 \bibitem[\protect\citeauthoryear{{Amaro-Seoane} et~al.,}{{Amaro-Seoane}
   et~al.}{2017}]{LISApaper}
 {Amaro-Seoane} P.,  et~al., 2017, arXiv e-prints, \href
@@ -97,6 +102,11 @@ Babak S.,  Sesana A.,  2012, \mn@doi [Phys. Rev. D]
   et~al.}{2016}]{Caballero2016}
 {Caballero} R.~N.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stw179},
   \href {https://ui.adsabs.harvard.edu/abs/2016MNRAS.457.4421C} {457, 4421}
+
+\bibitem[\protect\citeauthoryear{{Christensen}}{{Christensen}}{2019}]{Christensen2019}
+{Christensen} N.,  2019, \mn@doi [Reports on Progress in Physics]
+  {10.1088/1361-6633/aae6b5}, \href
+  {https://ui.adsabs.harvard.edu/abs/2019RPPh...82a6903C} {82, 016903}
 
 \bibitem[\protect\citeauthoryear{{Cordes} \& {Shannon}}{{Cordes} \&
   {Shannon}}{2010}]{Cordes2010}
@@ -238,6 +248,12 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   [\mnras] {10.1093/mnras/stu2659}, \href
   {https://ui.adsabs.harvard.edu/abs/2015MNRAS.447.2772R} {447, 2772}
 
+\bibitem[\protect\citeauthoryear{{Renzini}, {Goncharov}, {Jenkins}  \&
+  {Meyers}}{{Renzini} et~al.}{2022}]{Renzini2022}
+{Renzini} A.~I.,  {Goncharov} B.,  {Jenkins} A.~C.,   {Meyers} P.~M.,  2022,
+  \mn@doi [Galaxies] {10.3390/galaxies10010034}, \href
+  {https://ui.adsabs.harvard.edu/abs/2022Galax..10...34R} {10, 34}
+
 \bibitem[\protect\citeauthoryear{Sanidas, Battye  \& Stappers}{Sanidas
   et~al.}{2012}]{PTAstring}
 Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
@@ -296,10 +312,6 @@ p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
 Wan E.,  Van Der~Merwe R.,  2000, in Proceedings of the IEEE 2000 Adaptive
   Systems for Signal Processing, Communications, and Control Symposium (Cat.
   No.00EX373). pp 153--158, \mn@doi{10.1109/ASSPCC.2000.882463}
-
-\bibitem[\protect\citeauthoryear{{Wang}}{{Wang}}{2015}]{Wang2015}
-{Wang} Y.,  2015, in Journal of Physics Conference Series. p. 012019
-  (\mn@eprint {arXiv} {1505.00402}), \mn@doi{10.1088/1742-6596/610/1/012019}
 
 \bibitem[\protect\citeauthoryear{{Wyithe} \& {Loeb}}{{Wyithe} \&
   {Loeb}}{2003}]{Wyithe2003}

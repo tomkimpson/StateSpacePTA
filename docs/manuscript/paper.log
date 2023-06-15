@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  15 JUN 2023 14:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  16 JUN 2023 08:42
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -846,7 +846,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--117
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  []
 
@@ -854,133 +854,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 119--120
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 120.
+(Font)              scaled to size 8.0pt on input line 119.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 120.
+(Font)              scaled to size 6.2pt on input line 119.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 120.
+e 119.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 120.
+(Font)              scaled to size 8.0pt on input line 119.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 158.
+(Font)              scaled to size 9.0pt on input line 157.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 196.
+(Font)              scaled to size 12.0pt on input line 195.
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 238--240
+Underfull \hbox (badness 10000) in paragraph at lines 237--239
 
  []
 
 
-Overfull \hbox (25.26654pt too wide) detected at line 272
+Overfull \hbox (25.26654pt too wide) detected at line 271
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
 
  []
 
 [3]
-Overfull \hbox (18.861pt too wide) detected at line 334
+Overfull \hbox (18.861pt too wide) detected at line 333
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
 
-<images/KF1.png, id=304, 736.6722pt x 500.3493pt>
+<images/KF1.png, id=311, 736.6722pt x 500.3493pt>
 File: images/KF1.png Graphic file (type png)
 <use images/KF1.png>
-Package pdftex.def Info: images/KF1.png  used on input line 351.
+Package pdftex.def Info: images/KF1.png  used on input line 350.
 (pdftex.def)             Requested size: 244.0pt x 165.72655pt.
-<images/KF2.png, id=306, 725.8317pt x 490.2315pt>
+<images/KF2.png, id=313, 725.8317pt x 490.2315pt>
 File: images/KF2.png Graphic file (type png)
 <use images/KF2.png>
-Package pdftex.def Info: images/KF2.png  used on input line 357.
+Package pdftex.def Info: images/KF2.png  used on input line 356.
 (pdftex.def)             Requested size: 244.0pt x 164.79893pt.
 
-LaTeX Warning: Reference `eq:state2' on page 4 undefined on input line 373.
+LaTeX Warning: Reference `eq:state2' on page 4 undefined on input line 372.
 
 
-LaTeX Warning: Reference `eq:state2' on page 4 undefined on input line 385.
+LaTeX Warning: Reference `eq:state2' on page 4 undefined on input line 384.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--386
+Underfull \hbox (badness 10000) in paragraph at lines 383--385
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--397
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 411--413
+Underfull \hbox (badness 10000) in paragraph at lines 410--412
 
  []
 
-<images/pulsars.png, id=376, 481.0773pt x 299.9205pt>
+<images/pulsars.png, id=383, 481.0773pt x 299.9205pt>
 File: images/pulsars.png Graphic file (type png)
 <use images/pulsars.png>
-Package pdftex.def Info: images/pulsars.png  used on input line 442.
+Package pdftex.def Info: images/pulsars.png  used on input line 441.
 (pdftex.def)             Requested size: 195.20074pt x 121.69595pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--447
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 
  []
 
 [5 <./images/KF1.png> <./images/KF2.png> <./images/pulsars.png>]
-<images/canonical_example.png, id=402, 1131.0255pt x 1136.0844pt>
+<images/canonical_example.png, id=409, 1131.0255pt x 1136.0844pt>
 File: images/canonical_example.png Graphic file (type png)
 <use images/canonical_example.png>
-Package pdftex.def Info: images/canonical_example.png  used on input line 486.
+Package pdftex.def Info: images/canonical_example.png  used on input line 485.
 (pdftex.def)             Requested size: 406.40155pt x 408.22733pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-511.
+510.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 511.
+(Font)              scaled to size 8.0pt on input line 510.
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
+Underfull \hbox (badness 10000) in paragraph at lines 513--515
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 519.
+(Font)              scaled to size 7.3pt on input line 518.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 519.
-<images/snr_canonical.png, id=405, 729.4452pt x 488.3043pt>
+(Font)              scaled to size 5.5pt on input line 518.
+<images/snr_canonical.png, id=412, 729.4452pt x 488.3043pt>
 File: images/snr_canonical.png Graphic file (type png)
 <use images/snr_canonical.png>
-Package pdftex.def Info: images/snr_canonical.png  used on input line 534.
+Package pdftex.def Info: images/snr_canonical.png  used on input line 533.
 (pdftex.def)             Requested size: 244.0pt x 163.33893pt.
-<images/snr_mollewide.png, id=406, 472.164pt x 298.2342pt>
+<images/snr_mollewide.png, id=413, 472.164pt x 298.2342pt>
 File: images/snr_mollewide.png Graphic file (type png)
 <use images/snr_mollewide.png>
-Package pdftex.def Info: images/snr_mollewide.png  used on input line 544.
+Package pdftex.def Info: images/snr_mollewide.png  used on input line 543.
 (pdftex.def)             Requested size: 406.40155pt x 256.6994pt.
 (./paper.bbl [6]
-Underfull \vbox (badness 1383) has occurred while \output is active []
+Underfull \vbox (badness 1642) has occurred while \output is active []
 
  [7 <./images/canonical_example.png>]
-Underfull \hbox (badness 6493) in paragraph at lines 296--299
+Underfull \hbox (badness 6493) in paragraph at lines 312--315
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
@@ -1001,13 +1001,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 3E52D08230B1CCA349E5C6423531A158;2485.
  ) 
 Here is how much of TeX's memory you used:
- 16559 strings out of 478268
- 253281 string characters out of 5846348
- 548630 words of memory out of 5000000
- 34281 multiletter control sequences out of 15000+600000
+ 16567 strings out of 478268
+ 253447 string characters out of 5846348
+ 548758 words of memory out of 5000000
+ 34287 multiletter control sequences out of 15000+600000
  575205 words of font info for 204 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,1961b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,1945b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -1029,10 +1029,10 @@ newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/t
 xsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/loc
 al/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (9 pages, 2266034 bytes).
+Output written on paper.pdf (9 pages, 2267352 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 591 compressed objects within 6 object streams
- 156 named destinations out of 1000 (max. 500000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 602 compressed objects within 7 object streams
+ 158 named destinations out of 1000 (max. 500000)
  159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
