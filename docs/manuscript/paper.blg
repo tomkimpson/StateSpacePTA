@@ -9,49 +9,66 @@ Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
 Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
-Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+I was expecting a `,' or a `}'---line 1120 of file example.bib
+ :  
+ :  author = {{D'Alessandro}, F. and {McCulloch}, P.~M. and {Hamilton}, P.~A. and {Deshpande}, A.~A.},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+`author' is a missing field, not a string, for entry Alessandro1995
+while executing---line 1706 of file mnras.bst
+`author' is a missing field, not a string, for entry Alessandro1995
+while executing---line 1706 of file mnras.bst
+Warning--empty author in Alessandro1995
+Warning--empty year in Alessandro1995
+"ArXiv e-prints" is a string literal, `journal' is a missing field
+---they aren't the same literal types for entry Alessandro1995
+while executing---line 1822 of file mnras.bst
+Warning--empty journal in Alessandro1995
+"ArXiv e-prints" is a string literal, `journal' is a missing field
+---they aren't the same literal types for entry Alessandro1995
+while executing---line 1822 of file mnras.bst
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 61 entries,
+You've used 71 entries,
             2881 wiz_defined-function locations,
-            1267 strings with 102881 characters,
-and the built_in function-call counts, 29914 in all, are:
-= -- 2826
-> -- 1715
-< -- 129
-+ -- 783
-- -- 194
-* -- 3569
-:= -- 4313
+            1348 strings with 38040 characters,
+and the built_in function-call counts, 34190 in all, are:
+= -- 3036
+> -- 2187
+< -- 160
++ -- 973
+- -- 287
+* -- 4164
+:= -- 5135
 add.period$ -- 0
-call.type$ -- 61
-change.case$ -- 122
-chr.to.int$ -- 61
-cite$ -- 62
-duplicate$ -- 1546
-empty$ -- 1526
-format.name$ -- 410
-if$ -- 5475
+call.type$ -- 71
+change.case$ -- 142
+chr.to.int$ -- 71
+cite$ -- 77
+duplicate$ -- 1708
+empty$ -- 1712
+format.name$ -- 523
+if$ -- 6092
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 64
-newline$ -- 200
-num.names$ -- 380
-pop$ -- 300
+missing$ -- 74
+newline$ -- 230
+num.names$ -- 463
+pop$ -- 340
 preamble$ -- 1
-purify$ -- 244
+purify$ -- 284
 quote$ -- 0
-skip$ -- 1066
+skip$ -- 1114
 stack$ -- 0
-substring$ -- 2184
-swap$ -- 821
-text.length$ -- 252
+substring$ -- 2266
+swap$ -- 908
+text.length$ -- 290
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 540
-warning$ -- 1
-while$ -- 437
+type$ -- 630
+warning$ -- 4
+while$ -- 520
 width$ -- 0
-write$ -- 631
-(There was 1 warning)
+write$ -- 727
+(There were 5 error messages)
