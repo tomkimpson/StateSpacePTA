@@ -1,0 +1,145 @@
+% !TeX TS-program = xelatex
+
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage{pgfplots}
+\usepackage{xspace}
+\usepackage[normalem]{ulem}
+
+
+
+\definecolor{links}{HTML}{2A1B81}
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+%\setsansfont[BoldFont={Fira Sans}]{Fira Sans Light}
+%\setmonofont{Fira Mono}
+%\usepackage[sfdefault]{Fira Sans}
+
+\title{}
+\subtitle{}
+
+\author{}
+
+\date{EE/GW meeting, June 29, 2023}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{frame}{}
+		
+		\begin{enumerate}
+			\item IPTA conference
+			\item Manuscript updates
+			\item Identifiability analysis and frequency-space formulation from EE
+		\end{enumerate}
+	
+\end{frame}
+
+
+
+	\begin{frame}{IPTA conference}
+	
+	
+	
+	\begin{itemize}
+		\item IPTA conference last week
+		\item \sout{ Many results currently under embargo}
+		\item \href{https://iopscience.iop.org/article/10.3847/2041-8213/acdac6}{The NANOGrav 15 yr Data Set: Evidence for a Gravitational-wave Background} 
+		\item More papers to come c.f. single source. TK to sync with EE to discuss results and methods
+	\end{itemize}
+	
+\end{frame}
+
+	
+	
+	
+	
+	
+	
+	
+		\begin{frame}{Manuscript updates}
+		
+		
+		
+		\begin{itemize}
+			\item Plan for papers is as follows:
+			\begin{enumerate}
+				\item Single source. Earth terms + nested sampling (Bilby) 
+				\item Single source. Pulsar terms, Earth terms + other likelihood inference methods (e.g. Bilby vs other nested sampling libs, MCMC, EM)
+				\item Multiple sources (i.e. stochastic background, Hellings Downs)
+			\end{enumerate}
+			\item P1 manuscript currently being written up. Can be found at \href{https://github.com/tomkimpson/StateSpacePTA.jl/blob/main/docs/manuscript/paper.pdf}{github/StateSpacePTA.jl} 
+			\item Majority of work for P1 is done - just a question of writing up
+			\item Exception: comparison with existing approaches (e.g. \href{https://ui.adsabs.harvard.edu/abs/2014ApJ...794..141A/abstract}{NANOGrav 6 year}, \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...880..116A/abstract}{NANOGrav 11 year}, \href{https://ui.adsabs.harvard.edu/abs/2023arXiv230103608A/abstract}{NANOGrav 12.5}, NANOGrav15). \alert{To discuss (next slide)}
+			\item Completing P1 manuscript will be main focus over next few weeks, then back to a "research focus" re P2/P3
+		\end{itemize}
+		
+	\end{frame}
+
+
+
+	
+			\begin{frame}{How to compare against existing methods?}
+		
+		
+		Todo: comparison with existing approaches (e.g. \href{https://ui.adsabs.harvard.edu/abs/2014ApJ...794..141A/abstract}{NANOGrav 6 year}, \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...880..116A/abstract}{NANOGrav 11 year}, \href{https://ui.adsabs.harvard.edu/abs/2023arXiv230103608A/abstract}{NANOGrav 12.5}, NANOGrav15). 
+		
+		Existing methods:
+		\begin{enumerate}
+			\item Take some timing residuals ``observations" $\delta t$, (i.e. TOAs  - expected TOAs from timing model $M \epsilon$)
+			\item Define a GW model for timing residuals $s(\theta_{\rm gw})$. 
+			\item Define a noise model $n(\theta_{\rm n})$
+			\item Define a likelihood $\mathcal{L}(\delta t | \epsilon,\theta_{\rm gw},\theta_{\rm n} )$
+			\item Two approaches
+			\begin{enumerate}
+				\item Frequentist. Define an F-statistic from $\mathcal{L}$ (now disfavoured?)
+				\item Bayesian. MCMC over parameters
+			\end{enumerate}
+			
+		\end{enumerate}
+		
+ How to compare? Do we need to compare for P1? 
+
+
+	\end{frame}
+	
+	
+	
+			\begin{frame}{Identifiability and frequency-space}
+		
+		
+		\begin{itemize}
+			\item Rob + Bill presented frequency-space formulation of problem 
+			\item Interesting/useful for identifiability analysis + potentially as an alternative inference/detection method
+		\end{itemize}
+	
+
+		
+	\end{frame}
+	
+	
+	\appendix
+	
+%	
+%	
+%	\begin{frame}
+%		
+%		
+%		
+%		\begin{itemize}
+%			\item CURN vs HD \url{https://arxiv.org/abs/2110.13184}
+%			\item Model misspecification? \url{https://iopscience.iop.org/article/10.3847/2041-8213/ac17f4}
+%		\end{itemize}
+%	\end{frame}
+%	
+	
+	
+	
+	
+\end{document}
