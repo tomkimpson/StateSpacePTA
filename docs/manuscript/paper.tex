@@ -388,7 +388,7 @@ where the subscript index identifies a particular model. Throughout this work we
 We go on to discuss our choice of pulsars to make up our PTA in Section \ref{sec:pta_pulsars}, before deploying these techniques in Sections \ref{sec:param_estimation} , \ref{sec:detection} for parameter estimation and model selection.
 
 
-
+mp
 
 \subsection{Synthetic data generation}
 
@@ -401,7 +401,9 @@ We go on to discuss our choice of pulsars to make up our PTA in Section \ref{sec
 	\label{fig:pulsar_distrib}
 \end{figure}
 
-For this work we generate representative synthetic data as follows. We first specify a set of pulsars to make up our artificial PTA. We take the 47 pulsars that make up the 12.5 year NANOGrav PTA \citep{2020ApJ...905L..34A}. For each pulsar we get the sky location (which defines the vector $\boldsymbol{q}^{n}$), the distance, the barycentric rotation frequency - which we identify with $f_{\rm em}^{(n)} (t_1)$ -  and the time derivative of the the barycentric rotation frequency - which we identify with $\dot{f}_{\rm em}^{(n)} (t_1)$. The spatial distribution and the distances of the pulsars used for this artificial PTA are shown in Fig \ref{fig:pulsar_distrib}. The data is obtained via the Australia Telescope National Facility pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. The remaining unspecified pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$. We disused in Section \ref{sec:psr_frequency} how the quantity $[\sigma^{(n)}]^2 /\gamma^{(n)} $ sets the amplitude of the characteristic root mean square fluctuations in $f_p^{(n)}(t)$. Typically the mean reversion timescale $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ \cite{Vargas}, whilst $[\sigma^{(n)}]^2$ varies between individual pulsars. For this work we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. In order to set a physically reasonable value for $[\sigma^{(n)}]^2$ we use two complementary approaches. The first approach uses the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} where the standard deviation in the pulsar TOA is given by
+For this work we generate representative synthetic data as follows. We first specify a set of pulsars to make up our artificial PTA. We take the 47 pulsars that make up the 12.5 year NANOGrav PTA \citep{2020ApJ...905L..34A}. 
+
+For each pulsar we get the sky location (which defines the vector $\boldsymbol{q}^{n}$), the distance, the barycentric rotation frequency - which we identify with $f_{\rm em}^{(n)} (t_1)$ -  and the time derivative of the the barycentric rotation frequency - which we identify with $\dot{f}_{\rm em}^{(n)} (t_1)$. The spatial distribution and the distances of the pulsars used for this artificial PTA are shown in Fig \ref{fig:pulsar_distrib}. The data is obtained via the Australia Telescope National Facility pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. The remaining unspecified pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$. We disused in Section \ref{sec:psr_frequency} how the quantity $[\sigma^{(n)}]^2 /\gamma^{(n)} $ sets the amplitude of the characteristic root mean square fluctuations in $f_p^{(n)}(t)$. Typically the mean reversion timescale $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ \cite{Vargas}, whilst $[\sigma^{(n)}]^2$ varies between individual pulsars. For this work we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. In order to set a physically reasonable value for $[\sigma^{(n)}]^2$ we use two complementary approaches. The first approach uses the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} where the standard deviation in the pulsar TOA is given by
 \begin{eqnarray}
 	\ln \left(\frac{\sigma_{\rm TOA}^{(n)}}{\mu s} \right)= \ln \alpha_1 +  \alpha_2 \ln f_{\rm p}^{(n)} + \alpha_3 \ln \left(\frac{\dot{f}_{\rm p}^{(n)}}{10^{-15} \text{s}^{-2}} \right)+ \alpha_4 \ln \left( \frac{T}{ 1 \text{ year}} \right) \label{eq:sigmap}
 \end{eqnarray}
@@ -415,7 +417,7 @@ For our synthetic NANOGrav PTA, the median $\sigma^{(n)} = 4.28 \times 10^{-21} 
 \end{eqnarray}
 We can then vary $\sigma^{(n)}$ and compare the synthetically generate phase residuals with the phase solution from the UTMOST pulsar timing program with the Mongolo Observatory Synthesis Telescope  \citep{UTMOST}. It is sufficient to simply compare the synthetic and real solutions visually, rather than e.g. defining some quantitative loss function (e.g. mean-squared error) between the two solutions and solving the optimisation problem of the value of $\sigma_{\rm TOA}^{(n)}$ which minimised this loss function; we emphasise that we are not overly concerned with getting the maximally accurate values for the noise in the pulsar frequency evolution, but just instead some reasonable, representative values. This approach of generating synthetic phase solutions and visually comparing with real solutions is also followed in \cite{Vargas}. In Figure \ref{fig:qualitative_compare} we demonstrate for a particular representative pulsar, PSR XXX, blah blah blah...
 \begin{figure}
-	\includegraphics[width=\columnwidth]{example-image-a}
+	\includegraphics[width=\columnwidth]{images/example_residuals_plot}
 	\caption{Actual and synthetic phase evolution}
 	\label{fig:qualitative_compare}
 \end{figure}

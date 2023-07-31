@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  31 JUL 2023 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.28)  31 JUL 2023 21:02
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
@@ -981,94 +981,99 @@ Package pdftex.def Info: images/pulsar_distribution.png  used on input line 399
 .
 (pdftex.def)             Requested size: 244.0pt x 159.21971pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 406.
+(Font)              scaled to size 7.3pt on input line 408.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 406.
+(Font)              scaled to size 5.5pt on input line 408.
 
-Overfull \hbox (25.45769pt too wide) in alignment at lines 405--407
+Overfull \hbox (25.45769pt too wide) in alignment at lines 407--409
  [][][] []
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 412.
-<example-image-a.pdf, id=585, 321.2pt x 240.9pt>
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 418.
-(pdftex.def)             Requested size: 244.0pt x 183.00502pt.
-[6 <./images/pulsar_distribution.png>]
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 466--466
+(Font)              scaled to size 8.0pt on input line 414.
+
+Underfull \vbox (badness 2080) has occurred while \output is active []
+
+ [6 <./images/pulsar_distribution.png>]
+<images/example_residuals_plot.png, id=617, 753.7761pt x 490.2315pt>
+File: images/example_residuals_plot.png Graphic file (type png)
+<use images/example_residuals_plot.png>
+Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
+420.
+(pdftex.def)             Requested size: 244.0pt x 158.68752pt.
+
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 468--468
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 466--466
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 468--468
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
-[7 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
+[7 <./images/example_residuals_plot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
 
  []
 
-<images/1237_broad_GW.png, id=697, 1129.3392pt x 1136.0844pt>
+<images/1237_broad_GW.png, id=692, 1129.3392pt x 1136.0844pt>
 File: images/1237_broad_GW.png Graphic file (type png)
 <use images/1237_broad_GW.png>
-Package pdftex.def Info: images/1237_broad_GW.png  used on input line 482.
+Package pdftex.def Info: images/1237_broad_GW.png  used on input line 484.
 (pdftex.def)             Requested size: 406.40155pt x 408.83406pt.
-<images/1237_broad_f.png, id=698, 816.4101pt x 832.5504pt>
+<images/1237_broad_f.png, id=693, 816.4101pt x 832.5504pt>
 File: images/1237_broad_f.png Graphic file (type png)
 <use images/1237_broad_f.png>
-Package pdftex.def Info: images/1237_broad_f.png  used on input line 492.
+Package pdftex.def Info: images/1237_broad_f.png  used on input line 494.
 (pdftex.def)             Requested size: 244.0pt x 248.81427pt.
-<images/1237_broad_fdot.png, id=699, 825.3234pt x 837.1275pt>
+<images/1237_broad_fdot.png, id=694, 825.3234pt x 837.1275pt>
 File: images/1237_broad_fdot.png Graphic file (type png)
 <use images/1237_broad_fdot.png>
-Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 498.
+Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 500.
 (pdftex.def)             Requested size: 244.0pt x 247.48695pt.
-<images/1237_broad_sigma_p.png, id=700, 821.2281pt x 837.3684pt>
+<images/1237_broad_sigma_p.png, id=695, 821.2281pt x 837.3684pt>
 File: images/1237_broad_sigma_p.png Graphic file (type png)
 <use images/1237_broad_sigma_p.png>
-Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 506.
+Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 508.
 
 (pdftex.def)             Requested size: 244.0pt x 248.79756pt.
-<images/canonical_example.png, id=702, 1131.0255pt x 1136.0844pt>
+<images/canonical_example.png, id=697, 1131.0255pt x 1136.0844pt>
 File: images/canonical_example.png Graphic file (type png)
 <use images/canonical_example.png>
-Package pdftex.def Info: images/canonical_example.png  used on input line 613.
+Package pdftex.def Info: images/canonical_example.png  used on input line 615.
 (pdftex.def)             Requested size: 406.40155pt x 408.22733pt.
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 643--644
+Underfull \hbox (badness 10000) in paragraph at lines 645--646
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--651
+Underfull \hbox (badness 10000) in paragraph at lines 651--653
 
  []
 
 [9 <./images/1237_broad_GW.png>]
-<images/snr_canonical.png, id=736, 729.4452pt x 488.3043pt>
+<images/snr_canonical.png, id=731, 729.4452pt x 488.3043pt>
 File: images/snr_canonical.png Graphic file (type png)
 <use images/snr_canonical.png>
-Package pdftex.def Info: images/snr_canonical.png  used on input line 669.
+Package pdftex.def Info: images/snr_canonical.png  used on input line 671.
 (pdftex.def)             Requested size: 244.0pt x 163.33893pt.
-<images/snr_mollewide.png, id=737, 472.164pt x 298.2342pt>
+<images/snr_mollewide.png, id=732, 472.164pt x 298.2342pt>
 File: images/snr_mollewide.png Graphic file (type png)
 <use images/snr_mollewide.png>
-Package pdftex.def Info: images/snr_mollewide.png  used on input line 679.
+Package pdftex.def Info: images/snr_mollewide.png  used on input line 681.
 (pdftex.def)             Requested size: 406.40155pt x 256.6994pt.
 
 
-LaTeX Warning: Reference `eq:state2' on page 10 undefined on input line 758.
+LaTeX Warning: Reference `eq:state2' on page 10 undefined on input line 760.
 
 [10 <./images/1237_broad_f.png> <./images/1237_broad_fdot.png> <./images/1237_b
 road_sigma_p.png>]
 
-LaTeX Warning: Reference `eq:state2' on page 11 undefined on input line 770.
+LaTeX Warning: Reference `eq:state2' on page 11 undefined on input line 772.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 769--771
+Underfull \hbox (badness 10000) in paragraph at lines 771--773
 
  []
 
@@ -1078,18 +1083,18 @@ Underfull \vbox (badness 1173) has occurred while \output is active []
 
 
 LaTeX Warning: Reference `sec:statespace' on page 11 undefined on input line 78
-7.
+9.
 
 
 LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 11 undefined
- on input line 796.
+ on input line 798.
 
 [11 <./images/canonical_example.png>]
 
-LaTeX Warning: Reference `eq:main_eq' on page 12 undefined on input line 828.
+LaTeX Warning: Reference `eq:main_eq' on page 12 undefined on input line 830.
 
 
-Overfull \hbox (18.861pt too wide) detected at line 835
+Overfull \hbox (18.861pt too wide) detected at line 837
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
@@ -1135,10 +1140,10 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 1DEE08B03F235E724AB6B4D2E886B4BA;2932.
  ) 
 Here is how much of TeX's memory you used:
- 17036 strings out of 478268
- 263723 string characters out of 5846348
- 564624 words of memory out of 5000000
- 34668 multiletter control sequences out of 15000+600000
+ 17037 strings out of 478268
+ 263861 string characters out of 5846347
+ 564631 words of memory out of 5000000
+ 34669 multiletter control sequences out of 15000+600000
  579382 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,4140b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1161,21 +1166,20 @@ nts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2022/texmf-dist/font
 s/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2022/texmf-dist/
 fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/texmf-d
 ist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2022/texmf-
-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist/f
-onts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
-ype1/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
-lic/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txf
-onts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txs
-ys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local
-/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (14 pages, 4637015 bytes).
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts
+/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
+public/txfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
+/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
+tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on paper.pdf (14 pages, 4770139 bytes).
 PDF statistics:
- 1161 PDF objects out of 1200 (max. 8388607)
- 1070 compressed objects within 11 object streams
+ 1155 PDF objects out of 1200 (max. 8388607)
+ 1064 compressed objects within 11 object streams
  229 named destinations out of 1000 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 
