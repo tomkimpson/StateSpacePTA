@@ -57,7 +57,7 @@ if __name__=="__main__":
     model_likelihood, state_predictions,measurement_predictions = KF.likelihood(optimal_parameters)
     logging.info(f"Ideal likelihood given optimal parameters = {model_likelihood}")
     
-   
+    sys.exit()
     #Bilby
     init_parameters, priors = bilby_priors_dict(PTA,P)
    

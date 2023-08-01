@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.28)  31 JUL 2023 21:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  1 AUG 2023 11:28
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
@@ -875,17 +875,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--114
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--122
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
@@ -893,71 +893,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 125.
+(Font)              scaled to size 8.0pt on input line 123.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 125.
+(Font)              scaled to size 6.2pt on input line 123.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 125.
+e 123.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 125.
+(Font)              scaled to size 8.0pt on input line 123.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--168
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 171.
+(Font)              scaled to size 12.0pt on input line 169.
 [2]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 176.
+(Font)              scaled to size 9.0pt on input line 174.
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--218
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 224.
+(Font)              scaled to size 9.0pt on input line 222.
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 271--273
+Underfull \hbox (badness 10000) in paragraph at lines 269--271
 
  []
 
-<images/Kalman_example_true_params.png, id=464, 914.9382pt x 490.2315pt>
+<images/Kalman_example_true_params.png, id=467, 914.9382pt x 490.2315pt>
 File: images/Kalman_example_true_params.png Graphic file (type png)
 <use images/Kalman_example_true_params.png>
 Package pdftex.def Info: images/Kalman_example_true_params.png  used on input l
-ine 284.
+ine 282.
 (pdftex.def)             Requested size: 508.0pt x 272.19391pt.
-<images/Kalman_example_wrong_params.png, id=466, 899.7615pt x 490.2315pt>
+<images/Kalman_example_wrong_params.png, id=469, 899.7615pt x 490.2315pt>
 File: images/Kalman_example_wrong_params.png Graphic file (type png)
 <use images/Kalman_example_wrong_params.png>
 Package pdftex.def Info: images/Kalman_example_wrong_params.png  used on input 
-line 290.
+line 288.
 (pdftex.def)             Requested size: 508.0pt x 276.77934pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--299
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
@@ -967,168 +967,159 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [5 <./images/Kalman_example_true_params.png> <./images/Kalman_example_wrong_pa
 rams.png>]
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-343.
+341.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 343.
-<images/pulsar_distribution.png, id=564, 511.6716pt x 333.8874pt>
+(Font)              scaled to size 9.0pt on input line 341.
+<images/pulsar_distribution.png, id=566, 511.6716pt x 333.8874pt>
 File: images/pulsar_distribution.png Graphic file (type png)
 <use images/pulsar_distribution.png>
-Package pdftex.def Info: images/pulsar_distribution.png  used on input line 399
+Package pdftex.def Info: images/pulsar_distribution.png  used on input line 395
 .
 (pdftex.def)             Requested size: 244.0pt x 159.21971pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 408.
+(Font)              scaled to size 7.3pt on input line 404.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 408.
+(Font)              scaled to size 5.5pt on input line 404.
 
-Overfull \hbox (25.45769pt too wide) in alignment at lines 407--409
+Overfull \hbox (25.45769pt too wide) in alignment at lines 403--405
  [][][] []
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 414.
-
-Underfull \vbox (badness 2080) has occurred while \output is active []
-
- [6 <./images/pulsar_distribution.png>]
-<images/example_residuals_plot.png, id=617, 753.7761pt x 490.2315pt>
+(Font)              scaled to size 8.0pt on input line 410.
+[6 <./images/pulsar_distribution.png>]
+<images/example_residuals_plot.png, id=620, 753.7761pt x 490.2315pt>
 File: images/example_residuals_plot.png Graphic file (type png)
 <use images/example_residuals_plot.png>
 Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
-420.
+417.
 (pdftex.def)             Requested size: 244.0pt x 158.68752pt.
 
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 468--468
+Overfull \hbox (2.0pt too wide) in paragraph at lines 417--418
+ [][] 
+ []
+
+File: images/example_residuals_plot.png Graphic file (type png)
+<use images/example_residuals_plot.png>
+Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
+419.
+(pdftex.def)             Requested size: 244.0pt x 158.68752pt.
+
+Overfull \hbox (2.0pt too wide) in paragraph at lines 419--420
+ [][] 
+ []
+
+File: images/example_residuals_plot.png Graphic file (type png)
+<use images/example_residuals_plot.png>
+Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
+421.
+(pdftex.def)             Requested size: 244.0pt x 158.68752pt.
+
+Overfull \hbox (2.0pt too wide) in paragraph at lines 421--422
+ [][] 
+ []
+
+
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 482--482
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 468--468
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 482--482
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
-[7 <./images/example_residuals_plot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
-<images/1237_broad_GW.png, id=692, 1129.3392pt x 1136.0844pt>
+<images/1237_broad_GW.png, id=707, 1129.3392pt x 1136.0844pt>
 File: images/1237_broad_GW.png Graphic file (type png)
 <use images/1237_broad_GW.png>
-Package pdftex.def Info: images/1237_broad_GW.png  used on input line 484.
+Package pdftex.def Info: images/1237_broad_GW.png  used on input line 512.
 (pdftex.def)             Requested size: 406.40155pt x 408.83406pt.
-<images/1237_broad_f.png, id=693, 816.4101pt x 832.5504pt>
+<images/1237_broad_f.png, id=708, 816.4101pt x 832.5504pt>
 File: images/1237_broad_f.png Graphic file (type png)
 <use images/1237_broad_f.png>
-Package pdftex.def Info: images/1237_broad_f.png  used on input line 494.
+Package pdftex.def Info: images/1237_broad_f.png  used on input line 522.
 (pdftex.def)             Requested size: 244.0pt x 248.81427pt.
-<images/1237_broad_fdot.png, id=694, 825.3234pt x 837.1275pt>
+<images/1237_broad_fdot.png, id=709, 825.3234pt x 837.1275pt>
 File: images/1237_broad_fdot.png Graphic file (type png)
 <use images/1237_broad_fdot.png>
-Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 500.
+Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 528.
 (pdftex.def)             Requested size: 244.0pt x 247.48695pt.
-<images/1237_broad_sigma_p.png, id=695, 821.2281pt x 837.3684pt>
+<images/1237_broad_sigma_p.png, id=710, 821.2281pt x 837.3684pt>
 File: images/1237_broad_sigma_p.png Graphic file (type png)
 <use images/1237_broad_sigma_p.png>
-Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 508.
+Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 536.
 
 (pdftex.def)             Requested size: 244.0pt x 248.79756pt.
-<images/canonical_example.png, id=697, 1131.0255pt x 1136.0844pt>
-File: images/canonical_example.png Graphic file (type png)
-<use images/canonical_example.png>
-Package pdftex.def Info: images/canonical_example.png  used on input line 615.
-(pdftex.def)             Requested size: 406.40155pt x 408.22733pt.
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
+
+LaTeX Warning: Reference `eq:state2' on page 9 undefined on input line 626.
+
+
+LaTeX Warning: Reference `eq:state2' on page 9 undefined on input line 638.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--639
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--653
-
- []
-
-[9 <./images/1237_broad_GW.png>]
-<images/snr_canonical.png, id=731, 729.4452pt x 488.3043pt>
-File: images/snr_canonical.png Graphic file (type png)
-<use images/snr_canonical.png>
-Package pdftex.def Info: images/snr_canonical.png  used on input line 671.
-(pdftex.def)             Requested size: 244.0pt x 163.33893pt.
-<images/snr_mollewide.png, id=732, 472.164pt x 298.2342pt>
-File: images/snr_mollewide.png Graphic file (type png)
-<use images/snr_mollewide.png>
-Package pdftex.def Info: images/snr_mollewide.png  used on input line 681.
-(pdftex.def)             Requested size: 406.40155pt x 256.6994pt.
+LaTeX Warning: Reference `sec:statespace' on page 9 undefined on input line 655
+.
 
 
-LaTeX Warning: Reference `eq:state2' on page 10 undefined on input line 760.
-
-[10 <./images/1237_broad_f.png> <./images/1237_broad_fdot.png> <./images/1237_b
-road_sigma_p.png>]
-
-LaTeX Warning: Reference `eq:state2' on page 11 undefined on input line 772.
+LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 9 undefined 
+on input line 664.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 771--773
-
- []
+LaTeX Warning: Reference `eq:main_eq' on page 9 undefined on input line 696.
 
 
-Underfull \vbox (badness 1173) has occurred while \output is active []
-
-
-
-LaTeX Warning: Reference `sec:statespace' on page 11 undefined on input line 78
-9.
-
-
-LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 11 undefined
- on input line 798.
-
-[11 <./images/canonical_example.png>]
-
-LaTeX Warning: Reference `eq:main_eq' on page 12 undefined on input line 830.
-
-
-Overfull \hbox (18.861pt too wide) detected at line 837
+Overfull \hbox (18.861pt too wide) detected at line 703
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
 
-(./paper.bbl [12 <./images/snr_canonical.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 353--357
+(./paper.bbl [9]
+Underfull \hbox (badness 10000) in paragraph at lines 370--374
 []\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--357
+Underfull \hbox (badness 10000) in paragraph at lines 370--374
 \T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--357
+Underfull \hbox (badness 10000) in paragraph at lines 370--374
 [][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
 /m/n/8 https : / / doi . org /
  []
 
 
-Underfull \vbox (badness 1810) has occurred while \output is active []
-
-
-Underfull \vbox (badness 1436) has occurred while \output is active []
-
- [13 <./images/snr_mollewide.png>]
-Underfull \hbox (badness 6493) in paragraph at lines 589--592
+Underfull \hbox (badness 6493) in paragraph at lines 611--614
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
-) [14
+[10])
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] (./paper.aux)
+ [11 <./images/example_residuals_plot.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./images/1237_broad_GW.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13 <./images/1237_broad_f.png> <./images/1237_broad_fdot.png> <./images/1237_
+broad_sigma_p.png>] (./paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1137,16 +1128,16 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 1DEE08B03F235E724AB6B4D2E886B4BA;2932.
+(rerunfilecheck)             Checksum: ADC98F59A12286EA8B0796BDACCC766C;2494.
  ) 
 Here is how much of TeX's memory you used:
- 17037 strings out of 478268
- 263861 string characters out of 5846347
- 564631 words of memory out of 5000000
- 34669 multiletter control sequences out of 15000+600000
+ 17011 strings out of 478268
+ 263360 string characters out of 5846348
+ 595661 words of memory out of 5000000
+ 34652 multiletter control sequences out of 15000+600000
  579382 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,4140b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,4140b,732s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -1176,10 +1167,10 @@ public/txfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
 /newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
 tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (14 pages, 4770139 bytes).
+Output written on paper.pdf (13 pages, 3602104 bytes).
 PDF statistics:
  1155 PDF objects out of 1200 (max. 8388607)
- 1064 compressed objects within 11 object streams
- 229 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1066 compressed objects within 11 object streams
+ 223 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

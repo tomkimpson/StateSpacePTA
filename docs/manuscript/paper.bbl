@@ -18,9 +18,19 @@
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
 \bibitem[\protect\citeauthoryear{{Agazie} et~al.,}{{Agazie}
-  et~al.}{2023}]{NANOgrav2023}
-{Agazie} G.,  et~al., 2023, \mn@doi [\apjl] {10.3847/2041-8213/acda9a}, \href
+  et~al.}{2023a}]{2023ApJ...951L...8A}
+{Agazie} G.,  et~al., 2023a, \mn@doi [\apjl] {10.3847/2041-8213/acdac6}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...8A} {951, L8}
+
+\bibitem[\protect\citeauthoryear{{Agazie} et~al.,}{{Agazie}
+  et~al.}{2023b}]{NANOgrav2023}
+{Agazie} G.,  et~al., 2023b, \mn@doi [\apjl] {10.3847/2041-8213/acda9a}, \href
   {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...9A} {951, L9}
+
+\bibitem[\protect\citeauthoryear{{Alam} et~al.,}{{Alam}
+  et~al.}{2021}]{nanograv_narrowband_DR}
+{Alam} M.~F.,  et~al., 2021, \mn@doi [\apjs] {10.3847/1538-4365/abc6a0}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021ApJS..252....4A} {252, 4}
 
 \bibitem[\protect\citeauthoryear{{Allen}}{{Allen}}{1997}]{Allen1997}
 {Allen} B.,  1997, in {Marck} J.-A.,  {Lasota} J.-P.,  eds, Relativistic
@@ -39,10 +49,22 @@
   \href {https://ui.adsabs.harvard.edu/abs/2022MNRAS.510.4873A} {510, 4873}
 
 \bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
-  et~al.}{2023}]{EPTA2023}
-{Antoniadis} J.,  et~al., 2023, \mn@doi [arXiv e-prints]
+  et~al.}{2023a}]{2023arXiv230616214A}
+{Antoniadis} J.,  et~al., 2023a, \mn@doi [arXiv e-prints]
+  {10.48550/arXiv.2306.16214}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023arXiv230616214A} {p. arXiv:2306.16214}
+
+\bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
+  et~al.}{2023b}]{EPTA2023}
+{Antoniadis} J.,  et~al., 2023b, \mn@doi [arXiv e-prints]
   {10.48550/arXiv.2306.16224}, \href
   {https://ui.adsabs.harvard.edu/abs/2023arXiv230616224A} {p. arXiv:2306.16224}
+
+\bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
+  et~al.}{2023c}]{2023arXiv230616226A}
+{Antoniadis} J.,  et~al., 2023c, \mn@doi [arXiv e-prints]
+  {10.48550/arXiv.2306.16226}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023arXiv230616226A} {p. arXiv:2306.16226}
 
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2018a}]{Arzoumanian2018ApJS..235...37A}
@@ -334,11 +356,6 @@ Kerr M.,  Hobbs G.,  Johnston S.,   Shannon R.~M.,  2015, \mn@doi [Monthly
   {https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.2576L} {453, 2576}
 
 \bibitem[\protect\citeauthoryear{{Lower} et~al.,}{{Lower}
-  et~al.}{2020}]{UTMOST}
-{Lower} M.~E.,  et~al., 2020, \mn@doi [\mnras] {10.1093/mnras/staa615}, \href
-  {https://ui.adsabs.harvard.edu/abs/2020MNRAS.494..228L} {494, 228}
-
-\bibitem[\protect\citeauthoryear{{Lower} et~al.,}{{Lower}
   et~al.}{2021}]{Lower2021MNRAS.508.3251L}
 {Lower} M.~E.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab2678}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.3251L} {508, 3251}
@@ -456,6 +473,11 @@ Petiteau A.,  Babak S.,  Sesana A.,   de Ara\'ujo M.,  2013, \mn@doi [Phys.
 {Ravi} V.,  {Wyithe} J.~S.~B.,  {Shannon} R.~M.,   {Hobbs} G.,  2015, \mn@doi
   [\mnras] {10.1093/mnras/stu2659}, \href
   {https://ui.adsabs.harvard.edu/abs/2015MNRAS.447.2772R} {447, 2772}
+
+\bibitem[\protect\citeauthoryear{{Reardon} et~al.,}{{Reardon}
+  et~al.}{2023}]{2023ApJ...951L...6R}
+{Reardon} D.~J.,  et~al., 2023, \mn@doi [\apjl] {10.3847/2041-8213/acdd02},
+  \href {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...6R} {951, L6}
 
 \bibitem[\protect\citeauthoryear{{Renzini}, {Goncharov}, {Jenkins}  \&
   {Meyers}}{{Renzini} et~al.}{2022}]{Renzini2022}
@@ -594,6 +616,12 @@ Wan E.,  Van Der~Merwe R.,  2000, in Proceedings of the IEEE 2000 Adaptive
   {Loeb}}{2003}]{Wyithe2003}
 {Wyithe} J. S.~B.,  {Loeb} A.,  2003, \mn@doi [\apj] {10.1086/375187}, \href
   {https://ui.adsabs.harvard.edu/abs/2003ApJ...590..691W} {590, 691}
+
+\bibitem[\protect\citeauthoryear{{Xu} et~al.,}{{Xu}
+  et~al.}{2023}]{2023RAA....23g5024X}
+{Xu} H.,  et~al., 2023, \mn@doi [Research in Astronomy and Astrophysics]
+  {10.1088/1674-4527/acdfa5}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023RAA....23g5024X} {23, 075024}
 
 \bibitem[\protect\citeauthoryear{{Xue} et~al.,}{{Xue} et~al.}{2021}]{PTAphase}
 {Xue} X.,  et~al., 2021, \mn@doi [\prl] {10.1103/PhysRevLett.127.251303}, \href

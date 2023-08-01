@@ -13,49 +13,50 @@ Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
 Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 117 entries,
+You've used 122 entries,
             2881 wiz_defined-function locations,
-            1740 strings with 58099 characters,
-and the built_in function-call counts, 57607 in all, are:
-= -- 5159
-> -- 3676
-< -- 262
-+ -- 1606
+            1781 strings with 68280 characters,
+and the built_in function-call counts, 60312 in all, are:
+= -- 5467
+> -- 3768
+< -- 264
++ -- 1661
 - -- 504
-* -- 6958
-:= -- 8593
+* -- 7253
+:= -- 8901
 add.period$ -- 0
-call.type$ -- 117
-change.case$ -- 234
-chr.to.int$ -- 111
-cite$ -- 119
-duplicate$ -- 2887
-empty$ -- 2839
-format.name$ -- 890
-if$ -- 10360
-int.to.chr$ -- 7
+call.type$ -- 122
+change.case$ -- 244
+chr.to.int$ -- 113
+cite$ -- 124
+duplicate$ -- 3058
+empty$ -- 2985
+format.name$ -- 910
+if$ -- 10916
+int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 122
-newline$ -- 369
-num.names$ -- 776
-pop$ -- 543
+missing$ -- 127
+newline$ -- 384
+num.names$ -- 796
+pop$ -- 573
 preamble$ -- 1
-purify$ -- 468
+purify$ -- 488
 quote$ -- 0
-skip$ -- 1942
+skip$ -- 2090
 stack$ -- 0
-substring$ -- 3881
-swap$ -- 1608
-text.length$ -- 479
+substring$ -- 4127
+swap$ -- 1704
+text.length$ -- 501
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1038
+type$ -- 1083
 warning$ -- 2
-while$ -- 864
+while$ -- 894
 width$ -- 0
-write$ -- 1192
+write$ -- 1242
 (There was 1 error message)
