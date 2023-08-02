@@ -264,8 +264,8 @@ and
 \end{equation}
 We can reparameterize the two GW polarisation strains in terms of the GW amplitude $h_0$ and the system inclination $\iota$
 \begin{align}
-	h_+ &= h(1 + \cos^2 \iota) \\
-	h_{\times} &= -2h\cos \iota
+	h_+ &= h(1 + \cos^2 \iota) 	\label{eq:hphx} \\
+	h_{\times} &= -2h\cos \iota 	\label{eq:hphx2}
 \end{align}
 where $\iota$ is the angle between the normal to the SMBHB orbital plane, $\boldsymbol{L}$ and the observer line of sight, i.e. $\cos \iota = \boldsymbol{n} \cdot \boldsymbol{L}$. Henceforth we use the parametrisation in terms of $h_0$ and $\iota$. For a PTA dataset containing $N$ pulsars we have $7 + 5N$ parameters to estimate. Typically the pulsar parameters are better constrained than the GW parameters: for example estimates of pulsar distances are accurate to $\sim$ 10$\%$, but we have no prior information on the source location \citep{Cordes2002astro.ph..7156C, Verbiest2012ApJ...755...39V, Desvignes2016,Yao2017}.The variance of the measurement noise $\Sigma$ can be estimated approximately from the root-mean-square amplitude of phase residuals and we do not treat it as a parameter to be inferred in this work. \newline 
 
@@ -456,7 +456,7 @@ and $\dot{f}_{\rm em}^{(n)}(t_1)$ remain static parameters of the model, but now
 
 
 \subsection{Representative example}\label{sec:rep_example}
-We initially characterise our method with a single example of a PTA which is perturbed by a GW from an individual quasi-monochromatic SMBHB source. The static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this injection are shown in the ``Injected Values" column of Table \ref{tab:parameters_and_priors}. The static pulsar parameters $\boldsymbol{\theta}_{\rm psr}$ are as described in Section \ref{sec:synt_pta} and are also shown in Table \ref{tab:parameters_and_priors}. For the Bayesian methods used in this work, one must select reasonable priors for the complete set complete of static parameters, $\pi(\boldsymbol{\theta})$. For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021} as summarised in Table \ref{tab:parameters_and_priors}. The choice of $\pi(\boldsymbol{\theta}_{\rm psr})$ requires some additional discussion. The parameters which govern the deterministic evolution of the pulsar spin frequency, $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are well-determined by existing radio timing observations. We can identify $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ with the pulsar  barycentric rotation frequency and the time derivative of barycentric rotation frequency quoted by pulsar observation catalogues. For the 12.5 year NANOGrav pulsars the mean error in the barycentric rotation frequency is $\sim 1.1 \times 10^{-11}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.29 \times 10^{-19}$ s $^{-2}$. These mean errors are skewed by a minority of pulsars which are less well timed; the median error in  the barycentric rotation frequency is $\sim 7 \times 10^{-13}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.8 \times 10^{-20}$ s $^{-2}$. Whilst it is then clear that $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are typically measured with very high precisions, for this work we adopt a broader uniform prior, $\pm 1 \%$ either side of the true value. In this way we can test how well our method performs without requiring very precise measurements of the pulsar parameters to be made \textit{a priori}. Instead we consider the pulsar parameters similarly to the GW source parameters and estimate them optimally within a consistent framework. This counteracts the potential of a confusion problem c.f. the influence of timing noise and gravitational waves on the received pulsar signal. The pulsar distances $d^{(n)}$ are typically not as well constrained as $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$, with uncertainties typically on the order of $\sim 10 \%$ \citep{Arzoumanian2018ApJS..235...37A,Yao2017}. However, for this work whilst the pulsar distance is used when generating synthetic data, as discussed in Section \ref{sec:parameter_estim} the pulsar distance is not used for our inference model and so we do not need to set a prior on $d$. \textcolor{red}{TK: this next bit on gamma needs cleaning up}. For setting a prior on $\gamma^{(n)}$ since  $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$, $\gamma^{(n)}$ is in some sense ``unobservable" over these timescales and it is sufficient to set it at its true value i.e consider $\gamma$ to be known. We briefly explored a LogUniform prior of $\gamma$ over e.g. LogUniform($10^{-10}, 10^{-15}$) but the results are unchanged. In order to reduced the computational load we therefore set $\gamma$ to its true value. The majority of pulsars in our synthetic PTA have $\sigma^{(n)} \sim 10^{-20} - 10^{-22}$. The single exception is PSR J1939+2134 which has a particularly large $\dot{f}_{\rm p}^{(n)}$ compared to the other pulsars in the array and so the $\sigma^{(n)}$ inferred from Eq. \ref{eq:sigmap} \ref{eq:sigmap_f} $\sim 10^{-16}$. For the majority of pulsars we set an uninformative broad prior of $\sigma^{(n)}$ of LogUniform($10^{-19}, 10^{-23}$). For PSR J1939+2134 we use LogUniform($10^{-15}, 10^{-17}$). All static parameters and their priors for this representative example are summarised in Table \ref{tab:parameters_and_priors}.
+We initially characterise our method with a single example of a PTA which is perturbed by a GW from an individual quasi-monochromatic SMBHB source. The static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this injection are shown in the ``Injected Values" column of Table \ref{tab:parameters_and_priors}. The static pulsar parameters $\boldsymbol{\theta}_{\rm psr}$ are as described in Section \ref{sec:synt_pta} and are also shown in Table \ref{tab:parameters_and_priors}. For the Bayesian methods used in this work, one must select reasonable priors for the complete set complete of static parameters, $\pi(\boldsymbol{\theta})$. For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021} as summarised in Table \ref{tab:parameters_and_priors}. The choice of $\pi(\boldsymbol{\theta}_{\rm psr})$ requires some additional discussion. The parameters which govern the deterministic evolution of the pulsar spin frequency, $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are well-determined by existing radio timing observations. We can identify $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ with the pulsar  barycentric rotation frequency and the time derivative of barycentric rotation frequency quoted by pulsar observation catalogues. For the 12.5 year NANOGrav pulsars the mean error in the barycentric rotation frequency is $\sim 1.1 \times 10^{-11}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.29 \times 10^{-19}$ s $^{-2}$. These mean errors are skewed by a minority of pulsars which are less well timed; the median error in  the barycentric rotation frequency is $\sim 7 \times 10^{-13}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.8 \times 10^{-20}$ s $^{-2}$. Whilst it is then clear that $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are typically measured with very high precisions, for this work we adopt a broader uniform prior, $\pm 1 \%$ either side of the true value. In this way we can test how well our method performs without requiring very precise measurements of the pulsar parameters to be made \textit{a priori}. Instead we consider the pulsar parameters similarly to the GW source parameters and estimate them optimally within a consistent framework. This counteracts the potential of a confusion problem c.f. the influence of timing noise and gravitational waves on the received pulsar signal. The pulsar distances $d^{(n)}$ are typically not as well constrained as $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$, with uncertainties typically on the order of $\sim 10 \%$ \citep{Arzoumanian2018ApJS..235...37A,Yao2017}. However, for this work whilst the pulsar distance is used when generating synthetic data, as discussed in Section \ref{sec:parameter_estim} the pulsar distance is not used for our inference model and so we do not need to set a prior on $d$. \textcolor{red}{TK: this next bit on gamma needs cleaning up}. For setting a prior on $\gamma^{(n)}$ since  $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$, $\gamma^{(n)}$ is in some sense ``unobservable" over these timescales and it is sufficient to set it at its true value i.e consider $\gamma$ to be known. We briefly explored a LogUniform prior of $\gamma$ over e.g. LogUniform($10^{-10}, 10^{-15}$) but the results are unchanged. In order to reduced the computational load we therefore set $\gamma$ to its true value. The majority of pulsars in our synthetic PTA have $\sigma^{(n)} \sim 10^{-20} - 10^{-22}$. The single exception is PSR J1939+2134 which has a particularly large $\dot{f}_{\rm p}^{(n)}$ compared to the other pulsars in the array and so the $\sigma^{(n)}$ inferred from Eq. \ref{eq:sigmap} \ref{eq:sigmap_f} $\sim 10^{-16}$. For the majority of pulsars we set an uninformative broad prior of $\sigma^{(n)}$ of LogUniform($10^{-19}, 10^{-23}$). For PSR J1939+2134 we use LogUniform($10^{-15}, 10^{-17}$). Since we are not setting priors on $\gamma$ or $d$ this reduces our dimensionality to $7 + 3N$. We will use the notation $\boldsymbol{\theta}_{\rm psr, reduced}$ to refer to the reduced parameter space. All static parameters and their priors for this representative example are summarised in Table \ref{tab:parameters_and_priors}.
 \begin{table}
 	\centering
 	\resizebox{\columnwidth}{!}{%
@@ -491,52 +491,50 @@ We initially characterise our method with a single example of a PTA which is per
 From Eq. \ref{eq:g_func_trig} it can be seen that the measurement equation generally separates into two cosine terms. The first term $\cos(-\Omega t + \Phi_0)$ depends only on the GW source parameters and is shared across all pulsars. The argument of the cosine corresponds to the GW phase at the observer on Earth.  Conversely, the second term, $\cos \left(-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d \right)$ varies between pulsars. The argument of the cosine corresponds to the GW phase at each the individual pulsar. The first and second terms are commonly referred to as the ``Earth term" and ``pulsar term" respectively. Whilst the Earth term is phase coherent between all pulsars and so can be summed across the array to increase the total signal-to-noise, the pulsar terms each have individual phases and in standard PTA analysis are typically considered as a source of self noise and dropped from the analysis \citep[e.g.][]{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C} at the expense of a modestly reduced detection probability ($\sim 5 \%$) and the introduction of a bias in the sky localisation \citep{Zhupulsarterms,Chen2022}. In this work we follow the standard analysis approach and drop the pulsar terms from our model. We defer the inclusion of the pulsar terms in the measurement equation to a future work. This choice reduces the dimensionality of the parameter estimation problem to $7 + 4N$ since the measurement equation Eq \ref{eq:measurement} is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. \newline
 
 
-Initially we consider a single noise realisation of the synthetic data for the representative example. We apply the Kalman filter using the earth terms only measurement equation in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters, which are shown in Figure \ref{fig:corner_plot_1}. 
-
-
-
-the gw parameters....
-
-
-
-the frequency parameters....
-
-
-the sigma p parameters....
-
-
-bias in parameters c.f. likelihood
-
-
+Initially we consider a single noise realisation of the synthetic data for the representative example. We apply the Kalman filter using the earth terms only measurement equation in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters, which are shown in Figure \ref{fig:corner_plot_1} for the 7 parameters of  $\boldsymbol{\theta}_{\rm gw}$ and in Figure \ref{fig:corner_plot_1} for the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ in Figure \ref{fig:example}. It is evident that for this representative example we are able to accurately estimate all the static parameters of the system. Of particular interest are the estimates of $\boldsymbol{\theta}_{\rm gw}$. Whilst some parameters are recovered identically (e.g. $\omega, \Phi_0, \delta, \iota$) for others the posterior median is shifted away from the injected value (e.g. $\psi, \alpha$). For a single realisation of the noise it is not clear if this is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation. We will explore this further in Section \ref{sec:multiple_noise} and show that this is a bias that results from dropping the Earth terms, similar to the bias reported in \cite{Zhupulsarterms}. Regarding $\boldsymbol{\theta}_{\rm psr, reduced}$, the frequency parameters $f_{\rm em}^{(n)}(t_1),\dot{f}_{\rm em}^{(n)}(t_1)$ are generally well recovered for all pulsars, as are the noise amplitude parameters $\sigma^{(n)}$. 
 \begin{figure*}
 	\includegraphics[width=0.8\textwidth]{images/1237_broad_GW}
-	\caption{some caption}
+	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref{tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest.}
 	\label{fig:corner_plot_1}
+\end{figure*}
+\begin{figure*}%
+	\centering
+	\subfloat[\centering label 1]{{\includegraphics[width=0.3 \textwidth]{images/1237_broad_f} }}%
+	\qquad
+	\subfloat[\centering label 2]{{\includegraphics[width=0.3 \textwidth]{images/1237_broad_fdot} }}%
+	\qquad
+	\subfloat[\centering label 2]{{\includegraphics[width=0.3\textwidth]{images/1237_broad_sigma_p} }}%
+	
+	\caption{As Fig \ref{fig:corner_plot_1} but for the $N$ pulsar parameters $\boldsymbol{\theta}_{\rm psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA.}
+	\label{fig:example}%
 \end{figure*}
 
 
 
 
-
-\begin{figure}
-	\includegraphics[width=\columnwidth]{images/1237_broad_f}
-	\caption{some caption}
-	\label{fig:corner_plot_2}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=\columnwidth]{images/1237_broad_fdot}
-	\caption{some caption}
-	\label{fig:corner_plot_3}
-\end{figure}
-
-
-
-\begin{figure}
-	\includegraphics[width=\columnwidth]{images/1237_broad_sigma_p}
-	\caption{some caption}
-	\label{fig:corner_plot_4}
-\end{figure}
+%
+%
+%
+%
+%\begin{figure}
+%	\includegraphics[width=\columnwidth]{images/1237_broad_f}
+%	\caption{some caption}
+%	\label{fig:corner_plot_2}
+%\end{figure}
+%
+%\begin{figure}
+%	\includegraphics[width=\columnwidth]{images/1237_broad_fdot}
+%	\caption{some caption}
+%	\label{fig:corner_plot_3}
+%\end{figure}
+%
+%
+%
+%\begin{figure}
+%	\includegraphics[width=\columnwidth]{images/1237_broad_sigma_p}
+%	\caption{some caption}
+%	\label{fig:corner_plot_4}
+%\end{figure}
 
 
 
@@ -545,13 +543,21 @@ bias in parameters c.f. likelihood
 
 
 
-\subsection{Multiple noise realisations}
+\subsubsection{Multiple noise realisations} \label{sec:multiple_noise}
 
 The above discussion was just for a single realisaitn of the noise
 
 
 
 
+iota is also shifted.
+
+due to the degeneracy this impacts h
+
+The estimates on $h$ and $\iota$ are generally less accurate than the other parameters of $\boldsymbol{\theta}_{\rm gw}$. 
+
+
+From Eq \ref{eq:hphx} \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. Whilst both parameters are generally identifiable the algebraic relation between the two makes it difficult for our algorithm to estimate both simultaneously. For example, from Eq \ref{eq:hphx2} it is not clear if a larger $h_{\times}$ is due to a larger strain $h$ or a different inclination $\iota$. This degeneracy is broken by the relation for $h_{+}$ which does separate $h$ and $\iota$ but the algebraic relation of how these parameters get mapped into the measurement equation tends for our algorithm to trade off one parameter against the other. If we fix one of these parameters, it is then possible for our approach to recover the other parameter with much higher accuracy. This is demonstrated in Fig X which is analogous to the representative exxample, but now we have fixed $h$ at its true value (i.e. reduced the prior to a delta function). WE can see that the method can now infer $\iota$ which much greater accuracy. 
 
 
 

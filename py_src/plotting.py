@@ -144,7 +144,8 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     warnings.filterwarnings("error")
 
     try:
-
+        print("running with increased label size")
+        fs = 20
         fig = corner.corner(y_post, 
                             color='C0',
                             show_titles=True,
@@ -154,7 +155,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
                             truths = injection_parameters,
                             range=ranges,
                             labels = labels,
-                            label_kwargs=dict(fontsize=16),
+                            label_kwargs=dict(fontsize=fs),
                             axes_scales = axes_scales)
                 
 
