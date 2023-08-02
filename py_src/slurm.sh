@@ -2,10 +2,10 @@
  
 #SBATCH --ntasks=1 
 #SBATCH --mem=8000MB 
-#SBATCH --time=48:00:00 
-#SBATCH --job-name=badger_cheap_fprior 
-#SBATCH --output=outputs/badger_cheap_fprior_out.txt 
+#SBATCH --time=72:00:00 
+#SBATCH --job-name=paper_canonical_example_earth_terms_1237_v2 
+#SBATCH --output=outputs/paper_canonical_example_earth_terms_1237_v2_out.txt 
  
 source ~/.bashrc 
 conda activate OzStar 
-time python main.py badger_cheap_fprior 1e-2 earth
+time python main.py paper_canonical_example_earth_terms_1237_v2 1e-12 earth 1237

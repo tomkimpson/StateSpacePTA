@@ -8,3 +8,4 @@ py_src/__pycache__/*.pyc
 py_src/outputs/*
 docs/minutes/slides/images/*
 docs/minutes/*/*/*.png
+py_src/slurm_jobs/*.sh
