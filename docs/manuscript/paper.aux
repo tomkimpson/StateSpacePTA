@@ -104,8 +104,8 @@
 \newlabel{sub@fig:6MB_BFS}{{a}{5}{Kalman filter using correct estimate of the static parameters, $\hat {\boldsymbol {\theta }} = \boldsymbol {\theta }$ \relax }{figure.caption.1}{}}
 \newlabel{fig:25MB_bfs}{{1b}{5}{Kalman filter using incorrect estimate of the static parameters, $\hat {\boldsymbol {\theta }} \neq \boldsymbol {\theta }$\relax }{figure.caption.1}{}}
 \newlabel{sub@fig:25MB_bfs}{{b}{5}{Kalman filter using incorrect estimate of the static parameters, $\hat {\boldsymbol {\theta }} \neq \boldsymbol {\theta }$\relax }{figure.caption.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Application of a Kalman filter to estimate the intrinsic pulsar frequency state $f_{\rm  p}(t)$ given a measured frequency $f_{\rm  m}(t)$. We here plot the ephemeris subtracted state $f'_{\rm  p}(t) = f_{\rm  p}(t) - f_{\rm  em} (t)$ to better illustrate the stochastic wandering of the pulsar frequency. In (a) the Kalman filter is run using identically correct estimates of the static system parameters, $\hat  {\bm  {\theta }} = \bm  {\theta }$. In (b) the Kalman filter is run with $\hat  {\bm  {\theta }} \neq \bm  {\theta }$. The top left panel shows the true pulsar state $f'_{\rm  p}(t)$ (blue line) and the state estimated by the Kalman filter, $\hat  {f'}_{\rm  p}(t)$ (green line). The middle left panel shows the true $f_{\rm  m}(t)$ (red line) and the measured frequency estimated by the Kalman filter, $\hat  {f}_{\rm  m}(t)$ (magenta). The bottom left panel shows the residual or the innovation $\epsilon (t) =f_{\rm  m}(t) - \hat  {f}_{\rm  m}(t)$. The right hand panel plots the distribution of the innovation over the total observation period.\relax }}{5}{figure.caption.1}\protected@file@percent }
-\newlabel{fig:four figures}{{1}{5}{Application of a Kalman filter to estimate the intrinsic pulsar frequency state $f_{\rm p}(t)$ given a measured frequency $f_{\rm m}(t)$. We here plot the ephemeris subtracted state $f'_{\rm p}(t) = f_{\rm p}(t) - f_{\rm em} (t)$ to better illustrate the stochastic wandering of the pulsar frequency. In (a) the Kalman filter is run using identically correct estimates of the static system parameters, $\hat {\boldsymbol {\theta }} = \boldsymbol {\theta }$. In (b) the Kalman filter is run with $\hat {\boldsymbol {\theta }} \neq \boldsymbol {\theta }$. The top left panel shows the true pulsar state $f'_{\rm p}(t)$ (blue line) and the state estimated by the Kalman filter, $\hat {f'}_{\rm p}(t)$ (green line). The middle left panel shows the true $f_{\rm m}(t)$ (red line) and the measured frequency estimated by the Kalman filter, $\hat {f}_{\rm m}(t)$ (magenta). The bottom left panel shows the residual or the innovation $\epsilon (t) =f_{\rm m}(t) - \hat {f}_{\rm m}(t)$. The right hand panel plots the distribution of the innovation over the total observation period.\relax }{figure.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example application of a Kalman filter to estimate the intrinsic pulsar frequency state $f_{\rm  p}(t)$ given a measured frequency $f_{\rm  m}(t)$. We here plot the ephemeris subtracted state $f'_{\rm  p}(t) = f_{\rm  p}(t) - f_{\rm  em} (t)$ to better illustrate the stochastic wandering of the pulsar frequency. In (a) the Kalman filter is run using identically correct estimates of the static system parameters, $\hat  {\bm  {\theta }} = \bm  {\theta }$ and the state is estimated accurately. In (b) the Kalman filter is run with $\hat  {\bm  {\theta }} \neq \bm  {\theta }$ and the state is not estimated accurately. The top left panels show the true pulsar state $f'_{\rm  p}(t)$ (blue line) and the state estimated by the Kalman filter, $\hat  {f'}_{\rm  p}(t)$ (green line). The middle left panels show the true $f_{\rm  m}(t)$ (red line) and the measured frequency estimated by the Kalman filter, $\hat  {f}_{\rm  m}(t)$ (magenta). The bottom left panels show the residual or the innovation $\epsilon (t) =f_{\rm  m}(t) - \hat  {f}_{\rm  m}(t)$. The right hand panels plot the distribution of the innovation over the total observation period.\relax }}{5}{figure.caption.1}\protected@file@percent }
+\newlabel{fig:four figures}{{1}{5}{Example application of a Kalman filter to estimate the intrinsic pulsar frequency state $f_{\rm p}(t)$ given a measured frequency $f_{\rm m}(t)$. We here plot the ephemeris subtracted state $f'_{\rm p}(t) = f_{\rm p}(t) - f_{\rm em} (t)$ to better illustrate the stochastic wandering of the pulsar frequency. In (a) the Kalman filter is run using identically correct estimates of the static system parameters, $\hat {\boldsymbol {\theta }} = \boldsymbol {\theta }$ and the state is estimated accurately. In (b) the Kalman filter is run with $\hat {\boldsymbol {\theta }} \neq \boldsymbol {\theta }$ and the state is not estimated accurately. The top left panels show the true pulsar state $f'_{\rm p}(t)$ (blue line) and the state estimated by the Kalman filter, $\hat {f'}_{\rm p}(t)$ (green line). The middle left panels show the true $f_{\rm m}(t)$ (red line) and the measured frequency estimated by the Kalman filter, $\hat {f}_{\rm m}(t)$ (magenta). The bottom left panels show the residual or the innovation $\epsilon (t) =f_{\rm m}(t) - \hat {f}_{\rm m}(t)$. The right hand panels plot the distribution of the innovation over the total observation period.\relax }{figure.caption.1}{}}
 \citation{Skilling}
 \citation{Ashton2022}
 \citation{Mukherjee2006,Feroz2008,Handley2015}
@@ -117,6 +117,7 @@
 \citation{Feroz2008,Feroz2009,Handley2015,dynesty2020,UltraNest2021}
 \citation{dynesty2020}
 \citation{bilby.507.2037A}
+\citation{Ashton2022}
 \citation{2020ApJ...905L..34A}
 \citation{Manchester2005}
 \citation{psrqpy}
@@ -129,43 +130,56 @@
 \newlabel{sec:model_selection}{{3.3}{6}{Model selection}{subsection.3.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Tests with synthetic data}{6}{section.4}\protected@file@percent }
 \newlabel{sec:testing}{{4}{6}{Tests with synthetic data}{section.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Spatial distribution of 47 pulsars from the 12.5 year NANOGrav data release that make up the synthetic PTA used in this work. The pulsar distances relative to the observer are also indicated, with the majority of pulsars having a distance $\sim 1$ kpc. The grey dashed line denotes the Galactic plane.\relax }}{6}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:pulsar_distrib}{{2}{6}{Spatial distribution of 47 pulsars from the 12.5 year NANOGrav data release that make up the synthetic PTA used in this work. The pulsar distances relative to the observer are also indicated, with the majority of pulsars having a distance $\sim 1$ kpc. The grey dashed line denotes the Galactic plane.\relax }{figure.caption.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Synthetic data generation}{6}{subsection.4.1}\protected@file@percent }
 \newlabel{sec:synth_data}{{4.1}{6}{Synthetic data generation}{subsection.4.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Constructing a synthetic PTA}{6}{subsubsection.4.1.1}\protected@file@percent }
 \newlabel{sec:synt_pta}{{4.1.1}{6}{Constructing a synthetic PTA}{subsubsection.4.1.1}{}}
-\newlabel{eq:sigmap}{{29}{6}{Constructing a synthetic PTA}{equation.29}{}}
-\newlabel{eq:sigmap_f}{{30}{6}{Constructing a synthetic PTA}{equation.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Spatial distribution of 47 pulsars from the 12.5 year NANOGrav data release that make up the synthetic PTA used in this work. The pulsar distances relative to the observer are also indicated, with the majority of pulsars having a distance $\sim 1$ kpc. The grey dashed line denotes the Galactic plane.\relax }}{6}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:pulsar_distrib}{{2}{6}{Spatial distribution of 47 pulsars from the 12.5 year NANOGrav data release that make up the synthetic PTA used in this work. The pulsar distances relative to the observer are also indicated, with the majority of pulsars having a distance $\sim 1$ kpc. The grey dashed line denotes the Galactic plane.\relax }{figure.caption.2}{}}
 \citation{nanograv_narrowband_DR}
 \citation{Vargas}
 \citation{nanograv_narrowband_DR}
 \citation{nanograv_narrowband_DR}
-\citation{Bhagwat2021}
-\citation{Arzoumanian2018ApJS..235...37A,Yao2017}
+\newlabel{eq:sigmap}{{29}{7}{Constructing a synthetic PTA}{equation.29}{}}
+\newlabel{eq:sigmap_f}{{30}{7}{Constructing a synthetic PTA}{equation.30}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Synthetic data generation}{7}{subsubsection.4.1.2}\protected@file@percent }
 \newlabel{eq:measurement_cov}{{35}{7}{Synthetic data generation}{equation.35}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Representative example}{7}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:rep_example}{{4.2}{7}{Representative example}{subsection.4.2}{}}
+\citation{Bhagwat2021}
+\citation{Arzoumanian2018ApJS..235...37A,Yao2017}
+\citation{Shannon2010}
+\citation{Shannon2010}
 \citation{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C}
 \citation{Zhupulsarterms,Chen2022}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep  {nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Eq. \ref  {eq:spinevol} with $\gamma ^{(n)} = 10^{-13}$ and $\sigma ^{(n)}$ inferred from Eqs. \ref  {eq:sigmap}, \ref  {eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor {red}{TK: these plots need updating, but need to discuss with Andres re use of baboo. Maybe just one is sufficient just as an example.}\relax }}{8}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:qualitative_compare}{{3}{8}{Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep {nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Eq. \ref {eq:spinevol} with $\gamma ^{(n)} = 10^{-13}$ and $\sigma ^{(n)}$ inferred from Eqs. \ref {eq:sigmap}, \ref {eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor {red}{TK: these plots need updating, but need to discuss with Andres re use of baboo. Maybe just one is sufficient just as an example.}\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Prior distributions}{8}{subsubsection.4.2.1}\protected@file@percent }
+\newlabel{sec:priors}{{4.2.1}{8}{Prior distributions}{subsubsection.4.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Parameter estimation}{8}{subsubsection.4.2.2}\protected@file@percent }
+\newlabel{sec:parameter_estim}{{4.2.2}{8}{Parameter estimation}{subsubsection.4.2.2}{}}
 \citation{Zhupulsarterms}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ANTF" denotes values which have been obtained from the ANTF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Eq. \ref  {eq:sigmap} \ref  {eq:sigmap_f}. All pulsars use the prior on $\sigma ^{(n)}$ as specificed in table, with the exception of PSR J1939+2134 which uses LogUniform($10^{-15}, 10^{-17}$)\relax }}{8}{table.caption.4}\protected@file@percent }
-\newlabel{tab:parameters_and_priors}{{1}{8}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ANTF" denotes values which have been obtained from the ANTF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Eq. \ref {eq:sigmap} \ref {eq:sigmap_f}. All pulsars use the prior on $\sigma ^{(n)}$ as specificed in table, with the exception of PSR J1939+2134 which uses LogUniform($10^{-15}, 10^{-17}$)\relax }{table.caption.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Parameter estimation}{8}{subsubsection.4.2.1}\protected@file@percent }
-\newlabel{sec:parameter_estim}{{4.2.1}{8}{Parameter estimation}{subsubsection.4.2.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Detection}{8}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Multiple noise realisations}{8}{subsubsection.4.2.3}\protected@file@percent }
-\newlabel{sec:multiple_noise}{{4.2.3}{8}{Multiple noise realisations}{subsubsection.4.2.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Exploring a broader parameter space}{8}{subsubsection.4.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{8}{section.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Eq. \ref  {eq:sigmap}, \ref  {eq:sigmap_f} from \cite {Shannon2010}. All pulsars use the prior on $\sigma ^{(n)}$ as specified in the Table, with the exception of PSR J1939+2134 which uses LogUniform($10^{-15}, 10^{-17}$).\relax }}{9}{table.caption.4}\protected@file@percent }
+\newlabel{tab:parameters_and_priors}{{1}{9}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Eq. \ref {eq:sigmap}, \ref {eq:sigmap_f} from \protect \cite {Shannon2010}. All pulsars use the prior on $\sigma ^{(n)}$ as specified in the Table, with the exception of PSR J1939+2134 which uses LogUniform($10^{-15}, 10^{-17}$).\relax }{table.caption.4}{}}
+\newlabel{eq:measuremen_earth}{{37}{9}{Parameter estimation}{equation.37}{}}
+\newlabel{eq:g_func_trig_earth}{{38}{9}{Parameter estimation}{equation.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Detection}{9}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Multiple noise realisations}{9}{subsubsection.4.2.4}\protected@file@percent }
+\newlabel{sec:multiple_noise}{{4.2.4}{9}{Multiple noise realisations}{subsubsection.4.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{9}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:parameter_space}{{4.3}{9}{Exploring a broader parameter space}{subsection.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref  {tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest.\relax }}{10}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:corner_plot_1}{{4}{10}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref {tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest.\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces As Fig \ref  {fig:corner_plot_1} but for the $3N$ pulsar parameters $\bm  {\theta }_{\rm  psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA.\relax }}{10}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:example}{{5}{10}{As Fig \ref {fig:corner_plot_1} but for the $3N$ pulsar parameters $\boldsymbol {\theta }_{\rm psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA.\relax }{figure.caption.6}{}}
 \citation{gardiner2009stochastic}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Kalman recursion equations}{9}{section.A1}\protected@file@percent }
-\newlabel{sec:kalman}{{A}{9}{Kalman recursion equations}{section.A1}{}}
-\newlabel{eq:fmatrix}{{A3}{9}{Kalman recursion equations}{equation.A1.3}{}}
-\newlabel{eq:rmatix}{{A8}{9}{Kalman recursion equations}{equation.A1.8}{}}
-\newlabel{eq:state1}{{A9}{9}{Kalman recursion equations}{equation.A1.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{11}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{11}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Kalman recursion equations}{11}{section.A1}\protected@file@percent }
+\newlabel{sec:kalman}{{A}{11}{Kalman recursion equations}{section.A1}{}}
+\newlabel{eq:fmatrix}{{A3}{11}{Kalman recursion equations}{equation.A1.3}{}}
+\newlabel{eq:rmatix}{{A8}{11}{Kalman recursion equations}{equation.A1.8}{}}
+\newlabel{eq:state1}{{A9}{11}{Kalman recursion equations}{equation.A1.9}{}}
 \bibstyle{mnras}
 \bibdata{example}
 \bibcite{2023ApJ...951L...8A}{{1}{2023a}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
@@ -241,8 +255,8 @@
 \bibcite{Melatos2023}{{71}{2021}{{{Melatos} et~al.}}{{{Melatos}, {O'Neill}, {Meyers} \& {O'Leary}}}}
 \bibcite{Myers2021MNRAS.502.3113M}{{72}{2021a}{{{Meyers} et~al.}}{{{Meyers}, {Melatos} \& {O'Neill}}}}
 \bibcite{Meyers2021}{{73}{2021b}{{{Meyers} et~al.}}{{{Meyers}, {O'Neill}, {Melatos} \& {Evans}}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A1}References}{10}{subsection.A1.1}\protected@file@percent }
-\newlabel{sec:ref_list}{{A1}{10}{References}{subsection.A1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A1}References}{12}{subsection.A1.1}\protected@file@percent }
+\newlabel{sec:ref_list}{{A1}{12}{References}{subsection.A1.1}{}}
 \bibcite{Mukherjee2006}{{74}{2006}{{{Mukherjee} et~al.}}{{{Mukherjee}, {Parkinson} \& {Liddle}}}}
 \bibcite{2009arXiv0906materials}{{75}{2009}{{{P{\'a}rtay} et~al.}}{{{P{\'a}rtay}, {Bart{\'o}k} \& {Cs{\'a}nyi}}}}
 \bibcite{Parthasarathy2021}{{76}{2021}{{{Parthasarathy} et~al.}}{{{Parthasarathy} et~al.,}}}
@@ -292,17 +306,5 @@
 \bibcite{Zhupulsarterms}{{120}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
 \bibcite{Parkes2023}{{121}{2023}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
 \bibcite{vanEysden}{{122}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
-\newlabel{lastpage}{{A1}{11}{References}{subsection.A1.1}{}}
-\newlabel{fig:mycaption-a}{{3a}{12}{PSR J0030+0451\caption@thelabel \relax }{figure.caption.3}{}}
-\newlabel{sub@fig:mycaption-a}{{a}{12}{PSR J0030+0451\caption@thelabel \relax }{figure.caption.3}{}}
-\newlabel{fig:mycaption-b}{{3b}{12}{PSR J0340+4130 \caption@thelabel \relax }{figure.caption.3}{}}
-\newlabel{sub@fig:mycaption-b}{{b}{12}{PSR J0340+4130 \caption@thelabel \relax }{figure.caption.3}{}}
-\newlabel{fig:mycaption-c}{{3c}{12}{PSR J0613-0200\caption@thelabel \relax }{figure.caption.3}{}}
-\newlabel{sub@fig:mycaption-c}{{c}{12}{PSR J0613-0200\caption@thelabel \relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep  {nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Eq. \ref  {eq:spinevol} with $\gamma ^{(n)} = 10^{-13}$ and $\sigma ^{(n)}$ inferred from Eqs. \ref  {eq:sigmap}, \ref  {eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor {red}{TK: these plots need updating, but need to discuss with Andres re use of baboo}\relax }}{12}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:qualitative_compare}{{3}{12}{Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep {nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Eq. \ref {eq:spinevol} with $\gamma ^{(n)} = 10^{-13}$ and $\sigma ^{(n)}$ inferred from Eqs. \ref {eq:sigmap}, \ref {eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor {red}{TK: these plots need updating, but need to discuss with Andres re use of baboo}\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref  {tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest.\relax }}{13}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:corner_plot_1}{{4}{13}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref {tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest.\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces As Fig \ref  {fig:corner_plot_1} but for the $N$ pulsar parameters $\bm  {\theta }_{\rm  psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA.\relax }}{13}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:example}{{5}{13}{As Fig \ref {fig:corner_plot_1} but for the $N$ pulsar parameters $\boldsymbol {\theta }_{\rm psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA.\relax }{figure.caption.6}{}}
+\newlabel{lastpage}{{A1}{13}{References}{subsection.A1.1}{}}
 \gdef \@abspage@last{13}
