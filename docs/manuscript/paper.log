@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  3 AUG 2023 08:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  3 AUG 2023 08:20
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1038,57 +1038,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
-
-LaTeX Warning: Reference `realisation of the noise' on page 8 undefined on inpu
-t line 494.
-
-<images/1237_broad_GW.png, id=707, 1129.3392pt x 1136.0844pt>
+<images/1237_broad_GW.png, id=708, 1129.3392pt x 1136.0844pt>
 File: images/1237_broad_GW.png Graphic file (type png)
 <use images/1237_broad_GW.png>
-Package pdftex.def Info: images/1237_broad_GW.png  used on input line 499.
+Package pdftex.def Info: images/1237_broad_GW.png  used on input line 496.
 (pdftex.def)             Requested size: 406.40155pt x 408.83406pt.
-<images/1237_broad_f.png, id=710, 816.4101pt x 832.5504pt>
+<images/1237_broad_f.png, id=711, 816.4101pt x 832.5504pt>
 File: images/1237_broad_f.png Graphic file (type png)
 <use images/1237_broad_f.png>
-Package pdftex.def Info: images/1237_broad_f.png  used on input line 509.
+Package pdftex.def Info: images/1237_broad_f.png  used on input line 502.
 (pdftex.def)             Requested size: 152.40155pt x 155.40411pt.
-<images/1237_broad_fdot.png, id=711, 825.3234pt x 837.1275pt>
+<images/1237_broad_fdot.png, id=712, 825.3234pt x 837.1275pt>
 File: images/1237_broad_fdot.png Graphic file (type png)
 <use images/1237_broad_fdot.png>
-Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 511.
+Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 504.
 (pdftex.def)             Requested size: 152.40155pt x 154.57237pt.
-<images/1237_broad_sigma_p.png, id=712, 821.2281pt x 837.3684pt>
+<images/1237_broad_sigma_p.png, id=713, 821.2281pt x 837.3684pt>
 File: images/1237_broad_sigma_p.png Graphic file (type png)
 <use images/1237_broad_sigma_p.png>
-Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 513.
+Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 506.
 
 (pdftex.def)             Requested size: 152.40155pt x 155.39626pt.
 [8]
 
-LaTeX Warning: Reference `eq:state2' on page 9 undefined on input line 639.
+LaTeX Warning: Reference `eq:state2' on page 9 undefined on input line 635.
 
 
-LaTeX Warning: Reference `eq:state2' on page 9 undefined on input line 651.
+LaTeX Warning: Reference `eq:state2' on page 9 undefined on input line 647.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--652
+Underfull \hbox (badness 10000) in paragraph at lines 646--648
 
  []
 
 
-LaTeX Warning: Reference `sec:statespace' on page 9 undefined on input line 668
+LaTeX Warning: Reference `sec:statespace' on page 9 undefined on input line 664
 .
 
 
 LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 9 undefined 
-on input line 677.
+on input line 673.
 
 [9]
 
-LaTeX Warning: Reference `eq:main_eq' on page 10 undefined on input line 709.
+LaTeX Warning: Reference `eq:main_eq' on page 10 undefined on input line 705.
 
 
-Overfull \hbox (18.861pt too wide) detected at line 716
+Overfull \hbox (18.861pt too wide) detected at line 712
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
@@ -1135,10 +1131,10 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 86CC7FB66DBAFB384A9060B120EA74DB;2295.
  ) 
 Here is how much of TeX's memory you used:
- 17010 strings out of 478268
- 263338 string characters out of 5846348
- 586405 words of memory out of 5000000
- 34653 multiletter control sequences out of 15000+600000
+ 17009 strings out of 478268
+ 263312 string characters out of 5846348
+ 586647 words of memory out of 5000000
+ 34652 multiletter control sequences out of 15000+600000
  579382 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,4343b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1171,10 +1167,10 @@ public/txfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
 /newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
 tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (13 pages, 3605766 bytes).
+Output written on paper.pdf (13 pages, 3606011 bytes).
 PDF statistics:
- 1159 PDF objects out of 1200 (max. 8388607)
- 1069 compressed objects within 11 object streams
+ 1161 PDF objects out of 1200 (max. 8388607)
+ 1071 compressed objects within 11 object streams
  221 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
