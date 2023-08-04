@@ -159,6 +159,18 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
                             axes_scales = axes_scales)
                 
 
+        #Pretty-ify
+        for ax in fig.axes:
+
+            if ax.lines: #is anything plotted on this axis?
+                
+                ax.yaxis.set_major_locator(plt.MaxNLocator(4))
+                ax.yaxis.set_tick_params(labelsize=fs-6)
+                ax.xaxis.set_tick_params(labelsize=fs-6)
+
+            
+            
+
         if savefig != None:
             plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
             
