@@ -23,7 +23,7 @@ class Pulsars:
         if SystemParameters.Npsr != 0:
             pulsars = pulsars.sample(SystemParameters.Npsr,random_state=SystemParameters.seed) #can also use  pulsars.head(N) to sample  
 
-        
+        print("gamma cha4nged!")
         #Extract the parameters
         self.f         = pulsars["F0"].to_numpy(dtype=NF)
         self.fdot      = pulsars["F1"] .to_numpy(dtype=NF)
