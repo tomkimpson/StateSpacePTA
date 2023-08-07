@@ -33,7 +33,7 @@ model = "earth"
 with open('batch.sh','w') as b: 
 
     for s in seeds:
-        arg_name = f"canonical_model_earth_batch_{s}"
+        arg_name = f"canonical_model_earth_batch_shifted_prior_{s}"
         create_slurm_job(arg_name,h,model,s)
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
