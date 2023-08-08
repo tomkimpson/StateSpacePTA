@@ -109,7 +109,7 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
 
 
 
-    init_parameters,priors = add_to_bibly_priors_dict_uniform(f,"f0",init_parameters,priors,tol=0.01)      #uniform
+    init_parameters,priors = add_to_bibly_priors_dict_uniform(f,"f0",init_parameters,priors,tol=0.1)      #uniform
     init_parameters,priors = add_to_bibly_priors_dict_uniform(fdot,"fdot",init_parameters,priors,tol=0.01) #uniform
 
     #If we set the true process noise to zero, then don't bother searching over this parameter
