@@ -107,17 +107,37 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None):
     plt.style.use('science')
 
-    # Opening JSON file
-    f = open(path)
-    
-    # returns JSON object as 
-    # a dictionary
-    data = json.load(f)
-    print("The evidence is:", data["log_evidence"])
-    f.close()
 
-    #Make it a dataframe. Nice for surfacing
-    df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
+
+
+    print(path.split('.')[-1])
+    if path.split('.')[-1] == 'json':
+
+        # Opening JSON file
+        f = open(path)
+        
+        # returns JSON object as 
+        # a dictionary
+        data = json.load(f)
+        print("The evidence is:", data["log_evidence"])
+        f.close()
+
+        #Make it a dataframe. Nice for surfacing
+        df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
+
+
+
+    else: #is a parquet gzip
+        df_posterior = pd.read_parquet(path) 
+
+
+
+    #Make omega into nHz
+    df_posterior["omega_gw"] = df_posterior["omega_gw"]*1e9
+    df_posterior["h"] = df_posterior["h"]*1e12
+
+    display(df_posterior)
+
 
 
     print("Number of samples:")
@@ -143,47 +163,55 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     import warnings
     warnings.filterwarnings("error")
 
-    try:
-        print("running with increased label size")
-        fs = 20
-        fig = corner.corner(y_post, 
-                            color='C0',
-                            show_titles=True,
-                            smooth=True,smooth1d=True,
-                            truth_color='C2',
-                            quantiles=[0.16, 0.84],
-                            truths = injection_parameters,
-                            range=ranges,
-                            labels = labels,
-                            label_kwargs=dict(fontsize=fs),
-                            axes_scales = axes_scales)
-                
-
-        #Pretty-ify
-        for ax in fig.axes:
-
-            if ax.lines: #is anything plotted on this axis?
-                
-                ax.yaxis.set_major_locator(plt.MaxNLocator(4))
-                ax.yaxis.set_tick_params(labelsize=fs-6)
-                ax.xaxis.set_tick_params(labelsize=fs-6)
-
-            
+    #try:
+    
+    print("running with increased label size")
+    fs = 20
+    fig = corner.corner(y_post, 
+                        color='C0',
+                        show_titles=True,
+                        smooth=True,smooth1d=True,
+                        truth_color='C2',
+                        quantiles=[0.16, 0.84],
+                        truths = injection_parameters,
+                        range=ranges,
+                        labels = labels,
+                        label_kwargs=dict(fontsize=fs),
+                        axes_scales = axes_scales)
             
 
-        if savefig != None:
-            plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
-            
-        if title != None:
-            fig.suptitle(title, fontsize=20)  
-        plt.show()
+    #Pretty-ify
+    for ax in fig.axes:
 
-    except:
-        print("Exception - likely because corner.corner cannot find nice contours since NS did not coverge well")
-        print("There is probably a large difference in the medians and the truth values")
-        print("Skipping plotting")
-        plt.close()
-        pass
+        if ax.lines: #is anything plotted on this axis?
+            
+            ax.yaxis.set_major_locator(plt.MaxNLocator(3))
+            ax.xaxis.set_major_locator(plt.MaxNLocator(3))
+
+            ax.yaxis.set_tick_params(labelsize=fs-6)
+            ax.xaxis.set_tick_params(labelsize=fs-6)
+
+
+        ax.title.set_size(18)
+        # print("The title is:")
+        # print(ax.get_title())
+
+        
+        
+
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
+        
+    if title != None:
+        fig.suptitle(title, fontsize=20)  
+    plt.show()
+
+    # except:
+    #     print("Exception - likely because corner.corner cannot find nice contours since NS did not coverge well")
+    #     print("There is probably a large difference in the medians and the truth values")
+    #     print("Skipping plotting")
+    #     plt.close()
+    #     pass
 
     print("**********************************************************************")
 

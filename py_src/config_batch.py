@@ -26,14 +26,14 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-N = 1000
+N = 10
 seeds = np.arange(1235+10,1235+10+N,1)
 h = 1e-12 
 model = "earth"
 with open('batch.sh','w') as b: 
 
     for s in seeds:
-        arg_name = f"canonical_model_earth_batch_shifted_prior_{s}"
+        arg_name = f"canonical_model_earth_batch_shifted_prior_fixed_h{s}"
         create_slurm_job(arg_name,h,model,s)
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
