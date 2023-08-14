@@ -113,6 +113,11 @@ Babak S.,  Sesana A.,  2012, \mn@doi [Phys. Rev. D]
 {Babak} S.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stv2092}, \href
   {https://ui.adsabs.harvard.edu/abs/2016MNRAS.455.1665B} {455, 1665}
 
+\bibitem[\protect\citeauthoryear{{Bailes} et~al.,}{{Bailes}
+  et~al.}{2017}]{Bailes2017PASA...34...45B}
+{Bailes} M.,  et~al., 2017, \mn@doi [\pasa] {10.1017/pasa.2017.39}, \href
+  {https://ui.adsabs.harvard.edu/abs/2017PASA...34...45B} {34, e045}
+
 \bibitem[\protect\citeauthoryear{Bailes et~al.,}{Bailes
   et~al.}{2020}]{meertime2}
 Bailes M.,  et~al., 2020, \mn@doi [Publications of the Astronomical Society of
@@ -354,6 +359,11 @@ Kerr M.,  Hobbs G.,  Johnston S.,   Shannon R.~M.,  2015, \mn@doi [Monthly
   et~al.}{2015}]{Lentati2015}
 {Lentati} L.,  et~al., 2015, \mn@doi [\mnras] {10.1093/mnras/stv1538}, \href
   {https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.2576L} {453, 2576}
+
+\bibitem[\protect\citeauthoryear{{Lower} et~al.,}{{Lower}
+  et~al.}{2020}]{UTMOST}
+{Lower} M.~E.,  et~al., 2020, \mn@doi [\mnras] {10.1093/mnras/staa615}, \href
+  {https://ui.adsabs.harvard.edu/abs/2020MNRAS.494..228L} {494, 228}
 
 \bibitem[\protect\citeauthoryear{{Lower} et~al.,}{{Lower}
   et~al.}{2021}]{Lower2021MNRAS.508.3251L}
@@ -666,8 +676,14 @@ Zhu X.-J.,  Wen L.,  Xiong J.,  Xu Y.,  Wang Y.,  Mohanty S.~D.,  Hobbs G.,
   Society] {10.1093/mnras/stw1446}, 461, 1317
 
 \bibitem[\protect\citeauthoryear{{Zic} et~al.,}{{Zic}
-  et~al.}{2023}]{Parkes2023}
-{Zic} A.,  et~al., 2023, \mn@doi [arXiv e-prints] {10.48550/arXiv.2306.16230},
+  et~al.}{2023a}]{Parkes2023}
+{Zic} A.,  et~al., 2023a, \mn@doi [arXiv e-prints] {10.48550/arXiv.2306.16230},
+  \href {https://ui.adsabs.harvard.edu/abs/2023arXiv230616230Z} {p.
+  arXiv:2306.16230}
+
+\bibitem[\protect\citeauthoryear{{Zic} et~al.,}{{Zic}
+  et~al.}{2023b}]{Zic2023arXiv230616230Z}
+{Zic} A.,  et~al., 2023b, \mn@doi [arXiv e-prints] {10.48550/arXiv.2306.16230},
   \href {https://ui.adsabs.harvard.edu/abs/2023arXiv230616230Z} {p.
   arXiv:2306.16230}
 
