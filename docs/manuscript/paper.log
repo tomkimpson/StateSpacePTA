@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 AUG 2023 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  15 AUG 2023 08:29
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -636,11 +636,7 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box97
 )
-(./paper.aux
-
-LaTeX Warning: Label `fig:median_distriubutins' multiply defined.
-
-)
+(./paper.aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 89.
@@ -1134,36 +1130,94 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 /images/1237_broad_fdot.png> <./images/1237_broad_sigma_p.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<example-image-a.pdf, id=833, 321.2pt x 240.9pt>
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 575.
-(pdftex.def)             Requested size: 152.40155pt x 114.3037pt.
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 580.
-(pdftex.def)             Requested size: 152.40155pt x 114.3037pt.
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 585.
-(pdftex.def)             Requested size: 152.40155pt x 114.3037pt.
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 590.
-(pdftex.def)             Requested size: 228.59845pt x 171.45187pt.
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 595.
-(pdftex.def)             Requested size: 228.59845pt x 171.45187pt.
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 600.
-(pdftex.def)             Requested size: 228.59845pt x 171.45187pt.
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 605.
-(pdftex.def)             Requested size: 228.59845pt x 171.45187pt.
- [11 <./images/PaperBayesRatioPlotn1000_stacked.png>]
+
+
+LaTeX Warning: Reference `iota' on page 11 undefined on input line 571.
+
+<images/likelihood_omega_earth.png, id=840, 500.8311pt x 491.9178pt>
+File: images/likelihood_omega_earth.png Graphic file (type png)
+<use images/likelihood_omega_earth.png>
+Package pdftex.def Info: images/likelihood_omega_earth.png  used on input line 
+613.
+(pdftex.def)             Requested size: 111.76062pt x 109.7685pt.
+<images/likelihood_phi0_earth.png, id=841, 512.8761pt x 491.9178pt>
+File: images/likelihood_phi0_earth.png Graphic file (type png)
+<use images/likelihood_phi0_earth.png>
+Package pdftex.def Info: images/likelihood_phi0_earth.png  used on input line 6
+19.
+(pdftex.def)             Requested size: 111.76062pt x 107.19391pt.
+<images/likelihood_psi_earth.png, id=842, 520.8258pt x 491.9178pt>
+File: images/likelihood_psi_earth.png Graphic file (type png)
+<use images/likelihood_psi_earth.png>
+Package pdftex.def Info: images/likelihood_psi_earth.png  used on input line 62
+4.
+(pdftex.def)             Requested size: 111.76062pt x 105.5576pt.
+<images/likelihood_iota_earth.png, id=843, 520.8258pt x 491.9178pt>
+File: images/likelihood_iota_earth.png Graphic file (type png)
+<use images/likelihood_iota_earth.png>
+Package pdftex.def Info: images/likelihood_iota_earth.png  used on input line 6
+28.
+(pdftex.def)             Requested size: 111.76062pt x 105.5576pt.
+<images/likelihood_delta_earth.png, id=844, 512.8761pt x 491.9178pt>
+File: images/likelihood_delta_earth.png Graphic file (type png)
+<use images/likelihood_delta_earth.png>
+Package pdftex.def Info: images/likelihood_delta_earth.png  used on input line 
+634.
+(pdftex.def)             Requested size: 152.40155pt x 146.17284pt.
+<images/likelihood_alpha_earth.png, id=845, 512.8761pt x 491.9178pt>
+File: images/likelihood_alpha_earth.png Graphic file (type png)
+<use images/likelihood_alpha_earth.png>
+Package pdftex.def Info: images/likelihood_alpha_earth.png  used on input line 
+639.
+(pdftex.def)             Requested size: 152.40155pt x 146.17284pt.
+<images/likelihood_h_earth.png, id=846, 516.4896pt x 491.9178pt>
+File: images/likelihood_h_earth.png Graphic file (type png)
+<use images/likelihood_h_earth.png>
+Package pdftex.def Info: images/likelihood_h_earth.png  used on input line 644.
+
+(pdftex.def)             Requested size: 152.40155pt x 145.15202pt.
+<images/likelihood_omega_psr.png, id=847, 500.8311pt x 491.9178pt>
+File: images/likelihood_omega_psr.png Graphic file (type png)
+<use images/likelihood_omega_psr.png>
+Package pdftex.def Info: images/likelihood_omega_psr.png  used on input line 66
+2.
+(pdftex.def)             Requested size: 111.76062pt x 109.7685pt.
+<images/likelihood_phi0_psr.png, id=848, 500.8311pt x 491.9178pt>
+File: images/likelihood_phi0_psr.png Graphic file (type png)
+<use images/likelihood_phi0_psr.png>
+Package pdftex.def Info: images/likelihood_phi0_psr.png  used on input line 667
+.
+(pdftex.def)             Requested size: 111.76062pt x 109.7685pt.
+<images/likelihood_psi_psr.png, id=849, 512.8761pt x 491.9178pt>
+File: images/likelihood_psi_psr.png Graphic file (type png)
+<use images/likelihood_psi_psr.png>
+Package pdftex.def Info: images/likelihood_psi_psr.png  used on input line 672.
+
+(pdftex.def)             Requested size: 111.76062pt x 107.19391pt.
+<images/likelihood_iota_psr.png, id=850, 512.8761pt x 491.9178pt>
+File: images/likelihood_iota_psr.png Graphic file (type png)
+<use images/likelihood_iota_psr.png>
+Package pdftex.def Info: images/likelihood_iota_psr.png  used on input line 676
+.
+(pdftex.def)             Requested size: 111.76062pt x 107.19391pt.
+<images/likelihood_delta_psr.png, id=851, 500.8311pt x 491.9178pt>
+File: images/likelihood_delta_psr.png Graphic file (type png)
+<use images/likelihood_delta_psr.png>
+Package pdftex.def Info: images/likelihood_delta_psr.png  used on input line 68
+1.
+(pdftex.def)             Requested size: 152.40155pt x 149.68567pt.
+<images/likelihood_alpha_psr.png, id=852, 500.8311pt x 491.9178pt>
+File: images/likelihood_alpha_psr.png Graphic file (type png)
+<use images/likelihood_alpha_psr.png>
+Package pdftex.def Info: images/likelihood_alpha_psr.png  used on input line 68
+6.
+(pdftex.def)             Requested size: 152.40155pt x 149.68567pt.
+<images/likelihood_h_psr.png, id=853, 516.4896pt x 491.9178pt>
+File: images/likelihood_h_psr.png Graphic file (type png)
+<use images/likelihood_h_psr.png>
+Package pdftex.def Info: images/likelihood_h_psr.png  used on input line 691.
+(pdftex.def)             Requested size: 152.40155pt x 145.15202pt.
+[11 <./images/PaperBayesRatioPlotn1000_stacked.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12 <./images/stacked_GW_plot_1000.png>]
@@ -1178,34 +1232,40 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ribution_h.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf>]
+ [15 <./images/likelihood_omega_earth.png> <./images/likelihood_phi0_earth.png>
+ <./images/likelihood_psi_earth.png> <./images/likelihood_iota_earth.png> <./im
+ages/likelihood_delta_earth.png> <./images/likelihood_alpha_earth.png> <./image
+s/likelihood_h_earth.png> <./images/likelihood_omega_psr.png> <./images/likelih
+ood_phi0_psr.png> <./images/likelihood_psi_psr.png> <./images/likelihood_iota_p
+sr.png> <./images/likelihood_delta_psr.png> <./images/likelihood_alpha_psr.png>
+ <./images/likelihood_h_psr.png>]
 
-LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 673.
+LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 757.
 
 
-LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 685.
+LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 769.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--686
+Underfull \hbox (badness 10000) in paragraph at lines 768--770
 
  []
 
 
-LaTeX Warning: Reference `sec:statespace' on page 16 undefined on input line 70
-2.
+LaTeX Warning: Reference `sec:statespace' on page 16 undefined on input line 78
+6.
 
 
 LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 16 undefined
- on input line 711.
+ on input line 795.
 
 [16
 
 ]
 
-LaTeX Warning: Reference `eq:main_eq' on page 17 undefined on input line 743.
+LaTeX Warning: Reference `eq:main_eq' on page 17 undefined on input line 827.
 
 
-Overfull \hbox (18.861pt too wide) detected at line 750
+Overfull \hbox (18.861pt too wide) detected at line 834
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
@@ -1239,17 +1299,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: C241990DDD5E01A7F0C9D6F80277511C;2755.
  ) 
 Here is how much of TeX's memory you used:
- 17199 strings out of 478268
- 269114 string characters out of 5846348
- 580044 words of memory out of 5000000
- 34807 multiletter control sequences out of 15000+600000
+ 17350 strings out of 478268
+ 274311 string characters out of 5846348
+ 581049 words of memory out of 5000000
+ 34944 multiletter control sequences out of 15000+600000
  579255 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,2766b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1268,21 +1325,20 @@ nts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2022/texmf-dist/font
 s/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2022/texmf-dist/
 fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/texmf-d
 ist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2022/texmf-
-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist/f
-onts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/t
-ype1/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
-lic/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txf
-onts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txs
-ys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local
-/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (18 pages, 5360635 bytes).
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts
+/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
+public/txfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
+/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
+tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on paper.pdf (18 pages, 7504143 bytes).
 PDF statistics:
- 1300 PDF objects out of 1440 (max. 8388607)
- 1176 compressed objects within 12 object streams
- 241 named destinations out of 1000 (max. 500000)
- 232 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1329 PDF objects out of 1440 (max. 8388607)
+ 1179 compressed objects within 12 object streams
+ 242 named destinations out of 1000 (max. 500000)
+ 297 words of extra memory for PDF output out of 10000 (max. 10000000)
 

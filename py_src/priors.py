@@ -188,17 +188,17 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
 
 
         init_parameters["delta_gw"] = None
-        priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+        priors["delta_gw"] = bilby.core.prior.Uniform(-np.pi/2.0, np.pi/2, 'delta_gw')
 
 
         init_parameters["alpha_gw"] = None
-        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
 
 
         init_parameters["h"] = None
-        #priors["h"] = bilby.core.prior.LogUniform(h/100.0, h*10.0, 'h')
+        priors["h"] = bilby.core.prior.LogUniform(h/100.0, h*10.0, 'h')
         #priors["h"] = bilby.core.prior.LogUniform(1e-15, 1e-12, 'h')
-        priors["h"] = h #experiment fixing $h$ to compare performance in $\iota$
+        #priors["h"] = h #experiment fixing $h$ to compare performance in $\iota$
 
     return init_parameters,priors 
 

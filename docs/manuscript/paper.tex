@@ -565,51 +565,145 @@ For each realisation of the noise we infer a marginalised 1-D posterior for each
 
 
 \subsection{Bias by dropping pulsar terms}\label{sec:bias}
-\textcolor{red}{TK: TBD. Will show some likelihood plots and how the likelihood optima does not coincide with the injection value when the pulsar term is dropped.}
+Evident in the preceding discussion is the fact that for some of the $\boldsymbol{\theta}_{\rm gw}$ parameters the inferred value (i.e. the median of the 1D marginalised posterior) is biased away from the true injection value. This effect is most severe for $\iota$ and $h_0$ (e.g. Figures \ref{fig:iota}, \ref{fig:median_distriubutins}) but also present to a lesser extent in other static parameters such as $\alpha$ and $\psi$. In this Section we demonstrate how this bias results from the dropping of the pulsar terms described in Section \ref{sec:parameter_estim}.
+
+
+In Figure \ref{fig:likelihood_curves_earth} we plot the variation in the log-likelihood returned by the Kalman filter, Eq. \ref{eq:likelihood}, as we vary a single static parameter of $\boldsymbol{\theta}_{\rm gw}$, holding all other parameters constant at their true injected value. For instance, in Figure \ref{fig:omega_likelihood} we pass different values of $\Omega$ in the range $10^{-9}$ to $10^{-5}$ Hz into the Kalman filter, whilst holding the remaining parameters constant, and plot the retuned log-likelihood as a function of $\Omega$. The dashed orange line labels the true injection value whilst the dashed red line labels the location of the maximum log-likelihood. Finding the location of this maximum across all parameters is effectively the goal of any likelihood based inference method, such as nested sampling. 
+
+
+
+The key observation from Figure \ref{fig:likelihood_curves_earth} is that for many parameters the location of the likelihood optima and the location of the injected value are not the same, that is, the orange and red dashed lines are not coincident. 
+
+
+
+This feature shows up as a bias in 
+
+
+
+
+Taking a specific example, in Figure \ref{fig:iota_likelihood}
+Consequently 
+
+
+
+
+
+
+
+Indeed this is a 1D representation of a multidimensinal problem and the exact shape of the likelihood curves depends on the 
+
+
+
+
+
+
+
+
+Whilst the earth term likelihoo dcurves are generally smooth...
+
+
+
+
+
+
+
+
+
+
+If the effect is present in our analysis, also present in other analysis?
+
+
+
 
 
 \begin{figure*}
 	\setkeys{Gin}{width=\linewidth}   
 	
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_omega_earth}
 		\caption{$\Omega$}
+		\label{fig:omega_likelihood}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_phi0_earth}
 		\caption{$\Phi_0$}
 	\end{subfigure}
 	\hfill	
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_psi_earth}
 		\caption{$\psi$}
 	\end{subfigure}
-   \medskip
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_iota_earth}
 		\caption{$\iota$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
-		\caption{$\delta$}
+			\label{fig:iota_likelihood}
 	\end{subfigure}
 	\medskip
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{example-image-a}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_delta_earth}
+		\caption{$\delta$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_alpha_earth}
 		\caption{$\alpha$}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics{example-image-a}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics{images/likelihood_h_earth}
 		\caption{$h$}
 	\end{subfigure}
 	
-	\caption{}\label{fig:likelihood_curves}
+	\caption{}\label{fig:likelihood_curves_earth}
 \end{figure*}
 
 
+
+
+
+
+
+
+\begin{figure*}
+	\setkeys{Gin}{width=\linewidth}   
+	
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_omega_psr}
+		\caption{$\Omega$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_phi0_psr}
+		\caption{$\Phi_0$}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_psi_psr}
+		\caption{$\psi$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_iota_psr}
+		\caption{$\iota$}
+	\end{subfigure}
+	\medskip
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_delta_psr}
+		\caption{$\delta$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/likelihood_alpha_psr}
+		\caption{$\alpha$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics{images/likelihood_h_psr}
+		\caption{$h$}
+	\end{subfigure}
+	
+	\caption{As Figure \ref{fig:likelihood_curves_earth} but now including the pulsar terms in the measurement equation.}\label{fig:likelihood_curves_psr}
+\end{figure*}
 
 
 %\begin{figure*}
