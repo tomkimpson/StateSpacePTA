@@ -1,0 +1,141 @@
+
+Section 2:
+
+Under Eq. (2) you have $f_{\rm EM}$ instead of $f_{\rm em}$, but at the start of Section 2 you have a $f_m$. Are these all interchangeable?
+
+---> Fixed. $f_{\rm EM}$ is wrong, $f_{\rm em}$ is correct, the electromagnetic spin down. $f_m$ is the measured frequency which comes in in Equation 16.
+
+Might want to spell out "... translate into red noise fluctions in the rotational phase $\phi(t)...$ (and thus the TOA residuals) after being filtered..."
+
+---> This part was Andrew. I can make it more explicit but leaving as is for now to pass the "Andrew review"
+
+Minor and stylistic, but should use \eqref{reflabel} and either "Equation" or "Eq.", rather than mixing
+
+---> Good point. Equation(s) is now used throughout along with \eqref
+
+Section 2.2 heading should be "Modulation of pulsar frequency by a GW", and first sentence should be "pulsar frequency" not "pulse frequency" (which in pulsar literature refers to the radio frequency at which the pulsar is emitting).
+
+---> Agreed. Fixed
+
+Do you mean "the pulsar TOAs" are modulated? Or "the pulsar frequency" is modulated?
+
+---> To my mind they are effectively equivalent, i.e. 1/(TOA_2 - TOA_1) ~ f, but I accept this is somewhat imprecise conception and language. I think TOAs is fine here to match common terminology used by pulsar people, even though in this work we deal with frequencies... May revise this in future 
+
+Do you actually work with "pulsar TOAs" or with pulsar frequencies?
+
+---> As above
+
+Why not just have 2\pi f_p in Eq. (13) --- do you use \omega later?
+
+---> Yeah I take the point. \omega is used to match Maggiore and emphasise that it is measured in the MCRF. May change this, will consider.
+
+What's the semi-colon in Eq. (13) and (17) mean? Could it just be a comma?
+
+---> semicolon typically used to separate variables (i.e. t) from fixed parameters (i.e. x=0)
+
+No need to define MCRF as acronym if it isn't used later.
+
+---> Agreed. Fixed
+
+"i.e. q is not a function of time" -> "i.e. neither q nor d is a function of time"
+
+---> Good point! Fixed.
+
+Should probably include a reference to tempo2? Not sure what it'd be, but Vargas2023 probably has it.
+
+Above Eq. (14), "the measured frequency" again makes me think of the radio frequency, not the pulsar spin frequency.
+
+Eq. (16) is a little unclear, I think it's saying f_p is a function of (t-d), while g is a function of just t? Maybe suppress the ^{(n)} for clarity? Or decrease spacing between function and argument parens? Obviously re-introduce when needed, i.e. next equation.
+
+One option for q^i is $q^{i,\,(n)}$ (I know super/subscript comma with indices can refer to derivatives, but context should be clear enough).
+
+Should have square brackets for the 1-exp term in Eq. (17)
+
+Typo as Eq. (17): "It is will also" (really the whole sentence is jumbled)
+
+Eq. (18) should be either three lines, or some of the second line should go on first. Nested parans should go {[()]}. 
+
+"Equations 16, 17, 18" -> "Equations (16)--(18)"
+
+Again, "radio pulse frequency" refers to the carrier radio wave frequency, not the NS spin frequency measured at Earth.
+
+
+Section 3:
+
+Does the Kalman filter tell you the evolution (i.e. X as a function of time), or does it give you an estimate of X at the current time (given the past history)? My gut feeling is the latter, and the next paragraph implies as much.
+
+"timestep $i = 1, ..., M$" -> "timestep indexed by $1 \leq i \leq M$" 
+
+Why is the likelihood Gaussian, necessarily? What do the angled brackets in the definition of S_i represent? N in Eq. (24) is undefined until Section 4.1.2, I think. 
+
+Is Eq. (25) valid? I'd imagine each L_i is correlated, given they share much of the same data (i.e. the Kalman filter "looks back" and iteratively updates X as it sees more Y), so can you simply multiply the likelihoods together? 
+
+(Sorry for all the "fundamental" questions around this section, I'm trying to imagine myself as a referee, and how they might read it.)
+
+---> Fundamental + thorough is great. It is very appreciated - thanks Julian!
+
+I think a slight re-ordering, making clear the order-of-operations would help a reader understand the Kalman + nested sampling setup. Something along the lines of: given one \theta, feed it to Kalman filter, which iteratively ingests the data given that \theta, and spits out a single log-likelihood (Eq. (25)), then return that log-likelihood to the sampler, which updates \theta via the MCMC in the nested sampler. This constructs the posterior for \theta. Maybe a small flowchart? I know Pat (and others) have used the setup in the past, but many of the readers of this paper wouldn't have that background.
+
+Is M_1 really that of Section 2, given you later drop the pulsar terms?
+
+Section 4:
+
+What is "the system noise"? It isn't a term that's been previously defined
+
+Cut "representative" from "representative synthetic data" (or define what it is representative of)
+
+$q^n$ -> $q^{(n)}$ to match previous sections
+
+We're back to $f_{em}$ rather than $f_m$, check for consistency!
+
+"for all $n$" -> "for all pulsars"
+
+The paragraph under Eq. (31) repeats itself about sufficient, qualitative, visually, etc. Should probably tighten it up.
+
+Figure 3 doesn't entirely convince me, as you note in the caption: the yellow seems to have a quadratic (sinusoidal?) trend with time, whereas the blue is much more consistent with zero residuals as a function of time.
+
+I don't understand what "Note that f_m^{(n)} is modified by..." sentence means. Are you saying that each pulsar's measured frequency will have a different measurement uncertainty in reality, but not in your simulated PTA? 
+
+I see in Eq. (33) and (34) that f_em is not f_m! This wasn't clear to me until now, and I'm still not sure what the difference is...
+
+"are selected arbitrarily, subject to being astrophysically reasonable and representative." -> "are selected to be astrophysically reasonable and representative."
+
+I balk a little at log-uniform priors with hard boundaries on \Omega and h_0 being "non-informative". All priors encode a belief about the parameter. Do we truly believe there should be exponentially more SMBBH at \Omega = 1e-9 than 1e-5? The prior on h0 is saying we believe that h_0 = 1e-15 is exponentially more likely than 1e-9. I know priors must be set (often arbitrarily), but we can just state them in the table without claiming they are uninformative. What'd be best is showing that the inference is broadly insensitive to the choice of prior, but I imagine this might be computationally prohibitive.
+
+Typos Table 1: Sin, Cosine can't be priors. You should have \cos \delta and \cos \iota having Uniform priors. The bounds on h_0 prior are swapped. You say in the text you allow \pm1% on the f and dotf, but the table implies 10%.  
+
+What are f_{\rm ATNF}^n, \dot{f}_{\rm ATNF}^n aren't defined. I can interpret them, but it's not eminently clear.
+
+Why quote the mean errors in the ATNF if you really want to say that they're typically tiny (via the median)? Just cut the mean errors bit to shorten the paragraph.
+
+I'm really not sure whether the \pm1% on frequency/frequency deriv is justifiable: there is no radio pulsar timed that badly, and if there were, it would never be included into a PTA... Saying you use those wide priors for computational reasons is more justifiable, in my opinion.
+
+$[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ -> $[\gamma^{(n)}]^{-1} \gg T_{\rm obs}$
+
+"the results are unchanged" which results? in Section 4.2.2?
+
+I know the "pulsar terms" phrase is common parlance, but it slightly confused me that you could drop all "pulsar terms from the model" but still be estimating \theta_{\rm psr,reduced}
+
+The discussion of Fig 4 should be tightened. What do you mean "accurately estimate"? That the injected value is included within a 90% credible interval of the posterior? The \iota problem should be noted/explained (I know this is a personal bugbear, but \iota is clearly the problem parameter in Fig 4). The median of the posterior is not generally a useful summary -- while it's neat that it matches the injection, you should actually expect that for ~7 parameters, some of the should have the injected value somewhere further away than the median. The units in the subscripts of the parameters is also odd in my opinion, especially as it isn't elsewhere in the text.
+
+Fig 5 could maybe be collapsed somehow? Like, what if you show or state the fraction of pulsars for which the 90% credible interval contains the injected f, f_dot, sigma? As you say, it isn't the goal of the method to estimate these pulsar parameters precisely. In fact, showing your posteriors on f that are "so big" (i.e. ~0.3 Hz wide) might worry pulsar astronomers, as frequencies are "easy" to measure to much higher precision.
+
+"a bias that results from dropping the Earth terms" --- do you mean pulsar terms?
+
+I agree that discussion of the "bumps" is probably a technical detail that doesn't require so much text. However, I think discussing it in terms of the h0 at which the algorithm can no longer guarantee Z(M_1) > Z(M_0) is important.
+
+The question of upper limit or sensitivity of the method is important, i.e. what does h_0 ~ 3e-15 depend on? I imagine T_obs, M, the location of the source w.r.t the PTA. Can/should we quantify any of this dependence? I think at least listing, and qualitatively discussing it is important.
+
+4.2.4 first sentence remove "just"
+
+My comments of Fig 4 also apply to Fig 7. I think it better to precisely talk about injected values vs. posterior credible intervals, rather than the more colloquiual "fidelity" "variance", etc. 
+
+The discussion of the h_0/\iota problem does not really explain things adequately for me. Partly because I can't see how h_plus, h_cross feed into the measurement equation, I can't see how they are identifiable. If they are identifiable formally, why is the likelihood surface so insensitive to the data? naively they seem to be a pre-factor, which scales g. I also can't see why iota in particular is sensitive to dropping the pulsar terms.
+
+Again, I wouldn't talk about "variance", but instead credible intervals of the posterior. My points about Fig 5 also apply to Fig 9 -- the median of a posterior is not very informative, better to ask whether the injected values lie within a credible interval.
+
+
+Section 5:
+
+I'd worry a bit about scope-creep! I think this paper has enough good stuff already to publish, and many of those questions can be answered in follow-ups.
+
