@@ -47,9 +47,9 @@ with open('batch.sh','w') as b:
     for s in seeds:
         for h in h_range:
             for n in noise_models:
-                 arg_name = f"paper_bayes_ratios_n1000_V2_h_{h}_model_{n}_seed_{seed}"
+                 arg_name = f"paper_bayes_ratios_n1000_V2_h_{h}_model_{n}_seed_{s}"
                  print(arg_name)
-                 create_slurm_job(arg_name,h,n,seed)
+                 create_slurm_job(arg_name,h,n,s)
 
                  b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
