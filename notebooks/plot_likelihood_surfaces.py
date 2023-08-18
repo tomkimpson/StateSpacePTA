@@ -51,12 +51,12 @@ def load_and_plot(path,ax):
     z = np.reshape(surface_pulsar, (lx, ly))
    
     # Plot a 3D surface
-    #ax.plot_surface(X, Y, z,alpha=0.5)
+    ax.plot_surface(X, Y, z,alpha=0.5)
 
-    CS = ax.pcolormesh(X, Y, z) #clim=(0.0, 5e5)
+    #CS = ax.pcolormesh(X, Y, z) #clim=(0.0, 5e5)
     #plt.contour(X, Y, Z, 4, colors='k')
-    plt.colorbar(CS)
-    ax.set_xscale('log')
+    #plt.colorbar(CS)
+   # ax.set_xscale('log')
 
 
 
@@ -67,8 +67,8 @@ def load_and_plot(path,ax):
 
 
 #load_and_plot('tmp_likelihood_surface2_earth.npz',ax)
-load_and_plot(path1,ax)
-#load_and_plot(path2,ax)
+#load_and_plot(path1,ax)
+load_and_plot(path2,ax)
 
 #ax.scatter(1e-12,1.0,-586119.6803021401,c='r', s=20)
 plt.show()

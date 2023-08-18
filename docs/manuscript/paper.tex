@@ -71,7 +71,7 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-\author[Kimpson]{Kimpson$^{1}$, Melatos, O'Leary, Evans, others, etc. etc. %
+\author[Kimpson]{Kimpson$^{1}$, Melatos, O'Leary, Evans, others, etc. etc.%
 \thanks{Contact e-mail: \href{tom.kimpson@unimelb.edu.au}{tom.kimpson@unimelb.edu.au}}%
 %\thanks{Present address: Science magazine, AAAS Science International, \mbox{82-88}~Hills Road, Cambridge CB2~1LQ, UK}%
 \\
@@ -93,7 +93,50 @@ $^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, 
 
 % Abstract of the paper
 \begin{abstract}
-This is an abstract
+	\textcolor{red}{TK: will obviously drop the bullet points, but useful for writing a concise abstract.}
+	
+	\begin{itemize}
+		\item Continuous nHz gravitational waves from individual supermassive black hole binaries are a primary target for Pulsar Timing Array (PTA) observations.
+		\item We present a new and complementary state-space approach to PTA data analysis.
+		\item We show how to combine a Kalman filter and nested sampling to estimate te
+		
+	\end{itemize}
+
+
+
+
+
+
+
+
+
+
+ using the combination of a Kalman filter and .  
+
+
+
+
+
+that is able to self consistenyl track the intrinsic timingnoise in PTA pulsars and disentangle it from the GW-induced TOA modulat
+
+
+We illustrate how our method is able to recover the full posterior distributions of the N model parameters 
+
+
+We combine the to...
+
+
+
+The method is tested...
+
+
+bias observed....
+
+	
+
+
+
+
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -175,7 +218,7 @@ In the presence of a GW, the pulsar frequency measured by an observer in the loc
 \subsubsection{Plane GW perturbation}
 We consider a gravitational plane wave from a single,distant source, which perturbs a background Minkowski metric $\eta_{\mu \nu}$ as
 \begin{equation}
-	g_{\mu \nu} = \eta_{\mu \nu} + H_{\mu \nu} \exp{[i(\Omega(\boldsymbol{n} \cdot \boldsymbol{x} - t) + \Phi_0)]} \ ,
+	g_{\mu \nu} = \eta_{\mu \nu} + H_{\mu \nu} \exp{ \{ i[\Omega(\boldsymbol{n} \cdot \boldsymbol{x} - t) + \Phi_0] \} } \ ,
 \end{equation}
 with spatial coordinates $\boldsymbol{x}$ and global coordinate time $t$. The GW has a constant angular frequency $\Omega$, propagates in the $\boldsymbol{n}$-direction (where $\boldsymbol{n}$ is a unit vector), has amplitude tensor $H_{\mu \nu}$, and has a phase offset  $\Phi_0$. Throughout this paper we work with pulsar TOAs which have been defined relative to the Solar System barycentre (SSB). We are free to choose our coordinate system such that $\Phi_0$ is the GW phase at $t=0$ at the SSB. In this paper $\Omega$ has no time dependence; the source is approximated as monochromatic. Studies of SMBHB inspirals in the PTA context show that the gravitational wave frequency $f_{\rm gw}$ ($=\Omega / 2 \pi $) evolves over decadal timescales as \citep[e.g.][]{Zhu10},
 \begin{equation}
@@ -217,7 +260,7 @@ In general radio pulses from a pulsar are transmitted as amplitude modulations o
  \Delta p_t = \frac{\omega}{2} \frac{ h_{ij} (t; \boldsymbol{x}= 0)q^i q^j }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}) }  \left(1 -e^{i \Omega (1 + \boldsymbol{n}\cdot \boldsymbol{q})  d}\right)
 	\label{eq:momentum_shift}
 \end{equation}
-where $\omega$ is the angular pulse frequency $(= 2 \pi f_{\rm p})$ measured in the momentarily comoving reference frame of an observer, $h_{ij} = g_{ij} - \eta_{ij}$, $\boldsymbol{q}$ is the unit vector connecting the observer and the pulsar and $d$ is the distance to the pulsar. We take the pulsar location to be constant i.e.  neither $\boldsymbol{q}$ nor $d$ is not a function of time. In practice the pulsar locations vary with respect to the Earth but are constant with respect to the SSB. This barycentering correction is typically applied when generating TOAs using e.g. {\sc tempo2} and related timing software. Generally the measured frequency of a photon recorded by an observer who is travelling with 4-velocity $\boldsymbol{u}$ is given by the coordinate-independent expression:
+where $\omega$ is the angular pulse frequency $(= 2 \pi f_{\rm p})$ measured in the momentarily comoving reference frame of an observer, $h_{ij} = g_{ij} - \eta_{ij}$, $\boldsymbol{q}$ is the unit vector connecting the observer and the pulsar and $d$ is the distance to the pulsar. We take the pulsar location to be constant i.e.  neither $\boldsymbol{q}$ nor $d$ is a function of time. In practice the pulsar locations vary with respect to the Earth but are constant with respect to the SSB. This barycentering correction is typically applied when generating TOAs using e.g. {\sc tempo2} \citep{tempo2} and related timing software. Generally the measured frequency of a photon recorded by an observer who is travelling with 4-velocity $\boldsymbol{u}$ is given by the coordinate-independent expression:
 \begin{equation}
 	f = p_{\alpha} u^{\alpha} \ . 
 	\label{eq:freq_temporal}
@@ -231,19 +274,24 @@ where the perturbations to $\boldsymbol{u}$ from the GW are of higher order and 
 	f_{\rm m}^{(n)}(t) = f_{\rm p}^{(n)}(t-d) g^{(n)}(t) \ ,
 	\label{eq:measurement}
 \end{equation}
-where \textcolor{red}{TK: what is the best notation here to give $q^i$ an $(n)$ superscript?}
+where
 \begin{equation}
-	g^{(n)}(t) = 1 -  \frac{1}{2} \frac{h_{ij} (t; \boldsymbol{x}= 0)q^{i}_{(n)} q^{j}_{(n)} }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \left(1 -e^{i \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)}}\right) \ .
+	g^{(n)}(t) = 1 -  \frac{1}{2} \frac{h_{ij} (t; \boldsymbol{x}= 0)q^{i, \,(n)} q^{j, \,(n)}}{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \left(1 -e^{i \Omega \left[1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right]  d^{(n)}}\right) \ .
 	\label{eq:g_func}
 \end{equation}
-It is will also prove instructive to express Equation \eqref{eq:g_func} in a trigonometric form as,
-or in a trigonometric form 
+and $q^{i, \,(n)}$ labels the $i$-th coordinate component of the of the $n$-th pulsars position vector $\boldsymbol{q}^{(n)}$. It is also instructive to express Equation \eqref{eq:g_func} in a trigonometric form as,
 \begin{align}
-	g^{(n)}(t) &= 1 - \frac{1}{2} \frac{ H_{ij}q^i_{(n)} q^j_{(n)} }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) } \nonumber \\
-	& \times \left[ \cos(-\Omega t +\Phi_0) - \cos \left(-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)} \right) \right] \ .
+	g^{(n)}(t) &= 1 - \frac{1}{2} \frac{ H_{ij}q^{i, \,(n)} q^{j, \,(n)} }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) } \nonumber \\
+	& \times \Big\{ \cos\left[-\Omega t +\Phi_0\right] \nonumber \\
+	&- \cos \left[-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)} \right] \Big\} \ .
 	\label{eq:g_func_trig}
 \end{align}
-Equations \eqref{eq:measurement} -- \eqref{eq:g_func_trig},  define a measurement equation that relates the intrinsic pulsar spin frequency to the radio pulse frequency measured by an observer on Earth. 
+Equations \eqref{eq:measurement} -- \eqref{eq:g_func_trig},  define a measurement equation that relates the intrinsic pulsar spin frequency to the frequency measured by an observer on Earth. 
+
+\textbf{MAYB ESUPRESS N ? rm \,}
+
+
+\textbf{Introduce puslar terms dropping here insttea?}
 
 \section{Signal tracking and parameter estimation} \label{sec:detect}
 The set of static parameters $\boldsymbol{\theta}$ of the model outlined in Section \ref{sec:model} can be separated into parameters which correspond to the intrinsic frequency evolution of the pulsar and parameters of the GW source, i.e. 
@@ -285,15 +333,14 @@ In this section we present a new method to infer $\boldsymbol{\theta}$ and calcu
 		\caption{Kalman filter using incorrect estimate of the static parameters, $\hat{\boldsymbol{\theta}} \neq \boldsymbol{\theta}$}
 		\label{fig:25MB_bfs}
 	\end{subfigure}
-	\caption{Example application of a Kalman filter to estimate the intrinsic pulsar frequency state $f_{\rm p}(t)$ given a measured frequency $f_{\rm m}(t)$. We plot the ephemeris subtracted state $f'_{\rm p}(t) = f_{\rm p}(t) - f_{\rm em} (t)$ to better illustrate the stochastic wandering of the pulsar frequency. In (a) the Kalman filter is run using identically correct estimates of the static system parameters, $\hat{\boldsymbol{\theta}} = \boldsymbol{\theta}$ and the state is estimated accurately. In (b) the Kalman filter is run with $\hat{\boldsymbol{\theta}} \neq \boldsymbol{\theta}$ and the state is not estimated accurately. The top left panels show the true pulsar state $f'_{\rm p}(t)$ (blue line) and the state estimated by the Kalman filter, $\hat{f'}_{\rm p}(t)$ (green line). The middle left panels show the true $f_{\rm m}(t)$ (red line) and the measured frequency estimated  by the Kalman filter, $\hat{f}_{\rm m}(t)$ (magenta). The bottom left panels show the residual or the innovation $\epsilon(t) =f_{\rm m}(t) - \hat{f}_{\rm m}(t)$. The right hand panels plot the distribution of the innovation over the total observation period. In (a) the greed/blue and red/magenta lines are completely overlaid.}
+	\caption{Example application of a Kalman filter to estimate the intrinsic pulsar frequency state $f_{\rm p}(t)$ given a measured frequency $f_{\rm m}(t)$. We plot the ephemeris subtracted state $f'_{\rm p}(t) = f_{\rm p}(t) - f_{\rm em} (t)$ to better illustrate the stochastic wandering of the pulsar frequency. In (a) the Kalman filter is run using identically correct estimates of the static system parameters, $\hat{\boldsymbol{\theta}} = \boldsymbol{\theta}$ and the state is estimated accurately. In (b) the Kalman filter is run with $\hat{\boldsymbol{\theta}} \neq \boldsymbol{\theta}$ and the state is not estimated accurately. The top left panels show the true pulsar state $f'_{\rm p}(t)$ (blue line) and the state estimated by the Kalman filter, $\hat{f'}_{\rm p}(t)$ (green line). The middle left panels show the true $f_{\rm m}(t)$ (red line) and the measured frequency estimated  by the Kalman filter, $\hat{f}_{\rm m}(t)$ (magenta). The bottom left panels show the residual or the innovation $\epsilon(t) =f_{\rm m}(t) - \hat{f}_{\rm m}(t)$. The right hand panels plot the distribution of the innovation over the total observation period. In (a) the greed/blue and red/magenta lines are completely overlaid.  \textcolor{red}{TK: See Fig \ref{fig:kalmanexampleboth} in Appendix for an alternative version of this figure. Which do we prefer?}}
 	\label{fig:four figures}
 \end{figure*}
 
-The Kalman filter \citep{Kalman1} is an algorithm for recovering the most likely evolution of a set of system state variables, $\boldsymbol{X}$, given some noisy measurements, $\boldsymbol{Y}$. It is a common technique in signal processing that has been applied successfully in neutron star astrophysics \citep[e.g.][]{Meyers2021,Melatos2023}. In this work we use the linear Kalman filter which assumes a linear relation between $\boldsymbol{X}$ and $\boldsymbol{Y}$. Whilst the measurement equation, Equation \eqref{eq:measurement}, is non-linear in the static parameters it is linear in the state and measurement variables, $f_{\rm p}^{(n)}$ and $f_{\rm m}^{(n)}$ respectively. Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, the unscented Kalman filter \citep{882463van} or the particle filter \citep{Simon10}. \newline 
+The Kalman filter \citep{Kalman1} is a Gaussian-Markov model used to algorithmically recover the most likely set of unknown system state variables, $\boldsymbol{X}$, given some noisy measurements, $\boldsymbol{Y}$. It is a common technique in signal processing that has been applied successfully in neutron star astrophysics \citep[e.g.][]{Meyers2021,Melatos2023}. In this work we use the linear Kalman filter which assumes a linear relation between $\boldsymbol{X}$ and $\boldsymbol{Y}$. Whilst the measurement equation, Equation \eqref{eq:measurement}, is non-linear in the static parameters it is linear in the state and measurement variables, $f_{\rm p}^{(n)}$ and $f_{\rm m}^{(n)}$ respectively. Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, the unscented Kalman filter \citep{882463van} or the particle filter \citep{Simon10}. \newline 
 
 
-
-The full set of Kalman recursions is presented in Appendix \ref{sec:kalman}. At each discrete timestep $i = 1, ... , M$, the Kalman filter returns an estimate of the state variables, $\hat{\boldsymbol{X}}_i$, and the covariance of those estimates, $\boldsymbol{P}_i$. The filter tracks the error in its predictions of $\boldsymbol{X}_i$ by projecting the state predictions back into measurement space, $\hat{\boldsymbol{X}}_i \mapsto \hat{\boldsymbol{Y}}_i$, via the measurement equation, Equation \eqref{eq:measurement}. The measurement predictions can then be compared against the true observed noisy measurements to get a residual $\boldsymbol{\epsilon}_i = \boldsymbol{Y}_i  - \hat{\boldsymbol{Y}}_i$, sometimes termed the ``innovation". The Kalman filter also calculates the uncertainty in $\boldsymbol{\epsilon}_i$ via the innovation covariance $\boldsymbol{S}_i = \langle \boldsymbol{\epsilon}_i \boldsymbol{\epsilon}_i^{\intercal} \rangle$. The Gaussian log-likelihood can then be calculated at each timestep:
+The full set of Kalman recursions is presented in Appendix \ref{sec:kalman}. At each discrete timestep indexed by $ 1 \leq i  \leq M$, the Kalman filter returns an estimate of the state variables, $\hat{\boldsymbol{X}}_i$, and the covariance of those estimates, $\boldsymbol{P}_i$. The filter tracks the error in its predictions of $\boldsymbol{X}_i$ by projecting the state predictions back into measurement space, $\hat{\boldsymbol{X}}_i \mapsto \hat{\boldsymbol{Y}}_i$, via the measurement equation, Equation \eqref{eq:measurement}. The measurement predictions can then be compared against the true observed noisy measurements to get a residual $\boldsymbol{\epsilon}_i = \boldsymbol{Y}_i  - \hat{\boldsymbol{Y}}_i$, sometimes termed the ``innovation". The Kalman filter also calculates the uncertainty in $\boldsymbol{\epsilon}_i$ via the innovation covariance $\boldsymbol{S}_i = \langle \boldsymbol{\epsilon}_i \boldsymbol{\epsilon}_i^{\intercal} \rangle$. The Gaussian log-likelihood can then be calculated at each timestep:
 \begin{eqnarray}
 	\log \mathcal{L}_i =  -\frac{1}{2} \left (N \log 2 \pi + \log  \left | \boldsymbol{S}_i \right | + \boldsymbol{\epsilon}_i^{\intercal} \boldsymbol{S}_i^{-1}  \boldsymbol{\epsilon}_i \right ) \ ,
 \end{eqnarray}
@@ -301,7 +348,7 @@ with the total log-likelihood simply the sum over all timesteps, i.e.
 \begin{eqnarray}
 	\log \mathcal{L} =  \sum_{i=1}^{i=M} \log \mathcal{L}_i \ . \label{eq:likelihood}
 \end{eqnarray}
-For fixed data $\boldsymbol{Y}$, $\mathcal{L}$ is a function of the static parameters of the model, i.e. $\mathcal{L}$ = $\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})$. Similarly the estimates of the state and measurement variables, $\hat{\boldsymbol{X}}$ and $\hat{\boldsymbol{Y}}$, are also functions of $\boldsymbol{\theta}$. If the estimates of the system parameters, $\boldsymbol{\hat{\theta}}$ , that we pass to the Kalman filter are close to the true underlying parameters then the error in $\hat{\boldsymbol{X}}$, $\hat{\boldsymbol{Y}}$ is minimized and $\mathcal{L}$ is maximised. This is illustrated in Figure \ref{fig:6MB_BFS}; given a timeseries of the measured pulsar frequency the Kalman filter is able to recover the evolution of the hidden state with high fidelity. The residuals correspond to random noise and are normally distributed. Conversely, if $\boldsymbol{\hat{\theta}}$ is not close to the true parameters then the filter is unable to recover the state evolution. This is demonstrated in Figure \ref{fig:25MB_bfs} where the Kalman filter was run with $\boldsymbol{\hat{\theta}}$ slightly perturbed away from the true values. In this case the filter cannot track the state variable accurately and the residuals are no longer Gaussian.
+For fixed data $\boldsymbol{Y}$, $\mathcal{L}$ is a function of the static parameters of the model, i.e. $\mathcal{L}$ = $\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})$. Similarly the estimates of the state and measurement variables, $\hat{\boldsymbol{X}}$ and $\hat{\boldsymbol{Y}}$, are also functions of $\boldsymbol{\theta}$. If the estimates of the system parameters, $\boldsymbol{\hat{\theta}}$ , that we pass to the Kalman filter are close to the true underlying parameters then the errors in $\hat{\boldsymbol{X}}$ and $\hat{\boldsymbol{Y}}$ are	 minimized and $\mathcal{L}$ is maximised. This is illustrated in Figure \ref{fig:6MB_BFS}; given a timeseries of the measured pulsar frequency the Kalman filter is able to recover the evolution of the hidden state with high fidelity. The residuals correspond to random noise and are normally distributed. Conversely, if $\boldsymbol{\hat{\theta}}$ is not close to the true parameters then the filter is unable to recover the state evolution. This is demonstrated in Figure \ref{fig:25MB_bfs} where the Kalman filter was run with $\boldsymbol{\hat{\theta}}$ slightly perturbed away from the true values. In this case the filter cannot track the state variable accurately and the residuals are no longer Gaussian.
 
 
 \subsection{Nested Sampling}\label{sec:nested_sampling}
@@ -313,19 +360,30 @@ where $\pi(\boldsymbol{\theta})$ is the prior distribution on $\boldsymbol{\thet
 \begin{equation}
 	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence}
 \end{equation}
-In order to estimate the posterior distribution and the model evidence we use nested sampling \citep{Skilling} throughout this work. Nested sampling is an integration algorithm used for evaluating marginalised likelihood integrals, of the form given by Equation \eqref{eq:model_evidence}, that also returns samples from the posterior, $p(\boldsymbol{\theta} | \boldsymbol{Y})$. It does this by drawing a set of $n_{\rm live}$ live points from $\pi(\boldsymbol{\theta})$ and then iteratively replacing the live point with the lowest likelihood with a new live point drawn from $\pi(\boldsymbol{\theta})$, where the new live point is required to have a higher likelihood than the discarded point. The primary advantage of nested sampling is the ability to compute the evidence integral, which is key for model selection, and proves difficult without considerable extra cost for the usual Markov Chain Monte Carlo (MCMC) approaches. Nested sampling is also typically less computationally intensive than MCMC and can handle multi-modal problems \citep{Ashton2022}. For these reasons, it has enjoyed widespread adoption in the physical sciences, particularly within the cosmological community \citep{Mukherjee2006,Feroz2008,Handley2015}, but has also commonly been applied in astrophysics \citep{UltraNest2021}, particle physics \citep{proceedings2019033014} and materials science \citep{2009arXiv0906materials}. For a review of nested sampling we refer the reader to \cite{Buchner2021} and \cite{Ashton2022}. Multiple nested sampling algorithms and computational libraries exist. \citep[e.g.][]{Feroz2008,Feroz2009,Handley2015,dynesty2020,UltraNest2021}. For gravitational astrophysics it is common to use the \texttt{dynesty} sampler \citep{dynesty2020} via the \texttt{Bilby} \citep{bilby.507.2037A} front-end library. We  follow this precedent and use \texttt{Bilby} for all nested sampling Bayesian inference in this work. The primary tunable parameter in nested sampling is $n_{\rm live}$, where a greater number of live points is advantageous for large parameter spaces and multi-modal problems, whilst the uncertainties in the evidence and the posterior scale as $\mathcal{O}(1/\sqrt{n_{\rm live}})$. However the computational runtime scales as $\mathcal{O}(n_{\rm live})$ and so one must make a trade-off between uncertainty and runtime. \cite{Ashton2022} offer a rule-of-thumb where the minimum number of live points should be greater than the number of static parameters. The results presented in this work are generally robust to the choice of $n_{\rm live}$, subject to the requirement of $n_{\rm live} > 7 + 5N$. We take $n_{\rm live} = 500$ for all results presented in this work. 
+In order to estimate the posterior distribution and the model evidence we use nested sampling \citep{Skilling} throughout this work. Nested sampling is an integration algorithm used for evaluating marginalised likelihood integrals, of the form given by Equation \eqref{eq:model_evidence}, that also returns samples from the posterior, $p(\boldsymbol{\theta} | \boldsymbol{Y})$. It does this by drawing a set of $n_{\rm live}$ live points from $\pi(\boldsymbol{\theta})$ and then iteratively replacing the live point with the lowest likelihood with a new live point drawn from $\pi(\boldsymbol{\theta})$, where the new live point is required to have a higher likelihood than the discarded point. The primary advantage of nested sampling is the ability to compute the evidence integral, which is key for model selection, and proves difficult without considerable extra cost for the usual Markov Chain Monte Carlo (MCMC) approaches. Nested sampling is also typically less computationally intensive than MCMC and can handle multi-modal problems \citep{Ashton2022}. For these reasons, it has enjoyed widespread adoption in the physical sciences, particularly within the cosmological community \citep{Mukherjee2006,Feroz2008,Handley2015}, but has also commonly been applied in astrophysics \citep{UltraNest2021}, particle physics \citep{proceedings2019033014} and materials science \citep{2009arXiv0906materials}. For a review of nested sampling we refer the reader to \cite{Buchner2021} and \cite{Ashton2022}. Multiple nested sampling algorithms and computational libraries exist. \citep[e.g.][]{Feroz2008,Feroz2009,Handley2015,dynesty2020,UltraNest2021}. For gravitational astrophysics it is common to use the \texttt{dynesty} sampler \citep{dynesty2020} via the \texttt{Bilby} \citep{bilby.507.2037A} front-end library. We  follow this precedent and use \texttt{Bilby} for all nested sampling Bayesian inference in this work. The primary tunable parameter in nested sampling is $n_{\rm live}$, where a greater number of live points is advantageous for large parameter spaces and multi-modal problems, whilst the uncertainties in the evidence and the posterior scale as $\mathcal{O}(1/\sqrt{n_{\rm live}})$. However the computational runtime scales as $\mathcal{O}(n_{\rm live})$ and so one must make a trade-off between uncertainty and runtime. \cite{Ashton2022} offer a rule-of-thumb where the minimum number of live points should be greater than the number of static parameters. The results presented in this work are generally robust to the choice of $n_{\rm live}$, subject to the requirement of $n_{\rm live} > 7 + 5N$. We take $n_{\rm live} = 500$ for all results presented in this work. \newline 
 
 %See https://arxiv.org/pdf/2102.12478.pdf for a good NS explanation
-
 
 \subsection{Model selection}\label{sec:model_selection}
 The evidence integral $\mathcal{Z}$ returned by nested sampling is the probability of the data $\boldsymbol{Y}$ given a particular model $\mathcal{M}_i$. This enables us to compare competing models via a Bayes factor,
 \begin{equation}
 	\beta = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)} \ . \label{eq:bayes}
 \end{equation}
-Throughout this work we take $\mathcal{M}_1$ to be the complete model defined in Section \ref{sec:model}. $\mathcal{M}_0$ is our null model that assumes there is no GW in the data. This is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func}, \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW compared to there being no GW signal present.
+Throughout this work we take $\mathcal{M}_1$ to be the state space model that includes the presence of a GW $\mathcal{M}_0$ is our null model that assumes there is no GW in the data. This is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func}, \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW compared to there being no GW signal present.
 
 
+\subsection{Summary of workflow}
+To summarise the above, the order of operations in our method for estimating the posteriors on the static parameters and calculating the marginal likelihood for the inference model is as follows:
+
+\begin{enumerate}[wide = 0pt]
+	\item Sample from the prior $\pi(\boldsymbol{\theta})$ to obtain $\pi(\boldsymbol{\theta})_{\rm sample}$
+	\item Pass $\pi(\boldsymbol{\theta})_{\rm sample}$ to the Kalman filter
+	\item Iterate over the data $\boldsymbol{Y}$ using the Kalman filter and obtain a single $\log \mathcal{L}$ value
+	\item Return $\log \mathcal{L}$ to the nested sampler
+	\item Nested sampler updates $\boldsymbol{\theta}$
+	\item Repeat
+\end{enumerate}
+In Section \ref{sec:testing} we will apply this workflow on a synthetic data set.
 
 \section{Tests with synthetic data} \label{sec:testing}
 In this section we use synthetic data to test the ability of our method to detect the presence of a GW in noisy data and recover the static parameters, $\boldsymbol{\theta}$. In Section \ref{sec:synth_data} we discuss how the synthetic data is generated, including the construction of an artificial PTA. In Section \ref{sec:rep_example} we generate synthetic data for a single representative example SMBHB system and apply our method to estimate $\boldsymbol{\theta}$ and calculate the statistical evidence for a GW in the data via the Bayes factor. In this section we also explore how the detectability of the system changes for different strain magnitudes, $h_0$ and the performance of the method for different realisations of the system noise. In Section \ref{sec:parameter_space} we move beyond a single example system and test our method across a broader parameter space. In Section \ref{sec:bias} we discuss biases that are evident in some of the parameter estimates.
@@ -340,7 +398,7 @@ In this section we use synthetic data to test the ability of our method to detec
 	\label{fig:pulsar_distrib}
 \end{figure}
 
-For this work we generate representative synthetic data as follows. We first specify a set of pulsars to make up our artificial PTA. We take the 47 pulsars that make up the 12.5 year NANOGrav PTA \citep{2020ApJ...905L..34A}. For each pulsar we obtain the sky location (which defines the vector $\boldsymbol{q}^{n}$), the distance, the barycentric rotation frequency - which we identify with $f_{\rm em}^{(n)} (t_1)$ -  and the time derivative of the the barycentric rotation frequency - which we identify with $\dot{f}_{\rm em}^{(n)} (t_1)$. The spatial distribution and the distances of the pulsars used for this artificial PTA are shown in Fig \ref{fig:pulsar_distrib}. The data is acquired via the Australia Telescope National Facility pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. The remaining unspecified pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$. We discussed in Section \ref{sec:psr_frequency} how the quantity $[\sigma^{(n)}]^2 /\gamma^{(n)} $ sets the amplitude of the characteristic root mean square fluctuations in $f_p^{(n)}(t)$. Typically the mean reversion timescale $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ \citep{Vargas}, whilst $[\sigma^{(n)}]^2$ varies between individual pulsars. For this work we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. In order to set a physically reasonable value for $[\sigma^{(n)}]^2$ we use two complementary approaches. The first approach uses the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} where the standard deviation in the pulsar TOA is given by:
+For this work we generate synthetic data that is astrophysically representative as follows. We first specify a set of pulsars to make up our artificial PTA. We take the 47 pulsars that make up the 12.5 year NANOGrav PTA \citep{2020ApJ...905L..34A}. For each pulsar we obtain the sky location (which defines the vector $\boldsymbol{q}^{n}$), the distance, the barycentric rotation frequency - which we identify with $f_{\rm em}^{(n)} (t_1)$ -  and the time derivative of the the barycentric rotation frequency - which we identify with $\dot{f}_{\rm em}^{(n)} (t_1)$. The spatial distribution and the distances of the pulsars used for this artificial PTA are shown in Fig \ref{fig:pulsar_distrib}. The data is acquired via the Australia Telescope National Facility pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. The remaining unspecified pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$. We discussed in Section \ref{sec:psr_frequency} how the quantity $[\sigma^{(n)}]^2 /\gamma^{(n)} $ sets the amplitude of the characteristic root mean square fluctuations in $f_p^{(n)}(t)$. Typically the mean reversion timescale $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ \citep{Vargas}, whilst $[\sigma^{(n)}]^2$ varies between individual pulsars. For this work we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. In order to set a physically reasonable value for $[\sigma^{(n)}]^2$ we use two complementary approaches. The first approach uses the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} where the standard deviation in the pulsar TOA is given by:
 \begin{align}
 	\ln \left(\frac{\sigma_{\rm TOA}^{(n)}}{\mu s} \right)&= \ln \alpha_1 +  \alpha_2 \ln f_{\rm p}^{(n)} + \alpha_3 \ln \left(\frac{\dot{f}_{\rm p}^{(n)}}{10^{-15} \text{s}^{-2}} \right) \nonumber \\ 
 	&+ \alpha_4 \ln \left( \frac{T}{ 1 \text{ year}} \right) \ , \label{eq:sigmap}
@@ -359,7 +417,7 @@ As a sanity check, we can also calculate $\sigma^{(n)}$ using a complementary nu
 and generate TOAs and phase residuals. We calibrate the noise amplitude $\sigma^{(n)}$  to generate phase residuals that qualitatively resemble empirical phase residuals measured from real pulsars. We obtain empirical phase residuals from the UTMOST pulsar timing program \citep{UTMOST} from the  Molonglo Observatory Synthesis Telescope \citep{Bailes2017PASA...34...45B}. For the purposes of validating the $\sigma^{(n)}$ inferred from Equation \eqref{eq:sigmap_f}, it is sufficient at this stage to simply compare the synthetic and real phase residuals visually. Whilst it would also be possible to e.g. define some quantitative loss function (e.g. mean-squared error) between the two solutions and solve the optimisation problem to infer $\sigma^{(n)}$, for our purposes this is excessive. It is satisfactory to simply qualitatively compare the two solutions as a useful sanity check. We emphasise that we are not overly concerned with calculating the maximally accurate values for $\sigma^{(n)}$, but instead some reasonable values for constructing representative synthetic data. This approach of generating synthetic phase solutions and visually comparing with empirical solutions is also followed in \cite{Vargas}. In Figure \ref{fig:qualitative_compare} we compare the synthetic and empirical residuals for the NANOGrav pulsar J0030+0451. We can see that the synthetic and empirical residuals are qualitatively similar.
 \begin{figure}
 	\includegraphics[width=\columnwidth]{images/example_residuals_plot}
-	\caption{Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep{nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Equation \eqref{eq:spinevol} with $\gamma^{(n)} = 10^{-13}$ and $\sigma^{(n)}$ inferred from Equations. \eqref{eq:sigmap}, \eqref{eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor{red}{TK: potential sinusoidal feature? Need to discuss with Andres re use of baboo.}}
+	\caption{Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep{nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Equation \eqref{eq:spinevol} with $\gamma^{(n)} = 10^{-13}$ and $\sigma^{(n)}$ inferred from Equations \eqref{eq:sigmap}, \eqref{eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor{red}{TK: potential sinusoidal feature? Need to discuss with Andres re use of baboo.}}
 	\label{fig:qualitative_compare}
 \end{figure}
 \subsubsection{Synthetic data generation}
@@ -394,18 +452,31 @@ and $\dot{f}_{\rm em}^{(n)}(t_1)$ remain static parameters of the model, but now
 
 
 \subsection{Representative example}\label{sec:rep_example}
-We initially characterise our method with a single example of a PTA which is perturbed by a GW from an individual quasi-monochromatic SMBHB source. The static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this injection are selected arbitrarily, subject to being astrophysically reasonable and representative. The injected $\boldsymbol{\theta}_{\rm gw}$ are summarised in the ``Injected Values" column of Table \ref{tab:parameters_and_priors}. The static pulsar parameters $\boldsymbol{\theta}_{\rm psr}$ are as described in Section \ref{sec:synt_pta} and are also shown in Table \ref{tab:parameters_and_priors}. 
+We initially characterise our method with a single example of a PTA which is perturbed by a GW from an individual quasi-monochromatic SMBHB source. The static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this injection are selected to be astrophysically reasonable and representative. The injected $\boldsymbol{\theta}_{\rm gw}$ are summarised in the ``Injected Values" column of Table \ref{tab:parameters_and_priors}. The static pulsar parameters $\boldsymbol{\theta}_{\rm psr}$ are as described in Section \ref{sec:synt_pta} and are also shown in Table \ref{tab:parameters_and_priors}. 
 
 \subsubsection{Prior distributions}\label{sec:priors}
+
+\textbf{CLARIFY re uninformative c.f loguniform}
+
+\textbf{sin/cos priors realy uniform over cos(x)}
+
+\textbf{referecne NANOgrav puslars and n index c.f. TAble ANTF}
+
+\textbf{why did you choose NANOGrav you dick}
+
+\textbf{priors on f, fdot, shrink to e.g. factor x ANTF error}
 
 For the Bayesian methods used in this work, one must select reasonable priors, $\pi(\boldsymbol{\theta})$, for the complete set complete of static parameters. For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021} as summarised in Table \ref{tab:parameters_and_priors}. The choice of $\pi(\boldsymbol{\theta}_{\rm psr})$ requires some additional discussion. \newline 
 
 
-The parameters which govern the deterministic evolution of the pulsar spin frequency, $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are well-determined by existing radio timing observations. We can identify $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ with the pulsar  barycentric rotation frequency and the time derivative of barycentric rotation frequency quoted by pulsar observation catalogues. For the 12.5 year NANOGrav pulsars the mean error in the barycentric rotation frequency is $\sim 1.1 \times 10^{-11}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.29 \times 10^{-19}$ s $^{-2}$. These mean errors are skewed by a minority of pulsars which are less well timed; the median error in  the barycentric rotation frequency is $\sim 7 \times 10^{-13}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.8 \times 10^{-20}$ s $^{-2}$. Whilst it is then clear that $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are typically measured with very high precisions, for this work we adopt a broader uniform prior, $\pm 10 \%$ either side of the true value. In this way we can test how well our method performs without requiring exceptionally precise and accurate measurements of the pulsar parameters to be made \textit{a priori}. Instead we consider the pulsar parameters similarly to the GW source parameters and estimate them optimally within a consistent framework. Adopting looser priors in this way allows us to subject our method to a more stringent test and confirm that we still estimate GW parameters without highly accurate initial estimates of $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$. \newline 
+The parameters which govern the deterministic evolution of the pulsar spin frequency, $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are well-determined by existing radio timing observations. We can identify $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ with the pulsar  barycentric rotation frequency and the time derivative of barycentric rotation frequency quoted by pulsar observation catalogues. For the 12.5 year NANOGrav pulsars the median error in  the barycentric rotation frequency is $\sim 7 \times 10^{-13}$ Hz, and in the time derivative of barycentric rotation frequency is $\sim 1.8 \times 10^{-20}$ s $^{-2}$. Whilst it is then clear that $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$ are typically measured with very high precisions, for this work we adopt a broader uniform prior, $\pm 10 \%$ either side of the true value. In this way we can test how well our method performs without requiring exceptionally precise and accurate measurements of the pulsar parameters to be made \textit{a priori}. Instead we consider the pulsar parameters similarly to the GW source parameters and estimate them optimally within a consistent framework. Adopting looser priors in this way allows us to subject our method to a more stringent test and confirm that we still estimate GW parameters without highly accurate initial estimates of $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$. \newline 
 
 
 
-The pulsar distances $d^{(n)}$ are typically not as well constrained as $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$, with uncertainties typically on the order of $\sim 10 \%$ \citep{Arzoumanian2018ApJS..235...37A,Yao2017}. However for this work, whilst the pulsar distance is used when generating synthetic data, as discussed in Section \ref{sec:parameter_estim} the pulsar distance is not used for our inference model and so we do not need to set a prior on $d$. Similarly we do not set a prior on $\gamma^{(n)}$; since $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ this means that $\gamma^{(n)}$ is effectively ``unobservable" over the decadal timescales that we are interested in. That is, for $T_{\rm obs}$ =10 years the solution of Equation \eqref{eq:spinevol} is effectively independent of the choice of $\gamma^{(n)}$ as long as the condition $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ is satisfied. It is therefore sufficient to consider $\gamma^{(n)}$ to be known \textit{a priori} and set it at its true injected value. We briefly explored setting an uninformative prior on $\gamma$ over e.g. LogUniform($10^{-15}, 10^{-10}$) as well as setting $\gamma^{(n)}$ at some fixed value away from the true injected value (e.g. set $\gamma^{(n)} = 10^{-14} \text{s}^{-1}$ rather than $10^{-13} \text{s}^{-1}$) but the results are unchanged. The majority of pulsars in our synthetic PTA have $\sigma^{(n)} \sim 10^{-20} - 10^{-22}$ as calculated from Equations \eqref{eq:sigmap} and \eqref{eq:sigmap_f}. For these pulsars we set an uninformative broad prior of LogUniform($10^{-23}, 10^{-19}$). The single exception is PSR J1939+2134 which has a particularly large $\dot{f}_{\rm p}^{(n)}$ compared to the other pulsars in the array and so $\sigma \sim 10^{-16}$. For PSR J1939+2134 we set the prior at LogUniform($10^{-15}, 10^{-17}$). \newline
+The pulsar distances $d^{(n)}$ are typically not as well constrained as $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$, with uncertainties typically on the order of $\sim 10 \%$ \citep{Arzoumanian2018ApJS..235...37A,Yao2017}. However for this work, whilst the pulsar distance is used when generating synthetic data, as discussed in Section \ref{sec:parameter_estim} the pulsar distance is not used for our inference model and so we do not need to set a prior on $d$. Similarly we do not set a prior on $\gamma^{(n)}$; since $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ this means that $\gamma^{(n)}$ is effectively ``unobservable" over the decadal timescales that we are interested in. That is, for $T_{\rm obs}$ =10 years the solution of Equation \eqref{eq:spinevol} is effectively independent of the choice of $\gamma^{(n)}$ as long as the condition $[\gamma^{(n)}]^{-1} \gg T_{\rm obs}$ is satisfied. It is therefore sufficient to consider $\gamma^{(n)}$ to be known \textit{a priori} and set it at its true injected value. We briefly explored setting an uninformative prior on $\gamma$ over e.g. LogUniform($10^{-15}, 10^{-10}$) as well as setting $\gamma^{(n)}$ at some fixed value away from the true injected value (e.g. set $\gamma^{(n)} = 10^{-14} \text{s}^{-1}$ rather than $10^{-13} \text{s}^{-1}$) but the results are unchanged. The majority of pulsars in our synthetic PTA have $\sigma^{(n)} \sim 10^{-20} - 10^{-22}$ as calculated from Equations \eqref{eq:sigmap} and \eqref{eq:sigmap_f}. For these pulsars we set an uninformative broad prior of LogUniform($10^{-23}, 10^{-19}$). The single exception is PSR J1939+2134 which has a particularly large $\dot{f}_{\rm p}^{(n)}$ compared to the other pulsars in the array and so $\sigma \sim 10^{-16}$. For our artificial dataset we set $\sigma = 10^{21}$ for this pulsar in order to bring the process noise for all pulsars into a consistent range that can be described by a constrained prior
+
+
+
 
 Since we are not setting priors on $\gamma$ or $d$ this reduces the dimensionality of the parameter space to $7 + 3N$. We use the notation $\boldsymbol{\theta}_{\rm psr, reduced}$ to refer to the reduced parameter space. Explicitly, 
 \begin{equation}
@@ -422,21 +493,21 @@ All the injected static parameters and their corresponding priors for this repre
 		\hline
 		\multirow{7}{2mm}{$\boldsymbol{\theta}_{\rm gw}$} & $\Omega$       & $5 \times 10^{-7}$ & Hz & LogUniform($10^{-9}$, $10^{-5}$) \\
 	  & $\alpha$          & $1.0$  & radians & Uniform($0, 2 \pi $)\\
-	  & $\delta$              & $1.0$  & radians & Cosine($-\pi/2, \pi/2$) \\
+	  & $\delta$              & $1.0$  & radians & Uniform($-\pi/2, \pi/2$) \\
 	  & $\psi$              & $2.50$ & radians & Uniform($0, 2 \pi $) \\
 	  & $\Phi_0$          & $0.20$ & radians & Uniform($0, 2 \pi $) \\
 	  & $h_0$            & $10^{-12}$ & - & LogUniform($10^{-15}$, $10^{-9}$) \\
-	  & $\iota$             & $1.0$ & radians & Sin($0, \pi$) \\ 
+	  & $\iota$             & $1.0$ & radians & Uniform($0, \pi$) \\ 
 		\hline
 		\multirow{5}{2mm}{$\boldsymbol{\theta}_{\rm psr}$} & $f_{\rm em}^{(n)} (t_1)$       & $f_{\rm ATNF}^{(n)}$ & Hz & Uniform(0.9$f_{\rm ATNF}^{n}$, $1.1 f_{\rm ATNF}^{n}$) \\
 		& $\dot{f}_{\rm em}^{(n)} (t_1)$       & $\dot{f}_{\rm ATNF}^{(n)}$ & s$^{-2}$ & Uniform(0.9$\dot{f}_{\rm ATNF}^{n}$, $1.1 \dot{f}_{\rm ATNF}^{n}$) \\
 		&  $d^{(n)}$       &$d_{\rm ATNF}^{(n)}$  & m & - \\
-		& $\sigma^{(n)}$              & $\sigma_{\rm sc}^{(n)}$ & $s^{-5/2}$ & LogUniform*($10^{-23}, 10^{-19}$) \\
+		& $\sigma^{(n)}$              & $\sigma_{\rm sc}^{(n)}$ & $s^{-5/2}$ & LogUniform($10^{-23}, 10^{-19}$) \\
 		& $\gamma$              & $10^{-13}$ & s$^{-1}$ & - \\
 		\bottomrule
 	\end{tabular}
 }
-	\caption{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref{sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref{sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref{eq:sigmap}, \eqref{eq:sigmap_f} from \protect \cite{Shannon2010}. All pulsars use the prior on $\sigma^{(n)}$ as specified in the Table, with the exception of PSR J1939+2134 which uses LogUniform($10^{-15}, 10^{-17}$).}
+	\caption{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref{sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref{sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref{eq:sigmap}, \eqref{eq:sigmap_f} from \protect \cite{Shannon2010}.}
 	\label{tab:parameters_and_priors}
 \end{table}
 
@@ -451,43 +522,45 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 	\end{equation}
 	with
 	\begin{equation}
-		g^{(n)}_{\rm Earth}(t) = 1 - \frac{1}{2} \frac{ H_{ij}q^i_{(n)} q^j_{(n)} }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \cos(-\Omega t +\Phi_0)  \ .
+		g^{(n)}_{\rm Earth}(t) = 1 - \frac{1}{2} \frac{ H_{ij}q^{i, \, (n)} q^{j, \, (n)}}{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \cos(-\Omega t +\Phi_0)  \ .
 		\label{eq:g_func_trig_earth}
 	\end{equation}
-	We defer the inclusion of the pulsar terms in the measurement equation to a future work. As discussed in Section \ref{sec:priors} this choice reduces the dimensionality of the parameter estimation problem since the measurement equation Equation \eqref{eq:measurement} is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. \newline
+	We defer the inclusion of the pulsar terms in the measurement equation to a future work. As discussed in Section \ref{sec:priors} this choice reduces the dimensionality of the parameter estimation problem since the measurement equation Equation \eqref{eq:measurement} is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. Initially we consider a single noise realisation of the synthetic data for the representative example system described in Table \ref{tab:parameters_and_priors}. We apply the Kalman filter using the Earth terms only measurement equation, Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters. \newline 
 
+ The results are shown in Figure \ref{fig:corner_plot_1} for the 7 parameters of  $\boldsymbol{\theta}_{\rm gw}$. The histograms shown in the Figure are the 1D-posteriors for each parameter, marginalized over the set of all other parameters, where the dashed vertical blue lines show the 0.16 and 0.84 quantiles and the solid orange line the true injection value. The 2-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. It is evident that for this representative example we are able to estimate all the static parameters of the system using our method, with the injected value contained within the 90\% credible interval for the majority of the parameters. The clear exception is $\iota$ which exhibits a notable bias, and lies outside the with the 90\% credible interval, with the posterior median shifted from the injected value by $\sim 0.3$ radians. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We will explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}. If we consider the median values of the 1D-posteriors we can see that for some parameters the median is almost identically equal to the injected value  (e.g. $\Omega, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the injected value (e.g. $\psi, \alpha$), whilst still being contained within the credible interval. This potential bias will also be investigated alongside the bias in $\iota$ in Section \ref{sec:multiple_noise} and Section \ref{sec:bias}. Similar results can be derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
+ 
 
-Initially we consider a single noise realisation of the synthetic data for the representative example system described in Table \ref{tab:parameters_and_priors}. We apply the Kalman filter using the Earth terms only measurement equation, Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters. \newline 
+% and in Figure \ref{fig:example_psr_params} for . 
+% 
+% Regarding $\boldsymbol{\theta}_{\rm psr, reduced}$, the frequency parameters $f_{\rm em}^{(n)}(t_1),\dot{f}_{\rm em}^{(n)}(t_1)$ are generally well recovered for all pulsars, as are the noise amplitude parameters $\sigma^{(n)}$. \textcolor{red}{TK: Could do with some extra discussion here re $\boldsymbol{\theta}_{\rm psr, reduced}$ since they are not perfectly recovered, but the important thing is that the GW parameters and the GW parameters are the interesting bit...}
+ 
+ 
 
  
- The results are shown in Figure \ref{fig:corner_plot_1} for the 7 parameters of  $\boldsymbol{\theta}_{\rm gw}$ and in Figure \ref{fig:example_psr_params} for the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$. The histograms shown in the Figures are the 1D posteriors for each parameter, marginalized over the set of all other parameters, where the dashed vertical blue lines show the 0.16 and 0.84 quantiles and the solid orange line the true injection value. The 2-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. It is evident that for this representative example we are able to accurately estimate all the static parameters of the system using our method. Regarding the estimates of $\boldsymbol{\theta}_{\rm gw}$, whilst all the parameters are generally recovered accurately, for some the posterior median is almost identically equal to the injected value  (e.g. $\Omega, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the  injected value (e.g. $\psi, \alpha$), whilst still being well within the distribution uncertainty. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation. We will explore this further in Section \ref{sec:multiple_noise} and show that this is a bias that results from dropping the Earth terms, similar to the bias reported in \cite{Zhupulsarterms}. Regarding $\boldsymbol{\theta}_{\rm psr, reduced}$, the frequency parameters $f_{\rm em}^{(n)}(t_1),\dot{f}_{\rm em}^{(n)}(t_1)$ are generally well recovered for all pulsars, as are the noise amplitude parameters $\sigma^{(n)}$. \textcolor{red}{TK: Could do with some extra discussion here re $\boldsymbol{\theta}_{\rm psr, reduced}$ since they are not perfectly recovered, but the important thing is that the GW parameters and the GW parameters are the interesting bit...}
+ 
 \begin{figure*}
 	\includegraphics[width=0.8\textwidth, height =0.8\textwidth ]{images/representative_example_v2_GW}
-	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref{tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest.}
+	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref{tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest. $\Omega_{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^12} = h_0 \times 10^{12}$.}
 	\label{fig:corner_plot_1}
 \end{figure*}
 
-\begin{figure*}%
-	\centering
-	\subfloat[\centering $f_{\rm em}^{(n)}(t_1)$]{{\includegraphics[width=0.3 \textwidth]{images/1237_broad_f} }}%
-	\qquad
-	\subfloat[\centering $\dot{f}_{\rm em}^{(n)}(t_1)$]{{\includegraphics[width=0.3 \textwidth]{images/1237_broad_fdot} }}%
-	\qquad
-	\subfloat[\centering $\sigma^{(n)}$]{{\includegraphics[width=0.3\textwidth]{images/1237_broad_sigma_p} }}%
-	
-	\caption{As Fig \ref{fig:corner_plot_1} but for the $3N$ pulsar parameters $\boldsymbol{\theta}_{\rm psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA. \textcolor{red}{TK: these figures are a little small to resolve nicely}}
-	\label{fig:example_psr_params}%
-\end{figure*}
-
-
-
-
+%\begin{figure*}%
+%	\centering
+%	\subfloat[\centering $f_{\rm em}^{(n)}(t_1)$]{{\includegraphics[width=0.3 \textwidth]{images/1237_broad_f} }}%
+%	\qquad
+%	\subfloat[\centering $\dot{f}_{\rm em}^{(n)}(t_1)$]{{\includegraphics[width=0.3 \textwidth]{images/1237_broad_fdot} }}%
+%	\qquad
+%	\subfloat[\centering $\sigma^{(n)}$]{{\includegraphics[width=0.3\textwidth]{images/1237_broad_sigma_p} }}%
+%	
+%	\caption{As Fig \ref{fig:corner_plot_1} but for the $3N$ pulsar parameters $\boldsymbol{\theta}_{\rm psr, reduced}$. We show only a selection of the first 5 pulsars rather than the full PTA. \textcolor{red}{TK: these figures are a little small to resolve nicely}}
+%	\label{fig:example_psr_params}%
+%\end{figure*}
 
 
 
 
 \subsubsection{Detection} \label{sec:detection}
-We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Fig \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that there is a general log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3 \times 10^{-15}$. The small perturbations in the general log-linear $\beta - h_0$ trend arise due to noise in the nested sampling method. For these points the sampler converged sub-optimally for $\mathcal{M}_1$ and so the evidence $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)$ is lower than would be expected. This is purely a noise artefact; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these perturbations appear at different values of $h_0$, or else are not present at all. Increasing the number of live points $n_{\rm live}$ used by the nested sampler also dampens these perturbations and smooths the $\beta - h_0$ curve, since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. Below $\beta = 10$ this noise in the sampler starts to dominate and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. This is simply due to the fact that at these small strains the system is completely noise dominated and the two models $\mathcal{M}_1, \mathcal{M}_0$ cannot be separated.  \textcolor{red}{TK: Rather than discussing the bumps, maybe just run it again a few times and remove the bumps.}
+We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Fig \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that there is a general log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. This will be explored in more detail in Section \ref{sec:parameter_space}. The small perturbations in the general log-linear $\beta - h_0$ trend arise due to noise in the nested sampling method. For these points the sampler converged sub-optimally for $\mathcal{M}_1$ and so the evidence $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)$ is lower than would be expected. This is purely a noise artefact; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these perturbations appear at different values of $h_0$, or else are not present at all. Increasing the number of live points $n_{\rm live}$ used by the nested sampler also dampens these perturbations and smooths the $\beta - h_0$ curve, since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. Below $\beta = 10$ this noise in the sampler starts to dominate and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. This is simply due to the fact that at these small strains the system is completely noise dominated and the two models $\mathcal{M}_1, \mathcal{M}_0$ cannot be separated.  \textcolor{red}{TK: Rather than discussing the bumps, maybe just run it again a few times and remove the bumps.}
 \begin{figure}
 	\includegraphics[width=\columnwidth]{images/PaperBayesRatioPlotn1000_stacked}
 	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection tolerance cut-off of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3 \times 10^{-15}$. \textcolor{red}{TK: probably need to regenerate this figure to get rid of the "bumps" which are just artefacts from a poor sampler convergence at that point}}
@@ -550,9 +623,22 @@ We frame the problem of claiming a detection of a GW in the noisy data in terms 
 	
 	\caption{Distribution in the median values of the 1D marginalized posteriors inferred by nested sampling for each static parameters of $\boldsymbol{\theta}_{\rm gw}$ over 1000 noise realisations. The orange dashed line labels the true injection value and the red dashed line labels the median of the distribution. \textcolor{red}{TK: these plots are ugly. Is there a better way to show this?}}\label{fig:median_distriubutins}
 \end{figure*}
-The above discussion was just for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim}, \ref{sec:detection} is not particularly advantageous or convenient for our method. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for 9 realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1} for a single noise realisation. The estimates of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations i.e. the variance between the different marginalized posteriors is generally low. The estimates generally agree with the injected values with high fidelity. Conversely, for the parameters $\iota$ and $h_0$ the variance between the different marginalized posteriors is generally high; we infer highly different estimates of these parameters depending on the particular realisation of the noise. Similar to the estimates of $\boldsymbol{\theta}_{\rm gw}$, the estimates of $\boldsymbol{\theta}_{\rm psr}$ (c.f.  Fig \ref{fig:example_psr_params}) show a consistency across multiple noise realisations, though for brevity we do not show the results here. \newline   
+The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim}, \ref{sec:detection} is not particularly advantageous or convenient for our method. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for 9 realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
+
+We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1} for a single noise realisation. The estimates of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations with the injected value contained in the 90 \% credible interval for each of the marginalized posteriors. The variance between each of the individual 1D histograms is also generally low. 
+
+
+
+
+
+
+Conversely for the parameters $\iota$ and $h_0$ the variance between the different marginalized posteriors is generally high; we infer highly different estimates of these parameters depending on the particular realisation of the noise. Typically, for a given noise realisation, we do not contain the injected value within the 90\% credible interval for both $\iota$ and $h_0$ simultaneously.
+
+
+
+
  
-The large degree of variance in the estimates of $\iota$ and $h_0$ is due to the nested sampling algorithm effectively trading off accuracy in one parameter against the accuracy in other. From Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is broken generally by the relation for $h_{+}$, Equation \eqref{eq:hphx}. Whilst this ensures that both parameters are then generally identifiable formally, in practice an identifiability issue persists since the log-likelihood surface in $\iota -h_0$ space plateaus across a broad range of physically reasonable values (\textcolor{red}{TK: Could include a figure here showing this, but don't want to overclutter}).  Consequently it is difficult for our algorithm to select a particular point in this plateau. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (i.e. Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
+The large degree of variance in the estimates of $\iota$ and $h_0$ is due to the nested sampling algorithm effectively trading off accuracy in one parameter against the accuracy in other. From Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is broken generally by the relation for $h_{+}$, Equation \eqref{eq:hphx}. Whilst this ensures that both parameters are then generally identifiable formally, in practice an identifiability issue persists since the log-likelihood surface in $\iota -h_0$ space plateaus across a broad range of physically reasonable values.  Consequently it is difficult for our algorithm to select a particular point in this plateau. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (i.e. Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
 
 For each realisation of the noise we infer a marginalised 1-D posterior for each parameter. In turn, each posterior distribution has a median value. We plot the distribution of these medians over the 1000 noise realisations for each parameter of $\boldsymbol{\theta}_{\rm gw}$ in Figure \ref{fig:median_distriubutins}. For each of these distributions we can also calculate the median value (i.e. the median of the medians) and compare it with the true injection value. This is shown by the red and orange dashed lines respectively in the Figure. Analogous to the results we saw in Figure \ref{fig:corner_plot_2}, the distributions of the median values of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are very narrow, with a generally small discrepancy between the inferred value and the injected value. Conversely, the distributions for $\iota$ and $h_0$ are much broader and exhibit a bias of $\sim 0.18$ radians and $0.17 \times 10^{-12}$ respectively. This agrees with the results we discussed for the 9 noise realisations in Figure \ref{fig:corner_plot_2} where a bias in $\iota$ and $h_0$ was also observed. In addition to  $\iota$ and $h_0$  exhibiting a strong bias, the parameters $\psi$ and $\alpha$ also exhibit a small bias of magnitude $\sim 0.1$ and $\sim 0.04$ radians respectively. This bias is again a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}. 
 
@@ -692,6 +778,7 @@ Some potential further points for discussion
 	\item Any further discussion on pulsar terms?
 	\item PTAs like MSPs for small timing noise. Can we get away with large timing noise, and use more pulsars? Some pulsars are more useful than others, e.g. arXiv 2211.03201
 	\item Can we also estimate radiometer noise? Is this useful?
+	\item Lets preempt reviewer and make it explicit WHY we are not using TOAs
 \end{itemize}
 
 
@@ -812,7 +899,17 @@ for variance $\Sigma^2$.
 
 
 
+\section{Alternative version of Fig 1}
 
+
+
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{images/Kalman_example_both}
+	\caption{}
+	\label{fig:kalmanexampleboth}
+\end{figure*}
 
 
 

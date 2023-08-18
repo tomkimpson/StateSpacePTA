@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  16 AUG 2023 12:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  18 AUG 2023 11:40
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -853,36 +853,31 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 95.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 101.
+(Font)              scaled to size 10.0pt on input line 144.
 
-Underfull \hbox (badness 1028) in paragraph at lines 117--118
+Underfull \hbox (badness 1028) in paragraph at lines 160--161
 \T1/ntxtlf/m/n/9 The in-spi-ral of su-per-mas-sive black hole bi-na-ries (SMB-H
 Bs;
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 117--118
+Underfull \hbox (badness 1502) in paragraph at lines 160--161
 \T1/ntxtlf/m/n/9 Nanohertz Ob-ser-va-tory for Grav-i-ta-tional Waves (NANOGrav,
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--124
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
@@ -890,342 +885,353 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--127
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 127.
+(Font)              scaled to size 8.0pt on input line 167.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 127.
+(Font)              scaled to size 6.2pt on input line 167.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 127.
+e 167.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 127.
+(Font)              scaled to size 8.0pt on input line 167.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
 
-Underfull \vbox (badness 1540) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--167
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--210
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 170.
+(Font)              scaled to size 12.0pt on input line 210.
 [2]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 175.
+(Font)              scaled to size 9.0pt on input line 218.
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--186
+Underfull \hbox (badness 10000) in paragraph at lines 227--229
 
  []
 
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 220.
 [3]
-Overfull \hbox (15.94292pt too wide) detected at line 245
-[]
- []
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 9.0pt on input line 263.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
-<images/Kalman_example_true_params.png, id=484, 914.9382pt x 490.2315pt>
+<images/Kalman_example_true_params.png, id=487, 914.9382pt x 490.2315pt>
 File: images/Kalman_example_true_params.png Graphic file (type png)
 <use images/Kalman_example_true_params.png>
 Package pdftex.def Info: images/Kalman_example_true_params.png  used on input l
-ine 278.
+ine 326.
 (pdftex.def)             Requested size: 508.0pt x 272.19391pt.
-<images/Kalman_example_wrong_params.png, id=486, 899.7615pt x 490.2315pt>
+<images/Kalman_example_wrong_params.png, id=489, 899.7615pt x 490.2315pt>
 File: images/Kalman_example_wrong_params.png Graphic file (type png)
 <use images/Kalman_example_wrong_params.png>
 Package pdftex.def Info: images/Kalman_example_wrong_params.png  used on input 
-line 284.
+line 332.
 (pdftex.def)             Requested size: 508.0pt x 276.77934pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-316.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
-File: t1ntxtt.fd 2012/04/20 v3.1
-)
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 316.
- [4]
+[4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./images/Kalman_example_true_params.png> <./images/Kalman_example_wrong_pa
 rams.png>]
-<images/pulsar_distribution.png, id=585, 511.6716pt x 333.8874pt>
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
+363.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 9.0pt on input line 363.
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 379
+[]\T1/ntxtlf/m/n/9 (i)[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 380
+[]\T1/ntxtlf/m/n/9 (ii)[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 381
+[]\T1/ntxtlf/m/n/9 (iii)[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 382
+[]\T1/ntxtlf/m/n/9 (iv)[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 383
+[]\T1/ntxtlf/m/n/9 (v)[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 384
+[]\T1/ntxtlf/m/n/9 (vi)[]
+ []
+
+<images/pulsar_distribution.png, id=597, 511.6716pt x 333.8874pt>
 File: images/pulsar_distribution.png Graphic file (type png)
 <use images/pulsar_distribution.png>
-Package pdftex.def Info: images/pulsar_distribution.png  used on input line 338
+Package pdftex.def Info: images/pulsar_distribution.png  used on input line 396
 .
 (pdftex.def)             Requested size: 244.0pt x 159.21971pt.
+[6]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 347.
+(Font)              scaled to size 7.3pt on input line 405.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 347.
+(Font)              scaled to size 5.5pt on input line 405.
 
-[6 <./images/pulsar_distribution.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 351--353
+Underfull \hbox (badness 10000) in paragraph at lines 409--411
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 355.
-<images/example_residuals_plot.png, id=641, 742.6947pt x 494.0859pt>
+(Font)              scaled to size 8.0pt on input line 413.
+<images/example_residuals_plot.png, id=651, 742.6947pt x 494.0859pt>
 File: images/example_residuals_plot.png Graphic file (type png)
 <use images/example_residuals_plot.png>
 Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
-361.
+419.
 (pdftex.def)             Requested size: 244.0pt x 162.31755pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 376--378
-
- []
-
-[7 <./images/example_residuals_plot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+[7 <./images/pulsar_distribution.png> <./images/example_residuals_plot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
- []
-
-
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 438--438
-[]|$\OML/cmm/b/it/8 ^^R[]$|  
- []
-
-
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 438--438
-[]|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 456--458
-
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 509--509
+[]|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 509--509
+[]|$\OML/cmm/b/it/8 ^^R[]$|  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--529
 
  []
 
-<images/representative_example_v2_GW.png, id=759, 1125.7257pt x 1147.1658pt>
+<images/representative_example_v2_GW.png, id=776, 1125.7257pt x 1147.1658pt>
 File: images/representative_example_v2_GW.png Graphic file (type png)
 <use images/representative_example_v2_GW.png>
 Package pdftex.def Info: images/representative_example_v2_GW.png  used on input
- line 465.
+ line 542.
 (pdftex.def)             Requested size: 406.39464pt x 406.39775pt.
-<images/1237_broad_f.png, id=762, 816.4101pt x 832.5504pt>
-File: images/1237_broad_f.png Graphic file (type png)
-<use images/1237_broad_f.png>
-Package pdftex.def Info: images/1237_broad_f.png  used on input line 472.
-(pdftex.def)             Requested size: 152.40155pt x 155.40411pt.
-<images/1237_broad_fdot.png, id=763, 825.3234pt x 837.1275pt>
-File: images/1237_broad_fdot.png Graphic file (type png)
-<use images/1237_broad_fdot.png>
-Package pdftex.def Info: images/1237_broad_fdot.png  used on input line 474.
-(pdftex.def)             Requested size: 152.40155pt x 154.57237pt.
-<images/1237_broad_sigma_p.png, id=764, 821.2281pt x 837.3684pt>
-File: images/1237_broad_sigma_p.png Graphic file (type png)
-<use images/1237_broad_sigma_p.png>
-Package pdftex.def Info: images/1237_broad_sigma_p.png  used on input line 476.
-
-(pdftex.def)             Requested size: 152.40155pt x 155.39626pt.
-<images/PaperBayesRatioPlotn1000_stacked.png, id=771, 739.3221pt x 502.2765pt>
+<images/PaperBayesRatioPlotn1000_stacked.png, id=785, 739.3221pt x 502.2765pt>
 File: images/PaperBayesRatioPlotn1000_stacked.png Graphic file (type png)
 <use images/PaperBayesRatioPlotn1000_stacked.png>
 Package pdftex.def Info: images/PaperBayesRatioPlotn1000_stacked.png  used on i
-nput line 492.
+nput line 565.
 (pdftex.def)             Requested size: 244.0pt x 165.76709pt.
-<images/stacked_GW_plot_1000.png, id=774, 1125.7257pt x 1147.1658pt>
-File: images/stacked_GW_plot_1000.png Graphic file (type png)
-<use images/stacked_GW_plot_1000.png>
-Package pdftex.def Info: images/stacked_GW_plot_1000.png  used on input line 49
-9.
-(pdftex.def)             Requested size: 406.39464pt x 406.39775pt.
-<images/compare_iotas_lines2.png, id=777, 728.9634pt x 378.6948pt>
-File: images/compare_iotas_lines2.png Graphic file (type png)
-<use images/compare_iotas_lines2.png>
-Package pdftex.def Info: images/compare_iotas_lines2.png  used on input line 50
-5.
-(pdftex.def)             Requested size: 508.0pt x 263.91153pt.
-<images/distribution_omega_gw.png, id=780, 731.8542pt x 714.5094pt>
-File: images/distribution_omega_gw.png Graphic file (type png)
-<use images/distribution_omega_gw.png>
-Package pdftex.def Info: images/distribution_omega_gw.png  used on input line 5
-13.
-(pdftex.def)             Requested size: 152.40155pt x 148.78671pt.
-<images/distribution_phi0_gw.png, id=781, 727.9998pt x 714.5094pt>
-File: images/distribution_phi0_gw.png Graphic file (type png)
-<use images/distribution_phi0_gw.png>
-Package pdftex.def Info: images/distribution_phi0_gw.png  used on input line 51
-8.
-(pdftex.def)             Requested size: 152.40155pt x 149.57169pt.
-<images/distribution_psi_gw.png, id=782, 738.1176pt x 714.5094pt>
-File: images/distribution_psi_gw.png Graphic file (type png)
-<use images/distribution_psi_gw.png>
-Package pdftex.def Info: images/distribution_psi_gw.png  used on input line 523
-.
-(pdftex.def)             Requested size: 152.40155pt x 147.52202pt.
-<images/distribution_iota_gw.png, id=783, 720.291pt x 714.5094pt>
-File: images/distribution_iota_gw.png Graphic file (type png)
-<use images/distribution_iota_gw.png>
-Package pdftex.def Info: images/distribution_iota_gw.png  used on input line 52
-9.
-(pdftex.def)             Requested size: 152.40155pt x 151.17436pt.
-<images/distribution_delta_gw.png, id=784, 727.9998pt x 714.5094pt>
-File: images/distribution_delta_gw.png Graphic file (type png)
-<use images/distribution_delta_gw.png>
-Package pdftex.def Info: images/distribution_delta_gw.png  used on input line 5
-34.
-(pdftex.def)             Requested size: 152.40155pt x 149.57169pt.
-<images/distribution_alpha_gw.png, id=785, 727.9998pt x 714.5094pt>
-File: images/distribution_alpha_gw.png Graphic file (type png)
-<use images/distribution_alpha_gw.png>
-Package pdftex.def Info: images/distribution_alpha_gw.png  used on input line 5
-39.
-(pdftex.def)             Requested size: 152.40155pt x 149.57169pt.
-<images/distribution_h.png, id=786, 720.291pt x 714.5094pt>
-File: images/distribution_h.png Graphic file (type png)
-<use images/distribution_h.png>
-Package pdftex.def Info: images/distribution_h.png  used on input line 547.
-(pdftex.def)             Requested size: 167.64093pt x 166.29616pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 553--554
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
-
- []
-
 [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10 <./images/representative_example_v2_GW.png> <./images/1237_broad_f.png> <.
-/images/1237_broad_fdot.png> <./images/1237_broad_sigma_p.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+<images/stacked_GW_plot_1000.png, id=808, 1125.7257pt x 1147.1658pt>
+File: images/stacked_GW_plot_1000.png Graphic file (type png)
+<use images/stacked_GW_plot_1000.png>
+Package pdftex.def Info: images/stacked_GW_plot_1000.png  used on input line 57
+2.
+(pdftex.def)             Requested size: 406.39464pt x 406.39775pt.
+<images/compare_iotas_lines2.png, id=811, 728.9634pt x 378.6948pt>
+File: images/compare_iotas_lines2.png Graphic file (type png)
+<use images/compare_iotas_lines2.png>
+Package pdftex.def Info: images/compare_iotas_lines2.png  used on input line 57
+8.
+(pdftex.def)             Requested size: 508.0pt x 263.91153pt.
+<images/distribution_omega_gw.png, id=814, 731.8542pt x 714.5094pt>
+File: images/distribution_omega_gw.png Graphic file (type png)
+<use images/distribution_omega_gw.png>
+Package pdftex.def Info: images/distribution_omega_gw.png  used on input line 5
+86.
+(pdftex.def)             Requested size: 152.40155pt x 148.78671pt.
+<images/distribution_phi0_gw.png, id=815, 727.9998pt x 714.5094pt>
+File: images/distribution_phi0_gw.png Graphic file (type png)
+<use images/distribution_phi0_gw.png>
+Package pdftex.def Info: images/distribution_phi0_gw.png  used on input line 59
+1.
+(pdftex.def)             Requested size: 152.40155pt x 149.57169pt.
+<images/distribution_psi_gw.png, id=816, 738.1176pt x 714.5094pt>
+File: images/distribution_psi_gw.png Graphic file (type png)
+<use images/distribution_psi_gw.png>
+Package pdftex.def Info: images/distribution_psi_gw.png  used on input line 596
+.
+(pdftex.def)             Requested size: 152.40155pt x 147.52202pt.
+<images/distribution_iota_gw.png, id=817, 720.291pt x 714.5094pt>
+File: images/distribution_iota_gw.png Graphic file (type png)
+<use images/distribution_iota_gw.png>
+Package pdftex.def Info: images/distribution_iota_gw.png  used on input line 60
+2.
+(pdftex.def)             Requested size: 152.40155pt x 151.17436pt.
+<images/distribution_delta_gw.png, id=818, 727.9998pt x 714.5094pt>
+File: images/distribution_delta_gw.png Graphic file (type png)
+<use images/distribution_delta_gw.png>
+Package pdftex.def Info: images/distribution_delta_gw.png  used on input line 6
+07.
+(pdftex.def)             Requested size: 152.40155pt x 149.57169pt.
+<images/distribution_alpha_gw.png, id=819, 727.9998pt x 714.5094pt>
+File: images/distribution_alpha_gw.png Graphic file (type png)
+<use images/distribution_alpha_gw.png>
+Package pdftex.def Info: images/distribution_alpha_gw.png  used on input line 6
+12.
+(pdftex.def)             Requested size: 152.40155pt x 149.57169pt.
+<images/distribution_h.png, id=820, 720.291pt x 714.5094pt>
+File: images/distribution_h.png Graphic file (type png)
+<use images/distribution_h.png>
+Package pdftex.def Info: images/distribution_h.png  used on input line 620.
+(pdftex.def)             Requested size: 167.64093pt x 166.29616pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
+
+ []
+
+[10 <./images/representative_example_v2_GW.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
 
  []
 
 [11 <./images/PaperBayesRatioPlotn1000_stacked.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<images/likelihood_omega_earth.png, id=868, 500.8311pt x 491.9178pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./images/stacked_GW_plot_1000.png>]
+<images/likelihood_omega_earth.png, id=889, 500.8311pt x 491.9178pt>
 File: images/likelihood_omega_earth.png Graphic file (type png)
 <use images/likelihood_omega_earth.png>
 Package pdftex.def Info: images/likelihood_omega_earth.png  used on input line 
-584.
+670.
 (pdftex.def)             Requested size: 111.76062pt x 109.7685pt.
-<images/likelihood_phi0_earth.png, id=869, 512.8761pt x 491.9178pt>
+<images/likelihood_phi0_earth.png, id=890, 512.8761pt x 491.9178pt>
 File: images/likelihood_phi0_earth.png Graphic file (type png)
 <use images/likelihood_phi0_earth.png>
-Package pdftex.def Info: images/likelihood_phi0_earth.png  used on input line 5
-90.
+Package pdftex.def Info: images/likelihood_phi0_earth.png  used on input line 6
+76.
 (pdftex.def)             Requested size: 111.76062pt x 107.19391pt.
-<images/likelihood_psi_earth.png, id=870, 520.8258pt x 491.9178pt>
+<images/likelihood_psi_earth.png, id=891, 520.8258pt x 491.9178pt>
 File: images/likelihood_psi_earth.png Graphic file (type png)
 <use images/likelihood_psi_earth.png>
-Package pdftex.def Info: images/likelihood_psi_earth.png  used on input line 59
-5.
+Package pdftex.def Info: images/likelihood_psi_earth.png  used on input line 68
+1.
 (pdftex.def)             Requested size: 111.76062pt x 105.5576pt.
-<images/likelihood_iota_earth.png, id=871, 520.8258pt x 491.9178pt>
+<images/likelihood_iota_earth.png, id=892, 520.8258pt x 491.9178pt>
 File: images/likelihood_iota_earth.png Graphic file (type png)
 <use images/likelihood_iota_earth.png>
-Package pdftex.def Info: images/likelihood_iota_earth.png  used on input line 5
-99.
+Package pdftex.def Info: images/likelihood_iota_earth.png  used on input line 6
+85.
 (pdftex.def)             Requested size: 111.76062pt x 105.5576pt.
-<images/likelihood_delta_earth.png, id=872, 512.8761pt x 491.9178pt>
+<images/likelihood_delta_earth.png, id=893, 512.8761pt x 491.9178pt>
 File: images/likelihood_delta_earth.png Graphic file (type png)
 <use images/likelihood_delta_earth.png>
 Package pdftex.def Info: images/likelihood_delta_earth.png  used on input line 
-605.
+691.
 (pdftex.def)             Requested size: 152.40155pt x 146.17284pt.
-<images/likelihood_alpha_earth.png, id=873, 512.8761pt x 491.9178pt>
+<images/likelihood_alpha_earth.png, id=894, 512.8761pt x 491.9178pt>
 File: images/likelihood_alpha_earth.png Graphic file (type png)
 <use images/likelihood_alpha_earth.png>
 Package pdftex.def Info: images/likelihood_alpha_earth.png  used on input line 
-610.
+696.
 (pdftex.def)             Requested size: 152.40155pt x 146.17284pt.
-<images/likelihood_h_earth.png, id=874, 516.4896pt x 491.9178pt>
+<images/likelihood_h_earth.png, id=895, 516.4896pt x 491.9178pt>
 File: images/likelihood_h_earth.png Graphic file (type png)
 <use images/likelihood_h_earth.png>
-Package pdftex.def Info: images/likelihood_h_earth.png  used on input line 615.
+Package pdftex.def Info: images/likelihood_h_earth.png  used on input line 701.
 
 (pdftex.def)             Requested size: 152.40155pt x 145.15202pt.
-<images/likelihood_omega_psr.png, id=875, 500.8311pt x 491.9178pt>
+<images/likelihood_omega_psr.png, id=896, 500.8311pt x 491.9178pt>
 File: images/likelihood_omega_psr.png Graphic file (type png)
 <use images/likelihood_omega_psr.png>
-Package pdftex.def Info: images/likelihood_omega_psr.png  used on input line 63
-3.
+Package pdftex.def Info: images/likelihood_omega_psr.png  used on input line 71
+9.
 (pdftex.def)             Requested size: 111.76062pt x 109.7685pt.
-<images/likelihood_phi0_psr.png, id=876, 500.8311pt x 491.9178pt>
+<images/likelihood_phi0_psr.png, id=897, 500.8311pt x 491.9178pt>
 File: images/likelihood_phi0_psr.png Graphic file (type png)
 <use images/likelihood_phi0_psr.png>
-Package pdftex.def Info: images/likelihood_phi0_psr.png  used on input line 638
+Package pdftex.def Info: images/likelihood_phi0_psr.png  used on input line 724
 .
 (pdftex.def)             Requested size: 111.76062pt x 109.7685pt.
-<images/likelihood_psi_psr.png, id=877, 512.8761pt x 491.9178pt>
+<images/likelihood_psi_psr.png, id=898, 512.8761pt x 491.9178pt>
 File: images/likelihood_psi_psr.png Graphic file (type png)
 <use images/likelihood_psi_psr.png>
-Package pdftex.def Info: images/likelihood_psi_psr.png  used on input line 643.
+Package pdftex.def Info: images/likelihood_psi_psr.png  used on input line 729.
 
 (pdftex.def)             Requested size: 111.76062pt x 107.19391pt.
-<images/likelihood_iota_psr.png, id=878, 512.8761pt x 491.9178pt>
+<images/likelihood_iota_psr.png, id=899, 512.8761pt x 491.9178pt>
 File: images/likelihood_iota_psr.png Graphic file (type png)
 <use images/likelihood_iota_psr.png>
-Package pdftex.def Info: images/likelihood_iota_psr.png  used on input line 647
+Package pdftex.def Info: images/likelihood_iota_psr.png  used on input line 733
 .
 (pdftex.def)             Requested size: 111.76062pt x 107.19391pt.
-<images/likelihood_delta_psr.png, id=879, 500.8311pt x 491.9178pt>
+<images/likelihood_delta_psr.png, id=900, 500.8311pt x 491.9178pt>
 File: images/likelihood_delta_psr.png Graphic file (type png)
 <use images/likelihood_delta_psr.png>
-Package pdftex.def Info: images/likelihood_delta_psr.png  used on input line 65
-2.
+Package pdftex.def Info: images/likelihood_delta_psr.png  used on input line 73
+8.
 (pdftex.def)             Requested size: 152.40155pt x 149.68567pt.
-<images/likelihood_alpha_psr.png, id=880, 500.8311pt x 491.9178pt>
+<images/likelihood_alpha_psr.png, id=901, 500.8311pt x 491.9178pt>
 File: images/likelihood_alpha_psr.png Graphic file (type png)
 <use images/likelihood_alpha_psr.png>
-Package pdftex.def Info: images/likelihood_alpha_psr.png  used on input line 65
-7.
+Package pdftex.def Info: images/likelihood_alpha_psr.png  used on input line 74
+3.
 (pdftex.def)             Requested size: 152.40155pt x 149.68567pt.
-<images/likelihood_h_psr.png, id=881, 516.4896pt x 491.9178pt>
+<images/likelihood_h_psr.png, id=902, 516.4896pt x 491.9178pt>
 File: images/likelihood_h_psr.png Graphic file (type png)
 <use images/likelihood_h_psr.png>
-Package pdftex.def Info: images/likelihood_h_psr.png  used on input line 662.
+Package pdftex.def Info: images/likelihood_h_psr.png  used on input line 748.
 (pdftex.def)             Requested size: 152.40155pt x 145.15202pt.
- [12 <./images/stacked_GW_plot_1000.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [13 <./images/compare_iotas_lines2.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1242,59 +1248,73 @@ s/likelihood_h_earth.png> <./images/likelihood_omega_psr.png> <./images/likelih
 ood_phi0_psr.png> <./images/likelihood_psi_psr.png> <./images/likelihood_iota_p
 sr.png> <./images/likelihood_delta_psr.png> <./images/likelihood_alpha_psr.png>
  <./images/likelihood_h_psr.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 728.
+ [16
+
+]
+
+LaTeX Warning: Reference `eq:state2' on page 17 undefined on input line 815.
 
 
-LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 740.
+LaTeX Warning: Reference `eq:state2' on page 17 undefined on input line 827.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--741
+Underfull \hbox (badness 10000) in paragraph at lines 826--828
 
  []
 
 
-LaTeX Warning: Reference `sec:statespace' on page 16 undefined on input line 75
-7.
+LaTeX Warning: Reference `sec:statespace' on page 17 undefined on input line 84
+4.
 
 
-LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 16 undefined
- on input line 766.
-
-[16
-
-]
-
-LaTeX Warning: Reference `eq:main_eq' on page 17 undefined on input line 798.
+LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 17 undefined
+ on input line 853.
 
 
-Overfull \hbox (18.861pt too wide) detected at line 805
+LaTeX Warning: Reference `eq:main_eq' on page 17 undefined on input line 885.
+
+
+Overfull \hbox (18.861pt too wide) detected at line 892
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
 
-(./paper.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 380--384
+<images/Kalman_example_both.png, id=958, 921.6834pt x 490.2315pt>
+File: images/Kalman_example_both.png Graphic file (type png)
+<use images/Kalman_example_both.png>
+Package pdftex.def Info: images/Kalman_example_both.png  used on input line 909
+.
+(pdftex.def)             Requested size: 508.0pt x 270.20413pt.
+(./paper.bbl [17]
+Underfull \vbox (badness 1668) has occurred while \output is active []
+
+ [18 <./images/Kalman_example_both.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 386--390
 []\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--384
+Underfull \hbox (badness 10000) in paragraph at lines 386--390
 \T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--384
+Underfull \hbox (badness 10000) in paragraph at lines 386--390
 [][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
 /m/n/8 https : / / doi . org /
  []
 
-[17]
-Underfull \hbox (badness 6493) in paragraph at lines 621--624
+
+Underfull \vbox (badness 2253) has occurred while \output is active []
+
+
+Underfull \hbox (badness 6493) in paragraph at lines 627--630
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
-) [18] (./paper.aux)
+) [19] (./paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1303,16 +1323,16 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: C241990DDD5E01A7F0C9D6F80277511C;2755.
+(rerunfilecheck)             Checksum: 34880161A4FB7D0A3D8AC995FF5264BC;3141.
  ) 
 Here is how much of TeX's memory you used:
- 17349 strings out of 478268
- 274305 string characters out of 5846348
- 581218 words of memory out of 5000000
+ 17360 strings out of 478268
+ 274084 string characters out of 5846348
+ 569856 words of memory out of 5000000
  34943 multiletter control sequences out of 15000+600000
- 579255 words of font info for 209 fonts, out of 8000000 for 9000
+ 585749 words of font info for 226 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,2774b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,2783b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1338,10 +1358,10 @@ public/txfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
 /newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
 tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (18 pages, 7508528 bytes).
+Output written on paper.pdf (19 pages, 7166728 bytes).
 PDF statistics:
- 1345 PDF objects out of 1440 (max. 8388607)
- 1195 compressed objects within 12 object streams
- 242 named destinations out of 1000 (max. 500000)
- 297 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1372 PDF objects out of 1440 (max. 8388607)
+ 1224 compressed objects within 13 object streams
+ 252 named destinations out of 1000 (max. 500000)
+ 303 words of extra memory for PDF output out of 10000 (max. 10000000)
 

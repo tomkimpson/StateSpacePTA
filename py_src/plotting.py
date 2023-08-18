@@ -170,7 +170,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     fig = corner.corner(y_post, 
                         color='C0',
                         show_titles=True,
-                        smooth=True,smooth1d=True,
+                        smooth=True,smooth1d=False,
                         truth_color='C2',
                         quantiles=[0.16, 0.84],
                         truths = injection_parameters,
