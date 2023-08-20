@@ -27,7 +27,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
     
     
 
-Nsamples = 10
+Nsamples = 100
 seed = 1237 
 h = 1e-12 
 
@@ -39,7 +39,7 @@ psi_gw = 2.50
 
 
 #eps prevents railing against prior edge
-eps =0.01
+eps =0.05
 deltas = np.linspace(-np.pi/2.0+eps,np.pi/2.0 - eps,Nsamples)
 alphas = np.linspace(0+eps,2*np.pi-eps,Nsamples)
 
@@ -52,7 +52,7 @@ with open('batch.sh','w') as b:
             for a in alphas:
 
    
-                arg_name = f"skymap_h_{h}_model_{m}_seed_{seed}_omega_{omega_gw}_phi0_{phi0_gw}_psi_{psi_gw}_delta_{d}_alpha_{a}"
+                arg_name = f"skymap100_h_{h}_model_{m}_seed_{seed}_omega_{omega_gw}_phi0_{phi0_gw}_psi_{psi_gw}_delta_{d}_alpha_{a}"
                 print(arg_name)
                 create_slurm_job(arg_name,h,m,seed,omega_gw,phi0_gw,psi_gw,d,a)
                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")

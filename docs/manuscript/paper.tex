@@ -71,12 +71,14 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
-\author[Kimpson]{Kimpson$^{1}$, Melatos, O'Leary, Evans, others, etc. etc.%
+\author[Kimpson]{Kimpson$^{1}$, Melatos$^{2}$, O'Leary, Evans$^{3}$, others, etc. etc.%
 \thanks{Contact e-mail: \href{tom.kimpson@unimelb.edu.au}{tom.kimpson@unimelb.edu.au}}%
 %\thanks{Present address: Science magazine, AAAS Science International, \mbox{82-88}~Hills Road, Cambridge CB2~1LQ, UK}%
 \\
 % List of institutions
-$^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, UK}
+$^{1}$School of Physics, University of Melbourne, Parkville, VIC 3010, Australia \\
+$^{2}$OzGrav, University of Melbourne, Parkville, VIC 3010, Australia \\
+$^{3}$Department of Electrical and Electronic Engineering, University of Melbourne, Parkville, Victoria 3010, Australia }
 
 % These dates will be filled out by the publisher
 %\date{Last updated 2020 June 10; in original form 2013 September 5}
@@ -92,47 +94,14 @@ $^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, 
 \maketitle
 
 % Abstract of the paper
-\begin{abstract}
-	\textcolor{red}{TK: will obviously drop the bullet points, but useful for writing a concise abstract.}
-	
+\begin{abstract}	
 	\begin{itemize}
 		\item Continuous nHz gravitational waves from individual supermassive black hole binaries are a primary target for Pulsar Timing Array (PTA) observations.
 		\item We present a new and complementary state-space approach to PTA data analysis.
-		\item We show how to combine a Kalman filter and nested sampling to estimate te
-		
+		\item We show how to combine a Kalman filter and nested sampling for Bayesian inference of the model parameters and model selection.
+		\item The method is tested on synthetic, astrophysically representative data and shown to be able to estimate the full posterior distributions of all parameters of the model, as well calculating the marginalized likelihood for model selection.
+		\item The bias introduced by dropping the `pulsar term' from the state-space model is analysed and discussed. 
 	\end{itemize}
-
-
-
-
-
-
-
-
-
-
- using the combination of a Kalman filter and .  
-
-
-
-
-
-that is able to self consistenyl track the intrinsic timingnoise in PTA pulsars and disentangle it from the GW-induced TOA modulat
-
-
-We illustrate how our method is able to recover the full posterior distributions of the N model parameters 
-
-
-We combine the to...
-
-
-
-The method is tested...
-
-
-bias observed....
-
-	
 
 
 
@@ -276,22 +245,17 @@ where the perturbations to $\boldsymbol{u}$ from the GW are of higher order and 
 \end{equation}
 where
 \begin{equation}
-	g^{(n)}(t) = 1 -  \frac{1}{2} \frac{h_{ij} (t; \boldsymbol{x}= 0)q^{i, \,(n)} q^{j, \,(n)}}{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \left(1 -e^{i \Omega \left[1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right]  d^{(n)}}\right) \ .
+	g^{(n)}(t) = 1 -  \frac{1}{2} \frac{h_{ij} (t; \boldsymbol{x}= 0)q^{i,(n)} q^{j,(n)}}{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \left(1 -e^{i \Omega \left[1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right]  d^{(n)}}\right) \ .
 	\label{eq:g_func}
 \end{equation}
-and $q^{i, \,(n)}$ labels the $i$-th coordinate component of the of the $n$-th pulsars position vector $\boldsymbol{q}^{(n)}$. It is also instructive to express Equation \eqref{eq:g_func} in a trigonometric form as,
+and $q^{i,(n)}$ labels the $i$-th coordinate component of the of the $n$-th pulsars position vector $\boldsymbol{q}^{(n)}$. It is also instructive to express Equation \eqref{eq:g_func} in a trigonometric form as,
 \begin{align}
-	g^{(n)}(t) &= 1 - \frac{1}{2} \frac{ H_{ij}q^{i, \,(n)} q^{j, \,(n)} }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) } \nonumber \\
+	g^{(n)}(t) &= 1 - \frac{1}{2} \frac{ H_{ij}q^{i,(n)} q^{j,(n)} }{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) } \nonumber \\
 	& \times \Big\{ \cos\left[-\Omega t +\Phi_0\right] \nonumber \\
 	&- \cos \left[-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)} \right] \Big\} \ .
 	\label{eq:g_func_trig}
 \end{align}
 Equations \eqref{eq:measurement} -- \eqref{eq:g_func_trig},  define a measurement equation that relates the intrinsic pulsar spin frequency to the frequency measured by an observer on Earth. 
-
-\textbf{MAYB ESUPRESS N ? rm \,}
-
-
-\textbf{Introduce puslar terms dropping here insttea?}
 
 \section{Signal tracking and parameter estimation} \label{sec:detect}
 The set of static parameters $\boldsymbol{\theta}$ of the model outlined in Section \ref{sec:model} can be separated into parameters which correspond to the intrinsic frequency evolution of the pulsar and parameters of the GW source, i.e. 
@@ -375,7 +339,7 @@ Throughout this work we take $\mathcal{M}_1$ to be the state space model that in
 \subsection{Summary of workflow}
 To summarise the above, the order of operations in our method for estimating the posteriors on the static parameters and calculating the marginal likelihood for the inference model is as follows:
 
-\begin{enumerate}[wide = 0pt]
+\begin{enumerate}
 	\item Sample from the prior $\pi(\boldsymbol{\theta})$ to obtain $\pi(\boldsymbol{\theta})_{\rm sample}$
 	\item Pass $\pi(\boldsymbol{\theta})_{\rm sample}$ to the Kalman filter
 	\item Iterate over the data $\boldsymbol{Y}$ using the Kalman filter and obtain a single $\log \mathcal{L}$ value
@@ -398,7 +362,7 @@ In this section we use synthetic data to test the ability of our method to detec
 	\label{fig:pulsar_distrib}
 \end{figure}
 
-For this work we generate synthetic data that is astrophysically representative as follows. We first specify a set of pulsars to make up our artificial PTA. We take the 47 pulsars that make up the 12.5 year NANOGrav PTA \citep{2020ApJ...905L..34A}. For each pulsar we obtain the sky location (which defines the vector $\boldsymbol{q}^{n}$), the distance, the barycentric rotation frequency - which we identify with $f_{\rm em}^{(n)} (t_1)$ -  and the time derivative of the the barycentric rotation frequency - which we identify with $\dot{f}_{\rm em}^{(n)} (t_1)$. The spatial distribution and the distances of the pulsars used for this artificial PTA are shown in Fig \ref{fig:pulsar_distrib}. The data is acquired via the Australia Telescope National Facility pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. The remaining unspecified pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$. We discussed in Section \ref{sec:psr_frequency} how the quantity $[\sigma^{(n)}]^2 /\gamma^{(n)} $ sets the amplitude of the characteristic root mean square fluctuations in $f_p^{(n)}(t)$. Typically the mean reversion timescale $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ \citep{Vargas}, whilst $[\sigma^{(n)}]^2$ varies between individual pulsars. For this work we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. In order to set a physically reasonable value for $[\sigma^{(n)}]^2$ we use two complementary approaches. The first approach uses the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} where the standard deviation in the pulsar TOA is given by:
+For this work we generate synthetic data that is astrophysically representative as follows. We first specify a set of pulsars to make up our artificial PTA. We take the 47 pulsars that make up the 12.5 year NANOGrav PTA \citep{2020ApJ...905L..34A}. The NANOGrav pulsars are chosen arbitrarily as being representative of a typical PTA and the method naturally extends to other PTAs of the IPTA. For each pulsar we obtain the sky location (which defines the vector $\boldsymbol{q}^{n}$), the distance, the barycentric rotation frequency - which we identify with $f_{\rm em}^{(n)} (t_1)$ -  and the time derivative of the the barycentric rotation frequency - which we identify with $\dot{f}_{\rm em}^{(n)} (t_1)$. The spatial distribution and the distances of the pulsars used for this artificial PTA are shown in Fig \ref{fig:pulsar_distrib}. The data is acquired via the Australia Telescope National Facility pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. The remaining unspecified pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$. We discussed in Section \ref{sec:psr_frequency} how the quantity $[\sigma^{(n)}]^2 /\gamma^{(n)} $ sets the amplitude of the characteristic root mean square fluctuations in $f_p^{(n)}(t)$. Typically the mean reversion timescale $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ \citep{Vargas}, whilst $[\sigma^{(n)}]^2$ varies between individual pulsars. For this work we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. In order to set a physically reasonable value for $[\sigma^{(n)}]^2$ we use two complementary approaches. The first approach uses the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} where the standard deviation in the pulsar TOA is given by:
 \begin{align}
 	\ln \left(\frac{\sigma_{\rm TOA}^{(n)}}{\mu s} \right)&= \ln \alpha_1 +  \alpha_2 \ln f_{\rm p}^{(n)} + \alpha_3 \ln \left(\frac{\dot{f}_{\rm p}^{(n)}}{10^{-15} \text{s}^{-2}} \right) \nonumber \\ 
 	&+ \alpha_4 \ln \left( \frac{T}{ 1 \text{ year}} \right) \ , \label{eq:sigmap}
@@ -522,7 +486,7 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 	\end{equation}
 	with
 	\begin{equation}
-		g^{(n)}_{\rm Earth}(t) = 1 - \frac{1}{2} \frac{ H_{ij}q^{i, \, (n)} q^{j, \, (n)}}{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \cos(-\Omega t +\Phi_0)  \ .
+		g^{(n)}_{\rm Earth}(t) = 1 - \frac{1}{2} \frac{ H_{ij}q^{i,(n)} q^{j,(n)}}{(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}) }  \cos(-\Omega t +\Phi_0)  \ .
 		\label{eq:g_func_trig_earth}
 	\end{equation}
 	We defer the inclusion of the pulsar terms in the measurement equation to a future work. As discussed in Section \ref{sec:priors} this choice reduces the dimensionality of the parameter estimation problem since the measurement equation Equation \eqref{eq:measurement} is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. Initially we consider a single noise realisation of the synthetic data for the representative example system described in Table \ref{tab:parameters_and_priors}. We apply the Kalman filter using the Earth terms only measurement equation, Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters. \newline 

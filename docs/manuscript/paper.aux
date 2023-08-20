@@ -75,19 +75,19 @@
 \citation{Rosado10.1093/mnras/stv1098}
 \citation{Sesana10,Sesana2010,Ellis2012ApJ}
 \citation{Maggiore}
+\citation{tempo2}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Modulation of pulsar frequency by a GW}{3}{subsection.2.2}\protected@file@percent }
 \newlabel{sec:psr_measured}{{2.2}{3}{Modulation of pulsar frequency by a GW}{subsection.2.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Plane GW perturbation}{3}{subsubsection.2.2.1}\protected@file@percent }
 \newlabel{eq:f_evolution}{{6}{3}{Plane GW perturbation}{equation.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Measurement equation}{3}{subsubsection.2.2.2}\protected@file@percent }
-\citation{tempo2}
+\newlabel{eq:momentum_shift}{{13}{3}{Measurement equation}{equation.13}{}}
 \citation{Cordes2002astro.ph..7156C,Verbiest2012ApJ...755...39V,Desvignes2016,Yao2017}
 \citation{Kalman1}
 \citation{Meyers2021,Melatos2023}
 \citation{zarchan2000fundamentals}
 \citation{882463van}
 \citation{Simon10}
-\newlabel{eq:momentum_shift}{{13}{4}{Measurement equation}{equation.13}{}}
 \newlabel{eq:freq_temporal}{{14}{4}{Measurement equation}{equation.14}{}}
 \newlabel{eq:measurement}{{16}{4}{Measurement equation}{equation.16}{}}
 \newlabel{eq:g_func}{{17}{4}{Measurement equation}{equation.17}{}}
@@ -100,6 +100,7 @@
 \newlabel{eq:hphx2}{{23}{4}{Signal tracking and parameter estimation}{equation.23}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Kalman filter}{4}{subsection.3.1}\protected@file@percent }
 \newlabel{sec:kalman_filter}{{3.1}{4}{Kalman filter}{subsection.3.1}{}}
+\newlabel{eq:likelihood}{{25}{4}{Kalman filter}{equation.25}{}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:6MB_BFS}{{1a}{5}{Kalman filter using correct estimate of the static parameters, $\hat {\boldsymbol {\theta }} = \boldsymbol {\theta }$ \relax }{figure.caption.1}{}}
 \newlabel{sub@fig:6MB_BFS}{{a}{5}{Kalman filter using correct estimate of the static parameters, $\hat {\boldsymbol {\theta }} = \boldsymbol {\theta }$ \relax }{figure.caption.1}{}}
@@ -124,7 +125,6 @@
 \citation{psrqpy}
 \citation{Vargas}
 \citation{Shannon2010ApJ...725.1607S}
-\newlabel{eq:likelihood}{{25}{6}{Kalman filter}{equation.25}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Nested Sampling}{6}{subsection.3.2}\protected@file@percent }
 \newlabel{sec:nested_sampling}{{3.2}{6}{Nested Sampling}{subsection.3.2}{}}
 \newlabel{eq:model_evidence}{{27}{6}{Nested Sampling}{equation.27}{}}
@@ -134,6 +134,10 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Summary of workflow}{6}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Tests with synthetic data}{6}{section.4}\protected@file@percent }
 \newlabel{sec:testing}{{4}{6}{Tests with synthetic data}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Synthetic data generation}{6}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:synth_data}{{4.1}{6}{Synthetic data generation}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Constructing a synthetic PTA}{6}{subsubsection.4.1.1}\protected@file@percent }
+\newlabel{sec:synt_pta}{{4.1.1}{6}{Constructing a synthetic PTA}{subsubsection.4.1.1}{}}
 \citation{UTMOST}
 \citation{Bailes2017PASA...34...45B}
 \citation{Vargas}
@@ -141,17 +145,13 @@
 \citation{nanograv_narrowband_DR}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Spatial distribution of 47 pulsars from the 12.5 year NANOGrav data release that make up the synthetic PTA used in this work. The pulsar distances relative to the observer are also indicated, with the majority of pulsars having a distance $\sim 1$ kpc. The grey dashed line denotes the Galactic plane.\relax }}{7}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:pulsar_distrib}{{2}{7}{Spatial distribution of 47 pulsars from the 12.5 year NANOGrav data release that make up the synthetic PTA used in this work. The pulsar distances relative to the observer are also indicated, with the majority of pulsars having a distance $\sim 1$ kpc. The grey dashed line denotes the Galactic plane.\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Synthetic data generation}{7}{subsection.4.1}\protected@file@percent }
-\newlabel{sec:synth_data}{{4.1}{7}{Synthetic data generation}{subsection.4.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Constructing a synthetic PTA}{7}{subsubsection.4.1.1}\protected@file@percent }
-\newlabel{sec:synt_pta}{{4.1.1}{7}{Constructing a synthetic PTA}{subsubsection.4.1.1}{}}
 \newlabel{eq:sigmap}{{29}{7}{Constructing a synthetic PTA}{equation.29}{}}
 \newlabel{eq:sigmap_f}{{30}{7}{Constructing a synthetic PTA}{equation.30}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep  {nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:spinevol}\unskip \@@italiccorr )}} with $\gamma ^{(n)} = 10^{-13}$ and $\sigma ^{(n)}$ inferred from Equations \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap}\unskip \@@italiccorr )}}, \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor {red}{TK: potential sinusoidal feature? Need to discuss with Andres re use of baboo.}\relax }}{7}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:qualitative_compare}{{3}{7}{Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep {nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Equation \eqref {eq:spinevol} with $\gamma ^{(n)} = 10^{-13}$ and $\sigma ^{(n)}$ inferred from Equations \eqref {eq:sigmap}, \eqref {eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor {red}{TK: potential sinusoidal feature? Need to discuss with Andres re use of baboo.}\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Synthetic data generation}{7}{subsubsection.4.1.2}\protected@file@percent }
 \citation{Bhagwat2021}
 \citation{Arzoumanian2018ApJS..235...37A,Yao2017}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Synthetic data generation}{8}{subsubsection.4.1.2}\protected@file@percent }
 \newlabel{eq:measurement_cov}{{35}{8}{Synthetic data generation}{equation.35}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Representative example}{8}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:rep_example}{{4.2}{8}{Representative example}{subsection.4.2}{}}
@@ -180,9 +180,9 @@
 \newlabel{sec:parameter_space}{{4.3}{11}{Exploring a broader parameter space}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Bias by dropping pulsar terms}{11}{subsection.4.4}\protected@file@percent }
 \newlabel{sec:bias}{{4.4}{11}{Bias by dropping pulsar terms}{subsection.4.4}{}}
+\citation{Zhupulsarterms,Chen2022}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance.\relax }}{12}{figure.caption.7}\protected@file@percent }
 \newlabel{fig:corner_plot_2}{{6}{12}{As Figure \ref {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance.\relax }{figure.caption.7}{}}
-\citation{Zhupulsarterms,Chen2022}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref  {fig:corner_plot_2} (4th row, 4th column). The thick orange line labels the true injected value. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $.\relax }}{13}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:iota}{{7}{13}{1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref {fig:corner_plot_2} (4th row, 4th column). The thick orange line labels the true injected value. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $.\relax }{figure.caption.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Distribution in the median values of the 1D marginalized posteriors inferred by nested sampling for each static parameters of $\bm  {\theta }_{\rm  gw}$ over 1000 noise realisations. The orange dashed line labels the true injection value and the red dashed line labels the median of the distribution. \textcolor {red}{TK: these plots are ugly. Is there a better way to show this?}\relax }}{14}{figure.caption.9}\protected@file@percent }
