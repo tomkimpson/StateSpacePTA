@@ -199,7 +199,7 @@ where $M_c$ is the chirp mass of the SMBHB, $f_{gw}(t=0)$ is the GW frequency at
 
 The amplitude tensor $H_{\mu \nu}$ has zero temporal components ($H_{0 \mu} = H_{\mu 0} = 0$). The spatial part is
 \begin{align}
-	H_{ij} = h_+ e_{ij}^+(\boldsymbol{n}) + h_{\times} e_{ij}^{\times}(\boldsymbol{n}) \ ,
+	H_{ij} = h_+ e_{ij}^+(\boldsymbol{n}) + h_{\times} e_{ij}^{\times}(\boldsymbol{n}) \ , \label{eq:hij}
 \end{align}
 where $h_{+}$ and $h_{\times}$ are the respective polarisation amplitudes. The plus and cross polarisation tensors $e_{ij}^{+}$ and $e_{ij}^{\times}$ are uniquely defined by the principal axes of the wave, viz.\ the unit 3-vectors $\boldsymbol{k}$ and $\boldsymbol{l}$, according to
 \begin{align}
@@ -587,10 +587,37 @@ Below $\beta = 10$ this noise in the sampler starts to dominate and the hierarch
 
 The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim}, \ref{sec:detection} is not particularly advantageous or convenient for our method. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for 9 realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
 
-We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1} for a single noise realisation. The estimates of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations with the injected value contained in the 90 \% credible interval for each of the marginalized posteriors. The variance between each of the individual 1D histograms is also generally low. Conversely for the parameters $\iota$ and $h_0$ the variance between the different marginalized posteriors is generally high; we infer highly different estimates of these parameters depending on the particular realisation of the noise. Typically, for a given noise realisation, we do not contain the injected value within the 90\% credible interval for both $\iota$ and $h_0$ simultaneously. \newline 
+We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1}. Considering the 1D marginalized posteriors, the inferred probability distributions of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations. Moreover, the variance of each of the individual 1D posteriors is generally low i.e. each of individual the distributions are narrow compared to the prior space. That is to say, for each different noise realisation the method infers a consistent maximum \textit{a posteriori} probability (MAP) estimate. Conversely for the parameters $\iota$ and $h_0$ the inferred 1D posteriors are not consistent across different noise realisations and the variance of an individual posterior is generally larger than for the other parameters. That is to say, we infer very different MAP estimates of these parameters depending on the particular realisation of the noise. \newline 
 
- 
-The large degree of variance in the estimates of $\iota$ and $h_0$ is due to the nested sampling algorithm effectively trading off accuracy in one parameter against the accuracy in other. From Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is broken generally by the relation for $h_{+}$, Equation \eqref{eq:hphx}. Whilst this ensures that both parameters are then generally identifiable formally, in practice an identifiability issue persists since the log-likelihood surface in $\iota -h_0$ space plateaus across a broad range of physically reasonable values.  Consequently it is difficult for our algorithm to select a particular point in this plateau. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (i.e. Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
+
+The large degree of variance in the 1D posteriors of $\iota$ and $h_0$ is due to the nested sampling algorithm effectively trading off accuracy in one parameter against the accuracy in other. From Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. 
+
+
+
+
+The situation can be further elucidated if we consider instead the alternative parametrisation in terms of $h_{+}$ and $h_{\times}$. From Equation \ref{eq:hij} the amplitude of the plane GW perturbation at a particular sky location $\boldsymbol{n}$ is a linear combination of $h_{+}$ and $h_{\times}$. 
+
+
+
+
+he log-likelihood surface in $\iota -h_0$ space plateaus across a broad range of physically reasonable values.  
+
+
+
+
+
+
+
+This degeneracy is broken generally by the relation for $h_{+}$, Equation \eqref{eq:hphx}. Whilst this ensures that both parameters are then generally identifiable formally, in practice an identifiability issue persists since t
+
+
+
+
+
+
+
+
+Consequently it is difficult for our algorithm to select a particular point in this plateau. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (i.e. Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
 
 
 
@@ -600,6 +627,10 @@ For each realisation of the noise we infer a marginalised 1-D posterior for each
 
 
 
+
+Since we are in the high SHR regime (c.f. Fgiure X for h = 1012) the posteriors are narrow high confidence in narrow range of values.
+
+In this case we are justified in talking abotu the mode of posteriors
 
 
 
