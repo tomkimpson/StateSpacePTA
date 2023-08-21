@@ -257,7 +257,7 @@ and $q^{i,(n)}$ labels the $i$-th coordinate component of the of the $n$-th puls
 \end{align}
 Equations \eqref{eq:measurement} -- \eqref{eq:g_func_trig},  define a measurement equation that relates the intrinsic pulsar spin frequency to the frequency measured by an observer on Earth. 
 
-\section{Signal tracking and parameter estimation} \label{sec:detect}
+\section{Signal tracking, parameter estimation and model selection} \label{sec:detect}
 The set of static parameters $\boldsymbol{\theta}$ of the model outlined in Section \ref{sec:model} can be separated into parameters which correspond to the intrinsic frequency evolution of the pulsar and parameters of the GW source, i.e. 
 \begin{equation}
 	\boldsymbol{\theta} =  \boldsymbol{\theta}_{\rm psr} \cup \boldsymbol{\theta}_{\rm gw} \ , \label{eq:params1}
@@ -340,8 +340,8 @@ Throughout this work we take $\mathcal{M}_1$ to be the state space model that in
 To summarise the above, the order of operations in our method for estimating the posteriors on the static parameters and calculating the marginal likelihood for the inference model is as follows:
 
 \begin{enumerate}
-	\item Sample from the prior $\pi(\boldsymbol{\theta})$ to obtain $\pi(\boldsymbol{\theta})_{\rm sample}$
-	\item Pass $\pi(\boldsymbol{\theta})_{\rm sample}$ to the Kalman filter
+	\item Sample from the prior $\pi(\boldsymbol{\theta})$ to obtain $\boldsymbol{\theta}_{\rm sample}$
+	\item Pass $\boldsymbol{\theta}_{\rm sample}$ to the Kalman filter
 	\item Iterate over the data $\boldsymbol{Y}$ using the Kalman filter and obtain a single $\log \mathcal{L}$ value
 	\item Return $\log \mathcal{L}$ to the nested sampler
 	\item Nested sampler updates $\boldsymbol{\theta}$
@@ -419,17 +419,6 @@ and $\dot{f}_{\rm em}^{(n)}(t_1)$ remain static parameters of the model, but now
 We initially characterise our method with a single example of a PTA which is perturbed by a GW from an individual quasi-monochromatic SMBHB source. The static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this injection are selected to be astrophysically reasonable and representative. The injected $\boldsymbol{\theta}_{\rm gw}$ are summarised in the ``Injected Values" column of Table \ref{tab:parameters_and_priors}. The static pulsar parameters $\boldsymbol{\theta}_{\rm psr}$ are as described in Section \ref{sec:synt_pta} and are also shown in Table \ref{tab:parameters_and_priors}. 
 
 \subsubsection{Prior distributions}\label{sec:priors}
-
-\textbf{CLARIFY re uninformative c.f loguniform}
-
-\textbf{sin/cos priors realy uniform over cos(x)}
-
-\textbf{referecne NANOgrav puslars and n index c.f. TAble ANTF}
-
-\textbf{why did you choose NANOGrav you dick}
-
-\textbf{priors on f, fdot, shrink to e.g. factor x ANTF error}
-
 For the Bayesian methods used in this work, one must select reasonable priors, $\pi(\boldsymbol{\theta})$, for the complete set complete of static parameters. For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021} as summarised in Table \ref{tab:parameters_and_priors}. The choice of $\pi(\boldsymbol{\theta}_{\rm psr})$ requires some additional discussion. \newline 
 
 
@@ -589,17 +578,7 @@ We frame the problem of claiming a detection of a GW in the noisy data in terms 
 \end{figure*}
 The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim}, \ref{sec:detection} is not particularly advantageous or convenient for our method. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for 9 realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
 
-We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1} for a single noise realisation. The estimates of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations with the injected value contained in the 90 \% credible interval for each of the marginalized posteriors. The variance between each of the individual 1D histograms is also generally low. 
-
-
-
-
-
-
-Conversely for the parameters $\iota$ and $h_0$ the variance between the different marginalized posteriors is generally high; we infer highly different estimates of these parameters depending on the particular realisation of the noise. Typically, for a given noise realisation, we do not contain the injected value within the 90\% credible interval for both $\iota$ and $h_0$ simultaneously.
-
-
-
+We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1} for a single noise realisation. The estimates of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations with the injected value contained in the 90 \% credible interval for each of the marginalized posteriors. The variance between each of the individual 1D histograms is also generally low. Conversely for the parameters $\iota$ and $h_0$ the variance between the different marginalized posteriors is generally high; we infer highly different estimates of these parameters depending on the particular realisation of the noise. Typically, for a given noise realisation, we do not contain the injected value within the 90\% credible interval for both $\iota$ and $h_0$ simultaneously. \newline 
 
  
 The large degree of variance in the estimates of $\iota$ and $h_0$ is due to the nested sampling algorithm effectively trading off accuracy in one parameter against the accuracy in other. From Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is broken generally by the relation for $h_{+}$, Equation \eqref{eq:hphx}. Whilst this ensures that both parameters are then generally identifiable formally, in practice an identifiability issue persists since the log-likelihood surface in $\iota -h_0$ space plateaus across a broad range of physically reasonable values.  Consequently it is difficult for our algorithm to select a particular point in this plateau. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (i.e. Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
@@ -717,33 +696,41 @@ We have shown in this section how the dropping of the pulsar terms results in a 
 \end{figure*}
 
 
-%\begin{figure*}
-%	\centering
-%	\subfigure[]{\includegraphics[width=0.24\textwidth]{example-image-a}} 
-%	\subfigure[]{\includegraphics[width=0.24\textwidth]{example-image-a}} 
-%	\subfigure[]{\includegraphics[width=0.24\textwidth]{example-image-a}}
-%	\subfigure[]{\includegraphics[width=0.24\textwidth]{example-image-a}}
-%	\caption{(a) blah (b) blah (c) blah (d) blah}
-%	\label{fig:foobar}
-%\end{figure*}
+
 
 
 \section{Discussion}
+We have shown how our complementary approach to PTA data analysis using a Kalman filter can successfully recover the underlying parameters of the model and calculate Bayes factors in order to perform Bayesian model selection. 
 
 
-Some potential further points for discussion
+
+The natural first extension of this work is to implement the method whilst retaining the pulsar terms of Equation \ref{eq:measurement}. 
 
 
-\begin{itemize}
-	\item What is the performance of a single pulsar?
-	\item How does this map to Hellings-downs?
-	\item How does this map to having more than one source? Or a chrmomatic source?
-	\item Non constant time sampling?
-	\item Any further discussion on pulsar terms?
-	\item PTAs like MSPs for small timing noise. Can we get away with large timing noise, and use more pulsars? Some pulsars are more useful than others, e.g. arXiv 2211.03201
-	\item Can we also estimate radiometer noise? Is this useful?
-	\item Lets preempt reviewer and make it explicit WHY we are not using TOAs
-\end{itemize}
+
+Whilst PTA searches commonly drop the pulsar terms as standard practice, we have shown that this leads to biases in the inferred 1D marginalized posteriors for the model parameters. 
+
+Biases in synthetic datasets from dropping the pulsar terms are also observed by \cite{Zhupulsarterms} and \cite{Chen2022}. Alternatively, if one wishes to continue to use just the Earth terms it would be highly desirable to 
+
+
+We have considered only a specific configuration of pulsars composing our synthetic PTA - the same pulsars that make up NANOGrav. Whilst our method is generally independent of the specific choice of pulsars, it would be of interest to compare the performance of the method using different pulsars configurations and different PTAs such as PPTA and the EPTA. Indeed, due to the increased computational demands as pulsars are added to the arrays it may be advantageous to optimally select a subset of the total number of available pulsars which may be able to provide comparable performance to a larger PTA  \citep{2023MNRAS.518.1802S}. 
+
+
+
+
+
+Throughout this work we have assumed that all pulsars are observed at the same time, with a constant time sampling. In practice this assumption does not hold and pulsars will be observed with different cadences at different time intervals. Applying this method to non-constant time sampling is a key further extension.
+
+
+We have also assumed that there is only a single, quasi-monochromatic GW source that influences the pulsar frequencies.However, it may be possible to resolve multiple continuous GW source simultaneously. Our method naturally extends to multiple GW sources; Equation \ref{eq:measurement} is modified to become the linear superposition of multiple GWs. The stochastic background itself is the incoherent summation of many individual GW sources. It therefore stands to reason that we could extend this method to also search for a stochastic GW background without requiring cross-correlating the pulsar residuals to uncover the Hellings-Downs curve. 
+
+
+
+
+
+
+\textcolor{red}{TK: Lets pre-empt reviewer and make it explicit WHY we are not using TOAs}
+We have formulated the state space model in terms of frequencies, where 
 
 
 

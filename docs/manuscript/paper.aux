@@ -92,12 +92,12 @@
 \newlabel{eq:measurement}{{16}{4}{Measurement equation}{equation.16}{}}
 \newlabel{eq:g_func}{{17}{4}{Measurement equation}{equation.17}{}}
 \newlabel{eq:g_func_trig}{{18}{4}{Measurement equation}{equation.18}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Signal tracking and parameter estimation}{4}{section.3}\protected@file@percent }
-\newlabel{sec:detect}{{3}{4}{Signal tracking and parameter estimation}{section.3}{}}
-\newlabel{eq:params1}{{19}{4}{Signal tracking and parameter estimation}{equation.19}{}}
-\newlabel{eq:params3}{{21}{4}{Signal tracking and parameter estimation}{equation.21}{}}
-\newlabel{eq:hphx}{{22}{4}{Signal tracking and parameter estimation}{equation.22}{}}
-\newlabel{eq:hphx2}{{23}{4}{Signal tracking and parameter estimation}{equation.23}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Signal tracking, parameter estimation and model selection}{4}{section.3}\protected@file@percent }
+\newlabel{sec:detect}{{3}{4}{Signal tracking, parameter estimation and model selection}{section.3}{}}
+\newlabel{eq:params1}{{19}{4}{Signal tracking, parameter estimation and model selection}{equation.19}{}}
+\newlabel{eq:params3}{{21}{4}{Signal tracking, parameter estimation and model selection}{equation.21}{}}
+\newlabel{eq:hphx}{{22}{4}{Signal tracking, parameter estimation and model selection}{equation.22}{}}
+\newlabel{eq:hphx2}{{23}{4}{Signal tracking, parameter estimation and model selection}{equation.23}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Kalman filter}{4}{subsection.3.1}\protected@file@percent }
 \newlabel{sec:kalman_filter}{{3.1}{4}{Kalman filter}{subsection.3.1}{}}
 \newlabel{eq:likelihood}{{25}{4}{Kalman filter}{equation.25}{}}
@@ -152,15 +152,15 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Synthetic data generation}{7}{subsubsection.4.1.2}\protected@file@percent }
 \citation{Bhagwat2021}
 \citation{Arzoumanian2018ApJS..235...37A,Yao2017}
+\citation{Shannon2010}
+\citation{Shannon2010}
+\citation{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C}
+\citation{Zhupulsarterms,Chen2022}
 \newlabel{eq:measurement_cov}{{35}{8}{Synthetic data generation}{equation.35}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Representative example}{8}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:rep_example}{{4.2}{8}{Representative example}{subsection.4.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Prior distributions}{8}{subsubsection.4.2.1}\protected@file@percent }
 \newlabel{sec:priors}{{4.2.1}{8}{Prior distributions}{subsubsection.4.2.1}{}}
-\citation{Shannon2010}
-\citation{Shannon2010}
-\citation{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C}
-\citation{Zhupulsarterms,Chen2022}
 \citation{Zhupulsarterms}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap}\unskip \@@italiccorr )}}, \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}} from \cite {Shannon2010}.\relax }}{9}{table.caption.4}\protected@file@percent }
 \newlabel{tab:parameters_and_priors}{{1}{9}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref {eq:sigmap}, \eqref {eq:sigmap_f} from \protect \cite {Shannon2010}.\relax }{table.caption.4}{}}
@@ -195,6 +195,9 @@
 \newlabel{fig:likelihood_curves_earth}{{9}{15}{\relax }{figure.caption.10}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces As Figure \ref  {fig:likelihood_curves_earth} but now including the pulsar terms in the measurement equation.\relax }}{15}{figure.caption.11}\protected@file@percent }
 \newlabel{fig:likelihood_curves_psr}{{10}{15}{As Figure \ref {fig:likelihood_curves_earth} but now including the pulsar terms in the measurement equation.\relax }{figure.caption.11}{}}
+\citation{Zhupulsarterms}
+\citation{Chen2022}
+\citation{2023MNRAS.518.1802S}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{16}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{16}{section.6}\protected@file@percent }
 \citation{gardiner2009stochastic}
@@ -310,31 +313,32 @@
 \bibcite{Skilling}{{98}{2006}{{Skilling}}{{Skilling}}}
 \bibcite{Sornette2004}{{99}{2004}{{{Sornette}}}{{{Sornette}}}}
 \bibcite{dynesty2020}{{100}{2020}{{Speagle}}{{Speagle}}}
-\bibcite{Meertime}{{101}{2022}{{{Spiewak} et~al.}}{{{Spiewak} et~al.,}}}
-\bibcite{stairs_freeprecession}{{102}{2000}{{{Stairs} et~al.}}{{{Stairs}, {Lyne} \& {Shemar}}}}
-\bibcite{Stairs2019MNRAS.485.3230S}{{103}{2019}{{{Stairs} et~al.}}{{{Stairs} et~al.,}}}
-\bibcite{Skyes2022}{{104}{2022}{{{Sykes} et~al.}}{{{Sykes}, {Middleton}, {Melatos}, {Di Matteo}, {DeGraf} \& {Bhowmick}}}}
-\bibcite{ipta}{{105}{2022}{{Tarafdar et~al.}}{{Tarafdar et~al.,}}}
-\bibcite{Taylors2016}{{106}{2016}{{{Taylor} et~al.}}{{{Taylor}, {Huerta}, {Gair} \& {McWilliams}}}}
-\bibcite{Tiburzi2018}{{107}{2018}{{{Tiburzi}}}{{{Tiburzi}}}}
-\bibcite{proceedings2019033014}{{108}{2019}{{Trassinelli}}{{Trassinelli}}}
-\bibcite{2006MNRAS.370L..76U}{{109}{2006}{{{Urama} et~al.}}{{{Urama}, {Link} \& {Weisberg}}}}
-\bibcite{Vargas}{{110}{2023}{{Vargas \& Melatos}}{{Vargas \& Melatos}}}
-\bibcite{Verbiest2012ApJ...755...39V}{{111}{2012}{{{Verbiest} et~al.}}{{{Verbiest}, {Weisberg}, {Chael}, {Lee} \& {Lorimer}}}}
-\bibcite{2021hgwa.bookE...4V}{{112}{2021}{{{Verbiest} et~al.}}{{{Verbiest}, {Os{\l }owski} \& {Burke-Spolaor}}}}
-\bibcite{882463van}{{113}{2000}{{Wan \& Van Der~Merwe}}{{Wan \& Van Der~Merwe}}}
-\bibcite{Wyithe2003}{{114}{2003}{{{Wyithe} \& {Loeb}}}{{{Wyithe} \& {Loeb}}}}
-\bibcite{2023RAA....23g5024X}{{115}{2023}{{{Xu} et~al.}}{{{Xu} et~al.,}}}
-\bibcite{PTAphase}{{116}{2021}{{{Xue} et~al.}}{{{Xue} et~al.,}}}
-\bibcite{Yao2017}{{117}{2017}{{{Yao} et~al.}}{{{Yao}, {Manchester} \& {Wang}}}}
-\bibcite{Yardley2010}{{118}{2010}{{{Yardley} et~al.}}{{{Yardley} et~al.,}}}
-\bibcite{zarchan2000fundamentals}{{119}{2000}{{Zarchan \& Musoff}}{{Zarchan \& Musoff}}}
-\bibcite{Zhu2014PPTA}{{120}{2014}{{{Zhu} et~al.}}{{{Zhu} et~al.,}}}
-\bibcite{Zhu10}{{121}{2015a}{{Zhu et~al.}}{{Zhu et~al.,}}}
-\bibcite{Zhu2015}{{122}{2015b}{{Zhu et~al.}}{{Zhu et~al.,}}}
-\bibcite{Zhupulsarterms}{{123}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
-\bibcite{Parkes2023}{{124}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
-\bibcite{Zic2023arXiv230616230Z}{{125}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
-\bibcite{vanEysden}{{126}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
+\bibcite{2023MNRAS.518.1802S}{{101}{2023}{{{Speri} et~al.}}{{{Speri}, {Porayko}, {Falxa}, {Chen}, {Gair}, {Sesana} \& {Taylor}}}}
+\bibcite{Meertime}{{102}{2022}{{{Spiewak} et~al.}}{{{Spiewak} et~al.,}}}
+\bibcite{stairs_freeprecession}{{103}{2000}{{{Stairs} et~al.}}{{{Stairs}, {Lyne} \& {Shemar}}}}
+\bibcite{Stairs2019MNRAS.485.3230S}{{104}{2019}{{{Stairs} et~al.}}{{{Stairs} et~al.,}}}
+\bibcite{Skyes2022}{{105}{2022}{{{Sykes} et~al.}}{{{Sykes}, {Middleton}, {Melatos}, {Di Matteo}, {DeGraf} \& {Bhowmick}}}}
+\bibcite{ipta}{{106}{2022}{{Tarafdar et~al.}}{{Tarafdar et~al.,}}}
+\bibcite{Taylors2016}{{107}{2016}{{{Taylor} et~al.}}{{{Taylor}, {Huerta}, {Gair} \& {McWilliams}}}}
+\bibcite{Tiburzi2018}{{108}{2018}{{{Tiburzi}}}{{{Tiburzi}}}}
+\bibcite{proceedings2019033014}{{109}{2019}{{Trassinelli}}{{Trassinelli}}}
+\bibcite{2006MNRAS.370L..76U}{{110}{2006}{{{Urama} et~al.}}{{{Urama}, {Link} \& {Weisberg}}}}
+\bibcite{Vargas}{{111}{2023}{{Vargas \& Melatos}}{{Vargas \& Melatos}}}
+\bibcite{Verbiest2012ApJ...755...39V}{{112}{2012}{{{Verbiest} et~al.}}{{{Verbiest}, {Weisberg}, {Chael}, {Lee} \& {Lorimer}}}}
+\bibcite{2021hgwa.bookE...4V}{{113}{2021}{{{Verbiest} et~al.}}{{{Verbiest}, {Os{\l }owski} \& {Burke-Spolaor}}}}
+\bibcite{882463van}{{114}{2000}{{Wan \& Van Der~Merwe}}{{Wan \& Van Der~Merwe}}}
+\bibcite{Wyithe2003}{{115}{2003}{{{Wyithe} \& {Loeb}}}{{{Wyithe} \& {Loeb}}}}
+\bibcite{2023RAA....23g5024X}{{116}{2023}{{{Xu} et~al.}}{{{Xu} et~al.,}}}
+\bibcite{PTAphase}{{117}{2021}{{{Xue} et~al.}}{{{Xue} et~al.,}}}
+\bibcite{Yao2017}{{118}{2017}{{{Yao} et~al.}}{{{Yao}, {Manchester} \& {Wang}}}}
+\bibcite{Yardley2010}{{119}{2010}{{{Yardley} et~al.}}{{{Yardley} et~al.,}}}
+\bibcite{zarchan2000fundamentals}{{120}{2000}{{Zarchan \& Musoff}}{{Zarchan \& Musoff}}}
+\bibcite{Zhu2014PPTA}{{121}{2014}{{{Zhu} et~al.}}{{{Zhu} et~al.,}}}
+\bibcite{Zhu10}{{122}{2015a}{{Zhu et~al.}}{{Zhu et~al.,}}}
+\bibcite{Zhu2015}{{123}{2015b}{{Zhu et~al.}}{{Zhu et~al.,}}}
+\bibcite{Zhupulsarterms}{{124}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
+\bibcite{Parkes2023}{{125}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
+\bibcite{Zic2023arXiv230616230Z}{{126}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
+\bibcite{vanEysden}{{127}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
 \newlabel{lastpage}{{B1}{19}{References}{subsection.A2.1}{}}
 \gdef \@abspage@last{19}
