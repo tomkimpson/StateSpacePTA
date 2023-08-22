@@ -490,7 +490,7 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
  
  
 \begin{figure*}
-	\includegraphics[width=0.8\textwidth, height =0.8\textwidth ]{images/representative_example_v2_GW}
+	\includegraphics[width=\textwidth, height =\textwidth ]{images/representative_example_v2_GW}
 	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref{tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest. $\Omega_{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.}
 	\label{fig:corner_plot_1}
 \end{figure*}
@@ -521,126 +521,40 @@ The small perturbations in the general log-linear $\beta - h_0$ trend arise due 
 
 Below $\beta = 10$ this noise in the sampler starts to dominate and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. This is simply due to the fact that at these small strains the system is completely noise dominated and the two models $\mathcal{M}_1, \mathcal{M}_0$ cannot be separated. 
 \begin{figure}
-	\includegraphics[width=\columnwidth]{images/PaperBayesRatioPlotn1000_stacked}
+	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot}
 	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection tolerance cut-off of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3 \times 10^{-15}$. \textcolor{red}{TK: probably need to regenerate this figure to get rid of the "bumps" which are just artefacts from a poor sampler convergence at that point}}
 	\label{fig:bayes}
 \end{figure}
 
 \subsubsection{Multiple noise realisations} \label{sec:multiple_noise}
 \begin{figure*}
-	\includegraphics[width=0.8\textwidth, height =0.8\textwidth ]{images/stacked_GW_plot_1000}
+	\includegraphics[width=\textwidth, height =\textwidth]{images/stacked_GW_plot_1000}
 	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance.} 
 	\label{fig:corner_plot_2}
 \end{figure*}
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{images/likelihood_surface}
+	\caption{Likelihood $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.}
+	\label{fig:likelihood_surface}
+\end{figure}
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{images/compare_iotas_lines2}
-	\caption{1D marginalized posteriors for $\iota$ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The left hand panel is equivalent to the marginalized posteriors for $\iota$ shown in Figure \ref{fig:corner_plot_2} (4th row, 4th column). The thick orange line labels the true injected value. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota$.}
+	\caption{1D marginalized posteriors for $\iota$ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota$. The left hand panel is equivalent to the marginalized posteriors for $\iota$ shown in Figure \ref{fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.}
 	\label{fig:iota}
 \end{figure*}
-%\begin{figure*}
-%	\setkeys{Gin}{width=\linewidth}   
-%	
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/distribution_omega_gw}
-%		\caption{$\Omega$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/distribution_phi0_gw}
-%		\caption{$\Phi_0$}
-%	\end{subfigure}
-%	\hfill	
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/distribution_psi_gw}
-%		\caption{$\psi$}
-%	\end{subfigure}
-%	\medskip
-%	
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/distribution_iota_gw}
-%		\caption{$\iota$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/distribution_delta_gw}
-%		\caption{$\delta$}
-%	\end{subfigure}
-%	\hfill	
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/distribution_alpha_gw}
-%		\caption{$\alpha$}
-%	\end{subfigure}
-%	\medskip
-%	
-%	
-%	\medskip
-%	\begin{subfigure}[b]{0.33\textwidth}
-%		\includegraphics{images/distribution_h}
-%		\caption{$h$}
-%	\end{subfigure}
-%	
-%	\caption{Distribution in the median values of the 1D marginalized posteriors inferred by nested sampling for each static parameters of $\boldsymbol{\theta}_{\rm gw}$ over 1000 noise realisations. The orange dashed line labels the true injection value and the red dashed line labels the median of the distribution. \textcolor{red}{TK: these plots are ugly. Is there a better way to show this?}}\label{fig:median_distriubutins}
-%\end{figure*}
 
 
-
-The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim}, \ref{sec:detection} is not particularly advantageous or convenient for our method. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for 9 realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
+The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim}, \ref{sec:detection} is not particularly advantageous or convenient for our method. In this Section we confirm that we are able to infer comparable results for different noise realisations. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for 9 realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
 
 We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1}. Considering the 1D marginalized posteriors, the inferred probability distributions of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are highly consistent across the different noise realisations. Moreover, the variance of each of the individual 1D posteriors is generally low i.e. each of individual the distributions are narrow compared to the prior space. That is to say, for each different noise realisation the method infers a consistent maximum \textit{a posteriori} probability (MAP) estimate. Conversely for the parameters $\iota$ and $h_0$ the inferred 1D posteriors are not consistent across different noise realisations and the variance of an individual posterior is generally larger than for the other parameters. That is to say, we infer very different MAP estimates of these parameters depending on the particular realisation of the noise. \newline 
 
 
-The large degree of variance in the 1D posteriors of $\iota$ and $h_0$ is due to the nested sampling algorithm effectively trading off accuracy in one parameter against the accuracy in other. From Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. 
+The large degree of variance in the 1D posteriors of $\iota$ and $h_0$ is due to these parameters being only weakly-identifiable. Identifiability refers to whether it is theoretically possible to infer unique parameter values of the model, given the measured data and the model structure \citep{e5be7c83a0d24500826f6e1b414d1733}. Sources of non-identifiability are generally categorised as either ``structural" - arising from the structure of the model - or ``practical" - arising from insufficient data or measurement errors \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$ we are concerned with structural identifiability. Indeed, one might initially suspect that $\iota$ and $h_0$ could have structural identifiability issues; from Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is only broken by the relation for $h_{+}$, Equation \eqref{eq:hphx}. However, it can be shown (Appendix \ref{appendix_identifiability}) that $\iota$ and $h_0$ are in fact structurally identifiable, but with the caveat that they are only weakly-identifiable. That is to say the $\iota-h_0$ likelihood surface plateaus to a ridge with a non-zero gradient close to the maximum likelihood solution. This likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maxima exists (labelled by the red point in the figure), along ridge in the parameter space the likelihood values are all very similar. Consequently it is difficult for the nested sampling algorithm to select a particular point in this plateau and instead effectively trades off accuracy in one parameter against accuracy in other, depending on the particular realisation of the noise. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (equivalent to the 1D posterior for $\iota$ in Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. An equivalent bias in $h_0$ is observed if we fix $\iota$. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
 
 
-
-
-The situation can be further elucidated if we consider instead the alternative parametrisation in terms of $h_{+}$ and $h_{\times}$. From Equation \ref{eq:hij} the amplitude of the plane GW perturbation at a particular sky location $\boldsymbol{n}$ is a linear combination of $h_{+}$ and $h_{\times}$. 
-
-
-
-
-he log-likelihood surface in $\iota -h_0$ space plateaus across a broad range of physically reasonable values.  
-
-
-
-
-
-
-
-This degeneracy is broken generally by the relation for $h_{+}$, Equation \eqref{eq:hphx}. Whilst this ensures that both parameters are then generally identifiable formally, in practice an identifiability issue persists since t
-
-
-
-
-
-
-
-
-Consequently it is difficult for our algorithm to select a particular point in this plateau. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (i.e. Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
-
-
-
-
-
-For each realisation of the noise we infer a marginalised 1-D posterior for each parameter. 
-
-
-
-
-Since we are in the high SHR regime (c.f. Fgiure X for h = 1012) the posteriors are narrow high confidence in narrow range of values.
-
-In this case we are justified in talking abotu the mode of posteriors
-
-
-
-High SNR makes the posteriors effectively point estimates. Therefore maybe credible intervals dont make as much sense 
-
-
-%
-%. In turn, each posterior distribution has a median value. We plot the distribution of these medians over the 1000 noise realisations for each parameter of $\boldsymbol{\theta}_{\rm gw}$ in Figure \ref{fig:median_distriubutins}. For each of these distributions we can also calculate the median value (i.e. the median of the medians) and compare it with the true injection value. This is shown by the red and orange dashed lines respectively in the Figure. Analogous to the results we saw in Figure \ref{fig:corner_plot_2}, the distributions of the median values of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are very narrow, with a generally small discrepancy between the inferred value and the injected value. Conversely, the distributions for $\iota$ and $h_0$ are much broader and exhibit a bias of $\sim 0.18$ radians and $0.17 \times 10^{-12}$ respectively. This agrees with the results we discussed for the 9 noise realisations in Figure \ref{fig:corner_plot_2} where a bias in $\iota$ and $h_0$ was also observed. In addition to  $\iota$ and $h_0$  exhibiting a strong bias, the parameters $\psi$ and $\alpha$ also exhibit a small bias of magnitude $\sim 0.1$ and $\sim 0.04$ radians respectively. This bias is again a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}. 
-
-
+We now consider the complete set of 1000 noise realisations, rather than the subset of 9 realisations in the preceding discussion. For each realisation of the noise we infer a marginalised 1-D posterior for each parameter. For this injected strain ($h_0 = 10^{12}$) the SNR is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, we consider the normalised standard deviation in the set of 1000 median values. For $\Omega, \Phi_0, \psi, \delta, \alpha$ the normalised standard deviation is $\sim 4 \times 10^{-5}, 0.03,0.004,0.03,0.02$ respectively. We can therefore see that the method is able to reliably converge to a consistent MAP estimate. Conversely, as we saw before, the MAP estimates for $\iota$ and $h$ are not consistent across different noise realisations, with normalised standard deviation of $0.3$ and $0.1$ respectively.Whilst the estimates are consistent across different noise realisations, for some parameters a small bias is observed between the MAP estimate and the injected value. This was evident in Figure \ref{fig:iota} for $\iota$ (and equivalently $h_0$s) which exhibits a strong bias of $\sim 0.35$ radians, but over the 1000 realisations biases are also observed in $\psi$ ($\sim 0.1$ radians) and $\alpha$ ($\sim 0.04$ radians). These biases are a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}
 
 
 \subsection{Exploring a broader parameter space} \label{sec:parameter_space}
@@ -661,95 +575,91 @@ We can compare the likelihood curves of Figure \ref{fig:likelihood_curves_earth}
 
 We have shown in this section how the dropping of the pulsar terms results in a bias in the inferred parameters, not just in the sky localisation parameters  \citep[e.g.][]{Zhupulsarterms,Chen2022} but additionally $\psi, h_0$ and $\iota$. We have only considered a single example system to explore the effect of the bias. Whilst the bias is generally small and does not prevent the recovery of accurate posteriors for each of the parameters, it is present and will need to be accounted for. This bias is not particular to our method but a shared feature across likelihood based methods that do not include the pulsar terms in the inference model. The inclusion of the pulsar terms in the methods presented in this work will be a key goal of a future work, which will alleviate these bias problems. 
 
-\begin{figure*}
-	\setkeys{Gin}{width=\linewidth}   
-	
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_omega_earth}
-		\caption{$\Omega$}
-		\label{fig:omega_likelihood}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_phi0_earth}
-		\caption{$\Phi_0$}
-	\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_psi_earth}
-		\caption{$\psi$}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_iota_earth}
-		\caption{$\iota$}
-			\label{fig:iota_likelihood}
-	\end{subfigure}
-	\medskip
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_delta_earth}
-		\caption{$\delta$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_alpha_earth}
-		\caption{$\alpha$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics{images/likelihood_h_earth}
-		\caption{$h$}
-	\end{subfigure}
-	
-	\caption{}\label{fig:likelihood_curves_earth}
-\end{figure*}
-
-
-
-
-
-
-
-
-\begin{figure*}
-	\setkeys{Gin}{width=\linewidth}   
-	
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_omega_psr}
-		\caption{$\Omega$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_phi0_psr}
-		\caption{$\Phi_0$}
-	\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_psi_psr}
-		\caption{$\psi$}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.22\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_iota_psr}
-		\caption{$\iota$}
-	\end{subfigure}
-	\medskip
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_delta_psr}
-		\caption{$\delta$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[width=\textwidth]{images/likelihood_alpha_psr}
-		\caption{$\alpha$}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics{images/likelihood_h_psr}
-		\caption{$h$}
-	\end{subfigure}
-	
-	\caption{As Figure \ref{fig:likelihood_curves_earth} but now including the pulsar terms in the measurement equation.}\label{fig:likelihood_curves_psr}
-\end{figure*}
-
+%\begin{figure*}
+%	\setkeys{Gin}{width=\linewidth}   
+%	
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_omega_earth}
+%		\caption{$\Omega$}
+%		\label{fig:omega_likelihood}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_phi0_earth}
+%		\caption{$\Phi_0$}
+%	\end{subfigure}
+%	\hfill	
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_psi_earth}
+%		\caption{$\psi$}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_iota_earth}
+%		\caption{$\iota$}
+%			\label{fig:iota_likelihood}
+%	\end{subfigure}
+%	\medskip
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_delta_earth}
+%		\caption{$\delta$}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_alpha_earth}
+%		\caption{$\alpha$}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\includegraphics{images/likelihood_h_earth}
+%		\caption{$h$}
+%	\end{subfigure}
+%	
+%	\caption{}\label{fig:likelihood_curves_earth}
+%\end{figure*}
+%
+%
+%
+%
+%\begin{figure*}
+%	\setkeys{Gin}{width=\linewidth}   
+%	
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_omega_psr}
+%		\caption{$\Omega$}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_phi0_psr}
+%		\caption{$\Phi_0$}
+%	\end{subfigure}
+%	\hfill	
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_psi_psr}
+%		\caption{$\psi$}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.22\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_iota_psr}
+%		\caption{$\iota$}
+%	\end{subfigure}
+%	\medskip
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_delta_psr}
+%		\caption{$\delta$}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\includegraphics[width=\textwidth]{images/likelihood_alpha_psr}
+%		\caption{$\alpha$}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\includegraphics{images/likelihood_h_psr}
+%		\caption{$h$}
+%	\end{subfigure}
+%	
+%	\caption{As Figure \ref{fig:likelihood_curves_earth} but now including the pulsar terms in the measurement equation.}\label{fig:likelihood_curves_psr}
+%\end{figure*}
+%
 
 
 
@@ -904,7 +814,14 @@ for variance $\Sigma^2$.
 
 
 
+\section{Appendix on identifiability}\label{appendix_identifiability}
 
+
+
+
+
+
+This paper is useful: \citep{KARLSSON2012941} \citep{SEDOGLAVIC2002735}
 \section{Alternative version of Fig 1}
 
 
@@ -936,6 +853,89 @@ for variance $\Sigma^2$.
 %%%%%%%%%%%%%%%%Scratch space
 
 %Taking a tangible example, for pulsar J0023+0923 ATNF returns a frequency $f_{\rm em}^{(n)} (t_1) \sim 327.8$ Hz with an error $\epsilon \sim 4 \times 10^{13}$ Hz. 	The prior on $f_{\rm em}^{(n)} (t_1) \sim 327.8$ for this pulsar is then Uniform$(327.8 - 4 \times 10^{10},327.8 + 4 \times 10^{10} )$
+
+
+%Alternatively, one can consider instead the alternative parametrisation in terms of $h_{+}$ and $h_{\times}$. 
+%
+%from Equation \ref{eq:hij} the amplitude of the plane GW perturbation at a particular sky location $\boldsymbol{n}$ is a linear combination of $h_{+}$ and $h_{\times}$. 
+%
+%
+%
+%Considering a single pulsar where the only unknown parameters of the model are $h_{+}$ and $h_{\times}$, the system is clearly under-determined - we have one equation with two unknowns - and the parameters are not identifiable 
+%
+%
+
+
+
+
+
+
+
+
+
+%\begin{figure*}
+%	\setkeys{Gin}{width=\linewidth}   
+%	
+%	\begin{subfigure}[b]{0.3\textwidth}
+	%		\includegraphics[width=\textwidth]{images/distribution_omega_gw}
+	%		\caption{$\Omega$}
+	%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+	%		\includegraphics[width=\textwidth]{images/distribution_phi0_gw}
+	%		\caption{$\Phi_0$}
+	%	\end{subfigure}
+%	\hfill	
+%	\begin{subfigure}[b]{0.3\textwidth}
+	%		\includegraphics[width=\textwidth]{images/distribution_psi_gw}
+	%		\caption{$\psi$}
+	%	\end{subfigure}
+%	\medskip
+%	
+%	\begin{subfigure}[b]{0.3\textwidth}
+	%		\includegraphics[width=\textwidth]{images/distribution_iota_gw}
+	%		\caption{$\iota$}
+	%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+	%		\includegraphics[width=\textwidth]{images/distribution_delta_gw}
+	%		\caption{$\delta$}
+	%	\end{subfigure}
+%	\hfill	
+%	\begin{subfigure}[b]{0.3\textwidth}
+	%		\includegraphics[width=\textwidth]{images/distribution_alpha_gw}
+	%		\caption{$\alpha$}
+	%	\end{subfigure}
+%	\medskip
+%	
+%	
+%	\medskip
+%	\begin{subfigure}[b]{0.33\textwidth}
+	%		\includegraphics{images/distribution_h}
+	%		\caption{$h$}
+	%	\end{subfigure}
+%	
+%	\caption{Distribution in the median values of the 1D marginalized posteriors inferred by nested sampling for each static parameters of $\boldsymbol{\theta}_{\rm gw}$ over 1000 noise realisations. The orange dashed line labels the true injection value and the red dashed line labels the median of the distribution. \textcolor{red}{TK: these plots are ugly. Is there a better way to show this?}}\label{fig:median_distriubutins}
+%\end{figure*}
+
+
+
+
+
+
+
+
+
+
+%
+%. In turn, each posterior distribution has a median value. We plot the distribution of these medians over the 1000 noise realisations for each parameter of $\boldsymbol{\theta}_{\rm gw}$ in Figure \ref{fig:median_distriubutins}. For each of these distributions we can also calculate the median value (i.e. the median of the medians) and compare it with the true injection value. This is shown by the red and orange dashed lines respectively in the Figure. Analogous to the results we saw in Figure \ref{fig:corner_plot_2}, the distributions of the median values of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ are very narrow, with a generally small discrepancy between the inferred value and the injected value. Conversely, the distributions for $\iota$ and $h_0$ are much broader and exhibit a bias of $\sim 0.18$ radians and $0.17 \times 10^{-12}$ respectively. This agrees with the results we discussed for the 9 noise realisations in Figure \ref{fig:corner_plot_2} where a bias in $\iota$ and $h_0$ was also observed. In addition to  $\iota$ and $h_0$  exhibiting a strong bias, the parameters $\psi$ and $\alpha$ also exhibit a small bias of magnitude $\sim 0.1$ and $\sim 0.04$ radians respectively. This bias is again a result of dropping the pulsar terms from the measurement equation and will be discussed in . 
+
+
+
+
+
+
+
 
 
 

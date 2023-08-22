@@ -8,6 +8,67 @@ volume=1,
 pages={101-111},
 year=1901,
 }
+@article{e5be7c83a0d24500826f6e1b414d1733,
+	title = "On Structural Identifiability",
+	abstract = "In this article we introduce a new concept, structural identifiability, which plays a central role in identification problems. The concept is useful when answering questions such as: To what extent is it possible to get insight into the internal structure of a system from input-output measurements? What experiments are necessary in order to determine the internal couplings uniquely? The definition of the concept of an identifiable structure is given. Criteria as well as certain identifiable structures are discussed. Particular emphasis is given to compartmental models.",
+	author = "R. Bellman and {\AA}str{\"o}m, {Karl Johan}",
+	year = "1970",
+	doi = "10.1016/0025-5564(70)90132-X",
+	language = "English",
+	volume = "7",
+	pages = "329--339",
+	journal = "Mathematical Biosciences",
+	issn = "0025-5564",
+	publisher = "Elsevier",
+}
+
+
+@article{SEDOGLAVIC2002735,
+	title = {A Probabilistic Algorithm to Test Local Algebraic Observability in Polynomial Time},
+	journal = {Journal of Symbolic Computation},
+	volume = {33},
+	number = {5},
+	pages = {735-755},
+	year = {2002},
+	issn = {0747-7171},
+	doi = {https://doi.org/10.1006/jsco.2002.0532},
+	url = {https://www.sciencedirect.com/science/article/pii/S0747717102905328},
+	author = {Alexandre Sedoglavic},
+	abstract = {The following questions are often encountered in system and control theory. Given an algebraic model of a physical process, which variables can be, in theory, deduced from the input–output behaviour of an experiment? How many of the remaining variables should we assume to be known in order to determine all the others? These questions are parts of thelocal algebraic observability problem which is concerned with the existence of a non-trivial Lie subalgebra of model’s symmetries letting the inputs and the outputs be invariant. We present a probabilistic seminumerical algorithm that proposes a solution to this problem in polynomial time. A bound for the necessary number of arithmetic operations on the rational field is presented. This bound is polynomial in the complexity of evaluation of the model and in the number of variables. Furthermore, we show that the size of the integers involved in the computations is polynomial in the number of variables and in the degree of the system. Last, we estimate the probability of success of our algorithm.}
+}
+
+
+@article{KARLSSON2012941,
+	title = {An Efficient Method for Structural Identifiability Analysis of Large Dynamic Systems*},
+	journal = {IFAC Proceedings Volumes},
+	volume = {45},
+	number = {16},
+	pages = {941-946},
+	year = {2012},
+	note = {16th IFAC Symposium on System Identification},
+	issn = {1474-6670},
+	doi = {https://doi.org/10.3182/20120711-3-BE-2027.00381},
+	url = {https://www.sciencedirect.com/science/article/pii/S1474667015380745},
+	author = {Johan Karlsson and Milena Anguelova and Mats Jirstrand},
+	keywords = {Systems identification, Identifiability, Parameter estimation, Dynamic systems},
+	abstract = {Ordinary differential equation models often contain a large number of parameters that must be determined from measurements by parameter estimation. For a parameter estimation procedure to be successful, there must be a unique set of parameters that can have produced the measured data. This is not the case if a model is not structurally identifiable with the given set of outputs selected as measurements. We describe the implementation of a recent probabilistic semi-numerical method for testing local structural identifiability based on computing the rank of a numerically instantiated Jacobian matrix (observability/identifiability matrix). To obtain this, matrix parameters and initial conditions are specialized to random integer numbers, inputs are specialized to truncated random integer coefficient power series, and the corresponding output of the state space system is computed in terms of a truncated power series, which then is utilized to calculate the elements of a Jacobian matrix. To reduce the memory requirements and increase the speed of the computations all operations are done modulo a large prime number. The method has been extended to handle parametrized initial conditions and is demonstrated to be capable of handling systems in the order of a hundred state variables and equally many parameters on a standard desktop computer.}
+}
+
+@article{GUILLAUME2019418,
+	title = {Introductory overview of identifiability analysis: A guide to evaluating whether you have the right type of data for your modeling purpose},
+	journal = {Environmental Modelling & Software},
+	volume = {119},
+	pages = {418-432},
+	year = {2019},
+	issn = {1364-8152},
+	doi = {https://doi.org/10.1016/j.envsoft.2019.07.007},
+	url = {https://www.sciencedirect.com/science/article/pii/S1364815218307278},
+	author = {Joseph H.A. Guillaume and John D. Jakeman and Stefano Marsili-Libelli and Michael Asher and Philip Brunner and Barry Croke and Mary C. Hill and Anthony J. Jakeman and Karel J. Keesman and Saman Razavi and Johannes D. Stigter},
+	keywords = {Identifiability, Response surface, Non-uniqueness, Derivative based methods, Hessian, Emulation, Uncertainty},
+	abstract = {Identifiability is a fundamental concept in parameter estimation, and therefore key to the large majority of environmental modeling applications. Parameter identifiability analysis assesses whether it is theoretically possible to estimate unique parameter values from data, given the quantities measured, conditions present in the forcing data, model structure (and objective function), and properties of errors in the model and observations. In other words, it tackles the problem of whether the right type of data is available to estimate the desired parameter values. Identifiability analysis is therefore an essential technique that should be adopted more routinely in practice, alongside complementary methods such as uncertainty analysis and evaluation of model performance. This article provides an introductory overview to the topic. We recommend that any modeling study should document whether a model is non-identifiable, the source of potential non-identifiability, and how this affects intended project outcomes.}
+}
+
+
 
 @book{Maggiore,
 	author = {Maggiore, Michele},

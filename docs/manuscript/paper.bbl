@@ -129,6 +129,11 @@ Bailes M.,  et~al., 2020, \mn@doi [Publications of the Astronomical Society of
   {10.1038/224872a0}, \href
   {https://ui.adsabs.harvard.edu/abs/1969Natur.224..872B} {224, 872}
 
+\bibitem[\protect\citeauthoryear{Bellman \& {\AA}str{\"o}m}{Bellman \&
+  {\AA}str{\"o}m}{1970}]{e5be7c83a0d24500826f6e1b414d1733}
+Bellman R.,  {\AA}str{\"o}m K.,  1970, \mn@doi [Mathematical Biosciences]
+  {10.1016/0025-5564(70)90132-X}, 7, 329
+
 \bibitem[\protect\citeauthoryear{{Bhagwat}, {De Luca}, {Franciolini}, {Pani}
   \& {Riotto}}{{Bhagwat} et~al.}{2021}]{Bhagwat2021}
 {Bhagwat} S.,  {De Luca} V.,  {Franciolini} G.,  {Pani} P.,   {Riotto} A.,
@@ -279,6 +284,11 @@ Springer Series in Synergetics, Springer Berlin Heidelberg, \url
   {10.1093/mnras/stx1937}, \href
   {https://ui.adsabs.harvard.edu/abs/2017MNRAS.471.4827G} {471, 4827}
 
+\bibitem[\protect\citeauthoryear{Guillaume et~al.,}{Guillaume
+  et~al.}{2019}]{GUILLAUME2019418}
+Guillaume J.~H.,  et~al., 2019, \mn@doi [Environmental Modelling & Software]
+  {https://doi.org/10.1016/j.envsoft.2019.07.007}, 119, 418
+
 \bibitem[\protect\citeauthoryear{{Handley}, {Hobson}  \& {Lasenby}}{{Handley}
   et~al.}{2015}]{Handley2015}
 {Handley} W.~J.,  {Hobson} M.~P.,   {Lasenby} A.~N.,  2015, \mn@doi [\mnras]
@@ -331,6 +341,11 @@ Johnston S.,  Galloway D.,  1999, \mn@doi [Monthly Notices of the Royal
 \bibitem[\protect\citeauthoryear{Kalman}{Kalman}{1960}]{Kalman1}
 Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   {10.1115/1.3662552}, 82, 35
+
+\bibitem[\protect\citeauthoryear{Karlsson, Anguelova  \& Jirstrand}{Karlsson
+  et~al.}{2012}]{KARLSSON2012941}
+Karlsson J.,  Anguelova M.,   Jirstrand M.,  2012, \mn@doi [IFAC Proceedings
+  Volumes] {https://doi.org/10.3182/20120711-3-BE-2027.00381}, 45, 941
 
 \bibitem[\protect\citeauthoryear{Kerr, Hobbs, Johnston  \& Shannon}{Kerr
   et~al.}{2015}]{free_precession_kerr}
@@ -510,6 +525,10 @@ Rosado P.~A.,  Sesana A.,   Gair J.,  2015, \mn@doi [Monthly Notices of the
   et~al.}{2012}]{PTAstring}
 Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
   {10.1103/PhysRevD.85.122003}, 85, 122003
+
+\bibitem[\protect\citeauthoryear{Sedoglavic}{Sedoglavic}{2002}]{SEDOGLAVIC2002735}
+Sedoglavic A.,  2002, \mn@doi [Journal of Symbolic Computation]
+  {https://doi.org/10.1006/jsco.2002.0532}, 33, 735
 
 \bibitem[\protect\citeauthoryear{{Sesana}}{{Sesana}}{2013}]{Sesana2013}
 {Sesana} A.,  2013, \mn@doi [Classical and Quantum Gravity]
