@@ -95,17 +95,7 @@ $^{3}$Department of Electrical and Electronic Engineering, University of Melbour
 
 % Abstract of the paper
 \begin{abstract}	
-	\begin{itemize}
-		\item Continuous nHz gravitational waves from individual supermassive black hole binaries are a primary target for Pulsar Timing Array (PTA) observations.
-		\item We present a new and complementary state-space approach to PTA data analysis.
-		\item We show how to combine a Kalman filter and nested sampling for Bayesian inference of the model parameters and model selection.
-		\item The method is tested on synthetic, astrophysically representative data and shown to be able to estimate the full posterior distributions of all parameters of the model, as well calculating the marginalized likelihood for model selection.
-		\item The bias introduced by dropping the `pulsar term' from the state-space model is analysed and discussed. 
-	\end{itemize}
-
-
-
-
+Continuous nHz gravitational waves from individual supermassive black hole binaries are detectable with Pulsar Timing Array observations. A novel search strategy is developed wherein intrinsic pulsar timing variations are tracked simultaneously with the modulation induced by a putative gravitational wave. A two-step procedure is applied within a state-space framework, where the model parameters are estimated with a Kalman filter, which provides a likelihood for nested sampling. This enables self-consistent inference of model parameters and calculation of the Bayesian evidence. It is shown via an astrophysically representative software injection campaign that the procedure can distinguish a gravitational wave from pure noise down to a strain of $h_0 \sim 4 \times 10^{15}$, given an inclination angle $\iota = 1.0$ rad. Full posterior distributions of model parameters are recovered. There is a bias in the estimates of some parameters, introduced by dropping the so-called `pulsar terms', which is analysed and discussed.
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -347,7 +337,7 @@ To summarise the above, the order of operations in our method for estimating the
 	\item Nested sampler updates $\boldsymbol{\theta}$
 	\item Repeat
 \end{enumerate}
-In Section \ref{sec:testing} we will apply this workflow on a synthetic data set.
+In Section \ref{sec:testing} we apply this workflow on a synthetic data set.
 
 \section{Tests with synthetic data} \label{sec:testing}
 In this section we use synthetic data to test the ability of our method to detect the presence of a GW in noisy data and recover the static parameters, $\boldsymbol{\theta}$. In Section \ref{sec:synth_data} we discuss how the synthetic data is generated, including the construction of an artificial PTA. In Section \ref{sec:rep_example} we generate synthetic data for a single representative example SMBHB system and apply our method to estimate $\boldsymbol{\theta}$ and calculate the statistical evidence for a GW in the data via the Bayes factor. In this section we also explore how the detectability of the system changes for different strain magnitudes, $h_0$ and the performance of the method for different realisations of the system noise. In Section \ref{sec:parameter_space} we move beyond a single example system and test our method across a broader parameter space. In Section \ref{sec:bias} we discuss biases that are evident in some of the parameter estimates.
@@ -381,7 +371,7 @@ As a sanity check, we can also calculate $\sigma^{(n)}$ using a complementary nu
 and generate TOAs and phase residuals. We calibrate the noise amplitude $\sigma^{(n)}$  to generate phase residuals that qualitatively resemble empirical phase residuals measured from real pulsars. We obtain empirical phase residuals from the UTMOST pulsar timing program \citep{UTMOST} from the  Molonglo Observatory Synthesis Telescope \citep{Bailes2017PASA...34...45B}. For the purposes of validating the $\sigma^{(n)}$ inferred from Equation \eqref{eq:sigmap_f}, it is sufficient at this stage to simply compare the synthetic and real phase residuals visually. Whilst it would also be possible to e.g. define some quantitative loss function (e.g. mean-squared error) between the two solutions and solve the optimisation problem to infer $\sigma^{(n)}$, for our purposes this is excessive. It is satisfactory to simply qualitatively compare the two solutions as a useful sanity check. We emphasise that we are not overly concerned with calculating the maximally accurate values for $\sigma^{(n)}$, but instead some reasonable values for constructing representative synthetic data. This approach of generating synthetic phase solutions and visually comparing with empirical solutions is also followed in \cite{Vargas}. In Figure \ref{fig:qualitative_compare} we compare the synthetic and empirical residuals for the NANOGrav pulsar J0030+0451. We can see that the synthetic and empirical residuals are qualitatively similar.
 \begin{figure}
 	\includegraphics[width=\columnwidth]{images/example_residuals_plot}
-	\caption{Actual (left panels) and synthetic (right panels) phase residuals for 3 NANOGrav pulsars. The actual residuals are obtained via the NANOGrav 12.5 year data release \citep{nanograv_narrowband_DR}. The synthetic residuals are generated by numerically solving Equation \eqref{eq:spinevol} with $\gamma^{(n)} = 10^{-13}$ and $\sigma^{(n)}$ inferred from Equations \eqref{eq:sigmap}, \eqref{eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. \textcolor{red}{TK: potential sinusoidal feature? Need to discuss with Andres re use of baboo.}}
+	\caption{Actual (left panels) and synthetic (right panels) phase residuals for NANOGrav millisecond pulsar J0030+0451. The actual residuals are obtained via UTMOST pulsar timing program \citep{UTMOST}. The synthetic residuals are generated by numerically solving Equation \eqref{eq:spinevol} with $\gamma^{(n)} = 10^{-13}$ and $\sigma^{(n)}$ inferred from Equations \eqref{eq:sigmap}, \eqref{eq:sigmap_f}. For all pulsars the two solutions are qualitatively similar, with comparable magnitudes in the residuals. }
 	\label{fig:qualitative_compare}
 \end{figure}
 \subsubsection{Synthetic data generation}
@@ -478,7 +468,7 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 	\end{equation}
 	We defer the inclusion of the pulsar terms in the measurement equation to a future work. As discussed in Section \ref{sec:priors} this choice reduces the dimensionality of the parameter estimation problem since the measurement equation Equation \eqref{eq:measurement} is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. Initially we consider a single noise realisation of the synthetic data for the representative example system described in Table \ref{tab:parameters_and_priors}. We apply the Kalman filter using the Earth terms only measurement equation, Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters. \newline 
 
- The results are shown in Figure \ref{fig:corner_plot_1} for the 7 parameters of  $\boldsymbol{\theta}_{\rm gw}$. The histograms shown in the Figure are the 1D-posteriors for each parameter, marginalized over the set of all other parameters, where the dashed vertical blue lines show the 0.16 and 0.84 quantiles and the solid orange line the true injection value. The 2-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. It is evident that for this representative example we are able to estimate all the static parameters of the system using our method, with the injected value contained within the 90\% credible interval for the majority of the parameters. The clear exception is $\iota$ which exhibits a notable bias, and lies outside the with the 90\% credible interval, with the posterior median shifted from the injected value by $\sim 0.3$ radians. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We will explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}. If we consider the median values of the 1D-posteriors we can see that for some parameters the median is almost identically equal to the injected value  (e.g. $\Omega, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the injected value (e.g. $\psi, \alpha$), whilst still being contained within the credible interval. This potential bias will also be investigated alongside the bias in $\iota$ in Section \ref{sec:multiple_noise} and Section \ref{sec:bias}. Similar results can be derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
+ The results are shown in Figure \ref{fig:corner_plot_1} for the 7 parameters of  $\boldsymbol{\theta}_{\rm gw}$. The histograms shown in the Figure are the 1D-posteriors for each parameter, marginalized over the set of all other parameters, where the dashed vertical blue lines show the 0.16 and 0.84 quantiles and the solid orange line the true injection value. The 2-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. It is evident that for this representative example we are able to estimate all the static parameters of the system using our method, with the injected value contained within the 90\% credible interval for the majority of the parameters. The clear exception is $\iota$ which exhibits a notable bias, and lies outside the with the 90\% credible interval, with the posterior median shifted from the injected value by $\sim 0.3$ radians. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}. If we consider the median values of the 1D-posteriors we can see that for some parameters the median is almost identically equal to the injected value  (e.g. $\Omega, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the injected value (e.g. $\psi, \alpha$), whilst still being contained within the credible interval. This potential bias will also be investigated alongside the bias in $\iota$ in Section \ref{sec:multiple_noise} and Section \ref{sec:bias}. Similar results can be derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
  
 
 % and in Figure \ref{fig:example_psr_params} for . 
@@ -511,18 +501,12 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 
 
 \subsubsection{Detection} \label{sec:detection}
-We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Fig \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that there is a general log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. This will be explored in more detail in Section \ref{sec:parameter_space}. 
+We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Fig \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. This will be explored in more detail in Section \ref{sec:parameter_space}. \newline 
 
-The small perturbations in the general log-linear $\beta - h_0$ trend arise due to noise in the nested sampling method. For these points the sampler converged sub-optimally for $\mathcal{M}_1$ and so the evidence $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)$ is lower than would be expected. This is purely a noise artefact; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these perturbations appear at different values of $h_0$, or else are not present at all. Increasing the number of live points $n_{\rm live}$ used by the nested sampler also dampens these perturbations and smooths the $\beta - h_0$ curve, since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. 
-
-
-
-
-
-Below $\beta = 10$ this noise in the sampler starts to dominate and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. This is simply due to the fact that at these small strains the system is completely noise dominated and the two models $\mathcal{M}_1, \mathcal{M}_0$ cannot be separated. 
+The data gaps that are evident in the curve for some values of $h_0$ below $\beta =10$ are due to the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these gaps appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented here we set $n_{\rm live} =2000$. 
 \begin{figure}
-	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot}
-	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection tolerance cut-off of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3 \times 10^{-15}$. \textcolor{red}{TK: probably need to regenerate this figure to get rid of the "bumps" which are just artefacts from a poor sampler convergence at that point}}
+	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot2000}
+	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection tolerance cut-off of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta=10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal{M}_0$ and $\mathcal{M}_1$}
 	\label{fig:bayes}
 \end{figure}
 
@@ -554,112 +538,66 @@ We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noi
 The large degree of variance in the 1D posteriors of $\iota$ and $h_0$ is due to these parameters being only weakly-identifiable. Identifiability refers to whether it is theoretically possible to infer unique parameter values of the model, given the measured data and the model structure \citep{e5be7c83a0d24500826f6e1b414d1733}. Sources of non-identifiability are generally categorised as either ``structural" - arising from the structure of the model - or ``practical" - arising from insufficient data or measurement errors \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$ we are concerned with structural identifiability. Indeed, one might initially suspect that $\iota$ and $h_0$ could have structural identifiability issues; from Equations \ref{eq:hphx}, \ref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is only broken by the relation for $h_{+}$, Equation \eqref{eq:hphx}. However, it can be shown (Appendix \ref{appendix_identifiability}) that $\iota$ and $h_0$ are in fact structurally identifiable, but with the caveat that they are only weakly-identifiable. That is to say the $\iota-h_0$ likelihood surface plateaus to a ridge with a non-zero gradient close to the maximum likelihood solution. This likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maxima exists (labelled by the red point in the figure), along ridge in the parameter space the likelihood values are all very similar. Consequently it is difficult for the nested sampling algorithm to select a particular point in this plateau and instead effectively trades off accuracy in one parameter against accuracy in other, depending on the particular realisation of the noise. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the variance in the estimates between different noise realisations decreases. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized 1D posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (equivalent to the 1D posterior for $\iota$ in Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. There is a notable bias in Figure \ref{fig:iota} in the estimates for $\iota$ inferred for the fixed $h_0$ case relative to the true injected value; whilst the variance has decreased, the mean accuracy of the estimates has also decreased. An equivalent bias in $h_0$ is observed if we fix $\iota$. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
 
 
-We now consider the complete set of 1000 noise realisations, rather than the subset of 9 realisations in the preceding discussion. For each realisation of the noise we infer a marginalised 1-D posterior for each parameter. For this injected strain ($h_0 = 10^{12}$) the SNR is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, we consider the normalised standard deviation in the set of 1000 median values. For $\Omega, \Phi_0, \psi, \delta, \alpha$ the normalised standard deviation is $\sim 4 \times 10^{-5}, 0.03,0.004,0.03,0.02$ respectively. We can therefore see that the method is able to reliably converge to a consistent MAP estimate. Conversely, as we saw before, the MAP estimates for $\iota$ and $h$ are not consistent across different noise realisations, with normalised standard deviation of $0.3$ and $0.1$ respectively.Whilst the estimates are consistent across different noise realisations, for some parameters a small bias is observed between the MAP estimate and the injected value. This was evident in Figure \ref{fig:iota} for $\iota$ (and equivalently $h_0$s) which exhibits a strong bias of $\sim 0.35$ radians, but over the 1000 realisations biases are also observed in $\psi$ ($\sim 0.1$ radians) and $\alpha$ ($\sim 0.04$ radians). These biases are a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}
+We now consider the complete set of 1000 noise realisations, rather than the subset of 9 realisations in the preceding discussion. For each realisation of the noise we infer a marginalised 1-D posterior for each parameter. For this injected strain ($h_0 = 10^{12}$) the SNR is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, we consider the normalised standard deviation in the set of 1000 median values. For $\{\Omega, \Phi_0, \psi, \delta, \alpha \}$ the normalised standard deviation is $\sim \{4 \times 10^{-5}, 0.03,0.004,0.03,0.02 \}$ respectively. We can therefore see that the method is able to reliably converge to a consistent MAP estimate. Conversely, as we saw before, the MAP estimates for $\iota$ and $h$ are not consistent across different noise realisations, with normalised standard deviation of $0.3$ and $0.1$ respectively.Whilst the estimates are consistent across different noise realisations, for some parameters a small bias is observed between the MAP estimate and the injected value. This was evident in Figure \ref{fig:iota} for $\iota$ (and equivalently $h_0$s) which exhibits a strong bias of $\sim 0.35$ radians, but over the 1000 realisations biases are also observed in $\psi$ ($\sim 0.1$ radians) and $\alpha$ ($\sim 0.04$ radians). These biases are a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}
 
 
 \subsection{Exploring a broader parameter space} \label{sec:parameter_space}
 
-\textcolor{red}{TK: TBD. Maybe lets just change the sky position - it it too expensive to generate a sky map of minimum detectable strain. Given the biases I don't know if a PP plot quite makes sense at this stage...}
+\textcolor{red}{TK: TBD}
 
 
 
 \subsection{Bias by dropping pulsar terms}\label{sec:bias}
-Evident in the preceding discussion is the fact that for some of the $\boldsymbol{\theta}_{\rm gw}$ parameters the inferred value (i.e. the median of the 1D marginalised posterior) is biased away from the true injection value. This effect is most severe for $\iota$ and $h_0$ (e.g. Figures \ref{fig:iota}, \ref{fig:median_distriubutins}) but also present to a lesser extent in other static parameters such as $\alpha$ and $\psi$. In this Section we demonstrate how this bias results from the dropping of the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{images/iota_likelihood_surface}
+	\caption{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref{eq:measuremen_earth}, orange line) and the pulsar terms model (Equation \ref{eq:measurement}, blue line), with respect to the inclination $\iota$, over the prior space. All other parameters are fixed at their true injected value from Table \ref{tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide.}
+	\label{fig:likelihood_surface_iota}
+\end{figure}
+Evident in the preceding discussion is the fact that for some of the $\boldsymbol{\theta}_{\rm gw}$ parameters the inferred value (i.e. the median of the 1D marginalised posterior) is biased away from the true injection value. This effect is most severe for $\iota$ and $h_0$ but also present to a lesser extent in other static parameters such as $\alpha$ and $\psi$, and additionally to an even small extent in $\delta$ and $\Phi_0$. In this Section we demonstrate how this bias results from the dropping of the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
 
 
-In Figure \ref{fig:likelihood_curves_earth} we plot the variation in the log-likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, as we vary a single static parameter of $\boldsymbol{\theta}_{\rm gw}$, holding all other parameters constant at the true injected value of the representative example system, Table \ref{tab:parameters_and_priors}. For instance, in Figure \ref{fig:omega_likelihood} we pass different values of $\Omega$ in the range $10^{-9}$ to $10^{-5}$ Hz into the Kalman filter, whilst holding the remaining parameters constant, and plot the retuned log-likelihood as a function of $\Omega$. The dashed orange line labels the true injection value whilst the dashed red line labels the location of the maximum log-likelihood. Finding the location of this maximum across all parameters is effectively the goal of any likelihood based inference method, such as nested sampling. The key observation from Figure \ref{fig:likelihood_curves_earth} is that for many parameters the location of the likelihood optima and the location of the injected value are not the same i.e. the orange and red dashed lines are not coincident. Consequently Bayesian likelihood inference techniques such as nested sampling settle in optima that do not necessarily align with the true injection value. This is the origin of the bias in the 1D marginalised posteriors that we observe. Taking a specific example, in Figure \ref{fig:iota_likelihood} we can see that the optima of the likelihood curve lies around $\iota \sim 0.7$ radians, whereas the injected value was $\iota = 1.0$ radians, This difference corresponds to the bias observed in the right-hand panel of Figure \ref{fig:iota} where the median of the marginalised posterior for $\iota$ was $\sim 0.65$ for an injection value of $\iota = 1.0$ radians. The discrepancy between $\iota \sim 0.7$ in the log-likelihood curve and $\iota \sim 0.65$ in the nested sampling inference is a result of the likelihood curves being a 1D representation of a multidimensinal problem and the exact shape of the likelihood curves depends on the values of all the other static parameters. That is to say, the likelihood curve for $\iota$ will have a different shape with a different optima if we set e.g. $\psi$ equal to its likelihood optima value rather than its true injection value. 
+In Figure \ref{fig:likelihood_surface_iota} we plot the variation in the log-likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, as we vary $\iota$ across the prior space, holding all other parameters constant at the true injected value of the representative example system, Table \ref{tab:parameters_and_priors}. The solid orange line is the likelihood curve with just the Earth-terms included (i.e. using Equation \ref{eq:measuremen_earth} in the Kalman filter) and the solid blue line is the likelihood curve with the additional pulsar terms included (i.e. using Equation \ref{eq:measurement}). Whilst we have not used the nested sampling method together with the pulsar terms measurement equation in this work, we are able to run the Kalman filter using the pulsar terms and consider how the resulting likelihood varies for different parameter values. The dashed lines show the location of the likelihood maxima for each of the two likelihood solutions; finding the location of the maxima across all static parameters is effectively the goal of any likelihood based inference method, such as nested sampling. \newline  
+
+The key observation from Figure \ref{fig:likelihood_surface_iota} is that for the Earth-terms only solution the location of the likelihood optima and the location of the injected value are not the same. Consequently Bayesian likelihood inference techniques settle in optima that do not necessarily align with the true injection value. This is the origin of the bias in the 1D marginalised posteriors that we observe.  For the Earth-terms solution the optima of the likelihood curve lies around $\iota \sim 0.7$ radians, whereas the injected value was $\iota = 1.0$ radians, This difference is comparable to the bias observed in the right-hand panel of Figure \ref{fig:iota} where the median of the marginalised posterior for $\iota$ was $\sim 0.65$ radians. The discrepancy between $\iota \sim 0.7$ in the log-likelihood curve and $\iota \sim 0.65$ in the nested sampling inference is a result of the likelihood curves being a 1D representation of a multidimensional problem. The exact shape of the likelihood curve naturally depends on the values of all of the other parameters that we hold constant. In the nested sampling case the estimate for $\psi$ is sightly biased at $\psi \sim 2.60$ radians compared to the true injected value of $\psi = 2.50$ radians that is used for the results of Figure \ref{fig:likelihood_surface_iota}. \newline 
 
 
-We can compare the likelihood curves of Figure \ref{fig:likelihood_curves_earth} generated using the earth -terms only measurement equation, Equations \eqref{eq:measuremen_earth} \eqref{eq:g_func_trig_earth}, with the likelihood curves derived using the measurement equation which includes the pulsar terms, Equation \eqref{eq:measurement}.  Whilst we have not used the nested sampling method together with the pulsar terms measurement equation in this  work, we can run the Kalman filter using Equation \eqref{eq:measurement} and consider how the resulting likelihood varies for different parameter values. The results are shown in Figure \ref{fig:likelihood_curves_psr}. There are two interesting features in the pulsar-terms likelihood curves. The first is that the optima of the likelihood curves now align with the true injected values for all parameters. This evidences that it is the effect of dropping the pulsar terms from the measurement equation which causes this bias in the inferred posteriors.The second is that the log-likelihood curves for $\Omega, \delta$ and $\alpha$ are much more noisy than in the Earth-terms case. Whilst clear optima exist above the noise, and whilst local to the true value the curve becomes much more smooth, this noise presents an additional challenge to typical likelihood inference techniques which perform best on smooth likelihoods with a single clear global optima. It affects these parameters in particular since Equation \eqref{eq:g_func_trig} contains a phase term $\Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)}$, which is essentially a combination of these 3 parameters ($ \boldsymbol{n}$ is defined by $\delta$ and $\alpha$). When calculating a likelihood we are asking "How likely is this data, given these parameters". The inclusion of the pulsar terms results in effectively 2 continuous waves with different frequencies and phase. Perturbing e.g. $\alpha$ influences wave 1 in some non-liner way and wave 2 in some different non linear way. Whether this new set of parameters makes the data more likely depends on the particular combination of those two waves. \textcolor{red}{TK: this explanation of why these parameters is clunky because it is not properly clear to myself. Think in terms of $g(\theta)$ and $g(\hat{\theta})$}. 
+In contrast to the Earth-terms solution, for the solution which includes the pulsar terms the optima of the likelihood curve now aligns with the true injected value. This evidences that it is the effect of dropping the pulsar terms from the measurement equation which causes this bias in the inferred posteriors. Similar results are observed for the other parameters which exhibit a bias in the nested sampling inference. \newline 
 
 
-We have shown in this section how the dropping of the pulsar terms results in a bias in the inferred parameters, not just in the sky localisation parameters  \citep[e.g.][]{Zhupulsarterms,Chen2022} but additionally $\psi, h_0$ and $\iota$. We have only considered a single example system to explore the effect of the bias. Whilst the bias is generally small and does not prevent the recovery of accurate posteriors for each of the parameters, it is present and will need to be accounted for. This bias is not particular to our method but a shared feature across likelihood based methods that do not include the pulsar terms in the inference model. The inclusion of the pulsar terms in the methods presented in this work will be a key goal of a future work, which will alleviate these bias problems. 
 
-%\begin{figure*}
-%	\setkeys{Gin}{width=\linewidth}   
-%	
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_omega_earth}
-%		\caption{$\Omega$}
-%		\label{fig:omega_likelihood}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_phi0_earth}
-%		\caption{$\Phi_0$}
-%	\end{subfigure}
-%	\hfill	
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_psi_earth}
-%		\caption{$\psi$}
-%	\end{subfigure}
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_iota_earth}
-%		\caption{$\iota$}
-%			\label{fig:iota_likelihood}
-%	\end{subfigure}
-%	\medskip
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_delta_earth}
-%		\caption{$\delta$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_alpha_earth}
-%		\caption{$\alpha$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics{images/likelihood_h_earth}
-%		\caption{$h$}
-%	\end{subfigure}
-%	
-%	\caption{}\label{fig:likelihood_curves_earth}
-%\end{figure*}
-%
-%
-%
-%
-%\begin{figure*}
-%	\setkeys{Gin}{width=\linewidth}   
-%	
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_omega_psr}
-%		\caption{$\Omega$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_phi0_psr}
-%		\caption{$\Phi_0$}
-%	\end{subfigure}
-%	\hfill	
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_psi_psr}
-%		\caption{$\psi$}
-%	\end{subfigure}
-%	\begin{subfigure}[b]{0.22\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_iota_psr}
-%		\caption{$\iota$}
-%	\end{subfigure}
-%	\medskip
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_delta_psr}
-%		\caption{$\delta$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{images/likelihood_alpha_psr}
-%		\caption{$\alpha$}
-%	\end{subfigure}
-%	\hfill
-%	\begin{subfigure}[b]{0.3\textwidth}
-%		\includegraphics{images/likelihood_h_psr}
-%		\caption{$h$}
-%	\end{subfigure}
-%	
-%	\caption{As Figure \ref{fig:likelihood_curves_earth} but now including the pulsar terms in the measurement equation.}\label{fig:likelihood_curves_psr}
-%\end{figure*}
-%
+Why does dropping the pulsar terms bias these parameters in particular, whilst leaving others unaffected? For instance, why is the bias induced in $\iota$ so strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is effective modulated by the interference of two equal-amplitude, phase shifted waves (c.f. Equation \ref{eq:measurement}). These additional modulations from the phase shifted wave influence the amplitude of the resulting wave interference wave, but do not affect its frequency. When we model this data using the Kalman filter without the pulsar terms, the additional amplitude modulations due to the extra phase shifted wave must be described by the single wave (i.e. Earth terms only) model. As a result the single wave model must try to compensate for these amplitude modulations by adjusting the parameters which govern the amplitude of the single wave. Consequently the parameters which are most affected are those which determine the amplitude of the GW. Terms which influence the amplitude strongly such as $h_0$ and $\iota$ are strongly affected and exhibit a strong bias. Terms which influence the amplitude weakly such as $\psi$ exhibit a weaker bias. The wave amplitude is independent of the frequency and so $\Omega$ exhibits no bias.
+
+
+
+
+For loud sources with high SNR the uncertainty in the 1D posterior is less than the bias and so these biases corrupt the inferred MAP estimate of the parameter.
+
+
+For quieter sources 
+
+
+
+
+
+For most parameters the bias is less than the uncertainty
+
+For loud sources
+
+for less loud sources the unertainty dominates the errors 
+
+
+
+We have shown in this section how the dropping of the pulsar terms results in a bias in the inferred parameters, not just in the sky localisation parameters  \citep[e.g.][]{Zhupulsarterms,Chen2022} but additionally $\psi, h_0$ and $\iota$. We have only considered a single example system to explore the effect of the bias. Whilst the bias is generally small and does not prevent the recovery of accurate posteriors for each of the parameters,\textbf{biases will be different for different GW systems}  it is present and will need to be accounted for. This bias is not particular to our method but a shared feature across likelihood based methods that do not include the pulsar terms in the inference model. The inclusion of the pulsar terms in the methods presented in this work will be a key goal of a future work, which will alleviate these bias problems. 
+
+
+
+not just present in our formulation but in all works. whetehr this is important depends.... real astrophysica sources
+
+
+
+
+
 
 
 
@@ -706,7 +644,7 @@ We have formulated the state space model in terms of frequencies, where
 
 
 
- \newpage 
+\newpage 
 \appendix
 
 \section{Kalman recursion equations} \label{sec:kalman}
@@ -830,7 +768,7 @@ This paper is useful: \citep{KARLSSON2012941} \citep{SEDOGLAVIC2002735}
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{images/Kalman_example_both}
-	\caption{}
+	\caption{\textcolor{red}{TK: For consideration. Do we prefer this figure to Figure \ref{fig:four figures}}?}
 	\label{fig:kalmanexampleboth}
 \end{figure*}
 
@@ -867,6 +805,12 @@ This paper is useful: \citep{KARLSSON2012941} \citep{SEDOGLAVIC2002735}
 
 
 
+%
+%
+%
+%
+%For instance, in Figure \ref{fig:omega_likelihood} we pass different values of $\Omega$ in the range $10^{-9}$ to $10^{-5}$ Hz into the Kalman filter, whilst holding the remaining parameters constant, and plot the retuned log-likelihood as a function of $\Omega$. 
+%
 
 
 
@@ -921,6 +865,9 @@ This paper is useful: \citep{KARLSSON2012941} \citep{SEDOGLAVIC2002735}
 
 
 
+
+%
+%The second is that the log-likelihood curves for $\Omega, \delta$ and $\alpha$ are much more noisy than in the Earth-terms case. Whilst clear optima exist above the noise, and whilst local to the true value the curve becomes much more smooth, this noise presents an additional challenge to typical likelihood inference techniques which perform best on smooth likelihoods with a single clear global optima. It affects these parameters in particular since Equation \eqref{eq:g_func_trig} contains a phase term $\Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)}$, which is essentially a combination of these 3 parameters ($ \boldsymbol{n}$ is defined by $\delta$ and $\alpha$). When calculating a likelihood we are asking "How likely is this data, given these parameters". The inclusion of the pulsar terms results in effectively 2 continuous waves with different frequencies and phase. Perturbing e.g. $\alpha$ influences wave 1 in some non-liner way and wave 2 in some different non linear way. Whether this new set of parameters makes the data more likely depends on the particular combination of those two waves. \textcolor{red}{TK: this explanation of why these parameters is clunky because it is not properly clear to myself. Think in terms of $g(\theta)$ and $g(\hat{\theta})$}. 
 
 
 
