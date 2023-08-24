@@ -28,8 +28,8 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
     
 
 N = 200
-seed = 1237 
-h = 5e-15 
+seed = 1245 
+h = 5e-14 
 model = "earth"
         
 #Create a bilby prior object to sample from
