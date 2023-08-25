@@ -626,13 +626,15 @@ The linear Kalman filter operate on temporally discrete, noisy measurements $\bo
 \begin{equation}
 	\boldsymbol{Y}_k = \boldsymbol{H}_k \boldsymbol{X}_k + \boldsymbol{v}_k \label{eq:kalman1}
 \end{equation}
-where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise with covariance $\boldsymbol{R}_k$, and the subscript $k$ labels the time-step. 
-
-
-The Kalman filter takes the underlying states to evolve according to
+where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise with covariance $\boldsymbol{R}_k$, and the subscript $k$ labels the time-step. The Kalman filter takes the underlying states to evolve according to
 \begin{equation}
 	\boldsymbol{X}_k = \boldsymbol{F}_k \boldsymbol{X}_{k-1} + \boldsymbol{G}_k \boldsymbol{u}_k + \boldsymbol{w}_k \label{eq:kalman2}
 \end{equation}
+where $\boldsymbol{F}$ is the system dynamics matrix, $\boldsymbol{G}$ the input or control matrix. and $\boldsymbol{w}_k$ is a zero-mean Gaussian process noise with covariance $\boldsymbol{Q}_k$,
+
+
+
+
 
 
 
