@@ -184,19 +184,19 @@
 \newlabel{fig:corner_plot_2}{{6}{12}{As Figure \ref {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance.\relax }{figure.caption.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{12}{subsection.4.3}\protected@file@percent }
 \newlabel{sec:parameter_space}{{4.3}{12}{Exploring a broader parameter space}{subsection.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Bias by dropping pulsar terms}{12}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:bias}{{4.4}{12}{Bias by dropping pulsar terms}{subsection.4.4}{}}
-\citation{Zhupulsarterms,Chen2022}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Likelihood $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }}{13}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:likelihood_surface}{{7}{13}{Likelihood $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Bias by dropping pulsar terms}{13}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:bias}{{4.4}{13}{Bias by dropping pulsar terms}{subsection.4.4}{}}
+\citation{Zhupulsarterms,Chen2022}
 \citation{Zhupulsarterms}
 \citation{Chen2022}
-\citation{2023MNRAS.518.1802S}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref  {fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.\relax }}{14}{figure.caption.9}\protected@file@percent }
 \newlabel{fig:iota}{{8}{14}{1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref {fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.\relax }{figure.caption.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, orange line) and the pulsar terms model (Equation \ref  {eq:measurement}, blue line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide.\relax }}{14}{figure.caption.10}\protected@file@percent }
 \newlabel{fig:likelihood_surface_iota}{{9}{14}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, orange line) and the pulsar terms model (Equation \ref {eq:measurement}, blue line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide.\relax }{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{14}{section.5}\protected@file@percent }
+\citation{2023MNRAS.518.1802S}
 \citation{Sesana2010}
 \citation{Perrodin2018}
 \citation{PhysRevD.85.044034}
@@ -208,9 +208,11 @@
 \bibdata{example}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Kalman recursion equations}{16}{section.A1}\protected@file@percent }
 \newlabel{sec:kalman}{{A}{16}{Kalman recursion equations}{section.A1}{}}
-\newlabel{eq:fmatrix}{{A3}{16}{Kalman recursion equations}{equation.A1.3}{}}
-\newlabel{eq:rmatix}{{A8}{16}{Kalman recursion equations}{equation.A1.8}{}}
-\newlabel{eq:state1}{{A9}{16}{Kalman recursion equations}{equation.A1.9}{}}
+\newlabel{eq:kalman1}{{A1}{16}{Kalman recursion equations}{equation.A1.1}{}}
+\newlabel{eq:kalmn2}{{A3}{16}{Kalman recursion equations}{equation.A1.3}{}}
+\newlabel{eq:fmatrix}{{A4}{16}{Kalman recursion equations}{equation.A1.4}{}}
+\newlabel{eq:rmatix}{{A9}{16}{Kalman recursion equations}{equation.A1.9}{}}
+\newlabel{eq:state1}{{A10}{16}{Kalman recursion equations}{equation.A1.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {B}Appendix on identifiability}{16}{section.A2}\protected@file@percent }
 \newlabel{appendix_identifiability}{{B}{16}{Appendix on identifiability}{section.A2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {C}Alternative version of Fig 1}{16}{section.A3}\protected@file@percent }

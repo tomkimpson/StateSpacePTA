@@ -545,6 +545,12 @@ We now consider the complete set of 1000 noise realisations, rather than the sub
 
 We have so far focussed on a single representative system, summarised in Table \ref{tab:parameters_and_priors}.
 
+It is also important to test the method in different regions of the parameter space.
+
+
+
+To this end we ...
+
 
 
 
@@ -601,31 +607,13 @@ We have also assumed that there is only a single GW source that influences the r
 
 %https://arxiv.org/pdf/2107.03047.pdf
 \section{Conclusion}
-
-In this paper we demonstrate a new method for the detection and parameter estimation of GWs from monochromatic SMBHBs. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method rather than subtracting the ensemble-averaged statistics. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW induced modulations. This enables the inference of GW parameters conditioned on the specific observed realisation of the noisy data. 
-
-
-We introduce the Kalman filter in order to track the intrinsic state evolution of the pulsar and combine this with a Bayesian sampling framework to estimate the posterior distributions of each parameter of the system, as well as the associated evidence (marginalised likelihood) of the model.
-
-
-We test our method on synthetic data. We focus on a single, astrophysically representative, SMBHB GW source detected with the 12.5-year NANOGrav pulsars observed over a 10 year timespan.
-
-The parameters of the model are accurately recovered and the minimal detectable strain is estimated via comparing the GW model with a null, noise-only model to describe the data.
-
-
-The method is then further tested over 1000 noise realisations. Consistent MAP estimates of the parameters across all noise realisations are obtained for the majority of parameters, whilst the structural weak-identifiability of $\iota$ and $h_0$ results in a larger variance in the MAP estimates between individual noise realisations.
-
-
-
-
+In this paper we demonstrate a new method for the detection and parameter estimation of GWs from individual, monochromatic SMBHBs. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than subtracting the ensemble-averaged statistics. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW induced modulations. This enables the inference of GW parameters conditioned on the specific observed realisation of the noisy data. We introduce the Kalman filter in order to track the intrinsic state evolution of the pulsar and combine this with a Bayesian sampling framework to estimate the posterior distributions of each parameter of the system, as well as the associated evidence (marginalised likelihood) of the model. We test our method on synthetic data. We initially focus on a single, astrophysically representative, SMBHB GW source detected with the 12.5-year NANOGrav pulsars observed over a 10 year timespan. The parameters of the model are accurately recovered and the minimal detectable strain is estimated to be $h_0 \sim 4 \times 10^{-15}$. The method is then further tested over 1000 noise realisations. Consistent MAP estimates of the parameters across all noise realisations are obtained for the majority of parameters, whilst the structural weak-identifiability of $\iota$ and $h_0$ results in a larger variance in the MAP estimates between individual noise realisations for these parameters.
 \textcolor{red}{Validation tests with 200 randomly sampled parameter vectors result in reliable posterior distributions
 that accurately contain the injected parameter vectors, which indicates that the percent errors cited above are consistent with statistical
 fluctuations. This test confirms that the method can be applied to a
 wide variety of pulsars without hand-tuning.}
+As a result of dropping the pulsar terms from the inference model, biases are observed in some of the model parameters. The extension of this method to include the pulsar term is a key challenge for a future work.
 
-
-
-Biases are observed in t...
 
 
 
@@ -634,24 +622,65 @@ Biases are observed in t...
 \appendix
 
 \section{Kalman recursion equations} \label{sec:kalman}
-
-
-
-
-\textcolor{red}{TK: This section needs cleaning up}
-
-
-
-
-
-The linear Kalman filter operates on temporally discrete measurements which are related to unobservable system states via a linear transformation
+The linear Kalman filter operate on temporally discrete, noisy measurements $\boldsymbol{Y}_k$ which are related to a set of unobservable discrete system states $\boldsymbol{X}_k$ via a linear transformation:
 \begin{equation}
-	\bar{z} = \bar{H} \bar{x} + \bar{v}
+	\boldsymbol{Y}_k = \boldsymbol{H}_k \boldsymbol{X}_k + \boldsymbol{v}_k \label{eq:kalman1}
 \end{equation}
-where $\bar{H}$ is the measurement matrix and $\bar{v}$ is a Gaussian measurement noise. The underlying states evolve according to are the state-space dynamical equation 
+where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise with covariance $\boldsymbol{R}_k$, and the subscript $k$ labels the time-step. 
+
+
+The Kalman filter takes the underlying states to evolve according to
 \begin{equation}
-	\dot{\bar{x}} = \bar{F} \bar{x} + \bar{G}\bar{u} + \bar{w}
+	\boldsymbol{X}_k = \boldsymbol{F}_k \boldsymbol{X}_{k-1} + \boldsymbol{G}_k \boldsymbol{u}_k + \boldsymbol{w}_k \label{eq:kalman2}
 \end{equation}
+
+
+
+
+
+
+
+In order to deploy the Kalman filter we must map our state-space model described in X onto the Kalman filter structure of Equatons 
+
+
+
+
+
+
+
+The according the dynamical equation
+\begin{equation}
+	d \boldsymbol{X} = \boldsymbol{A} \boldsymbol{X} dt + \boldsymbol{N} dt + \boldsymbol{\Sigma} d \boldsymbol{B}(t) \label{eq:kalmn2}
+\end{equation}
+where $\boldsymbol{A}$ is the state matrix, $\boldsymbol{N}$ the input or control matrix and $d\boldsymbol{B}(t)$ denotes a Wiener process with covariance matrix $\boldsymbol{\Sigma}$.
+
+
+
+
+
+The general solution to Equation \ref{eq:kalmn2}. an Ornstein-Uhlenbeck process
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+By comparing Equation \ref{eq:kalman1} with Equation \ref{eq:measurement} and Equation \ref{eq:kalmn2} with Equation \ref{eq:frequency_evolution} it is immediately clear how the 
+
+
+
+
+
 for the system dynamics matrix,$\bar{F}$,  control model $G$, control vector $\bar{u}$, and $w$ a stochastic zero-mean process. By comparison with the preceding equations, Eqs. 	\ref{eq:state1} - 	\ref{eq:state2}, it is immediately obvious how our state space model maps onto the Kalman filter structure. Specifically, our states are just the $N$ intrinsic pulsar frequencies $\bar{x} = (f_1,f_2,...f_N)$ whilst our measurements are the $N$ measured pulse frequencies $\bar{z} = (f^{(M)}_1,f^{(M)}_2,...f^{(M)}_N)$. If we specialize to the case of constant time sampling between our observations, $\Delta t$, then for our formulation the components that make up the Kalman filter are as follows: 
 \begin{equation}
 	F_i = F_{i+1} = e^{-\gamma \Delta t}
