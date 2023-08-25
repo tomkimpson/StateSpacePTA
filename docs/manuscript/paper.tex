@@ -174,7 +174,7 @@ Equations \eqref{eq:spinevol}--\eqref{eq:xieqn} represent a phenomenological mod
 
 \subsection{Modulation of pulsar frequency by a GW} \label{sec:psr_measured}
 In the presence of a GW, the pulsar frequency measured by an observer in the local rest frame of the neutron star's center of mass is different from that measured by an observer on Earth. Indeed, the pulse TOAs are modulated harmonically at the GW frequency. We derive the nonlinear measurement equation relating $f_{\rm m}(t)$ to $f_{\rm p}(t)$ in this section. The measurement equation is a key input into the Kalman filter in Section \eqref{sec:kalman_filter}
-\subsubsection{Plane GW perturbation}
+\subsubsection{Plane GW perturbation}\label{sec:plane_gw}
 We consider a gravitational plane wave from a single,distant source, which perturbs a background Minkowski metric $\eta_{\mu \nu}$ as
 \begin{equation}
 	g_{\mu \nu} = \eta_{\mu \nu} + H_{\mu \nu} \exp{ \{ i[\Omega(\boldsymbol{n} \cdot \boldsymbol{x} - t) + \Phi_0] \} } \ ,
@@ -416,7 +416,7 @@ The parameters which govern the deterministic evolution of the pulsar spin frequ
 
 
 
-The pulsar distances $d^{(n)}$ are typically not as well constrained as $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$, with uncertainties typically on the order of $\sim 10 \%$ \citep{Arzoumanian2018ApJS..235...37A,Yao2017}. However for this work, whilst the pulsar distance is used when generating synthetic data, as discussed in Section \ref{sec:parameter_estim} the pulsar distance is not used for our inference model and so we do not need to set a prior on $d$. Similarly we do not set a prior on $\gamma^{(n)}$; since $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ this means that $\gamma^{(n)}$ is effectively ``unobservable" over the decadal timescales that we are interested in. That is, for $T_{\rm obs}$ =10 years the solution of Equation \eqref{eq:spinevol} is effectively independent of the choice of $\gamma^{(n)}$ as long as the condition $[\gamma^{(n)}]^{-1} \gg T_{\rm obs}$ is satisfied. It is therefore sufficient to consider $\gamma^{(n)}$ to be known \textit{a priori} and set it at its true injected value. We briefly explored setting an uninformative prior on $\gamma$ over e.g. LogUniform($10^{-15}, 10^{-10}$) as well as setting $\gamma^{(n)}$ at some fixed value away from the true injected value (e.g. set $\gamma^{(n)} = 10^{-14} \text{s}^{-1}$ rather than $10^{-13} \text{s}^{-1}$) but the results are unchanged. The majority of pulsars in our synthetic PTA have $\sigma^{(n)} \sim 10^{-20} - 10^{-22}$ as calculated from Equations \eqref{eq:sigmap} and \eqref{eq:sigmap_f}. For these pulsars we set an uninformative broad prior of LogUniform($10^{-23}, 10^{-19}$). The single exception is PSR J1939+2134 which has a particularly large $\dot{f}_{\rm p}^{(n)}$ compared to the other pulsars in the array and so $\sigma \sim 10^{-16}$. For our artificial dataset we set $\sigma = 10^{21}$ for this pulsar in order to bring the process noise for all pulsars into a consistent range that can be described by a constrained prior. \newline 
+The pulsar distances $d^{(n)}$ are typically not as well constrained as $f_{\rm em}^{(n)} (t_1)$,$\dot{f}_{\rm em}^{(n)} (t_1)$, with uncertainties typically on the order of $\sim 10 \%$ \citep{Arzoumanian2018ApJS..235...37A,Yao2017}. However for this work, whilst the pulsar distance is used when generating synthetic data, as discussed in Section \ref{sec:parameter_estim} the pulsar distance is not used for our inference model and so we do not need to set a prior on $d$. Similarly we do not set a prior on $\gamma^{(n)}$; since $[\gamma^{(n)}]^{-1} >> T_{\rm obs}$ this means that $\gamma^{(n)}$ is effectively ``unobservable" over the decadal timescales that we are interested in. That is, for $T_{\rm obs}$ =10 years the solution of Equation \eqref{eq:spinevol} is effectively independent of the choice of $\gamma^{(n)}$ as long as the condition $[\gamma^{(n)}]^{-1} \gg T_{\rm obs}$ is satisfied. It is therefore sufficient to consider $\gamma^{(n)}$ to be known \textit{a priori} and set it at its true injected value. We briefly explored setting an uninformative prior on $\gamma$ over e.g. LogUniform($10^{-15}, 10^{-10}$) as well as setting $\gamma^{(n)}$ at some fixed value away from the true injected value (e.g. set $\gamma^{(n)} = 10^{-14} \text{s}^{-1}$ rather than $10^{-13} \text{s}^{-1}$) but the results are unchanged. The majority of pulsars in our synthetic PTA have $\sigma^{(n)} \sim 10^{-20} - 10^{-22}$ as calculated from Equations \eqref{eq:sigmap} and \eqref{eq:sigmap_f}. For these pulsars we set an uninformative broad prior of LogUniform($10^{-23}, 10^{-19}$). The single exception is PSR J1939+2134 which has a particularly large $\dot{f}_{\rm p}^{(n)}$ compared to the other pulsars in the array and so $\sigma \sim 10^{-16}$. For our artificial dataset we set $\sigma = 10^{-21}$ for this pulsar in order to bring the process noise for all pulsars into a consistent range that can be described by a constrained prior. \newline 
 
 
 Since we are not setting priors on $\gamma$ or $d$ this reduces the dimensionality of the parameter space to $7 + 3N$. We use the notation $\boldsymbol{\theta}_{\rm psr, reduced}$ to refer to the reduced parameter space. Explicitly, 
@@ -543,14 +543,17 @@ We now consider the complete set of 1000 noise realisations, rather than the sub
 
 \subsection{Exploring a broader parameter space} \label{sec:parameter_space}
 
-\textcolor{red}{TK: TBD}
+We have so far focussed on a single representative system, summarised in Table \ref{tab:parameters_and_priors}.
+
+
+
 
 
 
 \subsection{Bias by dropping pulsar terms}\label{sec:bias}
 \begin{figure}
 	\centering
-	\includegraphics[width=\columnwidth]{images/iota_likelihood_surface}
+	\includegraphics[width=\columnwidth]{images/likelihood_iota_new}
 	\caption{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref{eq:measuremen_earth}, orange line) and the pulsar terms model (Equation \ref{eq:measurement}, blue line), with respect to the inclination $\iota$, over the prior space. All other parameters are fixed at their true injected value from Table \ref{tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide.}
 	\label{fig:likelihood_surface_iota}
 \end{figure}
@@ -566,80 +569,63 @@ In contrast to the Earth-terms solution, for the solution which includes the pul
 
 
 
-Why does dropping the pulsar terms bias these parameters in particular, whilst leaving others unaffected? For instance, why is the bias induced in $\iota$ so strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is effective modulated by the interference of two equal-amplitude, phase shifted waves (c.f. Equation \ref{eq:measurement}). These additional modulations from the phase shifted wave influence the amplitude of the resulting wave interference wave, but do not affect its frequency. When we model this data using the Kalman filter without the pulsar terms, the additional amplitude modulations due to the extra phase shifted wave must be described by the single wave (i.e. Earth terms only) model. As a result the single wave model must try to compensate for these amplitude modulations by adjusting the parameters which govern the amplitude of the single wave. Consequently the parameters which are most affected are those which determine the amplitude of the GW. Terms which influence the amplitude strongly such as $h_0$ and $\iota$ are strongly affected and exhibit a strong bias. Terms which influence the amplitude weakly such as $\psi$ exhibit a weaker bias. The wave amplitude is independent of the frequency and so $\Omega$ exhibits no bias.
+Why does dropping the pulsar terms bias these parameters in particular, whilst leaving others unaffected? For instance, why is the bias induced in $\iota$ so strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is effective modulated by the interference of two equal-amplitude, phase shifted waves (c.f. Equation \ref{eq:measurement}). Explicitly, we have the ``Earth-terms wave" with a general form $y_{\rm Earth} = A \cos \xi$ for amplitude $A$ and phase $\xi$ and the ``pulsar-terms wave" with a general form $y_{\rm pulsar} = A \cos (\xi + \kappa)$ for phase offset $\kappa$. The net interference wave that modulates $f_{\rm p}$ is 
+\begin{eqnarray}
+	y_{\rm Earth} - y_{\rm pulsar} = 2 A \sin \left(\frac{\kappa}{2}\right) \sin \left(\xi + \frac{\kappa}{2}\right)
+\end{eqnarray}
+The additional modulations from $y_{\rm pulsar}$ influence the amplitude of the resulting interference wave, but do not affect its frequency. When we model this data using the Kalman filter without the pulsar terms, the additional amplitude modulations from $y_{\rm pulsar}$ must be described by the single wave model, $y_{\rm Earth}$. As a result the $y_{\rm Earth}$ model must try to compensate for these amplitude modulations by adjusting the parameters which govern the amplitude $A$ of the single wave. Consequently the parameters which are most affected are those which determine the amplitude of the GW. Terms which influence the amplitude strongly such as $h_0$ and $\iota$ are strongly affected and exhibit a strong bias. Terms which influence the amplitude weakly such as $\psi$ exhibit a weaker bias. The wave amplitude is independent of the frequency and so $\Omega$ exhibits no bias.Since a shift in phase affects the instantaneous amplitude of the wave, $\Phi_0$ also exhibits a small bias, despite $A$ not being a function of $\Phi_0$. \newline  
 
+In order to ascertain how important the bias is for PTA continuous wave searches requires a thorough exploration of the astrophysical parameter space which we do not carry out in this work. The magnitude of the bias will vary for different points in the parameter space, as well as for different PTA configurations. If the bias is sufficiently modest then for quiet continuous wave sources with low SNR the uncertainty in the 1D marginalised posterior may dominate and the bias may not be important for searches. Conversely if the bias is sufficiently strong, or the source sufficiently loud with low uncertainties then the bias may come to systematically affect the inferred parameters. \newline  
 
-
-
-For loud sources with high SNR the uncertainty in the 1D posterior is less than the bias and so these biases corrupt the inferred MAP estimate of the parameter.
-
-
-For quieter sources 
-
-
-
-
-
-For most parameters the bias is less than the uncertainty
-
-For loud sources
-
-for less loud sources the unertainty dominates the errors 
-
-
-
-We have shown in this section how the dropping of the pulsar terms results in a bias in the inferred parameters, not just in the sky localisation parameters  \citep[e.g.][]{Zhupulsarterms,Chen2022} but additionally $\psi, h_0$ and $\iota$. We have only considered a single example system to explore the effect of the bias. Whilst the bias is generally small and does not prevent the recovery of accurate posteriors for each of the parameters,\textbf{biases will be different for different GW systems}  it is present and will need to be accounted for. This bias is not particular to our method but a shared feature across likelihood based methods that do not include the pulsar terms in the inference model. The inclusion of the pulsar terms in the methods presented in this work will be a key goal of a future work, which will alleviate these bias problems. 
-
-
-
-not just present in our formulation but in all works. whetehr this is important depends.... real astrophysica sources
-
-
-
-
-
-
+We have shown in this section how the dropping of the pulsar terms results in a bias in the inferred parameters, not just in the sky localisation parameters  \citep[e.g.][]{Zhupulsarterms,Chen2022} but additionally all parameters which influence the wave amplitude. Whilst the bias is generally small and does not prevent the recovery of accurate posteriors for our example system, it is present and may need to be accounted for for analysis in other parts of the parameter space. This bias is not particular to our method but a shared feature across likelihood based methods that do not include the pulsar terms in the inference model. The inclusion of the pulsar terms in the methods presented in this work in order to alleviate the bias will be a key goal of a future work. 
 
 
 
 \section{Discussion}
-We have shown how our complementary approach to PTA data analysis using a Kalman filter can successfully recover the underlying parameters of the model and calculate Bayes factors in order to perform Bayesian model selection. 
+We have shown how our complementary approach to PTA data analysis using a Kalman filter can successfully recover the underlying parameters of the model and calculate Bayes factors in order to perform Bayesian model selection. There are a number of potential extensions of this work which we now discuss.  \newline 
+
+The natural first extension is to implement the method whilst retaining the pulsar terms of Equation \ref{eq:measurement}. Whilst PTA searches commonly drop the pulsar terms as standard practice, we have shown that this leads to biases in the inferred 1D marginalized posteriors for the model parameters. Biases in sky localisation for synthetic datasets as a result of dropping the pulsar terms are also observed by \cite{Zhupulsarterms} and \cite{Chen2022}. Alternatively, if the method continues to be used with solely the Earth terms then it would be highly desirable to make systematic, quantitative estimates of the incurred biases in the model parameters across an astrophysically representative parameter space. \newline 
+
+We have considered only a specific configuration of pulsars composing our synthetic PTA - the same pulsars that make up NANOGrav (Section \ref{sec:synt_pta}). Whilst our method is generally independent of the specific choice of pulsars, it would be of interest to compare the performance of the method using different pulsars configurations and different PTAs such as PPTA and the EPTA. Indeed, since adding pulsars to PTAs increases the computational demands of the data analysis it may be advantageous to optimally select a subset of the total available pulsars which may be able to provide comparable performance to a larger PTA  \citep{2023MNRAS.518.1802S}.  \newline 
+
+Throughout this work we have assumed that all pulsars are observed at the same time, with a constant time sampling. In practice this assumption does not hold and different pulsars will be observed with different cadences at different times. Extending this method to non-constant time sampling is straightforward and the performance of the method should be evaluated in this regime. \newline 
+
+We have taken our GW source to be monochromatic, i.e. $\Omega$ is a fixed parameter with no time dependence. Whilst this is an astronomically well-justified assumption (see discussion in Section \ref{sec:plane_gw}), and appropriate for this initial methods work, it would also be of interest to extend the state-space construction to enable the GW frequency to evolve in time. The GW source is monochromatic over the decadal PTA observation period, but the timescale set by the Earth-pulsar distance is comparable to the SMBHB evolution timescale \citep{Sesana2010}. For $\Delta f_{\rm gw} < 1 / T_{\rm obs}$ (see Equation \ref{eq:f_evolution}) the GW source frequency evolution manifests as an incoherent source of noise in the pulsar terms, whilst for  $\Delta f_{\rm gw} > 1 / T_{\rm obs}$ the pulsar terms can affect the phase coherency of the Earth terms \citep{Perrodin2018}. Careful consideration of the evolution of the GW frequency will be important as we look to extend our method to include the pulsar terms in the inference model. \newline 
 
 
-
-The natural first extension of this work is to implement the method whilst retaining the pulsar terms of Equation \ref{eq:measurement}. 
-
+We have also assumed that there is only a single GW source that influences the received pulsar frequencies. However, it may be possible to resolve multiple continuous GW sources simultaneously \citep{PhysRevD.85.044034}. Our method naturally extends to detecting multiple GW sources simultaneously; Equation \ref{eq:measurement} is straightforwardly modified to become a linear superposition of multiple GWs. Evaluating the performance of the method under these conditions would be a further interesting pursuit. The stochastic background itself is the incoherent summation of many individual GW sources. It therefore stands to reason that it may be possible to extend this method to also search for a stochastic GW background, providing a complementary approach to detect the stochastic background without requiring a cross-correlation of the pulsar residuals to uncover the Hellings-Downs curve. \newline 
 
 
-Whilst PTA searches commonly drop the pulsar terms as standard practice, we have shown that this leads to biases in the inferred 1D marginalized posteriors for the model parameters. 
-
-Biases in synthetic datasets from dropping the pulsar terms are also observed by \cite{Zhupulsarterms} and \cite{Chen2022}. Alternatively, if one wishes to continue to use just the Earth terms it would be highly desirable to 
+\textcolor{red}{TK: Lets also pre-empt reviewer and make it explicit why we are using frequencies rather than TOAs. Need to chat with group to get this clear in my head.}
 
 
-We have considered only a specific configuration of pulsars composing our synthetic PTA - the same pulsars that make up NANOGrav. Whilst our method is generally independent of the specific choice of pulsars, it would be of interest to compare the performance of the method using different pulsars configurations and different PTAs such as PPTA and the EPTA. Indeed, due to the increased computational demands as pulsars are added to the arrays it may be advantageous to optimally select a subset of the total number of available pulsars which may be able to provide comparable performance to a larger PTA  \citep{2023MNRAS.518.1802S}. 
-
-
-
-
-
-Throughout this work we have assumed that all pulsars are observed at the same time, with a constant time sampling. In practice this assumption does not hold and pulsars will be observed with different cadences at different time intervals. Applying this method to non-constant time sampling is a key further extension.
-
-
-We have also assumed that there is only a single, quasi-monochromatic GW source that influences the pulsar frequencies.However, it may be possible to resolve multiple continuous GW source simultaneously. Our method naturally extends to multiple GW sources; Equation \ref{eq:measurement} is modified to become the linear superposition of multiple GWs. The stochastic background itself is the incoherent summation of many individual GW sources. It therefore stands to reason that we could extend this method to also search for a stochastic GW background without requiring cross-correlating the pulsar residuals to uncover the Hellings-Downs curve. 
-
-
-
-
-
-
-\textcolor{red}{TK: Lets pre-empt reviewer and make it explicit WHY we are not using TOAs}
-We have formulated the state space model in terms of frequencies, where 
-
-
-
+%https://arxiv.org/pdf/2107.03047.pdf
 \section{Conclusion}
 
-\textcolor{red}{TK: TBD}
+In this paper we demonstrate a new method for the detection and parameter estimation of GWs from monochromatic SMBHBs. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method rather than subtracting the ensemble-averaged statistics. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW induced modulations. This enables the inference of GW parameters conditioned on the specific observed realisation of the noisy data. 
+
+
+We introduce the Kalman filter in order to track the intrinsic state evolution of the pulsar and combine this with a Bayesian sampling framework to estimate the posterior distributions of each parameter of the system, as well as the associated evidence (marginalised likelihood) of the model.
+
+
+We test our method on synthetic data. We focus on a single, astrophysically representative, SMBHB GW source detected with the 12.5-year NANOGrav pulsars observed over a 10 year timespan.
+
+The parameters of the model are accurately recovered and the minimal detectable strain is estimated via comparing the GW model with a null, noise-only model to describe the data.
+
+
+The method is then further tested over 1000 noise realisations. Consistent MAP estimates of the parameters across all noise realisations are obtained for the majority of parameters, whilst the structural weak-identifiability of $\iota$ and $h_0$ results in a larger variance in the MAP estimates between individual noise realisations.
+
+
+
+
+\textcolor{red}{Validation tests with 200 randomly sampled parameter vectors result in reliable posterior distributions
+that accurately contain the injected parameter vectors, which indicates that the percent errors cited above are consistent with statistical
+fluctuations. This test confirms that the method can be applied to a
+wide variety of pulsars without hand-tuning.}
+
+
+
+Biases are observed in t...
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  24 AUG 2023 11:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  25 AUG 2023 11:49
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1099,11 +1099,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [11 <./images/CanonicalBayesPlot2000.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<images/iota_likelihood_surface.png, id=865, 400.8576pt x 380.622pt>
-File: images/iota_likelihood_surface.png Graphic file (type png)
-<use images/iota_likelihood_surface.png>
-Package pdftex.def Info: images/iota_likelihood_surface.png  used on input line
- 553.
+<images/likelihood_iota_new.png, id=865, 400.8576pt x 380.622pt>
+File: images/likelihood_iota_new.png Graphic file (type png)
+<use images/likelihood_iota_new.png>
+Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 553
+.
 (pdftex.def)             Requested size: 244.0pt x 231.6854pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 557--558
@@ -1125,47 +1125,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 565--566
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 575--576
+
+ []
+
 [13 <./images/likelihood_surface.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./images/compare_iotas_lines2.png> <./images/iota_likelihood_surface.png>
-]
-
-LaTeX Warning: Reference `eq:state2' on page 15 undefined on input line 669.
-
-
-LaTeX Warning: Reference `eq:state2' on page 15 undefined on input line 681.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 680--682
+Underfull \hbox (badness 10000) in paragraph at lines 582--583
 
  []
 
 
-LaTeX Warning: Reference `sec:statespace' on page 15 undefined on input line 69
-8.
+Underfull \hbox (badness 10000) in paragraph at lines 584--585
+
+ []
 
 
-LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 15 undefined
- on input line 707.
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+
+ []
+
+[14 <./images/compare_iotas_lines2.png> <./images/likelihood_iota_new.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+
+ []
 
 [15]
 
-LaTeX Warning: Reference `eq:main_eq' on page 16 undefined on input line 739.
+LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 652.
 
 
-Overfull \hbox (18.861pt too wide) detected at line 746
+LaTeX Warning: Reference `eq:state2' on page 16 undefined on input line 664.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 663--665
+
+ []
+
+
+LaTeX Warning: Reference `sec:statespace' on page 16 undefined on input line 68
+1.
+
+
+LaTeX Warning: Reference `eq:frequency_evolution_expanded' on page 16 undefined
+ on input line 690.
+
+
+LaTeX Warning: Reference `eq:main_eq' on page 16 undefined on input line 722.
+
+
+Overfull \hbox (18.861pt too wide) detected at line 729
 $\OML/ntxmi/m/it/9 X \U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^
 @ [][] []$  
  []
 
-<images/Kalman_example_both.png, id=945, 921.6834pt x 490.2315pt>
+<images/Kalman_example_both.png, id=948, 921.6834pt x 490.2315pt>
 File: images/Kalman_example_both.png Graphic file (type png)
 <use images/Kalman_example_both.png>
-Package pdftex.def Info: images/Kalman_example_both.png  used on input line 770
+Package pdftex.def Info: images/Kalman_example_both.png  used on input line 753
 .
 (pdftex.def)             Requested size: 508.0pt x 270.20413pt.
 (./paper.bbl [16]
@@ -1188,10 +1223,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 401--405
  []
 
 
-Underfull \vbox (badness 2401) has occurred while \output is active []
-
-
-Underfull \hbox (badness 6493) in paragraph at lines 652--655
+Underfull \hbox (badness 6493) in paragraph at lines 659--662
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
@@ -1207,10 +1239,10 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 4B2F2C19358225B38C2B0A133AB1DEB2;3418.
  ) 
 Here is how much of TeX's memory you used:
- 17174 strings out of 478268
- 267315 string characters out of 5846348
- 573350 words of memory out of 5000000
- 34766 multiletter control sequences out of 15000+600000
+ 17180 strings out of 478268
+ 267357 string characters out of 5846348
+ 575181 words of memory out of 5000000
+ 34770 multiletter control sequences out of 15000+600000
  588224 words of font info for 232 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,3315b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1239,10 +1271,10 @@ public/txfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
 /newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/z
 tmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (18 pages, 5161091 bytes).
+Output written on paper.pdf (18 pages, 5171471 bytes).
 PDF statistics:
- 1361 PDF objects out of 1440 (max. 8388607)
- 1248 compressed objects within 13 object streams
- 256 named destinations out of 1000 (max. 500000)
+ 1373 PDF objects out of 1440 (max. 8388607)
+ 1260 compressed objects within 13 object streams
+ 258 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

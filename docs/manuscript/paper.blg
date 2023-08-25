@@ -3,7 +3,7 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
-Repeated entry---line 556 of file example.bib
+Repeated entry---line 572 of file example.bib
  : @book{Maggiore
  :               ,
 I'm skipping whatever remains of this entry
@@ -14,50 +14,49 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Warning--I didn't find a database entry for "appendix_identifiability"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 131 entries,
+You've used 132 entries,
             2881 wiz_defined-function locations,
-            1853 strings with 71621 characters,
-and the built_in function-call counts, 64740 in all, are:
-= -- 5890
-> -- 4032
-< -- 279
-+ -- 1784
-- -- 536
-* -- 7780
-:= -- 9535
+            1856 strings with 70095 characters,
+and the built_in function-call counts, 65582 in all, are:
+= -- 5956
+> -- 4095
+< -- 291
++ -- 1807
+- -- 549
+* -- 7865
+:= -- 9664
 add.period$ -- 0
-call.type$ -- 131
-change.case$ -- 262
+call.type$ -- 132
+change.case$ -- 264
 chr.to.int$ -- 121
-cite$ -- 133
-duplicate$ -- 3288
-empty$ -- 3201
-format.name$ -- 972
-if$ -- 11729
-int.to.chr$ -- 11
+cite$ -- 134
+duplicate$ -- 3326
+empty$ -- 3243
+format.name$ -- 993
+if$ -- 11895
+int.to.chr$ -- 12
 int.to.str$ -- 0
-missing$ -- 136
-newline$ -- 411
-num.names$ -- 850
-pop$ -- 615
+missing$ -- 137
+newline$ -- 414
+num.names$ -- 866
+pop$ -- 624
 preamble$ -- 1
-purify$ -- 524
+purify$ -- 528
 quote$ -- 0
-skip$ -- 2251
+skip$ -- 2276
 stack$ -- 0
-substring$ -- 4451
-swap$ -- 1823
-text.length$ -- 538
+substring$ -- 4499
+swap$ -- 1857
+text.length$ -- 545
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1164
+type$ -- 1173
 warning$ -- 2
-while$ -- 958
+while$ -- 969
 width$ -- 0
-write$ -- 1332
+write$ -- 1344
 (There was 1 error message)

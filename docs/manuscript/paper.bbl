@@ -27,11 +27,6 @@
 {Agazie} G.,  et~al., 2023b, \mn@doi [\apjl] {10.3847/2041-8213/acda9a}, \href
   {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...9A} {951, L9}
 
-\bibitem[\protect\citeauthoryear{{Alam} et~al.,}{{Alam}
-  et~al.}{2021}]{nanograv_narrowband_DR}
-{Alam} M.~F.,  et~al., 2021, \mn@doi [\apjs] {10.3847/1538-4365/abc6a0}, \href
-  {https://ui.adsabs.harvard.edu/abs/2021ApJS..252....4A} {252, 4}
-
 \bibitem[\protect\citeauthoryear{{Allen}}{{Allen}}{1997}]{Allen1997}
 {Allen} B.,  1997, in {Marck} J.-A.,  {Lasota} J.-P.,  eds, Relativistic
   Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
@@ -104,8 +99,13 @@
   {https://ui.adsabs.harvard.edu/abs/2022NRvMP...2...39A} {2, 39}
 
 \bibitem[\protect\citeauthoryear{Babak \& Sesana}{Babak \&
-  Sesana}{2012}]{Babak2012}
-Babak S.,  Sesana A.,  2012, \mn@doi [Phys. Rev. D]
+  Sesana}{2012a}]{Babak2012}
+Babak S.,  Sesana A.,  2012a, \mn@doi [Phys. Rev. D]
+  {10.1103/PhysRevD.85.044034}, 85, 044034
+
+\bibitem[\protect\citeauthoryear{Babak \& Sesana}{Babak \&
+  Sesana}{2012b}]{PhysRevD.85.044034}
+Babak S.,  Sesana A.,  2012b, \mn@doi [Phys. Rev. D]
   {10.1103/PhysRevD.85.044034}, 85, 044034
 
 \bibitem[\protect\citeauthoryear{{Babak} et~al.,}{{Babak}
@@ -476,6 +476,13 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
   et~al.}{2019}]{2019MNRAS.490.4666P}
 {Perera} B.~B.~P.,  et~al., 2019, \mn@doi [\mnras] {10.1093/mnras/stz2857},
   \href {https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.4666P} {490, 4666}
+
+\bibitem[\protect\citeauthoryear{{Perrodin} \& {Sesana}}{{Perrodin} \&
+  {Sesana}}{2018}]{Perrodin2018}
+{Perrodin} D.,  {Sesana} A.,  2018, in {Rezzolla} L.,  {Pizzochero} P.,
+  {Jones} D.~I.,  {Rea} N.,   {Vida{\~n}a} I.,  eds,  Astrophysics and Space
+  Science Library Vol. 457, Astrophysics and Space Science Library. p.~95
+  (\mn@eprint {arXiv} {1709.02816}), \mn@doi{10.1007/978-3-319-97616-7_3}
 
 \bibitem[\protect\citeauthoryear{Petiteau, Babak, Sesana  \& de
   Ara\'ujo}{Petiteau et~al.}{2013}]{Petiteau2013}

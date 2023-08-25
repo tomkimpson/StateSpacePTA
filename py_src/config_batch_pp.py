@@ -28,8 +28,8 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
     
 
 N = 200
-seed = 1245 
-h = 5e-14 
+seed = 1246 
+h = 5e-15 
 model = "earth"
         
 #Create a bilby prior object to sample from
@@ -37,7 +37,7 @@ init_parameters = {}
 priors = bilby.core.prior.PriorDict()
 
 init_parameters["omega_gw"] = None
-priors["omega_gw"] = bilby.core.prior.LogUniform(1e-9, 1e-6, 'omega_gw')
+priors["omega_gw"] = bilby.core.prior.LogUniform(1e-8, 1e-6, 'omega_gw')
 
 init_parameters["phi0_gw"] = None
 priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
@@ -62,7 +62,7 @@ with open('batch.sh','w') as b:
 
        
    
-        arg_name = f"pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
+        arg_name = f"OMEGA_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
         print(arg_name)
         create_slurm_job(arg_name,h,model,seed,p['omega_gw'],p['phi0_gw'],p['psi_gw'],p['delta_gw'],p['alpha_gw'])
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
