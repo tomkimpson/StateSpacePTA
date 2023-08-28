@@ -58,12 +58,6 @@
 \citation{Skilling,Ashton2022}
 \citation{Vargas}
 \citation{gardiner2009stochastic}
-\citation{NANOgrav2023,EPTA2023,Zic2023arXiv230616230Z}
-\citation{Baym1969,vanEysden,Alpar2017MNRAS.471.4827G}
-\citation{Vargas}
-\citation{Melatos2020ApJ...896...78M,Lower2021MNRAS.508.3251L,Dunn2022,Dunn2023MNRAS.522.5469D}
-\citation{Meyers2021,Myers2021MNRAS.502.3113M,Vargas}
-\citation{Sornette2004}
 \@writefile{toc}{\contentsline {section}{\numberline {2}State-Space Formulation}{2}{section.2}\protected@file@percent }
 \newlabel{sec:model}{{2}{2}{State-Space Formulation}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Spin evolution}{2}{subsection.2.1}\protected@file@percent }
@@ -71,6 +65,12 @@
 \newlabel{eq:spinevol}{{1}{2}{Spin evolution}{equation.1}{}}
 \newlabel{eq:frequency_evolution}{{2}{2}{Spin evolution}{equation.2}{}}
 \newlabel{eq:xieqn}{{4}{2}{Spin evolution}{equation.4}{}}
+\citation{NANOgrav2023,EPTA2023,Zic2023arXiv230616230Z}
+\citation{Baym1969,vanEysden,Alpar2017MNRAS.471.4827G}
+\citation{Vargas}
+\citation{Melatos2020ApJ...896...78M,Lower2021MNRAS.508.3251L,Dunn2022,Dunn2023MNRAS.522.5469D}
+\citation{Meyers2021,Myers2021MNRAS.502.3113M,Vargas}
+\citation{Sornette2004}
 \citation{Zhu10}
 \citation{Rosado10.1093/mnras/stv1098}
 \citation{Sesana10,Sesana2010,Ellis2012ApJ}
@@ -97,6 +97,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Signal tracking, parameter estimation and model selection}{4}{section.3}\protected@file@percent }
 \newlabel{sec:detect}{{3}{4}{Signal tracking, parameter estimation and model selection}{section.3}{}}
 \newlabel{eq:params1}{{19}{4}{Signal tracking, parameter estimation and model selection}{equation.19}{}}
+\newlabel{eq:psrparams}{{20}{4}{Signal tracking, parameter estimation and model selection}{equation.20}{}}
 \newlabel{eq:params3}{{21}{4}{Signal tracking, parameter estimation and model selection}{equation.21}{}}
 \newlabel{eq:hphx}{{22}{4}{Signal tracking, parameter estimation and model selection}{equation.22}{}}
 \newlabel{eq:hphx2}{{23}{4}{Signal tracking, parameter estimation and model selection}{equation.23}{}}
@@ -134,6 +135,7 @@
 \newlabel{sec:model_selection}{{3.3}{6}{Model selection}{subsection.3.3}{}}
 \newlabel{eq:bayes}{{28}{6}{Model selection}{equation.28}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Summary of workflow}{6}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:methodsummary}{{3.4}{6}{Summary of workflow}{subsection.3.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Tests with synthetic data}{6}{section.4}\protected@file@percent }
 \newlabel{sec:testing}{{4}{6}{Tests with synthetic data}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Synthetic data generation}{6}{subsection.4.1}\protected@file@percent }
@@ -164,61 +166,63 @@
 \citation{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C}
 \citation{Zhupulsarterms,Chen2022}
 \citation{Zhupulsarterms}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap}\unskip \@@italiccorr )}}, \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}} from \cite {Shannon2010}.\relax }}{9}{table.caption.4}\protected@file@percent }
-\newlabel{tab:parameters_and_priors}{{1}{9}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref {eq:sigmap}, \eqref {eq:sigmap_f} from \protect \cite {Shannon2010}.\relax }{table.caption.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap}\unskip \@@italiccorr )}}, \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}} from \cite {Shannon2010}. The quantities $\epsilon ^{(n)}_{f}$ and $\epsilon ^{(n)}_{\dot  {f}}$ are the errors in $f^{(n)}_{\rm  em} (t_1)$ and $\dot  {f}^{(n)}_{\rm  em} (t_1)$ respectively, as quoted in the ATNF catalogue.\relax }}{9}{table.caption.4}\protected@file@percent }
+\newlabel{tab:parameters_and_priors}{{1}{9}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref {eq:sigmap}, \eqref {eq:sigmap_f} from \protect \cite {Shannon2010}. The quantities $\epsilon ^{(n)}_{f}$ and $\epsilon ^{(n)}_{\dot {f}}$ are the errors in $f^{(n)}_{\rm em} (t_1)$ and $\dot {f}^{(n)}_{\rm em} (t_1)$ respectively, as quoted in the ATNF catalogue.\relax }{table.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Parameter estimation}{9}{subsubsection.4.2.2}\protected@file@percent }
 \newlabel{sec:parameter_estim}{{4.2.2}{9}{Parameter estimation}{subsubsection.4.2.2}{}}
 \newlabel{eq:measuremen_earth}{{37}{9}{Parameter estimation}{equation.37}{}}
 \newlabel{eq:g_func_trig_earth}{{38}{9}{Parameter estimation}{equation.38}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Detection}{9}{subsubsection.4.2.3}\protected@file@percent }
 \newlabel{sec:detection}{{4.2.3}{9}{Detection}{subsubsection.4.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref  {tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. $\Omega _{\rm  nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.\relax }}{10}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:corner_plot_1}{{4}{10}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for a single realisation of the system noise. The vertical orange lines indicate the true injected values, c.f. Table \ref {tab:parameters_and_priors}. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. $\Omega _{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for the representative system described in Table \ref  {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm  nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.\relax }}{10}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:corner_plot_1}{{4}{10}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for the representative system described in Table \ref {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.\relax }{figure.caption.5}{}}
 \citation{e5be7c83a0d24500826f6e1b414d1733}
 \citation{GUILLAUME2019418}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Bayes ratio $\beta $ between the competing models $\mathcal  {M}_1$ (GW present in data) and $\mathcal  {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref  {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection tolerance cut-off of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal  {M}_0$ and $\mathcal  {M}_1$\relax }}{11}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:bayes}{{5}{11}{Bayes ratio $\beta $ between the competing models $\mathcal {M}_1$ (GW present in data) and $\mathcal {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection tolerance cut-off of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal {M}_0$ and $\mathcal {M}_1$\relax }{figure.caption.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Multiple noise realisations}{11}{subsubsection.4.2.4}\protected@file@percent }
 \newlabel{sec:multiple_noise}{{4.2.4}{11}{Multiple noise realisations}{subsubsection.4.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance.\relax }}{12}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:corner_plot_2}{{6}{12}{As Figure \ref {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance.\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{12}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:parameter_space}{{4.3}{12}{Exploring a broader parameter space}{subsection.4.3}{}}
+\citation{doi:10.1198/106186006X136976}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref  {fig:likelihood_surface}.\relax }}{12}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:corner_plot_2}{{6}{12}{As Figure \ref {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref {fig:likelihood_surface}.\relax }{figure.caption.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Likelihood $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }}{13}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:likelihood_surface}{{7}{13}{Likelihood $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{13}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:parameter_space}{{4.3}{13}{Exploring a broader parameter space}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Bias by dropping pulsar terms}{13}{subsection.4.4}\protected@file@percent }
 \newlabel{sec:bias}{{4.4}{13}{Bias by dropping pulsar terms}{subsection.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$ (right panel). The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref  {fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.\relax }}{14}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:iota}{{8}{14}{1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$ (right panel). The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref {fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces PP plot for 200 simulated GW sources for a subset of parameters of $\bm  {\theta }_{\rm  gw}$, randomly drawn from the prior distributions of Table \ref  {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\bm  {\theta }_{\rm  gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-15}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }}{14}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:parameter_space}{{9}{14}{PP plot for 200 simulated GW sources for a subset of parameters of $\boldsymbol {\theta }_{\rm gw}$, randomly drawn from the prior distributions of Table \ref {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\boldsymbol {\theta }_{\rm gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-15}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }{figure.caption.10}{}}
 \citation{Zhupulsarterms,Chen2022}
 \citation{Zhupulsarterms}
 \citation{Chen2022}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref  {fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.\relax }}{14}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:iota}{{8}{14}{1D marginalized posteriors for $\iota $ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$. The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota $. The left hand panel is equivalent to the marginalized posteriors for $\iota $ shown in Figure \ref {fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.\relax }{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, orange line) and the pulsar terms model (Equation \ref  {eq:measurement}, blue line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide.\relax }}{14}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:likelihood_surface_iota}{{9}{14}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, orange line) and the pulsar terms model (Equation \ref {eq:measurement}, blue line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide.\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{14}{section.5}\protected@file@percent }
 \citation{2023MNRAS.518.1802S}
 \citation{Sesana2010}
 \citation{Perrodin2018}
 \citation{PhysRevD.85.044034}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{15}{section.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref  {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }}{15}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:likelihood_surface_iota}{{10}{15}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{15}{section.5}\protected@file@percent }
 \citation{gardiner2009stochastic}
-\citation{KARLSSON2012941}
-\citation{SEDOGLAVIC2002735}
-\bibstyle{mnras}
-\bibdata{example}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{16}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {A}Kalman recursion equations}{16}{section.A1}\protected@file@percent }
 \newlabel{sec:kalman}{{A}{16}{Kalman recursion equations}{section.A1}{}}
 \newlabel{eq:kalman1}{{A1}{16}{Kalman recursion equations}{equation.A1.1}{}}
 \newlabel{eq:kalman2}{{A2}{16}{Kalman recursion equations}{equation.A1.2}{}}
-\newlabel{eq:kalmn2}{{A3}{16}{Kalman recursion equations}{equation.A1.3}{}}
-\newlabel{eq:fmatrix}{{A4}{16}{Kalman recursion equations}{equation.A1.4}{}}
-\newlabel{eq:rmatix}{{A9}{16}{Kalman recursion equations}{equation.A1.9}{}}
-\newlabel{eq:state1}{{A10}{16}{Kalman recursion equations}{equation.A1.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Appendix on identifiability}{16}{section.A2}\protected@file@percent }
-\newlabel{appendix_identifiability}{{B}{16}{Appendix on identifiability}{section.A2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Alternative version of Fig 1}{16}{section.A3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {C1}References}{16}{subsection.A3.1}\protected@file@percent }
-\newlabel{sec:ref_list}{{C1}{16}{References}{subsection.A3.1}{}}
+\newlabel{eq:kalman gain}{{A7}{16}{Kalman recursion equations}{equation.A1.7}{}}
+\newlabel{eq:kalmn2}{{A10}{16}{Kalman recursion equations}{equation.A1.10}{}}
+\newlabel{eq:gardenier}{{A11}{16}{Kalman recursion equations}{equation.A1.11}{}}
+\citation{KARLSSON2012941}
+\citation{SEDOGLAVIC2002735}
+\bibstyle{mnras}
+\bibdata{example}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Appendix on identifiability}{17}{section.A2}\protected@file@percent }
+\newlabel{appendix_identifiability}{{B}{17}{Appendix on identifiability}{section.A2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Alternative version of Fig 1}{17}{section.A3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C1}References}{17}{subsection.A3.1}\protected@file@percent }
+\newlabel{sec:ref_list}{{C1}{17}{References}{subsection.A3.1}{}}
 \bibcite{2023ApJ...951L...8A}{{1}{2023a}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
 \bibcite{NANOgrav2023}{{2}{2023b}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
 \bibcite{Allen1997}{{3}{1997}{{{Allen}}}{{{Allen}}}}
@@ -250,108 +254,109 @@
 \bibcite{Charisi2023arXiv230403786C}{{29}{2023}{{{Charisi} et~al.}}{{{Charisi}, {Taylor}, {Witt} \& {Runnoe}}}}
 \bibcite{Chen2022}{{30}{2022}{{{Chen} \& {Wang}}}{{{Chen} \& {Wang}}}}
 \bibcite{Christensen2019}{{31}{2019}{{{Christensen}}}{{{Christensen}}}}
-\bibcite{Cordes1981}{{32}{1981}{{{Cordes} \& {Greenstein}}}{{{Cordes} \& {Greenstein}}}}
-\bibcite{Cordes2002astro.ph..7156C}{{33}{2002}{{{Cordes} \& {Lazio}}}{{{Cordes} \& {Lazio}}}}
-\bibcite{Cordes2010}{{34}{2010}{{{Cordes} \& {Shannon}}}{{{Cordes} \& {Shannon}}}}
-\bibcite{Alessandro1995}{{35}{1995}{{{D'Alessandro} et~al.}}{{{D'Alessandro}, {McCulloch}, {Hamilton} \& {Deshpande}}}}
-\bibcite{Desvignes2016}{{36}{2016}{{Desvignes et~al.}}{{Desvignes et~al.,}}}
-\bibcite{Dunn2022}{{37}{2022}{{{Dunn} et~al.}}{{{Dunn} et~al.,}}}
-\bibcite{Dunn2023MNRAS.522.5469D}{{38}{2023}{{{Dunn} et~al.}}{{{Dunn}, {Melatos}, {Espinoza}, {Antonopoulou} \& {Dodson}}}}
-\bibcite{2013CQGra..30v4004E}{{39}{2013}{{{Ellis}}}{{{Ellis}}}}
-\bibcite{Ellis2016}{{40}{2016}{{{Ellis} \& {Cornish}}}{{{Ellis} \& {Cornish}}}}
-\bibcite{Ellis2012ApJ}{{41}{2012}{{{Ellis} et~al.}}{{{Ellis}, {Siemens} \& {Creighton}}}}
-\bibcite{Espinoza2021}{{42}{2021}{{{Espinoza} et~al.}}{{{Espinoza}, {Antonopoulou}, {Dodson}, {Stepanova} \& {Scherer}}}}
-\bibcite{Feroz2008}{{43}{2008}{{{Feroz} \& {Hobson}}}{{{Feroz} \& {Hobson}}}}
-\bibcite{Feroz2009}{{44}{2009}{{Feroz et~al.}}{{Feroz, Hobson \& Bridges}}}
-\bibcite{gardiner2009stochastic}{{45}{2009}{{Gardiner}}{{Gardiner}}}
-\bibcite{Goldstein2018}{{46}{2018}{{{Goldstein} et~al.}}{{{Goldstein}, {Veitch}, {Sesana} \& {Vecchio}}}}
-\bibcite{Goncharov2021}{{47}{2021}{{{Goncharov} et~al.}}{{{Goncharov} et~al.,}}}
-\bibcite{Greenstein1970}{{48}{1970}{{{Greenstein}}}{{{Greenstein}}}}
-\bibcite{Alpar2017MNRAS.471.4827G}{{49}{2017}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}}
-\bibcite{GUILLAUME2019418}{{50}{2019}{{Guillaume et~al.}}{{Guillaume et~al.,}}}
-\bibcite{Handley2015}{{51}{2015}{{{Handley} et~al.}}{{{Handley}, {Hobson} \& {Lasenby}}}}
-\bibcite{Hellings}{{52}{1983}{{{Hellings} \& {Downs}}}{{{Hellings} \& {Downs}}}}
-\bibcite{tempo2}{{53}{2006}{{Hobbs et~al.}}{{Hobbs, Edwards \& Manchester}}}
-\bibcite{Hobbs2010glitch}{{54}{2010}{{{Hobbs} et~al.}}{{{Hobbs}, {Lyne} \& {Kramer}}}}
-\bibcite{Hobbs_2019}{{55}{2019}{{Hobbs et~al.}}{{Hobbs, Dai, Manchester, Shannon, Kerr, Lee \& Xu}}}
-\bibcite{Jaffe_2003}{{56}{2003}{{Jaffe \& Backer}}{{Jaffe \& Backer}}}
-\bibcite{Jenet2004}{{57}{2004}{{{Jenet} et~al.}}{{{Jenet}, {Lommen}, {Larson} \& {Wen}}}}
-\bibcite{Johnston10}{{58}{1999}{{Johnston \& Galloway}}{{Johnston \& Galloway}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C1}{\ignorespaces \textcolor {red}{TK: For consideration. Do we prefer this figure to Figure \ref  {fig:four figures}}?\relax }}{17}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:kalmanexampleboth}{{C1}{17}{\textcolor {red}{TK: For consideration. Do we prefer this figure to Figure \ref {fig:four figures}}?\relax }{figure.caption.11}{}}
-\bibcite{Jones1990MNRAS.246..364J}{{59}{1990}{{{Jones}}}{{{Jones}}}}
-\bibcite{Kalman1}{{60}{1960}{{Kalman}}{{Kalman}}}
-\bibcite{KARLSSON2012941}{{61}{2012}{{Karlsson et~al.}}{{Karlsson, Anguelova \& Jirstrand}}}
-\bibcite{free_precession_kerr}{{62}{2015}{{Kerr et~al.}}{{Kerr, Hobbs, Johnston \& Shannon}}}
-\bibcite{magneto1}{{63}{2006}{{{Kramer} et~al.}}{{{Kramer}, {Lyne}, {O'Brien}, {Jordan} \& {Lorimer}}}}
-\bibcite{Lam2019}{{64}{2019}{{{Lam} et~al.}}{{{Lam} et~al.,}}}
-\bibcite{Lasky2015}{{65}{2015}{{{Lasky} et~al.}}{{{Lasky}, {Melatos}, {Ravi} \& {Hobbs}}}}
-\bibcite{Lee2011MNRAS.414.3251L}{{66}{2011}{{{Lee} et~al.}}{{{Lee}, {Wex}, {Kramer}, {Stappers}, {Bassa}, {Janssen}, {Karuppusamy} \& {Smits}}}}
-\bibcite{Lentati2015}{{67}{2015}{{{Lentati} et~al.}}{{{Lentati} et~al.,}}}
-\bibcite{UTMOST}{{68}{2020}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
-\bibcite{Lower2021MNRAS.508.3251L}{{69}{2021}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
-\bibcite{Lyne2010L}{{70}{2010}{{{Lyne} et~al.}}{{{Lyne}, {Hobbs}, {Kramer}, {Stairs} \& {Stappers}}}}
-\bibcite{Maggiore}{{71}{2018}{{Maggiore}}{{Maggiore}}}
-\bibcite{Manchester2005}{{72}{2005}{{{Manchester} et~al.}}{{{Manchester}, {Hobbs}, {Teoh} \& {Hobbs}}}}
-\bibcite{McWilliams_2014}{{73}{2014}{{McWilliams et~al.}}{{McWilliams, Ostriker \& Pretorius}}}
-\bibcite{Melatos2014}{{74}{2014}{{{Melatos} \& {Link}}}{{{Melatos} \& {Link}}}}
-\bibcite{Melatos2008}{{75}{2008}{{{Melatos} et~al.}}{{{Melatos}, {Peralta} \& {Wyithe}}}}
-\bibcite{Melatos2020ApJ...896...78M}{{76}{2020}{{{Melatos} et~al.}}{{{Melatos}, {Dunn}, {Suvorova}, {Moran} \& {Evans}}}}
-\bibcite{Melatos2023}{{77}{2021}{{{Melatos} et~al.}}{{{Melatos}, {O'Neill}, {Meyers} \& {O'Leary}}}}
-\bibcite{Myers2021MNRAS.502.3113M}{{78}{2021a}{{{Meyers} et~al.}}{{{Meyers}, {Melatos} \& {O'Neill}}}}
-\bibcite{Meyers2021}{{79}{2021b}{{{Meyers} et~al.}}{{{Meyers}, {O'Neill}, {Melatos} \& {Evans}}}}
-\bibcite{Mukherjee2006}{{80}{2006}{{{Mukherjee} et~al.}}{{{Mukherjee}, {Parkinson} \& {Liddle}}}}
-\bibcite{2009arXiv0906materials}{{81}{2009}{{{P{\'a}rtay} et~al.}}{{{P{\'a}rtay}, {Bart{\'o}k} \& {Cs{\'a}nyi}}}}
-\bibcite{Parthasarathy2021}{{82}{2021}{{{Parthasarathy} et~al.}}{{{Parthasarathy} et~al.,}}}
-\bibcite{Peralta2006}{{83}{2006}{{{Peralta} et~al.}}{{{Peralta}, {Melatos}, {Giacobello} \& {Ooi}}}}
-\bibcite{2019MNRAS.490.4666P}{{84}{2019}{{{Perera} et~al.}}{{{Perera} et~al.,}}}
-\bibcite{Perrodin2018}{{85}{2018}{{{Perrodin} \& {Sesana}}}{{{Perrodin} \& {Sesana}}}}
-\bibcite{Petiteau2013}{{86}{2013}{{Petiteau et~al.}}{{Petiteau, Babak, Sesana \& de Ara\'ujo}}}
-\bibcite{psrqpy}{{87}{2018}{{{Pitkin}}}{{{Pitkin}}}}
-\bibcite{Rajagopal1995}{{88}{1995}{{{Rajagopal} \& {Romani}}}{{{Rajagopal} \& {Romani}}}}
-\bibcite{Ravi2012singlesource}{{89}{2012}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Hobbs}, {Shannon}, {Manchester}, {Yardley} \& {Keith}}}}
-\bibcite{Ravi2015MNRAS.447.2772R}{{90}{2015}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Shannon} \& {Hobbs}}}}
-\bibcite{2023ApJ...951L...6R}{{91}{2023}{{{Reardon} et~al.}}{{{Reardon} et~al.,}}}
-\bibcite{Renzini2022}{{92}{2022}{{{Renzini} et~al.}}{{{Renzini}, {Goncharov}, {Jenkins} \& {Meyers}}}}
-\bibcite{Rosado10.1093/mnras/stv1098}{{93}{2015}{{Rosado et~al.}}{{Rosado, Sesana \& Gair}}}
-\bibcite{PTAstring}{{94}{2012}{{Sanidas et~al.}}{{Sanidas, Battye \& Stappers}}}
-\bibcite{SEDOGLAVIC2002735}{{95}{2002}{{Sedoglavic}}{{Sedoglavic}}}
-\bibcite{Sesana2013}{{96}{2013}{{{Sesana}}}{{{Sesana}}}}
-\bibcite{Sesana2010}{{97}{2010}{{{Sesana} \& {Vecchio}}}{{{Sesana} \& {Vecchio}}}}
-\bibcite{Sesana10}{{98}{2008}{{Sesana et~al.}}{{Sesana, Vecchio \& Colacino}}}
-\bibcite{Shannon2010}{{99}{2010a}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
-\bibcite{Shannon2010ApJ...725.1607S}{{100}{2010b}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
-\bibcite{Shannon_2013}{{101}{2013}{{Shannon et~al.}}{{Shannon et~al.,}}}
-\bibcite{Simon10}{{102}{2006}{{Simon}}{{Simon}}}
-\bibcite{Skilling}{{103}{2006}{{Skilling}}{{Skilling}}}
-\bibcite{Sornette2004}{{104}{2004}{{{Sornette}}}{{{Sornette}}}}
-\bibcite{dynesty2020}{{105}{2020}{{Speagle}}{{Speagle}}}
-\bibcite{2023MNRAS.518.1802S}{{106}{2023}{{{Speri} et~al.}}{{{Speri}, {Porayko}, {Falxa}, {Chen}, {Gair}, {Sesana} \& {Taylor}}}}
-\bibcite{Meertime}{{107}{2022}{{{Spiewak} et~al.}}{{{Spiewak} et~al.,}}}
-\bibcite{stairs_freeprecession}{{108}{2000}{{{Stairs} et~al.}}{{{Stairs}, {Lyne} \& {Shemar}}}}
-\bibcite{Stairs2019MNRAS.485.3230S}{{109}{2019}{{{Stairs} et~al.}}{{{Stairs} et~al.,}}}
-\bibcite{Skyes2022}{{110}{2022}{{{Sykes} et~al.}}{{{Sykes}, {Middleton}, {Melatos}, {Di Matteo}, {DeGraf} \& {Bhowmick}}}}
-\bibcite{ipta}{{111}{2022}{{Tarafdar et~al.}}{{Tarafdar et~al.,}}}
-\bibcite{Taylors2016}{{112}{2016}{{{Taylor} et~al.}}{{{Taylor}, {Huerta}, {Gair} \& {McWilliams}}}}
-\bibcite{Tiburzi2018}{{113}{2018}{{{Tiburzi}}}{{{Tiburzi}}}}
-\bibcite{proceedings2019033014}{{114}{2019}{{Trassinelli}}{{Trassinelli}}}
-\bibcite{2006MNRAS.370L..76U}{{115}{2006}{{{Urama} et~al.}}{{{Urama}, {Link} \& {Weisberg}}}}
-\bibcite{Vargas}{{116}{2023}{{Vargas \& Melatos}}{{Vargas \& Melatos}}}
-\bibcite{Verbiest2012ApJ...755...39V}{{117}{2012}{{{Verbiest} et~al.}}{{{Verbiest}, {Weisberg}, {Chael}, {Lee} \& {Lorimer}}}}
-\bibcite{2021hgwa.bookE...4V}{{118}{2021}{{{Verbiest} et~al.}}{{{Verbiest}, {Os{\l }owski} \& {Burke-Spolaor}}}}
-\bibcite{882463van}{{119}{2000}{{Wan \& Van Der~Merwe}}{{Wan \& Van Der~Merwe}}}
-\bibcite{Wyithe2003}{{120}{2003}{{{Wyithe} \& {Loeb}}}{{{Wyithe} \& {Loeb}}}}
-\bibcite{2023RAA....23g5024X}{{121}{2023}{{{Xu} et~al.}}{{{Xu} et~al.,}}}
-\bibcite{PTAphase}{{122}{2021}{{{Xue} et~al.}}{{{Xue} et~al.,}}}
-\bibcite{Yao2017}{{123}{2017}{{{Yao} et~al.}}{{{Yao}, {Manchester} \& {Wang}}}}
-\bibcite{Yardley2010}{{124}{2010}{{{Yardley} et~al.}}{{{Yardley} et~al.,}}}
-\bibcite{zarchan2000fundamentals}{{125}{2000}{{Zarchan \& Musoff}}{{Zarchan \& Musoff}}}
-\bibcite{Zhu2014PPTA}{{126}{2014}{{{Zhu} et~al.}}{{{Zhu} et~al.,}}}
-\bibcite{Zhu10}{{127}{2015a}{{Zhu et~al.}}{{Zhu et~al.,}}}
-\bibcite{Zhu2015}{{128}{2015b}{{Zhu et~al.}}{{Zhu et~al.,}}}
-\bibcite{Zhupulsarterms}{{129}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
-\bibcite{Parkes2023}{{130}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
-\bibcite{Zic2023arXiv230616230Z}{{131}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
-\bibcite{vanEysden}{{132}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
-\newlabel{lastpage}{{C1}{18}{References}{subsection.A3.1}{}}
-\gdef \@abspage@last{18}
+\bibcite{doi:10.1198/106186006X136976}{{32}{2006}{{Cook et~al.}}{{Cook, Gelman \& Rubin}}}
+\bibcite{Cordes1981}{{33}{1981}{{{Cordes} \& {Greenstein}}}{{{Cordes} \& {Greenstein}}}}
+\bibcite{Cordes2002astro.ph..7156C}{{34}{2002}{{{Cordes} \& {Lazio}}}{{{Cordes} \& {Lazio}}}}
+\bibcite{Cordes2010}{{35}{2010}{{{Cordes} \& {Shannon}}}{{{Cordes} \& {Shannon}}}}
+\bibcite{Alessandro1995}{{36}{1995}{{{D'Alessandro} et~al.}}{{{D'Alessandro}, {McCulloch}, {Hamilton} \& {Deshpande}}}}
+\bibcite{Desvignes2016}{{37}{2016}{{Desvignes et~al.}}{{Desvignes et~al.,}}}
+\bibcite{Dunn2022}{{38}{2022}{{{Dunn} et~al.}}{{{Dunn} et~al.,}}}
+\bibcite{Dunn2023MNRAS.522.5469D}{{39}{2023}{{{Dunn} et~al.}}{{{Dunn}, {Melatos}, {Espinoza}, {Antonopoulou} \& {Dodson}}}}
+\bibcite{2013CQGra..30v4004E}{{40}{2013}{{{Ellis}}}{{{Ellis}}}}
+\bibcite{Ellis2016}{{41}{2016}{{{Ellis} \& {Cornish}}}{{{Ellis} \& {Cornish}}}}
+\bibcite{Ellis2012ApJ}{{42}{2012}{{{Ellis} et~al.}}{{{Ellis}, {Siemens} \& {Creighton}}}}
+\bibcite{Espinoza2021}{{43}{2021}{{{Espinoza} et~al.}}{{{Espinoza}, {Antonopoulou}, {Dodson}, {Stepanova} \& {Scherer}}}}
+\bibcite{Feroz2008}{{44}{2008}{{{Feroz} \& {Hobson}}}{{{Feroz} \& {Hobson}}}}
+\bibcite{Feroz2009}{{45}{2009}{{Feroz et~al.}}{{Feroz, Hobson \& Bridges}}}
+\bibcite{gardiner2009stochastic}{{46}{2009}{{Gardiner}}{{Gardiner}}}
+\bibcite{Goldstein2018}{{47}{2018}{{{Goldstein} et~al.}}{{{Goldstein}, {Veitch}, {Sesana} \& {Vecchio}}}}
+\bibcite{Goncharov2021}{{48}{2021}{{{Goncharov} et~al.}}{{{Goncharov} et~al.,}}}
+\bibcite{Greenstein1970}{{49}{1970}{{{Greenstein}}}{{{Greenstein}}}}
+\bibcite{Alpar2017MNRAS.471.4827G}{{50}{2017}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}}
+\bibcite{GUILLAUME2019418}{{51}{2019}{{Guillaume et~al.}}{{Guillaume et~al.,}}}
+\bibcite{Handley2015}{{52}{2015}{{{Handley} et~al.}}{{{Handley}, {Hobson} \& {Lasenby}}}}
+\bibcite{Hellings}{{53}{1983}{{{Hellings} \& {Downs}}}{{{Hellings} \& {Downs}}}}
+\bibcite{tempo2}{{54}{2006}{{Hobbs et~al.}}{{Hobbs, Edwards \& Manchester}}}
+\bibcite{Hobbs2010glitch}{{55}{2010}{{{Hobbs} et~al.}}{{{Hobbs}, {Lyne} \& {Kramer}}}}
+\bibcite{Hobbs_2019}{{56}{2019}{{Hobbs et~al.}}{{Hobbs, Dai, Manchester, Shannon, Kerr, Lee \& Xu}}}
+\bibcite{Jaffe_2003}{{57}{2003}{{Jaffe \& Backer}}{{Jaffe \& Backer}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C1}{\ignorespaces \textcolor {red}{TK: For consideration. Do we prefer this figure to Figure \ref  {fig:four figures}}?\relax }}{18}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:kalmanexampleboth}{{C1}{18}{\textcolor {red}{TK: For consideration. Do we prefer this figure to Figure \ref {fig:four figures}}?\relax }{figure.caption.12}{}}
+\bibcite{Jenet2004}{{58}{2004}{{{Jenet} et~al.}}{{{Jenet}, {Lommen}, {Larson} \& {Wen}}}}
+\bibcite{Johnston10}{{59}{1999}{{Johnston \& Galloway}}{{Johnston \& Galloway}}}
+\bibcite{Jones1990MNRAS.246..364J}{{60}{1990}{{{Jones}}}{{{Jones}}}}
+\bibcite{Kalman1}{{61}{1960}{{Kalman}}{{Kalman}}}
+\bibcite{KARLSSON2012941}{{62}{2012}{{Karlsson et~al.}}{{Karlsson, Anguelova \& Jirstrand}}}
+\bibcite{free_precession_kerr}{{63}{2015}{{Kerr et~al.}}{{Kerr, Hobbs, Johnston \& Shannon}}}
+\bibcite{magneto1}{{64}{2006}{{{Kramer} et~al.}}{{{Kramer}, {Lyne}, {O'Brien}, {Jordan} \& {Lorimer}}}}
+\bibcite{Lam2019}{{65}{2019}{{{Lam} et~al.}}{{{Lam} et~al.,}}}
+\bibcite{Lasky2015}{{66}{2015}{{{Lasky} et~al.}}{{{Lasky}, {Melatos}, {Ravi} \& {Hobbs}}}}
+\bibcite{Lee2011MNRAS.414.3251L}{{67}{2011}{{{Lee} et~al.}}{{{Lee}, {Wex}, {Kramer}, {Stappers}, {Bassa}, {Janssen}, {Karuppusamy} \& {Smits}}}}
+\bibcite{Lentati2015}{{68}{2015}{{{Lentati} et~al.}}{{{Lentati} et~al.,}}}
+\bibcite{UTMOST}{{69}{2020}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
+\bibcite{Lower2021MNRAS.508.3251L}{{70}{2021}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
+\bibcite{Lyne2010L}{{71}{2010}{{{Lyne} et~al.}}{{{Lyne}, {Hobbs}, {Kramer}, {Stairs} \& {Stappers}}}}
+\bibcite{Maggiore}{{72}{2018}{{Maggiore}}{{Maggiore}}}
+\bibcite{Manchester2005}{{73}{2005}{{{Manchester} et~al.}}{{{Manchester}, {Hobbs}, {Teoh} \& {Hobbs}}}}
+\bibcite{McWilliams_2014}{{74}{2014}{{McWilliams et~al.}}{{McWilliams, Ostriker \& Pretorius}}}
+\bibcite{Melatos2014}{{75}{2014}{{{Melatos} \& {Link}}}{{{Melatos} \& {Link}}}}
+\bibcite{Melatos2008}{{76}{2008}{{{Melatos} et~al.}}{{{Melatos}, {Peralta} \& {Wyithe}}}}
+\bibcite{Melatos2020ApJ...896...78M}{{77}{2020}{{{Melatos} et~al.}}{{{Melatos}, {Dunn}, {Suvorova}, {Moran} \& {Evans}}}}
+\bibcite{Melatos2023}{{78}{2021}{{{Melatos} et~al.}}{{{Melatos}, {O'Neill}, {Meyers} \& {O'Leary}}}}
+\bibcite{Myers2021MNRAS.502.3113M}{{79}{2021a}{{{Meyers} et~al.}}{{{Meyers}, {Melatos} \& {O'Neill}}}}
+\bibcite{Meyers2021}{{80}{2021b}{{{Meyers} et~al.}}{{{Meyers}, {O'Neill}, {Melatos} \& {Evans}}}}
+\bibcite{Mukherjee2006}{{81}{2006}{{{Mukherjee} et~al.}}{{{Mukherjee}, {Parkinson} \& {Liddle}}}}
+\bibcite{2009arXiv0906materials}{{82}{2009}{{{P{\'a}rtay} et~al.}}{{{P{\'a}rtay}, {Bart{\'o}k} \& {Cs{\'a}nyi}}}}
+\bibcite{Parthasarathy2021}{{83}{2021}{{{Parthasarathy} et~al.}}{{{Parthasarathy} et~al.,}}}
+\bibcite{Peralta2006}{{84}{2006}{{{Peralta} et~al.}}{{{Peralta}, {Melatos}, {Giacobello} \& {Ooi}}}}
+\bibcite{2019MNRAS.490.4666P}{{85}{2019}{{{Perera} et~al.}}{{{Perera} et~al.,}}}
+\bibcite{Perrodin2018}{{86}{2018}{{{Perrodin} \& {Sesana}}}{{{Perrodin} \& {Sesana}}}}
+\bibcite{Petiteau2013}{{87}{2013}{{Petiteau et~al.}}{{Petiteau, Babak, Sesana \& de Ara\'ujo}}}
+\bibcite{psrqpy}{{88}{2018}{{{Pitkin}}}{{{Pitkin}}}}
+\bibcite{Rajagopal1995}{{89}{1995}{{{Rajagopal} \& {Romani}}}{{{Rajagopal} \& {Romani}}}}
+\bibcite{Ravi2012singlesource}{{90}{2012}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Hobbs}, {Shannon}, {Manchester}, {Yardley} \& {Keith}}}}
+\bibcite{Ravi2015MNRAS.447.2772R}{{91}{2015}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Shannon} \& {Hobbs}}}}
+\bibcite{2023ApJ...951L...6R}{{92}{2023}{{{Reardon} et~al.}}{{{Reardon} et~al.,}}}
+\bibcite{Renzini2022}{{93}{2022}{{{Renzini} et~al.}}{{{Renzini}, {Goncharov}, {Jenkins} \& {Meyers}}}}
+\bibcite{Rosado10.1093/mnras/stv1098}{{94}{2015}{{Rosado et~al.}}{{Rosado, Sesana \& Gair}}}
+\bibcite{PTAstring}{{95}{2012}{{Sanidas et~al.}}{{Sanidas, Battye \& Stappers}}}
+\bibcite{SEDOGLAVIC2002735}{{96}{2002}{{Sedoglavic}}{{Sedoglavic}}}
+\bibcite{Sesana2013}{{97}{2013}{{{Sesana}}}{{{Sesana}}}}
+\bibcite{Sesana2010}{{98}{2010}{{{Sesana} \& {Vecchio}}}{{{Sesana} \& {Vecchio}}}}
+\bibcite{Sesana10}{{99}{2008}{{Sesana et~al.}}{{Sesana, Vecchio \& Colacino}}}
+\bibcite{Shannon2010}{{100}{2010a}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
+\bibcite{Shannon2010ApJ...725.1607S}{{101}{2010b}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
+\bibcite{Shannon_2013}{{102}{2013}{{Shannon et~al.}}{{Shannon et~al.,}}}
+\bibcite{Simon10}{{103}{2006}{{Simon}}{{Simon}}}
+\bibcite{Skilling}{{104}{2006}{{Skilling}}{{Skilling}}}
+\bibcite{Sornette2004}{{105}{2004}{{{Sornette}}}{{{Sornette}}}}
+\bibcite{dynesty2020}{{106}{2020}{{Speagle}}{{Speagle}}}
+\bibcite{2023MNRAS.518.1802S}{{107}{2023}{{{Speri} et~al.}}{{{Speri}, {Porayko}, {Falxa}, {Chen}, {Gair}, {Sesana} \& {Taylor}}}}
+\bibcite{Meertime}{{108}{2022}{{{Spiewak} et~al.}}{{{Spiewak} et~al.,}}}
+\bibcite{stairs_freeprecession}{{109}{2000}{{{Stairs} et~al.}}{{{Stairs}, {Lyne} \& {Shemar}}}}
+\bibcite{Stairs2019MNRAS.485.3230S}{{110}{2019}{{{Stairs} et~al.}}{{{Stairs} et~al.,}}}
+\bibcite{Skyes2022}{{111}{2022}{{{Sykes} et~al.}}{{{Sykes}, {Middleton}, {Melatos}, {Di Matteo}, {DeGraf} \& {Bhowmick}}}}
+\bibcite{ipta}{{112}{2022}{{Tarafdar et~al.}}{{Tarafdar et~al.,}}}
+\bibcite{Taylors2016}{{113}{2016}{{{Taylor} et~al.}}{{{Taylor}, {Huerta}, {Gair} \& {McWilliams}}}}
+\bibcite{Tiburzi2018}{{114}{2018}{{{Tiburzi}}}{{{Tiburzi}}}}
+\bibcite{proceedings2019033014}{{115}{2019}{{Trassinelli}}{{Trassinelli}}}
+\bibcite{2006MNRAS.370L..76U}{{116}{2006}{{{Urama} et~al.}}{{{Urama}, {Link} \& {Weisberg}}}}
+\bibcite{Vargas}{{117}{2023}{{Vargas \& Melatos}}{{Vargas \& Melatos}}}
+\bibcite{Verbiest2012ApJ...755...39V}{{118}{2012}{{{Verbiest} et~al.}}{{{Verbiest}, {Weisberg}, {Chael}, {Lee} \& {Lorimer}}}}
+\bibcite{2021hgwa.bookE...4V}{{119}{2021}{{{Verbiest} et~al.}}{{{Verbiest}, {Os{\l }owski} \& {Burke-Spolaor}}}}
+\bibcite{882463van}{{120}{2000}{{Wan \& Van Der~Merwe}}{{Wan \& Van Der~Merwe}}}
+\bibcite{Wyithe2003}{{121}{2003}{{{Wyithe} \& {Loeb}}}{{{Wyithe} \& {Loeb}}}}
+\bibcite{2023RAA....23g5024X}{{122}{2023}{{{Xu} et~al.}}{{{Xu} et~al.,}}}
+\bibcite{PTAphase}{{123}{2021}{{{Xue} et~al.}}{{{Xue} et~al.,}}}
+\bibcite{Yao2017}{{124}{2017}{{{Yao} et~al.}}{{{Yao}, {Manchester} \& {Wang}}}}
+\bibcite{Yardley2010}{{125}{2010}{{{Yardley} et~al.}}{{{Yardley} et~al.,}}}
+\bibcite{zarchan2000fundamentals}{{126}{2000}{{Zarchan \& Musoff}}{{Zarchan \& Musoff}}}
+\bibcite{Zhu2014PPTA}{{127}{2014}{{{Zhu} et~al.}}{{{Zhu} et~al.,}}}
+\bibcite{Zhu10}{{128}{2015a}{{Zhu et~al.}}{{Zhu et~al.,}}}
+\bibcite{Zhu2015}{{129}{2015b}{{Zhu et~al.}}{{Zhu et~al.,}}}
+\bibcite{Zhupulsarterms}{{130}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
+\bibcite{Parkes2023}{{131}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
+\bibcite{Zic2023arXiv230616230Z}{{132}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
+\bibcite{vanEysden}{{133}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
+\newlabel{lastpage}{{C1}{19}{References}{subsection.A3.1}{}}
+\gdef \@abspage@last{19}
