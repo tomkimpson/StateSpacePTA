@@ -120,20 +120,29 @@ $\sigma^{n}$ also needs units, right?
 ---> Personally I like it as it feels like an adjustment to Eq 20 and so want to remind the reader. Leaving as is for now
 
 Summary labels on the top of the one-dimensional posteriors in Figure 4 shouldn't say \pm 0, if they are referring to the 0.16, 0.84 quintiles. 
+TO DO
 
 "7 parameters of" -> "seven parameters of" (again, another Andrew pet-peeve)
+---Fixed 
 
 Same with "2-dimensional" -> "two-dimensional", "1D-posteriors" -> "one-dimensional posteriors" (this is in many places, especially 4.2.4)
+--->Fixed everywhere
 
 "Similar results can be derived for the the 3N parameters" -> "Similar results are derived for the 3N parameters"
+--->Fixed
 
 in my opinion you can cut "and the parameters are generally recovered unambiguously" and just end the sentence, starting the next with "We do not display..."
+--> Leaving as is, but don't feel strongly
 
 There is a floating \ref to Section 4.3 at the end of first paragraph of 4.2.3
+--->fixed
 
-I don't see "evident data gaps" in Figure 5". Maybe rephrase "The sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 4\times10{-15} is due to..." 
+I don't see "evident data gaps" in Figure 5". Maybe rephrase "The sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 4\times10{-15} is due to..."
+--->Fixed 
 
 Also, is this a "noise artefact" of the sampler? Or just the natural limit of where the signal strength is low enough that the evidence for the model with signal and noise is no longer larger than the evidence for the model with just noise? Z(M1) > Z(M0) shouldn't necessarily hold to arbitrarily low signal strength, as both the process and measurement noise could hide the signal, and M1 has more parameters than M0, naturally down-weighting the evidence if the signal isn't loud enough (i.e. simpler null model may be a "better" explanation for the data, in an Occam sense). I'd also cut mention of the "gaps" from the caption of Fig 5.
+
+---> Gaps removed from figure caption. For the rest, the "gaps" are a noise artefact in the sense that if I run the sampler again with identical data, I might get gaps in different places. Now this is, as you say due to the indistinguishability of M0 and M1. i.e. if it was just due to failure of  Z(M1) > Z(M0) then I would expect it to fail at some cutoff strain. I have rephrased this in the text.
 
 Figure 5: has a mathfont capital B in the axis label, rather than $\beta$.
 "strain magnitudes, $h_0$, for" -> "strain magnitude $h_0$ for". 
@@ -145,38 +154,55 @@ Also missing full-stop at end of last sentence of caption.
 Section 4.2.4:
 
 "Sections 4.2.2, 4.2.3 is" -> "Sections 4.2.2 and 4.2.3 are"
+--->fixed
 
 "9 realisations of the noise" -> "nine realisations of the noise" (everywhere, for numbers less 10, sorry!)
+--->fixed. 10 noise would be nicer here
 
 "are highly consistent across the different noise realisations" -> "broadly overlap across the different noise realisations"
+---> Fixed
 
 "i.e. each of individual the distributions" -> "i.e. each of the individual distributions"
+--->fixed
 
 Cut "That is to say, ", start sentence with "For each"
+--->fixed
 
 "are not consistent" -> "do not broadly overlap"
+--->fixed
 
 "The large degree of variance in the 1D posteriors of $\iota$ and $h_0$ is due to" -> "The posteriors for $\iota$ and $h_0$ do not overlap for the different noise realisations due to"
+--->Fixed
 
 Again with the hyphens, they should be commas. 
+--->Replaced with brackets. I hate commas
 
 Add comma after "Regarding $\iota$ and $h_0$"
+--->Fixed
 
 "Equations 22, 23" -> "Equations (22) and (23)"
+--->Fixed
 
 $h$ -> $h_0$ (in quite a few places!)
+--->Fixed
 
 "the variance in the estimates between different noise realisations decreases." -> "the posteriors for the different noise realisations overlap."
+--->Fixed
 
 Similar language should replace the "variance" in the rest of the paragraph too, in my opinion.
+--->Noted. Not yet fixed
+
 
 Does Figure 8 show us much more information than Figure 7? I understand it's spelling it out, but an astute reader might be able to grok it from just 7 (and perhaps some of the text around 8). Just cognizant that the paragraph describing Figure 7 and 8 is quite long and detailed. Maybe more appropriate to put in an Appendix?
+--->Noted. Will consider. 
 
 Where does Equation (39) come from? I also don't understand what it's computing... I just have lots of questions here (is $\rho$ strictly bounded to [0, 1]? What are the "samples" you refer to? Are they the different noise realisations, or is the 10^3 here a different 10^3? Why compare to the mean of the samples?)
-
 Could the discussion with $\rho$ be summarised with a p-p plot, instead? 
 
+---> Discussed in person. Will use a Wasserstein instead to do this properly
+
 I'd recommend dropping the dashed lines in Figures 6 and 8. (But this goes to our brief chat before group meeting re: these posterior plots having wrong axes/too smoothed).
+--->Noted
 
 
 Section 4.3:
@@ -188,6 +214,7 @@ Section 4.3:
 ---.>Fied
 
 These are technically credible intervals, not confidence intervals (check everywhere).
+---> FIxed
 
 "grey contoured regions label the first $3\sigma$ significance ... given 200 simulations." -> "grey contours enclose the $1\sigma$, $2\sigma$, and $3\sigma$ significance levels, given 200 injections."
 
