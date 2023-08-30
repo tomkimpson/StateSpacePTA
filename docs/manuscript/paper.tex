@@ -478,40 +478,9 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
  
  
  
- If we consider the median values of the one-dimensional posteriors we can see that for some parameters the median is almost identically equal to the injected value (e.g. $\Omega) 
- 
- 
- 
- 
- 
- The clear exception is $\iota$ which exhibits a notable bias, and lies outside the with the 90\% credible interval, with the posterior median shifted from the injected value by $\sim 0.3$ radians. 
- 
- 
- 
- For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}.
- 
- 
  
 
-  
-  
-  
-  
-  
-  
-  $, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the injected value (e.g. $\psi, \alpha$), whilst still being contained within the credible interval. 
-  
-  
-  
-  
-  This potential bias will also be investigated alongside the bias in $\iota$ in Section \ref{sec:multiple_noise} and Section \ref{sec:bias}. 
- 
- 
- 
- 
- 
- 
- Similar results are derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
+ For some of the parameters the estimated posterior is approximately symmetric about the true injected value (e.g. $\Omega$). In this case the posterior median and the injected value are approximately coincident. For other parameters (e.g. $\iota$) the distribution is not symmetric about the injected value and the posterior median and the injected value are not coincident. The median value of the posterior for $\iota$ is shifted by $\sim 0.35$ rad relative to the injected value, although the injected value does still remain inside the 90\% credible interval. Similar effects are seen, albeit with a smaller shift, in other parameters such as $\delta$ and $\alpha$. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}. Similar results are derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
  
  
 \begin{figure*}
@@ -577,7 +546,7 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 %	\caption{One-dimensional marginalized posteriors for $\iota$ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$ (right panel). The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota$. The left hand panel is equivalent to the marginalized posteriors for $\iota$ shown in Figure \ref{fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.}
 %	\label{fig:iota}
 %\end{figure*}
-The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim} and \ref{sec:detection} is not particularly advantageous or convenient for our method. In this Section we confirm that we are able to infer comparable results for different noise realisations. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for nine realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
+The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim} is not particularly advantageous or convenient for our method. In this Section we confirm that we are able to infer comparable results for different noise realisations. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for nine realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
 
 We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1}. Considering the one-dimensional marginalized posteriors, the inferred probability distributions of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ broadly overlap across the different noise realisations. Moreover, the variance of each of the individual one-dimensional posteriors is generally low i.e. each of the individual distributions are narrow compared to the prior space. For each different noise realisation the method infers a consistent maximum \textit{a posteriori} probability (MAP) estimate. Conversely for the parameters $\iota$ and $h_0$ the inferred one-dimensional posteriors do not broadly overlap are not consistent across different noise realisations and the variance of an individual posterior is generally larger than for the other parameters. That is to say, we infer very different MAP estimates of these parameters depending on the particular realisation of the noise. \newline 
 
@@ -586,7 +555,7 @@ The posteriors for $\iota$ and $h_0$ do not overlap for the different noise real
 
 We now consider the complete set of $10^3$ noise realisations, rather than the subset of ten realisations in the preceding discussion. For each realisation of the noise we infer a marginalised one-dimensional posterior for each parameter. We want to compare these posteriors for different noise realisations and evaluate whether our method can consistently and reliably converge to comparable posteriors. 
 
-To this end we use the the Wasserstein distance \citep[WD,][]{Wasserstein,Villani2009} from optimal transport theory which defines an intuitive notion of similarity between probability distributions. The WD is the cost of an optimal strategy for moving probability mass between two distributions from position $x$ to position $y$, with respect to some cost function $c(x,y)$. Throughout this work we use the first moment of the Wasserstein distance which for one-dimensional distributions $\mu$ and  $\nu$ is defined
+To this end we use the the Wasserstein distance \citep[WD;][]{Wasserstein,Villani2009} from optimal transport theory which defines an intuitive notion of similarity between probability distributions. The WD is the cost of an optimal strategy for moving probability mass between two distributions from position $x$ to position $y$, with respect to some cost function $c(x,y)$. Throughout this work we use the first moment of the Wasserstein distance which for one-dimensional distributions $\mu$ and  $\nu$ is defined
 \begin{eqnarray}
 	W_1(\mu,\nu)=  \inf_{\lambda \in \Gamma(\mu, \nu)} \int |x-y| d \lambda (x,y)
 \end{eqnarray}
