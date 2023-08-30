@@ -134,8 +134,8 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
     #Make omega into nHz
     df_posterior["omega_gw"] = df_posterior["omega_gw"]*1e9
-    df_posterior["h"] = df_posterior["h"]*1e15
-    #df_posterior["h"] = df_posterior["h"]*1e12
+    #df_posterior["h"] = df_posterior["h"]*1e15
+    df_posterior["h"] = df_posterior["h"]*1e12
 
     display(df_posterior)
 

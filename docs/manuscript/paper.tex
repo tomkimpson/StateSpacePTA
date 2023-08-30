@@ -444,7 +444,7 @@ All the injected static parameters and their corresponding priors for this repre
 	  & $\delta$              & $1.0$  & radians & Uniform($-\pi/2, \pi/2$) \\
 	  & $\psi$              & $2.50$ & radians & Uniform($0, 2 \pi $) \\
 	  & $\Phi_0$          & $0.20$ & radians & Uniform($0, 2 \pi $) \\
-	  & $h_0$            & $10^{-12}$ & - & LogUniform($10^{-15}$, $10^{-9}$) \\
+	  & $h_0$            & $5 \times 10^{-15}$ & - & LogUniform($10^{-15}$, $10^{-9}$) \\
 	  & $\iota$             & $1.0$ & radians & Uniform($0, \pi$) \\ 
 		\hline
 		\multirow{5}{2mm}{$\boldsymbol{\theta}_{\rm psr}$} & $f_{\rm em}^{(n)} (t_1)$       & $f_{\rm ATNF}^{(n)}$ & Hz & Uniform$\left( f_{\rm ATNF}^{(n)} - 10^3 \epsilon^{(n)}_{f}, f_{\rm ATNF}^{(n)} + 10^3 \epsilon^{(n)}_{f} \right)$ \\
@@ -474,12 +474,49 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 	\end{equation}
 	We defer the inclusion of the pulsar terms in the measurement equation to a future work. As discussed in Section \ref{sec:priors} this choice reduces the dimensionality of the parameter estimation problem since the measurement equation, Equation \eqref{eq:measurement}, is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. Initially we consider a single noise realisation of the synthetic data for the representative example system described in Table \ref{tab:parameters_and_priors}. We apply the Kalman filter using the Earth terms only measurement equation, Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to infer the posterior distributions in each of the parameters. \newline 
 
- The results are shown in Figure \ref{fig:corner_plot_1} for the seven parameters of  $\boldsymbol{\theta}_{\rm gw}$. The histograms shown in the Figure are the one-dimensional posteriors for each parameter, marginalized over the set of all other parameters, where the dashed vertical blue lines show the 0.16 and 0.84 quantiles and the solid orange line the true injection value. The two-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. It is evident that for this representative example we are able to estimate all the static parameters of the system using our method, with the injected value contained within the 90\% credible interval for the majority of the parameters. The clear exception is $\iota$ which exhibits a notable bias, and lies outside the with the 90\% credible interval, with the posterior median shifted from the injected value by $\sim 0.3$ radians. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}. If we consider the median values of the one-dimensional posteriors we can see that for some parameters the median is almost identically equal to the injected value  (e.g. $\Omega, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the injected value (e.g. $\psi, \alpha$), whilst still being contained within the credible interval. This potential bias will also be investigated alongside the bias in $\iota$ in Section \ref{sec:multiple_noise} and Section \ref{sec:bias}. Similar results are derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
+ The results are shown in Figure \ref{fig:corner_plot_1} for the seven parameters of  $\boldsymbol{\theta}_{\rm gw}$. The histograms shown in the Figure are the one-dimensional posteriors for each parameter, marginalized over the set of all other parameters, where the dashed vertical blue lines show the 0.16 and 0.84 quantiles and the solid orange line the true injection value. The two-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. It is evident that for this representative example with strain $h_0 = 5 \times 10^{-15}$ that we are able to estimate all the static parameters of the system using our method, with the injected value contained within the 90\% credible interval for all of the parameters. 
+ 
+ 
+ 
+ If we consider the median values of the one-dimensional posteriors we can see that for some parameters the median is almost identically equal to the injected value (e.g. $\Omega) 
+ 
+ 
+ 
+ 
+ 
+ The clear exception is $\iota$ which exhibits a notable bias, and lies outside the with the 90\% credible interval, with the posterior median shifted from the injected value by $\sim 0.3$ radians. 
+ 
+ 
+ 
+ For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to the bias reported in \cite{Zhupulsarterms}.
+ 
+ 
+ 
+
+  
+  
+  
+  
+  
+  
+  $, \Phi_0, \delta$) whereas for others the median has a slight discrepancy from the injected value (e.g. $\psi, \alpha$), whilst still being contained within the credible interval. 
+  
+  
+  
+  
+  This potential bias will also be investigated alongside the bias in $\iota$ in Section \ref{sec:multiple_noise} and Section \ref{sec:bias}. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Similar results are derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
  
  
 \begin{figure*}
 	\includegraphics[width=\textwidth, height =\textwidth ]{images/small_h_posterior_10}
-	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for the representative system described in Table \ref{tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega_{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.}
+	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for the representative system described in Table \ref{tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega_{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling of the one-dimensional posteriors does not span the total prior space.}
 	\label{fig:corner_plot_1}
 \end{figure*}
 
@@ -492,11 +529,22 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 
 
 \subsubsection{Multiple noise realisations} \label{sec:multiple_noise}
+%\begin{figure*}
+%	\includegraphics[width=\textwidth, height =\textwidth]{images/stacked_GW_plot_1000}
+%	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.} 
+%	\label{fig:corner_plot_2}
+%\end{figure*}
+
 \begin{figure*}
-	\includegraphics[width=\textwidth, height =\textwidth]{images/stacked_GW_plot_1000}
+	\includegraphics[width=\textwidth, height =\textwidth]{images/stacked_GW_plot_small_h_definitive2}
 	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.} 
 	\label{fig:corner_plot_2}
 \end{figure*}
+
+
+
+
+
 
 %\begin{figure*}
 %	%\centering % Not needed
@@ -538,66 +586,22 @@ The posteriors for $\iota$ and $h_0$ do not overlap for the different noise real
 
 We now consider the complete set of $10^3$ noise realisations, rather than the subset of ten realisations in the preceding discussion. For each realisation of the noise we infer a marginalised one-dimensional posterior for each parameter. We want to compare these posteriors for different noise realisations and evaluate whether our method can consistently and reliably converge to comparable posteriors. 
 
-
-
-
-To this end we use the the Wasserstein distance \citep[WD,][]{Wasserstein,Villani2009} from optimal transport theory which defines an intuitive of similarity between probability distributions. 
-
-
-
-
-
-A full review of the Wasserstein distance which may be unfamiliar to some readers, is presented in Appendix \ref{sec:wasserstein}
-
-
-
-
-In order to quantitatively define `similar'  we use . The WD is a metric which quantifies the distance between two probability distributions 
-as the optimal cost, with respect to some cost function $c(x,y)$,  of transporting a probability mass from position $x$ to position $y$. The $p$-Wasserstein distance between two distributions $\mu, \nu$ is
+To this end we use the the Wasserstein distance \citep[WD,][]{Wasserstein,Villani2009} from optimal transport theory which defines an intuitive notion of similarity between probability distributions. The WD is the cost of an optimal strategy for moving probability mass between two distributions from position $x$ to position $y$, with respect to some cost function $c(x,y)$. Throughout this work we use the first moment of the Wasserstein distance which for one-dimensional distributions $\mu$ and  $\nu$ is defined
 \begin{eqnarray}
-	W_p(\mu,\nu)= \left( \inf_{\gamma \in \Gamma(\mu, \nu)}  \int c(x,y)^p d \gamma (x,y)\right)^{1/p}
+	W_1(\mu,\nu)=  \inf_{\lambda \in \Gamma(\mu, \nu)} \int |x-y| d \lambda (x,y)
 \end{eqnarray}
-where $\gamma(x,y)$ is the transport plan, $\Gamma(\mu, \nu)$ is the set of all couplings of $\mu$ and $\nu$ and $c(x,y)$ is the cost function.
-
-
-
-
-
-
-In order to compare the control and competitor ensemble probability distributions we adopt as our key metric the Wasserstein distance (WD). The WD intuitively defines a distance between s  
-
-
-
-
-
-
-
-We also take $p=1$ and $c(x,y) = |x-y|$ such that the WD values quoted in this work are given by
-\begin{eqnarray}
-	W_1(\mu,\nu)=  \inf_{\gamma \in \Gamma(\mu, \nu)} \int |x-y| d \gamma (x,y)
-\end{eqnarray}
-From the perspective of climate modelling, the WD has a nice physical interpretation given by the Monge-Kantorovich duality:
+where $\lambda(x,y)$ is the transport plan, $\Gamma(\mu, \nu)$ is the set of all couplings of $\mu$ and $\nu$ and $ |x-y|$ defines the cost function. The WD has an additional useful physical interpretation given by the Monge-Kantorovich duality:
 \begin{eqnarray}
 	| \boldsymbol{E}(X_{\mu} )-\boldsymbol{E}(Y_{\nu} ) | \leq W_1(\mu, \nu) \label{eq:WDdefn}
 \end{eqnarray}
-i.e. the difference in the expected value of some random variable between two distributions is no bigger than the WD value itself. More explicitly, if the WD for surface temperature between two distributions is 1K, then this tells us that the difference in the expected temperature between the distributions is no greater than 1K. For a full review of the Wasserstein distance, including favourable properties and comparison with other metrics we refer the reader to the Appendix of Pax21.
+where $X_{\mu}$ and $Y_{\nu}$ are random variables of the distributions $\mu$ and $\nu$ respectively, and $\boldsymbol{E}$ denotes the expected value. We can see that the WD bounds the difference in the expected values. For example, if we compare two posteriors for $\iota$ calculated for two different noise realisations, a WD = 1.0 rad tells us that the difference in the expected value of $\iota$ from the two distributions is less than 1 rad. Beyond optimal transport theory, the WD is a popular metric in machine learning \citep{2017arXiv170107875A}, climate modelling \citep{2022JCli...35.1215P,2023QJRMS.149..843K}, computational biology \citep{GONZALEZDELGADO2023168053} and geophysics \citep{2023GeoRL..5003880M}. A full review of the Wasserstein distance, which may be unfamiliar to some readers, is presented in Appendix \ref{sec:wasserstein} \textcolor{red}{TK: is this too much info on Wasserstein? Maybe just say "its a metric between probability distributions" and move the rest to appendix so as not to interrupt main astrophysics arguments.}
 
 
 
+For each parameter in $\boldsymbol{\theta}_{\rm gw}$ we calculate the WD between every pair of posteriors across our $10^3$ noise realisations.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
@@ -611,15 +615,6 @@ i.e. the difference in the expected value of some random variable between two di
 
 For this injected strain ($h_0 = 10^{-12}$) the signal-to-noise ratio (SNR) is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, 
 
-
-
-
-
-
-
-
-
-\textcolor{red}{Wasserstein intro and discussion here}
 
 
 
@@ -681,7 +676,18 @@ We can see that only $\Omega$ falls within the $3\sigma$ shaded region. The othe
 	\caption{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref{eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref{eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota$, over the prior space. All other parameters are fixed at their true injected value from Table \ref{tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.}
 	\label{fig:likelihood_surface_iota}
 \end{figure}
+
+\begin{figure*}
+	\includegraphics[width=\textwidth, height =\textwidth]{images/large_h_example}
+	\caption{} 
+	\label{fig:bias_for_large_h}
+\end{figure*}
+
 Evident in the preceding discussion is the fact that for some of the $\boldsymbol{\theta}_{\rm gw}$ parameters the inferred value (e.g. the median of the one-dimensional marginalised posterior) is biased away from the true injection value. This effect is most severe for $\iota$ and $h_0$ but also present to a lesser extent in other static parameters such as $\delta,\alpha$ and $\psi$, and additionally to an even smaller extent in $\Phi_0$. In this Section we demonstrate how this bias results from the dropping of the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
+
+
+
+for low signal bias is covered by noise
 
 
 In Figure \ref{fig:likelihood_surface_iota} we plot the variation in the log-likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, as we vary $\iota$ across the prior space, holding all other parameters constant at the true injected value of the representative example system, Table \ref{tab:parameters_and_priors}. We do this for 10 separate realisations of the system noise. We consider three separate situations: \textit{(i)} The solid blue line is the likelihood curve with just the Earth-terms included (i.e. using Equation \ref{eq:measuremen_earth} in the Kalman filter), \textit{(ii)} the solid orange line is the likelihood curve with the additional pulsar terms included (i.e. using Equation \ref{eq:measurement}), \textit{(iii)} the solid green line is the solution where we drop the pulsar terms from both the synthetic data and the measurement equation. Whilst we have not used the nested sampling method with either solutions \textit{(ii)} or \textit{(iii)} in this work, we are able to run the Kalman filter either using the pulsar terms in the model or else dropping them from the synthetic data consider how the resulting likelihood varies for different parameter values. The dashed lines show the location of the likelihood maxima for each of the likelihood solutions; finding the location of the maxima across all static parameters is effectively the goal of any likelihood based inference method, such as nested sampling. \newline  
@@ -726,7 +732,7 @@ We have also assumed that there is only a single GW source that influences the r
 In this paper we demonstrate a new method for the detection and parameter estimation of GWs from individual, monochromatic SMBHBs. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than subtracting the ensemble-averaged statistics. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW induced modulations. This enables the inference of GW parameters conditioned on the specific observed realisation of the noisy data. We introduce the Kalman filter in order to track the intrinsic state evolution of the pulsar and combine this with a Bayesian sampling framework to estimate the posterior distributions of each parameter of the system, as well as the associated evidence (marginalised likelihood) of the model. We test our method on synthetic data. We initially focus on a single, astrophysically representative, SMBHB GW source detected with the 12.5-year NANOGrav pulsars observed over a 10 year timespan. The parameters of the model are accurately recovered and the minimal detectable strain is estimated to be $h_0 \sim 4 \times 10^{-15}$ for $\iota=1.0$ rad. The method is then further tested over 1000 noise realisations. Consistent MAP estimates of the parameters across all noise realisations are obtained for the majority of parameters, whilst the structural weak-identifiability of $\iota$ and $h_0$ results in a larger variance in the MAP estimates between individual noise realisations for these parameters. Exploration of a broader parameter space via 200 randomly sampled parameter vectors highlights biases in some parameters as a result of dropping the pulsar terms from the inference model. The cause of these biases is discussed. The extension of this method to include the pulsar term is a key challenge for a future work.
  
 \appendix
-
+\newpage
 \section{Kalman recursion equations} \label{sec:kalman}
 The linear Kalman filter operate on temporally discrete, noisy measurements $\boldsymbol{Y}_k$ which are related to a set of unobservable discrete system states $\boldsymbol{X}_k$ via a linear transformation:
 \begin{equation}
@@ -828,19 +834,6 @@ $\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagon
 
 
 This paper is useful: \citep{KARLSSON2012941} \citep{SEDOGLAVIC2002735}
-\section{Alternative version of Fig 1}
-
-
-
-
-
-\begin{figure*}
-	\centering
-	\includegraphics[width=\textwidth]{images/Kalman_example_both}
-	\caption{\textcolor{red}{TK: For consideration. Do we prefer this figure to Figure \ref{fig:four figures}}?}
-	\label{fig:kalmanexampleboth}
-\end{figure*}
-
 
 
 
@@ -878,8 +871,8 @@ From the perspective of climate modelling, the WD has a nice physical interpreta
 \end{eqnarray}
 i.e. the difference in the expected value of some random variable between two distributions is no bigger than the WD value itself. More explicitly, if the WD for surface temperature between two distributions is 1K, then this tells us that the difference in the expected temperature between the distributions is no greater than 1K. For a full review of the Wasserstein distance, including favourable properties and comparison with other metrics we refer the reader to the Appendix of Pax21.
 
-\section{References}
-\label{sec:ref_list}
+%\section{References}
+%\label{sec:ref_list}
 
 
 

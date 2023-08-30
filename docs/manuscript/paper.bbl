@@ -61,6 +61,12 @@
   {10.48550/arXiv.2306.16226}, \href
   {https://ui.adsabs.harvard.edu/abs/2023arXiv230616226A} {p. arXiv:2306.16226}
 
+\bibitem[\protect\citeauthoryear{{Arjovsky}, {Chintala}  \&
+  {Bottou}}{{Arjovsky} et~al.}{2017}]{2017arXiv170107875A}
+{Arjovsky} M.,  {Chintala} S.,   {Bottou} L.,  2017, \mn@doi [arXiv e-prints]
+  {10.48550/arXiv.1701.07875}, \href
+  {https://ui.adsabs.harvard.edu/abs/2017arXiv170107875A} {p. arXiv:1701.07875}
+
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2018a}]{Arzoumanian2018ApJS..235...37A}
 {Arzoumanian} Z.,  et~al., 2018a, \mn@doi [\apjs] {10.3847/1538-4365/aab5b0},
@@ -278,6 +284,13 @@ Springer Series in Synergetics, Springer Berlin Heidelberg, \url
 {Goncharov} B.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/staa3411}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.502..478G} {502, 478}
 
+\bibitem[\protect\citeauthoryear{González-Delgado, Sagar, Zanon,
+  Lindorff-Larsen, Bernadó, Neuvial  \& Cortés}{González-Delgado
+  et~al.}{2023}]{GONZALEZDELGADO2023168053}
+González-Delgado J.,  Sagar A.,  Zanon C.,  Lindorff-Larsen K.,  Bernadó P.,
+  Neuvial P.,   Cortés J.,  2023, \mn@doi [Journal of Molecular Biology]
+  {https://doi.org/10.1016/j.jmb.2023.168053}, 435, 168053
+
 \bibitem[\protect\citeauthoryear{{Greenstein}}{{Greenstein}}{1970}]{Greenstein1970}
 {Greenstein} G.,  1970, \mn@doi [\nat] {10.1038/227791a0}, \href
   {https://ui.adsabs.harvard.edu/abs/1970Natur.227..791G} {227, 791}
@@ -356,6 +369,12 @@ Karlsson J.,  Anguelova M.,   Jirstrand M.,  2012, \mn@doi [IFAC Proceedings
   et~al.}{2015}]{free_precession_kerr}
 Kerr M.,  Hobbs G.,  Johnston S.,   Shannon R.~M.,  2015, \mn@doi [Monthly
   Notices of the Royal Astronomical Society] {10.1093/mnras/stv2457}, 455, 1845
+
+\bibitem[\protect\citeauthoryear{{Kimpson}, {Paxton}, {Chantry}  \&
+  {Palmer}}{{Kimpson} et~al.}{2023}]{2023QJRMS.149..843K}
+{Kimpson} T.,  {Paxton} E.~A.,  {Chantry} M.,   {Palmer} T.,  2023, \mn@doi
+  [Quarterly Journal of the Royal Meteorological Society] {10.1002/qj.4435},
+  \href {https://ui.adsabs.harvard.edu/abs/2023QJRMS.149..843K} {149, 843}
 
 \bibitem[\protect\citeauthoryear{{Kramer}, {Lyne}, {O'Brien}, {Jordan}  \&
   {Lorimer}}{{Kramer} et~al.}{2006}]{magneto1}
@@ -454,6 +473,12 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
   \mn@doi [\mnras] {10.1093/mnras/stab1952}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.3349M} {506, 3349}
 
+\bibitem[\protect\citeauthoryear{{Morris}, {Lipp}  \& {Roberts}}{{Morris}
+  et~al.}{2023}]{2023GeoRL..5003880M}
+{Morris} M.~J.,  {Lipp} A.~G.,   {Roberts} G.~G.,  2023, \mn@doi [\grl]
+  {10.1029/2023GL103880}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023GeoRL..5003880M} {50, e2023GL103880}
+
 \bibitem[\protect\citeauthoryear{{Mukherjee}, {Parkinson}  \&
   {Liddle}}{{Mukherjee} et~al.}{2006}]{Mukherjee2006}
 {Mukherjee} P.,  {Parkinson} D.,   {Liddle} A.~R.,  2006, \mn@doi [\apjl]
@@ -470,6 +495,12 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
   et~al.}{2021}]{Parthasarathy2021}
 {Parthasarathy} A.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab037},
   \href {https://ui.adsabs.harvard.edu/abs/2021MNRAS.502..407P} {502, 407}
+
+\bibitem[\protect\citeauthoryear{{Paxton}, {Chantry}, {Kl{\"o}wer}, {Saffin}
+  \& {Palmer}}{{Paxton} et~al.}{2022}]{2022JCli...35.1215P}
+{Paxton} E.~A.,  {Chantry} M.,  {Kl{\"o}wer} M.,  {Saffin} L.,   {Palmer} T.,
+  2022, \mn@doi [Journal of Climate] {10.1175/JCLI-D-21-0343.1}, \href
+  {https://ui.adsabs.harvard.edu/abs/2022JCli...35.1215P} {35, 1215}
 
 \bibitem[\protect\citeauthoryear{{Peralta}, {Melatos}, {Giacobello}  \&
   {Ooi}}{{Peralta} et~al.}{2006}]{Peralta2006}
