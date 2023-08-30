@@ -25,8 +25,9 @@ ax = fig.add_subplot(111)
 
 path_to_earth_model = 'likelihood_surface_h_iota_mm_earth.npz'
 path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_broader.npz'
-path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse.npz'
-
+path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse.npz' #this is the one currently in publication
+path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse_small_h.npz'
+#path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse_new.npz' 
 
 def load_and_plot(path,ax):
 
@@ -54,8 +55,11 @@ def load_and_plot(path,ax):
 
 
     #Plot colormap
-    CS = ax.pcolormesh(X, Y, z,clim=(2.0*np.max(surface_pulsar), np.max(surface_pulsar)),shading='gouraud',cmap='viridis')
+    #CS = ax.pcolormesh(X, Y, z,clim=(2.0*np.max(surface_pulsar), np.max(surface_pulsar)),shading='gouraud',cmap='viridis')
     #CS = ax.pcolormesh(X, Y, z,shading='gouraud',cmap='viridis')
+    eps=1e-5
+    CS = ax.pcolormesh(X, Y, z,clim=(1.0-eps, 1.0),shading='gouraud',cmap='viridis')
+
 
     clb = plt.colorbar(CS)
 
@@ -74,7 +78,7 @@ def load_and_plot(path,ax):
     savefig = 'likelihood_surface'
     ax.yaxis.set_major_locator(plt.MaxNLocator(5))
     plt.setp(ax.get_yticklabels()[0], visible=False)   #no 0th label to prevent overlap  
-    plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
+    #plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
 
 

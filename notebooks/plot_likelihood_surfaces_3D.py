@@ -27,7 +27,7 @@ path_to_earth_model = 'likelihood_surface_h_iota_mm_earth.npz'
 path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_broader.npz'
 path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse.npz'
 
-
+path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse_small_h.npz'
 def load_and_plot(path,ax):
 
 

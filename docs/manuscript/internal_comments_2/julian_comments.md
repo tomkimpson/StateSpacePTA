@@ -217,38 +217,51 @@ These are technically credible intervals, not confidence intervals (check everyw
 ---> FIxed
 
 "grey contoured regions label the first $3\sigma$ significance ... given 200 simulations." -> "grey contours enclose the $1\sigma$, $2\sigma$, and $3\sigma$ significance levels, given 200 injections."
+--->Fixed
 
 "We can see that it only $\Omega$ is well-behaved and falls within the shaded region." -> "We can see that only $\Omega$ falls within the $3\sigma$ shaded region."
+--->Fixed
 
 Cut following two sentences in my opinion. 
+--->Noted. Left in for now
 
 Spell out the vice-versa for clarity, I think
+--->fixed
 
 "confident i.e. narrow" -> "confident, i.e. narrow"
+--->Fixed
 
 "which are insufficiently narrow to capture the injected value" -> "which are overly precise (narrow) to contain the injected value"
+--->Fixed
 
 
 Section 4.4:
 
 "(i.e. the median of the 1D marginalised posterior)" -> "(e.g. the median of the 1D marginalised posterior)" (or my preference would be to no longer talk about the medians, sorry)
+--->Fixed. Retaining for now, may drop later c.f. new plots
 
 Cut second sentence, first paragraph
+--->Noted. Leaving fr now
 
 "We consider 3 separate solutions:" -> "We consider three separate situations:"
+--->Fixed
 
 Honestly, this whole section feels a little "loose" in the language. Andrew will tighten it up, but maybe another pass is warranted before he sees it. I'd try and cut out colloquialisms, and reduce repetition. I.e. what are the key things you must communicate from Figure 10, and what is less relevant.
+--->Noted. To review
 
 (Noticed a few "grammar-typos" in this section, like no space after a full-stop, so maybe run a grammar checker over it all.)
-
+---->Noted
 
 Section 5:
 
 "Discussion" is a little vague, maybe "Extensions and limitations"? May also want to shorten + roll into conclusions. Although the previous Section already had a deep discussion of limitations, so maybe just "Extensions"
+--->Noted
 
 Relatedly, I'd just cut the first paragraph
+--->Noted
 
 "Equation 16" -> "Equation (16)"
+--->Fixed
 
 Third paragraph, hyphen should be a comma (or an em-dash, which Andrew will promptly delete)
 
@@ -257,18 +270,23 @@ cut "such as PPTA and the EPTA" (political)
 cut ", and appropriate for this initial methods work,"
 
 "Equation 6" -> "Equation (6)"
+--->Fixed
 
 "phase coherency" -> "phase coherence"
 
 "Equation 16" -> "Equation (16)"
+--->Fixed
 
 cut "Evaluating the performance of the method under these conditions would be a further interesting pursuit."
+--->Fixed
 
 
 Section 6:
 
 Should maybe mention $\iota$ next to the $h_0$, or at least point the reader who skipped ahead back to Table 1.
+--->Fixed
 
 I didn't check Appendix A, but I see a few \eqref{} missing, haha
+----> Appendix TBD
 
 
