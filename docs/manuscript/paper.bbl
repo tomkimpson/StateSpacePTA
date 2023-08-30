@@ -647,6 +647,9 @@ Trassinelli M.,  2019, \mn@doi [Proceedings] {10.3390/proceedings2019033014},
   Melatos}{2023}]{Vargas}
 Vargas A.,  Melatos A.,  2023, TBD, 1, 1
 
+\bibitem[\protect\citeauthoryear{Vaserstein}{Vaserstein}{1969}]{Wasserstein}
+Vaserstein L.,  1969, Probl. Peredachi Inf., 5
+
 \bibitem[\protect\citeauthoryear{{Verbiest}, {Weisberg}, {Chael}, {Lee}  \&
   {Lorimer}}{{Verbiest} et~al.}{2012}]{Verbiest2012ApJ...755...39V}
 {Verbiest} J.~P.~W.,  {Weisberg} J.~M.,  {Chael} A.~A.,  {Lee} K.~J.,
@@ -658,6 +661,12 @@ Vargas A.,  Melatos A.,  2023, TBD, 1, 1
 {Verbiest} J.~P.~W.,  {Os{\l}owski} S.,   {Burke-Spolaor} S.,  2021, in ,
   Handbook of Gravitational Wave Astronomy.
 p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
+
+\bibitem[\protect\citeauthoryear{Villani}{Villani}{2009}]{Villani2009}
+Villani C.,  2009, The Wasserstein distances.
+Springer Berlin Heidelberg, Berlin, Heidelberg, pp 93--111,
+  \mn@doi{10.1007/978-3-540-71050-9_6}, \url
+  {https://doi.org/10.1007/978-3-540-71050-9_6}
 
 \bibitem[\protect\citeauthoryear{Wan \& Van Der~Merwe}{Wan \& Van
   Der~Merwe}{2000}]{882463van}

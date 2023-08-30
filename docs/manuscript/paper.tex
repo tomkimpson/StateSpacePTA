@@ -478,46 +478,42 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
  
  
 \begin{figure*}
-	\includegraphics[width=\textwidth, height =\textwidth ]{images/representative_example_v2_GW}
+	\includegraphics[width=\textwidth, height =\textwidth ]{images/small_h_posterior_10}
 	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for the representative system described in Table \ref{tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega_{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.}
 	\label{fig:corner_plot_1}
 \end{figure*}
 
-
-
-\subsubsection{Detection} \label{sec:detection}
-We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. \newline 
-
-There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 3.9 \times10{-15}$. The steep drop off is due to the two competing models becoming increasingly indistinguishable as the strain signal decreases and the measurement noise starts to dominate. The sparsity is due some of the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these sparse locations appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented here we set $n_{\rm live} =2000$. 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot2000}
-	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta=10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal{M}_0$ and $\mathcal{M}_1$.}
-	\label{fig:bayes}
-\end{figure}
-
-\subsubsection{Multiple noise realisations} \label{sec:multiple_noise}
 %\begin{figure*}
-%	\includegraphics[width=\textwidth, height =\textwidth]{images/stacked_GW_plot_1000}
-%	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.} 
-%	\label{fig:corner_plot_2}
+%	\includegraphics[width=\textwidth, height =\textwidth ]{images/representative_example_v2_GW}
+%	\caption{Posterior distribution for the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for the representative system described in Table \ref{tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma$ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega_{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{12}} = h_0 \times 10^{12}$.}
+%	\label{fig:corner_plot_1}
 %\end{figure*}
 
+
+
+\subsubsection{Multiple noise realisations} \label{sec:multiple_noise}
 \begin{figure*}
-	%\centering % Not needed
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{images/stacked_GW_plot_1000}
-		\caption{Kalman filter using correct estimate of the static parameters, $\hat{\boldsymbol{\theta}} = \boldsymbol{\theta}$ }
-		\label{fig:6MB_BFS}
-	\end{subfigure}  
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{images/stacked_GW_plot_1000}
-		\caption{Kalman filter using incorrect estimate of the static parameters, $\hat{\boldsymbol{\theta}} \neq \boldsymbol{\theta}$}
-		\label{fig:25MB_bfs}
-	\end{subfigure}
-	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.}
-	\label{fig:four figures2}
+	\includegraphics[width=\textwidth, height =\textwidth]{images/stacked_GW_plot_1000}
+	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.} 
+	\label{fig:corner_plot_2}
 \end{figure*}
+
+%\begin{figure*}
+%	%\centering % Not needed
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\includegraphics[width=\textwidth]{images/stacked_GW_plot_1000}
+%		\caption{Kalman filter using correct estimate of the static parameters, $\hat{\boldsymbol{\theta}} = \boldsymbol{\theta}$ }
+%		\label{fig:6MB_BFS}
+%	\end{subfigure}  
+%	\hfill
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\includegraphics[width=\textwidth]{images/stacked_GW_plot_1000}
+%		\caption{Kalman filter using incorrect estimate of the static parameters, $\hat{\boldsymbol{\theta}} \neq \boldsymbol{\theta}$}
+%		\label{fig:25MB_bfs}
+%	\end{subfigure}
+%	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.}
+%	\label{fig:four figures2}
+%\end{figure*}
 
 
 
@@ -527,12 +523,12 @@ There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \l
 	\caption{Likelihood $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.}
 	\label{fig:likelihood_surface}
 \end{figure}
-\begin{figure*}
-	\centering
-	\includegraphics[width=\textwidth]{images/compare_iotas_lines2}
-	\caption{One-dimensional marginalized posteriors for $\iota$ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$ (right panel). The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota$. The left hand panel is equivalent to the marginalized posteriors for $\iota$ shown in Figure \ref{fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.}
-	\label{fig:iota}
-\end{figure*}
+%\begin{figure*}
+%	\centering
+%	\includegraphics[width=\textwidth]{images/compare_iotas_lines2}
+%	\caption{One-dimensional marginalized posteriors for $\iota$ over 9 realisations of the noise where $h$ is (a) an unknown free parameter (left panel) and (b) fixed at its true value $= 10^{-12}$ (right panel). The thick vertical orange line labels the true injected value. The dashed vertical lines denote the median of the corresponding coloured posterior. Fixing $h$ reduces the variance between different noise realisations but results in a clear bias between the true and inferred values of $\iota$. The left hand panel is equivalent to the marginalized posteriors for $\iota$ shown in Figure \ref{fig:corner_plot_2} (4th row, 4th column), but with the $(0.16,0.84)$ quantiles replaced with the $0.5$ quantile.}
+%	\label{fig:iota}
+%\end{figure*}
 The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim} and \ref{sec:detection} is not particularly advantageous or convenient for our method. In this Section we confirm that we are able to infer comparable results for different noise realisations. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for nine realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
 
 We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noise realisations agree well with the single realisation result that we saw in  Figure \ref{fig:corner_plot_1}. Considering the one-dimensional marginalized posteriors, the inferred probability distributions of the parameters $\Omega, \Phi_0, \psi, \delta$ and $\alpha$ broadly overlap across the different noise realisations. Moreover, the variance of each of the individual one-dimensional posteriors is generally low i.e. each of the individual distributions are narrow compared to the prior space. For each different noise realisation the method infers a consistent maximum \textit{a posteriori} probability (MAP) estimate. Conversely for the parameters $\iota$ and $h_0$ the inferred one-dimensional posteriors do not broadly overlap are not consistent across different noise realisations and the variance of an individual posterior is generally larger than for the other parameters. That is to say, we infer very different MAP estimates of these parameters depending on the particular realisation of the noise. \newline 
@@ -540,11 +536,80 @@ We can see from Figure \ref{fig:corner_plot_2} that the results from these 9 noi
 
 The posteriors for $\iota$ and $h_0$ do not overlap for the different noise realisations due to these parameters being only weakly-identifiable. Identifiability refers to whether it is theoretically possible to infer unique parameter values of the model, given the measured data and the model structure \citep{e5be7c83a0d24500826f6e1b414d1733}. Sources of non-identifiability are generally categorised as either ``structural" (arising from the structure of the model) or ``practical" ( arising from insufficient data or measurement errors) \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$, we are concerned with structural identifiability. Indeed, one might initially suspect that $\iota$ and $h_0$ could have structural identifiability issues; from Equations \eqref{eq:hphx}, \eqref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is only broken by the relation for $h_{+}$, Equation \eqref{eq:hphx}. However, it can be shown (Appendix \ref{appendix_identifiability}) that $\iota$ and $h_0$ are in fact structurally identifiable, but with the caveat that they are only weakly-identifiable. That is to say the $\iota-h_0$ likelihood surface plateaus to a ridge with a non-zero gradient close to the maximum likelihood solution. This likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maxima exists (labelled by the red point in the figure), along the ridge in the parameter space the likelihood values are all very similar. Consequently it is difficult for the nested sampling algorithm to select a particular point in this plateau and instead effectively trades off accuracy in one parameter against accuracy in other, depending on the particular realisation of the noise. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the the posteriors for the different noise realisations overlap. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized one-dimensional posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (equivalent to the one-dimensional posterior for $\iota$ in Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. For the fixed $h_0$ case, evident in Figure \ref{fig:iota} is a strong bias of $\sim 0.35$ radians in the estimates for $\iota$ relative to the true injected value. Whilst the variance in the estimates across the noise realisations has decreased, the mean accuracy of the estimates has also decreased. An equivalent bias in $h_0$ is observed if we fix $\iota$. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
 
-We now consider the complete set of $10^3$ noise realisations, rather than the subset of 9 realisations in the preceding discussion. For each realisation of the noise we infer a marginalised 1-D posterior for each parameter. For this injected strain ($h_0 = 10^{-12}$) the signal-to-noise ratio (SNR) is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, 
+We now consider the complete set of $10^3$ noise realisations, rather than the subset of ten realisations in the preceding discussion. For each realisation of the noise we infer a marginalised one-dimensional posterior for each parameter. We want to compare these posteriors for different noise realisations and evaluate whether our method can consistently and reliably converge to comparable posteriors. 
 
 
 
 
+To this end we use the the Wasserstein distance \citep[WD,][]{Wasserstein,Villani2009} from optimal transport theory which defines an intuitive of similarity between probability distributions. 
+
+
+
+
+
+A full review of the Wasserstein distance which may be unfamiliar to some readers, is presented in Appendix \ref{sec:wasserstein}
+
+
+
+
+In order to quantitatively define `similar'  we use . The WD is a metric which quantifies the distance between two probability distributions 
+as the optimal cost, with respect to some cost function $c(x,y)$,  of transporting a probability mass from position $x$ to position $y$. The $p$-Wasserstein distance between two distributions $\mu, \nu$ is
+\begin{eqnarray}
+	W_p(\mu,\nu)= \left( \inf_{\gamma \in \Gamma(\mu, \nu)}  \int c(x,y)^p d \gamma (x,y)\right)^{1/p}
+\end{eqnarray}
+where $\gamma(x,y)$ is the transport plan, $\Gamma(\mu, \nu)$ is the set of all couplings of $\mu$ and $\nu$ and $c(x,y)$ is the cost function.
+
+
+
+
+
+
+In order to compare the control and competitor ensemble probability distributions we adopt as our key metric the Wasserstein distance (WD). The WD intuitively defines a distance between s  
+
+
+
+
+
+
+
+We also take $p=1$ and $c(x,y) = |x-y|$ such that the WD values quoted in this work are given by
+\begin{eqnarray}
+	W_1(\mu,\nu)=  \inf_{\gamma \in \Gamma(\mu, \nu)} \int |x-y| d \gamma (x,y)
+\end{eqnarray}
+From the perspective of climate modelling, the WD has a nice physical interpretation given by the Monge-Kantorovich duality:
+\begin{eqnarray}
+	| \boldsymbol{E}(X_{\mu} )-\boldsymbol{E}(Y_{\nu} ) | \leq W_1(\mu, \nu) \label{eq:WDdefn}
+\end{eqnarray}
+i.e. the difference in the expected value of some random variable between two distributions is no bigger than the WD value itself. More explicitly, if the WD for surface temperature between two distributions is 1K, then this tells us that the difference in the expected temperature between the distributions is no greater than 1K. For a full review of the Wasserstein distance, including favourable properties and comparison with other metrics we refer the reader to the Appendix of Pax21.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For this injected strain ($h_0 = 10^{-12}$) the signal-to-noise ratio (SNR) is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, 
 
 
 
@@ -561,8 +626,6 @@ We now consider the complete set of $10^3$ noise realisations, rather than the s
 
 
 
-
-
 we consider the normalised standard deviation in the set of $10^3$ median values i.e. 
 \begin{equation}
 	\rho \left( \boldsymbol{\theta}\right)= \frac{1}{\mu(\boldsymbol{\theta})} \sqrt{ \frac{\sum_{i=1}^{i=10^3}\left[x_i(\boldsymbol{\theta}) - \mu(\boldsymbol{\theta}) \right]}{10^3}} 
@@ -571,6 +634,36 @@ where $\mu(\boldsymbol{\theta})$ is the mean value across the distribution of $1
 
 
 We saw previously strong biases in $\iota$ and $h_0$ when considering just 9 noise realisations. These biases persist with a similar magnitude when we consider the full set of $10^3$ noise realisations. Moreover, smaller biases are also observed in $\psi$ ($\sim 0.1$ radians) and $\alpha$ ($\sim 0.04$ radians) as well as smaller still biases in $\delta$ and $\Phi_0$. These biases are a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}
+
+
+
+\subsubsection{Detection} \label{sec:detection}
+We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. \newline 
+
+There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 3.9 \times10{-15}$. The steep drop off is due to the two competing models becoming increasingly indistinguishable as the strain signal decreases and the measurement noise starts to dominate. The sparsity is due some of the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these sparse locations appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented here we set $n_{\rm live} =2000$. 
+\begin{figure}
+	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot2000}
+	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta=10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal{M}_0$ and $\mathcal{M}_1$.}
+	\label{fig:bayes}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Exploring a broader parameter space} \label{sec:parameter_space}
 \begin{figure}
 	\centering
@@ -753,7 +846,20 @@ This paper is useful: \citep{KARLSSON2012941} \citep{SEDOGLAVIC2002735}
 
 
 
-\section{Wasserstein distance}
+\section{Wasserstein distance}\label{sec:wasserstein}
+
+
+
+It is well-known \cite{Dudley} that the Wasserstein distance suffers from the curse of dimensionality for dimensions $d \geq 3$:
+\begin{eqnarray}
+	\boldsymbol{E} [W_1(\mu_n,\mu)] \asymp n^{-\frac{1}{d}}
+\end{eqnarray}
+To sidestep this issue, we marginalize onto the distributions spanned by the individual gridpoints and take the WD between these 1-dimensional distributions. Such an approach is also adopted in \cite{Paxton2021,Vissio2020}. 
+
+
+
+
+
 In order to compare the control and competitor ensemble probability distributions we adopt as our key metric the Wasserstein distance (WD). The WD intuitively defines a distance between two distributions as the optimal cost, with respect to some cost function $c(x,y)$,  of transporting a probability mass from position $x$ to position $y$. The $p$-Wasserstein distance between two distributions $\mu, \nu$ is
 \begin{eqnarray}
 	W_p(\mu,\nu)= \left( \inf_{\gamma \in \Gamma(\mu, \nu)}  \int c(x,y)^p d \gamma (x,y)\right)^{1/p}
