@@ -170,64 +170,66 @@
 \newlabel{eq:measuremen_earth}{{37}{8}{Parameter estimation}{equation.37}{}}
 \newlabel{eq:g_func_trig_earth}{{38}{8}{Parameter estimation}{equation.38}{}}
 \citation{Zhupulsarterms}
-\citation{e5be7c83a0d24500826f6e1b414d1733}
-\citation{GUILLAUME2019418}
+\citation{Wasserstein,Villani2009}
+\citation{2017arXiv170107875A}
+\citation{2022JCli...35.1215P,2023QJRMS.149..843K}
+\citation{GONZALEZDELGADO2023168053}
+\citation{2023GeoRL..5003880M}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap}\unskip \@@italiccorr )}} and \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}} from \cite {Shannon2010}. The quantities $\epsilon ^{(n)}_{f}$ and $\epsilon ^{(n)}_{\dot  {f}}$ are the errors in $f^{(n)}_{\rm  em} (t_1)$ and $\dot  {f}^{(n)}_{\rm  em} (t_1)$ respectively, as quoted in the ATNF catalogue.\relax }}{9}{table.caption.4}\protected@file@percent }
 \newlabel{tab:parameters_and_priors}{{1}{9}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref {eq:sigmap} and \eqref {eq:sigmap_f} from \protect \cite {Shannon2010}. The quantities $\epsilon ^{(n)}_{f}$ and $\epsilon ^{(n)}_{\dot {f}}$ are the errors in $f^{(n)}_{\rm em} (t_1)$ and $\dot {f}^{(n)}_{\rm em} (t_1)$ respectively, as quoted in the ATNF catalogue.\relax }{table.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Multiple noise realisations}{9}{subsubsection.4.2.3}\protected@file@percent }
 \newlabel{sec:multiple_noise}{{4.2.3}{9}{Multiple noise realisations}{subsubsection.4.2.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for the representative system described in Table \ref  {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm  nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling of the one-dimensional posteriors does not span the total prior space.\relax }}{10}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:corner_plot_1}{{4}{10}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for the representative system described in Table \ref {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling of the one-dimensional posteriors does not span the total prior space.\relax }{figure.caption.5}{}}
-\citation{Wasserstein,Villani2009}
+\newlabel{eq:WDdefn}{{40}{10}{Multiple noise realisations}{equation.40}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref  {fig:likelihood_surface}.\relax }}{11}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:corner_plot_2}{{5}{11}{As Figure \ref {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref {fig:likelihood_surface}.\relax }{figure.caption.6}{}}
-\citation{2017arXiv170107875A}
-\citation{2022JCli...35.1215P,2023QJRMS.149..843K}
-\citation{GONZALEZDELGADO2023168053}
-\citation{2023GeoRL..5003880M}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Likelihood $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }}{12}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:likelihood_surface}{{6}{12}{Likelihood $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }{figure.caption.7}{}}
-\newlabel{eq:WDdefn}{{40}{12}{Multiple noise realisations}{equation.40}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces \relax }}{11}{table.caption.7}\protected@file@percent }
+\newlabel{tab:Wasserstein}{{2}{11}{\relax }{table.caption.7}{}}
+\citation{doi:10.1198/106186006X136976}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Wassersteins\relax }}{12}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:pairwise_wasserstein}{{6}{12}{Wassersteins\relax }{figure.caption.8}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Detection}{12}{subsubsection.4.2.4}\protected@file@percent }
 \newlabel{sec:detection}{{4.2.4}{12}{Detection}{subsubsection.4.2.4}{}}
-\citation{doi:10.1198/106186006X136976}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bayes ratio $\beta $ between the competing models $\mathcal  {M}_1$ (GW present in data) and $\mathcal  {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref  {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal  {M}_0$ and $\mathcal  {M}_1$.\relax }}{13}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:bayes}{{7}{13}{Bayes ratio $\beta $ between the competing models $\mathcal {M}_1$ (GW present in data) and $\mathcal {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal {M}_0$ and $\mathcal {M}_1$.\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{13}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:parameter_space}{{4.3}{13}{Exploring a broader parameter space}{subsection.4.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces PP plot for 200 simulated GW sources for a subset of parameters of $\bm  {\theta }_{\rm  gw}$, randomly drawn from the prior distributions of Table \ref  {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\bm  {\theta }_{\rm  gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-15}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }}{13}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:parameter_space}{{8}{13}{PP plot for 200 simulated GW sources for a subset of parameters of $\boldsymbol {\theta }_{\rm gw}$, randomly drawn from the prior distributions of Table \ref {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\boldsymbol {\theta }_{\rm gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-15}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Bias by dropping pulsar terms}{13}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:bias}{{4.4}{13}{Bias by dropping pulsar terms}{subsection.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{12}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:parameter_space}{{4.3}{12}{Exploring a broader parameter space}{subsection.4.3}{}}
+\citation{e5be7c83a0d24500826f6e1b414d1733}
+\citation{GUILLAUME2019418}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bayes ratio $\beta $ between the competing models $\mathcal  {M}_1$ (GW present in data) and $\mathcal  {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref  {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal  {M}_0$ and $\mathcal  {M}_1$.\relax }}{13}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:bayes}{{7}{13}{Bayes ratio $\beta $ between the competing models $\mathcal {M}_1$ (GW present in data) and $\mathcal {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal {M}_0$ and $\mathcal {M}_1$.\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces PP plot for 200 simulated GW sources for a subset of parameters of $\bm  {\theta }_{\rm  gw}$, randomly drawn from the prior distributions of Table \ref  {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\bm  {\theta }_{\rm  gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-14}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }}{13}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:parameter_space}{{8}{13}{PP plot for 200 simulated GW sources for a subset of parameters of $\boldsymbol {\theta }_{\rm gw}$, randomly drawn from the prior distributions of Table \ref {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\boldsymbol {\theta }_{\rm gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-14}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \relax }}{13}{figure.caption.11}\protected@file@percent }
+\newlabel{}{{9}{13}{\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Identifiability and bias}{13}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Likelihood $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }}{14}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:likelihood_surface}{{10}{14}{Likelihood $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref  {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }}{14}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:likelihood_surface_iota}{{11}{14}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Bias by dropping pulsar terms}{14}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:bias}{{4.5}{14}{Bias by dropping pulsar terms}{subsection.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces \relax }}{15}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:bias_for_large_h}{{12}{15}{\relax }{figure.caption.14}{}}
 \citation{Zhupulsarterms,Chen2022}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref  {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }}{14}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:likelihood_surface_iota}{{9}{14}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }{figure.caption.10}{}}
 \citation{Zhupulsarterms}
 \citation{Chen2022}
 \citation{2023MNRAS.518.1802S}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces \relax }}{15}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:bias_for_large_h}{{10}{15}{\relax }{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{15}{section.5}\protected@file@percent }
 \citation{Sesana2010}
 \citation{Perrodin2018}
 \citation{PhysRevD.85.044034}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{16}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{16}{section.5}\protected@file@percent }
 \citation{gardiner2009stochastic}
-\citation{KARLSSON2012941}
-\citation{SEDOGLAVIC2002735}
-\citation{Dudley}
-\citation{Paxton2021,Vissio2020}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{17}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {A}Kalman recursion equations}{17}{section.A1}\protected@file@percent }
 \newlabel{sec:kalman}{{A}{17}{Kalman recursion equations}{section.A1}{}}
 \newlabel{eq:kalman1}{{A1}{17}{Kalman recursion equations}{equation.A1.1}{}}
 \newlabel{eq:kalman2}{{A2}{17}{Kalman recursion equations}{equation.A1.2}{}}
 \newlabel{eq:kalman gain}{{A7}{17}{Kalman recursion equations}{equation.A1.7}{}}
 \newlabel{eq:kalmn2}{{A10}{17}{Kalman recursion equations}{equation.A1.10}{}}
-\newlabel{eq:gardenier}{{A11}{17}{Kalman recursion equations}{equation.A1.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Appendix on identifiability}{17}{section.A2}\protected@file@percent }
-\newlabel{appendix_identifiability}{{B}{17}{Appendix on identifiability}{section.A2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Wasserstein distance}{17}{section.A3}\protected@file@percent }
-\newlabel{sec:wasserstein}{{C}{17}{Wasserstein distance}{section.A3}{}}
+\citation{KARLSSON2012941}
+\citation{SEDOGLAVIC2002735}
+\citation{Dudley}
+\citation{Paxton2021,Vissio2020}
 \citation{Dudley}
 \citation{Paxton2021,Vissio2020}
 \bibstyle{mnras}
@@ -253,6 +255,12 @@
 \bibcite{Babak2016}{{19}{2016}{{{Babak} et~al.}}{{{Babak} et~al.,}}}
 \bibcite{Bailes2017PASA...34...45B}{{20}{2017}{{{Bailes} et~al.}}{{{Bailes} et~al.,}}}
 \bibcite{meertime2}{{21}{2020}{{Bailes et~al.}}{{Bailes et~al.,}}}
+\newlabel{eq:gardenier}{{A11}{18}{Kalman recursion equations}{equation.A1.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Appendix on identifiability}{18}{section.A2}\protected@file@percent }
+\newlabel{appendix_identifiability}{{B}{18}{Appendix on identifiability}{section.A2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Wasserstein distance}{18}{section.A3}\protected@file@percent }
+\newlabel{sec:wasserstein}{{C}{18}{Wasserstein distance}{section.A3}{}}
+\newlabel{eq:WDdefn}{{C5}{18}{Wasserstein distance}{equation.A3.5}{}}
 \bibcite{Baym1969}{{22}{1969}{{{Baym} et~al.}}{{{Baym}, {Pethick}, {Pines} \& {Ruderman}}}}
 \bibcite{e5be7c83a0d24500826f6e1b414d1733}{{23}{1970}{{Bellman \& {\r A}str{\"o}m}}{{Bellman \& {\r A}str{\"o}m}}}
 \bibcite{Bhagwat2021}{{24}{2021}{{{Bhagwat} et~al.}}{{{Bhagwat}, {De Luca}, {Franciolini}, {Pani} \& {Riotto}}}}
@@ -300,7 +308,6 @@
 \bibcite{2023QJRMS.149..843K}{{66}{2023}{{{Kimpson} et~al.}}{{{Kimpson}, {Paxton}, {Chantry} \& {Palmer}}}}
 \bibcite{magneto1}{{67}{2006}{{{Kramer} et~al.}}{{{Kramer}, {Lyne}, {O'Brien}, {Jordan} \& {Lorimer}}}}
 \bibcite{Lam2019}{{68}{2019}{{{Lam} et~al.}}{{{Lam} et~al.,}}}
-\newlabel{eq:WDdefn}{{C5}{18}{Wasserstein distance}{equation.A3.5}{}}
 \bibcite{Lasky2015}{{69}{2015}{{{Lasky} et~al.}}{{{Lasky}, {Melatos}, {Ravi} \& {Hobbs}}}}
 \bibcite{Lee2011MNRAS.414.3251L}{{70}{2011}{{{Lee} et~al.}}{{{Lee}, {Wex}, {Kramer}, {Stappers}, {Bassa}, {Janssen}, {Karuppusamy} \& {Smits}}}}
 \bibcite{Lentati2015}{{71}{2015}{{{Lentati} et~al.}}{{{Lentati} et~al.,}}}
@@ -373,5 +380,5 @@
 \bibcite{Parkes2023}{{138}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
 \bibcite{Zic2023arXiv230616230Z}{{139}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
 \bibcite{vanEysden}{{140}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
-\newlabel{lastpage}{{C}{19}{Wasserstein distance}{equation.A3.5}{}}
-\gdef \@abspage@last{19}
+\newlabel{lastpage}{{C}{20}{Wasserstein distance}{equation.A3.5}{}}
+\gdef \@abspage@last{20}
