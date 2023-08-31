@@ -503,6 +503,64 @@ From Equation \eqref{eq:g_func_trig} it can be seen that the measurement equatio
 	\caption{As Figure \ref{fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota$ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref{fig:likelihood_surface}.} 
 	\label{fig:corner_plot_2}
 \end{figure*}
+\begin{table}
+	\centering
+	\begin{tabular}{ccll}
+		\toprule
+		Parameter & Injected Values & Units & $W_{1, \rm median}$  \\
+		\hline
+		$\Omega$     &   $5 \times 10^{-7}$ & Hz & $10^{-9}$ \\
+		$\Phi_0$          & $0.20$ & rad & $0.13$ \\
+		$\psi$              & $2.50$ & rad & $0.16$ \\
+		$\iota$             & $1.0$ & rad & $0.14$ \\ 
+		$\delta$              & $1.0$  & rad & $0.09$ \\
+		$\alpha$          & $1.0$  & rad & $0.17$\\
+		$h_0$            & $5 \times 10^{-15}$ & - & $8 \times 10^{-16}$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Median Wasserstein distance $W_1$ for each parameter calculated across every pair of the $10^3$ noise realisations in Figure \ref{fig:pairwise_wasserstein}}
+	\label{tab:Wasserstein}
+\end{table}
+\begin{figure*}
+	\setkeys{Gin}{width=\linewidth}   
+	
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_0}
+		\caption{$\Omega$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_1}
+		\caption{$\Phi_0$}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_2}
+		\caption{$\psi$} \label{figWD_psi}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.22\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_3}
+		\caption{$\iota$}
+	\end{subfigure}
+	\medskip
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_4}
+		\caption{$\delta$}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_5}
+		\caption{$\alpha$}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{images/WD_6}
+		\caption{$h$}
+	\end{subfigure}
+	\caption{First moment of the Wasserstein distance $W_1$ between each pair of one-dimensional posteriors estimated for each parameter, for each noise realisation. $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally small across all parameters and all posteriors, with some correlated greater values for $\alpha$ and $\psi$.}\label{fig:pairwise_wasserstein}
+\end{figure*}
+
 The above discussion was for a single realisation of the noise processes. It is important to confirm that our method is robust against different realisations of the noise and that the specific realisation of the noisy data used in Sections \ref{sec:parameter_estim} is not particularly advantageous or convenient for our method. In this Section we confirm that we are able to infer comparable results for different noise realisations. To this end we take our representative example from Table \ref{tab:parameters_and_priors} and generate 1000 realisations of the process noise and measurement noise. For each realisation of the data we can then independently estimate the static parameters, $\boldsymbol{\theta}$. In Figure \ref{fig:corner_plot_2} we show the results for the  estimated values of $\boldsymbol{\theta}_{\rm gw}$ for nine realisations of the noise. This figure is analogous to the single noise realisation of Figure \ref{fig:corner_plot_1}. We plot only 9 realisations of the noise rather than the full set of 1000 realisations so as to not overcrowd the figure. As in Section \ref{sec:parameter_estim} the estimates of $\boldsymbol{\theta}_{\rm psr, reduced}$ are recovered unambiguously across the 1000 noise realisations and for brevity we do not show the results here. \newline 
 
 
@@ -515,79 +573,61 @@ We now consider the complete set of $10^3$ noise realisations, rather than the s
 \end{eqnarray}
 where $\lambda(x,y)$ is the transport plan, $\Gamma(\mu, \nu)$ is the set of all couplings of $\mu$ and $\nu$ and $ |x-y|$ defines the cost function.  \newline 
 
-
-For each parameter in $\boldsymbol{\theta}_{\rm gw}$ we calculate $W_1$ between every pair of posteriors across our $10^3$ noise realisations. To form a single metric we then take the median value for each parameter across these pairwise calculations. The results are shown in Table \ref{tab:Wasserstein}.
-\begin{table}
-	\centering
-		\begin{tabular}{ccll}
-			\toprule
-			Parameter & Injected Values & Units & WD  \\
-			\hline
-			 $\Omega$     &   $5 \times 10^{-7}$ & Hz & $10^{-9}$ \\
-			 $\Phi_0$          & $0.20$ & rad & $0.13$ \\
-			 $\psi$              & $2.50$ & rad & $0.16$ \\
-			 $\iota$             & $1.0$ & rad & $0.14$ \\ 
-			 $\delta$              & $1.0$  & rad & $0.09$ \\
-			 $\alpha$          & $1.0$  & rad & $0.17$\\
-			 $h_0$            & $5 \times 10^{-15}$ & - & $8 \times 10^{-16}$ \\
-			\bottomrule
-		\end{tabular}
-		\caption{}
-		\label{tab:Wasserstein}
-	\end{table}
-The WD has an additional useful physical interpretation given by the Monge-Kantorovich duality:
+For each parameter in $\boldsymbol{\theta}_{\rm gw}$ we calculate $W_1$ between every pair of posteriors across our $10^3$ noise realisations. The results are presented in Figure \ref{fig:pairwise_wasserstein} which shows the $W_1$ value for each pair of posteriors. The WD has a useful physical interpretation given by the Monge-Kantorovich duality:
 \begin{eqnarray}
 	| \boldsymbol{E}(X_{\mu} )-\boldsymbol{E}(Y_{\nu} ) | \leq W_1(\mu, \nu) \label{eq:WDdefn}
 \end{eqnarray}
-where $X_{\mu}$ and $Y_{\nu}$ are random variables of the distributions $\mu$ and $\nu$ respectively, and $\boldsymbol{E}$ denotes the expected value. We can see that the WD bounds the difference in the expected values. For example, in Table \ref{tab:Wasserstein} we report a median $W_1 = 0.14$ rad for $\iota$. This tells us that the across all noise realisations the difference in the expected value of $\iota$ is less than 1 rad. We can see that the bounds from the WD are tight for all parameters; as a percentage of the width of the prior space, the difference in the expected values for the distributions of each parameter are $\lesssim 2 \%$. 
+where $X_{\mu}$ and $Y_{\nu}$ are random variables of the distributions $\mu$ and $\nu$ respectively, and $\boldsymbol{E}$ denotes the expected value. We can see that the $W_1$ bounds the difference in the expected values. That is to say, if $W_1 =0.5$ rad for two one-dimensional posterior distributions of e.g. $\iota$ this means that the difference in the expected values from these distributions is no greater than $0.5$.
+
+
+From Figure \ref{fig:pairwise_wasserstein} it is evident that generally $W_1$ is small across all pairs of posteriors. The median values across all pairs for each parameter are quoted in Table \ref{tab:Wasserstein}. 
+
+
+As a percentage of the width of the prior space (i.e. $=2 \pi$ for $\alpha$), the median $W_1$ for each parameter is $\lesssim 2 \%$. Generally speaking, the method converges to consistent one-dimensional posteriors for each parameter across different noise realisations.
+
+
+There are a small fraction of the total number of noise realisations
+which have a large distance from all the other posteriors of all the other noise realisations. These are the strong yellow lines in Figure \ref{fig:pairwise_wasserstein}.
+
+
+
+These correspond exclusively to posteriors which have converged poorly and not found the global maximum. For instance, the top strong horizontal yellow line in Figure \ref{figWD_psi} corresponds to a posterior which has converged poorly, with an estimated value of $\psi = 1.01 \pm 0.06$ rad, highly diverged from the true injected value of $2.50$ rad. This can be solved in principle by increasing the number of live points $n_{\rm live}$ in the nested sampler so as to better cover the likelihood surface and prevent falling into local minima. There is a strong correlation between the $W_1$ inferred for $\alpha$ and $\psi$ (Pearson correlation coefficient $=0.96$)
+
+
+
+indicating that poor estimats of the one parameter that have converged poorly 
+
+
+
+
+
+ which result in posteriors with larger values of $W_1$. 
+ 
+ 
+  indicating that the posterior inferred for this noise realisation has a large distance 
+
+
+Some parameters 
+
+
+
+
+
+
+We can see that the posteriors are bro
+
+
+
+
+To form a single metric we then take the median value for each parameter across these pairwise calculations. The results are shown in.
+
+
+
+
+
+
 
 See also Figure \ref{fig:pairwise_wasserstein}
-
-\begin{figure*}
-	\setkeys{Gin}{width=\linewidth}   
-	
-	\begin{subfigure}[b]{0.22\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_0}
-			\caption{$\Omega$}
-		\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.22\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_1}
-			\caption{$\Phi_0$}
-		\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.22\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_2}
-			\caption{$\psi$}
-		\end{subfigure}
-    \hfill
-	\begin{subfigure}[b]{0.22\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_3}
-			\caption{$\iota$}
-		\end{subfigure}
-	\medskip
-	\begin{subfigure}[b]{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_4}
-			\caption{$\delta$}
-		\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_5}
-			\caption{$\alpha$}
-		\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.3\textwidth}
-			\includegraphics[width=\textwidth]{images/WD_6}
-			\caption{$h$}
-		\end{subfigure}
-	\caption{Wassersteins}\label{fig:pairwise_wasserstein}
-\end{figure*}
-
-
-
-
-
-
 
 
 
@@ -597,7 +637,6 @@ Considering now the
 
 
 
-Wd tells us only how well different distributions agreee. It doesnt tell use about the accuray of the posteriors themselves. c.f. bias
 
 
 
@@ -608,78 +647,14 @@ Wd tells us only how well different distributions agreee. It doesnt tell use abo
 
 
 
+
+\textcolor{red}{We could also have a PP plot here}
+
+WD tells us only how well different distributions agreee. It doesnt tell use about the accuray of the posteriors themselves. c.f. bias
+
+\textcolor{red}{Intro biases here}
 As in the singe noise case, there are tentative signs in a bias 
-
-
-
-
-
-Considering now the 
-
-
-
-
-$\Omega, \Phi_0, \psi, \delta$ and $\alpha$ 
-
-
-
-
-
-
-%Moreover, the variance of each of the individual one-dimensional posteriors is generally low i.e. each of the individual distributions are narrow compared to the prior space. For each different noise realisation the method infers a consistent maximum \textit{a posteriori} probability (MAP) estimate. Conversely for the parameters $\iota$ and $h_0$ the inferred one-dimensional posteriors do not broadly overlap are not consistent across different noise realisations and the variance of an individual posterior is generally larger than for the other parameters. That is to say, we infer very different MAP estimates of these parameters depending on the particular realisation of the noise. \newline 
-
-
-
-We now consider the complete set of 
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-For this injected strain ($h_0 = 10^{-12}$) the signal-to-noise ratio (SNR) is large (c.f. Figure \ref{fig:bayes}) and consequently the posteriors are typically narrow compared to the prior space and well described by their median value. To compare each of the posteriors across different noise realisations, 
-
-
-
-
-
-%
-%
-%we consider the normalised standard deviation in the set of $10^3$ median values i.e. 
-%\begin{equation}
-%	\rho \left( \boldsymbol{\theta}\right)= \frac{1}{\mu(\boldsymbol{\theta})} \sqrt{ \frac{\sum_{i=1}^{i=10^3}\left[x_i(\boldsymbol{\theta}) - \mu(\boldsymbol{\theta}) \right]}{10^3}} 
-%\end{equation} 
-%where $\mu(\boldsymbol{\theta})$ is the mean value across the distribution of $10^3$ samples for parameter $\boldsymbol{\theta}$, and $x_i$ the value of the $i$-th sample. For the parameters $\{\Omega, \Phi_0, \psi, \delta, \alpha \}$ we have $\rho \sim \{4 \times 10^{-5}, 0.03,0.004,0.03,0.02 \}$ respectively. We can therefore see that the method is able to reliably converge to a consistent MAP estimate. Conversely, as we saw before, the MAP estimates for $\iota$ and $h_0$ are not consistent across different noise realisations, with $\rho \sim 0.3$ and $\rho \sim 0.1$ respectively. This is due to the weak-identifiability issue that we have discussed. \newline
-%
-%
-%
-%
-%
-
-
-
-
-
-
-
 We saw previously strong biases in $\iota$ and $h_0$ when considering just 9 noise realisations. These biases persist with a similar magnitude when we consider the full set of $10^3$ noise realisations. Moreover, smaller biases are also observed in $\psi$ ($\sim 0.1$ radians) and $\alpha$ ($\sim 0.04$ radians) as well as smaller still biases in $\delta$ and $\Phi_0$. These biases are a result of dropping the pulsar terms from the measurement equation and will be discussed in Section \ref{sec:bias}
-
-
-
 
 
 
@@ -726,78 +701,75 @@ We can see that only $\Omega$ falls within the $3\sigma$ shaded region. The othe
 
 
 \subsection{Identifiability and bias}
+There are two underlying issues in the preceding tests that we now explore in more detail. The first relates to parameter identifiability, i.e. can we uniquely identify the parameters of the model given the data and the model structure? The second relates to a bias in the parameter estimates that results from dropping the pulsar terms from the Kalman filter measurement equation as described in Section \ref{sec:parameter_estim}. In order to elucidate these questions without confusion from the measurement noise, we now work in the high SNR regime and set $h_0 = 10^{-12}$ for our representative example system (Table \ref{tab:parameters_and_priors})
 
 
+
+\subsubsection{Identifiability}
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/stacked_GW_plot_iota_h}
-	\caption{}
-	\label{}
+	\caption{Posterior distribution over for the GW source parameters $\iota$ and $h_0$ for the representative system described in Table \ref{tab:parameters_and_priors}, in the high SNR regime, over nine noise realisations. Despite being in the high SNR regime, the posteriors do not overlap as much as expected \textit{a priori}, and much less than the other parameters of $\boldsymbol{\theta}_{\rm gw}$.}
+	\label{fig:just_iota_h}
 \end{figure}
-
-
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/likelihood_surface}
 	\caption{Likelihood $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.}
 	\label{fig:likelihood_surface}
 \end{figure}
+In Figure \ref{fig:just_iota_h} we plot the estimated one-dimensional posteriors for $\iota$ and $h_0$ for our high-SNR representative system, over nine noise realisations. In the case of high-SNR we might expect that our estimates would be increasingly accurate over the low-SNR case, and that the method converges robustly to similar posteriors. Whilst this is generally true for the other parameters of $\boldsymbol{\theta}_{\rm gw}$ and the posteriors across noise realisations are largely indistinguishable, for $\iota$ and $h_0$ this is not the case. Instead the inferred one-dimensional posteriors do not broadly overlap are not consistent across different noise realisations. Specifically the median WD across $10^3$ noise realisations is $W_1 = 0.24$ rad and $\iota$ and $W_1 = 1.6 \times 10^{-13}$ for $h_0$. For $\iota$ this WD is greater than the value inferred in the low SNR case (0.14, Table \ref{tab:parameters_and_priors}, whilst the WD value for $h_0$ is also greater as a proportion of the scale set by the strain amplitude. This is in contrast to the median WD inferred for the other parameters; e.g. for$\Phi_0$, $W_1 = 0.0045$ rad. \newline 
 
+This issue of inferring very different posteriors depending on the particular realisation of the noise is due to these parameters being only weakly-identifiable. Identifiability refers to whether it is theoretically possible to infer unique parameter values of the model, given the measured data and the model structure \citep{e5be7c83a0d24500826f6e1b414d1733}. Sources of non-identifiability are generally categorised as either ``structural" (arising from the structure of the model) or ``practical" ( arising from insufficient data or measurement errors) \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$, we are concerned with structural identifiability. Indeed, one might initially suspect that $\iota$ and $h_0$ could have structural identifiability issues; from Equations \eqref{eq:hphx}, \eqref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is only broken by the relation for $h_{+}$, Equation \eqref{eq:hphx}. However, it can be shown (Appendix \ref{appendix_identifiability}) that $\iota$ and $h_0$ are in fact structurally identifiable, but with the caveat that they are only weakly-identifiable. That is to say the $\iota-h_0$ likelihood surface plateaus to a ridge with a non-zero gradient close to the maximum likelihood solution. This likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maxima exists (labelled by the red point in the figure), along the ridge in the parameter space the likelihood values are all very similar. Consequently it is difficult for the nested sampling algorithm to select a particular point in this plateau and instead effectively trades off accuracy in one parameter against accuracy in other, depending on the particular realisation of the noise. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the posteriors for the different noise realisations overlap indistinguishably. However, the resulting maximum a posteriori probability estimate for $\iota$ is strongly biased away from the true value by $\sim 0.35$ rad. This bias will be discussed further in Section \ref{sec:bias}. In the low-SNR case these parameters are also weakly identifiable, but the increased measurement noise increases the uncertainty which effectively ``washes out" the likelihood ridge, leading to a more concave likelihood surface. This enables consistent posteriors to be estimated for $\iota$ and $h$. 
 
+\subsubsection{Bias by dropping pulsar terms}\label{sec:bias}
 
-The posteriors for $\iota$ and $h_0$ do not overlap for the different noise realisations due to these parameters being only weakly-identifiable. Identifiability refers to whether it is theoretically possible to infer unique parameter values of the model, given the measured data and the model structure \citep{e5be7c83a0d24500826f6e1b414d1733}. Sources of non-identifiability are generally categorised as either ``structural" (arising from the structure of the model) or ``practical" ( arising from insufficient data or measurement errors) \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$, we are concerned with structural identifiability. Indeed, one might initially suspect that $\iota$ and $h_0$ could have structural identifiability issues; from Equations \eqref{eq:hphx}, \eqref{eq:hphx2} we can see that there is a weak degeneracy between $\iota$ and $h$. For example, from Equation \eqref{eq:hphx2} it is not clear if a larger value of the cross polarisation strain $h_{\times}$ is due to the system having a larger strain amplitude $h_0$, or a different inclination $\iota$. This degeneracy is only broken by the relation for $h_{+}$, Equation \eqref{eq:hphx}. However, it can be shown (Appendix \ref{appendix_identifiability}) that $\iota$ and $h_0$ are in fact structurally identifiable, but with the caveat that they are only weakly-identifiable. That is to say the $\iota-h_0$ likelihood surface plateaus to a ridge with a non-zero gradient close to the maximum likelihood solution. This likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maxima exists (labelled by the red point in the figure), along the ridge in the parameter space the likelihood values are all very similar. Consequently it is difficult for the nested sampling algorithm to select a particular point in this plateau and instead effectively trades off accuracy in one parameter against accuracy in other, depending on the particular realisation of the noise. If we fix one of the parameters at its true value, taking a slice through the likelihood surface, it is then possible to identify a particular point in the plateau and the the posteriors for the different noise realisations overlap. This is demonstrated in Figure \ref{fig:iota} where we plot the marginalized one-dimensional posterior of $\iota$ for 9 realisations of the noise in both the original case where $h_0$ is a free parameter (equivalent to the one-dimensional posterior for $\iota$ in Figure \ref{fig:corner_plot_2}) and in the case where we hold $h_0$ fixed at its injection value, $h_0 = 10^{-12}$. We can see that whilst the variance between the individual posteriors is large in the original case, once we fix $h_0$ the variance decreases dramatically and the sampling algorithm repeatedly converges consistent estimates of $\iota$. For the fixed $h_0$ case, evident in Figure \ref{fig:iota} is a strong bias of $\sim 0.35$ radians in the estimates for $\iota$ relative to the true injected value. Whilst the variance in the estimates across the noise realisations has decreased, the mean accuracy of the estimates has also decreased. An equivalent bias in $h_0$ is observed if we fix $\iota$. This bias is a result of dropping the pulsar terms from our measurement equation and is discussed in Section \ref{sec:bias}. \newline 
+\begin{figure*}
+	\includegraphics[width=\textwidth, height =\textwidth]{images/large_h_example}
+	\caption{As Figure \ref{fig:corner_plot_1} but for the low-SNR system with $h_0 = 10^{-12}$. For the majority of parameters the injection value does not fall within the 90 \% credible interval and is not visible over these scales. The estimated posteriors are biased away from the injected value due to the dropping of the pulsar terms.} 
+	\label{fig:bias_for_large_h}
+\end{figure*}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Bias by dropping pulsar terms}\label{sec:bias}
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/likelihood_iota_new}
 	\caption{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref{eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref{eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota$, over the prior space. All other parameters are fixed at their true injected value from Table \ref{tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.}
 	\label{fig:likelihood_surface_iota}
 \end{figure}
-
-\begin{figure*}
-	\includegraphics[width=\textwidth, height =\textwidth]{images/large_h_example}
-	\caption{} 
-	\label{fig:bias_for_large_h}
-\end{figure*}
-
-Evident in the preceding discussion is the fact that for some of the $\boldsymbol{\theta}_{\rm gw}$ parameters the inferred value (e.g. the median of the one-dimensional marginalised posterior) is biased away from the true injection value. This effect is most severe for $\iota$ and $h_0$ but also present to a lesser extent in other static parameters such as $\delta,\alpha$ and $\psi$, and additionally to an even smaller extent in $\Phi_0$. In this Section we demonstrate how this bias results from the dropping of the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
-
-
-
-for low signal bias is covered by noise
+Evident in the preceding discussion is the fact that for some of the $\boldsymbol{\theta}_{\rm gw}$ parameters the inferred value (e.g. the median of the one-dimensional marginalised posterior) is biased away from the true injection value. In Figure \ref{fig:bias_for_large_h} we show the resulting posteriors for $\boldsymbol{\theta}_{\rm gw}$, analogous to Figure \ref{fig:corner_plot_1}, but now for the high-SNR system with $h_0 = 10^{-12}$. We can see that for all parameters, with the exception of $\Omega$ and $h_0$, the injected value lies outside 90 \% credible interval, to the extent that it is not visible on the scales over which we have plotted the posteriors. This effect is most severe for $\iota$ with a bias of $\sim 0.3$ rad but is also present to a lesser extent in other static parameters such as $\delta,\alpha$ and $\psi$, and additionally to an even smaller extent in $\Phi_0$. Whilst $h_0$ does not exhibit any noticeable bias for this particular noise realisation, in general across multiple noise realisations it does exhibit a correlated bias with $\iota$. In this Section we demonstrate how this bias results from the dropping of the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
 
 
 In Figure \ref{fig:likelihood_surface_iota} we plot the variation in the log-likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, as we vary $\iota$ across the prior space, holding all other parameters constant at the true injected value of the representative example system, Table \ref{tab:parameters_and_priors}. We do this for 10 separate realisations of the system noise. We consider three separate situations: \textit{(i)} The solid blue line is the likelihood curve with just the Earth-terms included (i.e. using Equation \ref{eq:measuremen_earth} in the Kalman filter), \textit{(ii)} the solid orange line is the likelihood curve with the additional pulsar terms included (i.e. using Equation \ref{eq:measurement}), \textit{(iii)} the solid green line is the solution where we drop the pulsar terms from both the synthetic data and the measurement equation. Whilst we have not used the nested sampling method with either solutions \textit{(ii)} or \textit{(iii)} in this work, we are able to run the Kalman filter either using the pulsar terms in the model or else dropping them from the synthetic data consider how the resulting likelihood varies for different parameter values. The dashed lines show the location of the likelihood maxima for each of the likelihood solutions; finding the location of the maxima across all static parameters is effectively the goal of any likelihood based inference method, such as nested sampling. \newline  
 
-The key observation from Figure \ref{fig:likelihood_surface_iota} is that for the Earth-terms only solution the location of the likelihood optima and the location of the injected value are not the same. Consequently Bayesian likelihood inference techniques settle in optima that do not necessarily align with the true injection value. This is the origin of the bias in the one-dimensional marginalised posteriors that we observe.  For the Earth-terms solution the optima of the likelihood curve lies around $\iota \sim 0.7$ radians, whereas the injected value was $\iota = 1.0$ radians, This difference is comparable to the bias observed in the right-hand panel of Figure \ref{fig:iota} where the median of the marginalised posterior for $\iota$ was $\sim 0.65$ radians. The discrepancy between $\iota \sim 0.7$ in the log-likelihood curve and $\iota \sim 0.65$ in the nested sampling inference is a result of the likelihood curves being a one-dimensional representation of a multidimensional problem. The exact shape of the likelihood curve naturally depends on the values of all of the other parameters that we hold constant. In the nested sampling case the estimate for $\psi$ is sightly biased at $\psi \sim 2.60$ radians compared to the true injected value of $\psi = 2.50$ radians that is used for the results of Figure \ref{fig:likelihood_surface_iota}. \newline 
+The key observation from Figure \ref{fig:likelihood_surface_iota} is that for the Earth-terms only solution the location of the likelihood optima and the location of the injected value are not the same. Consequently Bayesian likelihood inference techniques settle in optima that do not necessarily align with the true injection value. This is the origin of the bias in the one-dimensional marginalised posteriors that we observe.  For the Earth-terms solution the optima of the likelihood curve lies around $\iota \sim 0.7$ radians, whereas the injected value was $\iota = 1.0$ radians. This optima is comparable to the median of the posterior inferred for $\iota$ in Figure \ref{fig:bias_for_large_h}. \newline 
 
+%This difference is comparable to the bias observed in the right-hand panel of Figure \ref{fig:iota} where the median of the marginalised posterior for $\iota$ was $\sim 0.65$ radians. The discrepancy between $\iota \sim 0.7$ in the log-likelihood curve and $\iota \sim 0.65$ in the nested sampling inference is a result of the likelihood curves being a one-dimensional representation of a multidimensional problem. The exact shape of the likelihood curve naturally depends on the values of all of the other parameters that we hold constant. In the nested sampling case the estimate for $\psi$ is sightly biased at $\psi \sim 2.60$ radians compared to the true injected value of $\psi = 2.50$ radians that is used for the results of Figure \ref{fig:likelihood_surface_iota}. \newline 
 
-In contrast to the Earth-terms solution, for the solution which includes the pulsar terms the optima of the likelihood curve now aligns with the true injected value. The corollary is also true; if we drop the pulsar terms from the synthetic data and use the Earth terms equation for inference the optima is also correctly located. This evidences that it is the effect of dropping the pulsar terms from the measurement equation which causes this bias in the inferred posteriors. Similar results are observed for the other parameters which exhibit a bias in the nested sampling inference. \newline 
+In contrast to the Earth-terms solution, for the pulsar-terms solution the optima of the likelihood curve now aligns with the true injected value. The corollary is also true; if we drop the pulsar terms from the synthetic data and use the Earth terms equation for inference then the optima is also correctly located. This evidences that it is the effect of dropping the pulsar terms from the measurement equation which causes this bias in the inferred posteriors. Similar results are observed for the other parameters which exhibit a bias in the nested sampling inference. \newline 
 
-Why does dropping the pulsar terms bias these parameters in particular, whilst leaving others unaffected? For instance, why is the bias induced in $\iota$ so strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is effective modulated by the interference of two equal-amplitude, phase shifted waves (c.f. Equation \ref{eq:measurement}). Explicitly, we have the ``Earth-terms wave with a general form $y_{\rm Earth} = A \cos \xi$ for amplitude $A$ and phase $\xi$ and the ``pulsar-terms wave" with a general form $y_{\rm pulsar} = A \cos (\xi + \kappa)$ for phase offset $\kappa$. The net interference wave that modulates $f_{\rm p}$ is 
+Why does dropping the pulsar terms bias these parameters in particular, whilst leaving others unaffected? For instance, why is the bias induced in $\iota$ so strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is effective modulated by the interference of two equal-amplitude, phase shifted waves (c.f. Equation \ref{eq:measurement}). Explicitly, we have the ``Earth-terms wave"	 with a general form $y_{\rm Earth} = A \cos \xi$ for amplitude $A$ and phase $\xi$ and the ``pulsar-terms wave" with a general form $y_{\rm pulsar} = A \cos (\xi + \kappa)$ for phase offset $\kappa$. The net interference wave that modulates $f_{\rm p}$ is 
 \begin{eqnarray}
 	y_{\rm Earth} - y_{\rm pulsar} = 2 A \sin \left(\frac{\kappa}{2}\right) \sin \left(\xi + \frac{\kappa}{2}\right) \ .
 \end{eqnarray}
 The additional modulations from $y_{\rm pulsar}$ influence the amplitude of the resulting interference wave, but do not affect its frequency. When we model this data using the Kalman filter without the pulsar terms, the additional amplitude modulations from $y_{\rm pulsar}$ must be described by the single wave model, $y_{\rm Earth}$. As a result the $y_{\rm Earth}$ model must try to compensate for these amplitude modulations by adjusting the parameters which govern the amplitude of the single wave. Consequently the parameters which are most affected are those which determine the amplitude of the GW. Terms which influence the amplitude strongly such as $h_0$ and $\iota$ are strongly affected and exhibit a strong bias. Terms which influence the amplitude weakly such as $\psi$ exhibit a weaker bias. The wave amplitude is independent of the frequency and so $\Omega$ exhibits no bias.Since a shift in phase affects the instantaneous amplitude of the wave, $\Phi_0$ also exhibits a small bias, despite $A$ not being a function of $\Phi_0$. This hierarchy of biases for each parameter is also what we observe in Figure \ref{fig:parameter_space}, where $\alpha$ and $\delta$ are strongly over-constrained whilst $\Omega$ is well-estimated. \newline  
 
-In order to ascertain how important the bias is for PTA continuous wave searches requires a thorough exploration of the astrophysical parameter space which we do not carry out in this work. The magnitude of the bias will vary for different points in the parameter space, as well as for different PTA configurations. If the bias is sufficiently modest then for quiet continuous wave sources with low SNR the uncertainty in the one-dimensional marginalised posterior may dominate and the bias may not be important for searches. Conversely if the bias is sufficiently strong, or the source sufficiently loud with low uncertainties then the bias may come to systematically affect the inferred parameters. \newline  
+In order to ascertain how important the bias is for PTA continuous wave searches requires a thorough exploration of the astrophysical parameter space which we do not carry out in this work. The magnitude of the bias will vary for different points in the parameter space, as well as for different PTA configurations. If the bias is sufficiently modest then for quiet continuous wave sources with low SNR the uncertainty in the one-dimensional marginalised posterior may dominate and the bias may not be important for searches. 
+
+This is what we observe for our synthetic data (e.g. Figure \ref{fig:corner_plot_2}); the decreased SNR manifests as a broader marginalised posterior which generally overwhelms the shift due to the bias.  
+
+\textcolor{red}{However, PP plot shows...}
+
+
+Conversely if the bias is sufficiently strong, or the source sufficiently loud with low uncertainties, then the bias may come to systematically affect the inferred parameters. \newline  
 
 We have shown in this section how the dropping of the pulsar terms results in a bias in the inferred parameters, not just in the sky localisation parameters  \citep[e.g.][]{Zhupulsarterms,Chen2022} but additionally all parameters which influence the wave amplitude. Whilst the bias is generally small and does not prevent the recovery of accurate posteriors for our example system, it is present and may need to be accounted for for analysis in other parts of the parameter space. This bias is not particular to our method but a shared feature across likelihood based methods that do not include the pulsar terms in the inference model. The inclusion of the pulsar terms in the methods presented in this work in order to alleviate the bias will be a key goal of a future work. 
+
+
+
+
+
+
+
 
 
 
@@ -918,7 +890,7 @@ $\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagon
 
 
 
-\section{Appendix on identifiability}\label{appendix_identifiability}
+\section{Identifiability}\label{appendix_identifiability}
 
 
 \textcolor{red}{TK TBD}

@@ -28,13 +28,17 @@ path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_broader.npz'
 path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse.npz'
 
 path_to_earth_model = 'likelihood_surface_h_iota_mm_earth_coarse_small_h.npz'
+path_to_earth_model = 'likelihood_surface_alpha_psi_mm_earth_coarse.npz'
+
 def load_and_plot(path,ax):
 
 
     #Load the data
     data = np.load(path)
     iota_values = data['x']
-    h_values = np.log10(data['y'])
+    #h_values = np.log10(data['y'])
+    h_values = data['y']
+
     surface_pulsar = data['z'] 
     surface_pulsar = surface_pulsar / np.abs(np.max(surface_pulsar)) #Normalize
 
@@ -61,6 +65,9 @@ def load_and_plot(path,ax):
     z = np.reshape(surface_pulsar, (lx, ly))
 
 
+    print(X)
+    print(Y)
+
 
     #Plot colormap
     ax.plot_surface(X, Y, z,alpha=0.5)
@@ -69,11 +76,14 @@ def load_and_plot(path,ax):
     #Config
   
     ax.scatter(yc,xc,zc, s=20,c='C3')
-    fs = 20
-    ax.set_xlabel(r'$h_0$', fontsize=fs)
-    ax.set_ylabel(r'$\iota$', fontsize=fs)
-    ax.xaxis.set_tick_params(labelsize=fs-4)
-    ax.yaxis.set_tick_params(labelsize=fs-4)
+    # fs = 20
+    # ax.set_xlabel(r'$h_0$', fontsize=fs)
+    # ax.set_ylabel(r'$\iota$', fontsize=fs)
+    # ax.xaxis.set_tick_params(labelsize=fs-4)
+    # ax.yaxis.set_tick_params(labelsize=fs-4)
+
+    #eps = 1e-3
+    #ax.set_zlim(1.0-eps,1.0)
     
 load_and_plot(path_to_earth_model,ax)
 plt.show()

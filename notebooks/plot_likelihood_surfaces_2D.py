@@ -57,7 +57,7 @@ def load_and_plot(path,ax):
     #Plot colormap
     #CS = ax.pcolormesh(X, Y, z,clim=(2.0*np.max(surface_pulsar), np.max(surface_pulsar)),shading='gouraud',cmap='viridis')
     #CS = ax.pcolormesh(X, Y, z,shading='gouraud',cmap='viridis')
-    eps=1e-5
+    eps=2e-5
     CS = ax.pcolormesh(X, Y, z,clim=(1.0-eps, 1.0),shading='gouraud',cmap='viridis')
 
 
