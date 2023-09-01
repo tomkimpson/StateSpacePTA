@@ -49,7 +49,7 @@ with open('batch.sh','w') as b:
     for s in seeds:
         for h in h_range:
             for n in noise_models:
-                 arg_name = f"MULTIpaper_bayes_ratios_n2000_V4_h_{h}_model_{n}_seed_{s}"
+                 arg_name = f"NMULTIpaper_bayes_ratios_n2000_V4_h_{h}_model_{n}_seed_{s}"
                  print(arg_name)
                  create_slurm_job(arg_name,h,n,s)
 
