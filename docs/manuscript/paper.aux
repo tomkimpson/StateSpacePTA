@@ -177,71 +177,75 @@
 \citation{2023GeoRL..5003880M}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref  {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap}\unskip \@@italiccorr )}} and \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}} from \cite {Shannon2010}. The quantities $\epsilon ^{(n)}_{f}$ and $\epsilon ^{(n)}_{\dot  {f}}$ are the errors in $f^{(n)}_{\rm  em} (t_1)$ and $\dot  {f}^{(n)}_{\rm  em} (t_1)$ respectively, as quoted in the ATNF catalogue.\relax }}{9}{table.caption.4}\protected@file@percent }
 \newlabel{tab:parameters_and_priors}{{1}{9}{Summary of injected static parameters used for generating synthetic data in the representative example of Section \ref {sec:rep_example}, along with the choice of prior used for Bayesian inference on each parameter. The subscript ``ATNF" denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synt_pta}. The subscript ``sc" indicates that the injected value has been calculated using the empirical timing model, Equations \eqref {eq:sigmap} and \eqref {eq:sigmap_f} from \protect \cite {Shannon2010}. The quantities $\epsilon ^{(n)}_{f}$ and $\epsilon ^{(n)}_{\dot {f}}$ are the errors in $f^{(n)}_{\rm em} (t_1)$ and $\dot {f}^{(n)}_{\rm em} (t_1)$ respectively, as quoted in the ATNF catalogue.\relax }{table.caption.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Median Wasserstein distance $W_1$ for each parameter calculated across every pair of the $10^3$ noise realisations in Figure \ref  {fig:pairwise_wasserstein}\relax }}{9}{table.caption.7}\protected@file@percent }
-\newlabel{tab:Wasserstein}{{2}{9}{Median Wasserstein distance $W_1$ for each parameter calculated across every pair of the $10^3$ noise realisations in Figure \ref {fig:pairwise_wasserstein}\relax }{table.caption.7}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Multiple noise realisations}{9}{subsubsection.4.2.3}\protected@file@percent }
 \newlabel{sec:multiple_noise}{{4.2.3}{9}{Multiple noise realisations}{subsubsection.4.2.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for the representative system described in Table \ref  {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm  nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling of the one-dimensional posteriors does not span the total prior space.\relax }}{10}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:corner_plot_1}{{4}{10}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for the representative system described in Table \ref {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling of the one-dimensional posteriors does not span the total prior space.\relax }{figure.caption.5}{}}
-\newlabel{eq:WDdefn}{{40}{10}{Multiple noise realisations}{equation.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref  {fig:likelihood_surface}.\relax }}{11}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:corner_plot_2}{{5}{11}{As Figure \ref {fig:corner_plot_1} but for 9 realisations of the noise processes. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. The exceptions are $\iota $ and $h$ which exhibit a larger degree of variance due to the weak identifiability between these two parameters c.f. Figure \ref {fig:likelihood_surface}.\relax }{figure.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Median value of the Wasserstein distance $W_{1, \rm  median}$, for each parameter, calculated across the $10^3 \primfrac  {atopwithdelims}()2$ pairs of probability posteriors, for the the $10^3$ noise realisations in Figure \ref  {fig:pairwise_wasserstein}. $W_{1, \rm  median}$ sets the bound on the difference in expectation value between the one dimensional posteriors, and is generally small with respect to the width of the prior space.\relax }}{9}{table.caption.7}\protected@file@percent }
+\newlabel{tab:Wasserstein}{{2}{9}{Median value of the Wasserstein distance $W_{1, \rm median}$, for each parameter, calculated across the $10^3 \choose 2$ pairs of probability posteriors, for the the $10^3$ noise realisations in Figure \ref {fig:pairwise_wasserstein}. $W_{1, \rm median}$ sets the bound on the difference in expectation value between the one dimensional posteriors, and is generally small with respect to the width of the prior space.\relax }{table.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Posterior distribution for the GW source parameters $\bm  {\theta }_{\rm  gw}$ for the representative system described in Table \ref  {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm  nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling does not span the total prior space.\relax }}{10}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:corner_plot_1}{{4}{10}{Posterior distribution for the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for the representative system described in Table \ref {tab:parameters_and_priors}, for a single realisation of the system noise. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. We are able to accurately estimate each parameter of interest. We pot the scaled variables $\Omega _{\rm nHz} = \Omega \times 10^{9}$ Hz and $h_{0, \times 10^{15}} = h_0 \times 10^{15}$. Note that the $x$-axis scaling does not span the total prior space.\relax }{figure.caption.5}{}}
+\citation{villani2003topics,Villani2009}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for nine realisations of the noise processes. The injection value is generally contained within the 90 \% credible interval for the vast of majority posteriors. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. A slight skew-bias is apparent in some of the parameters, e.g. $\iota $. Correlations can be seen between $\Omega - \Phi _0$, $\psi -\alpha $ and $\iota - h_0$.\relax }}{11}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:corner_plot_2}{{5}{11}{As Figure \ref {fig:corner_plot_1} but for nine realisations of the noise processes. The injection value is generally contained within the 90 \% credible interval for the vast of majority posteriors. The inferred posterior distributions show strong agreement between the different noise realisations for the majority of static parameters. A slight skew-bias is apparent in some of the parameters, e.g. $\iota $. Correlations can be seen between $\Omega - \Phi _0$, $\psi -\alpha $ and $\iota - h_0$.\relax }{figure.caption.6}{}}
+\newlabel{eq:WDdefn}{{40}{11}{Multiple noise realisations}{equation.40}{}}
 \newlabel{figWD_psi}{{6c}{12}{$\psi $\relax }{figure.caption.8}{}}
 \newlabel{sub@figWD_psi}{{c}{12}{$\psi $\relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces First moment of the Wasserstein distance $W_1$ between each pair of one-dimensional posteriors estimated for each parameter, for each noise realisation. $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally small across all parameters and all posteriors, with some correlated greater values for $\alpha $ and $\psi $.\relax }}{12}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:pairwise_wasserstein}{{6}{12}{First moment of the Wasserstein distance $W_1$ between each pair of one-dimensional posteriors estimated for each parameter, for each noise realisation. $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally small across all parameters and all posteriors, with some correlated greater values for $\alpha $ and $\psi $.\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Detection}{12}{subsubsection.4.2.4}\protected@file@percent }
-\newlabel{sec:detection}{{4.2.4}{12}{Detection}{subsubsection.4.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces For each parameter of $\bm  {\theta }_{\rm  gw}$ the first moment of the Wasserstein distance, $W_1$, calculated between each pair of one-dimensional posteriors for our representative system across $10^3$ realisations. $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally small across all parameters and all posteriors, but some posteriors converge poorly leading to large values of $W_1$. The $W_1$ values inferred for $\psi $ and $\alpha $ are strongly correlated with correlation coefficient = 0.96.\relax }}{12}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:pairwise_wasserstein}{{6}{12}{For each parameter of $\boldsymbol {\theta }_{\rm gw}$ the first moment of the Wasserstein distance, $W_1$, calculated between each pair of one-dimensional posteriors for our representative system across $10^3$ realisations. $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally small across all parameters and all posteriors, but some posteriors converge poorly leading to large values of $W_1$. The $W_1$ values inferred for $\psi $ and $\alpha $ are strongly correlated with correlation coefficient = 0.96.\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Log-likelihood, $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\alpha -\psi $ parameter space for a single noise realisation. The red point labels the location of the maxima, and the magenta point labels the location of the median values of the one-dimensional posteriors inferred for a particular noise realisation of the data. The likelihood has been normalised with respect to the absolute value of the maxima. A multi-modal structure is clearly visible and for this noise realisation the nested sampler has settled in the local optima. This can be solved generally by increasing the number of live points $n_{\rm  live}$\relax }}{12}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:likelihood_surface_alpha_psi}{{7}{12}{Log-likelihood, $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\alpha -\psi $ parameter space for a single noise realisation. The red point labels the location of the maxima, and the magenta point labels the location of the median values of the one-dimensional posteriors inferred for a particular noise realisation of the data. The likelihood has been normalised with respect to the absolute value of the maxima. A multi-modal structure is clearly visible and for this noise realisation the nested sampler has settled in the local optima. This can be solved generally by increasing the number of live points $n_{\rm live}$\relax }{figure.caption.9}{}}
 \citation{doi:10.1198/106186006X136976}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bayes ratio $\beta $ between the competing models $\mathcal  {M}_1$ (GW present in data) and $\mathcal  {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref  {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal  {M}_0$ and $\mathcal  {M}_1$.\relax }}{13}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:bayes}{{7}{13}{Bayes ratio $\beta $ between the competing models $\mathcal {M}_1$ (GW present in data) and $\mathcal {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal {M}_0$ and $\mathcal {M}_1$.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Detection}{13}{subsubsection.4.2.4}\protected@file@percent }
+\newlabel{sec:detection}{{4.2.4}{13}{Detection}{subsubsection.4.2.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploring a broader parameter space}{13}{subsection.4.3}\protected@file@percent }
 \newlabel{sec:parameter_space}{{4.3}{13}{Exploring a broader parameter space}{subsection.4.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces PP plot for 200 simulated GW sources for a subset of parameters of $\bm  {\theta }_{\rm  gw}$, randomly drawn from the prior distributions of Table \ref  {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\bm  {\theta }_{\rm  gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-14}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }}{13}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:parameter_space}{{8}{13}{PP plot for 200 simulated GW sources for a subset of parameters of $\boldsymbol {\theta }_{\rm gw}$, randomly drawn from the prior distributions of Table \ref {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\boldsymbol {\theta }_{\rm gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-14}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Identifiability and bias}{13}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Identifiability}{13}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Bayes ratio $\beta $ between the competing models $\mathcal  {M}_1$ (GW present in data) and $\mathcal  {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref  {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal  {M}_0$ and $\mathcal  {M}_1$.\relax }}{13}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:bayes}{{8}{13}{Bayes ratio $\beta $ between the competing models $\mathcal {M}_1$ (GW present in data) and $\mathcal {M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref {tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta =10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal {M}_0$ and $\mathcal {M}_1$.\relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces PP plot for 200 simulated GW sources for a subset of parameters of $\bm  {\theta }_{\rm  gw}$, randomly drawn from the prior distributions of Table \ref  {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\bm  {\theta }_{\rm  gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-15}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }}{13}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:parameter_space}{{9}{13}{PP plot for 200 simulated GW sources for a subset of parameters of $\boldsymbol {\theta }_{\rm gw}$, randomly drawn from the prior distributions of Table \ref {tab:parameters_and_priors}. Each coloured line corresponds to a different parameter of $\boldsymbol {\theta }_{\rm gw}$. The parameters $h_0$ and $\iota $ are fixed at $5 \times 10^{-15}$ and 1.0 rad in order to maintain an approximately constant SNR. The grey shaded contours labels the $1,2,3$-$\sigma $ confidence intervals. Well estimated posteriors should fall along the diagonal $y=x$. Many parameters show evidence of being over-constrained due to a modelling bias. \relax }{figure.caption.11}{}}
 \citation{e5be7c83a0d24500826f6e1b414d1733}
 \citation{GUILLAUME2019418}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Posterior distribution over for the GW source parameters $\iota $ and $h_0$ for the representative system described in Table \ref  {tab:parameters_and_priors}, in the high SNR regime, over nine noise realisations. Despite being in the high SNR regime, the posteriors do not overlap as much as expected \textit  {a priori}, and much less than the other parameters of $\bm  {\theta }_{\rm  gw}$.\relax }}{14}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:just_iota_h}{{9}{14}{Posterior distribution over for the GW source parameters $\iota $ and $h_0$ for the representative system described in Table \ref {tab:parameters_and_priors}, in the high SNR regime, over nine noise realisations. Despite being in the high SNR regime, the posteriors do not overlap as much as expected \textit {a priori}, and much less than the other parameters of $\boldsymbol {\theta }_{\rm gw}$.\relax }{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Likelihood $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }}{14}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:likelihood_surface}{{10}{14}{Likelihood $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Bias by dropping pulsar terms}{14}{subsubsection.4.4.2}\protected@file@percent }
-\newlabel{sec:bias}{{4.4.2}{14}{Bias by dropping pulsar terms}{subsubsection.4.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for the low-SNR system with $h_0 = 10^{-12}$. For the majority of parameters the injection value does not fall within the 90 \% credible interval and is not visible over these scales. The estimated posteriors are biased away from the injected value due to the dropping of the pulsar terms.\relax }}{15}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:bias_for_large_h}{{11}{15}{As Figure \ref {fig:corner_plot_1} but for the low-SNR system with $h_0 = 10^{-12}$. For the majority of parameters the injection value does not fall within the 90 \% credible interval and is not visible over these scales. The estimated posteriors are biased away from the injected value due to the dropping of the pulsar terms.\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Identifiability and bias}{14}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Identifiability}{14}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Posterior distributions over nine noise realisations for the GW source parameters $\iota $ and $h_0$ for the representative system described in Table \ref  {tab:parameters_and_priors}, in the high SNR regime ($h_0 = 10^{-12}$). Unlike the other parameters of $\bm  {\theta }_{\rm  gw}$, the one-dimensional posteriors for $\iota $ and $h_0$ do not strongly overlap. A correlation between $\iota $ and $h_0$ is evident.\relax }}{14}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:just_iota_h}{{10}{14}{Posterior distributions over nine noise realisations for the GW source parameters $\iota $ and $h_0$ for the representative system described in Table \ref {tab:parameters_and_priors}, in the high SNR regime ($h_0 = 10^{-12}$). Unlike the other parameters of $\boldsymbol {\theta }_{\rm gw}$, the one-dimensional posteriors for $\iota $ and $h_0$ do not strongly overlap. A correlation between $\iota $ and $h_0$ is evident.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Likelihood $\qopname  \relax o{log}\mathcal  {L}$ (Equation \ref  {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }}{14}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:likelihood_surface}{{11}{14}{Likelihood $\log \mathcal {L}$ (Equation \ref {eq:likelihood}) surface across the $\iota - h_0$ parameter space for a single noise realisation. The red point labels the location of the likelihood maxima. The likelihood surface has been normalised with respect to the absolute value of the maxima. A strong likelihood ridge is evident in the parameter space where the Kalman filter produces similar likelihood values, making it difficult for sampling algorithms to converge to a consistent value.\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Bias by dropping pulsar terms}{15}{subsubsection.4.4.2}\protected@file@percent }
+\newlabel{sec:bias}{{4.4.2}{15}{Bias by dropping pulsar terms}{subsubsection.4.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces As Figure \ref  {fig:corner_plot_1} but for the low-SNR system with $h_0 = 10^{-12}$. For the majority of parameters the injection value does not fall within the 90\% credible interval and is not visible over these scales. The estimated posteriors are biased away from the injected value due to the dropping of the pulsar terms. Note that the scale of the $x$-axes are generally highly constrained compared to Figure \ref  {fig:corner_plot_1}.\relax }}{16}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:bias_for_large_h}{{12}{16}{As Figure \ref {fig:corner_plot_1} but for the low-SNR system with $h_0 = 10^{-12}$. For the majority of parameters the injection value does not fall within the 90\% credible interval and is not visible over these scales. The estimated posteriors are biased away from the injected value due to the dropping of the pulsar terms. Note that the scale of the $x$-axes are generally highly constrained compared to Figure \ref {fig:corner_plot_1}.\relax }{figure.caption.14}{}}
 \citation{Zhupulsarterms,Chen2022}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref  {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }}{16}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:likelihood_surface_iota}{{12}{16}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }{figure.caption.14}{}}
 \citation{Zhupulsarterms}
 \citation{Chen2022}
 \citation{2023MNRAS.518.1802S}
 \citation{Sesana2010}
 \citation{Perrodin2018}
 \citation{PhysRevD.85.044034}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref  {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref  {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref  {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }}{17}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:likelihood_surface_iota}{{13}{17}{Variation in the log likelihood returned by the Kalman filter using the Earth terms model (Equation \ref {eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref {eq:measurement}, orange line), and the Earth terms model for Earth terms only synthetic data (green line), with respect to the inclination $\iota $, over the prior space. All other parameters are fixed at their true injected value from Table \ref {tab:parameters_and_priors}. The coloured dashed vertical lines label the location of the likelihood maxima for their corresponding model. For the Earth-terms model the likelihood maxima does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the location of the maxima and injected value do coincide. 10 noise realisations are plotted but the solutions are completely overlaid.\relax }{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{17}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{17}{section.6}\protected@file@percent }
 \citation{gardiner2009stochastic}
-\citation{KARLSSON2012941}
-\citation{SEDOGLAVIC2002735}
-\citation{Dudley}
-\citation{Paxton2021,Vissio2020}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{18}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {A}Kalman recursion equations}{18}{section.A1}\protected@file@percent }
 \newlabel{sec:kalman}{{A}{18}{Kalman recursion equations}{section.A1}{}}
 \newlabel{eq:kalman1}{{A1}{18}{Kalman recursion equations}{equation.A1.1}{}}
 \newlabel{eq:kalman2}{{A2}{18}{Kalman recursion equations}{equation.A1.2}{}}
 \newlabel{eq:kalman gain}{{A7}{18}{Kalman recursion equations}{equation.A1.7}{}}
 \newlabel{eq:kalmn2}{{A10}{18}{Kalman recursion equations}{equation.A1.10}{}}
-\newlabel{eq:gardenier}{{A11}{18}{Kalman recursion equations}{equation.A1.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Identifiability}{18}{section.A2}\protected@file@percent }
-\newlabel{appendix_identifiability}{{B}{18}{Identifiability}{section.A2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Wasserstein distance}{18}{section.A3}\protected@file@percent }
-\newlabel{sec:wasserstein}{{C}{18}{Wasserstein distance}{section.A3}{}}
+\citation{KARLSSON2012941}
+\citation{SEDOGLAVIC2002735}
+\citation{Dudley}
+\citation{Paxton2021,Vissio2020}
 \citation{Dudley}
 \citation{Paxton2021,Vissio2020}
 \bibstyle{mnras}
 \bibdata{example}
+\newlabel{eq:gardenier}{{A11}{19}{Kalman recursion equations}{equation.A1.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Identifiability}{19}{section.A2}\protected@file@percent }
+\newlabel{appendix_identifiability}{{B}{19}{Identifiability}{section.A2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Wasserstein distance}{19}{section.A3}\protected@file@percent }
+\newlabel{sec:wasserstein}{{C}{19}{Wasserstein distance}{section.A3}{}}
+\newlabel{eq:WDdefn}{{C5}{19}{Wasserstein distance}{equation.A3.5}{}}
 \bibcite{2023ApJ...951L...8A}{{1}{2023a}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
 \bibcite{NANOgrav2023}{{2}{2023b}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
 \bibcite{Allen1997}{{3}{1997}{{{Allen}}}{{{Allen}}}}
@@ -280,108 +284,109 @@
 \bibcite{Cordes2010}{{36}{2010}{{{Cordes} \& {Shannon}}}{{{Cordes} \& {Shannon}}}}
 \bibcite{Alessandro1995}{{37}{1995}{{{D'Alessandro} et~al.}}{{{D'Alessandro}, {McCulloch}, {Hamilton} \& {Deshpande}}}}
 \bibcite{Desvignes2016}{{38}{2016}{{Desvignes et~al.}}{{Desvignes et~al.,}}}
-\bibcite{Dunn2022}{{39}{2022}{{{Dunn} et~al.}}{{{Dunn} et~al.,}}}
-\bibcite{Dunn2023MNRAS.522.5469D}{{40}{2023}{{{Dunn} et~al.}}{{{Dunn}, {Melatos}, {Espinoza}, {Antonopoulou} \& {Dodson}}}}
-\bibcite{2013CQGra..30v4004E}{{41}{2013}{{{Ellis}}}{{{Ellis}}}}
-\bibcite{Ellis2016}{{42}{2016}{{{Ellis} \& {Cornish}}}{{{Ellis} \& {Cornish}}}}
-\bibcite{Ellis2012ApJ}{{43}{2012}{{{Ellis} et~al.}}{{{Ellis}, {Siemens} \& {Creighton}}}}
-\bibcite{Espinoza2021}{{44}{2021}{{{Espinoza} et~al.}}{{{Espinoza}, {Antonopoulou}, {Dodson}, {Stepanova} \& {Scherer}}}}
-\bibcite{Feroz2008}{{45}{2008}{{{Feroz} \& {Hobson}}}{{{Feroz} \& {Hobson}}}}
-\bibcite{Feroz2009}{{46}{2009}{{Feroz et~al.}}{{Feroz, Hobson \& Bridges}}}
-\bibcite{gardiner2009stochastic}{{47}{2009}{{Gardiner}}{{Gardiner}}}
-\bibcite{Goldstein2018}{{48}{2018}{{{Goldstein} et~al.}}{{{Goldstein}, {Veitch}, {Sesana} \& {Vecchio}}}}
-\bibcite{Goncharov2021}{{49}{2021}{{{Goncharov} et~al.}}{{{Goncharov} et~al.,}}}
-\bibcite{GONZALEZDELGADO2023168053}{{50}{2023}{{González-Delgado et~al.}}{{González-Delgado, Sagar, Zanon, Lindorff-Larsen, Bernadó, Neuvial \& Cortés}}}
-\bibcite{Greenstein1970}{{51}{1970}{{{Greenstein}}}{{{Greenstein}}}}
-\bibcite{Alpar2017MNRAS.471.4827G}{{52}{2017}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}}
-\bibcite{GUILLAUME2019418}{{53}{2019}{{Guillaume et~al.}}{{Guillaume et~al.,}}}
-\bibcite{Handley2015}{{54}{2015}{{{Handley} et~al.}}{{{Handley}, {Hobson} \& {Lasenby}}}}
-\bibcite{Hellings}{{55}{1983}{{{Hellings} \& {Downs}}}{{{Hellings} \& {Downs}}}}
-\bibcite{tempo2}{{56}{2006}{{Hobbs et~al.}}{{Hobbs, Edwards \& Manchester}}}
-\bibcite{Hobbs2010glitch}{{57}{2010}{{{Hobbs} et~al.}}{{{Hobbs}, {Lyne} \& {Kramer}}}}
-\bibcite{Hobbs_2019}{{58}{2019}{{Hobbs et~al.}}{{Hobbs, Dai, Manchester, Shannon, Kerr, Lee \& Xu}}}
-\bibcite{Jaffe_2003}{{59}{2003}{{Jaffe \& Backer}}{{Jaffe \& Backer}}}
-\bibcite{Jenet2004}{{60}{2004}{{{Jenet} et~al.}}{{{Jenet}, {Lommen}, {Larson} \& {Wen}}}}
-\bibcite{Johnston10}{{61}{1999}{{Johnston \& Galloway}}{{Johnston \& Galloway}}}
-\bibcite{Jones1990MNRAS.246..364J}{{62}{1990}{{{Jones}}}{{{Jones}}}}
-\bibcite{Kalman1}{{63}{1960}{{Kalman}}{{Kalman}}}
-\bibcite{KARLSSON2012941}{{64}{2012}{{Karlsson et~al.}}{{Karlsson, Anguelova \& Jirstrand}}}
-\bibcite{free_precession_kerr}{{65}{2015}{{Kerr et~al.}}{{Kerr, Hobbs, Johnston \& Shannon}}}
-\bibcite{2023QJRMS.149..843K}{{66}{2023}{{{Kimpson} et~al.}}{{{Kimpson}, {Paxton}, {Chantry} \& {Palmer}}}}
-\bibcite{magneto1}{{67}{2006}{{{Kramer} et~al.}}{{{Kramer}, {Lyne}, {O'Brien}, {Jordan} \& {Lorimer}}}}
-\bibcite{Lam2019}{{68}{2019}{{{Lam} et~al.}}{{{Lam} et~al.,}}}
-\newlabel{eq:WDdefn}{{C5}{19}{Wasserstein distance}{equation.A3.5}{}}
-\bibcite{Lasky2015}{{69}{2015}{{{Lasky} et~al.}}{{{Lasky}, {Melatos}, {Ravi} \& {Hobbs}}}}
-\bibcite{Lee2011MNRAS.414.3251L}{{70}{2011}{{{Lee} et~al.}}{{{Lee}, {Wex}, {Kramer}, {Stappers}, {Bassa}, {Janssen}, {Karuppusamy} \& {Smits}}}}
-\bibcite{Lentati2015}{{71}{2015}{{{Lentati} et~al.}}{{{Lentati} et~al.,}}}
-\bibcite{UTMOST}{{72}{2020}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
-\bibcite{Lower2021MNRAS.508.3251L}{{73}{2021}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
-\bibcite{Lyne2010L}{{74}{2010}{{{Lyne} et~al.}}{{{Lyne}, {Hobbs}, {Kramer}, {Stairs} \& {Stappers}}}}
-\bibcite{Maggiore}{{75}{2018}{{Maggiore}}{{Maggiore}}}
-\bibcite{Manchester2005}{{76}{2005}{{{Manchester} et~al.}}{{{Manchester}, {Hobbs}, {Teoh} \& {Hobbs}}}}
-\bibcite{McWilliams_2014}{{77}{2014}{{McWilliams et~al.}}{{McWilliams, Ostriker \& Pretorius}}}
-\bibcite{Melatos2014}{{78}{2014}{{{Melatos} \& {Link}}}{{{Melatos} \& {Link}}}}
-\bibcite{Melatos2008}{{79}{2008}{{{Melatos} et~al.}}{{{Melatos}, {Peralta} \& {Wyithe}}}}
-\bibcite{Melatos2020ApJ...896...78M}{{80}{2020}{{{Melatos} et~al.}}{{{Melatos}, {Dunn}, {Suvorova}, {Moran} \& {Evans}}}}
-\bibcite{Melatos2023}{{81}{2021}{{{Melatos} et~al.}}{{{Melatos}, {O'Neill}, {Meyers} \& {O'Leary}}}}
-\bibcite{Myers2021MNRAS.502.3113M}{{82}{2021a}{{{Meyers} et~al.}}{{{Meyers}, {Melatos} \& {O'Neill}}}}
-\bibcite{Meyers2021}{{83}{2021b}{{{Meyers} et~al.}}{{{Meyers}, {O'Neill}, {Melatos} \& {Evans}}}}
-\bibcite{2023GeoRL..5003880M}{{84}{2023}{{{Morris} et~al.}}{{{Morris}, {Lipp} \& {Roberts}}}}
-\bibcite{Mukherjee2006}{{85}{2006}{{{Mukherjee} et~al.}}{{{Mukherjee}, {Parkinson} \& {Liddle}}}}
-\bibcite{2009arXiv0906materials}{{86}{2009}{{{P{\'a}rtay} et~al.}}{{{P{\'a}rtay}, {Bart{\'o}k} \& {Cs{\'a}nyi}}}}
-\bibcite{Parthasarathy2021}{{87}{2021}{{{Parthasarathy} et~al.}}{{{Parthasarathy} et~al.,}}}
-\bibcite{2022JCli...35.1215P}{{88}{2022}{{{Paxton} et~al.}}{{{Paxton}, {Chantry}, {Kl{\"o}wer}, {Saffin} \& {Palmer}}}}
-\bibcite{Peralta2006}{{89}{2006}{{{Peralta} et~al.}}{{{Peralta}, {Melatos}, {Giacobello} \& {Ooi}}}}
-\bibcite{2019MNRAS.490.4666P}{{90}{2019}{{{Perera} et~al.}}{{{Perera} et~al.,}}}
-\bibcite{Perrodin2018}{{91}{2018}{{{Perrodin} \& {Sesana}}}{{{Perrodin} \& {Sesana}}}}
-\bibcite{Petiteau2013}{{92}{2013}{{Petiteau et~al.}}{{Petiteau, Babak, Sesana \& de Ara\'ujo}}}
-\bibcite{psrqpy}{{93}{2018}{{{Pitkin}}}{{{Pitkin}}}}
-\bibcite{Rajagopal1995}{{94}{1995}{{{Rajagopal} \& {Romani}}}{{{Rajagopal} \& {Romani}}}}
-\bibcite{Ravi2012singlesource}{{95}{2012}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Hobbs}, {Shannon}, {Manchester}, {Yardley} \& {Keith}}}}
-\bibcite{Ravi2015MNRAS.447.2772R}{{96}{2015}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Shannon} \& {Hobbs}}}}
-\bibcite{2023ApJ...951L...6R}{{97}{2023}{{{Reardon} et~al.}}{{{Reardon} et~al.,}}}
-\bibcite{Renzini2022}{{98}{2022}{{{Renzini} et~al.}}{{{Renzini}, {Goncharov}, {Jenkins} \& {Meyers}}}}
-\bibcite{Rosado10.1093/mnras/stv1098}{{99}{2015}{{Rosado et~al.}}{{Rosado, Sesana \& Gair}}}
-\bibcite{PTAstring}{{100}{2012}{{Sanidas et~al.}}{{Sanidas, Battye \& Stappers}}}
-\bibcite{SEDOGLAVIC2002735}{{101}{2002}{{Sedoglavic}}{{Sedoglavic}}}
-\bibcite{Sesana2013}{{102}{2013}{{{Sesana}}}{{{Sesana}}}}
-\bibcite{Sesana2010}{{103}{2010}{{{Sesana} \& {Vecchio}}}{{{Sesana} \& {Vecchio}}}}
-\bibcite{Sesana10}{{104}{2008}{{Sesana et~al.}}{{Sesana, Vecchio \& Colacino}}}
-\bibcite{Shannon2010}{{105}{2010a}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
-\bibcite{Shannon2010ApJ...725.1607S}{{106}{2010b}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
-\bibcite{Shannon_2013}{{107}{2013}{{Shannon et~al.}}{{Shannon et~al.,}}}
-\bibcite{Simon10}{{108}{2006}{{Simon}}{{Simon}}}
-\bibcite{Skilling}{{109}{2006}{{Skilling}}{{Skilling}}}
-\bibcite{Sornette2004}{{110}{2004}{{{Sornette}}}{{{Sornette}}}}
-\bibcite{dynesty2020}{{111}{2020}{{Speagle}}{{Speagle}}}
-\bibcite{2023MNRAS.518.1802S}{{112}{2023}{{{Speri} et~al.}}{{{Speri}, {Porayko}, {Falxa}, {Chen}, {Gair}, {Sesana} \& {Taylor}}}}
-\bibcite{Meertime}{{113}{2022}{{{Spiewak} et~al.}}{{{Spiewak} et~al.,}}}
-\bibcite{stairs_freeprecession}{{114}{2000}{{{Stairs} et~al.}}{{{Stairs}, {Lyne} \& {Shemar}}}}
-\bibcite{Stairs2019MNRAS.485.3230S}{{115}{2019}{{{Stairs} et~al.}}{{{Stairs} et~al.,}}}
-\bibcite{Skyes2022}{{116}{2022}{{{Sykes} et~al.}}{{{Sykes}, {Middleton}, {Melatos}, {Di Matteo}, {DeGraf} \& {Bhowmick}}}}
-\bibcite{ipta}{{117}{2022}{{Tarafdar et~al.}}{{Tarafdar et~al.,}}}
-\bibcite{Taylors2016}{{118}{2016}{{{Taylor} et~al.}}{{{Taylor}, {Huerta}, {Gair} \& {McWilliams}}}}
-\bibcite{Tiburzi2018}{{119}{2018}{{{Tiburzi}}}{{{Tiburzi}}}}
-\bibcite{proceedings2019033014}{{120}{2019}{{Trassinelli}}{{Trassinelli}}}
-\bibcite{2006MNRAS.370L..76U}{{121}{2006}{{{Urama} et~al.}}{{{Urama}, {Link} \& {Weisberg}}}}
-\bibcite{Vargas}{{122}{2023}{{Vargas \& Melatos}}{{Vargas \& Melatos}}}
-\bibcite{Wasserstein}{{123}{1969}{{Vaserstein}}{{Vaserstein}}}
-\bibcite{Verbiest2012ApJ...755...39V}{{124}{2012}{{{Verbiest} et~al.}}{{{Verbiest}, {Weisberg}, {Chael}, {Lee} \& {Lorimer}}}}
-\bibcite{2021hgwa.bookE...4V}{{125}{2021}{{{Verbiest} et~al.}}{{{Verbiest}, {Os{\l }owski} \& {Burke-Spolaor}}}}
-\bibcite{Villani2009}{{126}{2009}{{Villani}}{{Villani}}}
-\bibcite{882463van}{{127}{2000}{{Wan \& Van Der~Merwe}}{{Wan \& Van Der~Merwe}}}
-\bibcite{Wyithe2003}{{128}{2003}{{{Wyithe} \& {Loeb}}}{{{Wyithe} \& {Loeb}}}}
-\bibcite{2023RAA....23g5024X}{{129}{2023}{{{Xu} et~al.}}{{{Xu} et~al.,}}}
-\bibcite{PTAphase}{{130}{2021}{{{Xue} et~al.}}{{{Xue} et~al.,}}}
-\bibcite{Yao2017}{{131}{2017}{{{Yao} et~al.}}{{{Yao}, {Manchester} \& {Wang}}}}
-\bibcite{Yardley2010}{{132}{2010}{{{Yardley} et~al.}}{{{Yardley} et~al.,}}}
-\bibcite{zarchan2000fundamentals}{{133}{2000}{{Zarchan \& Musoff}}{{Zarchan \& Musoff}}}
-\bibcite{Zhu2014PPTA}{{134}{2014}{{{Zhu} et~al.}}{{{Zhu} et~al.,}}}
-\bibcite{Zhu10}{{135}{2015a}{{Zhu et~al.}}{{Zhu et~al.,}}}
-\bibcite{Zhu2015}{{136}{2015b}{{Zhu et~al.}}{{Zhu et~al.,}}}
-\bibcite{Zhupulsarterms}{{137}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
-\bibcite{Parkes2023}{{138}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
-\bibcite{Zic2023arXiv230616230Z}{{139}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
-\bibcite{vanEysden}{{140}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
-\newlabel{lastpage}{{C}{20}{Wasserstein distance}{equation.A3.5}{}}
-\gdef \@abspage@last{20}
+\bibcite{Dudley}{{39}{1969}{{Dudley}}{{Dudley}}}
+\bibcite{Dunn2022}{{40}{2022}{{{Dunn} et~al.}}{{{Dunn} et~al.,}}}
+\bibcite{Dunn2023MNRAS.522.5469D}{{41}{2023}{{{Dunn} et~al.}}{{{Dunn}, {Melatos}, {Espinoza}, {Antonopoulou} \& {Dodson}}}}
+\bibcite{2013CQGra..30v4004E}{{42}{2013}{{{Ellis}}}{{{Ellis}}}}
+\bibcite{Ellis2016}{{43}{2016}{{{Ellis} \& {Cornish}}}{{{Ellis} \& {Cornish}}}}
+\bibcite{Ellis2012ApJ}{{44}{2012}{{{Ellis} et~al.}}{{{Ellis}, {Siemens} \& {Creighton}}}}
+\bibcite{Espinoza2021}{{45}{2021}{{{Espinoza} et~al.}}{{{Espinoza}, {Antonopoulou}, {Dodson}, {Stepanova} \& {Scherer}}}}
+\bibcite{Feroz2008}{{46}{2008}{{{Feroz} \& {Hobson}}}{{{Feroz} \& {Hobson}}}}
+\bibcite{Feroz2009}{{47}{2009}{{Feroz et~al.}}{{Feroz, Hobson \& Bridges}}}
+\bibcite{gardiner2009stochastic}{{48}{2009}{{Gardiner}}{{Gardiner}}}
+\bibcite{Goldstein2018}{{49}{2018}{{{Goldstein} et~al.}}{{{Goldstein}, {Veitch}, {Sesana} \& {Vecchio}}}}
+\bibcite{Goncharov2021}{{50}{2021}{{{Goncharov} et~al.}}{{{Goncharov} et~al.,}}}
+\bibcite{GONZALEZDELGADO2023168053}{{51}{2023}{{González-Delgado et~al.}}{{González-Delgado, Sagar, Zanon, Lindorff-Larsen, Bernadó, Neuvial \& Cortés}}}
+\bibcite{Greenstein1970}{{52}{1970}{{{Greenstein}}}{{{Greenstein}}}}
+\bibcite{Alpar2017MNRAS.471.4827G}{{53}{2017}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}{{{G{\"u}gercino{\v {g}}lu} \& {Alpar}}}}
+\bibcite{GUILLAUME2019418}{{54}{2019}{{Guillaume et~al.}}{{Guillaume et~al.,}}}
+\bibcite{Handley2015}{{55}{2015}{{{Handley} et~al.}}{{{Handley}, {Hobson} \& {Lasenby}}}}
+\bibcite{Hellings}{{56}{1983}{{{Hellings} \& {Downs}}}{{{Hellings} \& {Downs}}}}
+\bibcite{tempo2}{{57}{2006}{{Hobbs et~al.}}{{Hobbs, Edwards \& Manchester}}}
+\bibcite{Hobbs2010glitch}{{58}{2010}{{{Hobbs} et~al.}}{{{Hobbs}, {Lyne} \& {Kramer}}}}
+\bibcite{Hobbs_2019}{{59}{2019}{{Hobbs et~al.}}{{Hobbs, Dai, Manchester, Shannon, Kerr, Lee \& Xu}}}
+\bibcite{Jaffe_2003}{{60}{2003}{{Jaffe \& Backer}}{{Jaffe \& Backer}}}
+\bibcite{Jenet2004}{{61}{2004}{{{Jenet} et~al.}}{{{Jenet}, {Lommen}, {Larson} \& {Wen}}}}
+\bibcite{Johnston10}{{62}{1999}{{Johnston \& Galloway}}{{Johnston \& Galloway}}}
+\bibcite{Jones1990MNRAS.246..364J}{{63}{1990}{{{Jones}}}{{{Jones}}}}
+\bibcite{Kalman1}{{64}{1960}{{Kalman}}{{Kalman}}}
+\bibcite{KARLSSON2012941}{{65}{2012}{{Karlsson et~al.}}{{Karlsson, Anguelova \& Jirstrand}}}
+\bibcite{free_precession_kerr}{{66}{2015}{{Kerr et~al.}}{{Kerr, Hobbs, Johnston \& Shannon}}}
+\bibcite{2023QJRMS.149..843K}{{67}{2023}{{{Kimpson} et~al.}}{{{Kimpson}, {Paxton}, {Chantry} \& {Palmer}}}}
+\bibcite{magneto1}{{68}{2006}{{{Kramer} et~al.}}{{{Kramer}, {Lyne}, {O'Brien}, {Jordan} \& {Lorimer}}}}
+\bibcite{Lam2019}{{69}{2019}{{{Lam} et~al.}}{{{Lam} et~al.,}}}
+\bibcite{Lasky2015}{{70}{2015}{{{Lasky} et~al.}}{{{Lasky}, {Melatos}, {Ravi} \& {Hobbs}}}}
+\bibcite{Lee2011MNRAS.414.3251L}{{71}{2011}{{{Lee} et~al.}}{{{Lee}, {Wex}, {Kramer}, {Stappers}, {Bassa}, {Janssen}, {Karuppusamy} \& {Smits}}}}
+\bibcite{Lentati2015}{{72}{2015}{{{Lentati} et~al.}}{{{Lentati} et~al.,}}}
+\bibcite{UTMOST}{{73}{2020}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
+\bibcite{Lower2021MNRAS.508.3251L}{{74}{2021}{{{Lower} et~al.}}{{{Lower} et~al.,}}}
+\bibcite{Lyne2010L}{{75}{2010}{{{Lyne} et~al.}}{{{Lyne}, {Hobbs}, {Kramer}, {Stairs} \& {Stappers}}}}
+\bibcite{Maggiore}{{76}{2018}{{Maggiore}}{{Maggiore}}}
+\bibcite{Manchester2005}{{77}{2005}{{{Manchester} et~al.}}{{{Manchester}, {Hobbs}, {Teoh} \& {Hobbs}}}}
+\bibcite{McWilliams_2014}{{78}{2014}{{McWilliams et~al.}}{{McWilliams, Ostriker \& Pretorius}}}
+\bibcite{Melatos2014}{{79}{2014}{{{Melatos} \& {Link}}}{{{Melatos} \& {Link}}}}
+\bibcite{Melatos2008}{{80}{2008}{{{Melatos} et~al.}}{{{Melatos}, {Peralta} \& {Wyithe}}}}
+\bibcite{Melatos2020ApJ...896...78M}{{81}{2020}{{{Melatos} et~al.}}{{{Melatos}, {Dunn}, {Suvorova}, {Moran} \& {Evans}}}}
+\bibcite{Melatos2023}{{82}{2021}{{{Melatos} et~al.}}{{{Melatos}, {O'Neill}, {Meyers} \& {O'Leary}}}}
+\bibcite{Myers2021MNRAS.502.3113M}{{83}{2021a}{{{Meyers} et~al.}}{{{Meyers}, {Melatos} \& {O'Neill}}}}
+\bibcite{Meyers2021}{{84}{2021b}{{{Meyers} et~al.}}{{{Meyers}, {O'Neill}, {Melatos} \& {Evans}}}}
+\bibcite{2023GeoRL..5003880M}{{85}{2023}{{{Morris} et~al.}}{{{Morris}, {Lipp} \& {Roberts}}}}
+\bibcite{Mukherjee2006}{{86}{2006}{{{Mukherjee} et~al.}}{{{Mukherjee}, {Parkinson} \& {Liddle}}}}
+\bibcite{2009arXiv0906materials}{{87}{2009}{{{P{\'a}rtay} et~al.}}{{{P{\'a}rtay}, {Bart{\'o}k} \& {Cs{\'a}nyi}}}}
+\bibcite{Parthasarathy2021}{{88}{2021}{{{Parthasarathy} et~al.}}{{{Parthasarathy} et~al.,}}}
+\bibcite{2022JCli...35.1215P}{{89}{2022}{{{Paxton} et~al.}}{{{Paxton}, {Chantry}, {Kl{\"o}wer}, {Saffin} \& {Palmer}}}}
+\bibcite{Peralta2006}{{90}{2006}{{{Peralta} et~al.}}{{{Peralta}, {Melatos}, {Giacobello} \& {Ooi}}}}
+\bibcite{2019MNRAS.490.4666P}{{91}{2019}{{{Perera} et~al.}}{{{Perera} et~al.,}}}
+\bibcite{Perrodin2018}{{92}{2018}{{{Perrodin} \& {Sesana}}}{{{Perrodin} \& {Sesana}}}}
+\bibcite{Petiteau2013}{{93}{2013}{{Petiteau et~al.}}{{Petiteau, Babak, Sesana \& de Ara\'ujo}}}
+\bibcite{psrqpy}{{94}{2018}{{{Pitkin}}}{{{Pitkin}}}}
+\bibcite{Rajagopal1995}{{95}{1995}{{{Rajagopal} \& {Romani}}}{{{Rajagopal} \& {Romani}}}}
+\bibcite{Ravi2012singlesource}{{96}{2012}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Hobbs}, {Shannon}, {Manchester}, {Yardley} \& {Keith}}}}
+\bibcite{Ravi2015MNRAS.447.2772R}{{97}{2015}{{{Ravi} et~al.}}{{{Ravi}, {Wyithe}, {Shannon} \& {Hobbs}}}}
+\bibcite{2023ApJ...951L...6R}{{98}{2023}{{{Reardon} et~al.}}{{{Reardon} et~al.,}}}
+\bibcite{Renzini2022}{{99}{2022}{{{Renzini} et~al.}}{{{Renzini}, {Goncharov}, {Jenkins} \& {Meyers}}}}
+\bibcite{Rosado10.1093/mnras/stv1098}{{100}{2015}{{Rosado et~al.}}{{Rosado, Sesana \& Gair}}}
+\bibcite{PTAstring}{{101}{2012}{{Sanidas et~al.}}{{Sanidas, Battye \& Stappers}}}
+\bibcite{SEDOGLAVIC2002735}{{102}{2002}{{Sedoglavic}}{{Sedoglavic}}}
+\bibcite{Sesana2013}{{103}{2013}{{{Sesana}}}{{{Sesana}}}}
+\bibcite{Sesana2010}{{104}{2010}{{{Sesana} \& {Vecchio}}}{{{Sesana} \& {Vecchio}}}}
+\bibcite{Sesana10}{{105}{2008}{{Sesana et~al.}}{{Sesana, Vecchio \& Colacino}}}
+\bibcite{Shannon2010}{{106}{2010a}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
+\bibcite{Shannon2010ApJ...725.1607S}{{107}{2010b}{{{Shannon} \& {Cordes}}}{{{Shannon} \& {Cordes}}}}
+\bibcite{Shannon_2013}{{108}{2013}{{Shannon et~al.}}{{Shannon et~al.,}}}
+\bibcite{Simon10}{{109}{2006}{{Simon}}{{Simon}}}
+\bibcite{Skilling}{{110}{2006}{{Skilling}}{{Skilling}}}
+\bibcite{Sornette2004}{{111}{2004}{{{Sornette}}}{{{Sornette}}}}
+\bibcite{dynesty2020}{{112}{2020}{{Speagle}}{{Speagle}}}
+\bibcite{2023MNRAS.518.1802S}{{113}{2023}{{{Speri} et~al.}}{{{Speri}, {Porayko}, {Falxa}, {Chen}, {Gair}, {Sesana} \& {Taylor}}}}
+\bibcite{Meertime}{{114}{2022}{{{Spiewak} et~al.}}{{{Spiewak} et~al.,}}}
+\bibcite{stairs_freeprecession}{{115}{2000}{{{Stairs} et~al.}}{{{Stairs}, {Lyne} \& {Shemar}}}}
+\bibcite{Stairs2019MNRAS.485.3230S}{{116}{2019}{{{Stairs} et~al.}}{{{Stairs} et~al.,}}}
+\bibcite{Skyes2022}{{117}{2022}{{{Sykes} et~al.}}{{{Sykes}, {Middleton}, {Melatos}, {Di Matteo}, {DeGraf} \& {Bhowmick}}}}
+\bibcite{ipta}{{118}{2022}{{Tarafdar et~al.}}{{Tarafdar et~al.,}}}
+\bibcite{Taylors2016}{{119}{2016}{{{Taylor} et~al.}}{{{Taylor}, {Huerta}, {Gair} \& {McWilliams}}}}
+\bibcite{Tiburzi2018}{{120}{2018}{{{Tiburzi}}}{{{Tiburzi}}}}
+\bibcite{proceedings2019033014}{{121}{2019}{{Trassinelli}}{{Trassinelli}}}
+\bibcite{2006MNRAS.370L..76U}{{122}{2006}{{{Urama} et~al.}}{{{Urama}, {Link} \& {Weisberg}}}}
+\bibcite{Vargas}{{123}{2023}{{Vargas \& Melatos}}{{Vargas \& Melatos}}}
+\bibcite{Wasserstein}{{124}{1969}{{Vaserstein}}{{Vaserstein}}}
+\bibcite{Verbiest2012ApJ...755...39V}{{125}{2012}{{{Verbiest} et~al.}}{{{Verbiest}, {Weisberg}, {Chael}, {Lee} \& {Lorimer}}}}
+\bibcite{2021hgwa.bookE...4V}{{126}{2021}{{{Verbiest} et~al.}}{{{Verbiest}, {Os{\l }owski} \& {Burke-Spolaor}}}}
+\bibcite{villani2003topics}{{127}{2003}{{Villani}}{{Villani}}}
+\bibcite{Villani2009}{{128}{2009}{{Villani}}{{Villani}}}
+\bibcite{882463van}{{129}{2000}{{Wan \& Van Der~Merwe}}{{Wan \& Van Der~Merwe}}}
+\bibcite{Wyithe2003}{{130}{2003}{{{Wyithe} \& {Loeb}}}{{{Wyithe} \& {Loeb}}}}
+\bibcite{2023RAA....23g5024X}{{131}{2023}{{{Xu} et~al.}}{{{Xu} et~al.,}}}
+\bibcite{PTAphase}{{132}{2021}{{{Xue} et~al.}}{{{Xue} et~al.,}}}
+\bibcite{Yao2017}{{133}{2017}{{{Yao} et~al.}}{{{Yao}, {Manchester} \& {Wang}}}}
+\bibcite{Yardley2010}{{134}{2010}{{{Yardley} et~al.}}{{{Yardley} et~al.,}}}
+\bibcite{zarchan2000fundamentals}{{135}{2000}{{Zarchan \& Musoff}}{{Zarchan \& Musoff}}}
+\bibcite{Zhu2014PPTA}{{136}{2014}{{{Zhu} et~al.}}{{{Zhu} et~al.,}}}
+\bibcite{Zhu10}{{137}{2015a}{{Zhu et~al.}}{{Zhu et~al.,}}}
+\bibcite{Zhu2015}{{138}{2015b}{{Zhu et~al.}}{{Zhu et~al.,}}}
+\bibcite{Zhupulsarterms}{{139}{2016}{{Zhu et~al.}}{{Zhu, Wen, Xiong, Xu, Wang, Mohanty, Hobbs \& Manchester}}}
+\bibcite{Parkes2023}{{140}{2023a}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
+\bibcite{Zic2023arXiv230616230Z}{{141}{2023b}{{{Zic} et~al.}}{{{Zic} et~al.,}}}
+\bibcite{vanEysden}{{142}{2010}{{{van Eysden} \& {Melatos}}}{{{van Eysden} \& {Melatos}}}}
+\newlabel{lastpage}{{C}{21}{Wasserstein distance}{equation.A3.5}{}}
+\gdef \@abspage@last{21}

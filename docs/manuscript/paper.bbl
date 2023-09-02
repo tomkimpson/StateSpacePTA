@@ -222,6 +222,9 @@ Cook S.~R.,  Gelman A.,   Rubin D.~B.,  2006, \mn@doi [Journal of Computational
 Desvignes G.,  et~al., 2016, \mn@doi [Monthly Notices of the Royal Astronomical
   Society] {10.1093/mnras/stw483}, 458, 3341
 
+\bibitem[\protect\citeauthoryear{Dudley}{Dudley}{1969}]{Dudley}
+Dudley R.~M.,  1969, The Annals of Mathematical Statistics, 40, 40
+
 \bibitem[\protect\citeauthoryear{{Dunn} et~al.,}{{Dunn}
   et~al.}{2022}]{Dunn2022}
 {Dunn} L.,  et~al., 2022, \mn@doi [\mnras] {10.1093/mnras/stac551}, \href
@@ -692,6 +695,11 @@ Vaserstein L.,  1969, Probl. Peredachi Inf., 5
 {Verbiest} J.~P.~W.,  {Os{\l}owski} S.,   {Burke-Spolaor} S.,  2021, in ,
   Handbook of Gravitational Wave Astronomy.
 p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
+
+\bibitem[\protect\citeauthoryear{Villani}{Villani}{2003}]{villani2003topics}
+Villani C.,  2003, Topics in Optimal Transportation.
+Graduate studies in mathematics, American Mathematical Society, \url
+  {https://books.google.com.au/books?id=idyFAwAAQBAJ}
 
 \bibitem[\protect\citeauthoryear{Villani}{Villani}{2009}]{Villani2009}
 Villani C.,  2009, The Wasserstein distances.

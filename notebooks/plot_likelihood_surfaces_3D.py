@@ -76,9 +76,13 @@ def load_and_plot(path,ax):
     #Config
   
     ax.scatter(yc,xc,zc, s=20,c='C3')
-    # fs = 20
+    fs = 20
     # ax.set_xlabel(r'$h_0$', fontsize=fs)
     # ax.set_ylabel(r'$\iota$', fontsize=fs)
+
+    ax.set_xlabel(r'$\alpha$', fontsize=fs)
+    ax.set_ylabel(r'$\psi$', fontsize=fs)
+
     # ax.xaxis.set_tick_params(labelsize=fs-4)
     # ax.yaxis.set_tick_params(labelsize=fs-4)
 
