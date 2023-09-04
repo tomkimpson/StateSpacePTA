@@ -38,7 +38,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
 #         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
 
-h_range = np.logspace(-15,-13,101)
+h_range = np.logspace(-15,-12,101)
 noise_models = ["earth", "null"]
 #noise_models = ["earth"]
 
@@ -49,7 +49,7 @@ with open('batch.sh','w') as b:
     for s in seeds:
         for h in h_range:
             for n in noise_models:
-                 arg_name = f"JMULTIpaper_bayes_ratios_n2000_V4_h_{h}_model_{n}_seed_{s}"
+                 arg_name = f"KMULTIpaper_bayes_ratios_n2500_V1_h_{h}_model_{n}_seed_{s}"
                  print(arg_name)
                  create_slurm_job(arg_name,h,n,s)
 
