@@ -3,7 +3,7 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
-Repeated entry---line 749 of file example.bib
+Repeated entry---line 764 of file example.bib
  : @book{Maggiore
  :               ,
 I'm skipping whatever remains of this entry
@@ -20,45 +20,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 142 entries,
+You've used 143 entries,
             2881 wiz_defined-function locations,
-            1947 strings with 72815 characters,
-and the built_in function-call counts, 71072 in all, are:
-= -- 6443
-> -- 4465
-< -- 321
-+ -- 1971
-- -- 607
-* -- 8473
-:= -- 10513
+            1958 strings with 73089 characters,
+and the built_in function-call counts, 71471 in all, are:
+= -- 6477
+> -- 4489
+< -- 325
++ -- 1984
+- -- 609
+* -- 8518
+:= -- 10578
 add.period$ -- 0
-call.type$ -- 142
-change.case$ -- 284
-chr.to.int$ -- 131
-cite$ -- 144
-duplicate$ -- 3593
-empty$ -- 3507
-format.name$ -- 1071
-if$ -- 12900
+call.type$ -- 143
+change.case$ -- 286
+chr.to.int$ -- 132
+cite$ -- 145
+duplicate$ -- 3614
+empty$ -- 3529
+format.name$ -- 1075
+if$ -- 12968
 int.to.chr$ -- 12
 int.to.str$ -- 0
-missing$ -- 149
-newline$ -- 446
-num.names$ -- 938
-pop$ -- 684
+missing$ -- 150
+newline$ -- 449
+num.names$ -- 944
+pop$ -- 688
 preamble$ -- 1
-purify$ -- 568
+purify$ -- 572
 quote$ -- 0
-skip$ -- 2464
+skip$ -- 2478
 stack$ -- 0
-substring$ -- 4889
-swap$ -- 2013
-text.length$ -- 587
+substring$ -- 4912
+swap$ -- 2019
+text.length$ -- 591
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1257
+type$ -- 1266
 warning$ -- 2
-while$ -- 1047
+while$ -- 1055
 width$ -- 0
-write$ -- 1450
+write$ -- 1460
 (There was 1 error message)
