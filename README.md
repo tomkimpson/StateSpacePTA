@@ -10,6 +10,13 @@ This is a set of code for doing Bayesian inference of gravitatational waves from
 It does this using a state-space formulation in conjunction with a Kalman filter and nested sampling
 
 
+
+### List of active branches
+
+* `Main`.
+* `Manuscript`. Messier version of main with all notebooks, data, etc. A good sandbox
+* `julia_code`. The julia version of this repo. Paused development
+
 ### List of todos()
 
 
