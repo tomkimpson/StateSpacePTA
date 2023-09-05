@@ -200,8 +200,6 @@ class KalmanFilter:
             x_predict, P_predict   = predict(x,P,F,Q)
             x,P,l,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
             
-           # if i > 250:
-                #print("barp")
             likelihood +=l
 
             x_results[i,:] = x

@@ -85,9 +85,6 @@ def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
 
-
-
-
 @jit(nopython=True)
 def principal_axes(theta,phi,psi):
     

@@ -175,35 +175,26 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
         #Add all the GW quantities
         init_parameters["omega_gw"] = None
         priors["omega_gw"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
-        #priors["omega_gw"] = P.Ω
 
         init_parameters["phi0_gw"] = None
         priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
-        #priors["phi0_gw"] = P.Φ0
 
         init_parameters["psi_gw"] = None
         priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
-        #priors["psi_gw"] = P.ψ
 
         init_parameters["iota_gw"] = None
         priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-        #priors["iota_gw"] = P.ι
 
         init_parameters["delta_gw"] = None
-        #priors["delta_gw"] = bilby.core.prior.Uniform(-np.pi/2.0, np.pi/2, 'delta_gw')
         priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-        #priors["delta_gw"] = P.δ
+
 
         init_parameters["alpha_gw"] = None
-        #priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
         priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
-        #priors["alpha_gw"] = P.α
 
 
         init_parameters["h"] = None
         priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
-        #priors["h"] = bilby.core.prior.LogUniform(1e-15, 8e-14, 'h')
-        #priors["h"] = P.h #experiment fixing $h$ to compare performance in $\iota$
 
 
     return init_parameters,priors 
