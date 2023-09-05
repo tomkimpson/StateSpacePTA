@@ -1,5 +1,3 @@
-data/
-!data/NANOGrav_pulsars.csv
 py_src/__pycache__/bilby_wrapper.cpython-310.pyc
 py_src/__pycache__/*.pyc
 py_src/outputs/*
