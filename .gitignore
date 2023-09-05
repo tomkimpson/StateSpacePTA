@@ -5,3 +5,4 @@ py_src/outputs/*
 docs/minutes/slides/images/*
 docs/minutes/*/*/*.png
 py_src/slurm_jobs/*.sh
+.DS_Store
