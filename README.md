@@ -15,7 +15,7 @@ It does this using a state-space formulation in conjunction with a Kalman filter
 
 
 
-- [ ] CConsistent workflow + units tests
+- [ ] Consistent workflow + units tests
 
 
 
