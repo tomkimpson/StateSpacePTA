@@ -1,7 +1,6 @@
 import bilby
-import sys
-import numpy as np 
-import sys
+import logging
+logger = logging.getLogger(__name__).setLevel(logging.INFO)
 class BilbyLikelihood(bilby.Likelihood):
 
     def __init__(self,KalmanModel,parameters):
@@ -24,9 +23,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
 
  
     # #Run the sampler
-    print("RUN THE SAMPLER")
-
-
+    logging.info("Starting the bilby sampler")
     result = bilby.run_sampler(likelihood, priors, 
                               label = label,
                               outdir=outdir,
@@ -35,7 +32,6 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               check_point_plot=False,
                               npoints=2500,
                               dlogz=1e-6,
-                              #dlogz=0.1,
                               npool=1,
 			                  plot=False,resume=False)
 
