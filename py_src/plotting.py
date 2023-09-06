@@ -5,7 +5,7 @@ import numpy as np
 import json
 import pandas as pd 
 import corner
-import scienceplots
+import scienceplots # noqa: F401
 from scipy import interpolate
 
 def plot_statespace(t,states,measurements,psr_index):

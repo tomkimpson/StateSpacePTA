@@ -169,8 +169,8 @@ class KalmanFilter:
         likelihood = 0.0
               
        
-        x,P,l,ypred = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
-        likelihood +=l
+        x,P,likelihood_value,ypred = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
+        likelihood +=likelihood_value
 
 
         #Place to store results
@@ -185,9 +185,9 @@ class KalmanFilter:
             
             obs = self.observations[i,:]
             x_predict, P_predict   = predict(x,P,F,Q)
-            x,P,l,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
+            x,P,likelihood_value,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
             
-            likelihood +=l
+            likelihood +=likelihood_value
 
             x_results[i,:] = x
             y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 

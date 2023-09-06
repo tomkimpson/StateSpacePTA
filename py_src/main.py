@@ -63,8 +63,7 @@ if __name__=="__main__":
     model_likelihood, state_predictions,measurement_predictions = KF.likelihood(params)
     logging.info(f"Non -ideal likelihood for randomly sampled parameters = {model_likelihood}")
 
-    import sys 
-    sys.exit()
+    
     # #Now run the Bilby sampler
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")
     print("***Completed OK***")
