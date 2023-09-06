@@ -2,18 +2,12 @@
 
 
 ### A python script that accepts a name argument and populates a slurm file 
-
-
-import os
-import sys 
-
-
 arg_name = sys.argv[1]
 h        =  sys.argv[2] #strain
 noise_model =  sys.argv[3] #whether to use the H0 or H1 model
 seed =  sys.argv[4] #whether to use the H0 or H1 model
 
-with open('slurm.sh','w') as g:
+with open('../slurm.sh','w') as g:
 
 
     g.write("#!/bin/bash \n \n")  

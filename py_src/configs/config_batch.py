@@ -10,7 +10,7 @@ import numpy as np
 
 def create_slurm_job(arg_name,h,measurement_model,seed):
 
-    with open(f'slurm_jobs/slurm_{arg_name}.sh','w') as g:
+    with open(f'../slurm_jobs/slurm_{arg_name}.sh','w') as g:
 
 
         g.write("#!/bin/bash \n \n")  

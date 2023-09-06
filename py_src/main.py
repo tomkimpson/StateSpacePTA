@@ -10,10 +10,7 @@ from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
 from priors import priors_dict,bilby_priors_dict
-from bilby_wrapper import BilbyLikelihood
 
-import numpy as np
-import bilby
 import sys
 
 import logging 

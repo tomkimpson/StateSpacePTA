@@ -4,16 +4,10 @@
 import numpy as np 
 #from gravitational_waves import gw_model
 
-from numba import jit,config
+from numba import jit
 
 
 from model import F_function,R_function,Q_function #H function is defined via a class init
-
-import sys 
-
-from scipy.stats import multivariate_normal
-
-
 
 
 """

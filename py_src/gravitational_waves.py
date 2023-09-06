@@ -1,24 +1,14 @@
 from numpy import sin,cos 
 import numpy as np 
-from numba import jit,config 
-import sys
-
-
+from numba import jit 
 
 @jit(nopython=True)
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
-
-
-
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
     gw_direction        = np.cross(m,n)
 
-
-
     dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
-
-
 
 
     e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)]) #tensordot might be a bit faster, but list comprehension has JIT support
