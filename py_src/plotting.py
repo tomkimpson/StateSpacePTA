@@ -51,7 +51,7 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
         prediction_i = predictions_x[:,psr_index]
         ax1.plot(tplot,prediction_i,label = 'prediction')
     except:
-        pass
+        print("Failed to plot the predictions for psr index ", psr_index)
     
     ax2.plot(tplot,measurement_i,label="measurement",c="C3")
     ax2.plot(tplot,measurement_clean_i,label="measurement_clean",c="C5")
@@ -65,10 +65,6 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
         residuals = prediction_i_y-measurement_i
 
 
-        #print("Calculating residual")
-        #print(prediction_i_y)
-        #print(measurement_i)
-
 
         ax3.plot(tplot,residuals)
 
@@ -76,7 +72,8 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
         ax4.hist(residuals,bins=50)
 
     except:
-        pass 
+        print("Failed to plot the residuals for psr index ", psr_index)
+ 
 
     ax1.legend()
     ax2.legend()
@@ -92,7 +89,6 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
     ax1.yaxis.set_tick_params(labelsize=fs-4)
 
     plt.subplots_adjust(wspace=0.1, hspace=0.1)
-    #plt.rcParams["font.family"] = "fantasy"
 
 
     if savefig != None:
@@ -136,9 +132,6 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     df_posterior["omega_gw"] = df_posterior["omega_gw"]*1e9
     #df_posterior["h"] = df_posterior["h"]*1e15
     df_posterior["h"] = df_posterior["h"]*1e12
-
-    display(df_posterior)
-
 
 
     print("Number of samples:")
@@ -202,10 +195,10 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
         
         
 
-    if savefig != None:
+    if savefig is not None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
         
-    if title != None:
+    if title is not None:
         fig.suptitle(title, fontsize=20)  
     plt.show()
 
@@ -290,7 +283,7 @@ def likelihoods_over_priors(parameters,priors,PTA,P,KF,title,savefig):
 
 
 
-    if savefig != None:
+    if savefig is not None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
     plt.show()
@@ -367,7 +360,7 @@ def SNR_plots(x,y1,y2,xlabel,savefig=None):
     ax.yaxis.set_tick_params(labelsize=fs-4)
 
     ax.legend()
-    if savefig != None:
+    if savefig is not None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
 
