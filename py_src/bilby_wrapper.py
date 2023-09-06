@@ -21,8 +21,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     
     likelihood = BilbyLikelihood(KalmanFilter,init_parameters)
 
- 
-    # #Run the sampler
+    #Run the sampler
     logging.info("Starting the bilby sampler")
     result = bilby.run_sampler(likelihood, priors, 
                               label = label,
@@ -30,8 +29,8 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               sampler ='dynesty',
                               sample='rwalk_dynesty',
                               check_point_plot=False,
-                              npoints=2500,
-                              dlogz=1e-6,
+                              npoints=4000,
+                              dlogz=0.1,
                               npool=1,
                               plot=False,resume=False)
 

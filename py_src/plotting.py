@@ -99,14 +99,10 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
 
 
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None):
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True):
     plt.style.use('science')
 
-
-
-
-    print(path.split('.')[-1])
-    if path.split('.')[-1] == 'json':
+    if path.split('.')[-1] == 'json': #If it is a json files
 
         # Opening JSON file
         f = open(path)
@@ -116,38 +112,34 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
         data = json.load(f)
         print("The evidence is:", data["log_evidence"])
         f.close()
-
         #Make it a dataframe. Nice for surfacing
         df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
-
-
-
     else: #is a parquet gzip
         df_posterior = pd.read_parquet(path) 
 
+    
+
+    #Make omega into nHz and also scale h
+    df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
+    df_posterior["h"] = df_posterior["h"]*scalings[1]
+    injection_parameters[0] = injection_parameters[0] * scalings[0]
+    injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
+    if ranges is not None: 
+        ranges[0] = (ranges[0][0]*scalings[0],ranges[0][1]*scalings[0])
+        ranges[-1] = (ranges[-1][0]*scalings[1],ranges[-1][1]*scalings[1])
+
+    print("The number of samples is:", len(df_posterior))
 
 
-    #Make omega into nHz
-    df_posterior["omega_gw"] = df_posterior["omega_gw"]*1e9
-    #df_posterior["h"] = df_posterior["h"]*1e15
-    df_posterior["h"] = df_posterior["h"]*1e12
-
-
-    print("Number of samples:")
-    print(len(df_posterior))
-
-    print("Truths/Medians/Variances")
-
+    print("Variable/Injection/Median")
     medians = df_posterior[variables_to_plot].median()
-    variances = df_posterior[variables_to_plot].var()
-    y_post = df_posterior[variables_to_plot].to_numpy()
 
     for i in range(len(medians)):
-        print(labels[i], injection_parameters[i], medians[i], variances[i])
+        print(variables_to_plot[i], injection_parameters[i], medians[i])
+    print('-------------------------------')
 
 
-
-
+    y_post = df_posterior[variables_to_plot].to_numpy()
     if logscale:
         y_post = np.log10(y_post)
         injection_parameters = np.log10(injection_parameters)
@@ -156,16 +148,13 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     import warnings
     warnings.filterwarnings("error")
 
-    #try:
     
-
-    #new_ranges = [(0.9*m,1.1*m) for m in medians.values]
-    print("running with increased label size")
+    #Now plot it using corner.corner
     fs = 20
     fig = corner.corner(y_post, 
                         color='C0',
                         show_titles=True,
-                        smooth=False,smooth1d=False,
+                        smooth=smooth,smooth1d=smooth1d,
                         truth_color='C2',
                         quantiles=[0.16, 0.84], #[0.16, 0.84]
                         truths = injection_parameters,
@@ -188,11 +177,8 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
 
         ax.title.set_size(18)
-        # print("The title is:")
-        # print(ax.get_title())
+       
 
-        
-        
 
     if savefig is not None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
@@ -201,92 +187,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
         fig.suptitle(title, fontsize=20)  
     plt.show()
 
-    # except:
-    #     print("Exception - likely because corner.corner cannot find nice contours since NS did not coverge well")
-    #     print("There is probably a large difference in the medians and the truth values")
-    #     print("Skipping plotting")
-    #     plt.close()
-    #     pass
-
-    print("**********************************************************************")
-
-
-
-def iterate_over_priors(variable, variable_range,true_parameters,KF):
-
-
-    guessed_parameters = true_parameters.copy()
-    likelihoods        =np.zeros_like(variable_range)
-
-
-    i = 0
-    for v in variable_range:
-        guessed_parameters[variable] = v 
-        model_likelihood,xres,yres = KF.likelihood(guessed_parameters)    
-        likelihoods[i] = model_likelihood
-        i+=1 
-    return likelihoods
-
-
-
-def likelihoods_over_priors(parameters,priors,PTA,P,KF,title,savefig):
-
-
-
-    plt.style.use('science')
-    true_parameters = priors_dict(PTA,P)
     
-
-    h,w = 20,12
-    rows = 4
-    cols = 2
-    fig, axes_object = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
-    
-
-
-    axes = fig.get_axes()
-
-
-
-    log_x_values = ["omega_gw", "h"]
-
-    i = 0
-    for key,value in parameters.items():
-
-        print(i, key, value)
-        prior = priors[i]
-        likelihood = iterate_over_priors(key, prior,true_parameters,KF)
-
-        ax = axes[i]
-        ax.plot(prior,likelihood)
-        ax.set_xlabel(key, fontsize = 16)
-        ax.axvline(value,linestyle='--', c='C2',label="truth")
-
-        idx = np.argmax(likelihood)
-
-
-        ax.axvline(prior[idx],linestyle='--', c='C3',label="maxima")
-
-        if key in log_x_values:
-            ax.set_xscale('log')
-    
-        i+=1
-
-
-    
-
-    plt.subplots_adjust(hspace=0.5)
-   
-    fig.suptitle(title, fontsize=20)
-    plt.legend()
-
-
-
-    if savefig is not None:
-        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
-
-    plt.show()
-
 
 
 def plot_likelihood(x,y):
