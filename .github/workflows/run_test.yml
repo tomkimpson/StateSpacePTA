@@ -23,7 +23,7 @@ jobs:
         run: |  
           pip install ruff  
           ruff --format=github --target-version=py310 --line-length=200 .
-        continue-on-error: true  
+        continue-on-error: false  
       - name: Test with pytest  
         run: |  
           coverage run -m pytest  -v -s  
