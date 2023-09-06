@@ -1,2 +1,2 @@
 #See https://github.com/github-linguist/linguist/blob/master/docs/overrides.md
-py_srcs/slurm_jobs/* linguist-vendored	
+py_src/slurm_jobs/* linguist-vendored	
