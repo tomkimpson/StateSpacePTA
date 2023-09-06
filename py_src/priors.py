@@ -4,7 +4,6 @@
 import bilby
 
 import numpy as np
-import random
 import logging 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -144,7 +143,6 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
 
         init_parameters["omega_gw"] = None
         priors["omega_gw"] = 1.0
-
 
         init_parameters["phi0_gw"] = None
         priors["phi0_gw"] = 1.0  

@@ -15,7 +15,7 @@ class SyntheticData:
 
         #Load some PTA related quantities
         t = pulsars.t
-        Npsr = pulsars.Npsr 
+        #Npsr = pulsars.Npsr 
 
         #Pulsar parameters
         γ= pulsars.γ  

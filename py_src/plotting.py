@@ -6,7 +6,7 @@ import json
 import pandas as pd 
 import corner
 import scienceplots
-import sys 
+from scipy import interpolate
 
 def plot_statespace(t,states,measurements,psr_index):
 
@@ -46,34 +46,33 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
     ax1.plot(tplot,state_i,label='state')
 
-    try:
+    #try:
 
-        prediction_i = predictions_x[:,psr_index]
-        ax1.plot(tplot,prediction_i,label = 'prediction')
-    except:
-        print("Failed to plot the predictions for psr index ", psr_index)
+    prediction_i = predictions_x[:,psr_index]
+    ax1.plot(tplot,prediction_i,label = 'prediction')
+    #except:
+     #   print("Failed to plot the predictions for psr index ", psr_index)
     
     ax2.plot(tplot,measurement_i,label="measurement",c="C3")
     ax2.plot(tplot,measurement_clean_i,label="measurement_clean",c="C5")
 
 
-    try:
-        prediction_i_y = predictions_y[:,psr_index]
-        ax2.plot(tplot,prediction_i_y,label="prediction",c="C4")
+   # try:
+    prediction_i_y = predictions_y[:,psr_index]
+    ax2.plot(tplot,prediction_i_y,label="prediction",c="C4")
 
-        #Residuals
-        residuals = prediction_i_y-measurement_i
+    #Residuals
+    residuals = prediction_i_y-measurement_i
 
 
 
-        ax3.plot(tplot,residuals)
+    ax3.plot(tplot,residuals)
 
-        print("Mean abs residual:", np.mean(np.abs(residuals)))
-        ax4.hist(residuals,bins=50)
+    print("Mean abs residual:", np.mean(np.abs(residuals)))
+    ax4.hist(residuals,bins=50)
 
-    except:
-        print("Failed to plot the residuals for psr index ", psr_index)
  
+
 
     ax1.legend()
     ax2.legend()
@@ -91,7 +90,7 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
     plt.subplots_adjust(wspace=0.1, hspace=0.1)
 
 
-    if savefig != None:
+    if savefig is not None:
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
    
 
@@ -311,7 +310,7 @@ def plot_likelihood(x,y):
 
 
 
-from scipy import interpolate
+
 
 def SNR_plots(x,y1,y2,xlabel,savefig=None):
 

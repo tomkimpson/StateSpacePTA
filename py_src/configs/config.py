@@ -1,6 +1,6 @@
 
 
-
+import sys
 ### A python script that accepts a name argument and populates a slurm file 
 arg_name = sys.argv[1]
 h        =  sys.argv[2] #strain

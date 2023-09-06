@@ -62,9 +62,9 @@ def update(x, P, observation,R,Xfactor,ephemeris):
 
     
     #And get the likelihood
-    l = log_likelihood(S,y)
+    likelihood_value = log_likelihood(S,y)
     
-    return xnew, Pnew,l,y_predicted
+    return xnew, Pnew,likelihood_value,y_predicted
 
 
 """
@@ -117,23 +117,16 @@ class KalmanFilter:
 
         #Extract parameter values
         #To do - remove try/except
-        try: #for the H1 model, these are dicts
-            omega_gw = parameters["omega_gw"].item() 
-            phi0_gw  = parameters["phi0_gw"].item()
-            psi_gw   = parameters["psi_gw"].item()
-            iota_gw  = parameters["iota_gw"].item()
-            delta_gw = parameters["delta_gw"].item()
-            alpha_gw = parameters["alpha_gw"].item()
-            h        = parameters["h"].item()
-        except: #for the null model, these are floats, not dict entries
-            omega_gw = parameters["omega_gw"]
-            phi0_gw  = parameters["phi0_gw"]
-            psi_gw   = parameters["psi_gw"]
-            iota_gw  = parameters["iota_gw"]
-            delta_gw = parameters["delta_gw"]
-            alpha_gw = parameters["alpha_gw"]
-            h        = parameters["h"]
- 
+
+     
+        omega_gw = parameters["omega_gw"].item() 
+        phi0_gw  = parameters["phi0_gw"].item()
+        psi_gw   = parameters["psi_gw"].item()
+        iota_gw  = parameters["iota_gw"].item()
+        delta_gw = parameters["delta_gw"].item()
+        alpha_gw = parameters["alpha_gw"].item()
+        h        = parameters["h"].item()
+
         #Noise parameters
         sigma_m = parameters["sigma_m"] #dont need an .item(), we always pass it as a float, don't infer it
         
