@@ -1,4 +1,7 @@
 mkl-fft==1.3.6
-mkl-random @ file:///Users/ec2-user/mkl/mkl_random_1682994911338/work
+mkl-random==1.2.2
 mkl-service==2.4.0
-numpy @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_2ajpp3regc/croot/numpy_and_numpy_base_1691164374110/work
+numpy==1.25.2
+pip==23.2.1
+setuptools==68.0.0
+wheel==0.38.4
