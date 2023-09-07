@@ -1,6 +1,9 @@
 import bilby
 import logging
 logger = logging.getLogger(__name__).setLevel(logging.INFO)
+
+
+"""Here is some test documentation"""
 class BilbyLikelihood(bilby.Likelihood):
 
     def __init__(self,KalmanModel,parameters):

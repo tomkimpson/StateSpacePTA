@@ -1,6 +1,6 @@
 # Gravitational Waves
 
-[StateSpacePta Index](../README.md#statespacepta-index) /
+[StateSpacePTA Index](../README.md#statespacepta-index) /
 [Py Src](./index.md#py-src) /
 Gravitational Waves
 

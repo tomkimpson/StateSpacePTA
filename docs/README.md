@@ -1,8 +1,8 @@
-# StateSpacePta Index
+# StateSpacePTA Index
 
 > Auto-generated documentation index.
 
-A full list of [StateSpacePta](https://github.com/tomkimpson/StateSpacePTA.jl) project modules.
+A full list of [StateSpacePTA](https://github.com/tomkimpson/StateSpacePTA.jl) project modules.
 
 - [Py Src](py_src/index.md#py-src)
     - [Bilby Wrapper](py_src/bilby_wrapper.md#bilby-wrapper)

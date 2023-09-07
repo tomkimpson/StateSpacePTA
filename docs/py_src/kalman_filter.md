@@ -1,6 +1,6 @@
 # KalmanFilter
 
-[StateSpacePta Index](../README.md#statespacepta-index) /
+[StateSpacePTA Index](../README.md#statespacepta-index) /
 [Py Src](./index.md#py-src) /
 KalmanFilter
 

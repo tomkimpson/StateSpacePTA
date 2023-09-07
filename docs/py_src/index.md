@@ -1,6 +1,6 @@
 # Py Src
 
-[StateSpacePta Index](../README.md#statespacepta-index) /
+[StateSpacePTA Index](../README.md#statespacepta-index) /
 Py Src
 
 > Auto-generated documentation for [py_src](https://github.com/tomkimpson/StateSpacePTA.jl/blob/pulsar_terms/py_src/__init__.py) module.

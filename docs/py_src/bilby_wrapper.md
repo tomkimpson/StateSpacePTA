@@ -1,6 +1,6 @@
 # Bilby Wrapper
 
-[StateSpacePta Index](../README.md#statespacepta-index) /
+[StateSpacePTA Index](../README.md#statespacepta-index) /
 [Py Src](./index.md#py-src) /
 Bilby Wrapper
 
