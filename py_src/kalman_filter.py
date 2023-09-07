@@ -115,10 +115,6 @@ class KalmanFilter:
     def likelihood(self,parameters):
 
 
-        #Extract parameter values
-        #To do - remove try/except
-
-     
         omega_gw = parameters["omega_gw"].item() 
         phi0_gw  = parameters["phi0_gw"].item()
         psi_gw   = parameters["psi_gw"].item()
@@ -128,78 +124,80 @@ class KalmanFilter:
         h        = parameters["h"].item()
 
         #Noise parameters
-        sigma_m = parameters["sigma_m"] #dont need an .item(), we always pass it as a float, don't infer it
+        sigma_m = parameters["sigma_m"] # don't need an .item(), we always pass it as a float, don't infer it
         
         
-        #Bilby takes a dict rather than a class
-        #For us this is annoying - map some quantities to be vectors
-        f,fdot,gamma,d,sigma_p = map_dicts_to_vector(parameters)
-        f_EM = f + np.outer(self.t,fdot) #ephemeris correction
+       
+
+        # #Bilby takes a dict rather than a class
+        # #For us this is annoying - map some quantities to be vectors
+        f,fdot,gamma,d,sigma_p = map_dicts_to_vector(parameters,self.Npsr)
+        # f_EM = f + np.outer(self.t,fdot) #ephemeris correction
 
 
 
-        #Precompute all the transition and control matrices as well as Q and R matrices.
-        #F,Q,R are time-independent functions of the parameters
-        #T is time dependent, but does not depend on states and so can be precomputed
-        R = R_function(sigma_m)
-        Q = Q_function(gamma,sigma_p,self.dt)
-        F = F_function(gamma,self.dt)
+        # #Precompute all the transition and control matrices as well as Q and R matrices.
+        # #F,Q,R are time-independent functions of the parameters
+        # #T is time dependent, but does not depend on states and so can be precomputed
+        # R = R_function(sigma_m)
+        # Q = Q_function(gamma,sigma_p,self.dt)
+        # F = F_function(gamma,self.dt)
 
-        #Initialise x and P
-        x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+        # #Initialise x and P
+        # x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        # P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
 
-        #Precompute the influence of the GW
-        #Agan this does not depend on the states and so can be precomputed
-        X_factor = self.H_function(delta_gw,
-                                    alpha_gw,
-                                    psi_gw,
-                                    self.q,
-                                    self.q_products,
-                                    h,
-                                    iota_gw,
-                                    omega_gw,
-                                    d,
-                                    self.t,
-                                    phi0_gw
-                                )
+        # #Precompute the influence of the GW
+        # #Agan this does not depend on the states and so can be precomputed
+        # X_factor = self.H_function(delta_gw,
+        #                             alpha_gw,
+        #                             psi_gw,
+        #                             self.q,
+        #                             self.q_products,
+        #                             h,
+        #                             iota_gw,
+        #                             omega_gw,
+        #                             d,
+        #                             self.t,
+        #                             phi0_gw
+        #                         )
 
-        #Initialise the likelihood
-        likelihood = 0.0
+        # #Initialise the likelihood
+        # likelihood = 0.0
               
        
-        x,P,likelihood_value,ypred = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
-        likelihood +=likelihood_value
+        # x,P,likelihood_value,ypred = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
+        # likelihood +=likelihood_value
 
 
-        #Place to store results
-        x_results = np.zeros((self.Nsteps,self.Npsr))
-        y_results = np.zeros_like(x_results)
-        x_results[0,:] = x
-        y_results[0,:] = (1.0 - X_factor[0,:])*x - X_factor[0,:]*f_EM[0,:] 
+        # #Place to store results
+        # x_results = np.zeros((self.Nsteps,self.Npsr))
+        # y_results = np.zeros_like(x_results)
+        # x_results[0,:] = x
+        # y_results[0,:] = (1.0 - X_factor[0,:])*x - X_factor[0,:]*f_EM[0,:] 
 
 
-        for i in np.arange(1,self.Nsteps):
+        # for i in np.arange(1,self.Nsteps):
 
             
-            obs = self.observations[i,:]
-            x_predict, P_predict   = predict(x,P,F,Q)
-            x,P,likelihood_value,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
+        #     obs = self.observations[i,:]
+        #     x_predict, P_predict   = predict(x,P,F,Q)
+        #     x,P,likelihood_value,ypred = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:])
             
-            likelihood +=likelihood_value
+        #     likelihood +=likelihood_value
 
-            x_results[i,:] = x
-            y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
+        #     x_results[i,:] = x
+        #     y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
             
-        return likelihood,x_results,y_results
+        # return likelihood,x_results,y_results
 
 
 """
 Useful function which maps repeated quantities in the dictionary to a
 vector. Is there a more efficient way to do this? 
 """
-def map_dicts_to_vector(parameters_dict):
+def map_dicts_to_vector(parameters_dict,Npsr):
 
     f = np.array([val.item() for key, val in parameters_dict.items() if "f0" in key])
     fdot = np.array([val.item() for key, val in parameters_dict.items() if "fdot" in key])
@@ -207,13 +205,31 @@ def map_dicts_to_vector(parameters_dict):
     d = np.array([val.item() for key, val in parameters_dict.items() if "distance" in key])
     sigma_p = np.array([val.item() for key, val in parameters_dict.items() if "sigma_p" in key])
 
+
+
+
+    list_of_f_keys = [f'f0{i}' for i in range(Npsr)]
+    print(list_of_f_keys)
+    fnew = {k:parameters_dict[k] for k in list_of_f_keys}
+
+
+    print(np.array(list(fnew.values())).flatten())
+
     return f,fdot,gamma,d,sigma_p
 
 
 
 
+def parse_dictionary(parameters_dict,Npsr):
 
 
+    omega_gw = parameters_dict["omega_gw"].item() 
+    phi0_gw  = parameters_dict["phi0_gw"].item()
+    psi_gw   = parameters_dict["psi_gw"].item()
+    iota_gw  = parameters_dict["iota_gw"].item()
+    delta_gw = parameters_dict["delta_gw"].item()
+    alpha_gw = parameters_dict["alpha_gw"].item()
+    h        = parameters_dict["h"].item()
 
 
 
