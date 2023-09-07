@@ -7,7 +7,7 @@ h        =  sys.argv[2] #strain
 noise_model =  sys.argv[3] #whether to use the H0 or H1 model
 seed =  sys.argv[4] #whether to use the H0 or H1 model
 
-with open('../slurm.sh','w') as g:
+with open('slurm.sh','w') as g:
 
 
     g.write("#!/bin/bash \n \n")  
