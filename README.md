@@ -1,6 +1,7 @@
 # StateSpacePTA
 
-
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomkimpson/StateSpacePTA/run_test.yml)
+![Codecov](https://img.shields.io/codecov/c/github/tomkimpson/StateSpacePTA)
 
 
 Welcome to the StateSpacePTA repo.
