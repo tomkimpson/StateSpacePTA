@@ -1,8 +1,0 @@
-site_name: "StateSpacePTA"
-repo_url: "https://github.com/tomkimpson/StateSpacePTA.jl"
-site_dir: "site"
-docs_dir: "docs"
-
-theme:
-  name: readthedocs
-  include_sidebar: true
