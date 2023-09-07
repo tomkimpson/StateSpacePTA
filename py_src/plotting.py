@@ -1,6 +1,5 @@
 
 import matplotlib.pyplot as plt 
-from priors import priors_dict
 import numpy as np 
 import json
 import pandas as pd 
@@ -190,21 +189,28 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     
 
 
-def plot_likelihood(x,y):
+def plot_likelihood(x,y,parameter_name,log_x_axes=False):
 
-    h,w = 20,12
+    h,w = 8,8
     rows = 1
     cols = 1
+    fs =20
+    plt.style.use('science')
     fig, ax = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
 
 
-    z = [x for _, x in sorted(zip(y, x))]
+    ax.plot(x,y)
 
-    print(sorted(x))
 
-    ax.plot(sorted(x),z)
+    ax.set_xlabel(parameter_name, fontsize=fs)
+    ax.set_ylabel(r'$\log \mathcal{L}$', fontsize=fs)
+    ax.yaxis.set_tick_params(labelsize=fs-6)
+    ax.xaxis.set_tick_params(labelsize=fs-6)
 
-    print("PLOTTING LIKELIHOOD")
+    if log_x_axes:
+        ax.set_xscale('log')
+
+
     plt.show()
 
 

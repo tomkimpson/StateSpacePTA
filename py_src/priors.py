@@ -85,13 +85,13 @@ def priors_dict(pulsar_parameters,P):
 
 
    priors = dict({
-               "omega_gw": P.Ω,
-               "phi0_gw":P.Φ0,
-               "psi_gw":P.ψ,
-               "iota_gw":P.ι,
-               "delta_gw":P.δ,
-               "alpha_gw":P.α,
-               "h": P.h})
+               "omega_gw": np.array([P.Ω]), #np.array puts it in the same form as returned by a sample of the Bilby dict
+               "phi0_gw":np.array([P.Φ0]),
+               "psi_gw":np.array([P.ψ]),
+               "iota_gw":np.array([P.ι]),
+               "delta_gw":np.array([P.δ]),
+               "alpha_gw":np.array([P.α]),
+               "h": np.array([P.h])})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
    priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
@@ -130,7 +130,6 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
 
 
 def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model,P):
-
 
     if measurement_model == "null": #set these as constants. Not used in the filter for the null model
 
@@ -212,6 +211,7 @@ def bilby_priors_dict(PTA,P):
     priors = bilby.core.prior.PriorDict()
 
 
+    
     #Measurement priors
     init_parameters,priors = set_prior_on_measurement_parameters(init_parameters,priors,P.measurement_model,P) #h is provided to set the prior a few orders of magnitude either side.
 
@@ -220,7 +220,7 @@ def bilby_priors_dict(PTA,P):
 
     #Noise priors
     init_parameters["sigma_m"] = None
-    priors["sigma_m"] = 1e-11
+    priors["sigma_m"] = P.σm
 
 
 
