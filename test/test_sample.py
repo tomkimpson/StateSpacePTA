@@ -11,12 +11,10 @@ def test_answer():
     assert inc(3) == 3
 
 
-import sys
-sys.path.append('../py_src')
-
-from gravitational_waves import principal_axes
 
 
+from py_src import gravitational_waves
 
-assert 1.0 == principal_axes(10.0,2.0,3.0)
 
+
+assert 1.0 == gravitational_waves.principal_axes(10.0,2.0,3.0)
