@@ -1,44 +1,41 @@
 from numpy import sin,cos 
 import numpy as np 
-from numba import jit 
+from numba import jit,njit 
 
-@jit(nopython=True)
+@njit
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
-
+    #Get GW direction
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
     gw_direction        = np.cross(m,n)
 
-    dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
-
-
-    e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)]) #tensordot might be a bit faster, but list comprehension has JIT support
-    e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
-
+    #Now get the strain amplitude 
+    #
+    # For e_+,e_x, Tensordot might be a bit faster, but list comprehension has JIT support
+    # Note these are 1D arrays, rather than the usual 2D struture
+    e_plus              = np.array([m[i]*m[j]-n[i]*n[j] for i in range(3) for j in range(3)]) 
+    e_cross             = np.array([m[i]*n[j]-n[i]*m[j] for i in range(3) for j in range(3)])
     hp,hx               = h_amplitudes(h,iota) 
     Hij                 = hp * e_plus + hx * e_cross
-    Hij_flat            = Hij.flatten()
-
-
-    #H_ij q^i q^j
-    hbar                = np.dot(Hij_flat,q_products) #length = Npsr
-
+    hbar                = np.dot(Hij,q_products) #length = Npsr
+    
 
     #Shared time dependent terms
-    little_a = -omega*t + phi0
-    little_a = little_a.reshape((len(t),1)) #todo - avoid this reshape
+    earth_term_phase = -omega*t + phi0
+    
+    #Define a dot product variable
+    dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
 
-    return dot_product,hbar,little_a
+    return dot_product,hbar,earth_term_phase.reshape(len(t),1) #shapes [(Npsr,),(Npsr,),(Ntimes,1)]
 
 
 
 """
 What is the GW modulation factor, just for the earth terms
 """
-@jit(nopython=True)
+@njit
 def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
-    dot_product,hbar,little_a = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
-    trig_block = cos(little_a).reshape((len(t),1)) 
-    GW_factor = 0.50*(hbar/dot_product)*trig_block
+    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
+    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase).reshape(len(t),1))
     return GW_factor
 
 
@@ -46,21 +43,11 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-@jit(nopython=True)
+@njit
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
-
-    dot_product,hbar,little_a = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
-
-
-
-    #Extra pulsar terms
-    little_b = omega*dot_product*d
-    little_b = little_b.reshape((1,len(dot_product)))
-    blob = little_a+little_b
-    trig_block = cos(little_a).reshape((len(t),1)) - cos(blob)
-    GW_factor = 0.50*(hbar/dot_product)*trig_block
-
-
+    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
+    thing1 = cos(earth_term_phase) - cos(earth_term_phase +omega*dot_product*d)
+    GW_factor = 0.50*(hbar/dot_product)*thing1
     return GW_factor
 
 
@@ -68,14 +55,12 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 The null model - i.e. no GW
 """
-@jit(nopython=True)
+@njit
 def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 
-
-
-@jit(nopython=True)
+@njit
 def principal_axes(theta,phi,psi):
     
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
@@ -90,7 +75,7 @@ def principal_axes(theta,phi,psi):
 
     return m,n
 
-@jit(nopython=True)
+@njit
 def h_amplitudes(h,ι): 
 
     hplus = h*(1.0 + cos(ι)**2)

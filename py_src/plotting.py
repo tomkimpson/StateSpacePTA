@@ -189,7 +189,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     
 
 
-def plot_likelihood(x,y,parameter_name,log_x_axes=False):
+def plot_likelihood(x,y,parameter_name,log_x_axes=False,injection=1.0):
 
     h,w = 8,8
     rows = 1
@@ -211,6 +211,7 @@ def plot_likelihood(x,y,parameter_name,log_x_axes=False):
         ax.set_xscale('log')
 
 
+    ax.axvline(injection,c='0.5',linestyle='--')
     plt.show()
 
 

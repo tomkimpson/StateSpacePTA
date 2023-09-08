@@ -3,7 +3,7 @@
 import sdeint
 import numpy as np 
 
-from gravitational_waves import gw_earth_terms,gw_psr_terms
+from tmp_code.gravitational_waves import gw_earth_terms,gw_psr_terms
 import logging
 
 class SyntheticData:
@@ -15,7 +15,7 @@ class SyntheticData:
 
         #Load some PTA related quantities
         t = pulsars.t
-        #Npsr = pulsars.Npsr 
+        Npsr = pulsars.Npsr 
 
         #Pulsar parameters
         γ= pulsars.γ  
@@ -38,7 +38,6 @@ class SyntheticData:
         self.intrinsic_frequency= sdeint.itoint(f,g,pulsars.fprime, t,generator=generator)
 
         #Now calculate the modulation factor due to the GW
-        
         if P.use_psr_terms_in_data:
             GW_function = gw_psr_terms
             logging.info("You are including the PSR terms in your synthetic data generation")
@@ -46,6 +45,7 @@ class SyntheticData:
             GW_function = gw_earth_terms
             logging.info("You are using just the Earth terms in your synthetic data generation")
 
+        
         X_factor = GW_function(
                                         P.δ,
                                         P.α,
