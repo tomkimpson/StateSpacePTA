@@ -1,7 +1,7 @@
 #Test that code generally runs with no issues
-from run import bilby_inference_run
+#from run import bilby_inference_run
 
-
+from py_src import run
 
 
 
