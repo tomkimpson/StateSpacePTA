@@ -1,12 +1,12 @@
 import numpy as np 
-from numba import jit
+from numba import njit
 from model import F_function,R_function,Q_function # H function is defined via a class init
 
 
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-@jit(nopython=True)
+@njit(fastmath=True)
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)
@@ -19,7 +19,7 @@ def log_likelihood(S,innovation):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-@jit(nopython=True)
+@njit(fastmath=True)
 def update(x, P, observation,R,Xfactor,ephemeris):
 
 
@@ -50,7 +50,7 @@ def update(x, P, observation,R,Xfactor,ephemeris):
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-@jit(nopython=True)
+@njit(fastmath=True)
 def predict(x,P,F,Q): 
     xp = F*x
     Pp = F*P*F + Q  

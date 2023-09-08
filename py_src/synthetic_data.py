@@ -60,6 +60,7 @@ class SyntheticData:
                                         P.Φ0
                                         )
             
+        
         #The measured frequency, no noise
         self.f_measured_clean= (1.0-X_factor)*self.intrinsic_frequency - X_factor*pulsars.ephemeris
         

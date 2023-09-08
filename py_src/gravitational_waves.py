@@ -2,7 +2,7 @@ from numpy import sin,cos
 import numpy as np 
 from numba import jit,njit 
 
-@njit
+@njit(fastmath=True)
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     #Get GW direction
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
@@ -32,10 +32,10 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, just for the earth terms
 """
-@njit
+@njit(fastmath=True)
 def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
-    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase).reshape(len(t),1))
+    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase))
     return GW_factor
 
 
@@ -43,11 +43,10 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-@njit
+@njit(fastmath=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
-    thing1 = cos(earth_term_phase) - cos(earth_term_phase +omega*dot_product*d)
-    GW_factor = 0.50*(hbar/dot_product)*thing1
+    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +omega*dot_product*d))
     return GW_factor
 
 
@@ -55,12 +54,12 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 The null model - i.e. no GW
 """
-@njit
+@njit(fastmath=True)
 def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 
-@njit
+@njit(fastmath=True)
 def principal_axes(theta,phi,psi):
     
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
@@ -75,13 +74,9 @@ def principal_axes(theta,phi,psi):
 
     return m,n
 
-@njit
+@njit(fastmath=True)
 def h_amplitudes(h,ι): 
-
-    hplus = h*(1.0 + cos(ι)**2)
-    hcross = h*(-2.0*cos(ι))
-
-    return hplus,hcross
+    return h*(1.0 + cos(ι)**2),h*(-2.0*cos(ι)) #hplus,hcross
 
 
 
