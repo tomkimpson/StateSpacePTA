@@ -77,10 +77,17 @@ class Pulsars:
         generator = np.random.default_rng(SystemParameters.sigma_p_seed)
         if SystemParameters.σp is None:
             self.σp = generator.uniform(low = 1e-21,high=1e-19,size=self.Npsr)
+            #self.σp = generator.uniform(low = 1e-13,high=2e-13,size=self.Npsr)
+
             logging.info("You are assigning the σp terms randomly")
         else:
             self.σp = np.full(self.Npsr,SystemParameters.σp)
 
+
+            
+
+        print("The process noise matrices are:")
+        print(self.σp)
         self.σm =  SystemParameters.σm
         self.NF = NF 
 
