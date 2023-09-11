@@ -1,10 +1,10 @@
 
 
 import numpy as np
-from numba import njit
+from numba import jit,config
 
 import logging 
-from gravitational_waves import gw_psr_terms,gw_earth_terms,null_model
+from tmp_code.gravitational_waves import gw_psr_terms,gw_earth_terms,null_model
 import sys
 class LinearModel:
 
@@ -25,7 +25,6 @@ class LinearModel:
             logging.info("You are using the Earth terms measurement model")
             self.H_function = gw_earth_terms
         elif P.measurement_model == "pulsar":
-            logging.info("You are using the Pulsar terms measurement model")
             self.H_function = gw_psr_terms
         else:
             sys.exit("Measurement model not recognized. Stopping.")
@@ -37,14 +36,14 @@ class LinearModel:
 """
 The diagonal F matrix as a vector
 """
-@njit(fastmath=True)
+@jit(nopython=True)
 def F_function(gamma,dt):
     return np.exp(-gamma*dt)
 
 """
 The diagonal Q matrix as a vector
 """
-@njit(fastmath=True)
+@jit(nopython=True)
 def Q_function(gamma,sigma_p,dt):
     value = sigma_p**2 * (1. - np.exp(-2.0*gamma* dt)) / (2.0 * gamma)
     return value 
@@ -52,7 +51,7 @@ def Q_function(gamma,sigma_p,dt):
 """
 The R matrix as a scalar
 """
-@njit(fastmath=True)
+@jit(nopython=True)
 def R_function(sigma_m):
     return sigma_m**2
     

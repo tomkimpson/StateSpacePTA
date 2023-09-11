@@ -1,8 +1,10 @@
-data/
 py_src/__pycache__/bilby_wrapper.cpython-310.pyc
 py_src/__pycache__/*.pyc
 py_src/outputs/*
+py_src/slurm_jobs/*
 docs/minutes/slides/images/*
 docs/minutes/*/*/*.png
 py_src/slurm_jobs/*.sh
 .DS_Store
+py_src/slurm_jobs/*.sh
+data/nested_sampling/*

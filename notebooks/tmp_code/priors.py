@@ -4,6 +4,7 @@
 import bilby
 
 import numpy as np
+import random
 import logging 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -85,13 +86,13 @@ def priors_dict(pulsar_parameters,P):
 
 
    priors = dict({
-               "omega_gw": np.array([P.Ω]), #np.array puts it in the same form as returned by a sample of the Bilby dict
-               "phi0_gw":np.array([P.Φ0]),
-               "psi_gw":np.array([P.ψ]),
-               "iota_gw":np.array([P.ι]),
-               "delta_gw":np.array([P.δ]),
-               "alpha_gw":np.array([P.α]),
-               "h": np.array([P.h])})
+               "omega_gw": P.Ω,
+               "phi0_gw":P.Φ0,
+               "psi_gw":P.ψ,
+               "iota_gw":P.ι,
+               "delta_gw":P.δ,
+               "alpha_gw":P.α,
+               "h": P.h})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
    priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
@@ -131,6 +132,7 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
 
 def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model,P):
 
+
     if measurement_model == "null": #set these as constants. Not used in the filter for the null model
 
         #We define the GW parameters for consistency but these are not actually used
@@ -142,6 +144,7 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
 
         init_parameters["omega_gw"] = None
         priors["omega_gw"] = 1.0
+
 
         init_parameters["phi0_gw"] = None
         priors["phi0_gw"] = 1.0  
@@ -172,26 +175,35 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
         #Add all the GW quantities
         init_parameters["omega_gw"] = None
         priors["omega_gw"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
+        #priors["omega_gw"] = P.Ω
 
         init_parameters["phi0_gw"] = None
         priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+        #priors["phi0_gw"] = P.Φ0
 
         init_parameters["psi_gw"] = None
         priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+        #priors["psi_gw"] = P.ψ
 
         init_parameters["iota_gw"] = None
         priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+        #priors["iota_gw"] = P.ι
 
         init_parameters["delta_gw"] = None
+        #priors["delta_gw"] = bilby.core.prior.Uniform(-np.pi/2.0, np.pi/2, 'delta_gw')
         priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
-
+        #priors["delta_gw"] = P.δ
 
         init_parameters["alpha_gw"] = None
+        #priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
         priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+        #priors["alpha_gw"] = P.α
 
 
         init_parameters["h"] = None
         priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
+        #priors["h"] = bilby.core.prior.LogUniform(1e-15, 8e-14, 'h')
+        #priors["h"] = P.h #experiment fixing $h$ to compare performance in $\iota$
 
 
     return init_parameters,priors 
@@ -211,7 +223,6 @@ def bilby_priors_dict(PTA,P):
     priors = bilby.core.prior.PriorDict()
 
 
-    
     #Measurement priors
     init_parameters,priors = set_prior_on_measurement_parameters(init_parameters,priors,P.measurement_model,P) #h is provided to set the prior a few orders of magnitude either side.
 
@@ -220,7 +231,7 @@ def bilby_priors_dict(PTA,P):
 
     #Noise priors
     init_parameters["sigma_m"] = None
-    priors["sigma_m"] = P.σm
+    priors["sigma_m"] = 1e-11
 
 
 

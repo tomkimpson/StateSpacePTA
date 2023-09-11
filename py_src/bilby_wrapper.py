@@ -1,7 +1,9 @@
 import bilby
-import sys
-import numpy as np 
-import sys
+import logging
+logger = logging.getLogger(__name__).setLevel(logging.INFO)
+
+
+"""Here is some test documentation"""
 class BilbyLikelihood(bilby.Likelihood):
 
     def __init__(self,KalmanModel,parameters):
@@ -10,11 +12,7 @@ class BilbyLikelihood(bilby.Likelihood):
         self.model = KalmanModel
         
     def log_likelihood(self):
-
- 
-        ll,xres,yres = self.model.likelihood(self.parameters)
-        
-        return ll
+        return self.model.likelihood(self.parameters)
     
             
 def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
@@ -22,21 +20,18 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     
     likelihood = BilbyLikelihood(KalmanFilter,init_parameters)
 
- 
-    # #Run the sampler
-    print("RUN THE SAMPLER")
-
-
+    #Run the sampler
+    logging.info("Starting the bilby sampler")
     result = bilby.run_sampler(likelihood, priors, 
                               label = label,
                               outdir=outdir,
                               sampler ='dynesty',
-			                  sample='rwalk_dynesty',
+                              sample='rwalk_dynesty',
+                              bound='single', # https://dynesty.readthedocs.io/en/latest/faq.html
                               check_point_plot=False,
-                              npoints=2500,
-                              dlogz=1e-6,
-                              #dlogz=0.1,
+                              npoints=1000,
+                              dlogz=0.1,
                               npool=1,
-			                  plot=False,resume=False)
+                              plot=False,resume=False)
 
     return result
