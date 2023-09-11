@@ -19,7 +19,8 @@ class Pulsars:
 
 
         #Load the pulsar data
-        pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
+        pulsars = pd.read_csv("data/NANOGrav_pulsars.csv")
+
         if SystemParameters.Npsr != 0:
             pulsars = pulsars.sample(SystemParameters.Npsr,random_state=SystemParameters.seed) #can also use  pulsars.head(N) to sample  
 
@@ -83,11 +84,6 @@ class Pulsars:
         else:
             self.σp = np.full(self.Npsr,SystemParameters.σp)
 
-
-            
-
-        print("The process noise matrices are:")
-        print(self.σp)
         self.σm =  SystemParameters.σm
         self.NF = NF 
 
