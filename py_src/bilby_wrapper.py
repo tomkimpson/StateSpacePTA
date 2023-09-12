@@ -14,7 +14,7 @@ class BilbyLikelihood(bilby.Likelihood):
     def log_likelihood(self):
         return self.model.likelihood(self.parameters)
     
-            
+#See https://lscsoft.docs.ligo.org/bilby/bilby-mcmc-guide.html  
 def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
    
     
@@ -23,15 +23,16 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
     #Run the sampler
     logging.info("Starting the bilby sampler")
     result = bilby.run_sampler(likelihood, priors, 
-                              label = label,
-                              outdir=outdir,
-                              sampler ='dynesty',
-                              sample='rwalk_dynesty',
-                              bound='single', # https://dynesty.readthedocs.io/en/latest/faq.html
-                              check_point_plot=False,
-                              npoints=1000,
-                              dlogz=0.1,
-                              npool=1,
-                              plot=False,resume=False)
+                               sampler ='bilby_mcmc',
+                               label = label,
+                               outdir=outdir,
+                               check_point_plot=False,
+                               nsamples=1000,  # This is the number of raw samples
+                               thin_by_nact=0.2,  # This sets the thinning factor
+                               ntemps=8,  # The number of parallel-tempered chains
+                               npool=1,  # The multiprocessing cores to use
+                               L1steps=100,  # The number of internal steps to take for each iteration
+                               proposal_cycle='default')  # Use the standard (non-GW) proposal cycle
+        
 
     return result
