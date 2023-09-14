@@ -46,8 +46,6 @@ class SyntheticData:
             GW_function = gw_earth_terms
             logging.info("You are using just the Earth terms in your synthetic data generation")
 
-
-
         X_factor = GW_function(
                                         P.δ,
                                         P.α,
