@@ -47,8 +47,8 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
     #try:
 
-    prediction_i = predictions_x[:,psr_index]
-    ax1.plot(tplot,prediction_i,label = 'prediction')
+    #prediction_i = predictions_x[:,psr_index]
+    #ax1.plot(tplot,prediction_i,label = 'prediction')
     #except:
      #   print("Failed to plot the predictions for psr index ", psr_index)
     

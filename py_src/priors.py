@@ -61,6 +61,21 @@ def add_to_bibly_priors_dict_uniform(x,label,init_parameters,priors,tol):
     return init_parameters,priors
 
 
+"""
+Add uniform prior vector specifically for the chi vector
+"""
+def add_to_bibly_priors_dict_chi(x,label,init_parameters,priors):
+    
+    i = 0
+    for f in x:
+        key = label+str(i)
+        init_parameters[key] = None
+      
+        priors[key] = bilby.core.prior.Uniform(0.0,2*np.pi, key)
+        
+        i+= 1
+
+    return init_parameters,priors
 
 """
 Helper function to use with priors_dict()
@@ -97,6 +112,8 @@ def priors_dict(pulsar_parameters,P):
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)
    priors = add_to_priors_dict(pulsar_parameters.γ,"gamma",priors)
    priors = add_to_priors_dict(pulsar_parameters.σp,"sigma_p",priors)
+   priors = add_to_priors_dict(pulsar_parameters.σp,"sigma_p",priors)
+   priors = add_to_priors_dict(pulsar_parameters.chi,"chi",priors)
    priors["sigma_m"]= pulsar_parameters.σm
   
    return priors
@@ -104,7 +121,7 @@ def priors_dict(pulsar_parameters,P):
 
 
 
-def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
+def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi):
 
 
 
@@ -120,8 +137,9 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
         init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-21,1e-19) #log. 
     
     
-    init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           #constant
-    init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors) #distance not needed unless we are using the PSR model, which we are not using currently
+    init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           # constant
+    init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
+    init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
 
 
     return init_parameters,priors 
@@ -216,7 +234,7 @@ def bilby_priors_dict(PTA,P):
     init_parameters,priors = set_prior_on_measurement_parameters(init_parameters,priors,P.measurement_model,P) #h is provided to set the prior a few orders of magnitude either side.
 
     #State priors
-    init_parameters,priors = set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d)
+    init_parameters,priors = set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi)
 
     #Noise priors
     init_parameters["sigma_m"] = None

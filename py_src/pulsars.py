@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd 
 import logging
 from utils import get_project_root
+from gravitational_waves import principal_axes
 class Pulsars:
 
 
@@ -33,6 +34,9 @@ class Pulsars:
         self.γ         = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
         self.δ         = pulsars["DECJD"].to_numpy()
         self.α         = pulsars["RAJD"].to_numpy()
+
+        #print("Distances = ", self.d)
+        #self.d=1e7*self.d/self.d
 
 
         if SystemParameters.orthogonal_pulsars:
@@ -64,6 +68,18 @@ class Pulsars:
                     self.q_products[n,k] = self.q[n,i]*self.q[n,j]
                     k+=1
         self.q_products = self.q_products.T
+
+
+        #Also define a new variable chi 
+        m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
+        gw_direction        = np.cross(m,n)
+        dot_product         = 1.0 + np.dot(self.q,gw_direction)
+        self.chi = np.mod(SystemParameters.Ω*self.d*dot_product,2*np.pi)
+        print("chi vals are = ", self.chi)
+
+
+
+
 
         #Assign some other useful quantities to self
         #Some of these are already defined in SystemParameters, but I don't want to pass
