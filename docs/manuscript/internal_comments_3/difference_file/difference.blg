@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: difference.aux
+The style file: mnras.bst
+Database file #1: example.bib
+Repeated entry---line 764 of file example.bib
+ : @book{Maggiore
+ :               ,
+I'm skipping whatever remains of this entry
+Reallocated buffer (elt_size=1) to 40000 items from 20000.
+Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
+Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
+Reallocated out_buf (elt_size=1) to 40000 items from 20000.
+Reallocated name_tok (elt_size=4) to 40000 items from 20000.
+Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty publisher in Sornette2004
+Warning--empty publisher in 2021hgwa.bookE...4V
+You've used 145 entries,
+            2881 wiz_defined-function locations,
+            1977 strings with 73670 characters,
+and the built_in function-call counts, 72443 in all, are:
+= -- 6551
+> -- 4565
+< -- 331
++ -- 2016
+- -- 621
+* -- 8642
+:= -- 10734
+add.period$ -- 0
+call.type$ -- 145
+change.case$ -- 290
+chr.to.int$ -- 134
+cite$ -- 147
+duplicate$ -- 3660
+empty$ -- 3573
+format.name$ -- 1095
+if$ -- 13132
+int.to.chr$ -- 12
+int.to.str$ -- 0
+missing$ -- 152
+newline$ -- 455
+num.names$ -- 960
+pop$ -- 695
+preamble$ -- 1
+purify$ -- 580
+quote$ -- 0
+skip$ -- 2507
+stack$ -- 0
+substring$ -- 4958
+swap$ -- 2051
+text.length$ -- 599
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1284
+warning$ -- 2
+while$ -- 1071
+width$ -- 0
+write$ -- 1480
+(There was 1 error message)

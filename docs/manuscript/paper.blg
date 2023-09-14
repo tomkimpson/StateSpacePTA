@@ -14,51 +14,49 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Warning--I didn't find a database entry for "Paxton2021"
-Warning--I didn't find a database entry for "Vissio2020"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 143 entries,
+You've used 145 entries,
             2881 wiz_defined-function locations,
-            1958 strings with 73089 characters,
-and the built_in function-call counts, 71471 in all, are:
-= -- 6477
-> -- 4489
-< -- 325
-+ -- 1984
-- -- 609
-* -- 8518
-:= -- 10578
+            1977 strings with 73660 characters,
+and the built_in function-call counts, 72443 in all, are:
+= -- 6551
+> -- 4565
+< -- 331
++ -- 2016
+- -- 621
+* -- 8642
+:= -- 10734
 add.period$ -- 0
-call.type$ -- 143
-change.case$ -- 286
-chr.to.int$ -- 132
-cite$ -- 145
-duplicate$ -- 3614
-empty$ -- 3529
-format.name$ -- 1075
-if$ -- 12968
+call.type$ -- 145
+change.case$ -- 290
+chr.to.int$ -- 134
+cite$ -- 147
+duplicate$ -- 3660
+empty$ -- 3573
+format.name$ -- 1095
+if$ -- 13132
 int.to.chr$ -- 12
 int.to.str$ -- 0
-missing$ -- 150
-newline$ -- 449
-num.names$ -- 944
-pop$ -- 688
+missing$ -- 152
+newline$ -- 455
+num.names$ -- 960
+pop$ -- 695
 preamble$ -- 1
-purify$ -- 572
+purify$ -- 580
 quote$ -- 0
-skip$ -- 2478
+skip$ -- 2507
 stack$ -- 0
-substring$ -- 4912
-swap$ -- 2019
-text.length$ -- 591
+substring$ -- 4958
+swap$ -- 2051
+text.length$ -- 599
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1266
+type$ -- 1284
 warning$ -- 2
-while$ -- 1055
+while$ -- 1071
 width$ -- 0
-write$ -- 1460
+write$ -- 1480
 (There was 1 error message)

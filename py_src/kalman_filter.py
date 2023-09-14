@@ -191,7 +191,7 @@ class KalmanFilter:
         y_results = np.zeros_like(x_results)
         x_results[0,:] = x
         y_results[0,:] = (1.0 - X_factor[0,:])*x - X_factor[0,:]*f_EM[0,:] 
-
+        
 
         for i in np.arange(1,self.Nsteps):
 
@@ -206,6 +206,8 @@ class KalmanFilter:
 
             x_results[i,:] = x
             y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
+           
+            
             
         return likelihood,x_results,y_results
 

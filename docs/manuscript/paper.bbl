@@ -276,6 +276,11 @@ Gardiner C.,  2009, Stochastic Methods: A Handbook for the Natural and Social
 Springer Series in Synergetics, Springer Berlin Heidelberg, \url
   {https://books.google.com.au/books?id=otg3PQAACAAJ}
 
+\bibitem[\protect\citeauthoryear{{Goldreich} \& {Julian}}{{Goldreich} \&
+  {Julian}}{1969}]{1969ApJ...157..869G}
+{Goldreich} P.,  {Julian} W.~H.,  1969, \mn@doi [\apj] {10.1086/150119}, \href
+  {https://ui.adsabs.harvard.edu/abs/1969ApJ...157..869G} {157, 869}
+
 \bibitem[\protect\citeauthoryear{{Goldstein}, {Veitch}, {Sesana}  \&
   {Vecchio}}{{Goldstein} et~al.}{2018}]{Goldstein2018}
 {Goldstein} J.~M.,  {Veitch} J.,  {Sesana} A.,   {Vecchio} A.,  2018, \mn@doi
@@ -463,10 +468,10 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
   {https://ui.adsabs.harvard.edu/abs/2020ApJ...896...78M} {896, 78}
 
 \bibitem[\protect\citeauthoryear{{Melatos}, {O'Neill}, {Meyers}  \&
-  {O'Leary}}{{Melatos} et~al.}{2021}]{Melatos2023}
-{Melatos} A.,  {O'Neill} N.~J.,  {Meyers} P.~M.,   {O'Leary} J.,  2021, \mn@doi
-  [\mnras] {10.1093/mnras/stab1952}, \href
-  {https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.3349M} {506, 3349}
+  {O'Leary}}{{Melatos} et~al.}{2023}]{Melatos2023}
+{Melatos} A.,  {O'Neill} N.~J.,  {Meyers} P.~M.,   {O'Leary} J.,  2023, \mn@doi
+  [\apj] {10.3847/1538-4357/acab5a}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023ApJ...944...64M} {944, 64}
 
 \bibitem[\protect\citeauthoryear{{Meyers}, {Melatos}  \& {O'Neill}}{{Meyers}
   et~al.}{2021a}]{Myers2021MNRAS.502.3113M}
@@ -535,6 +540,12 @@ Petiteau A.,  Babak S.,  Sesana A.,   de Ara\'ujo M.,  2013, \mn@doi [Phys.
 \bibitem[\protect\citeauthoryear{{Pitkin}}{{Pitkin}}{2018}]{psrqpy}
 {Pitkin} M.,  2018, \mn@doi [{Journal of Open Source Software}]
   {10.21105/joss.00538}, 3, 538
+
+\bibitem[\protect\citeauthoryear{{Price}, {Link}, {Shore}  \& {Nice}}{{Price}
+  et~al.}{2012}]{Price2012}
+{Price} S.,  {Link} B.,  {Shore} S.~N.,   {Nice} D.~J.,  2012, \mn@doi [\mnras]
+  {10.1111/j.1365-2966.2012.21863.x}, \href
+  {https://ui.adsabs.harvard.edu/abs/2012MNRAS.426.2507P} {426, 2507}
 
 \bibitem[\protect\citeauthoryear{{Rajagopal} \& {Romani}}{{Rajagopal} \&
   {Romani}}{1995}]{Rajagopal1995}
