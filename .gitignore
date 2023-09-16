@@ -8,3 +8,4 @@ py_src/slurm_jobs/*.sh
 .DS_Store
 py_src/slurm_jobs/*.sh
 data/nested_sampling/*
+docs/build/*
