@@ -33,15 +33,15 @@ def test_null_model():
 
         H_factor = gravitational_waves.null_model(
                                 np.random.uniform(),
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
-                                 np.random.uniform,
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
+                                 np.random.uniform(),
                                 )
     assert np.all(H_factor==0)
