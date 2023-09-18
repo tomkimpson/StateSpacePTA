@@ -1,1 +1,0 @@
-from py_src import bilby_wrapper
