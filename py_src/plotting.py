@@ -6,6 +6,11 @@ import pandas as pd
 import corner
 import scienceplots # noqa: F401
 from scipy import interpolate
+import warnings
+import random
+from parse import * 
+warnings.filterwarnings("error")
+plt.style.use('science')
 
 def plot_statespace(t,states,measurements,psr_index):
 
@@ -95,17 +100,15 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
     plt.show()
     
+def _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=[1.0,1.0]):
 
-
-
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True):
-    plt.style.use('science')
+    print("Extracting data from file: ", path)
 
     if path.split('.')[-1] == 'json': #If it is a json files
 
         # Opening JSON file
         f = open(path)
-        
+
         # returns JSON object as 
         # a dictionary
         data = json.load(f)
@@ -116,7 +119,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     else: #is a parquet gzip
         df_posterior = pd.read_parquet(path) 
 
-    
+        
 
     #Make omega into nHz and also scale h
     df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
@@ -139,18 +142,29 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
 
     y_post = df_posterior[variables_to_plot].to_numpy()
+
+
+    return y_post,injection_parameters,ranges
+
+
+
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,fig=None):
+    #Extract the data as a numpy array
+    y_post,injection_parameters,ranges= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
+
+
+    #Log scale the axes if needed
     if logscale:
         y_post = np.log10(y_post)
         injection_parameters = np.log10(injection_parameters)
         ranges = np.log10(ranges)
 
-    import warnings
-    warnings.filterwarnings("error")
+
 
     
     #Now plot it using corner.corner
     fs = 20
-    fig = corner.corner(y_post, 
+    newfig = corner.corner(y_post, 
                         color='C0',
                         show_titles=True,
                         smooth=smooth,smooth1d=smooth1d,
@@ -160,11 +174,12 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
                         range=ranges,
                         labels = labels,
                         label_kwargs=dict(fontsize=fs),
-                        axes_scales = axes_scales)
+                        axes_scales = axes_scales,
+                        fig=fig)
             
 
     #Pretty-ify
-    for ax in fig.axes:
+    for ax in newfig.axes:
 
         if ax.lines: #is anything plotted on this axis?
             
@@ -183,10 +198,172 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
         
     if title is not None:
-        fig.suptitle(title, fontsize=20)  
-    plt.show()
+        newfig.suptitle(title, fontsize=20)  
+    #plt.show()
 
     
+
+def _drop_braces(string_object):
+
+    string_object = string_object.replace('{', '')
+    string_object = string_object.replace('}', '')
+    return string_object
+
+def _extract_value_from_title(title_string):
+
+    template = '$\\{param_name}$ = ${value}_{lower}^{upper}$'
+
+    parsed_output = parse(template, title_string)
+
+    if parsed_output is None: #Handles h which is not a greek letter
+        template = '${param_name}$ = ${value}_{lower}^{upper}$'
+        parsed_output = parse(template, title_string)
+
+
+    return parsed_output['param_name'],_drop_braces(parsed_output['value']),_drop_braces(parsed_output['lower']),_drop_braces(parsed_output['upper'])
+
+#https://stackoverflow.com/questions/32923605/is-there-a-way-to-get-the-index-of-the-median-in-python-in-one-command
+def _argmedian(x):
+    return np.argpartition(x, len(x) // 2)[len(x) // 2]
+
+def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,seed=1):
+
+    #Some arrays to hold the title value returned by corner.corner
+    num_params = len(variables_to_plot)
+    title_values = np.zeros((num_params,number_of_files_to_plot)) #an array with shape number of parameters x number of noise realisations 
+    title_upper = np.zeros((num_params,number_of_files_to_plot)) 
+    title_lower = np.zeros((num_params,number_of_files_to_plot))
+
+
+    #Select some files at random
+    fig= None 
+    random.seed(seed)
+    selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    for i,f in enumerate(selected_files):
+        injection_parameters_idx = injection_parameters.copy()
+        ranges_idx = ranges.copy()
+
+        y_post,injection_parameters_idx,ranges_idx= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
+
+        k = i 
+        if k ==2:
+            k = k+1 #convoluted way of skipping C2 color. Surely a better way exists
+
+
+        if logscale:
+            yplot = np.log10(y_post)
+            injection_parameters = np.log10(injection_parameters)
+ 
+        else:
+            yplot =y_post
+        
+        nsamples = len(y_post)
+        fs = 20
+   
+        fig = corner.corner(yplot, 
+                            color=f'C{k}',
+                            show_titles=True,
+                            smooth=True,smooth1d=True,
+                            truth_color='C2',
+                            quantiles=None, #[0.16, 0.84],
+                            truths =injection_parameters_idx ,
+                            range=ranges_idx,
+                            labels = labels,
+                            label_kwargs=dict(fontsize=fs),
+                            axes_scales = axes_scales,
+                            weights = np.ones(nsamples)/nsamples,
+                            plot_datapoints=True,fig=fig)
+
+
+        #Extract the axis titles 
+        kk = 0
+        for ax in fig.axes:
+            ax_title = ax.get_title()
+            
+            if ax_title != '':
+
+               
+                param_name, value,lower_limit,upper_limit = _extract_value_from_title(ax_title) #Get the values that corner.corner sends to the ax title
+                title_values[kk,i] = value
+                title_lower[kk,i] = lower_limit
+                title_upper[kk,i] = upper_limit
+
+
+            
+                kk += 1
+                
+
+
+  
+
+
+    #Pretty-ify
+    ax_count = 0
+    for ax in fig.axes:
+        
+        if ax.lines: #is anything plotted on this axis?            
+            if len(ax.lines) == 18:
+                ax_count += 1
+
+            #ax.yaxis.set_major_locator(plt.MaxNLocator(3))
+            
+            if ax_count == 5: #very hacky way to pop off overlapping ytick
+                print("Setting y major locator")
+                print("This is for axis:", ax)
+                ax.yaxis.set_major_locator(plt.MaxNLocator(2))
+            else:
+                ax.yaxis.set_major_locator(plt.MaxNLocator(3))
+
+            
+            ax.xaxis.set_major_locator(plt.MaxNLocator(3))
+
+            ax.yaxis.set_tick_params(labelsize=fs-6)
+            ax.xaxis.set_tick_params(labelsize=fs-6)
+
+            #Get all lines
+            lines = ax.lines
+            
+            
+
+        ax.title.set_size(18)
+
+
+
+    #Get the indices of the median values from the list of medians 
+    idxs = [] #this is the index of the median for each parameter. 
+    for l in range(num_params):
+        idx = _argmedian(title_values[l,:])
+        idxs.extend([idx])
+
+
+
+    #Now use it to set the titles
+    kk = 0
+    for ax in fig.axes:
+        ax_title = ax.get_title()
+        if ax_title != '':
+
+
+            selected_idx = idxs[kk]
+
+
+
+            new_title_string = rf'{labels[kk]} $= {title_values[kk,selected_idx]:.2f}_{{{title_lower[kk,selected_idx]:.2f}}}^{{+{title_upper[kk,selected_idx]:.2f}}}$'
+            ax.set_title(new_title_string, fontsize=18)
+            kk += 1
+
+
+
+
+
+    if savefig != None:
+        plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
+
+
+
+
+
+
 
 
 def plot_likelihood(x,y,parameter_name,log_x_axes=False,injection=1.0):
