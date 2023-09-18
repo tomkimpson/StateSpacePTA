@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  18 SEP 2023 14:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  18 SEP 2023 20:24
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1029,12 +1029,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 370--372
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 8.0pt on input line 373.
-<images/example_residuals_plot.png, id=730, 742.6947pt x 494.0859pt>
-File: images/example_residuals_plot.png Graphic file (type png)
-<use images/example_residuals_plot.png>
-Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
-379.
-(pdftex.def)             Requested size: 244.0pt x 162.31755pt.
+<images/example_residuals_plot2.png, id=730, 727.0362pt x 494.0859pt>
+File: images/example_residuals_plot2.png Graphic file (type png)
+<use images/example_residuals_plot2.png>
+Package pdftex.def Info: images/example_residuals_plot2.png  used on input line
+ 379.
+(pdftex.def)             Requested size: 244.0pt x 165.8157pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 8.0pt on input line 380.
 
@@ -1066,7 +1066,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 422--423
 
  []
 
-[8 <./images/example_residuals_plot.png>]
+[8 <./images/example_residuals_plot2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 425--426
 
  []
@@ -1330,24 +1330,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 728--730
  []
 
 
-Overfull \hbox (4.58736pt too wide) detected at line 769
-$\OML/ntxmi/m/it/9 G[] \U/ntxmia/m/it/9 = \OML/ntxmi/m/it/9 f[]\LMS/ntxsy/m/n/9
- ¹\OML/ntxmi/m/it/9 t[]\LMS/ntxsy/m/n/9 º Ï []¹\OML/ntxmi/m/it/9 t[]\LMS/ntxsy/
-m/n/9 º [] ^^@ \OML/ntxmi/m/it/9 e[] []$  
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
+
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 777--779
+Underfull \hbox (badness 10000) in paragraph at lines 792--794
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--801
+Underfull \hbox (badness 10000) in paragraph at lines 814--816
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--812
+Underfull \hbox (badness 10000) in paragraph at lines 825--827
 
  []
 
@@ -1358,26 +1356,26 @@ nts[][], [][]p.
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 442--446
+Underfull \vbox (badness 2111) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--452
 []\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--446
+Underfull \hbox (badness 10000) in paragraph at lines 448--452
 \T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--446
+Underfull \hbox (badness 10000) in paragraph at lines 448--452
 [][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
 /m/n/8 https : / / doi . org /
  []
 
-
-Underfull \vbox (badness 2253) has occurred while \output is active []
-
- [21]
-Underfull \hbox (badness 6493) in paragraph at lines 732--735
+[21]
+Underfull \hbox (badness 6493) in paragraph at lines 738--741
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
@@ -1395,13 +1393,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 1F25DEFC9FE680A9CE3E28A93DC3CD8E;4875.
  ) 
 Here is how much of TeX's memory you used:
- 17747 strings out of 478268
- 277378 string characters out of 5846348
- 605483 words of memory out of 5000000
- 35266 multiletter control sequences out of 15000+600000
+ 17754 strings out of 478268
+ 277496 string characters out of 5846348
+ 606608 words of memory out of 5000000
+ 35269 multiletter control sequences out of 15000+600000
  606904 words of font info for 262 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,3322b,748s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,3322b,736s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1430,10 +1428,10 @@ xfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts
 fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/
 local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (22 pages, 13130850 bytes).
+Output written on paper.pdf (22 pages, 13175898 bytes).
 PDF statistics:
- 1652 PDF objects out of 1728 (max. 8388607)
- 1503 compressed objects within 16 object streams
- 301 named destinations out of 1000 (max. 500000)
+ 1661 PDF objects out of 1728 (max. 8388607)
+ 1512 compressed objects within 16 object streams
+ 305 named destinations out of 1000 (max. 500000)
  312 words of extra memory for PDF output out of 10000 (max. 10000000)
 
