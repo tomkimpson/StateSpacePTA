@@ -33,21 +33,21 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 What is the GW modulation factor, just for the earth terms
 """
 @njit(fastmath=True)
-def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
     GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase))
     return GW_factor
-
 
 
 """
 What is the GW modulation factor, including all pulsar terms?
 """
 @njit(fastmath=True)
-def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
-    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +omega*dot_product*d))
-    #print("Size of extra term = ",earth_term_phase, +omega*dot_product*d)
+    
+    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi))
+   
     return GW_factor
 
 

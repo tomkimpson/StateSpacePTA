@@ -27,7 +27,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               outdir=outdir,
                               sampler ='dynesty',
                               sample='rwalk_dynesty',
-                              bound='single', # https://dynesty.readthedocs.io/en/latest/faq.html
+                              #bound='single', # https://dynesty.readthedocs.io/en/latest/faq.html
                               check_point_plot=False,
                               npoints=1000,
                               dlogz=0.1,

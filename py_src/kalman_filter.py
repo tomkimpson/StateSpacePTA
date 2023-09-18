@@ -12,8 +12,9 @@ def log_likelihood(S,innovation):
     N = len(x)    
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    value = x @ x
-    return np.log(np.abs(value))
+    #value = x @ x
+    #return np.log(np.abs(value))
+    return value
 
 
 """
@@ -110,6 +111,7 @@ class KalmanFilter:
         self.list_of_gamma_keys = [f'gamma{i}' for i in range(self.Npsr)]
         self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
         self.list_of_sigma_p_keys = [f'sigma_p{i}' for i in range(self.Npsr)]
+        self.list_of_chi_keys = [f'chi{i}' for i in range(self.Npsr)]
 
 
     def parse_dictionary(self,parameters_dict):
@@ -129,18 +131,20 @@ class KalmanFilter:
         gamma   = dict_to_array(parameters_dict,self.list_of_gamma_keys)
         d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
+        chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
+
 
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
 
-        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,sigma_m
+        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m
 
 
 
     def likelihood(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
     
         #Precompute transition/Q/R Kalman matrices
@@ -167,7 +171,8 @@ class KalmanFilter:
                                    omega_gw,
                                    d,
                                    self.t,
-                                   phi0_gw
+                                   phi0_gw,
+                                   chi
                                 )
         
         #Define an ephemeris correction
@@ -200,7 +205,7 @@ class KalmanFilter:
     def likelihood_with_results(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
     
         #Precompute transition/Q/R Kalman matrices
@@ -228,7 +233,8 @@ class KalmanFilter:
                                    omega_gw,
                                    d,
                                    self.t,
-                                   phi0_gw
+                                   phi0_gw,
+                                   chi
                                 )
         
         #Define an ephemeris correction

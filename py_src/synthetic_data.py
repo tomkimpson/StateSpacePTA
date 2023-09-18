@@ -57,7 +57,8 @@ class SyntheticData:
                                         P.Ω,
                                         pulsars.d,
                                         pulsars.t,
-                                        P.Φ0
+                                        P.Φ0,
+                                        pulsars.chi
                                         )
             
         

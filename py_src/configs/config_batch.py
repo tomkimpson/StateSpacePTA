@@ -24,34 +24,34 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-# N = 1000
-# seeds = np.arange(1235+10,1235+10+N,1)
-# h = 5e-15 
-# model = "earth"
-# with open('batch.sh','w') as b: 
+N = 100
+seeds = np.arange(1235+10,1235+10+N,1)
+h = 5e-15 
+model = "pulsar"
+with open('batch.sh','w') as b: 
 
-#     for s in seeds:
-#         arg_name = f"SMALL_H_NOISE_model_earth_batch_{s}"
-#         create_slurm_job(arg_name,h,model,s)
-#         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+    for s in seeds:
+        arg_name = f"ETJ_pulsar_batch_{s}"
+        create_slurm_job(arg_name,h,model,s)
+        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
 
-h_range = np.logspace(-15,-12,101)
-noise_models = ["earth", "null"]
-#noise_models = ["earth"]
+# h_range = np.logspace(-15,-12,101)
+# noise_models = ["earth", "null"]
+# #noise_models = ["earth"]
 
-seeds = np.arange(1245,1245+10)
+# seeds = np.arange(1245,1245+10)
 
-with open('batch.sh','w') as b:
+# with open('batch.sh','w') as b:
     
-    for s in seeds:
-        for h in h_range:
-            for n in noise_models:
-                 arg_name = f"KMULTIpaper_bayes_ratios_n2500_V1_h_{h}_model_{n}_seed_{s}"
-                 print(arg_name)
-                 create_slurm_job(arg_name,h,n,s)
+#     for s in seeds:
+#         for h in h_range:
+#             for n in noise_models:
+#                  arg_name = f"KMULTIpaper_bayes_ratios_n2500_V1_h_{h}_model_{n}_seed_{s}"
+#                  print(arg_name)
+#                  create_slurm_job(arg_name,h,n,s)
 
-                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+#                  b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
     
 
