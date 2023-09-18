@@ -3,8 +3,17 @@ from numpy import sin, cos
 import numpy as np 
 import pandas as pd 
 import logging
-from utils import get_project_root
+#from utils import get_project_root
 from gravitational_waves import principal_axes
+
+from pathlib import Path
+import os 
+
+
+def get_project_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
 class Pulsars:
 
 
