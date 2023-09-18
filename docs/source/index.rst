@@ -10,11 +10,24 @@ Welcome to StateSpacePTA's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   usage
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. Indices and tables
+.. ==================
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
+
+
+
+StateSpacePTA is a research project for detecting nano-Hz gravitational waves with pulsar timing arrays.
+
+
+It uses a state-space framewwork in conjunction with optimal filtering techniques and nested sampling for Bayesian parameter estimation and model selection.
+
+
+Please see publications at X
+
