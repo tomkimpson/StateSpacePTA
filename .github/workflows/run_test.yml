@@ -19,7 +19,7 @@ jobs:
         uses: ammaraskar/sphinx-action@master
         with:
           docs-folder: "docs/"
-          pre-build-command: python -m pip install docutils sphinx_book_theme
+          pre-build-command: python -m pip install docutils==0.20 sphinx_book_theme
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
