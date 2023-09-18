@@ -1,6 +1,9 @@
 # StateSpacePTA
 
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tomkimpson/StateSpacePTA/run_test.yml)
+
+[![Build Status](https://github.com/tomkimpson/StateSpacePTA/actions/workflows/run_test.yml/badge.svg?branch=main)](https://github.com/tomkimpson/StateSpacePTA/actions/workflows/run_test.yml?query=branch%3Amain)
+
+
 [![codecov](https://codecov.io/gh/tomkimpson/StateSpacePTA/graph/badge.svg?token=F82TU3Y881)](https://codecov.io/gh/tomkimpson/StateSpacePTA)
 
 
