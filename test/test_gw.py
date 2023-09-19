@@ -35,13 +35,13 @@ def test_null_model():
                                 np.random.uniform(),
                                  np.random.uniform(),
                                  np.random.uniform(),
+                                 np.random.uniform(size=20), #this is q
                                  np.random.uniform(),
                                  np.random.uniform(),
                                  np.random.uniform(),
                                  np.random.uniform(),
                                  np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(),
+                                 np.random.uniform(size=10), #this is t
                                  np.random.uniform(),
                                 )
     assert np.all(H_factor==0)
