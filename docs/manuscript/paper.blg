@@ -7,13 +7,15 @@ Repeated entry---line 799 of file example.bib
  : @book{Maggiore
  :               ,
 I'm skipping whatever remains of this entry
+Warning--entry type for "pennucci_timothy_t_2020_4312887" isn't style-file defined
+--line 1148 of file example.bib
 Reallocated buffer (elt_size=1) to 40000 items from 20000.
 Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
 Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
 Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
-Repeated entry---line 2147 of file example.bib
+Repeated entry---line 2203 of file example.bib
  : @book{zarchan2000fundamentals
  :                              ,
 I'm skipping whatever remains of this entry
@@ -22,45 +24,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 147 entries,
+You've used 149 entries,
             2881 wiz_defined-function locations,
-            1991 strings with 74342 characters,
-and the built_in function-call counts, 73366 in all, are:
-= -- 6616
-> -- 4637
-< -- 333
-+ -- 2049
-- -- 631
-* -- 8755
-:= -- 10879
+            2005 strings with 77387 characters,
+and the built_in function-call counts, 74136 in all, are:
+= -- 6669
+> -- 4693
+< -- 337
++ -- 2079
+- -- 635
+* -- 8859
+:= -- 10998
 add.period$ -- 0
-call.type$ -- 147
-change.case$ -- 294
-chr.to.int$ -- 136
-cite$ -- 149
-duplicate$ -- 3710
-empty$ -- 3632
-format.name$ -- 1111
-if$ -- 13293
+call.type$ -- 149
+change.case$ -- 298
+chr.to.int$ -- 138
+cite$ -- 151
+duplicate$ -- 3755
+empty$ -- 3677
+format.name$ -- 1125
+if$ -- 13416
 int.to.chr$ -- 12
 int.to.str$ -- 0
-missing$ -- 154
-newline$ -- 462
-num.names$ -- 973
-pop$ -- 712
+missing$ -- 155
+newline$ -- 468
+num.names$ -- 985
+pop$ -- 722
 preamble$ -- 1
-purify$ -- 588
+purify$ -- 596
 quote$ -- 0
-skip$ -- 2531
+skip$ -- 2556
 stack$ -- 0
-substring$ -- 5000
-swap$ -- 2069
-text.length$ -- 607
+substring$ -- 5022
+swap$ -- 2089
+text.length$ -- 615
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1299
+type$ -- 1317
 warning$ -- 2
-while$ -- 1083
+while$ -- 1095
 width$ -- 0
-write$ -- 1501
+write$ -- 1522
 (There were 2 error messages)
