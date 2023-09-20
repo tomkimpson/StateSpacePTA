@@ -1,0 +1,156 @@
+\documentclass{tufte-handout} % A4 paper and 11pt font size
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{mathpazo} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning,matrix,arrows}
+\usepackage{float}
+\usepackage{tikz-cd}
+\usepackage{caption}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\normalfont \bfseries} % Make all sections centered, the default font and small caps
+\usepackage{enumerate}
+\usepackage{pythonhighlight}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\allowdisplaybreaks
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+
+\usepackage{hyperref}
+\hypersetup{  
+	colorlinks=true,
+	urlcolor=cyan,
+}
+
+\urlstyle{same}
+
+% Turn on numbering for section and subsection headings
+\setcounter{secnumdepth}{2}
+
+
+\geometry{
+	left=13mm, % left margin
+	textwidth=130mm, % main text block
+	marginparsep=8mm, % gutter between main text block and margin notes
+	marginparwidth=55mm % width of margin notes
+}
+\fontsize{10}{20}\selectfont
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{	
+	\normalfont\normalsize 
+	{Melbourne University} \\ [0pt] % Your university, school and/or department name(s)
+	\huge Notes on identifiability of PTA problem% The assignment title
+}\author{T. Kimpson} % Your name
+\date{\vspace{-5pt}\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+\justifying 
+\maketitle
+
+
+\pagenumbering{gobble} %turn off page numbering
+\tableofcontents
+
+
+
+
+\section{Preamble}
+
+
+These notes collect some ideas around how to check if parameters of our PTA-GW state space model are identifiable. \newline
+
+\noindent We will deal with just 2 parameters $\iota$ and $h_0$.
+
+ 
+
+\section{General identifiability method}\label{sec:intro}
+
+How do we tell if parameters are identifiable? Lets use the approach from Karlsson 2012 \footnote{\url{https://www.sciencedirect.com/science/article/pii/S1474667015380745}}
+
+\noindent Take a state space model
+\begin{equation}
+	\dot{x}(t) = f(x(t), u(t), \theta)
+\end{equation}
+\begin{equation}
+	y(t) = g(x(t), u(t), \theta)
+\end{equation}
+where state $x$ has dimension $n$, $\theta$ has dimension $d$ and $y$ has dimension $p$. \newline 
+
+\noindent Now define an extended Lie derivative operator along the vector field $f$
+\begin{equation}
+	\mathcal{L}_f = \sum_{i=1}^{n} f_i \frac{\partial}{\partial x_i} + \sum_{i=0}^{i = \infty} u^{(i+1)} \frac{\partial}{\partial u^{(i)}}
+\end{equation}
+\footnote{Is the vector field $f$ the same as the state space function $f$? \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005153} suggests that is IS. We will proceed assuming that they are the same thing.}. We use the notation $\mathcal{L}_f^{(k)}$ to refer to the Lie operator applied $k$ times. We also define a variable
+\begin{equation}
+	\alpha^{(k)} = \mathcal{L}_f^{(k)} g(x,y,\theta)
+\end{equation}
+Note that Karlsson 2012 refer to this as $y^{(j)}(0)$. \newline 
+
+\noindent We now define a vector $\mathcal{Y}$ which contains $\alpha^{(k)}$, $k=0,...,n+d-1$. We construct a Jacobian
+\begin{equation}
+	J = \frac{\mathcal{Y}(x,\theta)}{\partial(x, \theta)}
+\end{equation}
+\footnote{See Equation 6 in \url{https://www.sciencedirect.com/science/article/pii/S0025556412000922} for a nice visual example of what this Jacobian looks like.} \newline 
+\textbf{Rank test for structural identifiability: } if $J$ is full rank \href{https://www.cds.caltech.edu/~murray/amwiki/index.php/FAQ:_What_does_it_mean_for_a_non-square_matrix_to_be_full_rank%3F#:~:text=A%20square%20matrix%20is%20full,in%20number)%20are%20linearly%20dependent.}{(see here)} then the parameters are identifiable. 
+
+
+
+\section{Relation to PTA-GW model}
+Our model is
+\begin{equation}
+	\dot{f}_{\rm p} = - \gamma f_{\rm p} + u(t)
+\end{equation}
+where $u(t) = \gamma f_{\rm EM}(t) + \dot{f}_{\rm EM} (t)$. The measurement equation is
+\begin{equation}
+	f_{\rm m}(t) = \left[1 - H(t,\theta) \right] f_{\rm p}
+\end{equation}
+By comparison with Section \ref{sec:intro}:
+
+\begin{itemize}
+	\item $x = f_{\rm p}$
+	\item $y = f_{\rm m}$
+	\item function $f(x) = -\gamma x + u(t)$
+	\item function $g(x) = \left[1 - H(t,\theta) \right] x$
+	\item $p = m = N_{\rm psr}$
+	\item $d = 2$ (We are just dealing with $h_0$ and $\iota$)
+\end{itemize}
+
+
+\section{Calculating $\alpha$}
+
+Lets get some values for $\alpha^{(k)}$ and see if there is a pattern. 
+
+
+\begin{align}
+	\alpha^{(1)} =& \mathcal{L}_f^{(1)} g(x,y,\theta) \\
+	                     =& \mathcal{L}_f \left[1 - H(t,\theta) \right] x \\
+	                     =&  \sum_{i=1}^{n} f_i \frac{\partial}{\partial x_i}  \left \{ \left[1 - H(t,\theta) \right] x\right \}+ \sum_{i=0}^{i = \infty} u^{(i+1)} \frac{\partial}{\partial u^{(i)}} \left \{ \left[1 - H(t,\theta) \right] x\right \} 
+\end{align}
+
+
+
+
+
+
+
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 SEP 2023 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  20 SEP 2023 13:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1041,81 +1041,81 @@ $\U/ntxmia/m/it/9 ^^A\OML/ntxmi/m/it/9 p[] \U/ntxmia/m/it/9 = [][][][] [] [][]$
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 9.0pt on input line 334.
 
-Overfull \hbox (104.62872pt too wide) detected at line 369
+Overfull \hbox (104.62872pt too wide) detected at line 371
 $\OML/ntxmi/m/it/9 g[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 º \
 U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^@ [][][][] []  [][][][
 ]$  
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 410--412
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 416.
+(hyperref)                removing `\<let>-command' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 416.
+(hyperref)                removing `\includegraphics' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFaddincludegraphics' on input line 416.
+(hyperref)                removing `\DIFaddincludegraphics' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 416.
+(hyperref)                removing `\@ifnextchar' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 416.
+(hyperref)                removing `\uwave' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 416.
+(hyperref)                removing `\<let>-command' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 416.
+(hyperref)                removing `\includegraphics' on input line 418.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFOincludegraphics' on input line 416.
+(hyperref)                removing `\DIFOincludegraphics' on input line 418.
 
-<images/Kalman_example_both.png, id=582, 1088.3862pt x 601.5273pt>
+<images/Kalman_example_both.png, id=583, 1088.3862pt x 601.5273pt>
 File: images/Kalman_example_both.png Graphic file (type png)
 <use images/Kalman_example_both.png>
-Package pdftex.def Info: images/Kalman_example_both.png  used on input line 452
+Package pdftex.def Info: images/Kalman_example_both.png  used on input line 454
 .
 (pdftex.def)             Requested size: 507.9876pt x 253.99815pt.
 
-Overfull \hbox (6.9876pt too wide) in paragraph at lines 452--453
+Overfull \hbox (6.9876pt too wide) in paragraph at lines 454--455
  [][][] 
  []
 
 
-Underfull \hbox (badness 3792) in paragraph at lines 477--482
+Underfull \hbox (badness 3792) in paragraph at lines 479--484
 \T1/ntxtlf/m/n/9 The Kalman fil-ter ([][]Kalman[][] [][]1960[][]) is a []|   []
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--482
+Underfull \hbox (badness 10000) in paragraph at lines 479--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 483--484
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 
  []
 
 
-LaTeX Warning: Reference `fig:6MB_BFS' on page 5 undefined on input line 499.
+LaTeX Warning: Reference `fig:6MB_BFS' on page 5 undefined on input line 501.
 
 
-LaTeX Warning: Reference `fig:25MB_bfs' on page 5 undefined on input line 499.
+LaTeX Warning: Reference `fig:25MB_bfs' on page 5 undefined on input line 501.
 
 [5]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1123,256 +1123,298 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 506.
+(hyperref)                removing `\<let>-command' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 506.
+(hyperref)                removing `\includegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFdelincludegraphics' on input line 506.
+(hyperref)                removing `\DIFdelincludegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 506.
+(hyperref)                removing `\@ifnextchar' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sout' on input line 506.
+(hyperref)                removing `\sout' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 506.
+(hyperref)                removing `\<let>-command' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 506.
+(hyperref)                removing `\includegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFOincludegraphics' on input line 506.
+(hyperref)                removing `\DIFOincludegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 506.
+(hyperref)                removing `\<let>-command' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 506.
+(hyperref)                removing `\includegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFaddincludegraphics' on input line 506.
+(hyperref)                removing `\DIFaddincludegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 506.
+(hyperref)                removing `\@ifnextchar' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 506.
+(hyperref)                removing `\uwave' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 506.
+(hyperref)                removing `\<let>-command' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 506.
+(hyperref)                removing `\includegraphics' on input line 508.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFOincludegraphics' on input line 506.
+(hyperref)                removing `\DIFOincludegraphics' on input line 508.
 
+[6 <./images/Kalman_example_both.png>]
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-519.
+521.
+
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 519.
+(Font)              scaled to size 9.0pt on input line 521.
 
-Underfull \hbox (badness 1708) in paragraph at lines 514--520
+Underfull \hbox (badness 1708) in paragraph at lines 516--522
 |   []   |   []   []\T1/ntxtlf/m/n/9 , par-ti-cle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--520
+Underfull \hbox (badness 10000) in paragraph at lines 516--522
 
  []
 
-[6 <./images/Kalman_example_both.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 521--528
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--530
 
  []
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 544.
+(enumitem)                sense, on input line 546.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 552.
+(enumitem)                sense, on input line 554.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 565.
+(hyperref)                removing `\@ifnextchar' on input line 567.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sout' on input line 565.
+(hyperref)                removing `\sout' on input line 567.
 
 
-LaTeX Warning: Reference `sec:synth_data' on page 7 undefined on input line 570
+LaTeX Warning: Reference `sec:synth_data' on page 7 undefined on input line 572
 .
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 570.
+(hyperref)                removing `\@ifnextchar' on input line 572.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 570.
+(hyperref)                removing `\uwave' on input line 572.
 
 [7
 pdfTeX warning (ext4): destination with the same identifier (name{section.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.575 
+l.577 
       ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 576.
+(hyperref)                removing `\<let>-command' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 576.
+(hyperref)                removing `\includegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFdelincludegraphics' on input line 576.
+(hyperref)                removing `\DIFdelincludegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 576.
+(hyperref)                removing `\@ifnextchar' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sout' on input line 576.
+(hyperref)                removing `\sout' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 576.
+(hyperref)                removing `\<let>-command' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 576.
+(hyperref)                removing `\includegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFOincludegraphics' on input line 576.
+(hyperref)                removing `\DIFOincludegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 576.
+(hyperref)                removing `\<let>-command' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 576.
+(hyperref)                removing `\includegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFaddincludegraphics' on input line 576.
+(hyperref)                removing `\DIFaddincludegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 576.
+(hyperref)                removing `\@ifnextchar' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 576.
+(hyperref)                removing `\uwave' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 576.
+(hyperref)                removing `\<let>-command' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\includegraphics' on input line 576.
+(hyperref)                removing `\includegraphics' on input line 578.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\DIFOincludegraphics' on input line 576.
+(hyperref)                removing `\DIFOincludegraphics' on input line 578.
 
-<images/pulsar_distribution.png, id=739, 511.6716pt x 333.8874pt>
+<images/pulsar_distribution.png, id=741, 511.6716pt x 333.8874pt>
 File: images/pulsar_distribution.png Graphic file (type png)
 <use images/pulsar_distribution.png>
-Package pdftex.def Info: images/pulsar_distribution.png  used on input line 587
+Package pdftex.def Info: images/pulsar_distribution.png  used on input line 589
 .
 (pdftex.def)             Requested size: 244.0pt x 159.21971pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--597
+Underfull \hbox (badness 10000) in paragraph at lines 593--599
 [][]|   []   |   []
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 601.
+(Font)              scaled to size 7.3pt on input line 603.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 601.
+(Font)              scaled to size 5.5pt on input line 603.
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--608
+Underfull \hbox (badness 1057) in paragraph at lines 603--606
+|   []   |   []   |   []   |   []   |   []   |   []   |   []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 608--610
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 609.
-<images/example_residuals_plot.png, id=779, 742.6947pt x 494.0859pt>
-File: images/example_residuals_plot.png Graphic file (type png)
-<use images/example_residuals_plot.png>
-Package pdftex.def Info: images/example_residuals_plot.png  used on input line 
-619.
-(pdftex.def)             Requested size: 244.0pt x 162.31755pt.
+(Font)              scaled to size 8.0pt on input line 611.
+<images/example_residuals_plot2.png, id=788, 956.373pt x 494.0859pt>
+File: images/example_residuals_plot2.png Graphic file (type png)
+<use images/example_residuals_plot2.png>
+Package pdftex.def Info: images/example_residuals_plot2.png  used on input line
+ 629.
+(pdftex.def)             Requested size: 244.0pt x 126.0543pt.
+
+Overfull \hbox (7.0pt too wide) in paragraph at lines 629--634
+[][][] 
+ []
+
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 622.
+(Font)              scaled to size 8.0pt on input line 634.
+
+Underfull \hbox (badness 4205) in paragraph at lines 634--634
+[]|   [][][]|   []   |   []   |   [][]\T1/ntxtlf/m/n/8 ) phase resid-u-als for 
+NANOGrav mil-
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 634--634
+\T1/ntxtlf/m/n/8 lisec-ond pul-sar []|   [][][]|   []   |   [][]+[]|   []   [][
+]|   []   []The ac-tual resid-u-als
+ []
+
+
+Underfull \hbox (badness 3039) in paragraph at lines 634--634
+\T1/ntxtlf/m/n/8 are []|   []   |   []   |   []   |   []   [][]|   []   |   [] 
+  |   []   |   []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 634--634
+|   []   |   []   |   []   []\T1/ntxtlf/m/n/8 tim-ing []|   []   |   []   [][]|
+   []
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 614--637
+|   []   |   []   |   [][]\T1/ntxtlf/m/n/9 . We ob-tain em-pir-i-cal phase resi
+d-u-als from
+ []
+
 [8 <./images/pulsar_distribution.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{subsubsection
 .4.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.625 ...ction{\DIFdel{Synthetic data generation}}
+l.637 ...ction{\DIFdel{Synthetic data generation}}
                                                   
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 628.
+(hyperref)                removing `\@ifnextchar' on input line 640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 628.
+(hyperref)                removing `\uwave' on input line 640.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 634.
+(enumitem)                sense, on input line 646.
 
 
-Underfull \hbox (badness 1565) in paragraph at lines 636--638
+Underfull \hbox (badness 1565) in paragraph at lines 648--650
 []\T1/ntxtlf/m/n/9 Map from []|   []   |   []   |   []   |   []   |   []   |   
 []   |   []
  []
 
 
-Underfull \hbox (badness 2435) in paragraph at lines 639--640
+Underfull \hbox (badness 2435) in paragraph at lines 651--652
 []|   []   |   []   |   []   |   []   |   []   |   []   |   []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--646
+Underfull \hbox (badness 10000) in paragraph at lines 656--658
 
  []
 
-
-Overfull \hbox (1.73868pt too wide) detected at line 660
+[9 <./images/example_residuals_plot2.png>]
+Overfull \hbox (1.73868pt too wide) detected at line 672
 $\OML/ntxmi/m/it/9 f[][][][][]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 t\LMS/ntxsy/m
 /n/9 º \U/ntxmia/m/it/9 = \OML/ntxmi/m/it/9 f[][][][][]\LMS/ntxsy/m/n/9 ¹\OML/n
 txmi/m/it/9 t \LMS/ntxsy/m/n/9 ^^@ \OML/ntxmi/m/it/9 d\LMS/ntxsy/m/n/9 º\OML/nt
@@ -1381,71 +1423,73 @@ ntxmi/m/it/9 f[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 t \LMS/ntxsy/m/n/9 ^^@ \OML
 /ntxmi/m/it/9 d\LMS/ntxsy/m/n/9 º []  \OML/ntxmi/m/it/9 :$  
  []
 
-[9 <./images/example_residuals_plot.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 665.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sout' on input line 665.
+(hyperref)                removing `\@ifnextchar' on input line 677.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 667.
+(hyperref)                removing `\sout' on input line 677.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 667.
+(hyperref)                removing `\@ifnextchar' on input line 679.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 668--669
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 679.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 680--681
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 675.
+(hyperref)                removing `\@ifnextchar' on input line 687.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 675.
+(hyperref)                removing `\uwave' on input line 687.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--677
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
+Underfull \vbox (badness 1655) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
 
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 698--698
-[]|$\OML/cmm/b/it/8 ^^R[]$|  
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+
  []
-
-
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 706--706
-[]|$\OML/cmm/b/it/8 ^^R[]$|  
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 722.
 
 [10]
-Overfull \hbox (3.16582pt too wide) detected at line 732
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 710--710
+[]|$\OML/cmm/b/it/8 ^^R[]$|  
+ []
+
+
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 718--718
+[]|$\OML/cmm/b/it/8 ^^R[]$|  
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 734.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 734.
+
+
+Overfull \hbox (3.16582pt too wide) detected at line 744
 $\OML/ntxmi/m/it/9 g[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 º \
 U/ntxmia/m/it/9 = \OT1/minntx/m/n/9 1 \LMS/ntxsy/m/n/9 ^^@ [][][][] []¹^^@\U/nt
 xmia/m/it/9 
@@ -1454,287 +1498,277 @@ xmia/m/it/9
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 732--734
+Underfull \hbox (badness 10000) in paragraph at lines 744--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 740--741
+Underfull \hbox (badness 10000) in paragraph at lines 752--753
 
  []
 
-<images/small_h_posterior_10.png, id=933, 1125.7257pt x 1147.1658pt>
+<images/small_h_posterior_10.png, id=947, 1125.7257pt x 1147.1658pt>
 File: images/small_h_posterior_10.png Graphic file (type png)
 <use images/small_h_posterior_10.png>
-Package pdftex.def Info: images/small_h_posterior_10.png  used on input line 74
-7.
+Package pdftex.def Info: images/small_h_posterior_10.png  used on input line 75
+9.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 762.
+(hyperref)                removing `\@ifnextchar' on input line 774.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 762.
+(hyperref)                removing `\uwave' on input line 774.
 
-<images/stacked_GW_plot_small_h_definitive3.png, id=936, 1125.7257pt x 1147.165
+<images/stacked_GW_plot_small_h_definitive3.png, id=950, 1125.7257pt x 1147.165
 8pt>
 File: images/stacked_GW_plot_small_h_definitive3.png Graphic file (type png)
 <use images/stacked_GW_plot_small_h_definitive3.png>
 Package pdftex.def Info: images/stacked_GW_plot_small_h_definitive3.png  used o
-n input line 766.
+n input line 778.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
 
-Overfull \hbox (6.99759pt too wide) in paragraph at lines 766--767
+Overfull \hbox (6.99759pt too wide) in paragraph at lines 778--779
  [][][] 
  []
 
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 785.
+(amsmath)                 on input line 797.
 
-<images/WD_0.png, id=941, 355.3275pt x 317.7471pt>
+<images/WD_0.png, id=955, 355.3275pt x 317.7471pt>
 File: images/WD_0.png Graphic file (type png)
 <use images/WD_0.png>
-Package pdftex.def Info: images/WD_0.png  used on input line 792.
+Package pdftex.def Info: images/WD_0.png  used on input line 804.
 (pdftex.def)             Requested size: 111.76062pt x 99.94055pt.
-<images/WD_1.png, id=942, 367.6134pt x 313.17pt>
+<images/WD_1.png, id=956, 367.6134pt x 313.17pt>
 File: images/WD_1.png Graphic file (type png)
 <use images/WD_1.png>
-Package pdftex.def Info: images/WD_1.png  used on input line 797.
+Package pdftex.def Info: images/WD_1.png  used on input line 809.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_2.png, id=943, 393.1488pt x 320.397pt>
+<images/WD_2.png, id=957, 393.1488pt x 320.397pt>
 File: images/WD_2.png Graphic file (type png)
 <use images/WD_2.png>
-Package pdftex.def Info: images/WD_2.png  used on input line 802.
+Package pdftex.def Info: images/WD_2.png  used on input line 814.
 (pdftex.def)             Requested size: 111.76062pt x 91.07942pt.
-<images/WD_3.png, id=944, 367.6134pt x 313.17pt>
+<images/WD_3.png, id=958, 367.6134pt x 313.17pt>
 File: images/WD_3.png Graphic file (type png)
 <use images/WD_3.png>
-Package pdftex.def Info: images/WD_3.png  used on input line 807.
+Package pdftex.def Info: images/WD_3.png  used on input line 819.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_4.png, id=945, 367.6134pt x 313.17pt>
+<images/WD_4.png, id=959, 367.6134pt x 313.17pt>
 File: images/WD_4.png Graphic file (type png)
 <use images/WD_4.png>
-Package pdftex.def Info: images/WD_4.png  used on input line 812.
+Package pdftex.def Info: images/WD_4.png  used on input line 824.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_5.png, id=946, 367.6134pt x 313.17pt>
+<images/WD_5.png, id=960, 367.6134pt x 313.17pt>
 File: images/WD_5.png Graphic file (type png)
 <use images/WD_5.png>
-Package pdftex.def Info: images/WD_5.png  used on input line 817.
+Package pdftex.def Info: images/WD_5.png  used on input line 829.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_6.png, id=947, 367.6134pt x 317.7471pt>
+<images/WD_6.png, id=961, 367.6134pt x 317.7471pt>
 File: images/WD_6.png Graphic file (type png)
 <use images/WD_6.png>
-Package pdftex.def Info: images/WD_6.png  used on input line 822.
+Package pdftex.def Info: images/WD_6.png  used on input line 834.
 (pdftex.def)             Requested size: 152.40155pt x 131.72682pt.
-<images/likelihood_surface_alpha_psi.png, id=948, 409.53pt x 397.7259pt>
+<images/likelihood_surface_alpha_psi.png, id=962, 409.53pt x 397.7259pt>
 File: images/likelihood_surface_alpha_psi.png Graphic file (type png)
 <use images/likelihood_surface_alpha_psi.png>
 Package pdftex.def Info: images/likelihood_surface_alpha_psi.png  used on input
- line 829.
+ line 841.
 (pdftex.def)             Requested size: 244.0pt x 236.97453pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 833.
 
-Overfull \hbox (1364.39845pt too wide) in paragraph at lines 833--833
-$[]$ [][][]|   [][][]|   [][]| 
+Overfull \hbox (1025.6312pt too wide) in paragraph at lines 847--847
+$[]$ [][][]|   [][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 833--834
+Underfull \hbox (badness 10000) in paragraph at lines 845--850
 
  []
 
 
-Underfull \vbox (badness 1590) has occurred while \output is active []
-
- [11]
-Underfull \hbox (badness 1215) in paragraph at lines 836--837
+Underfull \hbox (badness 1215) in paragraph at lines 852--853
 \T1/ntxtlf/m/n/9 un-der-es-ti-mat-ing the in-jected value. Given the un-cer-tai
 nty in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--837
+Underfull \hbox (badness 10000) in paragraph at lines 852--853
+
+ []
+
+[11]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 855.
+
+Overfull \hbox (315.57166pt too wide) in paragraph at lines 855--855
+$[]$ [][][]|   []
+ []
+
+
+Overfull \hbox (354.02159pt too wide) in paragraph at lines 855--855
+[][]|   []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 866--868
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./images/small_h_posterior_10.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13 <./images/stacked_GW_plot_small_h_definitive3.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3
-.png> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/lik
-elihood_surface_alpha_psi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 850--852
+Underfull \hbox (badness 10000) in paragraph at lines 870--871
 
  []
 
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--855
 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13 <./images/small_h_posterior_10.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 863.
+(hyperref)                removing `\@ifnextchar' on input line 879.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 863.
+(hyperref)                removing `\uwave' on input line 879.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--865
+Underfull \hbox (badness 10000) in paragraph at lines 880--881
 
  []
 
-<images/CanonicalBayesPlot2000.png, id=1054, 734.5041pt x 714.5094pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14 <./images/stacked_GW_plot_small_h_definitive3.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<images/CanonicalBayesPlot2000.png, id=1065, 734.5041pt x 714.5094pt>
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
-868.
+884.
 (pdftex.def)             Requested size: 244.0pt x 237.34789pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 874.
+Underfull \vbox (badness 2698) has occurred while \output is active []
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sout' on input line 874.
-
-[15]
+ [15 <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3
+.png> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/lik
+elihood_surface_alpha_psi.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 876.
+(hyperref)                removing `\@ifnextchar' on input line 890.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 876.
+(hyperref)                removing `\sout' on input line 890.
 
-<images/pp_plot_new.png, id=1068, 398.4486pt x 386.1627pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 892.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 892.
+
+<images/pp_plot_new.png, id=1084, 398.4486pt x 386.1627pt>
 File: images/pp_plot_new.png Graphic file (type png)
 <use images/pp_plot_new.png>
-Package pdftex.def Info: images/pp_plot_new.png  used on input line 879.
+Package pdftex.def Info: images/pp_plot_new.png  used on input line 895.
 (pdftex.def)             Requested size: 244.0pt x 236.4781pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 883--884
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 889.
+(hyperref)                removing `\@ifnextchar' on input line 905.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sout' on input line 889.
+(hyperref)                removing `\sout' on input line 905.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 891.
+(hyperref)                removing `\@ifnextchar' on input line 907.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 891.
+(hyperref)                removing `\uwave' on input line 907.
+
+[16 <./images/CanonicalBayesPlot2000.png> <./images/pp_plot_new.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 897.
+(hyperref)                removing `\uwave' on input line 913.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 897.
-
-<images/stacked_GW_plot_iota_h.png, id=1084, 366.8907pt x 388.3308pt>
+<images/stacked_GW_plot_iota_h.png, id=1111, 366.8907pt x 388.3308pt>
 File: images/stacked_GW_plot_iota_h.png Graphic file (type png)
 <use images/stacked_GW_plot_iota_h.png>
 Package pdftex.def Info: images/stacked_GW_plot_iota_h.png  used on input line 
-900.
+916.
 (pdftex.def)             Requested size: 244.0pt x 258.26636pt.
-<images/likelihood_surface.png, id=1087, 390.7398pt x 397.7259pt>
+<images/likelihood_surface.png, id=1114, 390.7398pt x 397.7259pt>
 File: images/likelihood_surface.png Graphic file (type png)
 <use images/likelihood_surface.png>
-Package pdftex.def Info: images/likelihood_surface.png  used on input line 906.
+Package pdftex.def Info: images/likelihood_surface.png  used on input line 922.
 
 (pdftex.def)             Requested size: 244.0pt x 248.3596pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 910--912
+Underfull \hbox (badness 10000) in paragraph at lines 926--928
 
  []
 
-[16 <./images/CanonicalBayesPlot2000.png> <./images/pp_plot_new.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17 <./images/stacked_GW_plot_iota_h.png> <./images/likelihood_surface.png>]
+LaTeX Warning: Reference `eq:hphx2' on page 17 undefined on input line 929.
+
+
+LaTeX Warning: Reference `eq:hphx2' on page 17 undefined on input line 929.
+
+[17 <./images/stacked_GW_plot_iota_h.png> <./images/likelihood_surface.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 916.
+(hyperref)                removing `\@ifnextchar' on input line 932.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 916.
+(hyperref)                removing `\uwave' on input line 932.
 
-<images/large_h_example.png, id=1134, 1125.7257pt x 1147.1658pt>
+<images/large_h_example.png, id=1147, 1125.7257pt x 1147.1658pt>
 File: images/large_h_example.png Graphic file (type png)
 <use images/large_h_example.png>
-Package pdftex.def Info: images/large_h_example.png  used on input line 919.
+Package pdftex.def Info: images/large_h_example.png  used on input line 935.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
-<images/likelihood_iota_new.png, id=1139, 400.8576pt x 380.622pt>
+<images/likelihood_iota_new.png, id=1152, 400.8576pt x 380.622pt>
 File: images/likelihood_iota_new.png Graphic file (type png)
 <use images/likelihood_iota_new.png>
-Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 926
+Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 942
 .
 (pdftex.def)             Requested size: 244.0pt x 231.6854pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 930--931
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 933--934
+Underfull \hbox (badness 10000) in paragraph at lines 949--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 935--936
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 937--938
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 942--944
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 945--946
-
- []
-
-[18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19 <./images/large_h_example.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20
-
-
- <./images/likelihood_iota_new.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 951--952
 
  []
@@ -1745,103 +1779,139 @@ Underfull \hbox (badness 10000) in paragraph at lines 953--954
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 955--956
+Underfull \hbox (badness 10000) in paragraph at lines 958--960
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 957--958
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 959--960
+Underfull \vbox (badness 6559) has occurred while \output is active []
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 962--963
-
- []
-
-
+ [18]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 985--987
-
- []
-
-[21
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1012
+ [19 <./images/large_h_example.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
 
  []
 
 
-Overfull \hbox (4.58736pt too wide) detected at line 1051
-$\OML/ntxmi/m/it/9 G[] \U/ntxmia/m/it/9 = \OML/ntxmi/m/it/9 f[]\LMS/ntxsy/m/n/9
- ¹\OML/ntxmi/m/it/9 t[]\LMS/ntxsy/m/n/9 º Ï []¹\OML/ntxmi/m/it/9 t[]\LMS/ntxsy/
-m/n/9 º [] ^^@ \OML/ntxmi/m/it/9 e[] []$  
+Underfull \hbox (badness 10000) in paragraph at lines 969--970
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1061
+Underfull \hbox (badness 10000) in paragraph at lines 971--972
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 973--974
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 975--976
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 978--979
+
+ []
+
+[20 <./images/likelihood_iota_new.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1033
+
+ []
+
+
+Underfull \hbox (badness 3375) in paragraph at lines 1047--1050
+\T1/ntxtlf/m/n/9 where []|   []   |   []   |   []   |   []   |   []   |   []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1060--1062
+
+ []
+
+[21]
+Overfull \hbox (12.58736pt too wide) detected at line 1087
+$[][]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1100--1102
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1070.
+(hyperref)                removing `\@ifnextchar' on input line 1108.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uwave' on input line 1070.
+(hyperref)                removing `\uwave' on input line 1108.
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1083
+
+Overfull \hbox (656.25182pt too wide) in paragraph at lines 1110--1110
+|   []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1094
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1132
 
  []
 
-(./difference.bbl
-Underfull \hbox (badness 4279) in paragraph at lines 66--69
+(./difference.bbl [22]
+Underfull \hbox (badness 4279) in paragraph at lines 71--74
 []\T1/ntxtlf/m/n/8 Arjovsky M., Chin-tala S., Bot-tou L., 2017, [][]arXiv e-pri
 nts[][], [][]p.
  []
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 437--441
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--457
 []\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--441
+Underfull \hbox (badness 10000) in paragraph at lines 453--457
 \T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--441
+Underfull \hbox (badness 10000) in paragraph at lines 453--457
 [][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
 /m/n/8 https : / / doi . org /
  []
 
 
-Underfull \vbox (badness 2573) has occurred while \output is active []
+Underfull \vbox (badness 2961) has occurred while \output is active []
 
-
-Underfull \hbox (badness 6493) in paragraph at lines 727--730
+ [23]
+Underfull \hbox (badness 6493) in paragraph at lines 749--752
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
-[24]) [25
 
-] (./difference.aux)
+Underfull \vbox (badness 3179) has occurred while \output is active []
+
+) [24]
+(./difference.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1856,13 +1926,13 @@ Package rerunfilecheck Info: File `difference.out' has not changed.
 (rerunfilecheck)             Checksum: 198C1E947A54890E007E2F48F9716CEE;6214.
  ) 
 Here is how much of TeX's memory you used:
- 19301 strings out of 478268
- 300319 string characters out of 5846348
- 792963 words of memory out of 5000000
- 36785 multiletter control sequences out of 15000+600000
- 607218 words of font info for 264 fonts, out of 8000000 for 9000
+ 19318 strings out of 478268
+ 300780 string characters out of 5846348
+ 795490 words of memory out of 5000000
+ 36797 multiletter control sequences out of 15000+600000
+ 607010 words of font info for 263 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,16n,78p,3769b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,16n,78p,3769b,702s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1892,10 +1962,10 @@ onts/txsyb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txs
 ys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on difference.pdf (25 pages, 13218088 bytes).
+Output written on difference.pdf (24 pages, 13301666 bytes).
 PDF statistics:
- 1728 PDF objects out of 1728 (max. 8388607)
- 1574 compressed objects within 16 object streams
- 314 named destinations out of 1000 (max. 500000)
+ 1752 PDF objects out of 2073 (max. 8388607)
+ 1597 compressed objects within 16 object streams
+ 320 named destinations out of 1000 (max. 500000)
  344 words of extra memory for PDF output out of 10000 (max. 10000000)
 

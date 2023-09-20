@@ -27,6 +27,11 @@
 {Agazie} G.,  et~al., 2023b, \mn@doi [\apjl] {10.3847/2041-8213/acda9a}, \href
   {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...9A} {951, L9}
 
+\bibitem[\protect\citeauthoryear{{Alam} et~al.,}{{Alam}
+  et~al.}{2021}]{nanogravwideband}
+{Alam} M.~F.,  et~al., 2021, \mn@doi [\apjs] {10.3847/1538-4365/abc6a1}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021ApJS..252....5A} {252, 5}
+
 \bibitem[\protect\citeauthoryear{{Allen}}{{Allen}}{1997}]{Allen1997}
 {Allen} B.,  1997, in {Marck} J.-A.,  {Lasota} J.-P.,  eds, Relativistic
   Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
@@ -276,6 +281,12 @@ Gardiner C.,  2009, Stochastic Methods: A Handbook for the Natural and Social
 Springer Series in Synergetics, Springer Berlin Heidelberg, \url
   {https://books.google.com.au/books?id=otg3PQAACAAJ}
 
+\bibitem[\protect\citeauthoryear{Gelb, Kasper, Nash, Price  \& Sutherland}{Gelb
+  et~al.}{1974}]{Gelb:1974}
+Gelb A.,  Kasper J.~F.,  Nash R.~A.,  Price C.~F.,   Sutherland A.~A.,  eds,
+  1974, Applied Optimal Estimation.
+MIT Press, Cambridge, MA
+
 \bibitem[\protect\citeauthoryear{{Goldreich} \& {Julian}}{{Goldreich} \&
   {Julian}}{1969}]{1969ApJ...157..869G}
 {Goldreich} P.,  {Julian} W.~H.,  1969, \mn@doi [\apj] {10.1086/150119}, \href
@@ -348,6 +359,11 @@ Hobbs G.,  Dai S.,  Manchester R.~N.,  Shannon R.~M.,  Kerr M.,  Lee K.-J.,
   Backer}{2003}]{Jaffe_2003}
 Jaffe A.~H.,  Backer D.~C.,  2003, \mn@doi [The Astrophysical Journal]
   {10.1086/345443}, 583, 616
+
+\bibitem[\protect\citeauthoryear{Jankowski et~al.,}{Jankowski
+  et~al.}{2018}]{10.1093/mnras/sty3390}
+Jankowski F.,  et~al., 2018, \mn@doi [Monthly Notices of the Royal Astronomical
+  Society] {10.1093/mnras/sty3390}, 484, 3691
 
 \bibitem[\protect\citeauthoryear{{Jenet}, {Lommen}, {Larson}  \& {Wen}}{{Jenet}
   et~al.}{2004}]{Jenet2004}
@@ -513,6 +529,12 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
 {Paxton} E.~A.,  {Chantry} M.,  {Kl{\"o}wer} M.,  {Saffin} L.,   {Palmer} T.,
   2022, \mn@doi [Journal of Climate] {10.1175/JCLI-D-21-0343.1}, \href
   {https://ui.adsabs.harvard.edu/abs/2022JCli...35.1215P} {35, 1215}
+
+\bibitem[\protect\citeauthoryear{Pennucci \& Collaboration}{Pennucci \&
+  Collaboration}{2020}]{pennucci_timothy_t_2020_4312887}
+Pennucci T.~T.,  Collaboration T.~N.,  2020, {The NANOGrav 12.5-year Wideband
+  Data Set (version 12yv4)}, \mn@doi{10.5281/zenodo.4312887}, \url
+  {https://doi.org/10.5281/zenodo.4312887}
 
 \bibitem[\protect\citeauthoryear{{Peralta}, {Melatos}, {Giacobello}  \&
   {Ooi}}{{Peralta} et~al.}{2006}]{Peralta2006}
