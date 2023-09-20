@@ -24,45 +24,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 149 entries,
+You've used 147 entries,
             2881 wiz_defined-function locations,
-            2005 strings with 77387 characters,
-and the built_in function-call counts, 74136 in all, are:
-= -- 6669
-> -- 4693
+            1988 strings with 76171 characters,
+and the built_in function-call counts, 73366 in all, are:
+= -- 6591
+> -- 4658
 < -- 337
-+ -- 2079
++ -- 2060
 - -- 635
-* -- 8859
-:= -- 10998
+* -- 8748
+:= -- 10895
 add.period$ -- 0
-call.type$ -- 149
-change.case$ -- 298
-chr.to.int$ -- 138
-cite$ -- 151
-duplicate$ -- 3755
-empty$ -- 3677
-format.name$ -- 1125
-if$ -- 13416
+call.type$ -- 147
+change.case$ -- 294
+chr.to.int$ -- 136
+cite$ -- 149
+duplicate$ -- 3713
+empty$ -- 3633
+format.name$ -- 1117
+if$ -- 13282
 int.to.chr$ -- 12
 int.to.str$ -- 0
-missing$ -- 155
-newline$ -- 468
-num.names$ -- 985
-pop$ -- 722
+missing$ -- 153
+newline$ -- 462
+num.names$ -- 977
+pop$ -- 713
 preamble$ -- 1
-purify$ -- 596
+purify$ -- 588
 quote$ -- 0
-skip$ -- 2556
+skip$ -- 2533
 stack$ -- 0
-substring$ -- 5022
-swap$ -- 2089
-text.length$ -- 615
+substring$ -- 4962
+swap$ -- 2077
+text.length$ -- 607
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1317
+type$ -- 1299
 warning$ -- 2
-while$ -- 1095
+while$ -- 1083
 width$ -- 0
-write$ -- 1522
+write$ -- 1502
 (There were 2 error messages)

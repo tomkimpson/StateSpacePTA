@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  19 SEP 2023 18:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  20 SEP 2023 13:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1151,8 +1151,6 @@ File: images/likelihood_surface_alpha_psi.png Graphic file (type png)
 Package pdftex.def Info: images/likelihood_surface_alpha_psi.png  used on input
  line 562.
 (pdftex.def)             Requested size: 244.0pt x 236.97453pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 566.
 
 Underfull \hbox (badness 10000) in paragraph at lines 566--567
 
@@ -1169,10 +1167,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 569--570
 
  []
 
-
-Underfull \vbox (badness 1178) has occurred while \output is active []
-
- [10]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 572.
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 579--581
 
  []
@@ -1202,33 +1199,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 591--592
 [13 <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3.
 png> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/like
 lihood_surface_alpha_psi.png>]
-<images/CanonicalBayesPlot2000.png, id=1001, 734.5041pt x 714.5094pt>
+<images/CanonicalBayesPlot2000.png, id=999, 734.5041pt x 714.5094pt>
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
 595.
 (pdftex.def)             Requested size: 244.0pt x 237.34789pt.
-<images/pp_plot_new.png, id=1004, 398.4486pt x 386.1627pt>
+<images/pp_plot_new.png, id=1002, 398.4486pt x 386.1627pt>
 File: images/pp_plot_new.png Graphic file (type png)
 <use images/pp_plot_new.png>
 Package pdftex.def Info: images/pp_plot_new.png  used on input line 604.
 (pdftex.def)             Requested size: 244.0pt x 236.4781pt.
-
-Underfull \vbox (badness 2080) has occurred while \output is active []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 608--609
 
  []
 
 [14 <./images/CanonicalBayesPlot2000.png> <./images/pp_plot_new.png>]
-<images/stacked_GW_plot_iota_h.png, id=1030, 366.8907pt x 388.3308pt>
+<images/stacked_GW_plot_iota_h.png, id=1028, 366.8907pt x 388.3308pt>
 File: images/stacked_GW_plot_iota_h.png Graphic file (type png)
 <use images/stacked_GW_plot_iota_h.png>
 Package pdftex.def Info: images/stacked_GW_plot_iota_h.png  used on input line 
 620.
 (pdftex.def)             Requested size: 244.0pt x 258.26636pt.
-<images/likelihood_surface.png, id=1033, 390.7398pt x 397.7259pt>
+<images/likelihood_surface.png, id=1031, 390.7398pt x 397.7259pt>
 File: images/likelihood_surface.png Graphic file (type png)
 <use images/likelihood_surface.png>
 Package pdftex.def Info: images/likelihood_surface.png  used on input line 626.
@@ -1240,12 +1234,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 630--632
  []
 
 [15 <./images/stacked_GW_plot_iota_h.png> <./images/likelihood_surface.png>]
-<images/large_h_example.png, id=1067, 1125.7257pt x 1147.1658pt>
+<images/large_h_example.png, id=1065, 1125.7257pt x 1147.1658pt>
 File: images/large_h_example.png Graphic file (type png)
 <use images/large_h_example.png>
 Package pdftex.def Info: images/large_h_example.png  used on input line 637.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
-<images/likelihood_iota_new.png, id=1072, 400.8576pt x 380.622pt>
+<images/likelihood_iota_new.png, id=1070, 400.8576pt x 380.622pt>
 File: images/likelihood_iota_new.png Graphic file (type png)
 <use images/likelihood_iota_new.png>
 Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 644
@@ -1282,9 +1276,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 663--664
  []
 
 [16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17 <./images/large_h_example.png>]
@@ -1354,23 +1345,23 @@ nts[][], [][]p.
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 453--457
+Underfull \hbox (badness 10000) in paragraph at lines 443--447
 []\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--457
+Underfull \hbox (badness 10000) in paragraph at lines 443--447
 \T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--457
+Underfull \hbox (badness 10000) in paragraph at lines 443--447
 [][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
 /m/n/8 https : / / doi . org /
  []
 
 [21]
-Underfull \hbox (badness 6493) in paragraph at lines 749--752
+Underfull \hbox (badness 6493) in paragraph at lines 739--742
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
@@ -1388,13 +1379,13 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 1F25DEFC9FE680A9CE3E28A93DC3CD8E;4875.
  ) 
 Here is how much of TeX's memory you used:
- 17762 strings out of 478268
- 277742 string characters out of 5846348
- 606945 words of memory out of 5000000
- 35275 multiletter control sequences out of 15000+600000
- 606904 words of font info for 262 fonts, out of 8000000 for 9000
+ 17752 strings out of 478268
+ 277540 string characters out of 5846348
+ 605554 words of memory out of 5000000
+ 35269 multiletter control sequences out of 15000+600000
+ 606696 words of font info for 261 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,3322b,728s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,3322b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1423,10 +1414,10 @@ xfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts
 fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/
 local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (22 pages, 13205044 bytes).
+Output written on paper.pdf (22 pages, 13203355 bytes).
 PDF statistics:
- 1666 PDF objects out of 1728 (max. 8388607)
- 1519 compressed objects within 16 object streams
- 307 named destinations out of 1000 (max. 500000)
+ 1657 PDF objects out of 1728 (max. 8388607)
+ 1510 compressed objects within 16 object streams
+ 304 named destinations out of 1000 (max. 500000)
  312 words of extra memory for PDF output out of 10000 (max. 10000000)
 
