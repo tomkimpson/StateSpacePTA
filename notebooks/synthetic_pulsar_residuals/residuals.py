@@ -159,7 +159,7 @@ class EM_guided_mean_reverting_PTA_ModelSim(SimulationModel):
 
 
 
-data_path = 'data/'
+data_path = 'data_psr/'
 
 def pulsar_pipeline(psr_name,error_on_toa,sigma_2=None):
     
