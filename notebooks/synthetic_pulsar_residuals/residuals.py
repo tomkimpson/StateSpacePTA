@@ -270,8 +270,9 @@ def pulsar_pipeline(psr_name,error_on_toa,sigma_2=None):
     axes[0].text(0.9, 0.90, r'$({\rm i})$', transform=axes[0].transAxes, fontsize=24)
     axes[1].set_title(r'${\rm FAKE}$', fontsize=24);
     axes[1].text(0.9, 0.90, r'$({\rm ii})$', transform=axes[1].transAxes, fontsize=24)
+    plt.title(psr_name + " " + str(error_on_toa) + " " + str(sigma_2))
     plt.tight_layout()
-    plt.savefig(f'data/images/{psr_name}_image.png')
+    plt.savefig(f'data_psr/images/{psr_name}_image.png')
     
     
 
@@ -284,8 +285,8 @@ import glob
 fnames = glob.glob(f"{data_path}par/*_NANOGrav_12yv4.wb.gls.par")
 
 
-for f in fnames:
+for f in fnames[0:1]:
     psr_name = extract_psr_name(f)
-    pulsar_pipeline(psr_name,error_on_toa=1e-7,sigma_2=None)
+    pulsar_pipeline(psr_name,error_on_toa=1e-7,sigma_2=1e-26)
 
 
