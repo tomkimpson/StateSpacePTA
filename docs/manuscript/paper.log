@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  26 SEP 2023 13:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  3 OCT 2023 17:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -935,7 +935,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--142
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 151.
+(Font)              scaled to size 12.0pt on input line 150.
 [2]
 Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
@@ -963,7 +963,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--261
 
  []
 
-<images/Kalman_example_both.png, id=535, 1088.3862pt x 601.5273pt>
+<images/Kalman_example_both.png, id=536, 1088.3862pt x 601.5273pt>
 File: images/Kalman_example_both.png Graphic file (type png)
 <use images/Kalman_example_both.png>
 Package pdftex.def Info: images/Kalman_example_both.png  used on input line 285
@@ -1009,7 +1009,7 @@ Package enumitem Warning: Negative labelwidth. This does not make much
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6 <./images/Kalman_example_both.png>]
-<images/pulsar_distribution.png, id=697, 511.6716pt x 333.8874pt>
+<images/pulsar_distribution.png, id=698, 511.6716pt x 333.8874pt>
 File: images/pulsar_distribution.png Graphic file (type png)
 <use images/pulsar_distribution.png>
 Package pdftex.def Info: images/pulsar_distribution.png  used on input line 358
@@ -1029,7 +1029,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 370--372
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 8.0pt on input line 373.
-<images/example_residuals_plot2.png, id=734, 956.373pt x 494.0859pt>
+<images/example_residuals_plot2.png, id=735, 956.373pt x 494.0859pt>
 File: images/example_residuals_plot2.png Graphic file (type png)
 <use images/example_residuals_plot2.png>
 Package pdftex.def Info: images/example_residuals_plot2.png  used on input line
@@ -1092,13 +1092,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 477--478
  []
 
 [9]
-<images/small_h_posterior_10.png, id=891, 1125.7257pt x 1147.1658pt>
+<images/small_h_posterior_10.png, id=892, 1125.7257pt x 1147.1658pt>
 File: images/small_h_posterior_10.png Graphic file (type png)
 <use images/small_h_posterior_10.png>
 Package pdftex.def Info: images/small_h_posterior_10.png  used on input line 48
 4.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
-<images/stacked_GW_plot_small_h_definitive3.png, id=894, 1125.7257pt x 1147.165
+<images/stacked_GW_plot_small_h_definitive3.png, id=895, 1125.7257pt x 1147.165
 8pt>
 File: images/stacked_GW_plot_small_h_definitive3.png Graphic file (type png)
 <use images/stacked_GW_plot_small_h_definitive3.png>
@@ -1111,42 +1111,42 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 518.
 
-<images/WD_0.png, id=899, 355.3275pt x 317.7471pt>
+<images/WD_0.png, id=900, 355.3275pt x 317.7471pt>
 File: images/WD_0.png Graphic file (type png)
 <use images/WD_0.png>
 Package pdftex.def Info: images/WD_0.png  used on input line 525.
 (pdftex.def)             Requested size: 111.76062pt x 99.94055pt.
-<images/WD_1.png, id=900, 367.6134pt x 313.17pt>
+<images/WD_1.png, id=901, 367.6134pt x 313.17pt>
 File: images/WD_1.png Graphic file (type png)
 <use images/WD_1.png>
 Package pdftex.def Info: images/WD_1.png  used on input line 530.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_2.png, id=901, 393.1488pt x 320.397pt>
+<images/WD_2.png, id=902, 393.1488pt x 320.397pt>
 File: images/WD_2.png Graphic file (type png)
 <use images/WD_2.png>
 Package pdftex.def Info: images/WD_2.png  used on input line 535.
 (pdftex.def)             Requested size: 111.76062pt x 91.07942pt.
-<images/WD_3.png, id=902, 367.6134pt x 313.17pt>
+<images/WD_3.png, id=903, 367.6134pt x 313.17pt>
 File: images/WD_3.png Graphic file (type png)
 <use images/WD_3.png>
 Package pdftex.def Info: images/WD_3.png  used on input line 540.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_4.png, id=903, 367.6134pt x 313.17pt>
+<images/WD_4.png, id=904, 367.6134pt x 313.17pt>
 File: images/WD_4.png Graphic file (type png)
 <use images/WD_4.png>
 Package pdftex.def Info: images/WD_4.png  used on input line 545.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_5.png, id=904, 367.6134pt x 313.17pt>
+<images/WD_5.png, id=905, 367.6134pt x 313.17pt>
 File: images/WD_5.png Graphic file (type png)
 <use images/WD_5.png>
 Package pdftex.def Info: images/WD_5.png  used on input line 550.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_6.png, id=905, 367.6134pt x 317.7471pt>
+<images/WD_6.png, id=906, 367.6134pt x 317.7471pt>
 File: images/WD_6.png Graphic file (type png)
 <use images/WD_6.png>
 Package pdftex.def Info: images/WD_6.png  used on input line 555.
 (pdftex.def)             Requested size: 152.40155pt x 131.72682pt.
-<images/likelihood_surface_alpha_psi.png, id=906, 409.53pt x 397.7259pt>
+<images/likelihood_surface_alpha_psi.png, id=907, 409.53pt x 397.7259pt>
 File: images/likelihood_surface_alpha_psi.png Graphic file (type png)
 <use images/likelihood_surface_alpha_psi.png>
 Package pdftex.def Info: images/likelihood_surface_alpha_psi.png  used on input
@@ -1203,13 +1203,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 591--592
 [13 <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3.
 png> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/like
 lihood_surface_alpha_psi.png>]
-<images/CanonicalBayesPlot2000.png, id=1000, 734.5041pt x 714.5094pt>
+<images/CanonicalBayesPlot2000.png, id=1001, 734.5041pt x 714.5094pt>
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
 595.
 (pdftex.def)             Requested size: 244.0pt x 237.34789pt.
-<images/pp_plot_new.png, id=1003, 398.4486pt x 386.1627pt>
+<images/pp_plot_new.png, id=1004, 398.4486pt x 386.1627pt>
 File: images/pp_plot_new.png Graphic file (type png)
 <use images/pp_plot_new.png>
 Package pdftex.def Info: images/pp_plot_new.png  used on input line 604.
@@ -1223,13 +1223,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 608--609
  []
 
 [14 <./images/CanonicalBayesPlot2000.png> <./images/pp_plot_new.png>]
-<images/stacked_GW_plot_iota_h.png, id=1029, 366.8907pt x 388.3308pt>
+<images/stacked_GW_plot_iota_h.png, id=1030, 366.8907pt x 388.3308pt>
 File: images/stacked_GW_plot_iota_h.png Graphic file (type png)
 <use images/stacked_GW_plot_iota_h.png>
 Package pdftex.def Info: images/stacked_GW_plot_iota_h.png  used on input line 
 620.
 (pdftex.def)             Requested size: 244.0pt x 258.26636pt.
-<images/likelihood_surface.png, id=1032, 390.7398pt x 397.7259pt>
+<images/likelihood_surface.png, id=1033, 390.7398pt x 397.7259pt>
 File: images/likelihood_surface.png Graphic file (type png)
 <use images/likelihood_surface.png>
 Package pdftex.def Info: images/likelihood_surface.png  used on input line 626.
@@ -1241,12 +1241,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 630--632
  []
 
 [15 <./images/stacked_GW_plot_iota_h.png> <./images/likelihood_surface.png>]
-<images/large_h_example.png, id=1066, 1125.7257pt x 1147.1658pt>
+<images/large_h_example.png, id=1067, 1125.7257pt x 1147.1658pt>
 File: images/large_h_example.png Graphic file (type png)
 <use images/large_h_example.png>
 Package pdftex.def Info: images/large_h_example.png  used on input line 637.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
-<images/likelihood_iota_new.png, id=1071, 400.8576pt x 380.622pt>
+<images/likelihood_iota_new.png, id=1072, 400.8576pt x 380.622pt>
 File: images/likelihood_iota_new.png Graphic file (type png)
 <use images/likelihood_iota_new.png>
 Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 644
@@ -1427,10 +1427,10 @@ xfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts
 fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/
 local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (22 pages, 13203693 bytes).
+Output written on paper.pdf (22 pages, 13203670 bytes).
 PDF statistics:
- 1658 PDF objects out of 1728 (max. 8388607)
- 1511 compressed objects within 16 object streams
+ 1659 PDF objects out of 1728 (max. 8388607)
+ 1512 compressed objects within 16 object streams
  304 named destinations out of 1000 (max. 500000)
  312 words of extra memory for PDF output out of 10000 (max. 10000000)
 
