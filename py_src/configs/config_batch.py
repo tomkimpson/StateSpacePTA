@@ -24,32 +24,48 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-# N = 100
-# seeds = np.arange(1235+10,1235+10+N,1)
-# h = 5e-15 
-# model = "pulsar"
-# with open('batch.sh','w') as b: 
 
-#     for s in seeds:
-#         arg_name = f"ETJ_pulsar_batch_{s}"
-#         create_slurm_job(arg_name,h,model,s)
-#         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+
+# MULTIPLE NOISE REALISATIONS
+
+
+
+N = 10
+seeds = np.arange(1235+10,1235+10+N,1)
+
+strains = [1e-12,5e-15]
+models = ["earth", "pulsar"]
+
+with open('batch.sh','w') as b: 
+
+    for s in seeds:
+        for h in strains:
+            for m in models:
+                arg_name = f"eg_canonical_{m}_{h}_{s}"
+                create_slurm_job(arg_name,h,m,s)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
 
-h_range = np.logspace(-15,-12,101)
-noise_models = ["pulsar","earth", "null"]
+#BAYES PLOT
 
-s = 1255 #seed
-with open('batch.sh','w') as b:
+
+# h_range = np.logspace(-15,-12,101)
+# noise_models = ["pulsar","earth", "null"]
+
+# s = 1255 #seed
+# with open('batch.sh','w') as b:
     
 
-    for h in h_range:
-        for n in noise_models:
-            arg_name = f"P2_canonical_bayes_h_{h}_model_{n}"
-            print(arg_name)
-            create_slurm_job(arg_name,h,n,s)
+#     for h in h_range:
+#         for n in noise_models:
+#             arg_name = f"P2_canonical_bayes_h_{h}_model_{n}"
+#             print(arg_name)
+#             create_slurm_job(arg_name,h,n,s)
 
-            b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+#             b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
 
 
