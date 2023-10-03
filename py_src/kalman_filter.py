@@ -109,7 +109,7 @@ class KalmanFilter:
         self.list_of_f_keys = [f'f0{i}' for i in range(self.Npsr)]
         self.list_of_fdot_keys = [f'fdot{i}' for i in range(self.Npsr)]
         self.list_of_gamma_keys = [f'gamma{i}' for i in range(self.Npsr)]
-        self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
+        #self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
         self.list_of_sigma_p_keys = [f'sigma_p{i}' for i in range(self.Npsr)]
         self.list_of_chi_keys = [f'chi{i}' for i in range(self.Npsr)]
 
@@ -129,7 +129,7 @@ class KalmanFilter:
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)
         fdot    = dict_to_array(parameters_dict,self.list_of_fdot_keys)
         gamma   = dict_to_array(parameters_dict,self.list_of_gamma_keys)
-        d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
+        #d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
         chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
 
@@ -137,14 +137,14 @@ class KalmanFilter:
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
 
-        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m
+        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m
 
 
 
     def likelihood(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
     
         #Precompute transition/Q/R Kalman matrices
@@ -169,7 +169,6 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
-                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi

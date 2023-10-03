@@ -10,3 +10,4 @@ py_src/slurm_jobs/*.sh
 data/nested_sampling/*
 docs/build/*
 data/.DS_Store
+data/clean

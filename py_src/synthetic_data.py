@@ -55,7 +55,6 @@ class SyntheticData:
                                         P.h,
                                         P.ι,
                                         P.Ω,
-                                        pulsars.d,
                                         pulsars.t,
                                         P.Φ0,
                                         pulsars.chi
