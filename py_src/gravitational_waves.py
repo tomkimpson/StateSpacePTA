@@ -2,7 +2,7 @@ from numpy import sin,cos
 import numpy as np 
 from numba import jit,njit 
 
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     #Get GW direction
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
@@ -32,7 +32,7 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, just for the earth terms
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
     GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase))
@@ -42,11 +42,16 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
-    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
-    
-    GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi))
+
+
+    num_gw_sources = len(delta)
+    GW_factor = np.zeros((len(t),len(d))) #times x NPSR 
+    for k in range(num_gw_sources):
+        dot_product,hbar,earth_term_phase = gw_prefactors(delta[k],alpha[k],psi[k],q,q_products,h[k],iota[k],omega[k],d,t,phi0[k])
+        GW_factor += 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi[k,:]))
+       
    
     return GW_factor
 
@@ -55,12 +60,12 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 """
 The null model - i.e. no GW
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def principal_axes(theta,phi,psi):
     
     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
@@ -73,9 +78,9 @@ def principal_axes(theta,phi,psi):
     n3 = cos(psi)*sin(theta)
     n = [n1,n2,n3]
 
-    return m,n
+    return np.array(m),np.array(n)
 
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def h_amplitudes(h,ι): 
     return h*(1.0 + cos(ι)**2),h*(-2.0*cos(ι)) #hplus,hcross
 
