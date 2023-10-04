@@ -2,7 +2,7 @@ import bilby
 import logging
 logger = logging.getLogger(__name__).setLevel(logging.INFO)
 
-
+import sys
 """Here is some test documentation"""
 class BilbyLikelihood(bilby.Likelihood):
 

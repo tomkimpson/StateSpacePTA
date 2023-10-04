@@ -252,3 +252,4 @@ def bilby_priors_dict(PTA,P):
 
 
     return init_parameters,priors
+

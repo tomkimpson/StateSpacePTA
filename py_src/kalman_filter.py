@@ -115,15 +115,24 @@ class KalmanFilter:
 
 
     def parse_dictionary(self,parameters_dict):
-        
-        #All the GW parameters can just be directly accessed as variables
-        omega_gw = parameters_dict["omega_gw"].item() 
-        phi0_gw  = parameters_dict["phi0_gw"].item()
-        psi_gw   = parameters_dict["psi_gw"].item()
-        iota_gw  = parameters_dict["iota_gw"].item()
-        delta_gw = parameters_dict["delta_gw"].item()
-        alpha_gw = parameters_dict["alpha_gw"].item()
-        h        = parameters_dict["h"].item()
+        try: 
+            #All the GW parameters can just be directly accessed as variables
+            omega_gw = parameters_dict["omega_gw"].item() 
+            phi0_gw  = parameters_dict["phi0_gw"].item()
+            psi_gw   = parameters_dict["psi_gw"].item()
+            iota_gw  = parameters_dict["iota_gw"].item()
+            delta_gw = parameters_dict["delta_gw"].item()
+            alpha_gw = parameters_dict["alpha_gw"].item()
+            h        = parameters_dict["h"].item()
+
+        except: #For the null model, we have these parameters as constants. Bilby returns as floats rather than float64s, so item() doesn't work. This needs fixing
+            omega_gw = parameters_dict["omega_gw"]
+            phi0_gw  = parameters_dict["phi0_gw"]
+            psi_gw   = parameters_dict["psi_gw"]
+            iota_gw  = parameters_dict["iota_gw"]
+            delta_gw = parameters_dict["delta_gw"]
+            alpha_gw = parameters_dict["alpha_gw"]
+            h        = parameters_dict["h"]
 
         #Now read in the pulsar parameters. Explicit.
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)

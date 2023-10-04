@@ -36,6 +36,12 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
 
     logging.info("Testing KF using parameters sampled from prior")
     params = priors.sample(1)
+
+
+    print("The sampled params are as follows")
+    print(params)
+
+
     model_likelihood = KF.likelihood(params)
     logging.info(f"Non -ideal likelihood for randomly sampled parameters = {model_likelihood}")
 
