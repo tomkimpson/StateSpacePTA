@@ -269,7 +269,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         fig = corner.corner(yplot, 
                             color=f'C{k}',
                             show_titles=True,
-                            smooth=True,smooth1d=True,
+                            smooth=smooth,smooth1d=smooth1d,
                             truth_color='C2',
                             quantiles=None, #[0.16, 0.84],
                             truths =injection_parameters_idx ,
