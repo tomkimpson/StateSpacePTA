@@ -116,14 +116,14 @@ class KalmanFilter:
 
     def parse_dictionary(self,parameters_dict):
         
-        #All the GW parameters can just be directly accessed as variables
-        omega_gw = parameters_dict["omega_gw"].item() 
-        phi0_gw  = parameters_dict["phi0_gw"].item()
-        psi_gw   = parameters_dict["psi_gw"].item()
-        iota_gw  = parameters_dict["iota_gw"].item()
-        delta_gw = parameters_dict["delta_gw"].item()
-        alpha_gw = parameters_dict["alpha_gw"].item()
-        h        = parameters_dict["h"].item()
+        #All the GW parameters can just be directly accessed as variables/arrrays
+        omega_gw = parameters_dict["omega_gw"]#.item() 
+        phi0_gw  = parameters_dict["phi0_gw"]#.item()
+        psi_gw   = parameters_dict["psi_gw"]#.item()
+        iota_gw  = parameters_dict["iota_gw"]#.item()
+        delta_gw = parameters_dict["delta_gw"]#.item()
+        alpha_gw = parameters_dict["alpha_gw"]#.item()
+        h        = parameters_dict["h"]#.item()
 
         #Now read in the pulsar parameters. Explicit.
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)
@@ -133,6 +133,9 @@ class KalmanFilter:
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
         chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
 
+
+        print("parameters dict")
+        print(parameters_dict)
 
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
@@ -146,6 +149,8 @@ class KalmanFilter:
         #Map from the dictionary into variables and arrays
         omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
+        print("omega_gw = ")
+        print(omega_gw)
     
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
@@ -158,7 +163,7 @@ class KalmanFilter:
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
-
+        print("LEEROY KALMAN FILTER")
         # Precompute the influence of the GW
         # This is solely a function of the parameters and the t-variable but NOT the states
         X_factor = self.H_function(delta_gw,

@@ -100,13 +100,13 @@ def priors_dict(pulsar_parameters,P):
 
 
    priors = dict({
-               "omega_gw": np.array([P.Ω]), #np.array puts it in the same form as returned by a sample of the Bilby dict
-               "phi0_gw":np.array([P.Φ0]),
-               "psi_gw":np.array([P.ψ]),
-               "iota_gw":np.array([P.ι]),
-               "delta_gw":np.array([P.δ]),
-               "alpha_gw":np.array([P.α]),
-               "h": np.array([P.h])})
+               "omega_gw": P.Ω, #np.array puts it in the same form as returned by a sample of the Bilby dict
+               "phi0_gw":P.Φ0,
+               "psi_gw":P.ψ,
+               "iota_gw":P.ι,
+               "delta_gw":P.δ,
+               "alpha_gw":P.α,
+               "h": P.h})
    priors = add_to_priors_dict(pulsar_parameters.f,"f0",priors)
    priors = add_to_priors_dict(pulsar_parameters.fdot,"fdot",priors)
    priors = add_to_priors_dict(pulsar_parameters.d,"distance",priors)

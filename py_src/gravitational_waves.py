@@ -45,11 +45,26 @@ What is the GW modulation factor, including all pulsar terms?
 #@njit(fastmath=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 
-
+    #print("DEBUG: here is the psr terms gw func")
     num_gw_sources = len(delta)
     GW_factor = np.zeros((len(t),len(d))) #times x NPSR 
+
+   # print("num gw sources = ", num_gw_sources)
     for k in range(num_gw_sources):
+        # print("for k = ", k)
+        # print("delta",delta[k]),
+        # print("alpha",alpha[k]),
+        # print("psi",psi[k]),
+        # print("H",h[k]),
+        # print("iota",iota[k]),
+        # print("omega",omega[k]),
+        # print("phi0",phi0[k])
         dot_product,hbar,earth_term_phase = gw_prefactors(delta[k],alpha[k],psi[k],q,q_products,h[k],iota[k],omega[k],d,t,phi0[k])
+        
+        # print("got the dot product")
+        # print("chi:", chi)
+        # print(chi[k,:])
+        # print(earth_term_phase)
         GW_factor += 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi[k,:]))
        
    
