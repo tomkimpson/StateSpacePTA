@@ -56,15 +56,15 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
 
 
 h_range = np.logspace(-15,-12,101)
-#noise_models = ["pulsar","earth", "null"]
-noise_models = ["null"]
+noise_models = ["pulsar","earth", "null"]
+#noise_models = ["null"]
 
 s = 1250 #seed. Also try 1245 which I think is what was used in the paper: https://github.com/tomkimpson/StateSpacePTA/blob/9d997dc7d42ae612e7d526d34b0661944af6eb99/py_src/config_batch.py
 with open('batch.sh','w') as b:
     
     for h in h_range:
         for n in noise_models:
-            arg_name = f"P2_canonical_bayes_h_{h}_model_{n}"
+            arg_name = f"P3_canonical_bayes_h_{h}_model_{n}"
             print(arg_name)
             create_slurm_job(arg_name,h,n,s)
 
