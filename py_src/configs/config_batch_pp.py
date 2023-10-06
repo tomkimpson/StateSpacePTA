@@ -23,7 +23,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
 
         g.write("source ~/.bashrc \n")
         g.write("conda activate OzStar \n")
-        g.write(f"time python main_pp.py {arg_name} {h} {measurement_model} {seed} {omega} {phi0} {psi} {delta} {alpha}")
+        g.write(f"time python main.py {arg_name} {h} {measurement_model} {seed} {omega} {phi0} {psi} {delta} {alpha}")
     
     
 
