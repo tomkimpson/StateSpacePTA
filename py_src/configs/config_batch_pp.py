@@ -17,7 +17,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
         g.write("#!/bin/bash \n \n")  
         g.write("#SBATCH --ntasks=1 \n")  
         g.write("#SBATCH --mem=8000MB \n")  
-        g.write("#SBATCH --time=24:00:00 \n")  
+        g.write("#SBATCH --time=48:00:00 \n")  
         g.write(f"#SBATCH --job-name={arg_name} \n")  
         g.write(f"#SBATCH --output=outputs/{arg_name}_out.txt \n \n")
 
@@ -57,7 +57,7 @@ with open('batch.sh','w') as b:
     for i in range(N):
         p = priors.sample()
 
-        arg_name = f"P3_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
+        arg_name = f"alpha_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
         print(arg_name)
         create_slurm_job(arg_name,h,model,seed,p['omega_gw'],p['phi0_gw'],p['psi_gw'],p['delta_gw'],p['alpha_gw'])
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
