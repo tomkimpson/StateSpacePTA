@@ -12,18 +12,18 @@ seed = int(sys.argv[4])          # the seeding
 
 
 #Extra params for pp plot
-omega =  float(sys.argv[5]) 
-phi_0 =  float(sys.argv[6]) 
-psi   =  float(sys.argv[7]) 
-alpha =  float(sys.argv[8]) 
-delta =  float(sys.argv[9]) 
+# omega =  float(sys.argv[5]) 
+# phi_0 =  float(sys.argv[6]) 
+# psi   =  float(sys.argv[7]) 
+# alpha =  float(sys.argv[8]) 
+# delta =  float(sys.argv[9]) 
 
 if __name__=="__main__":
-    #bilby_inference_run(arg_name,h,measurement_model,seed)
+    bilby_inference_run(arg_name,h,measurement_model,seed)
 
 
 
-    pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,alpha,delta)
+    #pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,alpha,delta)
 
 
 
