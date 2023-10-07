@@ -1,5 +1,5 @@
 import sys
-from run import bilby_inference_run
+from run import bilby_inference_run,pp_plot_run
 
 #Currently these are passed as command line arguments
 #Convenient, but could be better to setup a json/config file to read from for reproducibility 
