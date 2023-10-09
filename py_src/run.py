@@ -29,6 +29,9 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
     optimal_parameters = priors_dict(PTA,P)
     model_likelihood = KF.likelihood(optimal_parameters)
     logging.info(f"Ideal likelihood given optimal parameters = {model_likelihood}")
+
+    logging.info("The optimal parameters used to generate the data are as follows:")
+    print(optimal_parameters)
     
     #Bilby
     init_parameters, priors = bilby_priors_dict(PTA,P)
@@ -47,7 +50,12 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
 
     
     # #Now run the Bilby sampler
-    BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")
+    #Trialling setting the number of points relative to the strain
+    npoints = (-3/1000)*np.log10(P.h) + (1000 - 36/1000)
+    npoints = int(npoints)
+    print("The number of points used is = ", npoints, " for h = ", P.h)
+
+    BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/",npoints=npoints)
     logging.info("The run has completed OK")
 
 

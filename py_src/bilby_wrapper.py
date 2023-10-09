@@ -15,7 +15,7 @@ class BilbyLikelihood(bilby.Likelihood):
         return self.model.likelihood(self.parameters)
     
             
-def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
+def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir,npoints):
    
     
     likelihood = BilbyLikelihood(KalmanFilter,init_parameters)
@@ -28,8 +28,8 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               sampler ='dynesty',
                               sample='rwalk_dynesty',
                               check_point_plot=False,
-                              npoints=2000,
-                              dlogz=1e-3,
+                              npoints=npoints,
+                              dlogz=1e-1,
                               npool=1,
                               plot=False,resume=False)
 
