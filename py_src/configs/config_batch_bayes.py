@@ -32,7 +32,7 @@ with open('batch.sh','w') as b:
     
     for h in h_range:
         for n in noise_models:
-            arg_name = f"beta_canonical_bayes_h_{h}_model_{n}"
+            arg_name = f"gamma_canonical_bayes_h_{h}_model_{n}"
             print(arg_name)
             create_slurm_job(arg_name,h,n,s)
 

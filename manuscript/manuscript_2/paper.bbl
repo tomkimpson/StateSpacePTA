@@ -44,11 +44,6 @@
   {https://ui.adsabs.harvard.edu/abs/2023MNRAS.520.2813A} {520, 2813}
 
 \bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
-  et~al.}{2022}]{2022MNRAS.510.4873A}
-{Antoniadis} J.,  et~al., 2022, \mn@doi [\mnras] {10.1093/mnras/stab3418},
-  \href {https://ui.adsabs.harvard.edu/abs/2022MNRAS.510.4873A} {510, 4873}
-
-\bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
   et~al.}{2023a}]{2023arXiv230616214A}
 {Antoniadis} J.,  et~al., 2023a, \mn@doi [arXiv e-prints]
   {10.48550/arXiv.2306.16214}, \href
@@ -67,14 +62,9 @@
   {https://ui.adsabs.harvard.edu/abs/2023arXiv230616226A} {p. arXiv:2306.16226}
 
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
-  et~al.}{2018a}]{Arzoumanian2018ApJS..235...37A}
-{Arzoumanian} Z.,  et~al., 2018a, \mn@doi [\apjs] {10.3847/1538-4365/aab5b0},
+  et~al.}{2018}]{Arzoumanian2018ApJS..235...37A}
+{Arzoumanian} Z.,  et~al., 2018, \mn@doi [\apjs] {10.3847/1538-4365/aab5b0},
   \href {https://ui.adsabs.harvard.edu/abs/2018ApJS..235...37A} {235, 37}
-
-\bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
-  et~al.}{2018b}]{NanoGrav2018}
-{Arzoumanian} Z.,  et~al., 2018b, \mn@doi [\apj] {10.3847/1538-4357/aabd3b},
-  \href {https://ui.adsabs.harvard.edu/abs/2018ApJ...859...47A} {859, 47}
 
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2020a}]{Arzoumanian2020A}
@@ -117,11 +107,6 @@ Babak S.,  Sesana A.,  2012b, \mn@doi [Phys. Rev. D]
   et~al.}{2016}]{Babak2016}
 {Babak} S.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stv2092}, \href
   {https://ui.adsabs.harvard.edu/abs/2016MNRAS.455.1665B} {455, 1665}
-
-\bibitem[\protect\citeauthoryear{Bailes et~al.,}{Bailes
-  et~al.}{2020}]{meertime2}
-Bailes M.,  et~al., 2020, \mn@doi [Publications of the Astronomical Society of
-  Australia] {10.1017/pasa.2020.19}, 37, e028
 
 \bibitem[\protect\citeauthoryear{{Baym}, {Pethick}, {Pines}  \&
   {Ruderman}}{{Baym} et~al.}{1969}]{Baym1969}
@@ -321,12 +306,6 @@ Hobbs G.~B.,  Edwards R.~T.,   Manchester R.~N.,  2006, \mn@doi [Monthly
   {10.1111/j.1365-2966.2009.15938.x}, \href
   {https://ui.adsabs.harvard.edu/abs/2010MNRAS.402.1027H} {402, 1027}
 
-\bibitem[\protect\citeauthoryear{Hobbs, Dai, Manchester, Shannon, Kerr, Lee  \&
-  Xu}{Hobbs et~al.}{2019}]{Hobbs_2019}
-Hobbs G.,  Dai S.,  Manchester R.~N.,  Shannon R.~M.,  Kerr M.,  Lee K.-J.,
-  Xu R.-X.,  2019, \mn@doi [Research in Astronomy and Astrophysics]
-  {10.1088/1674-4527/19/2/20}, 19, 020
-
 \bibitem[\protect\citeauthoryear{Jaffe \& Backer}{Jaffe \&
   Backer}{2003}]{Jaffe_2003}
 Jaffe A.~H.,  Backer D.~C.,  2003, \mn@doi [The Astrophysical Journal]
@@ -397,11 +376,6 @@ Kuhn H.~W.,  1955, \mn@doi [Naval Research Logistics Quarterly]
   {Janssen} G.~H.,  {Karuppusamy} R.,   {Smits} R.,  2011, \mn@doi [\mnras]
   {10.1111/j.1365-2966.2011.18622.x}, \href
   {https://ui.adsabs.harvard.edu/abs/2011MNRAS.414.3251L} {414, 3251}
-
-\bibitem[\protect\citeauthoryear{{Lentati} et~al.,}{{Lentati}
-  et~al.}{2015}]{Lentati2015}
-{Lentati} L.,  et~al., 2015, \mn@doi [\mnras] {10.1093/mnras/stv1538}, \href
-  {https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.2576L} {453, 2576}
 
 \bibitem[\protect\citeauthoryear{{Lower} et~al.,}{{Lower}
   et~al.}{2021}]{Lower2021MNRAS.508.3251L}
@@ -495,11 +469,6 @@ Pennucci T.~T.,  Collaboration T.~N.,  2020, {The NANOGrav 12.5-year Wideband
   [\apj] {10.1086/507576}, \href
   {https://ui.adsabs.harvard.edu/abs/2006ApJ...651.1079P} {651, 1079}
 
-\bibitem[\protect\citeauthoryear{{Perera} et~al.,}{{Perera}
-  et~al.}{2019}]{2019MNRAS.490.4666P}
-{Perera} B.~B.~P.,  et~al., 2019, \mn@doi [\mnras] {10.1093/mnras/stz2857},
-  \href {https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.4666P} {490, 4666}
-
 \bibitem[\protect\citeauthoryear{{Perrodin} \& {Sesana}}{{Perrodin} \&
   {Sesana}}{2018}]{Perrodin2018}
 {Perrodin} D.,  {Sesana} A.,  2018, in {Rezzolla} L.,  {Pizzochero} P.,
@@ -527,14 +496,6 @@ Petiteau A.,  Babak S.,  Sesana A.,   de Ara\'ujo M.,  2013, \mn@doi [Phys.
 {Rajagopal} M.,  {Romani} R.~W.,  1995, \mn@doi [\apj] {10.1086/175813}, \href
   {https://ui.adsabs.harvard.edu/abs/1995ApJ...446..543R} {446, 543}
 
-\bibitem[\protect\citeauthoryear{{Ravi}, {Wyithe}, {Hobbs}, {Shannon},
-  {Manchester}, {Yardley}  \& {Keith}}{{Ravi}
-  et~al.}{2012}]{Ravi2012singlesource}
-{Ravi} V.,  {Wyithe} J.~S.~B.,  {Hobbs} G.,  {Shannon} R.~M.,  {Manchester}
-  R.~N.,  {Yardley} D.~R.~B.,   {Keith} M.~J.,  2012, \mn@doi [\apj]
-  {10.1088/0004-637X/761/2/84}, \href
-  {https://ui.adsabs.harvard.edu/abs/2012ApJ...761...84R} {761, 84}
-
 \bibitem[\protect\citeauthoryear{{Ravi}, {Wyithe}, {Shannon}  \&
   {Hobbs}}{{Ravi} et~al.}{2015}]{Ravi2015MNRAS.447.2772R}
 {Ravi} V.,  {Wyithe} J.~S.~B.,  {Shannon} R.~M.,   {Hobbs} G.,  2015, \mn@doi
@@ -556,11 +517,6 @@ Petiteau A.,  Babak S.,  Sesana A.,   de Ara\'ujo M.,  2013, \mn@doi [Phys.
   et~al.}{2015}]{Rosado10.1093/mnras/stv1098}
 Rosado P.~A.,  Sesana A.,   Gair J.,  2015, \mn@doi [Monthly Notices of the
   Royal Astronomical Society] {10.1093/mnras/stv1098}, 451, 2417
-
-\bibitem[\protect\citeauthoryear{Sanidas, Battye  \& Stappers}{Sanidas
-  et~al.}{2012}]{PTAstring}
-Sanidas S.~A.,  Battye R.~A.,   Stappers B.~W.,  2012, \mn@doi [Phys. Rev. D]
-  {10.1103/PhysRevD.85.122003}, 85, 122003
 
 \bibitem[\protect\citeauthoryear{Sedoglavic}{Sedoglavic}{2002}]{SEDOGLAVIC2002735}
 Sedoglavic A.,  2002, \mn@doi [Journal of Symbolic Computation]
@@ -620,11 +576,6 @@ Speagle J.~S.,  2020, \mn@doi [Monthly Notices of the Royal Astronomical
   A.,   {Taylor} S.~R.,  2023, \mn@doi [\mnras] {10.1093/mnras/stac3237}, \href
   {https://ui.adsabs.harvard.edu/abs/2023MNRAS.518.1802S} {518, 1802}
 
-\bibitem[\protect\citeauthoryear{{Spiewak} et~al.,}{{Spiewak}
-  et~al.}{2022}]{Meertime}
-{Spiewak} R.,  et~al., 2022, \mn@doi [\pasa] {10.1017/pasa.2022.19}, \href
-  {https://ui.adsabs.harvard.edu/abs/2022PASA...39...27S} {39, e027}
-
 \bibitem[\protect\citeauthoryear{{Stairs}, {Lyne}  \& {Shemar}}{{Stairs}
   et~al.}{2000}]{stairs_freeprecession}
 {Stairs} I.~H.,  {Lyne} A.~G.,   {Shemar} S.~L.,  2000, \mn@doi [\nat]
@@ -641,11 +592,6 @@ Speagle J.~S.,  2020, \mn@doi [Monthly Notices of the Royal Astronomical
 {Sykes} B.,  {Middleton} H.,  {Melatos} A.,  {Di Matteo} T.,  {DeGraf} C.,
   {Bhowmick} A.,  2022, \mn@doi [\mnras] {10.1093/mnras/stac388}, \href
   {https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.5241S} {511, 5241}
-
-\bibitem[\protect\citeauthoryear{Tarafdar et~al.,}{Tarafdar
-  et~al.}{2022}]{ipta}
-Tarafdar P.,  et~al., 2022, \mn@doi [Publications of the Astronomical Society
-  of Australia] {10.1017/pasa.2022.46}, 39, e053
 
 \bibitem[\protect\citeauthoryear{{Taylor}, {Huerta}, {Gair}  \&
   {McWilliams}}{{Taylor} et~al.}{2016}]{Taylors2016}
@@ -706,10 +652,6 @@ Wan E.,  Van Der~Merwe R.,  2000, in Proceedings of the IEEE 2000 Adaptive
   {10.1088/1674-4527/acdfa5}, \href
   {https://ui.adsabs.harvard.edu/abs/2023RAA....23g5024X} {23, 075024}
 
-\bibitem[\protect\citeauthoryear{{Xue} et~al.,}{{Xue} et~al.}{2021}]{PTAphase}
-{Xue} X.,  et~al., 2021, \mn@doi [\prl] {10.1103/PhysRevLett.127.251303}, \href
-  {https://ui.adsabs.harvard.edu/abs/2021PhRvL.127y1303X} {127, 251303}
-
 \bibitem[\protect\citeauthoryear{{Yao}, {Manchester}  \& {Wang}}{{Yao}
   et~al.}{2017}]{Yao2017}
 {Yao} J.~M.,  {Manchester} R.~N.,   {Wang} N.,  2017, \mn@doi [\apj]
@@ -749,14 +691,8 @@ Zhu X.-J.,  Wen L.,  Xiong J.,  Xu Y.,  Wang Y.,  Mohanty S.~D.,  Hobbs G.,
   Society] {10.1093/mnras/stw1446}, 461, 1317
 
 \bibitem[\protect\citeauthoryear{{Zic} et~al.,}{{Zic}
-  et~al.}{2023a}]{Parkes2023}
-{Zic} A.,  et~al., 2023a, \mn@doi [arXiv e-prints] {10.48550/arXiv.2306.16230},
-  \href {https://ui.adsabs.harvard.edu/abs/2023arXiv230616230Z} {p.
-  arXiv:2306.16230}
-
-\bibitem[\protect\citeauthoryear{{Zic} et~al.,}{{Zic}
-  et~al.}{2023b}]{Zic2023arXiv230616230Z}
-{Zic} A.,  et~al., 2023b, \mn@doi [arXiv e-prints] {10.48550/arXiv.2306.16230},
+  et~al.}{2023}]{Zic2023arXiv230616230Z}
+{Zic} A.,  et~al., 2023, \mn@doi [arXiv e-prints] {10.48550/arXiv.2306.16230},
   \href {https://ui.adsabs.harvard.edu/abs/2023arXiv230616230Z} {p.
   arXiv:2306.16230}
 

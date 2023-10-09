@@ -52,7 +52,7 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
     
     # #Now run the Bilby sampler
     #Trialling setting the number of points relative to the strain
-    npoints = (-3/1000)*np.log10(P.h) + (1000 - 36/1000)
+    npoints = (-1000/3)*np.log10(P.h) - (3000) #This sets npoints = 1000 when h = 10^{-12} and = 2000 when h = 10^{-15}
     npoints = int(npoints)
     print("The number of points used is = ", npoints, " for h = ", P.h)
 
