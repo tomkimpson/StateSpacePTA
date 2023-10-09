@@ -9,6 +9,7 @@ from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
 from priors import priors_dict,bilby_priors_dict
 import logging 
+import numpy as np 
 
 def bilby_inference_run(arg_name,h,measurement_model,seed):
 
