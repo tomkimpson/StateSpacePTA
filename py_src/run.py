@@ -101,6 +101,7 @@ def pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,alpha,delta):
 
     
     # #Now run the Bilby sampler
-    BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/")
+    npoints=2000
+    BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/",npoints=npoints)
     logging.info("The run has completed OK")
 
