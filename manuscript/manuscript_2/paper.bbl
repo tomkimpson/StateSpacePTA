@@ -37,12 +37,6 @@
   Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
   {gr-qc/9604033}), \mn@doi{10.48550/arXiv.gr-qc/9604033}
 
-\bibitem[\protect\citeauthoryear{{Antonelli}, {Basu}  \& {Haskell}}{{Antonelli}
-  et~al.}{2023}]{Antonelli2023}
-{Antonelli} M.,  {Basu} A.,   {Haskell} B.,  2023, \mn@doi [\mnras]
-  {10.1093/mnras/stad256}, \href
-  {https://ui.adsabs.harvard.edu/abs/2023MNRAS.520.2813A} {520, 2813}
-
 \bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
   et~al.}{2023a}]{2023arXiv230616214A}
 {Antoniadis} J.,  et~al., 2023a, \mn@doi [arXiv e-prints]
@@ -120,12 +114,6 @@ Babak S.,  Sesana A.,  2012b, \mn@doi [Phys. Rev. D]
   2021, \mn@doi [\jcap] {10.1088/1475-7516/2021/01/037}, \href
   {https://ui.adsabs.harvard.edu/abs/2021JCAP...01..037B} {2021, 037}
 
-\bibitem[\protect\citeauthoryear{Brook, Karastergiou, Buchner, Roberts, Keith,
-  Johnston  \& Shannon}{Brook et~al.}{2013}]{Brook_2014}
-Brook P.~R.,  Karastergiou A.,  Buchner S.,  Roberts S.~J.,  Keith M.~J.,
-  Johnston S.,   Shannon R.~M.,  2013, \mn@doi [The Astrophysical Journal
-  Letters] {10.1088/2041-8205/780/2/L31}, 780, L31
-
 \bibitem[\protect\citeauthoryear{{Buchner}}{{Buchner}}{2021a}]{Buchner2021}
 {Buchner} J.,  2021a, \mn@doi [arXiv e-prints] {10.48550/arXiv.2101.09675},
   \href {https://ui.adsabs.harvard.edu/abs/2021arXiv210109675B} {p.
@@ -167,11 +155,6 @@ Brook P.~R.,  Karastergiou A.,  Buchner S.,  Roberts S.~J.,  Keith M.~J.,
 Cook S.~R.,  Gelman A.,   Rubin D.~B.,  2006, \mn@doi [Journal of Computational
   and Graphical Statistics] {10.1198/106186006X136976}, 15, 675
 
-\bibitem[\protect\citeauthoryear{{Cordes} \& {Greenstein}}{{Cordes} \&
-  {Greenstein}}{1981}]{Cordes1981}
-{Cordes} J.~M.,  {Greenstein} G.,  1981, \mn@doi [\apj] {10.1086/158883}, \href
-  {https://ui.adsabs.harvard.edu/abs/1981ApJ...245.1060C} {245, 1060}
-
 \bibitem[\protect\citeauthoryear{{Cordes} \& {Lazio}}{{Cordes} \&
   {Lazio}}{2002}]{Cordes2002astro.ph..7156C}
 {Cordes} J.~M.,  {Lazio} T.~J.~W.,  2002, \mn@doi [arXiv e-prints]
@@ -184,12 +167,6 @@ Cook S.~R.,  Gelman A.,   Rubin D.~B.,  2006, \mn@doi [Journal of Computational
 {Cordes} J.~M.,  {Shannon} R.~M.,  2010, \mn@doi [arXiv e-prints]
   {10.48550/arXiv.1010.3785}, \href
   {https://ui.adsabs.harvard.edu/abs/2010arXiv1010.3785C} {p. arXiv:1010.3785}
-
-\bibitem[\protect\citeauthoryear{{D'Alessandro}, {McCulloch}, {Hamilton}  \&
-  {Deshpande}}{{D'Alessandro} et~al.}{1995}]{Alessandro1995}
-{D'Alessandro} F.,  {McCulloch} P.~M.,  {Hamilton} P.~A.,   {Deshpande} A.~A.,
-  1995, \mn@doi [\mnras] {10.1093/mnras/277.3.1033}, \href
-  {https://ui.adsabs.harvard.edu/abs/1995MNRAS.277.1033D} {277, 1033}
 
 \bibitem[\protect\citeauthoryear{Desvignes et~al.,}{Desvignes
   et~al.}{2016}]{Desvignes2016}
@@ -226,12 +203,6 @@ Dudley R.~M.,  1969, The Annals of Mathematical Statistics, 40, 40
 {Ellis} J.~A.,  {Siemens} X.,   {Creighton} J.~D.~E.,  2012, \mn@doi [\apj]
   {10.1088/0004-637X/756/2/175}, \href
   {https://ui.adsabs.harvard.edu/abs/2012ApJ...756..175E} {756, 175}
-
-\bibitem[\protect\citeauthoryear{{Espinoza}, {Antonopoulou}, {Dodson},
-  {Stepanova}  \& {Scherer}}{{Espinoza} et~al.}{2021}]{Espinoza2021}
-{Espinoza} C.~M.,  {Antonopoulou} D.,  {Dodson} R.,  {Stepanova} M.,
-  {Scherer} A.,  2021, \mn@doi [\aap] {10.1051/0004-6361/202039044}, \href
-  {https://ui.adsabs.harvard.edu/abs/2021A&A...647A..25E} {647, A25}
 
 \bibitem[\protect\citeauthoryear{{Feroz} \& {Hobson}}{{Feroz} \&
   {Hobson}}{2008}]{Feroz2008}
@@ -272,10 +243,6 @@ MIT Press, Cambridge, MA
 {Goncharov} B.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/staa3411}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.502..478G} {502, 478}
 
-\bibitem[\protect\citeauthoryear{{Greenstein}}{{Greenstein}}{1970}]{Greenstein1970}
-{Greenstein} G.,  1970, \mn@doi [\nat] {10.1038/227791a0}, \href
-  {https://ui.adsabs.harvard.edu/abs/1970Natur.227..791G} {227, 791}
-
 \bibitem[\protect\citeauthoryear{{G{\"u}gercino{\v{g}}lu} \&
   {Alpar}}{{G{\"u}gercino{\v{g}}lu} \&
   {Alpar}}{2017}]{Alpar2017MNRAS.471.4827G}
@@ -300,12 +267,6 @@ Hobbs G.~B.,  Edwards R.~T.,   Manchester R.~N.,  2006, \mn@doi [Monthly
   Notices of the Royal Astronomical Society]
   {10.1111/j.1365-2966.2006.10302.x}, 369, 655
 
-\bibitem[\protect\citeauthoryear{{Hobbs}, {Lyne}  \& {Kramer}}{{Hobbs}
-  et~al.}{2010}]{Hobbs2010glitch}
-{Hobbs} G.,  {Lyne} A.~G.,   {Kramer} M.,  2010, \mn@doi [\mnras]
-  {10.1111/j.1365-2966.2009.15938.x}, \href
-  {https://ui.adsabs.harvard.edu/abs/2010MNRAS.402.1027H} {402, 1027}
-
 \bibitem[\protect\citeauthoryear{Jaffe \& Backer}{Jaffe \&
   Backer}{2003}]{Jaffe_2003}
 Jaffe A.~H.,  Backer D.~C.,  2003, \mn@doi [The Astrophysical Journal]
@@ -322,15 +283,6 @@ Jankowski F.,  et~al., 2018, \mn@doi [Monthly Notices of the Royal Astronomical
   {10.1086/383020}, \href
   {https://ui.adsabs.harvard.edu/abs/2004ApJ...606..799J} {606, 799}
 
-\bibitem[\protect\citeauthoryear{Johnston \& Galloway}{Johnston \&
-  Galloway}{1999}]{Johnston10}
-Johnston S.,  Galloway D.,  1999, \mn@doi [Monthly Notices of the Royal
-  Astronomical Society] {10.1046/j.1365-8711.1999.02737.x}, 306, L50
-
-\bibitem[\protect\citeauthoryear{{Jones}}{{Jones}}{1990}]{Jones1990MNRAS.246..364J}
-{Jones} P.~B.,  1990, \mnras, \href
-  {https://ui.adsabs.harvard.edu/abs/1990MNRAS.246..364J} {246, 364}
-
 \bibitem[\protect\citeauthoryear{Kalman}{Kalman}{1960}]{Kalman1}
 Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   {10.1115/1.3662552}, 82, 35
@@ -340,20 +292,9 @@ Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
 Karlsson J.,  Anguelova M.,   Jirstrand M.,  2012, \mn@doi [IFAC Proceedings
   Volumes] {https://doi.org/10.3182/20120711-3-BE-2027.00381}, 45, 941
 
-\bibitem[\protect\citeauthoryear{Kerr, Hobbs, Johnston  \& Shannon}{Kerr
-  et~al.}{2015}]{free_precession_kerr}
-Kerr M.,  Hobbs G.,  Johnston S.,   Shannon R.~M.,  2015, \mn@doi [Monthly
-  Notices of the Royal Astronomical Society] {10.1093/mnras/stv2457}, 455, 1845
-
 \bibitem[\protect\citeauthoryear{Kimpson}{Kimpson}{2023}]{K1}
 Kimpson 2023, \mn@doi [\grl] {10.1029/2023GL103880}, \href
   {https://ui.adsabs.harvard.edu/abs/2023GeoRL..5003880M} {50, e2023GL103880}
-
-\bibitem[\protect\citeauthoryear{{Kramer}, {Lyne}, {O'Brien}, {Jordan}  \&
-  {Lorimer}}{{Kramer} et~al.}{2006}]{magneto1}
-{Kramer} M.,  {Lyne} A.~G.,  {O'Brien} J.~T.,  {Jordan} C.~A.,   {Lorimer}
-  D.~R.,  2006, \mn@doi [Science] {10.1126/science.1124060}, \href
-  {https://ui.adsabs.harvard.edu/abs/2006Sci...312..549K} {312, 549}
 
 \bibitem[\protect\citeauthoryear{Kuhn}{Kuhn}{1955}]{Kuhn}
 Kuhn H.~W.,  1955, \mn@doi [Naval Research Logistics Quarterly]
@@ -382,18 +323,6 @@ Kuhn H.~W.,  1955, \mn@doi [Naval Research Logistics Quarterly]
 {Lower} M.~E.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab2678}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.3251L} {508, 3251}
 
-\bibitem[\protect\citeauthoryear{{Lyne}, {Hobbs}, {Kramer}, {Stairs}  \&
-  {Stappers}}{{Lyne} et~al.}{2010}]{Lyne2010L}
-{Lyne} A.,  {Hobbs} G.,  {Kramer} M.,  {Stairs} I.,   {Stappers} B.,  2010,
-  \mn@doi [Science] {10.1126/science.1186683}, \href
-  {https://ui.adsabs.harvard.edu/abs/2010Sci...329..408L} {329, 408}
-
-\bibitem[\protect\citeauthoryear{Maggiore}{Maggiore}{2018}]{Maggiore}
-Maggiore M.,  2018, {Gravitational Waves: Volume 2: Astrophysics and
-  Cosmology}.
-Oxford University Press, \mn@doi{10.1093/oso/9780198570899.001.0001}, \url
-  {https://doi.org/10.1093/oso/9780198570899.001.0001}
-
 \bibitem[\protect\citeauthoryear{{Manchester}, {Hobbs}, {Teoh}  \&
   {Hobbs}}{{Manchester} et~al.}{2005}]{Manchester2005}
 {Manchester} R.~N.,  {Hobbs} G.~B.,  {Teoh} A.,   {Hobbs} M.,  2005, \mn@doi
@@ -404,17 +333,6 @@ Oxford University Press, \mn@doi{10.1093/oso/9780198570899.001.0001}, \url
   et~al.}{2014}]{McWilliams_2014}
 McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
   Astrophysical Journal] {10.1088/0004-637X/789/2/156}, 789, 156
-
-\bibitem[\protect\citeauthoryear{{Melatos} \& {Link}}{{Melatos} \&
-  {Link}}{2014}]{Melatos2014}
-{Melatos} A.,  {Link} B.,  2014, \mn@doi [\mnras] {10.1093/mnras/stt1828},
-  \href {https://ui.adsabs.harvard.edu/abs/2014MNRAS.437...21M} {437, 21}
-
-\bibitem[\protect\citeauthoryear{{Melatos}, {Peralta}  \& {Wyithe}}{{Melatos}
-  et~al.}{2008}]{Melatos2008}
-{Melatos} A.,  {Peralta} C.,   {Wyithe} J.~S.~B.,  2008, \mn@doi [\apj]
-  {10.1086/523349}, \href
-  {https://ui.adsabs.harvard.edu/abs/2008ApJ...672.1103M} {672, 1103}
 
 \bibitem[\protect\citeauthoryear{{Melatos}, {Dunn}, {Suvorova}, {Moran}  \&
   {Evans}}{{Melatos} et~al.}{2020}]{Melatos2020ApJ...896...78M}
@@ -462,12 +380,6 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
 Pennucci T.~T.,  Collaboration T.~N.,  2020, {The NANOGrav 12.5-year Wideband
   Data Set (version 12yv4)}, \mn@doi{10.5281/zenodo.4312887}, \url
   {https://doi.org/10.5281/zenodo.4312887}
-
-\bibitem[\protect\citeauthoryear{{Peralta}, {Melatos}, {Giacobello}  \&
-  {Ooi}}{{Peralta} et~al.}{2006}]{Peralta2006}
-{Peralta} C.,  {Melatos} A.,  {Giacobello} M.,   {Ooi} A.,  2006, \mn@doi
-  [\apj] {10.1086/507576}, \href
-  {https://ui.adsabs.harvard.edu/abs/2006ApJ...651.1079P} {651, 1079}
 
 \bibitem[\protect\citeauthoryear{{Perrodin} \& {Sesana}}{{Perrodin} \&
   {Sesana}}{2018}]{Perrodin2018}
@@ -549,11 +461,6 @@ Sesana A.,  Vecchio A.,   Colacino C.~N.,  2008, \mn@doi [Monthly Notices of
   {10.1088/0004-637X/725/2/1607}, \href
   {https://ui.adsabs.harvard.edu/abs/2010ApJ...725.1607S} {725, 1607}
 
-\bibitem[\protect\citeauthoryear{Shannon et~al.,}{Shannon
-  et~al.}{2013}]{Shannon_2013}
-Shannon R.~M.,  et~al., 2013, \mn@doi [The Astrophysical Journal]
-  {10.1088/0004-637X/766/1/5}, 766, 5
-
 \bibitem[\protect\citeauthoryear{Simon}{Simon}{2006}]{Simon10}
 Simon D.,  2006, Optimal State Estimation: Kalman, H Infinity, and Nonlinear
   Approaches.
@@ -576,17 +483,6 @@ Speagle J.~S.,  2020, \mn@doi [Monthly Notices of the Royal Astronomical
   A.,   {Taylor} S.~R.,  2023, \mn@doi [\mnras] {10.1093/mnras/stac3237}, \href
   {https://ui.adsabs.harvard.edu/abs/2023MNRAS.518.1802S} {518, 1802}
 
-\bibitem[\protect\citeauthoryear{{Stairs}, {Lyne}  \& {Shemar}}{{Stairs}
-  et~al.}{2000}]{stairs_freeprecession}
-{Stairs} I.~H.,  {Lyne} A.~G.,   {Shemar} S.~L.,  2000, \mn@doi [\nat]
-  {10.1038/35020010}, \href
-  {https://ui.adsabs.harvard.edu/abs/2000Natur.406..484S} {406, 484}
-
-\bibitem[\protect\citeauthoryear{{Stairs} et~al.,}{{Stairs}
-  et~al.}{2019}]{Stairs2019MNRAS.485.3230S}
-{Stairs} I.~H.,  et~al., 2019, \mn@doi [\mnras] {10.1093/mnras/stz647}, \href
-  {https://ui.adsabs.harvard.edu/abs/2019MNRAS.485.3230S} {485, 3230}
-
 \bibitem[\protect\citeauthoryear{{Sykes}, {Middleton}, {Melatos}, {Di Matteo},
   {DeGraf}  \& {Bhowmick}}{{Sykes} et~al.}{2022}]{Skyes2022}
 {Sykes} B.,  {Middleton} H.,  {Melatos} A.,  {Di Matteo} T.,  {DeGraf} C.,
@@ -606,12 +502,6 @@ Speagle J.~S.,  2020, \mn@doi [Monthly Notices of the Royal Astronomical
 \bibitem[\protect\citeauthoryear{Trassinelli}{Trassinelli}{2019}]{proceedings2019033014}
 Trassinelli M.,  2019, \mn@doi [Proceedings] {10.3390/proceedings2019033014},
   33
-
-\bibitem[\protect\citeauthoryear{{Urama}, {Link}  \& {Weisberg}}{{Urama}
-  et~al.}{2006}]{2006MNRAS.370L..76U}
-{Urama} J.~O.,  {Link} B.,   {Weisberg} J.~M.,  2006, \mn@doi [\mnras]
-  {10.1111/j.1745-3933.2006.00192.x}, \href
-  {https://ui.adsabs.harvard.edu/abs/2006MNRAS.370L..76U} {370, L76}
 
 \bibitem[\protect\citeauthoryear{Vargas \& Melatos}{Vargas \&
   Melatos}{2023}]{Vargas}

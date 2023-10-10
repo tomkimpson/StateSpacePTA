@@ -3,10 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
-Repeated entry---line 819 of file example.bib
- : @book{Maggiore
- :               ,
-I'm skipping whatever remains of this entry
 Warning--entry type for "pennucci_timothy_t_2020_4312887" isn't style-file defined
 --line 1168 of file example.bib
 Reallocated buffer (elt_size=1) to 40000 items from 20000.
@@ -23,45 +19,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 127 entries,
+You've used 107 entries,
             2881 wiz_defined-function locations,
-            1829 strings with 64035 characters,
-and the built_in function-call counts, 63445 in all, are:
-= -- 5672
-> -- 4034
-< -- 311
-+ -- 1777
-- -- 551
-* -- 7538
-:= -- 9455
+            1654 strings with 58829 characters,
+and the built_in function-call counts, 53816 in all, are:
+= -- 4882
+> -- 3324
+< -- 263
++ -- 1489
+- -- 435
+* -- 6339
+:= -- 7927
 add.period$ -- 0
-call.type$ -- 127
-change.case$ -- 254
-chr.to.int$ -- 118
-cite$ -- 129
-duplicate$ -- 3206
-empty$ -- 3148
-format.name$ -- 969
-if$ -- 11477
+call.type$ -- 107
+change.case$ -- 214
+chr.to.int$ -- 98
+cite$ -- 109
+duplicate$ -- 2752
+empty$ -- 2698
+format.name$ -- 797
+if$ -- 9812
 int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 132
-newline$ -- 401
-num.names$ -- 859
-pop$ -- 611
+missing$ -- 111
+newline$ -- 340
+num.names$ -- 713
+pop$ -- 526
 preamble$ -- 1
-purify$ -- 508
+purify$ -- 428
 quote$ -- 0
-skip$ -- 2191
+skip$ -- 1914
 stack$ -- 0
-substring$ -- 4253
-swap$ -- 1817
-text.length$ -- 525
+substring$ -- 3693
+swap$ -- 1551
+text.length$ -- 445
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1122
+type$ -- 945
 warning$ -- 2
-while$ -- 947
+while$ -- 793
 width$ -- 0
-write$ -- 1300
-(There were 2 error messages)
+write$ -- 1098
+(There was 1 error message)

@@ -159,7 +159,7 @@ class KalmanFilter:
         #print("running the KF with omega = ", omega_gw)
         #print('...and chi = ', chi)
 
-    
+        
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)

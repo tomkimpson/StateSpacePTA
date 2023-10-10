@@ -153,7 +153,7 @@ Nanohertz gravitational waves (GWs) can be produced by the inspiral of supermass
 
 
 \section{State-Space Formulation}\label{sec:model}
-In this section we briefly review the state-space formulation of PTA analysis presented in \citep{K1}. \newline 
+In this section we briefly review the state-space formulation of PTA analysis presented in K23. \newline 
 
 There are $N$ pulsars in the array. The index $n$ labels the $n$-th pulsar, with $1\leq n\leq N$. The intrinsic spin frequency of the $n$-th pulsar as measured in the local, freely-falling rest frame of the pulsar's centre of mass, $f_{\rm p}^{(n)}(t)$, evolves according to a stochastic differential equation. The radio pulse frequency measured by an observer at Earth, $f_{\rm m}^{(n)}(t)$, is related to $f_{\rm p}^{(n)}(t)$ via a measurement equation. In Section \ref{sec:psr_frequency} we review the phenomenological model for the evolution of $f_{\rm p}^{(n)}(t)$. In Section \ref{sec:psr_measured} we review the measurement equation which relates $f_{\rm m}^{(n)}(t)$ to $f_{\rm p}^{(n)}(t)$. In Section \ref{sec:ss_params} we summarise the parameters of the model.
 
@@ -354,32 +354,12 @@ where $h_0$ is the characteristic wave strain, $\iota$ is the angle between the 
 
 
 \section{Inclusion of the pulsar term}\label{sec:pulsar_term}
-
-In this section we do the following...
-
-
-Measurement equation is parameterised as,
-
-
-A naive approach is challenging - look at this noisy likelihood curve
-
-
-A reparamterisation is good
+In this section we review the modification to Equation \eqref{eq:g_func_trig} used in K23, the issues that arise when using the full form of Equation \eqref{eq:g_func_trig}  for likelihood-based inference, and a new parametrisation that alleviates these issues. \newline 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-In this section we derive the posterior probability distributions for the static parameters. However, it is first necessary to discuss a modification to the general measurement equation used in the inference model, Equation \eqref{eq:g_func_trig}. It can be seen that the equation generally separates into two cosine terms. The first term, $\cos(-\Omega t + \Phi_0)$, depends only on the GW source parameters and is shared across all pulsars. The argument of the cosine corresponds to the GW phase at the observer on Earth.  Conversely the second term, $\cos \left(-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d \right)$, also depends on $d^{(n)}$ and $\boldsymbol{q}^{(n)}$ and so varies between pulsars. The argument of the cosine corresponds to the GW phase at each the individual pulsar. The first and second terms are commonly referred to as the ``Earth term" and ``pulsar term" respectively. Whilst the Earth term is phase coherent between all pulsars and so can be summed across the array to increase the total signal-to-noise, the pulsar terms each have individual phases and in standard PTA analysis are typically considered as a source of self noise and dropped from the analysis \citep[e.g.][]{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C} at the expense of a modestly reduced detection probability ($\sim 5 \%$) and the introduction of a bias in the sky localisation \citep{Zhupulsarterms,Chen2022}. In this work we follow the standard analysis approach and drop the pulsar terms from our model. Explicitly the measurement equation used in the Kalman filter is
+\subsection{Earth term}
+Equation \eqref{eq:g_func_trig} is the sum of two equal amplitude, phase shifted waves. The first wave, $\cos(-\Omega t + \Phi_0)$, depends only on the GW source parameters and is shared across all pulsars. The argument of the cosine corresponds to the GW phase at the observer on Earth.  Conversely the second wave, $\cos \left(-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d \right)$, also depends on $d^{(n)}$ and $\boldsymbol{q}^{(n)}$ and so varies between pulsars. The argument of the cosine corresponds to the GW phase at each the individual pulsar. The first and second terms are commonly referred to as the ``Earth term" and ``pulsar term" respectively. Whilst the Earth term is phase coherent between all pulsars and so can be summed across the array to increase the total signal-to-noise, the pulsar terms each have individual phases and in standard PTA analysis are typically considered as a source of self noise and dropped from the analysis \citep[e.g.][]{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C} at the expense of a modestly reduced detection probability ($\sim 5 \%$) and the introduction of a bias in the sky localisation \citep{Zhupulsarterms,Chen2022}. K23 also followed this example and dropped the pulsar terms from the inference model. Explicitly the measurement equation used is
 \begin{equation}
 	f_{\rm m}^{(n)}(t) = f_{\rm p}^{(n)}(t-d) g^{(n)}_{\rm Earth}(t) \ , 
 	\label{eq:measuremen_earth}
@@ -389,8 +369,120 @@ with
 	g^{(n)}_{\rm Earth}(t) = 1 - \frac{ H_{ij}[q^{(n)}]^i [q^{(n)}]^j}{2[1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}] }  \cos(-\Omega t +\Phi_0)  \ .
 	\label{eq:g_func_trig_earth}
 \end{equation}
-We defer the inclusion of the pulsar terms to a future work. As discussed in Section \ref{sec:priors} this choice reduces the dimensionality of the parameter estimation problem since the measurement equation, Equation \eqref{eq:measurement}, is no longer a function of the pulsar distance.  We stress that the pulsar terms are dropped only for purposes of Bayesian inference, i.e. from the Kalman filter model that feeds into the nested sampling algorithm. The generated synthetic data that we use to test our method does include the pulsar term in full. \newline 
 
+
+
+
+
+\subsection{Challenges of pulsar term}
+\begin{figure*}
+	\includegraphics[width=\textwidth, height =0.5\textwidth ]{images/Likelihoods_alpha}
+	\caption{abc}
+	\label{fig:likelihood_comparison}
+\end{figure*}
+
+
+K23 uses a likelihood-based Bayesian framework for inference of the model parameters and model selection. That is, given a temporal sequence of noisy measurements $\boldsymbol{Y}$, the posterior distribution of $\boldsymbol{\theta}$ is calculated by 
+Bayes' Rule,
+\begin{equation}
+	p(\boldsymbol{\theta} | \boldsymbol{Y}) = \frac{\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta}) \cdot \pi(\boldsymbol{\theta})}{\mathcal{Z}} \ ,
+\end{equation}
+where $\pi(\boldsymbol{\theta})$ is the prior distribution on $\boldsymbol{\theta}$ and $\mathcal{Z}$ is the marginalised likelihood, or evidence
+\begin{equation}
+	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence}
+\end{equation}
+and $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is the likelihood calculated via a Kalman filter \citep{Kalman1}. Nested sampling \citep{Skilling} is used to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ and $\mathcal{Z}$. Given a specific realisation of $\boldsymbol{Y}$, $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is solely a function of $\boldsymbol{\theta}$, i.e. $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta}) = \mathcal{L}(\boldsymbol{\theta})$. We will use the notation $\mathcal{L}(\Theta)$ to refer to the likelihood returned by the Kalman filter for parameter $\Theta$, where $\Theta \in \boldsymbol{\theta}$ and all other members of $\boldsymbol{\theta}$ are held constant at their true injected values. \newline 
+
+
+To elucidate the complications introduced by including the pulsar term, we generate some noisy synthetic data $\boldsymbol{Y}$ using the methods outlined in K23. $\boldsymbol{\theta}_{\rm gw}$ are chosen arbitrarily, with $\alpha = 1.0 $ rad.
+The choice of $\boldsymbol{\theta}_{\rm psr}$ corresponds to the 47 pulsars in the 12.5 year NANOGrav data set  \citep{2020ApJ...905L..34A}. We run the Kalman filter using the measurement equation inclusive of the pulsar terms, Equation \eqref{eq:g_func_trig} on $\boldsymbol{Y}$ for different values of $\alpha$, $ 0.0 \le \alpha \le \pi$ rad. We obtain a curve $\mathcal{L}(\alpha)$, which is plotted in the left hand panel of Figure \ref{fig:likelihood_comparison} (blue curve). The dashed grey line indicates the injected value of $\alpha$. The inset plot shows a zoomed-in section of $\mathcal{L}(\alpha)$ within the region $ 1.0 - 10^{-3} \le \alpha \le 1.0 +10^{-3}$ rad. There are two important features in the figure. The first is that on the scale of radians the curve of $\mathcal{L}(\alpha)$ is very noisy. The second is that despite being noisy, a true likelihood maximum coincident with the injected value does exist. 
+
+
+
+
+
+This means that whilst it is theoretically possible to use likelihood-based methods for 
+
+practically the noise in the curve
+
+Why noise is bad
+
+
+Similar are observed for $\Omega$ and $\delta$, the other members of $\theta_{\rm gw}$ are smooth and concave.
+
+$\mathcal{L}(\Theta)$ is noisy 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a Gauss-Markov model used to algorithmically recover a temporal sequence of stochastically evolving  system state variables, $\boldsymbol{X}(t)$, which are not observed directly, given a temporal sequence of noisy measurements, $\boldsymbol{Y}(t)$. It finds common use in engineering applications and has been applied successfully in neutron star astrophysics \citep[e.g.][]{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}.
+
+
+$p(\boldsymbol{\theta} | \boldsymbol{Y})$ is calculated via nested sampling
+
+
+
+
+
+
+
+
+%Given  Given ${\boldsymbol{Y}}_1, \dots, {\boldsymbol{Y}}_M$, $\mathcal{L}$ is a function of the estimates ${\boldsymbol{\hat \theta}}$ of the static parameters passed to the Kalman filter, i.e. $\mathcal{L}$ = $\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\hat \theta})
+%
+%
+
+
+
+
+
+
+
+
+
+\subsection{New parameterisation}
+
+To alleviate the probelsm of seciton X, 
+
+We define a new parameter 
+\begin{equation}
+\chi^{(n)} = \Omega \left( 1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)} 
+\end{equation}
+Such that Equation \eqref{eq:g_func_trig} becomes
+\begin{align}
+	g^{(n)}(t) =& 1 - \frac{ H_{ij}[q^{(n)}]^i [q^{(n)}]^j }{2 [1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)}] } \nonumber \\
+	& \times \Big[\cos\left(-\Omega t +\Phi_0\right) \nonumber \\
+	&- \cos \left \{-\Omega t +\Phi_0 + \chi^{(n)} \right \} \Big ] \ .
+	\label{eq:g_func_trig_chi}
+\end{align}
+and the static pulsar parameters to be inferred become
+\begin{equation}
+	\boldsymbol{\theta}_{\rm psr} = \left \{ \gamma^{(n)},\sigma^{(n)}, f_{\rm em}^{(n)}(t_1),\dot{f}_{\rm em}^{(n)}(t_1),\chi^{(n)}\right\}_{1\leq n \leq N} \ .  \label{eq:psrparams}
+\end{equation}
+whilst $\boldsymbol{\theta}_{\rm gw}$  remain unchanged.
+
+
+
+In figure Xa we plot
+
+
+
+Clearly there is a relation between abc. This will nbe becked and shown ti no be a problm in Section Y
 
 
 
@@ -485,7 +577,10 @@ In this section we present a new method to infer $\boldsymbol{\theta}$ and calcu
 
 
 
-The Kalman filter \citep{Kalman1} is a Gauss-Markov model used to algorithmically recover a temporal sequence of stochastically evolving  system state variables, $\boldsymbol{X}(t)$, which are not observed directly, given a temporal sequence of noisy measurements, $\boldsymbol{Y}(t)$. It finds common use in engineering applications and has been applied successfully in neutron star astrophysics \citep[e.g.][]{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}. In this work we use the linear Kalman filter, which assumes a linear relation between $d{\boldsymbol{X}}/dt$ and ${\boldsymbol{X}}(t)$ (dynamics) and between ${\boldsymbol{Y}}(t)$ and ${\boldsymbol{X}}(t)$ (measurement), with ${\boldsymbol{X}}(t) = \{ f_{\rm p}^{(n)}(t) \}$ and ${\boldsymbol{Y}}(t) = \{ f_{\rm m}^{(n)}(t) \}$. Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}. Equations \eqref{eq:measurement} and \eqref{eq:g_func} are non-linear in the static parameters (e.g.\ $d^{(n)}$), even though they are linear in ${\boldsymbol{X}}(t)$ and ${\boldsymbol{Y}}(t)$. Hence inferring the static parameters is a non-linear exercise, to be tackled separately after the linear Kalman filter operates on the data for a fixed set of static parameters. Inference of the static parameters in Equations \eqref{eq:measurement} and \eqref{eq:g_func} by nested sampling is discussed in Section \ref{sec:nested_sampling}. \newline 
+The Kalman filter \citep{Kalman1} is 
+
+
+ In this work we use the linear Kalman filter, which assumes a linear relation between $d{\boldsymbol{X}}/dt$ and ${\boldsymbol{X}}(t)$ (dynamics) and between ${\boldsymbol{Y}}(t)$ and ${\boldsymbol{X}}(t)$ (measurement), with ${\boldsymbol{X}}(t) = \{ f_{\rm p}^{(n)}(t) \}$ and ${\boldsymbol{Y}}(t) = \{ f_{\rm m}^{(n)}(t) \}$. Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}. Equations \eqref{eq:measurement} and \eqref{eq:g_func} are non-linear in the static parameters (e.g.\ $d^{(n)}$), even though they are linear in ${\boldsymbol{X}}(t)$ and ${\boldsymbol{Y}}(t)$. Hence inferring the static parameters is a non-linear exercise, to be tackled separately after the linear Kalman filter operates on the data for a fixed set of static parameters. Inference of the static parameters in Equations \eqref{eq:measurement} and \eqref{eq:g_func} by nested sampling is discussed in Section \ref{sec:nested_sampling}. \newline 
 
 Implementation of the linear Kalman filter for the PTA state-space model in Section 3.2, including the full set of Kalman recursion relations is presented in Appendix \ref{sec:kalman}. At each discrete timestep indexed by $ 1 \leq i  \leq M$, the Kalman filter returns an estimate of the state variables, $\hat{\boldsymbol{X}}_i = \hat{\boldsymbol{X}}(t_i)$, and the covariance of those estimates, ${\boldsymbol{P}}_i = \langle {\boldsymbol{\hat X}}_i {\boldsymbol{\hat X}}_i^{\rm T} \rangle$, where the superscript T denotes the matrix transpose. The filter tracks the error in its predictions of $\boldsymbol{X}_i$ by converting ${\boldsymbol{\hat X}}_i$ into predicted measurements ${\boldsymbol{\hat Y}}_i$ via Equations \eqref{eq:measurement} and \eqref{eq:g_func} and comparing with the actual, noisy measurements ${\boldsymbol{\hat Y}}_i$. This defines a residual $\boldsymbol{\epsilon}_i = \boldsymbol{Y}_i  - \hat{\boldsymbol{Y}}_i$, which is sometimes termed the innovation. The Kalman filter also calculates the uncertainty in $\boldsymbol{\epsilon}_i$ via the innovation covariance $\boldsymbol{S}_i = \langle \boldsymbol{\epsilon}_i \boldsymbol{\epsilon}_i^{T} \rangle$. The innovation and the innovation covariance are then used to correct the state estimate ${\boldsymbol{\hat X}}_i$ according to Equation \eqref{eq:kalmangainupdate}. For a fixed set of static parameters, the Kalman filter returns an estimate of the the state sequence ${\boldsymbol {\hat X}}_1, \dots , {\boldsymbol{\hat X}}_M$ which minimizes the mean square error. We explain how to use this intermediate output to infer the optimal values of the static parameters ${\boldsymbol{\theta}}$ in Section \ref{sec:nested_sampling} \newline 
 
@@ -505,14 +600,13 @@ Given ${\boldsymbol{Y}}_1, \dots, {\boldsymbol{Y}}_M$, $\mathcal{L}$ is a functi
 
 
 \subsection{Nested sampling}\label{sec:nested_sampling}
-We can use the likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, in conjunction with likelihood-based inference methods to estimate the posterior distribution of $\boldsymbol{\theta}$ by Bayes' Rule,
-\begin{equation}
-	p(\boldsymbol{\theta} | \boldsymbol{Y}) = \frac{\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta}) \cdot \pi(\boldsymbol{\theta})}{\mathcal{Z}} \ ,
-\end{equation}
-where $\pi(\boldsymbol{\theta})$ is the prior distribution on $\boldsymbol{\theta}$ and $\mathcal{Z}$ is the marginalised likelihood, or evidence
-\begin{equation}
-	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence}
-\end{equation}
+We can use the likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, in conjunction with likelihood-based inference methods to estimate the posterior distribution of 
+
+
+
+
+
+
  We estimate the posterior distribution and the model evidence through nested sampling \citep{Skilling} in this paper. Nested sampling evaluates marginalised likelihood integrals, of the form given by Equation \eqref{eq:model_evidence}, which also approximates the posterior by returning samples from $p(\boldsymbol{\theta} | \boldsymbol{Y})$. It does so by drawing a set of $n_{\rm live}$ live points from $\pi(\boldsymbol{\theta})$ and iteratively replacing the live point with the lowest likelihood with a new live point drawn from $\pi(\boldsymbol{\theta})$, where the new live point is required to have a higher likelihood than the discarded point. The primary advantage of nested sampling is its ability to compute $\mathcal{Z}$, on which model selection relies. Nested sampling is also computationally efficient and can handle multi-modal problems \citep{Ashton2022}. For these reasons, it has enjoyed widespread adoption in the physical sciences, particularly within the cosmological community \citep{Mukherjee2006,Feroz2008,Handley2015}, neutron star astrophysics \citep{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}, particle physics \citep{proceedings2019033014} and materials science \citep{2009arXiv0906materials}. For a review of nested sampling we refer the reader to \cite{Buchner2021} and \cite{Ashton2022}. Multiple nested sampling algorithms and computational libraries exist. \citep[e.g.][]{Feroz2008,Feroz2009,Handley2015,dynesty2020,UltraNest2021}. In gravitational wave research it is common to use the \texttt{dynesty} sampler \citep{dynesty2020} via the \texttt{Bilby} \citep{bilby.507.2037A} front-end library. We follow this precedent and use \texttt{Bilby} for all nested sampling Bayesian inference in this work. \newline 
  
 The primary tunable parameter in nested sampling is $n_{\rm live}$. A greater number of live points is advantageous for large parameter spaces and multi-modal problems, whilst the uncertainties in the evidence and the posterior scale as $\mathcal{O}\left(n_{\rm live}^{-1/2}\right)$. However the computational runtime scales as $\mathcal{O}(n_{\rm live})$. \cite{Ashton2022} offered a rule-of-thumb trade-off, where the minimum number of live points should be greater than the number of static parameters. Informal empirical tests conducted as part of this paper support the trade-off suggested by \cite{Ashton2022}; we find typically that the true ${\boldsymbol{\theta}}$ is contained within the 90\% credible interval of the derived 1D marginalised posteriors of ${\boldsymbol{\hat{\theta}}}$ for $n_{\rm live} > 7 + 5N$ with $N \leq 50$. Unless stated otherwise we take $n_{\rm live} = 1000$ for all results presented in this work. \newline 
