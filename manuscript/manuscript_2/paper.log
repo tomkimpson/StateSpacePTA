@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  10 OCT 2023 16:52
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  10 OCT 2023 18:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1499,17 +1499,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 393--395
  []
 
 [3]
-Underfull \vbox (badness 2951) has occurred while \output is active []
 
- [4]
-
-LaTeX Warning: Reference `eq:g_func' on page 5 undefined on input line 583.
+LaTeX Warning: Reference `sec:pulsar_terms_challenge' on page 4 undefined on in
+put line 452.
 
 
-LaTeX Warning: Reference `eq:g_func' on page 5 undefined on input line 583.
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
+
+ []
+
+[4]
+
+LaTeX Warning: Reference `eq:g_func' on page 5 undefined on input line 576.
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 583--584
+LaTeX Warning: Reference `eq:g_func' on page 5 undefined on input line 576.
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 576--577
 \OML/cmm/b/it/9 Y\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 º$ \TU/T
 eXGyreTermesX(0)/m/n/9 and $\OML/cmm/b/it/9 X\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/
 9 t\LMS/ntxsy/m/n/9 º$ \TU/TeXGyreTermesX(0)/m/n/9 (measurement), with $\OML/cm
@@ -1519,93 +1526,93 @@ t/9 = \LMS/ntxsy/m/n/9 f\OML/ntxmi/m/it/9 f[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
 
  []
 
 
-LaTeX Warning: Reference `eq:g_func' on page 5 undefined on input line 585.
+LaTeX Warning: Reference `eq:g_func' on page 5 undefined on input line 578.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--586
+Underfull \hbox (badness 10000) in paragraph at lines 578--579
 
  []
 
 
 LaTeX Warning: Reference `fig:kalman_example' on page 5 undefined on input line
- 596.
+ 589.
 
 Requested font "[lmmono9-regular]:" at 9.0pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmmono9-regular
 .otf
 
-Underfull \hbox (badness 1688) in paragraph at lines 610--611
+Underfull \hbox (badness 1688) in paragraph at lines 603--604
 \TU/TeXGyreTermesX(0)/m/n/9 through nested sampling ([][]Skilling[][] [][]2006[
 ][]) in this paper. Nested
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 610--611
+Underfull \hbox (badness 1117) in paragraph at lines 603--604
 \TU/TeXGyreTermesX(0)/m/n/9 libraries exist. (e.g. [][]Feroz & Hobson[][] [][]2
 008[][]; [][]Feroz et al.[][] [][]2009[][];
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--611
+Underfull \hbox (badness 10000) in paragraph at lines 603--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--613
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
 
  []
 
 [5]
 
-LaTeX Warning: Reference `eq:g_func' on page 6 undefined on input line 621.
+LaTeX Warning: Reference `eq:g_func' on page 6 undefined on input line 614.
+
+
+Package enumitem Warning: Negative labelwidth. This does not make much
+(enumitem)                sense, on input line 619.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
 (enumitem)                sense, on input line 626.
 
 
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 633.
-
-
-Underfull \hbox (badness 1902) in paragraph at lines 637--638
+Underfull \hbox (badness 1902) in paragraph at lines 630--631
 []\TU/TeXGyreTermesX(0)/m/n/9 Remove the live point with the lowest likelihood 
 value,
  []
 
 
 LaTeX Warning: Reference `fig:pulsar_distrib' on page 6 undefined on input line
- 649.
+ 642.
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 7.3pt on input line 653.
+(Font)              scaled to size 7.3pt on input line 646.
 Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
 ;+tnum;+lnum;mapping=tex-text;" at 7.3pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTerme
 sX-Regular.otf
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 653.
+(Font)              scaled to size 5.5pt on input line 646.
 Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
 ;+tnum;+lnum;mapping=tex-text;" at 5.5pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTerme
 sX-Regular.otf
 
 LaTeX Warning: Reference `fig:pulsar_distrib' on page 6 undefined on input line
- 658.
+ 651.
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 657--659
+Underfull \hbox (badness 1515) in paragraph at lines 650--652
 \TU/TeXGyreTermesX(0)/m/n/9 For the synthetic NANOGrav PTA depicted in Figure [
 ], the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--659
+Underfull \hbox (badness 10000) in paragraph at lines 650--652
 
  []
 
@@ -1614,134 +1621,134 @@ Requested font "[lmmono8-regular]:" at 8.0pt
 .otf
 
 LaTeX Warning: Reference `fig:qualitative_compare' on page 6 undefined on input
- line 664.
+ line 657.
 
 
 LaTeX Warning: Reference `fig:pulsar_distrib' on page 6 undefined on input line
- 664.
+ 657.
 
 [6]
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 668.
+(enumitem)                sense, on input line 661.
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 669--670
+Underfull \hbox (badness 1067) in paragraph at lines 662--663
 \TU/TeXGyreTermesX(0)/m/n/9 described in Section [][]6.1[][], to obtain random 
 realizations of
  []
 
 
-LaTeX Warning: Reference `eq:g_func' on page 7 undefined on input line 670.
+LaTeX Warning: Reference `eq:g_func' on page 7 undefined on input line 663.
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 675--677
+Underfull \hbox (badness 3428) in paragraph at lines 668--670
 \TU/TeXGyreTermesX(0)/m/n/9 Although Equations [] and [] superficially resemble
  one
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 675--677
+Underfull \hbox (badness 1226) in paragraph at lines 668--670
 \TU/TeXGyreTermesX(0)/m/n/9 another, they are distinct; Equation [] deals with 
 the timing
  []
 
 
-Underfull \hbox (badness 2285) in paragraph at lines 675--677
+Underfull \hbox (badness 2285) in paragraph at lines 668--670
 \TU/TeXGyreTermesX(0)/m/n/9 Equation [] handles the detector measurement noise.
  For a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 675--677
+Underfull \hbox (badness 10000) in paragraph at lines 668--670
 
  []
 
 
 LaTeX Warning: Reference `sec:multiple_noise' on page 7 undefined on input line
- 696.
+ 689.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
 
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 702--703
+Underfull \hbox (badness 1454) in paragraph at lines 695--696
 \TU/TeXGyreTermesX(0)/m/n/9 For the Bayesian methods used in this work, one mus
 t select
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--706
+Underfull \hbox (badness 10000) in paragraph at lines 698--699
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
 
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 724--724
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 717--717
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 732--732
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 725--725
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--751
+Underfull \hbox (badness 10000) in paragraph at lines 743--744
 
  []
 
 
 LaTeX Warning: Reference `sec:multiple_noise' on page 8 undefined on input line
- 753.
+ 746.
 
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
 
 LaTeX Warning: Reference `fig:pairwise_wasserstein' on page 8 undefined on inpu
-t line 773.
+t line 766.
 
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 773.
+(amsmath)                 on input line 766.
 
 
-LaTeX Warning: Reference `tab:Wasserstein' on page 8 undefined on input line 77
-3.
+LaTeX Warning: Reference `tab:Wasserstein' on page 8 undefined on input line 76
+6.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 773--774
+Underfull \hbox (badness 10000) in paragraph at lines 766--767
 
  []
 
 
 LaTeX Warning: Reference `fig:pairwise_wasserstein' on page 8 undefined on inpu
-t line 775.
+t line 768.
 
 
-LaTeX Warning: Reference `figWD_psi' on page 8 undefined on input line 775.
+LaTeX Warning: Reference `figWD_psi' on page 8 undefined on input line 768.
 
 
 LaTeX Warning: Reference `fig:likelihood_surface_alpha_psi' on page 8 undefined
- on input line 775.
+ on input line 768.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+Underfull \hbox (badness 10000) in paragraph at lines 774--775
 
  []
 
@@ -1760,37 +1767,72 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
 
-Underfull \hbox (badness 1337) in paragraph at lines 798--799
+Underfull \hbox (badness 1337) in paragraph at lines 791--792
 \TU/TeXGyreTermesX(0)/m/n/9 regions of the parameter space, varying the source 
 parameters
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--799
+Underfull \hbox (badness 10000) in paragraph at lines 791--792
 
  []
 
 
 LaTeX Warning: Reference `sec:multiple_noise' on page 12 undefined on input lin
-e 801.
+e 794.
 
 
-LaTeX Warning: Reference `sec:identif' on page 12 undefined on input line 805.
+LaTeX Warning: Reference `sec:identif' on page 12 undefined on input line 798.
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 805.
+(Font)              scaled to size 5.0pt on input line 798.
 Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
 ;+tnum;+lnum;mapping=tex-text;" at 5.0pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/opentype/public/newtx/TeXGyreTerme
 sX-Regular.otf
 
 LaTeX Warning: Reference `fig:bias_for_large_h' on page 12 undefined on input l
-ine 813.
+ine 806.
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 813--814
+Underfull \hbox (badness 1199) in paragraph at lines 806--807
 \TU/TeXGyreTermesX(0)/m/n/9 the $\OML/cmm/b/it/9 ^^R[]$ \TU/TeXGyreTermesX(0)/m
 /n/9 parameters the inferred value (e.g. the median of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
+
+ []
+
+
+LaTeX Warning: Reference `fig:likelihood_surface_iota' on page 12 undefined on 
+input line 809.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
+
+ []
+
+
+LaTeX Warning: Reference `fig:likelihood_surface_iota' on page 12 undefined on 
+input line 811.
+
+
+LaTeX Warning: Reference `fig:bias_for_large_h' on page 12 undefined on input l
+ine 811.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
+
+ []
+
+[12
+
+]
+Underfull \hbox (badness 1688) in paragraph at lines 813--814
+[]\TU/TeXGyreTermesX(0)/m/n/9 In contrast to the Earth-terms solution, for the 
+pulsar-terms
  []
 
 
@@ -1799,107 +1841,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 813--814
  []
 
 
-LaTeX Warning: Reference `fig:likelihood_surface_iota' on page 12 undefined on 
-input line 816.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 816--817
-
- []
-
-
-LaTeX Warning: Reference `fig:likelihood_surface_iota' on page 12 undefined on 
-input line 818.
-
-
-LaTeX Warning: Reference `fig:bias_for_large_h' on page 12 undefined on input l
-ine 818.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 818--819
-
- []
-
-[12
-
-]
-Underfull \hbox (badness 1688) in paragraph at lines 820--821
-[]\TU/TeXGyreTermesX(0)/m/n/9 In contrast to the Earth-terms solution, for the 
-pulsar-terms
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--821
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--827
+Underfull \hbox (badness 10000) in paragraph at lines 818--820
 
  []
 
 
 LaTeX Warning: Reference `fig:corner_plot_2' on page 13 undefined on input line
- 828.
+ 821.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--835
+Underfull \hbox (badness 10000) in paragraph at lines 821--822
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--837
+Underfull \hbox (badness 10000) in paragraph at lines 827--828
 
  []
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 838--839
+Underfull \hbox (badness 10000) in paragraph at lines 829--830
+
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 831--832
 []\TU/TeXGyreTermesX(0)/m/n/9 We have considered only a specific configuration 
 of pulsars
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 833--834
+
+ []
+
+
+LaTeX Warning: Reference `sec:plane_gw' on page 13 undefined on input line 835.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 835--836
+
+ []
+
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 838--839
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 840--841
-
- []
-
-
-LaTeX Warning: Reference `sec:plane_gw' on page 13 undefined on input line 842.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 842--843
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 845--846
-
- []
-
-
-Underfull \hbox (badness 1354) in paragraph at lines 853--854
+Underfull \hbox (badness 1354) in paragraph at lines 846--847
 \TU/TeXGyreTermesX(0)/m/n/9 explicitly via a state-space method, rather than su
 btracting the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 868--870
+Underfull \hbox (badness 10000) in paragraph at lines 861--863
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 893--895
+Underfull \hbox (badness 10000) in paragraph at lines 886--888
 
  []
 
@@ -1955,36 +1962,36 @@ Requested font "ntxbexa" at 7.3pt
 Requested font "ntxbexa" at 5.5pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntxbexa.tfm
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 921--923
+Underfull \hbox (badness 10000) in paragraph at lines 914--916
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 957--959
+Underfull \hbox (badness 10000) in paragraph at lines 950--952
 
  []
 
 
-LaTeX Warning: Reference `eq:g_func' on page 15 undefined on input line 961.
+LaTeX Warning: Reference `eq:g_func' on page 15 undefined on input line 954.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 976--978
+Underfull \hbox (badness 10000) in paragraph at lines 969--971
 
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 983--985
+Underfull \hbox (badness 2865) in paragraph at lines 976--978
 \TU/TeXGyreTermesX(0)/m/n/9 In order to circumvent this issue, in this work we 
 calculate
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 987--989
+Underfull \hbox (badness 10000) in paragraph at lines 980--982
 
  []
 
 
-LaTeX Warning: Reference `eq:WDdefn' on page 15 undefined on input line 991.
+LaTeX Warning: Reference `eq:WDdefn' on page 15 undefined on input line 984.
 
 [15] (./paper.bbl
 Underfull \hbox (badness 8075) in paragraph at lines 369--372
@@ -2029,14 +2036,20 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: A1686D7388B963239E34CC945D774EB1;5833.
+
+Package rerunfilecheck Warning: File `paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `paper.out':
+(rerunfilecheck)             Before: A1686D7388B963239E34CC945D774EB1;5833
+(rerunfilecheck)             After:  7AA8FAAB7FA1D6A30CA25E1836BAAA75;5828.
  ) 
 Here is how much of TeX's memory you used:
- 18941 strings out of 476179
- 350031 string characters out of 5809545
+ 18942 strings out of 476179
+ 350059 string characters out of 5809545
  738283 words of memory out of 5000000
- 39322 multiletter control sequences out of 15000+600000
+ 39323 multiletter control sequences out of 15000+600000
  529846 words of font info for 207 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  88i,15n,99p,2268b,659s stack positions out of 10000i,1000n,20000p,200000b,200000s

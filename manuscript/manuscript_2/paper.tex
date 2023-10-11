@@ -374,7 +374,7 @@ with
 
 
 
-\subsection{Challenges of pulsar term}
+\subsection{Challenges of pulsar term}\label{sec:pulsar_terms_challenge}
 \begin{figure*}
 	\includegraphics[width=\textwidth, height =0.5\textwidth ]{images/Likelihoods_alpha}
 	\caption{abc}
@@ -391,50 +391,43 @@ where $\pi(\boldsymbol{\theta})$ is the prior distribution on $\boldsymbol{\thet
 \begin{equation}
 	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence}
 \end{equation}
-and $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is the likelihood calculated via a Kalman filter \citep{Kalman1}. Nested sampling \citep{Skilling} is used to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ and $\mathcal{Z}$. Given a specific realisation of $\boldsymbol{Y}$, $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is solely a function of $\boldsymbol{\theta}$, i.e. $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta}) = \mathcal{L}(\boldsymbol{\theta})$. We will use the notation $\mathcal{L}(\Theta)$ to refer to the likelihood returned by the Kalman filter for parameter $\Theta$, where $\Theta \in \boldsymbol{\theta}$ and all other members of $\boldsymbol{\theta}$ are held constant at their true injected values. \newline 
+and $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is the likelihood calculated via a Kalman filter \citep{Kalman1}. Nested sampling \citep{Skilling} is used to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ and $\mathcal{Z}$. Given a specific realisation of $\boldsymbol{Y}$, $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is solely a function of $\boldsymbol{\theta}$, i.e. $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta}) = \mathcal{L}(\boldsymbol{\theta})$. We will use the notation ONE DIMENSIONAL $\mathcal{L}(\Theta)$ to refer to the likelihood returned by the Kalman filter for parameter $\Theta$, where $\Theta \in \boldsymbol{\theta}$ and all other members of $\boldsymbol{\theta}$ are held constant at their true injected values. \newline 
 
 
 To elucidate the complications introduced by including the pulsar term, we generate some noisy synthetic data $\boldsymbol{Y}$ using the methods outlined in K23. $\boldsymbol{\theta}_{\rm gw}$ are chosen arbitrarily, with $\alpha = 1.0 $ rad.
-The choice of $\boldsymbol{\theta}_{\rm psr}$ corresponds to the 47 pulsars in the 12.5 year NANOGrav data set  \citep{2020ApJ...905L..34A}. We run the Kalman filter using the measurement equation inclusive of the pulsar terms, Equation \eqref{eq:g_func_trig} on $\boldsymbol{Y}$ for different values of $\alpha$, $ 0.0 \le \alpha \le \pi$ rad. We obtain a curve $\mathcal{L}(\alpha)$, which is plotted in the left hand panel of Figure \ref{fig:likelihood_comparison} (blue curve). The dashed grey line indicates the injected value of $\alpha$. The inset plot shows a zoomed-in section of $\mathcal{L}(\alpha)$ within the region $ 1.0 - 10^{-3} \le \alpha \le 1.0 +10^{-3}$ rad. There are two important features in the figure. The first is that on the scale of radians the curve of $\mathcal{L}(\alpha)$ is very noisy. The second is that despite being noisy, a true likelihood maximum coincident with the injected value does exist. 
+The choice of $\boldsymbol{\theta}_{\rm psr}$ corresponds to the 47 pulsars in the 12.5 year NANOGrav data set  \citep{2020ApJ...905L..34A}. We run the Kalman filter using the measurement equation inclusive of the pulsar terms, Equation \eqref{eq:g_func_trig} on $\boldsymbol{Y}$ for different values of $\alpha$, $ 0.0 \le \alpha \le \pi$ rad. We obtain a curve $\mathcal{L}(\alpha)$, which is plotted in the left hand panel of Figure \ref{fig:likelihood_comparison} (blue curve). The dashed grey line indicates the injected value of $\alpha$. The inset plot shows a zoomed-in section of $\mathcal{L}(\alpha)$ within the region $ 1.0 - 10^{-3} \le \alpha \le 1.0 +10^{-3}$ rad. There are two important features in the figure. 
+
+
+
+The first is that on scales of order the width of the prior $\pi(\alpha)$ (i.e radians), the curve of $\mathcal{L}(\alpha)$ is very noisy. The second is that despite being noisy, a true likelihood maximum coincident with the injected value does exist and is locally concave on scales $\mathcal{O} \left( 10^{-4}\right)$ radians.
+
+
+
+This means that whilst it is theoretically possible to use likelihood-based methods for Bayesian estimation of $\alpha$, in practice the computation is intractable since the noise in the likelihood curve inhibits sampling algorithms to reliably converge to a definitive posterior.
+
+
+Naturally $\mathcal{L}(\alpha)$ is only one dimensional. The situation is further esacerbated when we move to $N +D $ dimensions. 
+
+
+However, the majority of parameters are well-behaved and exhibit smooth concanve 1D
+
+
+It is just omega, delta and alpha
+
+
+Why these parameters? 
+
+These are the parameters which correspond to the pulsar term
+
+
+go through N cycles
+
+Not all parameters are noisy
 
 
 
 
-
-This means that whilst it is theoretically possible to use likelihood-based methods for 
-
-practically the noise in the curve
-
-Why noise is bad
-
-
-Similar are observed for $\Omega$ and $\delta$, the other members of $\theta_{\rm gw}$ are smooth and concave.
-
-$\mathcal{L}(\Theta)$ is noisy 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a Gauss-Markov model used to algorithmically recover a temporal sequence of stochastically evolving  system state variables, $\boldsymbol{X}(t)$, which are not observed directly, given a temporal sequence of noisy measurements, $\boldsymbol{Y}(t)$. It finds common use in engineering applications and has been applied successfully in neutron star astrophysics \citep[e.g.][]{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}.
-
-
-$p(\boldsymbol{\theta} | \boldsymbol{Y})$ is calculated via nested sampling
+Whilst noisy likelihood inference is possible...
 
 
 
@@ -455,9 +448,9 @@ $p(\boldsymbol{\theta} | \boldsymbol{Y})$ is calculated via nested sampling
 
 
 
-\subsection{New parameterisation}
+\subsection{New parametrisation}
+In this section we introduce a new parametrisation of the model described in Section \ref{sec:model} in order to alleviate the problems outlined in Section \ref{sec:pulsar_terms_challenge}. \newline 
 
-To alleviate the probelsm of seciton X, 
 
 We define a new parameter 
 \begin{equation}
