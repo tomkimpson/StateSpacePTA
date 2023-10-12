@@ -251,6 +251,8 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
 
         y_post,injection_parameters_idx,ranges_idx= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
 
+        errors = get_posterior_accuracy(y_post,injection_parameters_idx,labels)
+
         k = i 
         if k ==2:
             k = k+1 #convoluted way of skipping C2 color. Surely a better way exists
@@ -366,6 +368,21 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
 
+
+
+
+def get_posterior_accuracy(posterior,injection,labels):
+
+    print("The error in the 1D posteriors is as follows:")
+    for i in range(posterior.shape[-1]):
+        y = posterior[:,i]
+        inj = injection[i]
+        error = np.mean(np.abs(inj - y) / inj)
+        print(labels[i], error)
+    print('*****************************')
+
+
+    return 1
 
 
 
