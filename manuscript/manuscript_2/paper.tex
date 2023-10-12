@@ -103,7 +103,7 @@ $^{3}$Department of Electrical and Electronic Engineering, University of Melbour
 
 % Abstract of the paper
 \begin{abstract}	
-	The detection of continuous nanohertz gravitational waves from individual supermassive black hole binaries can be formulated within a state-space framework, wherein intrinsic achromatic spin wandering is tracked simultaneously with the modulation induced by a single-source gravitational wave in the pulse times of arrival. Such an approach complements traditional analysis methods by enabling self-consistent inference of model parameters and calculation of the Bayesian evidence, without fitting for ensemble-averaged statistics such as the power spectral density of the timing noise. Previous analyses have worked exclusively with the `Earth term', leading to biases in the parameter estimation. Here it is shown how to extend previous analyses to include the so-called `pulsar terms'. It is shown via astrophysically representative software injections in Gaussian measurement noise that the inclusion of the pulsar terms increases the parameter accuracy relative to the Earth terms approach by X and the sensitivity by Y. 
+	The detection of continuous nanohertz gravitational waves from individual supermassive black hole binaries can be formulated within a state-space framework, wherein intrinsic achromatic spin wandering is tracked simultaneously with the modulation induced by a single-source gravitational wave in the pulse times of arrival. Such an approach complements traditional analysis methods by enabling self-consistent inference of model parameters and calculation of the Bayesian evidence, without fitting for ensemble-averaged statistics such as the power spectral density of the timing noise. Previous analyses have worked exclusively with the `Earth term', leading to biases in the parameter estimation. Here it is shown how to extend previous analyses to include the so-called `pulsar terms'. It is shown via astrophysically representative software injections in Gaussian measurement noise that the inclusion of the pulsar terms eliminates the biases in the parameter estimates, increasing the parameter accuracy relative to the Earth terms approach by X and the sensitivity by Y. 
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -132,7 +132,7 @@ Nanohertz gravitational waves (GWs) can be produced by the inspiral of supermass
   
   
   
- Irregularities in the intrinsic rotation of the pulsar result in random, unmodelled, red-spectrum TOA fluctuations known as `timing noise'. Timing noise limits the sensitivity of PTAs to GW signals \citep{Shannon2010,Lasky2015,Caballero2016,Goncharov2021}. Additional white noise sources such as phase jitter noise and radiometer noise \citep{Cordes2010,Lam2019,Parthasarathy2021} must also be considered. \cite{K1} (K23 hereafter) presented an alternative and complementary approach to PTA data analysis for individual, quasi-monochromatic, SMBHB sources which self-consistently tracks the intrinsic timing noise in PTA pulsars and disentangles it from GW-induced TOA modulations. Specifically, K23 formulate PTA analysis as a state-space problem and use a Kalman filter \citep{Kalman1} to track the pulsars' intrinsic rotational state in conjunction with a Bayesian nested sampler \citep{Skilling, Ashton2022} for parameter estimation and model selection. \newline 
+ Irregularities in the intrinsic rotation of the pulsar result in random, unmodelled, red-spectrum TOA fluctuations known as `timing noise'. Timing noise limits the sensitivity of PTAs to GW signals \citep{Shannon2010,Lasky2015,Caballero2016,Goncharov2021}. Additional white noise sources such as phase jitter noise and radiometer noise \citep{Cordes2010,Lam2019,Parthasarathy2021} must also be considered. \cite{K1} (K23 hereafter) presented an alternative and complementary approach to PTA data analysis for individual, quasi-monochromatic, SMBHB sources which self-consistently tracks the intrinsic timing noise in PTA pulsars and disentangles it from GW-induced TOA modulations. Specifically, K23 formulate PTA analysis as a state-space problem and use a Kalman filter \citep{Kalman1} to track the pulsars' intrinsic rotational state in conjunction with a Bayesian nested sampler \citep{Skilling, Ashton2022} for parameter estimation and model selection. \textbf{VALIDATION TESTS ON SYNTHETIC DATA... }newline 
  
  
  
@@ -359,7 +359,7 @@ In this section we review the modification to Equation \eqref{eq:g_func_trig} us
 
 
 \subsection{Earth term}
-Equation \eqref{eq:g_func_trig} is the sum of two equal amplitude, phase shifted waves. The first wave, $\cos(-\Omega t + \Phi_0)$, depends only on the GW source parameters and is shared across all pulsars. The argument of the cosine corresponds to the GW phase at the observer on Earth.  Conversely the second wave, $\cos \left(-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d \right)$, also depends on $d^{(n)}$ and $\boldsymbol{q}^{(n)}$ and so varies between pulsars. The argument of the cosine corresponds to the GW phase at each the individual pulsar. The first and second terms are commonly referred to as the ``Earth term" and ``pulsar term" respectively. Whilst the Earth term is phase coherent between all pulsars and so can be summed across the array to increase the total signal-to-noise, the pulsar terms each have individual phases and in standard PTA analysis are typically considered as a source of self noise and dropped from the analysis \citep[e.g.][]{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C} at the expense of a modestly reduced detection probability ($\sim 5 \%$) and the introduction of a bias in the sky localisation \citep{Zhupulsarterms,Chen2022}. K23 also followed this example and dropped the pulsar terms from the inference model. Explicitly the measurement equation used is
+Equation \eqref{eq:g_func_trig} is the sum of two equal amplitude, phase shifted waves. The first wave, $\cos(-\Omega t + \Phi_0)$, depends only on the GW source parameters and is shared across all pulsars. The argument of the cosine corresponds to the GW phase at the observer on Earth.  Conversely the second wave, $\cos \left(-\Omega t +\Phi_0 + \Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)} \right)$, also depends on $d^{(n)}$ and $\boldsymbol{q}^{(n)}$ and so varies between pulsars. The argument of the cosine corresponds to the GW phase at each the individual pulsar. The first and second terms are commonly referred to as the ``Earth term" and ``pulsar term" respectively. Whilst the Earth term is phase coherent between all pulsars and so can be summed across the array to increase the total signal-to-noise, the pulsar terms each have individual phases and in standard PTA analysis are typically considered as a source of self noise and dropped from the analysis \citep[e.g.][]{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C} at the expense of a modestly reduced detection probability ($\sim 5 \%$) and the introduction of a bias in the sky localisation \citep{Zhupulsarterms,Chen2022}. K23 also followed this example and dropped the pulsar terms from the inference model. Explicitly the measurement equation used is
 \begin{equation}
 	f_{\rm m}^{(n)}(t) = f_{\rm p}^{(n)}(t-d) g^{(n)}_{\rm Earth}(t) \ , 
 	\label{eq:measuremen_earth}
@@ -377,7 +377,7 @@ with
 \subsection{Challenges of pulsar term}\label{sec:pulsar_terms_challenge}
 \begin{figure*}
 	\includegraphics[width=\textwidth, height =0.5\textwidth ]{images/Likelihoods_alpha}
-	\caption{abc}
+	\caption{Logarithm of the one-dimensional likelihood $\mathcal{L}(\alpha)$ returned by the Kalman filter acting on synthetic data $\boldsymbol{Y}$. All other static parameters of $\boldsymbol{\theta}$ are held constant at their true injected values. In the left-hand panel the Kalman filter uses Equation \eqref{eq:g_func_trig} to calculate $\mathcal{L}(\alpha)$, i.e. inclusive of the pulsar terms. In the right-hand panel the Kalman filter uses Equation \ref{eq:g_func_trig_earth}, i.e. just the Earth terms. The vertical dashed lines indicate the true injected value of $\alpha$ ($=1.0$ rad) used to generate $\boldsymbol{Y}$. The inset plot covers the region $1.0 - 10^{-4} \le \alpha \le 1.0 +10^{-4}$ rad. In the left hand panel $\mathcal{L}(\alpha)$ is very noisy, though a smooth concave optima exists on scales $\mathcal{O}(10^{-4})$ rad. Conversely, in the right hand panel $\mathcal{L}(\alpha)$ is globally smooth. }
 	\label{fig:likelihood_comparison}
 \end{figure*}
 
@@ -391,64 +391,26 @@ where $\pi(\boldsymbol{\theta})$ is the prior distribution on $\boldsymbol{\thet
 \begin{equation}
 	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence}
 \end{equation}
-and $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is the likelihood calculated via a Kalman filter \citep{Kalman1}. Nested sampling \citep{Skilling} is used to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ and $\mathcal{Z}$. Given a specific realisation of $\boldsymbol{Y}$, $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is solely a function of $\boldsymbol{\theta}$, i.e. $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta}) = \mathcal{L}(\boldsymbol{\theta})$. We will use the notation ONE DIMENSIONAL $\mathcal{L}(\Theta)$ to refer to the likelihood returned by the Kalman filter for parameter $\Theta$, where $\Theta \in \boldsymbol{\theta}$ and all other members of $\boldsymbol{\theta}$ are held constant at their true injected values. \newline 
+and $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is the likelihood calculated via a Kalman filter \citep{Kalman1}. Nested sampling \citep{Skilling} is used to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ and $\mathcal{Z}$. Given a specific realisation of $\boldsymbol{Y}$, $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta})$ is solely a function of $\boldsymbol{\theta}$, i.e. $\mathcal{L}(\boldsymbol{Y}| \boldsymbol{\theta}) = \mathcal{L}(\boldsymbol{\theta})$. We will use the notation $\mathcal{L}(\Theta)$ to refer to the likelihood returned by the Kalman filter for parameter $\Theta$, where $\Theta \in \boldsymbol{\theta}$ and all other members of $\boldsymbol{\theta}$ are held constant at their true injected values. \newline 
 
 
 To elucidate the complications introduced by including the pulsar term, we generate some noisy synthetic data $\boldsymbol{Y}$ using the methods outlined in K23. $\boldsymbol{\theta}_{\rm gw}$ are chosen arbitrarily, with $\alpha = 1.0 $ rad.
-The choice of $\boldsymbol{\theta}_{\rm psr}$ corresponds to the 47 pulsars in the 12.5 year NANOGrav data set  \citep{2020ApJ...905L..34A}. We run the Kalman filter using the measurement equation inclusive of the pulsar terms, Equation \eqref{eq:g_func_trig} on $\boldsymbol{Y}$ for different values of $\alpha$, $ 0.0 \le \alpha \le \pi$ rad. We obtain a curve $\mathcal{L}(\alpha)$, which is plotted in the left hand panel of Figure \ref{fig:likelihood_comparison} (blue curve). The dashed grey line indicates the injected value of $\alpha$. The inset plot shows a zoomed-in section of $\mathcal{L}(\alpha)$ within the region $ 1.0 - 10^{-3} \le \alpha \le 1.0 +10^{-3}$ rad. There are two important features in the figure. 
+The choice of $\boldsymbol{\theta}_{\rm psr}$ corresponds to the 47 pulsars in the 12.5 year NANOGrav data set  \citep{2020ApJ...905L..34A}. We run the Kalman filter using the measurement equation inclusive of the pulsar terms, Equation \eqref{eq:g_func_trig} on $\boldsymbol{Y}$ for different values of $\alpha$, $ 0.0 \le \alpha \le \pi$ rad. We obtain a curve $\mathcal{L}(\alpha)$, which is plotted in the left hand panel of Figure \ref{fig:likelihood_comparison} (blue curve). The dashed grey line indicates the injected value of $\alpha$ (= 1.0 rad). The inset plot shows a zoomed-in section of $\mathcal{L}(\alpha)$ within the region $ 1.0 - 10^{-4} \le \alpha \le 1.0 +10^{-4}$ rad. \newline 
 
+There are two important features to discuss in the left-hand panel of Figure \ref{fig:likelihood_comparison}. The first is that on scales of order the width of the prior $\pi(\alpha)$ (i.e radians), the curve of $\mathcal{L}(\alpha)$ is very noisy. Similar noisy curves are obtained for $\mathcal{L}(\Omega)$ and $\mathcal{L}(\delta)$. For all other static parameters, the $\mathcal{L}(\Theta)$ curves are smooth and globally concave. The second is that despite being noisy, a true likelihood maximum coincident with the injected value does exist and is locally concave on scales $\mathcal{O} \left( 10^{-4}\right)$ radians. This means that whilst it is theoretically possible to use likelihood-based methods for Bayesian estimation of $\alpha$, in practice the computation is intractable since the noise in the likelihood curve inhibits sampling algorithms to reliably converge to a definitive posterior. Moreover, $\mathcal{L}(\alpha)$ is only a one-dimensional function. The challenge for sampling algorithms is further exacerbated when we consider the three-dimensional parameter space in $\alpha - \delta - \Omega$, or the full $7 + 5N$ dimensions of Section \ref{sec:ss_params}. \newline 
 
-
-The first is that on scales of order the width of the prior $\pi(\alpha)$ (i.e radians), the curve of $\mathcal{L}(\alpha)$ is very noisy. The second is that despite being noisy, a true likelihood maximum coincident with the injected value does exist and is locally concave on scales $\mathcal{O} \left( 10^{-4}\right)$ radians.
-
-
-
-This means that whilst it is theoretically possible to use likelihood-based methods for Bayesian estimation of $\alpha$, in practice the computation is intractable since the noise in the likelihood curve inhibits sampling algorithms to reliably converge to a definitive posterior.
-
-
-Naturally $\mathcal{L}(\alpha)$ is only one dimensional. The situation is further esacerbated when we move to $N +D $ dimensions. 
-
-
-However, the majority of parameters are well-behaved and exhibit smooth concanve 1D
-
-
-It is just omega, delta and alpha
-
-
-Why these parameters? 
-
-These are the parameters which correspond to the pulsar term
-
-
-go through N cycles
-
-Not all parameters are noisy
-
-
-
-
-Whilst noisy likelihood inference is possible...
-
-
-
-
-
-
-
-
-%Given  Given ${\boldsymbol{Y}}_1, \dots, {\boldsymbol{Y}}_M$, $\mathcal{L}$ is a function of the estimates ${\boldsymbol{\hat \theta}}$ of the static parameters passed to the Kalman filter, i.e. $\mathcal{L}$ = $\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\hat \theta})
-%
-%
-
-
-
-
-
-
-
+Why do $\alpha$, $\delta$ and $\Omega$ exhibit noisy $\mathcal{L}(\Theta)$ curves whereas other static parameters do not? These parameters appear in the pulsar term as a product in the pulsar-dependent phase correction $\Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)}$, where we remind the reader that $\boldsymbol{n} = \boldsymbol{n}(\delta, \alpha)$. Over the typical pulsar distances $d^{(n)} \sim 1$ kpc, a 10 nHz GW can accumulate $10^3$ cycles. This creates a confusion problem when taking the cosine of  $\Omega \left(1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d^{(n)}$ since we do not know how many cycles the wave has gone through, modulo $2 \pi$. \textcolor{red}{TK: this explanation is rubbish! How can we say this better?}. Conversely, if we drop the pulsar term,  the $\mathcal{L}(\alpha)$ curve (as well as $\mathcal{L}(\Omega)$ , $\mathcal{L}(\delta)$   )
+This is shown by the orange curve in the right-hand panel of Figure \ref{fig:likelihood_comparison} where we plot $\mathcal{L}(\alpha)$, analogous to the left-hand panel, but now use Equation \ref{eq:g_func_trig_earth} in our Kalman filter (i.e. just the Earth terms) rather than the full Equation \ref{eq:g_func_trig}. In this case there is no confusion regarding the number of cycles the wave has gone through over a distance $d^{(n)}$ and the curve is smooth.
 
 
 \subsection{New parametrisation}
+In order to include the pulsar terms in an inference model and apply the methods of K23 it is necessary to be able to handle the noisy likelihood curves presented in Section \ref{sec:pulsar_terms_challenge}.
+
+
+Whilst computational methods for approximate inference from noisy likelihoods do exists \citep[e.g.][]{doi:10.1137/21M1410853,2021arXiv210403942J,2019arXiv190501252J}
+
+Whilst noisy likelihood inference is possible...
+
 In this section we introduce a new parametrisation of the model described in Section \ref{sec:model} in order to alleviate the problems outlined in Section \ref{sec:pulsar_terms_challenge}. \newline 
 
 

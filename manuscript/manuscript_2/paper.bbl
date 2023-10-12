@@ -176,6 +176,11 @@ Desvignes G.,  et~al., 2016, \mn@doi [Monthly Notices of the Royal Astronomical
 \bibitem[\protect\citeauthoryear{Dudley}{Dudley}{1969}]{Dudley}
 Dudley R.~M.,  1969, The Annals of Mathematical Statistics, 40, 40
 
+\bibitem[\protect\citeauthoryear{Dunbar, Duncan, Stuart  \& Wolfram}{Dunbar
+  et~al.}{2022}]{doi:10.1137/21M1410853}
+Dunbar O. R.~A.,  Duncan A.~B.,  Stuart A.~M.,   Wolfram M.-T.,  2022, \mn@doi
+  [SIAM Journal on Applied Dynamical Systems] {10.1137/21M1410853}, 21, 1539
+
 \bibitem[\protect\citeauthoryear{{Dunn} et~al.,}{{Dunn}
   et~al.}{2022}]{Dunn2022}
 {Dunn} L.,  et~al., 2022, \mn@doi [\mnras] {10.1093/mnras/stac551}, \href
@@ -276,6 +281,19 @@ Jaffe A.~H.,  Backer D.~C.,  2003, \mn@doi [The Astrophysical Journal]
   et~al.}{2018}]{10.1093/mnras/sty3390}
 Jankowski F.,  et~al., 2018, \mn@doi [Monthly Notices of the Royal Astronomical
   Society] {10.1093/mnras/sty3390}, 484, 3691
+
+\bibitem[\protect\citeauthoryear{{J{\"a}rvenp{\"a}{\"a}} \&
+  {Corander}}{{J{\"a}rvenp{\"a}{\"a}} \&
+  {Corander}}{2021}]{2021arXiv210403942J}
+{J{\"a}rvenp{\"a}{\"a}} M.,  {Corander} J.,  2021, \mn@doi [arXiv e-prints]
+  {10.48550/arXiv.2104.03942}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021arXiv210403942J} {p. arXiv:2104.03942}
+
+\bibitem[\protect\citeauthoryear{{J{\"a}rvenp{\"a}{\"a}}, {Gutmann}, {Vehtari}
+  \& {Marttinen}}{{J{\"a}rvenp{\"a}{\"a}} et~al.}{2019}]{2019arXiv190501252J}
+{J{\"a}rvenp{\"a}{\"a}} M.,  {Gutmann} M.,  {Vehtari} A.,   {Marttinen} P.,
+  2019, \mn@doi [arXiv e-prints] {10.48550/arXiv.1905.01252}, \href
+  {https://ui.adsabs.harvard.edu/abs/2019arXiv190501252J} {p. arXiv:1905.01252}
 
 \bibitem[\protect\citeauthoryear{{Jenet}, {Lommen}, {Larson}  \& {Wen}}{{Jenet}
   et~al.}{2004}]{Jenet2004}
