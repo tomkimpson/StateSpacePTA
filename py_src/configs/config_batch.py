@@ -14,7 +14,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
         g.write("#!/bin/bash \n \n")  
         g.write("#SBATCH --ntasks=1 \n")  
         g.write("#SBATCH --mem=8000MB \n")  
-        g.write("#SBATCH --time=24:00:00 \n")  
+        g.write("#SBATCH --time=96:00:00 \n")  
         g.write(f"#SBATCH --job-name={arg_name} \n")  
         g.write(f"#SBATCH --output=outputs/{arg_name}_out.txt \n \n")
 
@@ -24,34 +24,50 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-N = 100
-seeds = np.arange(1235+10,1235+10+N,1)
-h = 5e-15 
-model = "pulsar"
-with open('batch.sh','w') as b: 
 
-    for s in seeds:
-        arg_name = f"ETJ_pulsar_batch_{s}"
-        create_slurm_job(arg_name,h,model,s)
-        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+
+# MULTIPLE NOISE REALISATIONS
+
+
+
+# N = 10
+# seeds = np.arange(1235+10,1235+10+N,1)
+# #strains = [1e-12,5e-15]
+
+# #seeds = [1251,1255]
+# strains = [5e-15,1e-12]
+
+# models = ["earth", "pulsar"]
+
+# with open('batch.sh','w') as b: 
+
+#     for s in seeds:
+#         for h in strains:
+#             for m in models:
+#                 arg_name = f"alpha_high_resolution_canonical_{m}_{h}_{s}"
+#                 create_slurm_job(arg_name,h,m,s)
+#                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
 
-# h_range = np.logspace(-15,-12,101)
-# noise_models = ["earth", "null"]
-# #noise_models = ["earth"]
+#BAYES PLOT
 
-# seeds = np.arange(1245,1245+10)
 
-# with open('batch.sh','w') as b:
+h_range = np.logspace(-15,-12,101)
+noise_models = ["pulsar","earth", "null"]
+
+s = 1250 #seed. Also try 1245 which I think is what was used in the paper: https://github.com/tomkimpson/StateSpacePTA/blob/9d997dc7d42ae612e7d526d34b0661944af6eb99/py_src/config_batch.py
+with open('batch.sh','w') as b:
     
-#     for s in seeds:
-#         for h in h_range:
-#             for n in noise_models:
-#                  arg_name = f"KMULTIpaper_bayes_ratios_n2500_V1_h_{h}_model_{n}_seed_{s}"
-#                  print(arg_name)
-#                  create_slurm_job(arg_name,h,n,s)
+    for h in h_range:
+        for n in noise_models:
+            arg_name = f"alpha_canonical_bayes_h_{h}_model_{n}"
+            print(arg_name)
+            create_slurm_job(arg_name,h,n,s)
 
-#                  b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+            b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
-    
+
 

@@ -121,7 +121,7 @@ def priors_dict(pulsar_parameters,P):
 
 
 
-def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi):
+def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,measurement_model):
 
 
 
@@ -138,8 +138,17 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi):
     
     
     init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           # constant
-    init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
-    init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
+    
+    
+    #init_parameters,priors = add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
+    
+    
+    
+    
+    if measurement_model == "pulsar": #we only need a prior on chi when using the pulsar model
+        init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
+    else: #set them as constants, but they are not actually used
+        init_parameters,priors = add_to_bibly_priors_dict_constant(chi,"chi",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
 
 
     return init_parameters,priors 
@@ -189,27 +198,28 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
         
         #Add all the GW quantities
         init_parameters["omega_gw"] = None
-        priors["omega_gw"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
+        priors["omega_gw"] = P.Ω
 
         init_parameters["phi0_gw"] = None
-        priors["phi0_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+        priors["phi0_gw"] = P.Φ0
 
         init_parameters["psi_gw"] = None
-        priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+        priors["psi_gw"] = P.ψ
 
         init_parameters["iota_gw"] = None
-        priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+        priors["iota_gw"] = P.ι
 
         init_parameters["delta_gw"] = None
-        priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+        priors["delta_gw"] = P.δ
 
 
         init_parameters["alpha_gw"] = None
-        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+        priors["alpha_gw"] = P.α
 
 
         init_parameters["h"] = None
-        priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
+        priors["h"] = P.h
+
 
 
     return init_parameters,priors 
@@ -234,7 +244,7 @@ def bilby_priors_dict(PTA,P):
     init_parameters,priors = set_prior_on_measurement_parameters(init_parameters,priors,P.measurement_model,P) #h is provided to set the prior a few orders of magnitude either side.
 
     #State priors
-    init_parameters,priors = set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi)
+    init_parameters,priors = set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi,P.measurement_model)
 
     #Noise priors
     init_parameters["sigma_m"] = None
@@ -243,3 +253,4 @@ def bilby_priors_dict(PTA,P):
 
 
     return init_parameters,priors
+

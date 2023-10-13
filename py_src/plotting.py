@@ -77,7 +77,6 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
  
 
-
     ax1.legend()
     ax2.legend()
 
@@ -124,8 +123,9 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
     #Make omega into nHz and also scale h
     df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
     df_posterior["h"] = df_posterior["h"]*scalings[1]
-    injection_parameters[0] = injection_parameters[0] * scalings[0]
-    injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
+    if injection_parameters is not None:
+        injection_parameters[0] = injection_parameters[0] * scalings[0]
+        injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
     if ranges is not None: 
         ranges[0] = (ranges[0][0]*scalings[0],ranges[0][1]*scalings[0])
         ranges[-1] = (ranges[-1][0]*scalings[1],ranges[-1][1]*scalings[1])
@@ -136,8 +136,14 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
     print("Variable/Injection/Median")
     medians = df_posterior[variables_to_plot].median()
 
-    for i in range(len(medians)):
-        print(variables_to_plot[i], injection_parameters[i], medians[i])
+    if injection_parameters is not None:
+
+        for i in range(len(medians)):
+            print(variables_to_plot[i], injection_parameters[i], medians[i])
+
+    else:
+        for i in range(len(medians)):
+            print(variables_to_plot[i], None, medians[i])
     print('-------------------------------')
 
 
@@ -245,6 +251,8 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
 
         y_post,injection_parameters_idx,ranges_idx= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
 
+        errors = get_posterior_accuracy(y_post,injection_parameters_idx,labels)
+
         k = i 
         if k ==2:
             k = k+1 #convoluted way of skipping C2 color. Surely a better way exists
@@ -263,7 +271,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         fig = corner.corner(yplot, 
                             color=f'C{k}',
                             show_titles=True,
-                            smooth=True,smooth1d=True,
+                            smooth=smooth,smooth1d=smooth1d,
                             truth_color='C2',
                             quantiles=None, #[0.16, 0.84],
                             truths =injection_parameters_idx ,
@@ -360,6 +368,21 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
 
+
+
+
+def get_posterior_accuracy(posterior,injection,labels):
+
+    print("The error in the 1D posteriors is as follows:")
+    for i in range(posterior.shape[-1]):
+        y = posterior[:,i]
+        inj = injection[i]
+        error = np.mean(np.abs(inj - y) / inj)
+        print(labels[i], error)
+    print('*****************************')
+
+
+    return 1
 
 
 

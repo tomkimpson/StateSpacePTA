@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper.aux
+The style file: mnras.bst
+Database file #1: example.bib
+Warning--entry type for "pennucci_timothy_t_2020_4312887" isn't style-file defined
+--line 1236 of file example.bib
+Reallocated buffer (elt_size=1) to 40000 items from 20000.
+Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
+Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
+Reallocated out_buf (elt_size=1) to 40000 items from 20000.
+Reallocated name_tok (elt_size=4) to 40000 items from 20000.
+Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
+Repeated entry---line 2291 of file example.bib
+ : @book{zarchan2000fundamentals
+ :                              ,
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty publisher in Sornette2004
+Warning--empty publisher in 2021hgwa.bookE...4V
+You've used 110 entries,
+            2881 wiz_defined-function locations,
+            1679 strings with 59754 characters,
+and the built_in function-call counts, 56189 in all, are:
+= -- 5138
+> -- 3445
+< -- 273
++ -- 1540
+- -- 455
+* -- 6551
+:= -- 8227
+add.period$ -- 0
+call.type$ -- 110
+change.case$ -- 220
+chr.to.int$ -- 101
+cite$ -- 112
+duplicate$ -- 2887
+empty$ -- 2800
+format.name$ -- 827
+if$ -- 10314
+int.to.chr$ -- 10
+int.to.str$ -- 0
+missing$ -- 114
+newline$ -- 349
+num.names$ -- 737
+pop$ -- 546
+preamble$ -- 1
+purify$ -- 440
+quote$ -- 0
+skip$ -- 2048
+stack$ -- 0
+substring$ -- 3903
+swap$ -- 1663
+text.length$ -- 459
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 972
+warning$ -- 2
+while$ -- 817
+width$ -- 0
+write$ -- 1128
+(There was 1 error message)

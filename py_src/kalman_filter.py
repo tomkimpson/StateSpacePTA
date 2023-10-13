@@ -109,27 +109,36 @@ class KalmanFilter:
         self.list_of_f_keys = [f'f0{i}' for i in range(self.Npsr)]
         self.list_of_fdot_keys = [f'fdot{i}' for i in range(self.Npsr)]
         self.list_of_gamma_keys = [f'gamma{i}' for i in range(self.Npsr)]
-        self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
+        #self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
         self.list_of_sigma_p_keys = [f'sigma_p{i}' for i in range(self.Npsr)]
         self.list_of_chi_keys = [f'chi{i}' for i in range(self.Npsr)]
 
 
     def parse_dictionary(self,parameters_dict):
-        
-        #All the GW parameters can just be directly accessed as variables
-        omega_gw = parameters_dict["omega_gw"].item() 
-        phi0_gw  = parameters_dict["phi0_gw"].item()
-        psi_gw   = parameters_dict["psi_gw"].item()
-        iota_gw  = parameters_dict["iota_gw"].item()
-        delta_gw = parameters_dict["delta_gw"].item()
-        alpha_gw = parameters_dict["alpha_gw"].item()
-        h        = parameters_dict["h"].item()
+        try: 
+            #All the GW parameters can just be directly accessed as variables
+            omega_gw = parameters_dict["omega_gw"].item() 
+            phi0_gw  = parameters_dict["phi0_gw"].item()
+            psi_gw   = parameters_dict["psi_gw"].item()
+            iota_gw  = parameters_dict["iota_gw"].item()
+            delta_gw = parameters_dict["delta_gw"].item()
+            alpha_gw = parameters_dict["alpha_gw"].item()
+            h        = parameters_dict["h"].item()
+
+        except: #For the null model, we have these parameters as constants. Bilby returns as floats rather than float64s, so item() doesn't work. This needs fixing
+            omega_gw = parameters_dict["omega_gw"]
+            phi0_gw  = parameters_dict["phi0_gw"]
+            psi_gw   = parameters_dict["psi_gw"]
+            iota_gw  = parameters_dict["iota_gw"]
+            delta_gw = parameters_dict["delta_gw"]
+            alpha_gw = parameters_dict["alpha_gw"]
+            h        = parameters_dict["h"]
 
         #Now read in the pulsar parameters. Explicit.
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)
         fdot    = dict_to_array(parameters_dict,self.list_of_fdot_keys)
         gamma   = dict_to_array(parameters_dict,self.list_of_gamma_keys)
-        d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
+        #d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
         chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
 
@@ -137,16 +146,20 @@ class KalmanFilter:
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
 
-        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m
+        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m
 
 
 
     def likelihood(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
-    
+
+        #print("running the KF with omega = ", omega_gw)
+        #print('...and chi = ', chi)
+
+        
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)
@@ -169,7 +182,6 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
-                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi
@@ -208,6 +220,10 @@ class KalmanFilter:
         omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
     
+
+
+    
+
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)
