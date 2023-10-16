@@ -46,7 +46,7 @@ class SyntheticData:
             GW_function = gw_earth_terms
             logging.info("You are using just the Earth terms in your synthetic data generation")
 
-        print("Calculating the X factor")
+        logging.info("Generating synthetic data")
         X_factor = GW_function(
                                         P.δ,
                                         P.α,
@@ -68,4 +68,7 @@ class SyntheticData:
         
         measurement_noise = generator.normal(0, pulsars.σm,self.f_measured_clean.shape) # Measurement noise. Seeded
         self.f_measured = self.f_measured_clean + measurement_noise
+
+
+
 

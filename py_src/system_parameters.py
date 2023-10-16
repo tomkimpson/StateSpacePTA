@@ -73,8 +73,8 @@ class SystemParameters:
             self.Φ0 = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.ψ = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
             self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
-            self.δ = generator.uniform(low = -np.pi/2,high=np.pi/2,size=self.num_gw_sources)
-            self.α = generator.uniform(low = 0.0,high=2*np.pi,size=self.num_gw_sources)
+            self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
+            self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
             self.h = generator.uniform(low = 1e-15,high=1e-14,size=self.num_gw_sources)
 
 

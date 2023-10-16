@@ -6,7 +6,7 @@ from model import F_function,R_function,Q_function # H function is defined via a
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)    
@@ -20,9 +20,16 @@ def log_likelihood(S,innovation):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def update(x, P, observation,R,Xfactor,ephemeris):
 
+    # print("Welcome to the update function")
+    # print("state = ",x)
+    # print("covar = ",P)
+    # print("obs = ", observation)
+    # print("r = ",R)
+    # print("xfactor= ", Xfactor)
+    # print("ephem = ", ephemeris)
 
     H = 1.0 - Xfactor
 
@@ -51,7 +58,7 @@ def update(x, P, observation,R,Xfactor,ephemeris):
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def predict(x,P,F,Q): 
     xp = F*x
     Pp = F*P*F + Q  
@@ -82,7 +89,7 @@ class KalmanFilter:
 
     """
 
-    def __init__(self,Model, Observations,PTA):
+    def __init__(self,Model, Observations,PTA,num_gw_sources):
 
         """
         Initialize the class. 
@@ -106,24 +113,42 @@ class KalmanFilter:
         #Define a list_of_keys arrays. 
         # This is useful for parsing the Bibly dictionary into arrays efficiently
         # There may be a less verbose way of doing this, but works well in practice
+
+
+        self.list_of_omega_keys = [f'omega_gw_{i}' for i in range(num_gw_sources)]
+        self.list_of_phi0_keys  = [f'phi0_gw_{i}' for i in range(num_gw_sources)]
+        self.list_of_psi_keys   = [f'psi_gw_{i}' for i in range(num_gw_sources)]
+        self.list_of_iota_keys  = [f'iota_gw_{i}' for i in range(num_gw_sources)]
+        self.list_of_delta_keys = [f'delta_gw_{i}' for i in range(num_gw_sources)]
+        self.list_of_alpha_keys = [f'alpha_gw_{i}' for i in range(num_gw_sources)]
+        self.list_of_h_keys      = [f'h_{i}' for i in range(num_gw_sources)]
+
+
         self.list_of_f_keys = [f'f0{i}' for i in range(self.Npsr)]
         self.list_of_fdot_keys = [f'fdot{i}' for i in range(self.Npsr)]
         self.list_of_gamma_keys = [f'gamma{i}' for i in range(self.Npsr)]
         self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
         self.list_of_sigma_p_keys = [f'sigma_p{i}' for i in range(self.Npsr)]
-        self.list_of_chi_keys = [f'chi{i}' for i in range(self.Npsr)]
 
+
+        self.list_of_chi_keys = [ [f'chi{i}_{k}' for i in range(self.Npsr)] for k in range(num_gw_sources) ]
+        # self.list_of_chi_keys is indexed as self.list_of_chi_keys[k] will get you a list of N chi values corresponding to source k
+        
+
+        self.num_gw_sources = num_gw_sources
+    
 
     def parse_dictionary(self,parameters_dict):
         
-        #All the GW parameters can just be directly accessed as variables/arrrays
-        omega_gw = parameters_dict["omega_gw"]#.item() 
-        phi0_gw  = parameters_dict["phi0_gw"]#.item()
-        psi_gw   = parameters_dict["psi_gw"]#.item()
-        iota_gw  = parameters_dict["iota_gw"]#.item()
-        delta_gw = parameters_dict["delta_gw"]#.item()
-        alpha_gw = parameters_dict["alpha_gw"]#.item()
-        h        = parameters_dict["h"]#.item()
+        
+        omega_gw = dict_to_array(parameters_dict,self.list_of_omega_keys)
+
+        phi0_gw  = dict_to_array(parameters_dict,self.list_of_phi0_keys)
+        psi_gw   = dict_to_array(parameters_dict,self.list_of_psi_keys)
+        iota_gw  = dict_to_array(parameters_dict,self.list_of_iota_keys)
+        delta_gw = dict_to_array(parameters_dict,self.list_of_delta_keys)
+        alpha_gw = dict_to_array(parameters_dict,self.list_of_alpha_keys)
+        h        = dict_to_array(parameters_dict,self.list_of_h_keys)
 
         #Now read in the pulsar parameters. Explicit.
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)
@@ -131,11 +156,11 @@ class KalmanFilter:
         gamma   = dict_to_array(parameters_dict,self.list_of_gamma_keys)
         d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
-        chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
 
 
-        print("parameters dict")
-        print(parameters_dict)
+
+        chi = np.asarray([dict_to_array(parameters_dict,self.list_of_chi_keys[k]) for k in range(self.num_gw_sources)])
+
 
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
@@ -149,9 +174,7 @@ class KalmanFilter:
         #Map from the dictionary into variables and arrays
         omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
-        print("omega_gw = ")
-        print(omega_gw)
-    
+       
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)
@@ -163,7 +186,6 @@ class KalmanFilter:
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
-        print("LEEROY KALMAN FILTER")
         # Precompute the influence of the GW
         # This is solely a function of the parameters and the t-variable but NOT the states
         X_factor = self.H_function(delta_gw,
@@ -190,6 +212,7 @@ class KalmanFilter:
        
         #Do the first update step
         x,P,likelihood_value,y_predicted = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
+    
         likelihood +=likelihood_value
 
         #Don't bother storing results of the state. We just want the likelihoods
@@ -200,6 +223,7 @@ class KalmanFilter:
              x_predict, P_predict             = predict(x,P,F,Q)                                           #The predict step
              x,P,likelihood_value,y_predicted = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:]) #The update step    
              likelihood +=likelihood_value
+    
 
    
         return likelihood

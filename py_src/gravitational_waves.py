@@ -2,7 +2,7 @@ from numpy import sin,cos
 import numpy as np 
 from numba import jit,njit 
 
-#@njit(fastmath=True)
+# @njit(fastmath=True)
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
     #Get GW direction
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
@@ -32,7 +32,7 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 """
 What is the GW modulation factor, just for the earth terms
 """
-#@njit(fastmath=True)
+# @njit(fastmath=True)
 def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
     GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase))
@@ -42,32 +42,15 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-#@njit(fastmath=True)
+# @njit(fastmath=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 
-    #print("DEBUG: here is the psr terms gw func")
+   
     num_gw_sources = len(delta)
     GW_factor = np.zeros((len(t),len(d))) #times x NPSR 
-
-   # print("num gw sources = ", num_gw_sources)
-    for k in range(num_gw_sources):
-        # print("for k = ", k)
-        # print("delta",delta[k]),
-        # print("alpha",alpha[k]),
-        # print("psi",psi[k]),
-        # print("H",h[k]),
-        # print("iota",iota[k]),
-        # print("omega",omega[k]),
-        # print("phi0",phi0[k])
+    for k in range(num_gw_sources): #sum over k sources
         dot_product,hbar,earth_term_phase = gw_prefactors(delta[k],alpha[k],psi[k],q,q_products,h[k],iota[k],omega[k],d,t,phi0[k])
-        
-        # print("got the dot product")
-        # print("chi:", chi)
-        # print(chi[k,:])
-        # print(earth_term_phase)
         GW_factor += 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi[k,:]))
-       
-   
     return GW_factor
 
 
@@ -95,7 +78,7 @@ def principal_axes(theta,phi,psi):
 
     return np.array(m),np.array(n)
 
-# @njit(fastmath=True)
+@njit(fastmath=True)
 def h_amplitudes(h,ι): 
     return h*(1.0 + cos(ι)**2),h*(-2.0*cos(ι)) #hplus,hcross
 
@@ -108,3 +91,35 @@ def h_amplitudes(h,ι):
 
 
 
+#Scratch space
+    # print("numer of gw sources = ", num_gw_sources)
+    # print("shapes:")
+    # print("delta = ", delta.shape)
+    # print("alpha = ", alpha.shape)
+    # print("psi = ", psi.shape)
+    # print("q = ",q.shape)
+    # print("q products = ", q.shape)
+    # print("h = ", h.shape)
+    # print("iota = ", iota.shape)
+    # print("omega = ", omega.shape)
+    # print("d = ", d.shape)
+    # print("t = ", t.shape)
+    # print("phi0 = ", phi0.shape)
+    # print("chi = ", chi.shape)
+    # print('*******')
+
+
+
+
+
+            # print("for k = ", k)
+        # print("delta",delta[k]),
+        # print("alpha",alpha[k]),
+        # print("psi",psi[k]),
+        # print("H",h[k]),
+        # print("iota",iota[k]),
+        # print("omega",omega[k]),
+        # print("phi0",phi0[k])        # print("got the dot product")
+        # print("chi:", chi)
+        # print(chi[k,:])
+        # print(earth_term_phase)
