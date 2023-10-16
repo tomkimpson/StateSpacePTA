@@ -27,11 +27,6 @@
 {Agazie} G.,  et~al., 2023b, \mn@doi [\apjl] {10.3847/2041-8213/acda9a}, \href
   {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...9A} {951, L9}
 
-\bibitem[\protect\citeauthoryear{{Alam} et~al.,}{{Alam}
-  et~al.}{2021}]{nanogravwideband}
-{Alam} M.~F.,  et~al., 2021, \mn@doi [\apjs] {10.3847/1538-4365/abc6a1}, \href
-  {https://ui.adsabs.harvard.edu/abs/2021ApJS..252....5A} {252, 5}
-
 \bibitem[\protect\citeauthoryear{{Allen}}{{Allen}}{1997}]{Allen1997}
 {Allen} B.,  1997, in {Marck} J.-A.,  {Lasota} J.-P.,  eds, Relativistic
   Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
@@ -54,11 +49,6 @@
 {Antoniadis} J.,  et~al., 2023c, \mn@doi [arXiv e-prints]
   {10.48550/arXiv.2306.16226}, \href
   {https://ui.adsabs.harvard.edu/abs/2023arXiv230616226A} {p. arXiv:2306.16226}
-
-\bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
-  et~al.}{2018}]{Arzoumanian2018ApJS..235...37A}
-{Arzoumanian} Z.,  et~al., 2018, \mn@doi [\apjs] {10.3847/1538-4365/aab5b0},
-  \href {https://ui.adsabs.harvard.edu/abs/2018ApJS..235...37A} {235, 37}
 
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2020a}]{Arzoumanian2020A}
@@ -392,12 +382,6 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
   et~al.}{2021}]{Parthasarathy2021}
 {Parthasarathy} A.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab037},
   \href {https://ui.adsabs.harvard.edu/abs/2021MNRAS.502..407P} {502, 407}
-
-\bibitem[\protect\citeauthoryear{Pennucci \& Collaboration}{Pennucci \&
-  Collaboration}{2020}]{pennucci_timothy_t_2020_4312887}
-Pennucci T.~T.,  Collaboration T.~N.,  2020, {The NANOGrav 12.5-year Wideband
-  Data Set (version 12yv4)}, \mn@doi{10.5281/zenodo.4312887}, \url
-  {https://doi.org/10.5281/zenodo.4312887}
 
 \bibitem[\protect\citeauthoryear{{Perrodin} \& {Sesana}}{{Perrodin} \&
   {Sesana}}{2018}]{Perrodin2018}

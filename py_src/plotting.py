@@ -245,6 +245,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
     fig= None 
     random.seed(seed)
     selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    error_files = []
     for i,f in enumerate(selected_files):
         injection_parameters_idx = injection_parameters.copy()
         ranges_idx = ranges.copy()
@@ -252,7 +253,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         y_post,injection_parameters_idx,ranges_idx= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
 
         errors = get_posterior_accuracy(y_post,injection_parameters_idx,labels)
-
+        error_files.extend([errors])
         k = i 
         if k ==2:
             k = k+1 #convoluted way of skipping C2 color. Surely a better way exists
@@ -369,20 +370,41 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
 
 
 
+    #Surface some numbers
+    print("Surfacing some numbers for comparing two posteriors")
+    if len(selected_files) ==2:
+        errors1 = error_files[0]
+        errors2 = error_files[1]
+
+        #print(errors1)
+        #print(errors2)
+        #relative_error = (errors2 - errors1) / errors1
+        relative_error = (errors2 - errors1) #/ errors1
+
+        #print(relative_error)
+        for i in range(len(relative_error)):
+            print("%.3g" % errors1[i],"%.3g" %errors2[i],"%.3g" %relative_error[i]) #printing to 3 sig fig
+
 
 
 def get_posterior_accuracy(posterior,injection,labels):
 
     print("The error in the 1D posteriors is as follows:")
+    rmse_errors =np.zeros(posterior.shape[-1])
     for i in range(posterior.shape[-1]):
         y = posterior[:,i]
         inj = injection[i]
-        error = np.mean(np.abs(inj - y) / inj)
-        print(labels[i], error)
+        error = np.mean(np.abs(inj - y) / inj) #julian error
+
+        rmse = np.sqrt(np.sum((y - inj)**2) / len(y))
+        #rmse_errors[i] = rmse
+        rmse_errors[i] = error
+
+        print(labels[i], error,rmse)
     print('*****************************')
 
 
-    return 1
+    return rmse_errors
 
 
 

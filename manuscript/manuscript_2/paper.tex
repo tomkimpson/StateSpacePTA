@@ -517,68 +517,161 @@ Although Equations \eqref{eq:sigmap_f} and \eqref{eq:sigma_m_eqn} superficially 
 \end{figure*}
 
 
-Initially we consider a single noise realisation of the synthetic data $\boldsymbol{Y}$ for the representative example system described in Table \ref{tab:parameters_and_priors}. We consider a "high-SNR" system with $h_0 = 10^{-12}$ and a ``low-SNR" system with $h_0 = 5 \times 10^{-15}$. We apply the Kalman filter using Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ for both the high/low SNR systems. Priors on $\boldsymbol{\theta}$ are selected as follows. For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021} as summarised in Table \ref{tab:parameters_and_priors}. For $\pi(\boldsymbol{\theta}_{\rm psr})$ we use the same priors discussed in K23. The addition here is the prior on $\chi^{(n)}$ which we take to be $\text{Uniform}(0,2 \pi)$. 	All the injected static parameters and their corresponding priors for this representative example are summarised in Table \ref{tab:parameters_and_priors} 
+
+
+
+
+
+\begin{table}
+	\centering
+	%	\resizebox{\textwidth}{!}{%
+		%	\renewcommand{\arraystretch}{1.0} % Default value: 1
+		\begin{tabular}{lcclc}
+			\toprule
+			&$\theta$ & $\Delta_{\rm earth}(\theta)$ & $\Delta_{\rm pulsar}(\theta)$ & $\Delta_{\rm pulsar}(\theta) -\Delta_{\rm earth}(\theta) $   \\
+			\hline
+			\multirow{7}{2mm}{High SNR} & $\Omega$       & 1.23e-05 &1.49e-05 &2.54e-06 \\
+			& $\Phi_0$ &0.0179 &0.0085& -0.00935 \\
+			& $\psi$ &0.0386& 0.000254& -0.0384 \\
+			& $\iota$ & 0.374 &0.126 &-0.248 \\
+           & $\delta$ & 0.00223 &0.000242& -0.00198 \\
+            &$\alpha$ &0.0397 &0.000582 &-0.0391 \\
+            &$h_0$ & 0.168 &0.0846 &-0.0839 \\
+			\hline
+			\multirow{7}{2mm}{Low SNR} & $\Omega$       & 1.23e-05 &1.49e-05 &2.54e-06 \\
+& $\Phi_0$ &0.0179 &0.0085& -0.00935 \\
+& $\psi$ &0.0386& 0.000254& -0.0384 \\
+& $\iota$ & 0.374 &0.126 &-0.248 \\
+& $\delta$ & 0.00223 &0.000242& -0.00198 \\
+&$\alpha$ &0.0397 &0.000582 &-0.0391 \\
+&$h_0$ & 0.168 &0.0846 &-0.0839 \\
+		
+			\bottomrule
+		\end{tabular}
+		\caption{dfdfddd}
+		\label{tab:posterior_errors}
+	\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+%\begin{table}
+%	\centering
+%	%	\resizebox{\textwidth}{!}{%
+%		%	\renewcommand{\arraystretch}{1.0} % Default value: 1
+%		\begin{tabular}{cccc}
+%			\toprule
+%			$\theta$ & \multicolumn{2}{c}{RMSE$(\theta)$} & $\Delta$ \\
+%			& Earth & Pulsar & \\
+%			\hline
+%			$\Omega$ & 1 & 2 & 3 \\ 
+%			
+%			\bottomrule
+%		\end{tabular}
+%		\caption{}
+%		\label{tab:posterior_errors}
+%	\end{table}
+
+
+
+
+%
+%\begin{table}
+%	\centering
+%	%	\resizebox{\textwidth}{!}{%
+%		%	\renewcommand{\arraystretch}{1.0} % Default value: 1
+%		\begin{tabular}{lccll}
+%			\toprule
+%			$\theta$& \multirow{2}{*}{RMSE$(\theta)$} & Injected Values & Units & Prior  \\
+%			& 
+%			\hline
+%			\multirow{7}{2mm}{$\boldsymbol{\theta}_{\rm gw}$} & $\Omega$       & $5 \times 10^{-7}$ & Hz & LogUniform($10^{-9}$, $10^{-5}$) \\
+%			& $\alpha$          & $1.0$  & radians & Uniform($0, 2 \pi $)\\
+%			& $\delta$              & $1.0$  & radians & Uniform($-\pi/2, \pi/2$) \\
+%			& $\iota$             & $1.0$ & radians & Uniform($0, \pi$) \\ 
+%
+%
+%			\bottomrule
+%		\end{tabular}
+%		\caption{}
+%		\label{tab:posterior_errors}
+%	\end{table}
+
+
+
+Initially we consider a single noise realisation of the synthetic data $\boldsymbol{Y}$ for the representative example system described in Table \ref{tab:parameters_and_priors}. We consider a "high-SNR" system with $h_0 = 10^{-12}$ and a ``low-SNR" system with $h_0 = 5 \times 10^{-15}$. Priors on $\boldsymbol{\theta}$ are selected as follows. For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021} as summarised in Table \ref{tab:parameters_and_priors}. For $\pi(\boldsymbol{\theta}_{\rm psr})$ we use the same priors discussed in K23. Additionally, we set a prior on $\chi^{(n)}$ as $\text{Uniform}(0,2 \pi)$. All the injected static parameters and their corresponding priors for this representative example are summarised in Table \ref{tab:parameters_and_priors}. \newline 
 	
-The results for the seven parameters of  $\boldsymbol{\theta}_{\rm gw}$ are shown in Figure \ref{fig:corner_plot_1} for the high-SNR system and in Figure \ref{fig:corner_plot_2} for the low-SNR system. 
+	
+	
+We apply the Kalman filter using Equation \eqref{eq:measuremen_earth} in conjunction with nested sampling in order to estimate $p(\boldsymbol{\theta} | \boldsymbol{Y})$ for both the high/low SNR systems. The results for the seven parameters of  $\boldsymbol{\theta}_{\rm gw}$ are shown in Figure \ref{fig:corner_plot_1} for the high-SNR system and in Figure \ref{fig:corner_plot_2} for the low-SNR system. The histograms shown in the figures are the one-dimensional posteriors for each parameter, marginalized over the set of all other parameters, where the solid orange line indicates the true injection value. The two-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. The green curves are the results derived using the Earth-terms measurement equation, Equation \ref{eq:g_func_trig_earth}. The blue curves are the results derived using the full measurement equation, including the pulsar terms, Equation \eqref{eq:g_func_trig}. \newline 
 
 
-The histograms shown in the figures are the one-dimensional posteriors for each parameter, marginalized over the set of all other parameters, where the solid orange line indicates the true injection value. The two-dimensional contours denote the (0.5, 1, 1.5, 2)-sigma equivalent contours. The green curves are the results derived using the Earth-terms measurement equation, Equation \ref{eq:g_func_trig_earth}. The blue curves are the results derived using the full measurement equation, including the pulsar terms, Equation \eqref{eq:g_func_trig}
+For the high-SNR case, Figure \ref{fig:corner_plot_1}, the one-dimensional posteriors for the Earth-terms solution are evidently biased, as was observed in K23. Particular biases are observed in $\psi, \iota $ and $\alpha$, with the blue posterior displaced with respect to the orange injection line. For example, for $\iota$, whilst the injected value is contained within the 90 \% credible interval, the median of the posterior of the Earth-terms solution is shifted from the injected value by 0.35 radians. The inclusion of the pulsar terms corrects for this bias. The green one-dimensional posteriors exhibit no bias and a generally symmetric about the injected value. Moreover, for every pair of parameter the injection values are contained within the 2-sigma equivalent contours. This is not true in the Earth-terms case. More quantitatively, we define a relative error metric to quantify the accuracy of the one-dimensional posteriors with respect to the injection value as
+\begin{equation}
+	\Delta_{\rm M}(\Theta) = \frac{1}{K}\sum_{k=1}^{K} \frac{p_k(\theta) - \hat{\theta}}{\hat{\theta}} 
+\end{equation}
+where $p_k(\theta)$ is the $k$-th one-dimensional posterior sample for parameter $\theta$, $K$ the total number of samples, $\hat{\theta}$ the true injection value, and the subscript $M \in \{ \text{earth, pulsar} \}$ indicates whether the posterior is estimates using Equation \eqref{eq:g_func_trig_earth} or Equation \eqref{eq:g_func_trig} respectively. $\Delta_{\rm M}(\theta)$ then represents the average relative error in the one dimensional posterior. The values for each parameter in Figure \ref{fig:corner_plot_1} are summarised it Table \ref{tab:posterior_errors}, along with the relative difference between the two models, $\Delta_{\rm pulsar}(\theta) - \Delta_{\rm earth}(\theta)$. For every parameter except $\Omega$, $\Delta_{\rm pulsar}(\theta) - \Delta_{\rm earth}(\theta)$ is negative, indicating that the parameter estimates are more accurate using the pulsar terms. $\Omega$ is recovered with high accuracy in both cases, and the relative error is small, $\Delta_{\rm M}(\Omega) \sim 10^{-5}$. The improvement in $\iota$ is largest, with $\Delta_{\rm pulsar}(\iota) - \Delta_{\rm earth}(\iota) = 0.25$. \newline 
 
 
+For the low-SNR case,  Figure \ref{fig:corner_plot_2}, there is less of a notable improvement in the parameter estimates. Qualitatively, the green and blue one-dimensional posteriors are generally overlaid. The two-dimensional contours suggest a slight improvement through using the pulsar terms, but the difference is modest. The relative errors 	$\Delta_{\rm M}(\Theta)$ for the low SNR case are also reported in Table \ref{tab:posterior_errors}. We see that.... \textcolor{red}{TK: numbers to be inserted here}. We conclude that the inclusion of the pulsar terms does not significantly improve the parameter estimates in the low-SNR case. This is intuitive since the system is highly noise dominated such that an increasing model complexity does not aid parameter estimates. Whilst the inclusion of the pulsar terms only modestly improve the accuracy of the parameter estimates in the case of low-SNR, we will show in Section \ref{sec:detection_new} that they are important for increasing the detection probability for a given signal strength. \newline 
 
-For the high-SNR case, Figure \ref{fig:corner_plot_1} the one-dimensional posteriors for the Earth-terms solution are evidently biased, as was observed in K23. Particular biases are observed in $\Phi_0, \psi, \iota $ and $\alpha$, with the blue posterior displaced with respect to the orange injection line. 
-
-The inclusion of the pulsar terms corrects for this bias. The green posteriors 
-
-
-Moreover, the injection values are contained witinin the 2-sigma equivalent contours for every pair of parameters. This is not true in the Earth-terms case. 
-
-
-
-
-
-
-
-For the low-SNR case
-
-
-les important for PE in low SNR 
-
-
-but is important generally for detectio nas we will show.
+In addition to estimates of $\boldsymbol{\theta}_{\rm gw}$, it is of interest how well the pulsar-term phase correction parameters $\chi^{(n)}$ can be estimated, since this parameter is a key feature of our approach. In both the high and low SNR cases $\chi^{(n)}$ is unambiguously recovered. 
+This is shown in Figure \ref{fig:corner_plot_3} where we plot the results for five of the $\chi^{(n)}$ values for both high SNR (left-hand panel) and low SNR (right hand panel). The estimates are naturally more constrained in the high SNR case, but in both cases the injection is contained within the 90 \% credible interval. Similar results are obtained for the remaining 4$N$ parameters of $\boldsymbol{\theta}_{\rm psr}'$, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. 
 
 
 
-
-
-
-
-
-
-
-Takeaways
-
-We are able to estimate hte static parameters
-
-the inclusion of the pulsar terms general improves the accuracy
-
-the chi terms are also recoverable 
-
-
-
-
-
-It is evident that for this representative example with characteristic strain $h_0 = 5 \times 10^{-15}$ that we are able to estimate all the static parameters of the system using our method, with the injected value contained within the 90\% credible interval for all of the parameters. \newline 
-
-
-For some of the parameters the estimated posterior is approximately symmetric about the true injected value (e.g. $\Omega$). In this case the posterior median and the injected value are approximately coincident. For other parameters (e.g. $\iota$) the distribution is not symmetric about the injected value and the posterior median and the injected value are not coincident. The median value of the posterior for $\iota$ is shifted by $\sim 0.35$ rad relative to the injected value, although the injected value does still remain inside the 90\% credible interval. Similar effects are seen, albeit with a smaller shift, in other parameters such as $\delta$ and $\alpha$. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias in the parameter estimate, or else just a random variation specific to this particular noise realisation. We explore this further in Section \ref{sec:multiple_noise} and Section \ref{sec:bias} and show that this is a bias that results from dropping the pulsar terms, similar to that reported in \cite{Zhupulsarterms}. Similar results are derived for the the 3$N$ parameters of $\boldsymbol{\theta}_{\rm psr, reduced}$ and the parameters are generally recovered unambiguously, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. We are able to simultaneously estimate both $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr, reduced}$. 
-
-
-
-
+In summary, the main results of this section are:
+\begin{itemize}
+	\item We are able to estimate all the static parameters of the system using the full pulsar-terms model, for this representative system with characteristic strain $h_0 = 5 \times 10^{-15}$.
+	\item The inclusion of pulsar terms improves the parameter estimation accuracy, especially when the GW signal is loud with respect to the noise.	
+\end{itemize}
 
 
 \subsection{Detection}\label{sec:detection_new}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth, height = \columnwidth ]{images/CanonicalBayesPlot2000} 	
+	\caption{hellow}
+	\label{fig:bayes1}
+\end{figure}
+
+
+The evidence integral $\mathcal{Z}$ returned by nested sampling is the probability of the data $\boldsymbol{Y}$ given a model $\mathcal{M}_i$. We compare competing models via a Bayes factor,
+\begin{equation}
+	\beta = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)} \ . \label{eq:bayes}
+\end{equation}
+Throughout this work we take $\mathcal{M}_1$ to be the state-space model that includes the presence of a GW. $\mathcal{M}_0$ is the null model, which assumes no GW exists in the data. This is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func} and \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW compared to there being no GW signal present.
+
+
+
+
+
+
+
+
+We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. \newline 
+
+There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 3.9 \times10^{-15}$. The steep drop off is due to the two competing models becoming increasingly indistinguishable as the strain signal decreases and the measurement noise starts to dominate. The sparsity is due some of the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these sparse locations appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented in this subsection we set $n_{\rm live} =2000$. 
+
+
+
+
+\section{Exploring a broader parameter space}
+
+In this section we focus on pulsar terms exclusively and no longer compare with the Earth terms
+
+
+
+
+
 
 
 
@@ -682,12 +775,6 @@ The primary tunable parameter in nested sampling is $n_{\rm live}$. A greater nu
 %See https://arxiv.org/pdf/2102.12478.pdf for a good NS explanation
 
 \subsection{Model selection}\label{sec:model_selection}
-The evidence integral $\mathcal{Z}$ returned by nested sampling is the probability of the data $\boldsymbol{Y}$ given a model $\mathcal{M}_i$. We compare competing models via a Bayes factor,
-\begin{equation}
-	\beta = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)} \ . \label{eq:bayes}
-\end{equation}
-Throughout this work we take $\mathcal{M}_1$ to be the state-space model that includes the presence of a GW. $\mathcal{M}_0$ is the null model, which assumes no GW exists in the data. This is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func} and \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW compared to there being no GW signal present.
-
 
 \subsection{Summary of workflow}\label{sec:methodsummary}
 For the reader's convenience we now summarise the workflow for a representative PTA analysis using the Kalman filter and nested sampler for parameter estimation and model selection:
@@ -748,14 +835,12 @@ There are a small fraction of the total number of noise realisations which have 
 
 
 \subsection{Detection} \label{sec:detection}
-We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. \newline 
 
-There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 3.9 \times10^{-15}$. The steep drop off is due to the two competing models becoming increasingly indistinguishable as the strain signal decreases and the measurement noise starts to dominate. The sparsity is due some of the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these sparse locations appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Section \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented in this subsection we set $n_{\rm live} =2000$. 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot2000}
-	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta=10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal{M}_0$ and $\mathcal{M}_1$.}
-	\label{fig:bayes}
-\end{figure}
+%\begin{figure}
+%	\includegraphics[width=\columnwidth]{images/CanonicalBayesPlot2000}
+%	\caption{Bayes ratio $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strain magnitudes $,h_0$, for the representative example summarised in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels the detection threshold of $\beta = 10$. The minimal detectable strain, below which $\beta < 10$, is $\sim 3.9 \times 10^{-15}$. Gaps in the data below $\beta=10$ occur due to noise in the sampler breaking the hierarchical relationship between $\mathcal{M}_0$ and $\mathcal{M}_1$.}
+%	\label{fig:bayes}
+%\end{figure}
 
 
 \section{Exploring a broader parameter space} \label{sec:parameter_space}
