@@ -6,7 +6,7 @@ from model import F_function,R_function,Q_function # H function is defined via a
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-# @njit(fastmath=True)
+@njit(fastmath=True)
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)    
@@ -20,16 +20,8 @@ def log_likelihood(S,innovation):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-# @njit(fastmath=True)
+@njit(fastmath=True)
 def update(x, P, observation,R,Xfactor,ephemeris):
-
-    # print("Welcome to the update function")
-    # print("state = ",x)
-    # print("covar = ",P)
-    # print("obs = ", observation)
-    # print("r = ",R)
-    # print("xfactor= ", Xfactor)
-    # print("ephem = ", ephemeris)
 
     H = 1.0 - Xfactor
 
@@ -58,7 +50,7 @@ def update(x, P, observation,R,Xfactor,ephemeris):
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-# @njit(fastmath=True)
+@njit(fastmath=True)
 def predict(x,P,F,Q): 
     xp = F*x
     Pp = F*P*F + Q  
@@ -89,7 +81,7 @@ class KalmanFilter:
 
     """
 
-    def __init__(self,Model, Observations,PTA,num_gw_sources):
+    def __init__(self,Model, Observations,PTA):
 
         """
         Initialize the class. 
@@ -108,20 +100,20 @@ class KalmanFilter:
         self.NF = PTA.NF
         self.H_function = Model.H_function
         self.x0 =  self.observations[0,:] 
-
+        self.num_gw_sources = Model.num_gw_sources
 
         #Define a list_of_keys arrays. 
         # This is useful for parsing the Bibly dictionary into arrays efficiently
         # There may be a less verbose way of doing this, but works well in practice
 
 
-        self.list_of_omega_keys = [f'omega_gw_{i}' for i in range(num_gw_sources)]
-        self.list_of_phi0_keys  = [f'phi0_gw_{i}' for i in range(num_gw_sources)]
-        self.list_of_psi_keys   = [f'psi_gw_{i}' for i in range(num_gw_sources)]
-        self.list_of_iota_keys  = [f'iota_gw_{i}' for i in range(num_gw_sources)]
-        self.list_of_delta_keys = [f'delta_gw_{i}' for i in range(num_gw_sources)]
-        self.list_of_alpha_keys = [f'alpha_gw_{i}' for i in range(num_gw_sources)]
-        self.list_of_h_keys      = [f'h_{i}' for i in range(num_gw_sources)]
+        self.list_of_omega_keys = [f'omega_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_phi0_keys  = [f'phi0_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_psi_keys   = [f'psi_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_iota_keys  = [f'iota_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_delta_keys = [f'delta_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_alpha_keys = [f'alpha_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_h_keys      = [f'h_{i}' for i in range(self.num_gw_sources)]
 
 
         self.list_of_f_keys = [f'f0{i}' for i in range(self.Npsr)]
@@ -131,11 +123,13 @@ class KalmanFilter:
         self.list_of_sigma_p_keys = [f'sigma_p{i}' for i in range(self.Npsr)]
 
 
-        self.list_of_chi_keys = [ [f'chi{i}_{k}' for i in range(self.Npsr)] for k in range(num_gw_sources) ]
+        self.list_of_chi_keys = [ [f'chi{i}_{k}' for i in range(self.Npsr)] for k in range(self.num_gw_sources)]
+
+        
         # self.list_of_chi_keys is indexed as self.list_of_chi_keys[k] will get you a list of N chi values corresponding to source k
         
 
-        self.num_gw_sources = num_gw_sources
+
     
 
     def parse_dictionary(self,parameters_dict):

@@ -122,13 +122,14 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
         
 
     #Make omega into nHz and also scale h
-    df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
-    df_posterior["h"] = df_posterior["h"]*scalings[1]
-    injection_parameters[0] = injection_parameters[0] * scalings[0]
-    injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
-    if ranges is not None: 
-        ranges[0] = (ranges[0][0]*scalings[0],ranges[0][1]*scalings[0])
-        ranges[-1] = (ranges[-1][0]*scalings[1],ranges[-1][1]*scalings[1])
+    print("Turned off scaling")
+    # df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
+    # df_posterior["h"] = df_posterior["h"]*scalings[1]
+    # injection_parameters[0] = injection_parameters[0] * scalings[0]
+    # injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
+    # if ranges is not None: 
+    #     ranges[0] = (ranges[0][0]*scalings[0],ranges[0][1]*scalings[0])
+    #     ranges[-1] = (ranges[-1][0]*scalings[1],ranges[-1][1]*scalings[1])
 
     print("The number of samples is:", len(df_posterior))
 

@@ -22,7 +22,7 @@ def bilby_inference_run(arg_name,measurement_model,seed,num_gw_sources):
     model = LinearModel(P)
 
     #Initialise the Kalman filter
-    KF = KalmanFilter(model,data.f_measured,PTA,num_gw_sources)
+    KF = KalmanFilter(model,data.f_measured,PTA)
 
     #Run the KF once with the correct parameters.
     #This allows JIT precompile
@@ -45,6 +45,9 @@ def bilby_inference_run(arg_name,measurement_model,seed,num_gw_sources):
     if npoints < 1000:
         npoints=1000
     logging.info(f"Number of live points is {npoints}")
+
+
+    logging.info("Selected injection parameters are as follows")
 
     # Now run the Bilby sampler
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/",npoints=npoints)

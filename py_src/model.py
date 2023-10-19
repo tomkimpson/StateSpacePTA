@@ -19,16 +19,18 @@ class LinearModel:
         Initialize the class. 
         """
         if P.measurement_model == "null":
-            logging.info("You are using just the null measurement model")
+            logging.info("You are using just the null measurement function")
             self.H_function = null_model 
         elif P.measurement_model == "earth":
-            logging.info("You are using the Earth terms measurement model")
+            logging.info("You are using the Earth terms measurement function")
             self.H_function = gw_earth_terms
         elif P.measurement_model == "pulsar":
-            logging.info("You are using the Pulsar terms measurement model")
+            logging.info("You are using the Pulsar terms measurement functio ")
             self.H_function = gw_psr_terms
         else:
             sys.exit("Measurement model not recognized. Stopping.")
+
+        self.num_gw_sources = P.num_gw_sources
 
 
 #These functions have to be outside the class to enable JIT compilation

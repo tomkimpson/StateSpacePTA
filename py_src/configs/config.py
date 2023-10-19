@@ -2,10 +2,11 @@
 
 import sys
 ### A python script that accepts a name argument and populates a slurm file 
-arg_name       = sys.argv[1]
-noise_model    =  sys.argv[2] 
-seed           =  sys.argv[3] 
-num_gw_sources =  sys.argv[4] 
+arg_name       =  sys.argv[1]
+h              =  sys.argv[2]
+noise_model    =  sys.argv[3] 
+seed           =  sys.argv[4] 
+num_gw_sources =  sys.argv[5] 
 
 with open('slurm.sh','w') as g:
 
@@ -19,7 +20,7 @@ with open('slurm.sh','w') as g:
 
     g.write("source ~/.bashrc \n")
     g.write("conda activate OzStar \n")
-    g.write(f"time python main.py {arg_name} {noise_model} {seed} {num_gw_sources}")
+    g.write(f"time python main.py {arg_name} {h} {noise_model} {seed} {num_gw_sources}")
     
     
     

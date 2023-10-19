@@ -39,13 +39,14 @@ class SystemParameters:
         self.NF = NF 
         self.T = NF(T) 
         self.cadence = NF(cadence)
-        self.Ω = NF(Ω)
-        self.Φ0 = NF(Φ0)
-        self.ψ = NF(ψ)
-        self.ι = NF(ι)
-        self.δ = NF(δ)
-        self.α = NF(α)
-        self.h = NF(h)
+
+        self.Ω = np.array([NF(Ω)])
+        self.Φ0 =  np.array([NF(Φ0)])
+        self.ψ =  np.array([NF(ψ)])
+        self.ι =  np.array([NF(ι)])
+        self.δ =  np.array([NF(δ)])
+        self.α =  np.array([NF(α)])
+        self.h =  np.array([NF(h)])
         self.σp = σp #can be = None for random assignment. Handle NF conversion in pulsars.py
 
         self.σm = NF(σm)
@@ -65,7 +66,7 @@ class SystemParameters:
 
 
 
-        if self.num_gw_sources > 0: #always
+        if self.num_gw_sources > 0: #always. 0 is the special case
             logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
             generator = np.random.default_rng(self.seed)
 
@@ -79,6 +80,9 @@ class SystemParameters:
 
 
         print(f"Running with {len(self.Ω)} GW sources ")
+
+        logging.info("Surfacing injected omega values:")
+        logging.info(self.Ω)
 
 
         

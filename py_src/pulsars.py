@@ -80,7 +80,7 @@ class Pulsars:
 
 
         #Also define a new variable chi 
-        
+
         m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
         
         m = m.reshape((3,SystemParameters.num_gw_sources))
