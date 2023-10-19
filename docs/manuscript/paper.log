@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  18 OCT 2023 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  20 OCT 2023 10:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -974,7 +974,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--261
  []
 
 [4]
-<images/Kalman_example_both.png, id=581, 1088.3862pt x 601.5273pt>
+<images/Kalman_example_both.png, id=585, 1088.3862pt x 601.5273pt>
 File: images/Kalman_example_both.png Graphic file (type png)
 <use images/Kalman_example_both.png>
 Package pdftex.def Info: images/Kalman_example_both.png  used on input line 285
@@ -1016,169 +1016,186 @@ Package enumitem Warning: Negative labelwidth. This does not make much
 (enumitem)                sense, on input line 342.
 
 [6 <./images/Kalman_example_both.png>]
-<images/pulsar_distribution.png, id=713, 511.6716pt x 333.8874pt>
+<images/pulsar_distribution.png, id=720, 511.6716pt x 333.8874pt>
 File: images/pulsar_distribution.png Graphic file (type png)
 <use images/pulsar_distribution.png>
 Package pdftex.def Info: images/pulsar_distribution.png  used on input line 358
 .
 (pdftex.def)             Requested size: 244.0pt x 159.21971pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 366.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 366.
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 370.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 370.
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--376
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 373.
-<images/example_residuals_plot2.png, id=750, 956.373pt x 494.0859pt>
+(Font)              scaled to size 8.0pt on input line 377.
+<images/example_residuals_plot2.png, id=755, 956.373pt x 494.0859pt>
 File: images/example_residuals_plot2.png Graphic file (type png)
 <use images/example_residuals_plot2.png>
 Package pdftex.def Info: images/example_residuals_plot2.png  used on input line
- 379.
+ 390.
 (pdftex.def)             Requested size: 244.0pt x 126.0543pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 380.
+(Font)              scaled to size 8.0pt on input line 391.
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 385.
+(enumitem)                sense, on input line 396.
 
 [7 <./images/pulsar_distribution.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 392--394
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--414
+Underfull \hbox (badness 10000) in paragraph at lines 406--408
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
 [8 <./images/example_residuals_plot2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 425--426
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
 
  []
 
 
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 441--441
+Underfull \hbox (badness 6412) in paragraph at lines 449--450
+[]\T1/ntxtlf/m/n/9 Most pul-sars in the syn-thetic PTA have $\OT1/minntx/m/n/9 
+10[] \U/msa/m/n/9 6
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 449--450
+\OML/ntxmi/m/it/9 ^^[[]\LMS/ntxsy/m/n/9 ùπ\OT1/minntx/m/n/9 1 []\LMS/ntxsy/m/n/
+9 ∫ \U/msa/m/n/9 6 \OT1/minntx/m/n/9 10[]$ \T1/ntxtlf/m/n/9 as cal-cu-lated fro
+m Equa-tions []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 465--465
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 449--449
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 473--473
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--475
+Underfull \hbox (badness 10000) in paragraph at lines 498--500
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
 [9]
-<images/small_h_posterior_10.png, id=906, 1125.7257pt x 1147.1658pt>
+<images/small_h_posterior_10.png, id=929, 1125.7257pt x 1147.1658pt>
 File: images/small_h_posterior_10.png Graphic file (type png)
 <use images/small_h_posterior_10.png>
-Package pdftex.def Info: images/small_h_posterior_10.png  used on input line 48
-4.
+Package pdftex.def Info: images/small_h_posterior_10.png  used on input line 51
+5.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
-<images/stacked_GW_plot_small_h_definitive3.png, id=909, 1125.7257pt x 1147.165
+<images/stacked_GW_plot_small_h_definitive3.png, id=932, 1125.7257pt x 1147.165
 8pt>
 File: images/stacked_GW_plot_small_h_definitive3.png Graphic file (type png)
 <use images/stacked_GW_plot_small_h_definitive3.png>
 Package pdftex.def Info: images/stacked_GW_plot_small_h_definitive3.png  used o
-n input line 499.
+n input line 530.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
 
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 518.
+(amsmath)                 on input line 549.
 
-<images/WD_0.png, id=914, 355.3275pt x 317.7471pt>
+<images/WD_0.png, id=937, 355.3275pt x 317.7471pt>
 File: images/WD_0.png Graphic file (type png)
 <use images/WD_0.png>
-Package pdftex.def Info: images/WD_0.png  used on input line 525.
+Package pdftex.def Info: images/WD_0.png  used on input line 556.
 (pdftex.def)             Requested size: 111.76062pt x 99.94055pt.
-<images/WD_1.png, id=915, 367.6134pt x 313.17pt>
+<images/WD_1.png, id=938, 367.6134pt x 313.17pt>
 File: images/WD_1.png Graphic file (type png)
 <use images/WD_1.png>
-Package pdftex.def Info: images/WD_1.png  used on input line 530.
+Package pdftex.def Info: images/WD_1.png  used on input line 561.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_2.png, id=916, 393.1488pt x 320.397pt>
+<images/WD_2.png, id=939, 393.1488pt x 320.397pt>
 File: images/WD_2.png Graphic file (type png)
 <use images/WD_2.png>
-Package pdftex.def Info: images/WD_2.png  used on input line 535.
+Package pdftex.def Info: images/WD_2.png  used on input line 566.
 (pdftex.def)             Requested size: 111.76062pt x 91.07942pt.
-<images/WD_3.png, id=917, 367.6134pt x 313.17pt>
+<images/WD_3.png, id=940, 367.6134pt x 313.17pt>
 File: images/WD_3.png Graphic file (type png)
 <use images/WD_3.png>
-Package pdftex.def Info: images/WD_3.png  used on input line 540.
+Package pdftex.def Info: images/WD_3.png  used on input line 571.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_4.png, id=918, 367.6134pt x 313.17pt>
+<images/WD_4.png, id=941, 367.6134pt x 313.17pt>
 File: images/WD_4.png Graphic file (type png)
 <use images/WD_4.png>
-Package pdftex.def Info: images/WD_4.png  used on input line 545.
+Package pdftex.def Info: images/WD_4.png  used on input line 576.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_5.png, id=919, 367.6134pt x 313.17pt>
+<images/WD_5.png, id=942, 367.6134pt x 313.17pt>
 File: images/WD_5.png Graphic file (type png)
 <use images/WD_5.png>
-Package pdftex.def Info: images/WD_5.png  used on input line 550.
+Package pdftex.def Info: images/WD_5.png  used on input line 581.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_6.png, id=920, 367.6134pt x 317.7471pt>
+<images/WD_6.png, id=943, 367.6134pt x 317.7471pt>
 File: images/WD_6.png Graphic file (type png)
 <use images/WD_6.png>
-Package pdftex.def Info: images/WD_6.png  used on input line 555.
+Package pdftex.def Info: images/WD_6.png  used on input line 586.
 (pdftex.def)             Requested size: 152.40155pt x 131.72682pt.
-<images/likelihood_surface_alpha_psi.png, id=921, 409.53pt x 397.7259pt>
+<images/likelihood_surface_alpha_psi.png, id=944, 409.53pt x 397.7259pt>
 File: images/likelihood_surface_alpha_psi.png Graphic file (type png)
 <use images/likelihood_surface_alpha_psi.png>
 Package pdftex.def Info: images/likelihood_surface_alpha_psi.png  used on input
- line 562.
+ line 593.
 (pdftex.def)             Requested size: 244.0pt x 236.97453pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
-
- []
-
-
-Underfull \hbox (badness 1215) in paragraph at lines 569--570
-\T1/ntxtlf/m/n/9 un-der-es-ti-mat-ing the in-jected value. Given the un-cer-tai
-nty in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
-
- []
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 572.
-[10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 579--581
-
- []
-
-[11 <./images/small_h_posterior_10.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 
  []
 
@@ -1186,83 +1203,113 @@ Underfull \hbox (badness 10000) in paragraph at lines 583--584
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./images/stacked_GW_plot_small_h_definitive3.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 591--592
+Underfull \hbox (badness 10000) in paragraph at lines 599--600
 
  []
 
-[13 <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3.
-png> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/like
-lihood_surface_alpha_psi.png>]
-<images/CanonicalBayesPlot2000.png, id=1013, 734.5041pt x 714.5094pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./images/small_h_posterior_10.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 617--619
+
+ []
+
+[12 <./images/stacked_GW_plot_small_h_definitive3.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 621--622
+
+ []
+
+
+Underfull \vbox (badness 1596) has occurred while \output is active []
+
+ [13 <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3
+.png> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/lik
+elihood_surface_alpha_psi.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
+
+ []
+
+<images/CanonicalBayesPlot2000.png, id=1034, 734.5041pt x 714.5094pt>
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
-595.
+633.
 (pdftex.def)             Requested size: 244.0pt x 237.34789pt.
-<images/pp_plot_new.png, id=1016, 398.4486pt x 386.1627pt>
+<images/pp_plot_new.png, id=1037, 398.4486pt x 386.1627pt>
 File: images/pp_plot_new.png Graphic file (type png)
 <use images/pp_plot_new.png>
-Package pdftex.def Info: images/pp_plot_new.png  used on input line 604.
+Package pdftex.def Info: images/pp_plot_new.png  used on input line 642.
 (pdftex.def)             Requested size: 244.0pt x 236.4781pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 608--609
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
  []
 
 [14 <./images/CanonicalBayesPlot2000.png>]
-<images/stacked_GW_plot_iota_h.png, id=1042, 366.8907pt x 388.3308pt>
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 653.
+<images/stacked_GW_plot_iota_h.png, id=1063, 366.8907pt x 388.3308pt>
 File: images/stacked_GW_plot_iota_h.png Graphic file (type png)
 <use images/stacked_GW_plot_iota_h.png>
 Package pdftex.def Info: images/stacked_GW_plot_iota_h.png  used on input line 
-620.
+658.
 (pdftex.def)             Requested size: 244.0pt x 258.26636pt.
-<images/likelihood_surface.png, id=1045, 390.7398pt x 397.7259pt>
+<images/likelihood_surface.png, id=1066, 390.7398pt x 397.7259pt>
 File: images/likelihood_surface.png Graphic file (type png)
 <use images/likelihood_surface.png>
-Package pdftex.def Info: images/likelihood_surface.png  used on input line 626.
+Package pdftex.def Info: images/likelihood_surface.png  used on input line 664.
 
 (pdftex.def)             Requested size: 244.0pt x 248.3596pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--632
+Underfull \hbox (badness 10000) in paragraph at lines 668--670
 
  []
 
 [15 <./images/pp_plot_new.png> <./images/stacked_GW_plot_iota_h.png> <./images/
 likelihood_surface.png>]
-<images/large_h_example.png, id=1077, 1125.7257pt x 1147.1658pt>
+<images/large_h_example.png, id=1099, 1125.7257pt x 1147.1658pt>
 File: images/large_h_example.png Graphic file (type png)
 <use images/large_h_example.png>
-Package pdftex.def Info: images/large_h_example.png  used on input line 637.
+Package pdftex.def Info: images/large_h_example.png  used on input line 675.
 (pdftex.def)             Requested size: 507.99759pt x 507.99281pt.
-<images/likelihood_iota_new.png, id=1082, 400.8576pt x 380.622pt>
+<images/likelihood_iota_new.png, id=1104, 400.8576pt x 380.622pt>
 File: images/likelihood_iota_new.png Graphic file (type png)
 <use images/likelihood_iota_new.png>
-Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 644
+Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 682
 .
 (pdftex.def)             Requested size: 244.0pt x 231.6854pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 648--649
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
 
  []
 
@@ -1270,78 +1317,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 655--656
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 660--662
+Underfull \hbox (badness 10000) in paragraph at lines 698--700
 
  []
-
-
-Underfull \vbox (badness 3780) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17 <./images/large_h_example.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 669--670
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 673--674
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 675--676
+Underfull \hbox (badness 10000) in paragraph at lines 713--714
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
 [18 <./images/likelihood_iota_new.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
+Underfull \hbox (badness 10000) in paragraph at lines 741--743
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--705
+Underfull \hbox (badness 10000) in paragraph at lines 766--768
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 728--730
+Underfull \hbox (badness 10000) in paragraph at lines 794--796
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 756--758
+Underfull \hbox (badness 10000) in paragraph at lines 830--832
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--794
+Underfull \hbox (badness 10000) in paragraph at lines 849--851
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 811--813
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 822--824
+Underfull \hbox (badness 10000) in paragraph at lines 860--862
 
  []
 
@@ -1381,13 +1425,13 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 1F25DEFC9FE680A9CE3E28A93DC3CD8E;4875.
+(rerunfilecheck)             Checksum: 160848B30D53E560F2E110EE179EEAF4;5082.
  ) 
 Here is how much of TeX's memory you used:
- 17755 strings out of 478268
- 277598 string characters out of 5846348
- 608424 words of memory out of 5000000
- 35272 multiletter control sequences out of 15000+600000
+ 17761 strings out of 478268
+ 277688 string characters out of 5846348
+ 609019 words of memory out of 5000000
+ 35277 multiletter control sequences out of 15000+600000
  606696 words of font info for 261 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,15n,78p,3322b,692s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1419,10 +1463,10 @@ xfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts
 fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/
 local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (22 pages, 13204606 bytes).
+Output written on paper.pdf (22 pages, 13205590 bytes).
 PDF statistics:
- 1673 PDF objects out of 1728 (max. 8388607)
- 1526 compressed objects within 16 object streams
- 304 named destinations out of 1000 (max. 500000)
- 312 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1694 PDF objects out of 1728 (max. 8388607)
+ 1545 compressed objects within 16 object streams
+ 305 named destinations out of 1000 (max. 500000)
+ 320 words of extra memory for PDF output out of 10000 (max. 10000000)
 
