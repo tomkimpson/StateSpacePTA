@@ -101,6 +101,9 @@ class Pulsars:
         
     
 
+        print("chi values are:")
+        print(self.chi)
+
 
 
 
