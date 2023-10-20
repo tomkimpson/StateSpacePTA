@@ -43,30 +43,9 @@ class Pulsars:
         self.γ         = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
         self.δ         = pulsars["DECJD"].to_numpy()
         self.α         = pulsars["RAJD"].to_numpy()
-
-        #print("Distances = ", self.d)
-        #self.d=1e7*self.d/self.d
-
-
-        if SystemParameters.orthogonal_pulsars:
-            print("Creating orthogonal pulsars")
-            #Overwrite true  RA/DEC
-            GW_direction = unit_vector(np.pi/2.0 -SystemParameters.δ, SystemParameters.α) 
-            print("GW_direction:", GW_direction)
-            for i in range(len(self.f)):
-                v = random_three_vector()
-                psr_directon = np.cross(GW_direction,v) # not a unit vector 
-                mag = np.sqrt(psr_directon.dot(psr_directon))
-                psr_directon = psr_directon/mag #now a unit vector 
-               
-                dec_i, ra_i = convert_vector_to_ra_dec(psr_directon)
-                self.δ[i] = dec_i 
-                self.α[i] = ra_i  
-                #print(np.dot(GW_direction,psr_directon))
-
-
-
         self.q         = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
+        
+        
         #Create a flattened q-vector for optimised calculations later
         self.q_products = np.zeros((len(self.f),9))
         k = 0
@@ -78,12 +57,43 @@ class Pulsars:
                     k+=1
         self.q_products = self.q_products.T
 
+        m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
 
         #Also define a new variable chi 
-        m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
-        gw_direction        = np.cross(m,n)
-        dot_product         = 1.0 + np.dot(self.q,gw_direction)
-        self.chi = np.mod(SystemParameters.Ω*self.d*dot_product,2*np.pi)
+
+
+        m = m.reshape((3,SystemParameters.num_gw_sources))
+        n = n.reshape((3,SystemParameters.num_gw_sources))
+       
+
+        gw_directions = np.zeros((SystemParameters.num_gw_sources,3))
+        dot_product =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
+        self.chi =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
+
+       
+        for i in range(SystemParameters.num_gw_sources):
+            #print(m[:,i], n[:,i])
+            gw_directions[i,:]        = np.cross(m[:,i],n[:,i])
+            dot_product[i,:]         = 1.0 + np.dot(self.q,gw_directions[i,:])
+            self.chi[i,:]          = np.mod(SystemParameters.Ω[i]*self.d*dot_product[i,:],2*np.pi)
+
+
+
+
+
+
+
+        # m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
+        # gw_direction        = np.cross(m,n)
+        # dot_product         = 1.0 + np.dot(self.q,gw_direction)
+        # self.chi = np.mod(SystemParameters.Ω*self.d*dot_product,2*np.pi)
+        
+        
+        
+        
+        
+        
+        
         print("chi vals are = ", self.chi)
 
 

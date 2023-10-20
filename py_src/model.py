@@ -31,6 +31,10 @@ class LinearModel:
             sys.exit("Measurement model not recognized. Stopping.")
 
 
+
+
+        self.num_gw_sources = P.num_gw_sources
+
 #These functions have to be outside the class to enable JIT compilation
 #Bit ugly, but works from a performance standpoint
 #To do: clean up

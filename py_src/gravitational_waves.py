@@ -2,8 +2,27 @@ from numpy import sin,cos
 import numpy as np 
 from numba import jit,njit 
 
+
+
+"""
+Return the two polarisation tensors e_+, e_x
+Reshapes allow vectorisation and JIT compatability 
+"""
+@njit(fastmath=True)
+def polarisation_tensors(m, n):
+    x, y = m.shape
+
+    e_plus = m.reshape(x, 1, y) * m.reshape(1, x, y) - n.reshape(1, x, y) * n.reshape(x, 1, y)
+    e_cross = m.reshape(x, 1, y) * n.reshape(1, x, y) - n.reshape(1, x, y) * m.reshape(x, 1, y)
+
+    #i.e. return m[:, None] * m[None, :] - n[:, None] * n[None, :]. See https://stackoverflow.com/questions/77319805/vectorization-of-complicated-matrix-calculation-in-python
+
+    return e_plus,e_cross
+
+
 @njit(fastmath=True)
 def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0):
+
     #Get GW direction
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
     gw_direction        = np.cross(m,n)
@@ -12,17 +31,28 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0):
     #
     # For e_+,e_x, Tensordot might be a bit faster, but list comprehension has JIT support
     # Note these are 1D arrays, rather than the usual 2D struture
-    e_plus              = np.array([m[i]*m[j]-n[i]*n[j] for i in range(3) for j in range(3)]) 
-    e_cross             = np.array([m[i]*n[j]-n[i]*m[j] for i in range(3) for j in range(3)])
+    #e_plus              = np.array([m[i]*m[j]-n[i]*n[j] for i in range(3) for j in range(3)]) 
+    #e_cross             = np.array([m[i]*n[j]-n[i]*m[j] for i in range(3) for j in range(3)])
+
+    e_plus,e_cross      = polarisation_tensors(m.T,n.T)
+
+
     hp,hx               = h_amplitudes(h,iota) 
     Hij                 = hp * e_plus + hx * e_cross
+
+
+   
+    Hij = Hij.reshape(9,) #1D patch to enable dot product
+   
     hbar                = np.dot(Hij,q_products) #length = Npsr
-    
+   
 
     #Shared time dependent terms
     earth_term_phase = -omega*t + phi0
     
     #Define a dot product variable
+   
+    gw_direction = gw_direction.reshape(3,)##1D patch to enable dot product
     dot_product         = 1.0 + np.dot(q,gw_direction) #matmul might be a bit faster, but np.dot has JIT support
 
     return dot_product,hbar,earth_term_phase.reshape(len(t),1) #shapes [(Npsr,),(Npsr,),(Ntimes,1)]
@@ -45,7 +75,7 @@ What is the GW modulation factor, including all pulsar terms?
 @njit(fastmath=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0)
-    
+    print("exit prefactors")
     GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi))
    
     return GW_factor
@@ -60,20 +90,50 @@ def null_model(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 
-@njit(fastmath=True)
-def principal_axes(theta,phi,psi):
+# @njit(fastmath=True)
+# def principal_axes(theta,phi,psi):
     
-    m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
-    m2 = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta))
-    m3 = sin(psi)*sin(theta)
-    m = [m1,m2,m3]
+#     m1 = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)
+#     m2 = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta))
+#     m3 = sin(psi)*sin(theta)
+#     m = [m1,m2,m3]
 
-    n1 = -sin(phi)*sin(psi) - cos(psi)*cos(phi)*cos(theta)
-    n2 = cos(phi)*sin(psi) - cos(psi)*sin(phi)*cos(theta)
-    n3 = cos(psi)*sin(theta)
-    n = [n1,n2,n3]
+#     n1 = -sin(phi)*sin(psi) - cos(psi)*cos(phi)*cos(theta)
+#     n2 = cos(phi)*sin(psi) - cos(psi)*sin(phi)*cos(theta)
+#     n3 = cos(psi)*sin(theta)
+#     n = [n1,n2,n3]
 
+#     return m,n
+
+"""
+Calculate the principal axes vectors for each GW source. 
+"""
+@njit(fastmath=True)
+
+def principal_axes(theta,phi,psi):
+
+    
+    m = np.zeros((len(theta),3)) #size K GW sources x 3 component directions
+
+    m[:,0] = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)    # x-component
+    m[:,1] = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta)) # y-component
+    m[:,2] = sin(psi)*sin(theta)                                 # z-component
+
+
+    n = np.zeros((len(theta),3)) #size K GW sources x 3 component directions
+    n[:,0] = -sin(phi)*sin(psi) - cos(psi)*cos(phi)*cos(theta)
+    n[:,1] = cos(phi)*sin(psi) - cos(psi)*sin(phi)*cos(theta)
+    n[:,2] = cos(psi)*sin(theta)
+   
     return m,n
+
+
+
+
+
+
+
+
 
 @njit(fastmath=True)
 def h_amplitudes(h,ι): 

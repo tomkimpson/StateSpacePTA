@@ -30,7 +30,8 @@ class SystemParameters:
                  measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
                  seed = 1234,       # this is the noise seed. It is used for sdeint and gaussian measurement noise
                  σp_seed=1234,      # this is the seed when we randomly generate simga_p parameter values
-                 orthogonal_pulsars=False #if True overwrite true RA/DEC of pulsars and create a ring of pulsars perpendicular to GW direction
+                 orthogonal_pulsars=False, #if True overwrite true RA/DEC of pulsars and create a ring of pulsars perpendicular to GW direction
+                 num_gw_sources = 1 #how many GW sources are there on the sky?
                  ): 
 
         logging.info("Welcome to the Kalman Filter Nested Sampler for PTA GW systems")
@@ -38,13 +39,13 @@ class SystemParameters:
         self.NF = NF 
         self.T = NF(T) 
         self.cadence = NF(cadence)
-        self.Ω = NF(Ω)
-        self.Φ0 = NF(Φ0)
-        self.ψ = NF(ψ)
-        self.ι = NF(ι)
-        self.δ = NF(δ)
-        self.α = NF(α)
-        self.h = NF(h)
+        self.Ω = np.array([NF(Ω)])
+        self.Φ0 = np.array([NF(Φ0)])
+        self.ψ = np.array([NF(ψ)])
+        self.ι = np.array([NF(ι)])
+        self.δ = np.array([NF(δ)])
+        self.α = np.array([NF(α)])
+        self.h = np.array([NF(h)])
         self.σp = σp #can be = None for random assignment. Handle NF conversion in pulsars.py
 
         self.σm = NF(σm)
@@ -55,6 +56,8 @@ class SystemParameters:
         self.seed = seed
         self.sigma_p_seed = σp_seed
         self.orthogonal_pulsars =orthogonal_pulsars
+
+        self.num_gw_sources = num_gw_sources
 
         logging.info(f"Random seed is {self.seed}")
         if σp ==1.0:
