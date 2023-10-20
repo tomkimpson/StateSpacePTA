@@ -32,6 +32,52 @@ def plot_statespace(t,states,measurements,psr_index):
     ax2.plot(tplot,measurement_i)
     plt.show()
 
+
+def standard_plot(data,psr_index=0):
+
+    plt.style.use('science')
+
+    #Extract variables from class object
+    t = data.t 
+    states = data.intrinsic_frequency
+    measurements = data.f_measured
+
+
+    #Extract for a single pulsar
+    tplot = t / (365*24*3600)
+    state_i = states[:,psr_index]
+    measurement_i = measurements[:,psr_index]
+
+    #Setup figure
+    h,w = 12,8
+    rows = 3
+    cols = 1
+    fig, (ax1,ax2,ax3) = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
+
+    #Plot the state
+    ax1.plot(tplot,state_i,label='state')
+
+
+    #Plot the measurement
+    ax2.plot(tplot,measurement_i,label="measurement",c="C3")
+
+
+    #Plot the residual todo
+
+    
+    fs=18
+    ax2.set_xlabel('t [years]', fontsize=fs)
+    ax1.set_ylabel(r'$f_p$ [Hz]', fontsize=fs)
+    ax2.set_ylabel(r'$f_M$ [Hz]', fontsize=fs)
+    ax3.set_ylabel(r'Residual [Hz]', fontsize=fs)
+    ax2.xaxis.set_tick_params(labelsize=fs-4)
+    ax2.yaxis.set_tick_params(labelsize=fs-4)
+    ax1.yaxis.set_tick_params(labelsize=fs-4)
+
+    plt.subplots_adjust(wspace=0.1, hspace=0.1)
+
+
+
 def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')

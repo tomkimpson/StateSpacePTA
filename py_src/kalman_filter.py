@@ -162,6 +162,57 @@ class KalmanFilter:
         return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m
 
 
+    def likelihood_trivial(self,parameters):
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+
+
+       
+        #Precompute transition/Q/R Kalman matrices
+        #F,Q,R are time-independent functions of the parameters
+        F = F_function(gamma,self.dt)
+        R = R_function(sigma_m)
+        Q = Q_function(gamma,sigma_p,self.dt)
+     
+
+        #Initialise x and P
+        x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+
+        # Precompute the influence of the GW
+        # This is solely a function of the parameters and the t-variable but NOT the states
+        X_factor = self.H_function(delta_gw,
+                                   alpha_gw,
+                                   psi_gw,
+                                   self.q,
+                                   self.q_products,
+                                   h,
+                                   iota_gw,
+                                   omega_gw,
+                                   d,
+                                   self.t,
+                                   phi0_gw,
+                                   chi
+                                )
+
+        
+        #Define an ephemeris correction
+        f_EM = f + np.outer(self.t,fdot) #ephemeris correction
+
+
+        #Initialise the likelihood
+        likelihood = 0.0
+              
+       
+        #Do the first update step
+        x,P,likelihood_value,y_predicted = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
+    
+        likelihood +=likelihood_value
+
+
+
+        return 1.0
+
+
 
     def likelihood(self,parameters):
 

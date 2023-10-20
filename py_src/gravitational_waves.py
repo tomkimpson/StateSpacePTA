@@ -76,14 +76,7 @@ It returns an array of shape (K,T,N)
 @njit
 def add_matrices(a, b):
     K, T, N = a.shape[0], a.shape[1], b.shape[1]
-    result_matrix = np.empty((K, T, N))
-    
-    for k in range(K):
-        for t in range(T):
-            for n in range(N):
-                result_matrix[k, t, n] = a[k, t] + b[k, n]
-    
-    return result_matrix
+    return a.reshape(K,T,1) + b.reshape(K,1,N)
 
 
 """
@@ -93,12 +86,8 @@ The 2D array is added to each slice of the 3D array
 """
 @njit
 def add_slices(array3D, array2D):
-    N = array3D.shape[-1]
-    for n in range(N):
-        array3D[:,:,n] += array2D 
-    
-    return array3D
-
+    K,T = array2D.shape
+    return array3D + array2D.reshape(K,T,1)
 
 """
 This function is used to multiple together a 3D array and a 2D array
@@ -113,10 +102,16 @@ array2D(N,K)
 def multiply_slices(array3D, array2D):
  
     K,T,N = array3D.shape 
-    out = np.empty_like(array3D)
-    for t in range(T):
-        out[:,t,:] = array3D[:,t,:] * array2D.T
-    return out
+
+    tmp_array = array2D.T
+    array3D * tmp_array.reshape(K,1,N)
+    
+    # out = np.empty_like(array3D)
+    # for t in range(T):
+    #     out[:,t,:] = array3D[:,t,:] * array2D.T
+    # return out
+
+    return array3D * tmp_array.reshape(K,1,N)
 
 
 
@@ -136,13 +131,11 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
     hbar                = h_summation(Hij,q)                               # Calculate the sum H_ij q_i q^j. Shape (N,K)
     earth_term_phase    = np.outer(-omega,t) +  phi0.reshape(len(omega),1) # shape (N,t) # the phase term from the Earth-components
     dot_product         = 1.0 + np.dot(q,gw_direction.T)                   # matmul might be a bit faster, but np.dot has JIT support. Shape (N,K)
-    pulsar_term_phase   = add_matrices(earth_term_phase,chi)               # probably sub-optimal. Need to change this
+    pulsar_term_phase   = add_matrices(earth_term_phase,chi)               # Add (K,T) to (K,N) to produce (K,T,N)
     amplitude_term      = 0.50 * (hbar/dot_product)                        # Get the amplitude term. Shape(N,K)
     net_phase_term      = add_slices(cos(pulsar_term_phase), cos(earth_term_phase)) #Add together the pulsar term (K,T,N) and the earth term (K,T)
     
-
     GW_factor = np.sum(multiply_slices(net_phase_term, amplitude_term),axis=0) #shape (T,N)
-
 
     return GW_factor
 
@@ -163,7 +156,7 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 The null model - i.e. no GW
 """
 @njit(fastmath=True)
-def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 

@@ -66,7 +66,7 @@ class SystemParameters:
 
 
 
-        if self.num_gw_sources > 0: #always. 0 is the special case
+        if self.num_gw_sources > 0: # 0 is a special case that uses the above deterministic option
             logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
             generator = np.random.default_rng(self.seed)
 
@@ -76,13 +76,27 @@ class SystemParameters:
             self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            self.h = generator.uniform(low = 1e-15,high=1e-14,size=self.num_gw_sources)
+            self.h = generator.uniform(low = 5e-15,high=1e-14,size=self.num_gw_sources)
+
+
+            if self.num_gw_sources <= 5:
+                logging.info("Selected random GW parameters are as follows:")
+
+                logging.info(f"Omega = {self.Ω}")
+                logging.info(f"Omega = {self.Φ0}")
+                logging.info(f"Omega = {self.ψ}")
+                logging.info(f"Omega = {self.ι}")
+                logging.info(f"Omega = {self.δ}")
+                logging.info(f"Omega = {self.α}")
+                logging.info(f"Omega = {self.h}")
+
 
 
         print(f"Running with {len(self.Ω)} GW sources ")
 
-        logging.info("Surfacing injected omega values:")
-        logging.info(self.Ω)
+
+        if self.num_gw_sources ==0:
+            self.num_gw_sources = 1 #reassign special value for reshaping operations later
 
 
         

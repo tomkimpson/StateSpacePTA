@@ -8,8 +8,10 @@ from model import LinearModel
 from kalman_filter import KalmanFilter
 from bilby_wrapper import BilbySampler
 from priors import bilby_priors_dict
-import logging 
+import logging
 
+import time
+import sys 
 def bilby_inference_run(arg_name,measurement_model,seed,num_gw_sources):
 
     logger = logging.getLogger().setLevel(logging.INFO)
@@ -30,6 +32,21 @@ def bilby_inference_run(arg_name,measurement_model,seed,num_gw_sources):
     params = priors_optimal.sample(1)
     optimal_model_likelihood = KF.likelihood(params)
     logging.info(f"Ideal likelihood given optimal parameters = {optimal_model_likelihood}")
+
+
+
+
+    # #Run it again and time it 
+    # t0 = time.time()
+    # new_model_likelihood = KF.likelihood(params)
+    # t1 = time.time()
+
+    # runtime = t1-t0 
+
+    # print("Runtime was:", runtime)
+    # sys.exit()
+
+
     
     #Now setup the actual prior, and run again to check everything OK
     init_parameters, priors = bilby_priors_dict(PTA,P,set_parameters_as_known=False)
