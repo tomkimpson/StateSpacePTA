@@ -77,5 +77,14 @@ class SystemParameters:
             self.h = generator.uniform(low = 5e-15,high=1e-14,size=self.num_gw_sources)
 
         
-    
+            logging.info("Selected random GW parameters are as follows:")
+
+            logging.info(f"Omega = {self.Ω}")
+            logging.info(f"Omega = {self.Φ0}")
+            logging.info(f"Omega = {self.ψ}")
+            logging.info(f"Omega = {self.ι}")
+            logging.info(f"Omega = {self.δ}")
+            logging.info(f"Omega = {self.α}")
+            logging.info(f"Omega = {self.h}")
+            logging.info("***END SYSTEM PARAMETERS***")
 

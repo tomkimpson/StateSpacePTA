@@ -11,3 +11,4 @@ data/nested_sampling/*
 docs/build/*
 data/.DS_Store
 data/clean
+py_src/outputs/*

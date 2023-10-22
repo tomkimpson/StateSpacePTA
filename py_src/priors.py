@@ -36,7 +36,6 @@ def _add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #
         init_parameters[key] = None
       
         priors[key] = bilby.core.prior.LogUniform(lower,upper, key)
-        logging.info(f"Sigma p true value is {key} {f}")
         
         i+= 1
 
@@ -106,8 +105,6 @@ def _set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,K,
         init_parameters,priors = _add_to_bibly_priors_dict_constant(fdot,"fdot",init_parameters,priors)    
         init_parameters,priors = _add_to_bibly_priors_dict_constant(σp,"sigma_p",init_parameters,priors)  
         init_parameters,priors = _add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           
-        init_parameters,priors = _add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors)          
-
         for k in range(K):
             init_parameters,priors = _add_to_bibly_priors_dict_chi_constant(chi[k,:],"chi",init_parameters,priors,k) 
     
@@ -127,7 +124,6 @@ def _set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,K,
         
         
         init_parameters,priors = _add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           # constant
-        init_parameters,priors = _add_to_bibly_priors_dict_constant(d,"distance",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
         
         for k in range(K):
             init_parameters,priors = _add_to_bibly_priors_dict_chi(chi[k,:],"chi",init_parameters,priors,k) #uniform
