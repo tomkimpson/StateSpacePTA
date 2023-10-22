@@ -4,11 +4,15 @@
 
 
 import numpy as np 
+import os 
 
+
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) #absolute path to file
 
 def create_slurm_job(arg_name,h,measurement_model,seed,num_gw_sources):
 
-    with open(f'../slurm_jobs/slurm_{arg_name}.sh','w') as g:
+    with open(f'{ROOT_DIR}/../slurm_jobs/slurm_{arg_name}.sh','w') as g:
 
 
         g.write("#!/bin/bash \n \n")  

@@ -12,3 +12,4 @@ docs/build/*
 data/.DS_Store
 data/clean
 py_src/outputs/*
+py_src/slurm_jobs/*
