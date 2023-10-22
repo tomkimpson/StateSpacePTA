@@ -30,7 +30,7 @@ nums = [1,2,5,10,20]
 
 with open('batch.sh','w') as b:
     
-    for n in nums in h_range:
+    for n in nums:
         arg_name = f"HD_revisited_num_gw_{n}"
         print(arg_name)
         create_slurm_job(arg_name,h,model,seed,n)
