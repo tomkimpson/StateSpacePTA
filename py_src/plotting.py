@@ -104,10 +104,8 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
 
 
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None):
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None,quantiles=[0.16, 0.84],smooth=True,smooth1d=True):
     plt.style.use('science')
-
-
 
 
     print(path.split('.')[-1])
@@ -175,7 +173,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
                         show_titles=True,
                         smooth=True,smooth1d=True,
                         truth_color='C2',
-                        quantiles=[0.16, 0.84], #[0.16, 0.84]
+                        quantiles=quantiles, #[0.16, 0.84] #
                         truths = injection_parameters,
                         range=ranges,
                         labels = labels,
