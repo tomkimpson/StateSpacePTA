@@ -64,27 +64,43 @@ class SystemParameters:
             logging.info("σp = 1.0 is a special value. \n Assigning process noise amplitudes randomly within a range. \n Please see synthetic_data.py")
 
 
-        if num_gw_sources > 1:
-            logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
-            generator = np.random.default_rng(self.seed)
 
-            self.Ω = generator.uniform(low = 1e-7,high=1e-6,size=self.num_gw_sources)
-            self.Φ0 = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
-            self.ψ = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
-            self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
-            self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            self.h = generator.uniform(low = 5e-15,high=1e-14,size=self.num_gw_sources)
+        if num_gw_sources == 2:
+            logging.info("Running for two deterministic GW sources")
+            
+            self.Ω = np.array([5e-7,2e-8])
+            self.Φ0 = np.array([0.20,1.50])
+            self.ψ = np.array([2.50,0.35])
+            self.ι = np.array([1.0,1.2])
+            self.δ = np.array([1.0,0.70])
+            self.α = np.array([1.0,1.30])
+            self.h = np.array([5e-15,2e-15])
+
+
+
+
+
+        # if num_gw_sources > 1:
+        #     logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
+        #     generator = np.random.default_rng(self.seed)
+
+        #     self.Ω = generator.uniform(low = 1e-7,high=1e-6,size=self.num_gw_sources)
+        #     self.Φ0 = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
+        #     self.ψ = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
+        #     self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
+        #     self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
+        #     self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
+        #     self.h = generator.uniform(low = 5e-15,high=1e-14,size=self.num_gw_sources)
 
         
-            logging.info("Selected random GW parameters are as follows:")
+        #     logging.info("Selected random GW parameters are as follows:")
 
-            logging.info(f"Omega = {self.Ω}")
-            logging.info(f"Omega = {self.Φ0}")
-            logging.info(f"Omega = {self.ψ}")
-            logging.info(f"Omega = {self.ι}")
-            logging.info(f"Omega = {self.δ}")
-            logging.info(f"Omega = {self.α}")
-            logging.info(f"Omega = {self.h}")
-            logging.info("***END SYSTEM PARAMETERS***")
+        #     logging.info(f"Omega = {self.Ω}")
+        #     logging.info(f"Phi0 = {self.Φ0}")
+        #     logging.info(f"psi = {self.ψ}")
+        #     logging.info(f"iota = {self.ι}")
+        #     logging.info(f"delta = {self.δ}")
+        #     logging.info(f"alpha = {self.α}")
+        #     logging.info(f"h = {self.h}")
+        #     logging.info("***END SYSTEM PARAMETERS***")
 
