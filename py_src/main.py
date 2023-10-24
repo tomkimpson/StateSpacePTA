@@ -30,6 +30,7 @@ import pytensor.tensor as pt
 
 print(f"Running on PyMC v{pm.__version__}")
 
+import matplotlib.pyplot as plt 
 
 if __name__=="__main__":
 
@@ -47,28 +48,53 @@ if __name__=="__main__":
 
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA,P)
-    logl = LogLike(KF) #wrap it
 
 
-    # # use PyMC to sampler from log-likelihood
-    with pm.Model():
-        # uniform priors on m and c
-        omega = pm.Uniform("m", lower=4e-7, upper=6e-7)
-        phi0 = pm.Uniform("c", lower=0.0, upper=np.pi)
-    
 
-    #     # convert m and c to a tensor vector
-        theta = pt.as_tensor_variable([omega,phi0])
+    omega = 5e-7 
 
-    #     # use a Potential to "call" the Op and include it in the logp computation
-        pm.Potential("likelihood", logl(theta))
-
-    #     # Use custom number of draws to replace the HMC based defaults
-        #idata_mh = pm.sample(3000, tune=1000)
-        idata_mh = pm.sample(4000, tune=2000)
-        idata_mh.to_netcdf("filename.nc")
+    NN = 1000
+    likelihoods = np.zeros(NN)
+    xx = np.linspace(0,0.30,NN)
+    for i,phi in enumerate(xx):
+        theta = np.array([omega,phi])
+        likelihoods[i] = KF.likelihood(theta)
 
     
-    az.plot_trace(idata_mh, lines=[("m", {}, 5e-7),("c", {}, 0.20)])
+    plt.plot(xx,likelihoods)
     plt.show()
+
+
+
+
+    #Inference
+
+
+
+
+
+    # logl = LogLike(KF) #wrap it
+
+
+    # # # use PyMC to sampler from log-likelihood
+    # with pm.Model():
+    #     # uniform priors on m and c
+    #     omega = pm.Uniform("m", lower=4e-7, upper=6e-7)
+    #     phi0 = pm.Uniform("c", lower=0.05, upper=1.0)
+    
+
+    # #     # convert m and c to a tensor vector
+    #     theta = pt.as_tensor_variable([omega,phi0])
+
+    # #     # use a Potential to "call" the Op and include it in the logp computation
+    #     pm.Potential("likelihood", logl(theta))
+
+    # #     # Use custom number of draws to replace the HMC based defaults
+    #     #idata_mh = pm.sample(3000, tune=1000)
+    #     idata_mh = pm.sample(1000, tune=1000,discard_tuned_samples=True)
+    #     idata_mh.to_netcdf("filename.nc")
+
+    
+    # az.plot_trace(idata_mh, lines=[("m", {}, 5e-7),("c", {}, 0.20)])
+    # plt.show()
 

@@ -125,7 +125,7 @@ class KalmanFilter:
 
 
 
-        self.phi0_gw  = P.Φ0
+        #self.phi0_gw  = P.Φ0
         self.psi_gw   = P.ψ
         self.iota_gw  = P.ι
         self.delta_gw = P.δ
