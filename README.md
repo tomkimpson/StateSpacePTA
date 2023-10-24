@@ -15,6 +15,11 @@ Please see the [documentation](https://tomkimpson.github.io/StateSpacePTA/)
 
 
 
+This branch deals with using [PyMC3](https://www.pymc.io/welcome.html) for inference of a Hellings-Downs type problem
+
+
+It works medium-well (try `run.py`) but not perfectly. 
+
 
 
 
