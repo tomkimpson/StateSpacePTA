@@ -101,27 +101,6 @@ class KalmanFilter:
         self.x0 =  self.observations[0,:] 
         self.num_gw_sources = Model.num_gw_sources
 
-        #Define some arrays of strings
-        #These are the names of the static parameters
-        #We will use these to parse the bilby dict into arrays.
-        
-        ## length num_gw_sources
-        #self.list_of_omega_keys = [f'omega_gw_{i}' for i in range(self.num_gw_sources)]
-        #self.list_of_phi0_keys  = [f'phi0_gw_{i}' for i in range(self.num_gw_sources)]
-        #self.list_of_psi_keys   = [f'psi_gw_{i}' for i in range(self.num_gw_sources)]
-        #self.list_of_iota_keys  = [f'iota_gw_{i}' for i in range(self.num_gw_sources)]
-        #self.list_of_delta_keys = [f'delta_gw_{i}' for i in range(self.num_gw_sources)]
-        #self.list_of_alpha_keys = [f'alpha_gw_{i}' for i in range(self.num_gw_sources)]
-        #self.list_of_h_keys     = [f'h_{i}' for i in range(self.num_gw_sources)]
-
-        ## length Npsr
-        #self.list_of_f_keys        = [f'f0{i}' for i in range(self.Npsr)]
-        #self.list_of_fdot_keys     = [f'fdot{i}' for i in range(self.Npsr)]
-        #self.list_of_gamma_keys    = [f'gamma{i}' for i in range(self.Npsr)]
-        #self.list_of_sigma_p_keys  = [f'sigma_p{i}' for i in range(self.Npsr)]
-
-        # length Npsr x num_gw_sources
-        #self.list_of_chi_keys = [ [f'chi{i}_{k}' for i in range(self.Npsr)] for k in range(self.num_gw_sources)]
 
 
 
@@ -178,11 +157,22 @@ class KalmanFilter:
         #print("The parameters are:")
         #print(parameters)
 
-        omega_gw,phi0_gw = np.array([parameters[0]]),np.array([parameters[1]])
+        #phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,omega_gw_exponent = np.array([parameters[0]]),np.array([parameters[1]]),np.array([parameters[2]]),np.array([parameters[3]]),np.array([parameters[4]]),np.array([parameters[5]])
 
-    
+        phi0_gw,omega_gw_exponent = np.array([parameters[0]]),np.array([parameters[1]])
+        omega_gw = 10**(omega_gw_exponent)
+
+
+
+        psi_gw,iota_gw,delta_gw,alpha_gw =  self.psi_gw,self.iota_gw,self.delta_gw,self.alpha_gw
+
+
+
+        #print(omega_gw)
+        #omega_gw = np.array([5e-7])
         #phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.phi0_gw,self.psi_gw,self.iota_gw,self.delta_gw,self.alpha_gw,self.h,self.f,self.fdot,self.gamma,self.sigma_p,self.chi,self.sigma_m
-        psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.psi_gw,self.iota_gw,self.delta_gw,self.alpha_gw,self.h,self.f,self.fdot,self.gamma,self.sigma_p,self.chi,self.sigma_m
+        #psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.psi_gw,self.iota_gw,self.delta_gw,self.alpha_gw,self.h,self.f,self.fdot,self.gamma,self.sigma_p,self.chi,self.sigma_m
+        h,f,fdot,gamma,sigma_p,chi,sigma_m = self.h,self.f,self.fdot,self.gamma,self.sigma_p,self.chi,self.sigma_m
 
 
         #Precompute transition/Q/R Kalman matrices

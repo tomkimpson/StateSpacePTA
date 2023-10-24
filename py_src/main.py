@@ -27,8 +27,8 @@ import pymc as pm
 import numpy as np 
 from pytensor_op import LogLike
 import pytensor.tensor as pt
-
-print(f"Running on PyMC v{pm.__version__}")
+#import theano.tensor as tt
+# print(f"Running on PyMC v{pm.__version__}")
 
 import matplotlib.pyplot as plt 
 
@@ -52,23 +52,24 @@ if __name__=="__main__":
 
 
     ## TEST WHAT TH ELIKELIHOOD CURVES LOOK LIKE
-    omega = 5e-7 
-    NN = 1000
-    likelihoods = np.zeros(NN)
-    xx = np.linspace(0,np.pi/2,NN)
-    for i,phi in enumerate(xx):
-        theta = np.array([omega,phi])
-        likelihoods[i] = KF.likelihood(theta)
+
+    # NN = 1000
+    # likelihoods = np.zeros(NN)
+    # xx = np.linspace(0,np.pi,NN)
+    # phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw = 0.20,2.50,1.0,1.0,1.0
+    # for i,psi in enumerate(xx):
+    #     theta = np.array([phi0_gw,psi,iota_gw,delta_gw,alpha_gw])
+    #     likelihoods[i] = KF.likelihood(theta)
 
     
-    plt.plot(xx,likelihoods)
-    plt.show()
+    # plt.plot(xx,likelihoods)
+    # plt.show()
 
-    ## END 
+    # ## END 
 
 
-    import sys 
-    sys.exit()
+    # import sys 
+    # sys.exit()
 
     logl = LogLike(KF) #wrap it
 
@@ -77,23 +78,37 @@ if __name__=="__main__":
     with pm.Model():
         # uniform priors on m and c
         #omega = pm.Uniform("m", lower=4e-7, upper=6e-7)
-        omega = pm.Uniform("m", lower=1e-8, upper=1e-5)
+        #omega = pm.Uniform("m", lower=1e-8, upper=1e-5)
 
-        phi0 = pm.Uniform("c", lower=0.00, upper=np.pi/2)
-    
 
-    #     # convert m and c to a tensor vector
-        theta = pt.as_tensor_variable([omega,phi0])
+        #omega  = tt.exp(pm.Uniform('omega', lower=-8, upper=-5))
 
-    #     # use a Potential to "call" the Op and include it in the logp computation
+
+        #log_omega = pm.Uniform('log_x', lower=np.log(1e-8), upper=np.log(1e-6))
+        #omega = pm.Deterministic('omega', pm.math.exp(log_omega))
+
+        omega_exponent = pm.Uniform("omega_exp", lower=-8, upper=-6)
+        phi0   = pm.Uniform("phi", lower=0.00, upper=np.pi/2)
+        
+        #psi    = pm.Uniform("psi", lower=0.00, upper=np.pi)
+        #iota   = pm.Uniform("iota", lower=0.00, upper=np.pi/2)
+        #delta  = pm.Uniform("delta", lower=0.00, upper=np.pi/2)
+        #alpha  = pm.Uniform("alpha", lower=0.00, upper=np.pi)
+
+        #theta = pt.as_tensor_variable([phi0,psi,iota,delta,alpha,omega_exponent])
+        theta = pt.as_tensor_variable([phi0,omega_exponent])
+
+
         pm.Potential("likelihood", logl(theta))
 
-    #     # Use custom number of draws to replace the HMC based defaults
-        #idata_mh = pm.sample(3000, tune=1000)
+        #pm.sample(5000,tune=15000,target_accept=0.95)
+        #https://discourse.pymc.io/t/nuts-sampler-effective-samples-is-smaller-than-200-for-some-parameters/5393
+
+
+
         idata_mh = pm.sample(1000, tune=1000,discard_tuned_samples=True)
         idata_mh.to_netcdf("filename.nc")
 
     
-    az.plot_trace(idata_mh, lines=[("m", {}, 5e-7),("c", {}, 0.20)])
+    az.plot_trace(idata_mh)
     plt.show()
-
