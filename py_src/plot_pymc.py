@@ -42,7 +42,7 @@ cdata =  idata.posterior.c
 
 #which chain to use
 #could also just combine all the chains for one big posterior https://stats.stackexchange.com/questions/152037/combining-multiple-parallel-mcmc-chains-into-one-longer-chain
-chain_idx = 0 
+chain_idx = 1 
 mdata = mdata[chain_idx,:]
 cdata = cdata[chain_idx,:]
 
