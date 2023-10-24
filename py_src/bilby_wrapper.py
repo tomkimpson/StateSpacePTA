@@ -24,14 +24,12 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir,npoints):
     logging.info("Starting the bilby sampler")
     result = bilby.run_sampler(likelihood, priors, 
                               label = label,
+                              sampler='bilby_mcmc',
                               outdir=outdir,
-                              sampler ='dynesty',
-                              sample='rwalk_dynesty',
-                              bound='single', # https://dynesty.readthedocs.io/en/latest/faq.html
-                              check_point_plot=False,
-                              npoints=npoints,
-                              dlogz=1e-1,
+                              nsamples = 1000,
+                              thin_by_nact=0.2,
+                              ntemps=8,
                               npool=1,
-                              plot=False,resume=False)
-
+                              L1steps=100,
+                              proposal_cyle='default')
     return result
