@@ -53,7 +53,8 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
     #...set the number of live points accordingly
     npoints = len(params) * 3
     if npoints < 1000:
-        npoints=1200
+        #npoints=1200
+        npoints =5000
 
     logging.info(f"Number of live points is {npoints}")
 

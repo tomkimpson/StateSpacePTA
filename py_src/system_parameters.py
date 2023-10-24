@@ -77,8 +77,18 @@ class SystemParameters:
             self.h = np.array([5e-15,2e-15])
 
 
-
-
+        if num_gw_sources == 5:
+            logging.info("Running for five deterministic GW sources")
+            
+            self.Ω = np.array([5e-7,1e-7,2e-7,3e-7,4e-7])
+            self.Φ0 = np.array([0.20,1.50,0.30,0.40,1.60])
+            self.ψ = np.array([2.50,0.35,2.60,0.70,0.10])
+            #self.ι = np.array([1.0,1.2,1.3,0.9,0.95])
+            self.ι = np.array([1.0,1.0,1.0,1.0,1.0]) #all the same
+            self.δ = np.array([1.0,0.70,1.1,0.8,0.9])
+            self.α = np.array([1.0,1.30,0.8,0.9,1.2])
+            #self.h = np.array([5e-15,2e-15,6e-15,7e-15,])
+            self.h = np.array([5e-15,5e-15,5e-15,5e-15,5e-15]) #all the same, consistent SNR for every source?
 
         # if num_gw_sources > 1:
         #     logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")

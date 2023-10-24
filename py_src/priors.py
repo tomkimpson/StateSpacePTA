@@ -96,7 +96,7 @@ def _add_to_bibly_priors_dict_chi_constant(x,label,init_parameters,priors,k):
 """
 Set a prior on the state parameters
 """
-def _set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,K,set_parameters_as_known):
+def _set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,K,set_parameters_as_known,measurement_model):
 
     if set_parameters_as_known:
         logging.info('Setting fully informative priors on PSR parameters')
@@ -125,8 +125,14 @@ def _set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,K,
         
         init_parameters,priors = _add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           # constant
         
-        for k in range(K):
-            init_parameters,priors = _add_to_bibly_priors_dict_chi(chi[k,:],"chi",init_parameters,priors,k) #uniform
+
+        if measurement_model == 'null':
+            for k in range(K):
+                init_parameters,priors = _add_to_bibly_priors_dict_chi_constant(chi[k,:],"chi",init_parameters,priors,k) #dont need prior on chi for the null model
+
+        else:
+            for k in range(K):
+                init_parameters,priors = _add_to_bibly_priors_dict_chi(chi[k,:],"chi",init_parameters,priors,k) #uniform
 
 
     return init_parameters,priors 
@@ -137,6 +143,7 @@ Set a prior on the measurement parameters
 def _set_prior_on_measurement_parameters(init_parameters,priors,P,set_parameters_as_known):
 
     if set_parameters_as_known: #don't set a prior, just assume these are known exactly a priori
+
         logging.info('Setting fully informative priors on GW parameters')
         for k in range(P.num_gw_sources):
             #Add all the GW quantities
@@ -163,29 +170,60 @@ def _set_prior_on_measurement_parameters(init_parameters,priors,P,set_parameters
 
     else:
         logging.info('Setting uninformative priors on GW parameters')
-        for k in range(P.num_gw_sources):
+
+
+        if P.measurement_model == "null":
+
+            for k in range(P.num_gw_sources): #dont need a prior on the GW parameters for the null model.
         
-            #Add all the GW quantities
-            init_parameters[f"omega_gw_{k}"] = None
-            priors[f"omega_gw_{k}"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
+                #Add all the GW quantities
+                init_parameters[f"omega_gw_{k}"] = None
+                priors[f"omega_gw_{k}"] = 1.0
 
-            init_parameters[f"phi0_gw_{k}"] = None
-            priors[f"phi0_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+                init_parameters[f"phi0_gw_{k}"] = None
+                priors[f"phi0_gw_{k}"] = 1.0
 
-            init_parameters[f"psi_gw_{k}"] = None
-            priors[f"psi_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+                init_parameters[f"psi_gw_{k}"] = None
+                priors[f"psi_gw_{k}"] = 1.0
 
-            init_parameters[f"iota_gw_{k}"] = None
-            priors[f"iota_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+                init_parameters[f"iota_gw_{k}"] = None
+                priors[f"iota_gw_{k}"] = 1.0
 
-            init_parameters[f"delta_gw_{k}"] = None
-            priors[f"delta_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+                init_parameters[f"delta_gw_{k}"] = None
+                priors[f"delta_gw_{k}"] = 1.0
 
-            init_parameters[f"alpha_gw_{k}"] = None
-            priors[f"alpha_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+                init_parameters[f"alpha_gw_{k}"] = None
+                priors[f"alpha_gw_{k}"] = 1.0
 
-            init_parameters[f"h_{k}"] = None
-            priors[f"h_{k}"] = bilby.core.prior.LogUniform(5e-17, 5e-14, 'h')
+                init_parameters[f"h_{k}"] = None
+                priors[f"h_{k}"] = 1.0
+
+
+        else:
+
+            for k in range(P.num_gw_sources):
+            
+                #Add all the GW quantities
+                init_parameters[f"omega_gw_{k}"] = None
+                priors[f"omega_gw_{k}"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
+
+                init_parameters[f"phi0_gw_{k}"] = None
+                priors[f"phi0_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
+
+                init_parameters[f"psi_gw_{k}"] = None
+                priors[f"psi_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
+
+                init_parameters[f"iota_gw_{k}"] = None
+                priors[f"iota_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
+
+                init_parameters[f"delta_gw_{k}"] = None
+                priors[f"delta_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+
+                init_parameters[f"alpha_gw_{k}"] = None
+                priors[f"alpha_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+
+                init_parameters[f"h_{k}"] = None
+                priors[f"h_{k}"] = bilby.core.prior.LogUniform(5e-17, 5e-14, 'h')
 
 
     return init_parameters,priors 
@@ -207,7 +245,7 @@ def bilby_priors_dict(PTA,P,set_parameters_as_known=False):
     init_parameters,priors = _set_prior_on_measurement_parameters(init_parameters,priors,P,set_parameters_as_known) 
 
     #State priors
-    init_parameters,priors = _set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi,P.num_gw_sources,set_parameters_as_known)
+    init_parameters,priors = _set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi,P.num_gw_sources,set_parameters_as_known,P.measurement_model)
 
     #Measurement noise priors. Always known
     init_parameters["sigma_m"] = None
