@@ -74,13 +74,15 @@ if __name__=="__main__":
 
 
         #idata_mh = pm.sample(6000, tune=6000,discard_tuned_samples=True)
-        idata_mh = pm.sample(10000,tune=15000,discard_tuned_samples=True)
+        #idata_mh = pm.sample(10000,tune=15000,discard_tuned_samples=True)
+        idata_mh = pm.sample(draws=4,tune=500,discard_tuned_samples=True)
+
 
         idata_mh.to_netcdf("filename.nc")
 
     
-    #az.plot_trace(idata_mh)
-    #plt.show()
+    az.plot_trace(idata_mh)
+    plt.show()
 
 
 
