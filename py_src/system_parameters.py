@@ -22,13 +22,13 @@ class SystemParameters:
                  ι = 1.0,          # GW source inclination
                  δ =  1.0,         # GW source declination
                  α =  1.0,         # GW source right ascension
-                 h =  1e-2,        # GW plus strain
+                 h =  5e-15,        # GW plus strain
                  σp = 1e-13,       # process noise standard deviation
-                 σm = 1e-8,        # measurement noise standard deviation
+                 σm = 1e-11,        # measurement noise standard deviation
                  Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
                  use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
                  measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
-                 seed = 1234,       # this is the noise seed. It is used for sdeint and gaussian measurement noise
+                 seed = 1237,       # this is the noise seed. It is used for sdeint and gaussian measurement noise
                  σp_seed=1234,      # this is the seed when we randomly generate simga_p parameter values
                  orthogonal_pulsars=False, #if True overwrite true RA/DEC of pulsars and create a ring of pulsars perpendicular to GW direction
                  num_gw_sources = 1 #how many GW sources are there on the sky?

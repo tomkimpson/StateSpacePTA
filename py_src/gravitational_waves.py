@@ -1,15 +1,15 @@
 from numpy import sin,cos 
 import numpy as np 
-from numba import jit,njit,prange
+# from numba import jit,njit,prange
 import sys
-
+import jax.numpy as np
 
 """
 Return the two polarisation tensors e_+, e_x
 Reshapes allow vectorisation and JIT compatability 
 Todo: check performance of explicit JIT loops
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def _polarisation_tensors(m, n):
     x, y = m.shape
     e_plus = m.reshape(x, 1, y) * m.reshape(1, x, y) - n.reshape(1, x, y) * n.reshape(x, 1, y)
@@ -23,7 +23,7 @@ def _polarisation_tensors(m, n):
 """
 Calculate the principal axes vectors for each GW source. 
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def principal_axes(theta,phi,psi):
 
     
@@ -43,7 +43,7 @@ def principal_axes(theta,phi,psi):
 
 
 
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def _h_amplitudes(h,ι): 
     return h*(1.0 + cos(ι)**2),h*(-2.0*cos(ι)) #hplus,hcross
 
@@ -57,7 +57,7 @@ b(K,N)
 
 It returns an array of shape (K,T,N)
 """
-@njit
+# @njit
 def add_matrices(a, b):
     K, T, N = a.shape[0], a.shape[1], b.shape[1]
     return a.reshape(K,T,1) + b.reshape(K,1,N)
@@ -68,7 +68,7 @@ def add_matrices(a, b):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     K,N,T                    = len(delta),len(q),len(t)  #dimensions
    
@@ -105,7 +105,7 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
 """
 The null model - i.e. no GW
 """
-@njit(fastmath=True)
+# @njit(fastmath=True)
 def null_model(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
