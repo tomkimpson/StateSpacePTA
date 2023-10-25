@@ -37,7 +37,6 @@ if __name__=="__main__":
         
     h = 5e-15
     measurement_model = 'pulsar'
-    #seed = 1237
     seed = 903293933
     num_gw_sources = 1
     P   = SystemParameters(h=h,σp=None,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed,num_gw_sources=num_gw_sources) # define the system parameters as a dict. Todo: make this a class
@@ -49,7 +48,59 @@ if __name__=="__main__":
 
     #Initialise the Kalman filter
     KF = KalmanFilter(model,data.f_measured,PTA,P)
+    logl = LogLike(KF) #wrap it
 
+
+    # # use PyMC to sampler from log-likelihood
+    with pm.Model():
+        
+
+        omega_exponent = pm.Uniform("omega_exp", lower=-8, upper=-6)
+        phi0   = pm.Uniform("phi", lower=0.00, upper=np.pi/2)
+        
+        psi    = pm.Uniform("psi", lower=0.00, upper=np.pi)
+        iota   = pm.Uniform("iota", lower=0.00, upper=np.pi/2)
+        delta  = pm.Uniform("delta", lower=0.00, upper=np.pi/2)
+        alpha  = pm.Uniform("alpha", lower=0.00, upper=np.pi)
+
+        theta = pt.as_tensor_variable([phi0,psi,iota,delta,alpha,omega_exponent])
+        #theta = pt.as_tensor_variable([phi0,omega_exponent])
+
+
+        pm.Potential("likelihood", logl(theta))
+
+        #pm.sample(5000,tune=15000,target_accept=0.95)
+        #https://discourse.pymc.io/t/nuts-sampler-effective-samples-is-smaller-than-200-for-some-parameters/5393
+
+
+        #idata_mh = pm.sample(6000, tune=6000,discard_tuned_samples=True)
+        idata_mh = pm.sample(10000,tune=15000,discard_tuned_samples=True)
+
+        idata_mh.to_netcdf("filename.nc")
+
+    
+    #az.plot_trace(idata_mh)
+    #plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# scratch space
 
     ## TEST WHAT TH ELIKELIHOOD CURVES LOOK LIKE
 
@@ -70,45 +121,3 @@ if __name__=="__main__":
 
     # import sys 
     # sys.exit()
-
-    logl = LogLike(KF) #wrap it
-
-
-    # # use PyMC to sampler from log-likelihood
-    with pm.Model():
-        # uniform priors on m and c
-        #omega = pm.Uniform("m", lower=4e-7, upper=6e-7)
-        #omega = pm.Uniform("m", lower=1e-8, upper=1e-5)
-
-
-        #omega  = tt.exp(pm.Uniform('omega', lower=-8, upper=-5))
-
-
-        #log_omega = pm.Uniform('log_x', lower=np.log(1e-8), upper=np.log(1e-6))
-        #omega = pm.Deterministic('omega', pm.math.exp(log_omega))
-
-        omega_exponent = pm.Uniform("omega_exp", lower=-8, upper=-6)
-        phi0   = pm.Uniform("phi", lower=0.00, upper=np.pi/2)
-        
-        #psi    = pm.Uniform("psi", lower=0.00, upper=np.pi)
-        #iota   = pm.Uniform("iota", lower=0.00, upper=np.pi/2)
-        #delta  = pm.Uniform("delta", lower=0.00, upper=np.pi/2)
-        #alpha  = pm.Uniform("alpha", lower=0.00, upper=np.pi)
-
-        #theta = pt.as_tensor_variable([phi0,psi,iota,delta,alpha,omega_exponent])
-        theta = pt.as_tensor_variable([phi0,omega_exponent])
-
-
-        pm.Potential("likelihood", logl(theta))
-
-        #pm.sample(5000,tune=15000,target_accept=0.95)
-        #https://discourse.pymc.io/t/nuts-sampler-effective-samples-is-smaller-than-200-for-some-parameters/5393
-
-
-
-        idata_mh = pm.sample(1000, tune=1000,discard_tuned_samples=True)
-        idata_mh.to_netcdf("filename.nc")
-
-    
-    az.plot_trace(idata_mh)
-    plt.show()

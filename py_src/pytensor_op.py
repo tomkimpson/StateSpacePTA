@@ -36,9 +36,6 @@ class LogLike(pt.Op):
 
         # add inputs as class attributes
         self.KF = KF
-        #self.data = data
-        #self.x = x
-        #self.sigma = sigma
 
     def perform(self, node, inputs, outputs):
         # the method that is used when calling the Op

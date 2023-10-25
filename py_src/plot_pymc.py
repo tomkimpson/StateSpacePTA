@@ -36,15 +36,15 @@ def plotposts(samples, **kwargs):
 
 idata = az.from_netcdf("filename.nc")
 
-#az.plot_trace(idata)
+az.plot_trace(idata)
 
 #injection_parameters = [0.20,2.50,1.0,1.0,1.0]
 #var_names=["K", "P", "e", "w"]
 
-_ = corner.corner(
-    idata,
-    #truths = injection_parameters
-)
+# _ = corner.corner(
+#     idata,
+#     #truths = injection_parameters
+# )
 plt.show()
 #posterior = idata.posterior #sample_stats is also an attribute
 

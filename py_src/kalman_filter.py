@@ -157,14 +157,14 @@ class KalmanFilter:
         #print("The parameters are:")
         #print(parameters)
 
-        #phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,omega_gw_exponent = np.array([parameters[0]]),np.array([parameters[1]]),np.array([parameters[2]]),np.array([parameters[3]]),np.array([parameters[4]]),np.array([parameters[5]])
+        phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,omega_gw_exponent = np.array([parameters[0]]),np.array([parameters[1]]),np.array([parameters[2]]),np.array([parameters[3]]),np.array([parameters[4]]),np.array([parameters[5]])
 
-        phi0_gw,omega_gw_exponent = np.array([parameters[0]]),np.array([parameters[1]])
+        #phi0_gw,omega_gw_exponent = np.array([parameters[0]]),np.array([parameters[1]])
         omega_gw = 10**(omega_gw_exponent)
 
 
 
-        psi_gw,iota_gw,delta_gw,alpha_gw =  self.psi_gw,self.iota_gw,self.delta_gw,self.alpha_gw
+        #psi_gw,iota_gw,delta_gw,alpha_gw =  self.psi_gw,self.iota_gw,self.delta_gw,self.alpha_gw
 
 
 
