@@ -23,9 +23,9 @@ class SystemParameters:
                      ι =  1.0,          # GW source inclination
                      δ =  1.0,          # GW source declination
                      α =  1.0,          # GW source right ascension
-                     h =  1e-2,         # GW strain
+                     h =  5e-25,         # GW strain
                      σp = 1e-13,        # process noise standard deviation
-                     σm = 1e-10,        # measurement noise standard deviation
+                     σm = 1e-11,        # measurement noise standard deviation
                      Npsr = 0           # Number of pulsars to use in PTA. 0 = all
                      ):
         

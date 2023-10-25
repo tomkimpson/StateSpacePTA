@@ -1,9 +1,9 @@
 # StateSpacePTA
 
 
+Note for future self: never could get this to work properly.
 
-This repository contains code for implementing a linear Kalman filter in conjunction with 
+Try `jax_ns_example.py`. Just seems to stall out.
 
-
-https://arxiv.org/pdf/1812.11585.pdf
+Probably an error on my end...
 

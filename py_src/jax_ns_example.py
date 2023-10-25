@@ -256,7 +256,7 @@ def likelihood_function(omega,phi_0):
     P1 = deepcopy(P)
     PTA1 = deepcopy(PTA)
 
-
+    print("oemga = ", omega)
     P1.omega_gw = omega #reassign the value of omega in this new class
     P1.phi0_gw = phi_0 #reassign the value of omega in this new class
 
@@ -379,8 +379,12 @@ print("--------------Attepting to run nested sampler-----------------")
 
 # Create the nested sampler class. In this case without any tuning.
 ns = exact_ns = ExactNestedSampler(model=model, 
-                                   num_live_points=100, num_parallel_samplers=1,
+                                   num_live_points=1000, num_parallel_samplers=1,
                                    max_samples=1e4)
+
+# ns = exact_ns = ExactNestedSampler(model=model, 
+#                                    num_live_points=1000, num_parallel_samplers=2,max_samples=1e4)
+
 
 termination_reason, state = exact_ns(random.PRNGKey(42),
                                      term_cond=TerminationCondition(live_evidence_frac=1e-1))
