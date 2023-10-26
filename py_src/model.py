@@ -1,7 +1,7 @@
 
 
 import numpy as np
-from numba import njit
+#from numba import njit
 
 import logging 
 from gravitational_waves import gw_psr_terms,gw_earth_terms,null_model
@@ -41,14 +41,14 @@ class LinearModel:
 """
 The diagonal F matrix as a vector
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def F_function(gamma,dt):
     return np.exp(-gamma*dt)
 
 """
 The diagonal Q matrix as a vector
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def Q_function(gamma,sigma_p,dt):
     value = sigma_p**2 * (1. - np.exp(-2.0*gamma* dt)) / (2.0 * gamma)
     return value 
@@ -56,7 +56,7 @@ def Q_function(gamma,sigma_p,dt):
 """
 The R matrix as a scalar
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def R_function(sigma_m):
     return sigma_m**2
     
