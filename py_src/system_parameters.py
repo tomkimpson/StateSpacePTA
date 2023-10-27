@@ -111,7 +111,7 @@ class SystemParameters:
             self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            self.h = generator.uniform(low = 5e-15,high=1e-14,size=self.num_gw_sources)
+            self.h = generator.uniform(low = 2e-15,high=1e-14,size=self.num_gw_sources)
 
         
         #     logging.info("Selected random GW parameters are as follows:")

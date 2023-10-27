@@ -43,6 +43,9 @@ def principal_axes(theta,phi,psi):
 
 
 
+"""
+Get the hplus and hcross amplitudes
+"""
 @njit(fastmath=True)
 def _h_amplitudes(h,ι): 
     return h*(1.0 + cos(ι)**2),h*(-2.0*cos(ι)) #hplus,hcross
@@ -112,16 +115,34 @@ def null_model(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
 
 
 """
-not yet defns
+What is the GW modulation factor, just the Earth terms
 """
+@njit(fastmath=True)
 def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
-    sys.exit('Earth terms not set up propery yet')
-    return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
+    K,N,T                    = len(delta),len(q),len(t)  #dimensions
+   
+    #Time -independent terms
+    m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi) # Get the principal axes. Shape (K,3)
+    gw_direction        = np.cross(m,n)                               # The direction of each source. Shape (K,)
+    e_plus,e_cross      = _polarisation_tensors(m.T,n.T)              # The polarization tensors. Shape (3,3,K)
+    hp,hx               = _h_amplitudes(h,iota)                       # plus and cross amplitudes. Shape (K,)
+    Hij                 = hp * e_plus + hx * e_cross                  # amplitude tensor. Shape (3,3,K)
+    Hij                 = Hij.reshape(K,9)                            # reshape it to enable dot product with q_products
+    hbar                = np.dot(Hij,q_products)                      # Shape (K,N)
+    dot_product         = 1.0 + q @ gw_direction.reshape(3,K)         # Shape (N,K)
+  
     
+    #Time-dependent terms
+    #reshapes for broadcasting
+    earth_term_phase    = (np.outer(-omega,t) +  phi0.reshape(len(omega),1)).reshape(len(t),K)      # i.e. -\Omega *t + \Phi_0
+   
+    #Bring it all together
+    net_time_dependent_term = cos(earth_term_phase).reshape(K,T,1)
+    amplitude               = 0.50*hbar/dot_product.reshape(hbar.shape)
 
 
-
-
+    GW_factor = np.sum(net_time_dependent_term*amplitude.reshape(K,1,N),axis=0) #shape (T,N) #sum over K sources. GWs linearly superpose
+    return GW_factor
 
 
 
