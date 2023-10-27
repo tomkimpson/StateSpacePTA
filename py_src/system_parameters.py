@@ -78,13 +78,14 @@ class SystemParameters:
 
 
         if num_gw_sources == 3:
-            omegas = np.array([5e-7,7e-7,1e-7])
-            phis= np.array([0.20,1.50,0.10])
-            psis= np.array([2.50,0.35,2.90])
-            iotas= np.array([1.0,1.2,0.75])
-            deltas= np.array([1.0,0.70,1.11])
-            alphas= np.array([1.0,1.30,0.95])
-            hs   = np.array([5e-15,2e-15,6e-15])
+            logging.info("Running for three deterministic GW sources")
+            self.Ω = np.array([5e-7,7e-7,1e-7])
+            self.Φ0= np.array([0.20,1.50,0.10])
+            self.ψ= np.array([2.50,0.35,2.90])
+            self.ι= np.array([1.0,1.2,0.75])
+            self.δ= np.array([1.0,0.70,1.11])
+            self.α= np.array([1.0,1.30,0.95])
+            self.h   = np.array([5e-15,2e-15,6e-15])
 
 
         if num_gw_sources == 5:

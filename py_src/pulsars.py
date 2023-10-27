@@ -67,6 +67,7 @@ class Pulsars:
         m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ) # shape (K,3)
         
       
+
         #And now get the chi term, shape (K,N)
         gw_directions = np.zeros((SystemParameters.num_gw_sources,3))
         dot_product =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
