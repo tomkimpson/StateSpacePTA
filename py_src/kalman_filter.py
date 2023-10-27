@@ -216,7 +216,7 @@ class KalmanFilter:
     def likelihood_with_results(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
     
 
@@ -246,7 +246,6 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
-                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi

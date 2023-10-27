@@ -67,3 +67,6 @@ class SyntheticData:
         measurement_noise = generator.normal(0, pulsars.σm,self.f_measured_clean.shape) # Measurement noise. Seeded
         self.f_measured = self.f_measured_clean + measurement_noise
 
+
+        #add time as part of the data object
+        self.t = t

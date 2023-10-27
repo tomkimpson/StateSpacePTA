@@ -32,6 +32,58 @@ def plot_statespace(t,states,measurements,psr_index):
     ax2.plot(tplot,measurement_i)
     plt.show()
 
+
+
+
+
+def plot_observations(data,xp=None,yp=None,psr_index=1):
+
+    plt.style.use('science')
+
+    tplot = data.t / (365*24*3600)
+
+
+    states = data.intrinsic_frequency
+    measurements = data.f_measured
+
+
+    state_i = states[:,psr_index]
+    measurement_i = measurements[:,psr_index]
+
+
+    h,w = 12,8
+    rows = 2
+    cols = 1
+    fig, (ax1,ax2) = plt.subplots(nrows=rows, ncols=cols, figsize=(h,w),sharex=False)
+
+    ax1.plot(tplot,state_i,label='state')
+    ax2.plot(tplot,measurement_i,label="measurement")
+
+
+    if xp is not None:
+        predicted_state = xp[:,psr_index]
+        ax1.plot(tplot,predicted_state,label='state')
+
+
+
+
+    if yp is not None:
+        predicted_state = yp[:,psr_index]
+        ax2.plot(tplot,predicted_state,label='state')
+
+
+
+    plt.show()
+
+
+
+
+
+
+
+
+
+
 def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')
