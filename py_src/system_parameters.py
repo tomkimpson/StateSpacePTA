@@ -105,13 +105,13 @@ class SystemParameters:
             logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
             generator = np.random.default_rng(self.seed)
 
-            self.Ω = generator.uniform(low = 1e-7,high=1e-6,size=self.num_gw_sources)
+            self.Ω = generator.uniform(low = 1e-7,high=9e-7,size=self.num_gw_sources)
             self.Φ0 = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.ψ = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
             self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            self.h = generator.uniform(low = 2e-15,high=1e-14,size=self.num_gw_sources)
+            self.h = generator.uniform(low = 1e-15,high=9e-15,size=self.num_gw_sources)
 
         
         #     logging.info("Selected random GW parameters are as follows:")

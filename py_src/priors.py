@@ -126,9 +126,9 @@ def _set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,K,
         init_parameters,priors = _add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           # constant
         
 
-        if measurement_model == 'null':
+        if (measurement_model == 'null') or (measurement_model == 'earth') :
             for k in range(K):
-                init_parameters,priors = _add_to_bibly_priors_dict_chi_constant(chi[k,:],"chi",init_parameters,priors,k) #dont need prior on chi for the null model
+                init_parameters,priors = _add_to_bibly_priors_dict_chi_constant(chi[k,:],"chi",init_parameters,priors,k) #dont need prior on chi for the null model or the earth terms model
 
         else:
             for k in range(K):

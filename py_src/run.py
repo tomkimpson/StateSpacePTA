@@ -10,6 +10,7 @@ from bilby_wrapper import BilbySampler
 from priors import bilby_priors_dict
 import logging 
 import numpy as np 
+import bilby
 
 def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
 
@@ -48,14 +49,27 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
 
     #Now run the Bilby sampler
     #How many parameters are we trying to infer?
-    num_params = len(params) - P.Npsr #subtract the N \gammas which we never infer, just carry
-    logging.info(f"Total number of parameters to be inferred = {len(params)}")
-    #...set the number of live points accordingly
-    npoints = len(params) * 3
-    if npoints < 1000:
-        #npoints=1200
-        npoints =10000
+    #i.e. how many parameters which are not DeltaFunctions
+    num_params = 0
+    for key,value in priors.items():
+        if type(value) != bilby.core.prior.analytical.DeltaFunction:
+            num_params += 1
 
+
+#    num_params = len(params) - P.Npsr #subtract the N \gammas which we never infer, just carry
+    logging.info(f"Total number of parameters to be inferred = {num_params}")
+
+    #...set the number of live points accordingly
+    npoints = num_params * 3
+    if npoints < 1000:
+        npoints = 2000
+        #npoints=1200
+        #npoints =10000
+
+
+    #override for now
+    npoints = 2000
+    
     logging.info(f"Number of live points is {npoints}")
 
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/",npoints=npoints)
