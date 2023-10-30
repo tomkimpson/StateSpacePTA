@@ -498,7 +498,7 @@ The general measurement equation used in the inference model, Equation \eqref{eq
 Figure \ref{fig:corner_plot_1} displays results for the seven parameters in  $\boldsymbol{\theta}_{\rm gw}$ in the form of a traditional corner plot. The histograms are the one-dimensional posteriors for each parameter, marginalized over the six other parameters. The dashed vertical blue lines mark the 0.16 and 0.84 quantiles; the solid orange line marks the known injected value. The two-dimensional contours mark the (0.5, 1, 1.5, 2)-sigma level surfaces. All histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is scant evidence of railing against the prior bounds. Hence it is evident for this representative example, with characteristic strain $h_0 = 5 \times 10^{-15}$, that the analysis scheme estimates $\boldsymbol{\theta}_{\rm gw}$ accurately. The injected values are contained within the 90\% credible interval for all seven parameters in $\boldsymbol{\theta}_{\rm gw}$ . \newline 
  
  
-The posterior is approximately symmetric about the known injected value for some parameters such as $\Omega$, where the posterior median and the injected value coincide approximately. For other parameters (e.g. $\iota$) the distribution is not symmetric about the injected value and the posterior median and the injected value do not coincide. The median value of the posterior for $\iota$ is shifted by $\approx 0.35$ rad relative to the injected value, although the injected value does still remain inside the 90\% credible interval. Similar effects are seen, albeit with a smaller shift, in other parameters such as $\delta$ and $\alpha$. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias, or a random outcome specific to this particular noise realisation. We explore this further in Sections \ref{sec:multiple_noise} and \ref{sec:bias} using more noise realizations and show that indeed there is a systematic bias from dropping the pulsar terms, similar to that reported by \cite{Zhupulsarterms}. \newline 
+The posterior is approximately symmetric about the known injected value for some parameters such as $\Omega$, where the posterior median and the injected value coincide approximately. For other parameters (e.g. $\iota$) the distribution is not symmetric about the injected value and the posterior median and the injected value do not coincide. The median value of the posterior for $\iota$ is shifted by $\approx 0.35$ rad relative to the injected value, although the injected value does still remain inside the 90\% credible interval. Similar effects are seen, albeit with a smaller shift, in other parameters such as $\delta$ and $\alpha$. For a single realisation of the noise it is not clear if this discrepancy is a systematic effect, i.e. a bias, or a random outcome specific to this particular noise realisation. We explore this further in Sections \ref{sec:multiple_noise} and \ref{sec:pulsar_terms_drop} using more noise realizations and show that indeed there is a systematic bias from dropping the pulsar terms, similar to that reported by \cite{Zhupulsarterms}. \newline 
 
 Similar results are obtained for the 3$N$ parameters in $\boldsymbol{\theta}_{\rm psr, reduced}$. Again, the parameters are recovered unambiguously, in the sense that the nested sampler converges smoothly to a unimodal joint posterior near the known, injected parameter values, with all $3N$ injected parameters lying within the 90\% credible interval of the $3N$ one-dimensional, marginalized posteriors. We do not display the resulting corner plot because it is too big ($3N = 141$), and because inferring ${\boldsymbol{\theta}}_{\rm gw}$ is the focus of this paper and contemporary PTA analyses more generally.
 
@@ -577,75 +577,34 @@ The odds ratio $\beta$ drops off for $h_0 \lesssim 4 \times10^{-15}$. This happe
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/pp_plot_new}
-	\caption{The fraction of injections included within a given credible interval of the estimated posterior, as a function of the credible interval itself (i.e. PP plot). The injections are 200 simulated GW sources for a subset of five parameters in $\boldsymbol{\theta}_{\rm gw}$, randomly drawn from the prior distributions in Table \ref{tab:parameters_and_priors}. Each coloured curve corresponds to a different parameter (see legend). The parameters $h_0$ and $\iota$ are fixed at $5 \times 10^{-15}$ and 1.0 rad respectively in order to maintain an approximately constant SNR. The grey shaded contours label the $1\sigma$, $2\sigma$ and 3$\sigma$ confidence intervals given our statistical sample. For parameters with well estimated posteriors, the PP plot curve should fall along the diagonal of unit slope. $\Omega$ is generally well-estimated (i.e. it lies close to the unit diagonal) but the four other parameters show evidence of being over-constrained (i.e. the curves lie above the unit diagonal for low credible intervals, below the unit diagonal for high credible intervals). This is due to a modelling bias.}
+	\caption{Fraction of injections included within a given credible interval of the estimated posterior, as a function of the credible interval itself (i.e. PP plot). The injections are 200 simulated GW sources generated by drawing randomly five parameters in $\boldsymbol{\theta}_{\rm gw}$ from the prior distributions in Table \ref{tab:parameters_and_priors}. Each coloured curve corresponds to a different parameter (see legend). The parameters $h_0$ and $\iota$ are fixed at $5 \times 10^{-15}$ and 1.0 rad respectively in order to maintain an approximately constant SNR. The grey shaded contours label the $1\sigma$, $2\sigma$ and 3$\sigma$ confidence intervals. For parameters with well estimated posteriors, the PP curve should fall along the diagonal of unit slope. $\Omega$ is generally well-estimated (i.e. it lies close to the unit diagonal) but the four other parameters show evidence of being over-constrained (i.e. the curves lie above the unit diagonal for low credible intervals, and below the unit diagonal for high credible intervals). This is due to a modelling bias whose origin is discussed in Sections \ref{sec:parameter_estim} and \ref{sec:pulsar_terms_drop}.}
 	\label{fig:parameter_space}
 \end{figure}
 Section \ref{sec:rep_example} focuses on a single representative system, parameterised in Table \ref{tab:parameters_and_priors}. In this section we test the method for various systems, varying the SMBHB source parameters through astrophysically relevant ranges. \newline 
 
 We analyse 200 injections constructed by fixing $h_0 = 5 \times 10^{-15}$ and $\iota =1.0$ and drawing the remaining five elements of $\boldsymbol{\theta}_{\rm gw}$ randomly from the prior distributions defined in Table \ref{tab:parameters_and_priors}. We fix $h_0$ and $\iota$ in order to maintain an approximately constant signal-to-noise ratio (SNR) across the 200 injections. For each injection we compute the posterior distribution of ${\boldsymbol{\theta}}_{\rm gw}$. To summarise the results we use a parameter-parameter (PP) plot \citep{doi:10.1198/106186006X136976}. A PP plot displays the fraction of injections included within a given credible interval of the estimated posterior, plotted as a function of the credible interval itself. In the ideal case of perfect recovery, the PP plot should be a diagonal line of unit slope. \newline 
 
- Figure \ref{fig:parameter_space} displays the results of the numerical experiment described in the previous paragraph. The shaded grey contours enclose the $1\sigma$, $2\sigma$, and $3\sigma$ significance levels for 200 injections. We see that only $\Omega$ falls wholly within the $3\sigma$ shaded region. The PP curves for the other parameters deviate from the diagonal of unit slope. The deviation is more pronounced for $\alpha$ and $\delta$ and less for $\psi$ and $\Phi_0$. The shape of the graph indicates that the posteriors for these parameters are over-constrained; there are fewer injections contained within higher-value credible intervals than would be expected statistically, and there are more injections contained within lower-value credible intervals. 
+ Figure \ref{fig:parameter_space} displays the results of the numerical experiment described in the previous paragraph. The shaded grey contours enclose the $1\sigma$, $2\sigma$, and $3\sigma$ significance levels for 200 injections. We see that only $\Omega$ falls wholly within the $3\sigma$ shaded region. The PP curves for the other parameters deviate from the diagonal of unit slope. The deviation is more pronounced for $\alpha$ and $\delta$ and less for $\psi$ and $\Phi_0$. The shape of the graph indicates that the posteriors for these parameters are over-constrained; there are fewer injections contained within higher-value credible intervals than would be expected statistically, and there are more injections contained within lower-value credible intervals. This stems from the bias noted in Section \ref{sec:multiple_noise}. The origin of the bias is discussed in Section \ref{sec:pulsar_terms_drop}. 
  
- 
-  
- This stems from the bias noted in Section \ref{sec:multiple_noise}; 
- 
- 
- 
- 
-\textbf{ NEW DATA INCOMING. See OCT pp}
-
- the posteriors inferred for these parameters are generally narrow, but are systematically biased away from the true injection values. 
- 
- 
- 
- Consequently at higher-value credible intervals the posterior is too narrow to 
- 
- 
- 
- 
- 
- 
- 
- 
- and the PP plot follows a characterstic S-shape, diagnostic of an under constrained posterior  
- 
- Consequently at lower-value credible intervals  
- 
- 
- This translates in the PP plot to posteriors which are too narrow to contain the injected value within the credible interval. 
- 
- The origin of the bias is discussed in Section \ref{sec:bias}. 
- 
- 
- 
- 
- 
- 
- 
- 
- This stems from the bias noted in Section \ref{sec:multiple_noise}; the posteriors inferred for these parameters are generally confident, but are systematically biased away from the true injection values. This manifests in the PP plot as posteriors which are overly precise (narrow) to contain the injected value within the appropriate credible interval. The origin of the bias is discussed in Section \ref{sec:bias}. 
-
 \section{Systematic biases} \label{sec:bias_and_identifiability}
- Two systematic aspects of the tests in Sections \ref{sec:rep_example} and \ref{sec:parameter_space} merit further study. The first relates to parameter identifiability, i.e. can we uniquely identify the parameters of the model given the data and the model structure? This question is explored in Section \ref{sec:identif}. The second relates to a bias in the parameter estimates that results from dropping the pulsar terms from the Kalman filter measurement equation as described in Section \ref{sec:parameter_estim}. It is the focus of Section \ref{sec:bias}. In order to elucidate these matters without confusion from the measurement noise, we switch to the high-SNR regime and set $h_0 = 10^{-12}$ (c.f. Figure \ref{fig:bayes}) for the representative system in Table \ref{tab:parameters_and_priors}.
+ Two systematic aspects of the tests in Sections \ref{sec:rep_example} and \ref{sec:parameter_space} merit further study. The first relates to parameter identifiability, i.e. can we uniquely identify the parameters of the model given the data and the model structure? This question is explored in Section \ref{sec:identif}. The second relates to a bias in the parameter estimates that results from dropping the pulsar terms from the Kalman filter measurement equation as described in Section \ref{sec:parameter_estim}. It is the focus of Section \ref{sec:pulsar_terms_drop}. In order to elucidate these matters without confusion from the measurement noise, we switch to the high-SNR regime and set $h_0 = 10^{-12}$ (c.f. Figure \ref{fig:bayes}) for the representative system in Table \ref{tab:parameters_and_priors}.
 
 \subsection{Identifiability}\label{sec:identif}
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/stacked_GW_plot_iota_h}
-	\caption{Posterior probability distributions for the representative system described in Table \ref{tab:parameters_and_priors} over nine noise realisations for the GW source parameters $\iota$ and $h_0$ in the high SNR regime ($h_0 = 10^{-12}$). Unlike the other parameters of  $\boldsymbol{\theta}_{\rm gw}$, the one-dimensional posteriors for $\iota$ and $h_0$ do not strongly overlap. A correlation between  $\iota$ and $h_0$ is evident.}
+	\caption{Corner plot of the joint posterior distribution of the GW source parameters $h_0$ and $\iota$ for the representative system in Table 1 in the high-SNR regime ($h_0 = 10^{-12}$). Nine coloured curves are plotted for nine random noise realizations. The posteriors overlap less than for the other five parameters in ${\boldsymbol{\theta}}_{\rm gw}$. A correlation between $h_0$ and $\iota$ is evident in the bottom left panel.}
 	\label{fig:just_iota_h}
 \end{figure}
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/likelihood_surface}
-	\caption{Log-likelihood $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) contours in the $\iota - h_0$ plane for a single noise realisation. The red dot marks the maximum of $\log {\cal L}$. The colour scale is normalised with respect to the absolute value of the maximum. An S-shaped likelihood ridge is visible, which makes it difficult for the nested sampler to converge to a unique value.}
+	\caption{Log-likelihood $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) contours in the $\iota$- $h_0$ plane for a single noise realisation. The red dot marks the maximum of $\log {\cal L}$. The colour scale is normalised with respect to the absolute value of the maximum. An S-shaped likelihood ridge is visible, which makes it difficult for the nested sampler to converge to a unique value.}
 	\label{fig:likelihood_surface}
 \end{figure}
-In Figure \ref{fig:just_iota_h} we plot the one-dimensional posteriors for $\iota$ and $h_0$ for the high-SNR representative system for nine noise realisations. 
-The figure is entirely analogous to Figure \ref{fig:corner_plot_2}, but the corner plot displays $\iota$ and $h_0$ rather than all elements of $\boldsymbol{\theta}_{\rm gw}$. One observes four things: (i) the plotted posteriors are unimodal but offset systematically from the true, injected values, which is related to the bias discussed in Section 7.2; (ii) a correlation between $h_0$ and $\iota$ is visible in the two-dimensional contours; (iii) the posteriors do not overlap tightly, a trend seen also in the $\delta$ posterior in Figure \ref{fig:corner_plot_2}; and (iv) features (i)--(iii) occur, even though the SNR is high. One expects a priori that the parameter estimates should become more accurate, as the SNR increases, but this is not true for $h_0$ and $\iota$. Specifically, across $10^3$ noise realisations, the median WD for $\iota$ is $W_{1, \rm median}=0.24$ rad and for $h_0$ is  $W_{1, \rm median}=1.6 \times 10^{-13}$. Both $W_{1,{\rm median}}$ values are higher (as a fraction of the true, injected value) than in the lower-SNR tests conducted in Sections \ref{sec:rep_example} and \ref{sec:parameter_space}. In contrast, $W_{1,\rm median}$ for the other five parameters in $\boldsymbol{\theta}_{\rm gw}$ decreases, as the SNR increases. \newline 
+In Figure \ref{fig:just_iota_h} we plot the one- and two-dimensional posteriors for $\iota$ and $h_0$ for the high-SNR representative system for nine noise realisations. The figure is entirely analogous to Figure \ref{fig:corner_plot_2}, but the corner plot displays $\iota$ and $h_0$ rather than all elements of $\boldsymbol{\theta}_{\rm gw}$. One observes four things: (i) the plotted posteriors are unimodal but offset systematically from the true, injected values, due to the bias discussed in Section 7.2; (ii) a correlation between $h_0$ and $\iota$ is visible in the two-dimensional contours; (iii) the posteriors do not overlap tightly, a trend seen also in the $\delta$ posterior in Figure \ref{fig:corner_plot_2}; and (iv) features (i)--(iii) occur, even though the SNR is high. One expects a priori that the parameter estimates should become more accurate, as the SNR increases, but this is not true for $h_0$ and $\iota$. Specifically, across $10^3$ noise realisations, the median WD for $\iota$ is $W_{1, \rm median}=0.24$ rad and for $h_0$ is  $W_{1, \rm median}=1.6 \times 10^{-13}$. Both $W_{1,{\rm median}}$ values are higher (as a fraction of the true, injected value) than in the lower-SNR tests conducted in Sections \ref{sec:rep_example} and \ref{sec:parameter_space}. In contrast, $W_{1,\rm median}$ for the other five parameters in $\boldsymbol{\theta}_{\rm gw}$ decreases, as the SNR increases. \newline 
 
-We infer different $h_0$ and $\iota$ posteriors for different noise realizations, because $h_0$ and $\iota$ are weakly identifiable. Identifiability is a formal concept from the theory of signal processing, which is applied routinely to engineering problems \citep{e5be7c83a0d24500826f6e1b414d1733}. It refers to whether it is theoretically possible to infer unique and accurate parameter values, given the measured data and the model structure . Sources of non-identifiability are generally categorised as either ``structural'' , arising from the structure of the model (e.g. its invertibility), or ``practical'', arising from insufficient data or measurement errors \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$, the source is structural. Equations \eqref{eq:hphx} and \eqref{eq:hphx2} contain a weak degeneracy between $\iota$ and $h_0$. For example, the cross polarisation strain $h_{\times}$ involves a trade-off between $\iota$ and $h_0$, which is broken by knowing $h_+$ via Equation \eqref{eq:hphx}. However, the measured strain is a linear combination of $h_\times$ and $h_+$; the two polarizations are not measured independently, which makes it challenging to separate $\iota$ and $h_0$. In fact $\iota$ and $h_0$ are structurally identifiable --- but only weakly. That is, the $\iota$-$h_0$ likelihood contours plateau to a ridge with a small, non-zero gradient close to the maximum likelihood solution. The likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maximum does exists (labelled by the red dot in the figure), it lies along an S-shaped ridge where the likelihood values are all similar. Consequently it is difficult for the nested sampling algorithm to settle on the red dot; it trades off accuracy in one parameter against the other, depending on the particular realisation of the noise. By way of verification, if we fix one parameter at its true value (i.e. set a delta function prior) during the inference analysis, the posteriors for the other parameter overlap indistinguishably  for different noise realisations, i.e. $W_1 \to 0$. 
+We infer different $h_0$ and $\iota$ posteriors for different noise realizations, because $h_0$ and $\iota$ are weakly identifiable. Identifiability is a formal concept from the theory of signal processing, which is applied routinely to engineering problems \citep{e5be7c83a0d24500826f6e1b414d1733}. It refers to whether it is theoretically possible to infer unique and accurate parameter values, given the measured data and the model structure. Sources of non-identifiability are generally categorised as either ``structural'' , arising from the structure of the model (e.g. its invertibility), or ``practical'', arising from insufficient data or measurement errors \citep{GUILLAUME2019418}. Regarding $\iota$ and $h_0$, the source is structural. Equations \eqref{eq:hphx} and \eqref{eq:hphx2} contain a weak degeneracy between $\iota$ and $h_0$. For example, the cross polarisation strain $h_{\times}$ involves a trade-off between $\iota$ and $h_0$, which is broken by knowing $h_+$ via Equation \eqref{eq:hphx}. However, the measured strain is a linear combination of $h_\times$ and $h_+$; the two polarizations are not measured independently, which makes it challenging to separate $\iota$ and $h_0$. In fact $\iota$ and $h_0$ are structurally identifiable --- but only weakly. That is, the $\iota$-$h_0$ likelihood contours plateau to a ridge with a small, non-zero gradient close to the maximum likelihood solution. The likelihood ridge is presented in Figure \ref{fig:likelihood_surface} for a particular noise realisation. Whilst a single, unique maximum does exist (labelled by the red dot in the figure), it lies along an S-shaped ridge where the likelihood values are all similar. Consequently it is difficult for the nested sampling algorithm to settle on the red dot; it trades off accuracy in one parameter against the other, depending on the particular realisation of the noise. By way of verification, if we fix one parameter at its true value (i.e. set a delta function prior) during the inference analysis, the posteriors for the other parameter overlap indistinguishably  for different noise realisations, i.e. $W_1 \to 0$. 
 
 
 \subsection{Dropping the pulsar terms}\label{sec:pulsar_terms_drop}
@@ -659,150 +618,202 @@ We infer different $h_0$ and $\iota$ posteriors for different noise realizations
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/likelihood_iota_new}
-	\caption{Log-likelihood returned by the Kalman filter as a function of inclination $\iota$, using the Earth terms model (Equation \ref{eq:measuremen_earth}, blue line), the pulsar terms model (Equation \ref{eq:measurement}, orange line), and a control experiment that drops the pulsar terms from both the synthetic data and the Kalman filter model (green line). All other parameters are fixed at their true injected value from Table \ref{tab:parameters_and_priors}. The coloured dashed vertical lines mark the maximum for the corresponding model; the green and orange dashed lines overlap at this resolution. For the Earth-terms model the likelihood maximum ($\iota \approx 0.7$) does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the maximum and injected value do coincide. 10 noise realisations are plotted for each situation but overlap at this resolution; they are indistinguishable to the eye.}
+	\caption{Log-likelihood returned by the Kalman filter as a function of inclination $\iota$, using the Earth terms in the Kalman filter (Equation \ref{eq:measuremen_earth}, blue line), the pulsar terms in the Kalman filter (Equation \ref{eq:measurement}, orange line), and a control experiment that drops the pulsar terms from both the synthetic data and the Kalman filter (green line). All other parameters are fixed at their true injected value from Table \ref{tab:parameters_and_priors}. The coloured dashed vertical lines mark the maximum for the corresponding model; the green and orange dashed lines overlap at this resolution. For the Earth-terms model the likelihood maximum ($\iota \approx 0.7$) does not coincide with the injected value ($\iota = 1.0$). For the pulsar-terms model the maximum and injected value do coincide. 10 noise realisations are plotted for each situation but overlap at this resolution; they are indistinguishable to the eye.}
 	\label{fig:likelihood_surface_iota}
 \end{figure}
 
-Sections \ref{sec:rep_example} and \ref{sec:parameter_space} present preliminary evidence that the inferred value of ${\boldsymbol{\theta}}_{\rm gw}$ (e.g. the medians of the one-dimensional marginalised posteriors) is biased away from the true injected value. Figure \ref{fig:bias_for_large_h} displays a corner plot for $\boldsymbol{\theta}_{\rm gw}$, analogous to Figure \ref{fig:corner_plot_1}, but for high SNR $(h_0 = 10^{-12})$. Except for $\Omega$ and $h_0$, the injected value lies outside the 90\% credible interval, to the extent that it falls outside the plotted domain. The deviation is most severe for $\iota$ with a bias of $\sim 0.3$ rad but is also present to a lesser extent in other static parameters such as $\delta,\alpha$ and $\psi$. Similar results are obtained for other noise realisations. Whilst $h_0$ does not exhibit any noticeable bias for the particular noise realisation generating Figure \ref{fig:bias_for_large_h}, in general it does exhibit a correlated bias with $\iota$ across multiple noise realisations, as noted in the bottom left panel of Figure \ref{fig:just_iota_h}. In this section we demonstrate how the bias stems from dropping the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
+Sections \ref{sec:rep_example} and \ref{sec:parameter_space} present preliminary evidence that the inferred value of ${\boldsymbol{\theta}}_{\rm gw}$ (e.g. the medians of the one-dimensional marginalised posteriors) is biased away from the true injected value. Figure \ref{fig:bias_for_large_h} displays a corner plot for $\boldsymbol{\theta}_{\rm gw}$, analogous to Figure \ref{fig:corner_plot_1}, but for high SNR $(h_0 = 10^{-12})$. Except for the elements $\Omega$ and $h_0$, the injected value lies outside the 90\% credible interval, to the extent that it falls outside the plotted domain. The deviation is most severe for $\iota$ with a bias of $\sim 0.3$ rad but is also present to a lesser extent in other static parameters such as $\delta,\alpha$ and $\psi$. Similar results are obtained for other noise realisations. Whilst $h_0$ does not exhibit any noticeable bias for the particular noise realisation generating Figure \ref{fig:bias_for_large_h}, in general it does exhibit a correlated bias with $\iota$ across multiple noise realisations, as noted in the bottom left panel of Figure \ref{fig:just_iota_h}. In this section we demonstrate how the bias stems from dropping the pulsar terms described in Section \ref{sec:parameter_estim}. \newline 
 
 
-In Figure \ref{fig:likelihood_surface_iota} we plot the log-likelihood returned by the Kalman filter, viz. Equation \eqref{eq:likelihood}, as a function of $\iota$ (i.e. $\log \mathcal{L}(\iota)$) across the prior domain, holding all other parameters constant at the true injected value of the representative system in Table \ref{tab:parameters_and_priors}. We generate 10 $\log \mathcal{L}(\iota)$ solutions corresponding to 10 separate realisations of the system noise. The solid blue curves only includes the Earth terms (i.e. using Equation \eqref{eq:measuremen_earth} in the Kalman filter). The solid orange curves include the Earth and pulsar terms (i.e. using Equation \eqref{eq:measurement}). The solid green curve corresponds to a control experiment, where we drop the pulsar terms from both the synthetic data and the measurement equation. The vertical dashed lines mark the maxima, which nested sampling seeks. \newline  
+In Figure \ref{fig:likelihood_surface_iota} we plot the log-likelihood returned by the Kalman filter, viz. Equation \eqref{eq:likelihood}, as a function of $\iota$ (i.e. $\log \mathcal{L}(\iota)$) across the prior domain, holding all other parameters constant at the true injected value of the representative system in Table \ref{tab:parameters_and_priors}. We generate 10 plots of $\log \mathcal{L}(\iota)$ corresponding to 10 separate realisations of the system noise. The solid blue curves only includes the Earth terms in the measurement equation (i.e. using Equation \eqref{eq:measuremen_earth} in the Kalman filter). The solid orange curves include the Earth and pulsar terms in the measurement equation (i.e. using Equation \eqref{eq:measurement}). The solid green curve corresponds to a control experiment, where we drop the pulsar terms from both the synthetic data and the measurement equation. The vertical dashed lines mark the corresponding maxima, which nested sampling seeks. \newline  
 
 
-The key observation from Figure \ref{fig:likelihood_surface_iota} is that the location of the maximum ($\iota \approx 0.7 \, {\rm rad}$) does not coincide with the true, injected value ($\iota = 1.0 \, {\rm rad}$), when only the Earth terms are included. This is the origin of the bias in the one-dimensional marginalised posteriors. In contrast, the maximum aligns with the true, injected value, when the pulsar terms are included. As a cross-check, agreement is also achieved, if we drop the pulsar terms from the synthetic data (which is not the situation in reality, of course) and use the Earth terms only for inference. Similar results are obtained for other parameters, e.g. $\delta$. A discussion on why the bias is present in particular elements of $\boldsymbol{\theta}_{\rm gw}$, and the implications of the bias for continuous wave searches is presented in Appendix \ref{sec:bias_appendix}. \newline 
+The key observation from Figure \ref{fig:likelihood_surface_iota} is that the location of the maximum ($\iota \approx 0.7 \, {\rm rad}$) does not coincide with the true, injected value ($\iota = 1.0 \, {\rm rad}$), when only the Earth terms are included. This is the origin of the bias in the one-dimensional marginalised posteriors in Figure \ref{fig:bias_for_large_h}. In contrast, the maximum aligns with the true, injected value, when the pulsar terms are included. As a cross-check, agreement is also achieved, if we drop the pulsar terms from the synthetic data (which is not the situation in reality, of course) and use the Earth terms only for inference. Similar results are obtained for other parameters, e.g. $\delta$. A discussion on why the bias is present in particular elements of $\boldsymbol{\theta}_{\rm gw}$, and the implications of the bias for continuous wave searches, are presented in Appendix \ref{sec:bias_appendix}. Dropping the pulsar terms biases several of the inferred parameters (e.g.\ those that affect the GW amplitude), not just the sky position  \citep[e.g.][]{Zhupulsarterms,Chen2022}. The bias is not particular to our method; it is shared by all likelihood-based methods that do not include the pulsar terms in the inference model. Generalizing the Kalman tracker and nested sampler to correct for the bias will be a key goal of a forthcoming paper. 
 
 
-We show in this section that dropping the pulsar terms biases several of the inferred parameters (e.g.\ those that affect the GW amplitude), not just in the sky position  \citep[e.g.][]{Zhupulsarterms,Chen2022}. The bias is not particular to our method; it is shared by likelihood based methods that do not include the pulsar terms in the inference model. Generalizing the Kalman tracker and nested sampler to correct for the bias will be a key goal of a future paper. 
+\section{Conclusion}\label{sec:discussion}
 
-
-\section{Discussion}\label{sec:discussion}
-We have shown how our complementary approach to PTA data analysis using a Kalman filter can successfully recover the underlying parameters of the model and calculate Bayes factors in order to perform Bayesian model selection. There are a number of potential extensions of this work which we now discuss.  \newline 
-
-The natural first extension is to implement the method whilst retaining the pulsar terms of Equation \ref{eq:measurement}. Whilst PTA searches commonly drop the pulsar terms as standard practice, we have shown that this leads to biases in the inferred one-dimensional marginalized posteriors for the model parameters. Biases in sky localisation for synthetic datasets as a result of dropping the pulsar terms are also observed by \cite{Zhupulsarterms} and \cite{Chen2022}. Alternatively, if the method continues to be used with solely the Earth terms then it would be highly desirable to make systematic, quantitative estimates of the incurred biases in the model parameters across an astrophysically representative parameter space. \newline 
-
-We have considered only a specific configuration of pulsars composing our synthetic PTA - the same pulsars that make up the 12.5-year NANOGrav (Section \ref{sec:synt_pta}). Whilst our method is generally independent of the specific choice of pulsars, it would be of interest to compare the performance of the method using different pulsars configurations and different PTAs such as PPTA and the EPTA. Indeed, since adding pulsars to PTAs increases the computational demands of the data analysis it may be advantageous to optimally select a subset of the total available pulsars which may be able to provide comparable performance to a larger PTA  \citep{2023MNRAS.518.1802S}.  \newline 
-
-Throughout this work we have assumed that all pulsars are observed at the same time, with a constant time sampling. In practice this assumption does not hold and different pulsars will be observed with different cadences at different times. Extending this method to non-constant time sampling is straightforward and the performance of the method should be evaluated in this regime. \newline 
-
-We have taken our GW source to be monochromatic, i.e. $\Omega$ is a fixed parameter with no time dependence. Whilst this is an astronomically well-justified assumption (see discussion in Section \ref{sec:plane_gw}), and appropriate for this initial methods work, it would also be of interest to extend the state-space construction to enable the GW frequency to evolve in time. The GW source is monochromatic over the decadal PTA observation period, but the timescale set by the Earth-pulsar distance is comparable to the SMBHB evolution timescale \citep{Sesana2010}. For $\Delta f_{\rm gw} < 1 / T_{\rm obs}$ (see Equation \eqref{eq:f_evolution}) the GW source frequency evolution manifests as an incoherent source of noise in the pulsar terms, whilst for  $\Delta f_{\rm gw} > 1 / T_{\rm obs}$ the pulsar terms can affect the phase coherency of the Earth terms \citep{Perrodin2018}. Careful consideration of the evolution of the GW frequency will be important as we look to extend our method to include the pulsar terms in the inference model. \newline 
-
-We have also assumed that there is only a single GW source that influences the received pulsar frequencies. However, it may be possible to resolve multiple continuous GW sources concurrently \citep{PhysRevD.85.044034}. Our method naturally extends to detecting multiple GW sources simultaneously; Equation \eqref{eq:measurement} is straightforwardly modified to become a linear superposition of multiple GWs. The stochastic background itself is the incoherent summation of many individual GW sources. It therefore stands to reason that it may be possible to extend this method to also search for a stochastic GW background, providing a complementary approach to detect the stochastic background without requiring a cross-correlation of the pulsar residuals to uncover the Hellings-Downs curve. \newline 
-
-To conclude, in this paper we demonstrate a new method for the detection and parameter estimation of GWs from individual, monochromatic SMBHBs. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than subtracting the ensemble-averaged statistics. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW induced modulations. This enables the inference of GW parameters conditioned on the specific observed realisation of the noisy data. We introduce the Kalman filter in order to track the intrinsic state evolution of the pulsar and combine this with a Bayesian sampling framework to estimate the posterior distributions of each parameter of the system, as well as the associated evidence (marginalised likelihood) of the model. We test our method on synthetic data. We initially focus on a single, astrophysically representative, SMBHB GW source detected with the 12.5-year NANOGrav pulsars observed over a 10 year timespan. The parameters of the model are accurately recovered and the minimal detectable strain is estimated to be $h_0 \sim 4 \times 10^{-15}$ for $\iota=1.0$ rad. The method is then further tested over 1000 noise realisations. Consistent posterior estimates of the parameters are obtained for the majority of noise realisations, with the median Wasserstein distance across all noise realisations $W_{1, \rm median}$ generally small compared to the prior space ($\lesssim 3 \%$). For a minority of noise realisations the nested sampler converges poorly and settles into a local likelihood optima for the posteriors estimates of $\psi$ and $\alpha$. This problem can be solved in general by increasing the number of live points $n_{\rm live}$ used by the sampler. Exploration of a broader parameter space via 200 randomly sampled parameter vectors highlights biases in some parameters as a result of dropping the pulsar terms from the inference model. The cause of these biases is examined for the case of high SNR, along with the structural weak-identifiability between $\iota$ and $h_0$. The extension of this method to include the pulsar term is a key challenge for a future work.
+In this paper we demonstrate a new method for the detection and parameter estimation of GWs from individual, monochromatic SMBHBs in PTA data. The new method is complementary to traditional approaches. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than subtracting the ensemble-averaged statistics. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW-induced modulations, and thereby infer the GW source parameters conditional on the specific observed realisation of the noisy data. We implement a Kalman filter in order to track the intrinsic rotational state evolution of the pulsar and combine it with a Bayesian sampling framework to estimate the posterior distributions of each static parameter, as well as the associated Bayesian evidence (marginalised likelihood) of the model. \newline 
+ 
+ We test the new method on synthetic data and find that it detects injected signals successfully and estimates their static parameters accurately with relatively low computational cost. We initially focus on a single, astrophysically representative, SMBHB GW source observed synthetically by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$. The minimum detectable strain is estimated to be $\min(h_0) \approx 4 \times 10^{-15}$ for $\iota=1.0$ rad. We then repeat the parameter estimation exercise for 1000 noise realisations to compute the natural dispersion (``cosmic variance'') in the recovered values and hence quantify the statistical accuracy of the method in a real astrophysical application, when the true parameter values are unknown. Consistent posteriors are obtained for most realisations, with the median Wasserstein distance limited to $\lesssim 3\%$ of the width of the prior domain (i.e.\ negligible railing). The median Wasserstein distance as a fraction of the injected value, an approximate measure of the natural dispersion, ranges from  0.2\% for $\Omega$ to 67\% for $\Phi_0$. \newline 
+  
+  
+Exploration of a broader SMBHB parameter domain at fixed $\iota$ and $h_0$ via 200 randomly sampled parameter vectors suggests at the presence of a bias in the estimates of the static parameters $\delta$ and $\alpha$, (and to a lesser extent in $\psi$ and $\Phi_0$). The bias is examined for a specific SMBHB GW source in the limit of high-SNR. It is greatest for $\iota$ at $\sim 0.3$ rad, but smaller biases of $ \lessapprox 0.1$ rad are also observed in $\Phi_0, \psi, \delta$ and $\alpha$. The bias is shown to result from dropping the pulsar terms from the measurement equation in the Kalman filter. The method also exhibits a trade-off between $h_0$ and $\iota$, which follows formally from the weak identifiability of $h_0$ and $\iota$. \newline 
  
  
+We emphasize that the Kalman tracker and nested sampler in this paper do not supplant traditional PTA analysis approaches; they complement traditional approaches and are most powerful when used in tandem. Relatedly, it is misleading to ask whether the Kalman tracker and nested sampler are more or less sensitive than traditional approaches for two reasons. First, one must still generalize the Kalman tracker and nested sampler to ingest TOAs directly, as happens traditionally, instead of ingesting a frequency time series, as in this paper. Generalizing the algorithm is a subtle task and is postponed to a forthcoming paper. Second, the Kalman tracker and nested sampler are conditional on a noise model that is related but different to the noise model in traditional approaches. The analysis in this paper assumes a specific, time-ordered realization of a mean-reverting Ornstein-Uhlenbeck process satisfying Equations \eqref{eq:spinevol}--\eqref{eq:xieqn}, whereas traditional analyses assume a stationary Gaussian process described by an ensemble-averaged, power-law PSD, whose amplitude and exponent are adjustable. Hence the sensitivities cannot be compared directly. Clarifying the similarities and differences between various approaches promises to be a fruitful avenue of future work. It is also the subject of attention in audio-band GW data analysis involving hidden Markov models applied to data from terrestrial long-baseline interferometers \citep{PhysRevD.102.023006,PhysRevD.105.022002,Abbott_2022SCO,2022PhRvD.106f2002A}. \newline 
+
+
+
+ The approach in this paper can be extended in at least five ways, enumerated as (i)--(v) below. \newline 
+ 
+(i) A natural first extension is to retain the pulsar terms in Equation \eqref{eq:measurement}. Alternatively, if the method continues to be used with solely the Earth terms, in line with standard practice in published PTA analyses, it would be desirable to evaluate systematically the incurred biases in the model parameters across an astrophysically representative parameter domain, supplementing the results obtained by other authors \citep{Zhupulsarterms,Chen2022}.\newline 
+
+
+(ii) In this paper, we consider one specific configuration of the synthetic PTA, namely the same pulsars that make up the 12.5-year NANOGrav (Section \ref{sec:synt_pta}). It is interesting to compare the performance of the method using different pulsar configurations, e.g. those in the PPTA and EPTA. Adding pulsars to PTAs increases the computational cost so it may be advantageous to select a subset of pulsars by exploiting formal optimization techniques from electrical engineering\citep{2023MNRAS.518.1802S}, although the Kalman filter and nested sampler are already cheaper computationally than some other methods. \newline 
+
+
+(iii) In practice different pulsars in a PTA are be observed with different cadences at different times. Extending the Kalman filter to non-uniform time sampling is straightforward \citep{zarchan2000fundamentals}. \newline 
+
+
+
+(iv) The assumption of a monochromatic source is well-justified astrophysically in various regimes (see Section \ref{sec:plane_gw}) and is an appropriate starting point for this introductory paper. Nevertheless, SMBHBs are not strictly monochromatic. It is interesting to extend the state-space framework such that $f_{\rm gw}$ evolves in time. For $\Delta f_{\rm gw} < 1 / T_{\rm obs}$ (see Equation \eqref{eq:f_evolution}) evolution adds noise incoherently to the pulsar terms, whilst for $\Delta f_{\rm gw} > 1 / T_{\rm obs}$ the pulsar terms induce phase shifts that affect the overall phase coherence \citep{Sesana2010,Perrodin2018}. Careful consideration of the evolution of $f_{\rm gw}$ will be needed when including the pulsar terms in the inference model, as in point (i). \newline 
+
+
+(v) Finally, we assume in this paper that there is only one GW source. However, it may be possible to resolve multiple continuous GW sources concurrently \citep{PhysRevD.85.044034}. The Kalman filter extends naturally to multiple sources; one can modify Equation \eqref{eq:measurement} easily to accommodate a linear superposition of GWs. Taking the logic further, the stochastic background itself is an incoherent sum of many individual GW sources. As long as a way can be found to summarize economically the many static parameters associated with the background sources, it should be possible for a Kalman filter and nested sampler to operate together to detect the stochastic background by generalizing the model selection procedure in Sections \ref{sec:model_selection} and \ref{sec:detection}. Summarizing the parameter set economically, while respecting the mathematical structure of the Kalman filter, is a subtle challenge, which we postpone to a forthcoming paper. If successful, it will complement the traditional approach of cross-correlating pulsar residuals to uncover the Hellings-Downs curve \citep{Hellings,2023ApJ...951L...8A}. \newline 
+
+
+
+\section*{Acknowledgements}
+This research was supported by the Australian Research Council Centre of Excellence for Gravitational Wave Discovery (OzGrav), grant number CE170100004. A. The numerical calculations were performed on the OzSTAR supercomputer facility at Swinburne University of Technology. The OzSTAR program receives funding in part from the Astronomy National Collaborative Research Infrastructure Strategy (NCRIS) allocation provided by the Australian Government.
+
+
+%%%% REFERENCES
+\bibliographystyle{mnras}
+\bibliography{example} % if your bibtex file is called example.bib
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \appendix
 
-\section{Kalman recursion equations} \label{sec:kalman}
-The linear Kalman filter operates on temporally discrete, noisy measurements $\boldsymbol{Y}_k$, which are related to a set of unobservable discrete system states $\boldsymbol{X}_k$, via a linear transformation:
+\section{Kalman filtering} \label{sec:kalman}
+In this appendix, we describe the Kalman filter algorithm used in this paper. The general recursion relations for the discrete-time Kalman filter applied to an arbitrary linear dynamical system. are outlined in Section \ref{sec_kalman_general}. The mapping onto our specific continuous-time state-space model described in Section \ref{sec:model} is given in Section \ref{sec_kalman_specific}.
+
+
+\subsection{Recursion equations}\label{sec_kalman_general}
+The linear Kalman filter operates on temporally discrete, noisy measurements $\boldsymbol{Y}_k$, which are related to a set of unobservable discrete system states $\boldsymbol{X}_k$, via a linear transformation
 \begin{equation}
 	\boldsymbol{Y}_k = \boldsymbol{H}_k \boldsymbol{X}_k + \boldsymbol{v}_k \ ,\label{eq:kalman1}
 \end{equation}
-where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise, $\mathcal{N} \sim (0,\boldsymbol{R}_k)$ with covariance, and the subscript $k$ labels the time-step. The Kalman filter takes the underlying states to evolve according to
+where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise, $\mathcal{N} \sim (0,\boldsymbol{R}_k)$ with covariance $\boldsymbol{R}_k$, and the subscript $k$ labels the time-step. The Kalman filter takes the underlying states to evolve according to
 \begin{equation}
 	\boldsymbol{X}_k = \boldsymbol{F}_k \boldsymbol{X}_{k-1} + \boldsymbol{G}_k \boldsymbol{u}_k + \boldsymbol{w}_k \ , \label{eq:kalman2}
 \end{equation}
-where $\boldsymbol{F}$ is the system dynamics matrix, $\boldsymbol{G}$ the control matrix. $\boldsymbol{u}$ the control vector, and $\boldsymbol{w}_k$ is a zero-mean Gaussian process noise, $\mathcal{N} \sim (0,\boldsymbol{Q}_k)$. \newline 
+where $\boldsymbol{F}_k$ is the system dynamics matrix, $\boldsymbol{G}_k$ the control matrix. $\boldsymbol{u}_k$ the control vector, and $\boldsymbol{w}_k$ is a zero-mean Gaussian process noise, $\mathcal{N} \sim (0,\boldsymbol{Q}_k)$ with covariance $\boldsymbol{Q}_k$ \newline 
 
 The Kalman filter is a recursive estimator with two distinct stages; a ``predict" stage and an ``update" stage. The predict stage predicts the estimate of the state at discrete step $k$, given the state estimates from step $k-1$. Specifically, the predict step proceeds as,
-\begin{equation}
-	\hat{\boldsymbol{X}}_{k|k-1} =  \boldsymbol{F}_k \hat{\boldsymbol{X}}_{k-1|k-1} + \boldsymbol{G}_k \boldsymbol{u}_k
-\end{equation}
-\begin{equation}
-	\hat{\boldsymbol{P}}_{k|k-1} =  \boldsymbol{F}_k \hat{\boldsymbol{P}}_{k-1|k-1} \boldsymbol{F}_k^\intercal + \boldsymbol{Q}_k 
-\end{equation}
+\begin{align}
+	\hat{\boldsymbol{X}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{X}}_{k-1|k-1} + \boldsymbol{G}_k \boldsymbol{u}_k \ , \\
+		\hat{\boldsymbol{P}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{P}}_{k-1|k-1} \boldsymbol{F}_k^\intercal + \boldsymbol{Q}_k  \ .
+\end{align}
 Note that the predict stage is independent of the measurements. The measurement $\boldsymbol{Y}_k$ is included to update the prediction during the update stage as follows:
-\begin{equation}
-	\boldsymbol{\epsilon}_{k} = \boldsymbol{Y}_k - \boldsymbol{H}_k \hat{\boldsymbol{X}}_{k|k-1}
-\end{equation} 
-\begin{equation}
-	\boldsymbol{S}_k = \boldsymbol{H}_k \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal + \boldsymbol{R}_k
-\end{equation}
-\begin{equation}
-	\boldsymbol{K}_k = \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal \boldsymbol{S}_k^{-1} \label{eq:kalman gain}
-\end{equation}
-\begin{equation}
-	\hat{\boldsymbol{X}}_{k|k} =\hat{\boldsymbol{X}}_{k|k-1} +\boldsymbol{K}_k  \boldsymbol{\epsilon}_{k}  \label{eq:kalmangainupdate}
-\end{equation}
-\begin{equation}
-		\hat{\boldsymbol{P}}_{k|k} = \left( \boldsymbol{I} - \boldsymbol{K}_k \boldsymbol{H}_k \right) 	\hat{\boldsymbol{P}}_{k|k-1}
-\end{equation}
+\begin{align}
+	\boldsymbol{\epsilon}_{k} &= \boldsymbol{Y}_k - \boldsymbol{H}_k \hat{\boldsymbol{X}}_{k|k-1} \ , \\
+	\boldsymbol{S}_k &= \boldsymbol{H}_k \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal + \boldsymbol{R}_k \ , \\
+	\boldsymbol{K}_k &= \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal \boldsymbol{S}_k^{-1} \ ,\label{eq:kalman gain} \\
+		\hat{\boldsymbol{X}}_{k|k} &=\hat{\boldsymbol{X}}_{k|k-1} +\boldsymbol{K}_k  \boldsymbol{\epsilon}_{k}  \ , \label{eq:kalmangainupdate} \\
+			\hat{\boldsymbol{P}}_{k|k} &= \left( \boldsymbol{I} - \boldsymbol{K}_k \boldsymbol{H}_k \right) 	\hat{\boldsymbol{P}}_{k|k-1} \ .
+\end{align}
 Equation \eqref{eq:kalman gain} defines the ``Kalman gain" $\boldsymbol{K}_k$ which is defined so as to minimise the mean squared error in the state estimate, i.e.  $\boldsymbol{K}_k = \text{argmin} \left[ \boldsymbol{E}(\boldsymbol{X}_k - \hat{\boldsymbol{X}}_k) \right ]$. For a full review of the Kalman filter, including its derivation, we refer the reader to \cite{Gelb:1974} and \cite{zarchan2000fundamentals}. \newline 
 
+To apply the Kalman filter in practice means specifying the eight component matrices that make up the ``machinery'' of the filter: $\boldsymbol{X}_k$,$\boldsymbol{Y}_k$,$\boldsymbol{F}_k$,$\boldsymbol{G}_k$, $\boldsymbol{u}_k$, $\boldsymbol{H}_k$,$\boldsymbol{Q}_k$ and $\boldsymbol{R}_k$. In Section \ref{sec_kalman_specific} we describe how the machinery is determined for the state-space model in Section \ref{sec:model}. 
 
-We map our continuous-time state-space model described in Section \ref{sec:model} onto the discrete-time Kalman filter structure of Equations  
-\eqref{eq:kalman1}, \eqref{eq:kalman2} as follows. We identify $\boldsymbol{X}$ with a vector of length $N$ composed of the intrinsic pulsar frequency states, i.e 
+
+\subsection{Full state space representation}\label{sec_kalman_specific}
+We apply the Kalman machinery of Section \ref{sec_kalman_general} onto the state-space model described in Section \ref{sec:model} as follows. \newline 
+
+
+We identify $\boldsymbol{X}(t)$ with a vector of length $N$ composed of the intrinsic pulsar frequency states, i.e 
 \begin{equation}
-	\boldsymbol{X} = \left(f_{\rm p}^{(1)}, f_{\rm p}^{(2)}, ..., f_{\rm p}^{(N)}\right) \ .
+	\boldsymbol{X}(t) = \left(f_{\rm p}^{(1)}(t), f_{\rm p}^{(2)}(t), ..., f_{\rm p}^{(N)}(t)\right) \ .
 \end{equation}
-Similarly,  
+Analogously,  
 \begin{equation}
-\boldsymbol{Y} = \left(f_{\rm m}^{(1)}, f_{\rm m}^{(2)}, ..., f_{\rm m}^{(N)} \right)
+	\boldsymbol{Y}(t) = \left(f_{\rm m}^{(1)}(t), f_{\rm m}^{(2)}(t), ..., f_{\rm m}^{(N)}(t) \right) \ .
 \end{equation}
 The states evolve according the continuous dynamical equation (c.f. Equation \eqref{eq:frequency_evolution})
 \begin{equation}
 	d \boldsymbol{X} = \boldsymbol{A} \boldsymbol{X} dt + \boldsymbol{C}(t) dt + \boldsymbol{\Sigma} d \boldsymbol{B}(t) \label{eq:kalmn2}
 \end{equation}
-where $\boldsymbol{A}$ is a diagonal $N \times N$ square matrix
+where $\boldsymbol{A}$ is a diagonal $N \times N$ square matrix,
 \begin{equation}
-\boldsymbol{A} = \text{diag} \left(\gamma^{(1)}, \gamma^{(2)}, ..., \gamma^{(N)}\right) \ ,
+	\boldsymbol{A} = \text{diag} \left(\gamma^{(1)}, \gamma^{(2)}, ..., \gamma^{(N)}\right) \ ,
 \end{equation}
 and $\boldsymbol{C}(t)$ a time dependent vector with $n$-th component
 \begin{equation}
- C^{(n)} =\gamma^{(n)} \left(f_{\rm em}^{(n)} (t_1) + \dot{f}_{\rm em}(t_1)^{(n)} t \right) +  \dot{f}_{\rm em}(t_1)^{(n)} \ .
+	C^{(n)} =\gamma^{(n)} \left(f_{\rm em}^{(n)} (t_1) + \dot{f}_{\rm em}(t_1)^{(n)} t \right) +  \dot{f}_{\rm em}(t_1)^{(n)} \ .
 \end{equation}
 The $N \times N$ square matrix $\boldsymbol{\Sigma}$  governs the magnitude of the increments of Brownian motion (Wiener process) $d\boldsymbol{B}(t)$, where
 \begin{equation}
-\boldsymbol{\Sigma} = \text{diag} \left(\sigma^{(1)}, \sigma^{(2)}, ..., \sigma^{(N)}\right)
+	\boldsymbol{\Sigma} = \text{diag} \left(\sigma^{(1)}, \sigma^{(2)}, ..., \sigma^{(N)}\right) \ .
 \end{equation}
-\newline 
 
 The evolution of the state is an Ornstein-Uhlenbeck process, described by a Langevin equation, Equation \eqref{eq:kalmn2}, which has a general solution given by \citep{gardiner2009stochastic},
 \begin{equation}
-	\boldsymbol{X}(t) = e^{\boldsymbol{A} t} \boldsymbol{X}(0) + \int_0^t e^{\boldsymbol{A}(t-t')} \boldsymbol{C}(t') dt' + \int_0^t e^{\boldsymbol{A}(t-t')} \boldsymbol{\Sigma} d\boldsymbol{B}(t') \label{eq:gardenier}
+	\boldsymbol{X}(t) = e^{\boldsymbol{A} t} \boldsymbol{X}(0) + \int_0^t e^{\boldsymbol{A}(t-t')} \boldsymbol{C}(t') dt' + \int_0^t e^{\boldsymbol{A}(t-t')} \boldsymbol{\Sigma} d\boldsymbol{B}(t') \ . \label{eq:gardenier}
 \end{equation} 
-From Equation \eqref{eq:gardenier} we can construct the discrete, recursive solution for $\boldsymbol{X}(t_k) = \boldsymbol{X}_k$ in the form of Equation \eqref{eq:kalman2} where
+From Equation \eqref{eq:gardenier} we construct the discrete, recursive solution for $\boldsymbol{X}(t_k) = \boldsymbol{X}_k$ in the form of Equation \eqref{eq:kalman2} where
+\begin{align}
+	\boldsymbol{F}_k &= e^{\boldsymbol{A}\left(\Delta t \right)} \  \\
+	&= \text{diag}\left(e^{- \gamma^{(1)} \Delta t},e^{- \gamma^{(2)} \Delta t},...,e^{- \gamma^{(N)} \Delta t} \right) \ ,
+\end{align}
+\begin{align}
+	\boldsymbol{G}_k \boldsymbol{u}_k &= \int_{t_i}^{t_{i+1}}  e^{\boldsymbol{A}\left( t_{k+1} - t' \right)}  \boldsymbol{C}(t') dt' \ , \\
+	&= \left(G^{(1)}_k, G^{(2)}_k,...,G^{(N)}_k \right) ' ,
+\end{align}
 \begin{equation}
-\boldsymbol{F}_k = e^{\boldsymbol{A}\left( t_{k+1} - t_k \right)} 
+	\boldsymbol{w}_k = \int_{t_k}^{t_{k+1}} e^{\boldsymbol{A}\left( t_{k+1} - t' \right)} \boldsymbol{\Sigma} d \boldsymbol{B}(t') \label{eq:appendix_noise}
 \end{equation}
-\begin{equation}
-	\boldsymbol{G}_k = \int_{t_i}^{t_{i+1}}  e^{\boldsymbol{A}\left( t_{k+1} - t' \right)}  \boldsymbol{C}(t') dt' 
-\end{equation}
-\begin{equation}
-	\boldsymbol{w}_k = \int_{t_k}^{t_{k+1}} e^{\boldsymbol{A}\left( t_{k+1} - t' \right)} \boldsymbol{\Sigma} d \boldsymbol{B}(t')
-	\end{equation}
-For our system, the state, control and process noise covariance matrices then take the form:
-\begin{equation}
-	\boldsymbol{F}_k = 	\text{diag}\left(e^{- \gamma^{(1)} \Delta t},e^{- \gamma^{(2)} \Delta t},...,e^{- \gamma^{(N)} \Delta t} \right)
-\end{equation}
-\begin{equation}
-\boldsymbol{G}_k	= \left(G^{(1)}_k, G^{(2)}_k,...,G^{(N)}_k \right)
-\end{equation}
-with
+where $ \Delta t = t_{k+1} - t_k$ and 
 \begin{align}
 	G_k^{(n)} =&    f^{(n)}_{\rm em}(t_1) + \dot{f}^{(n)}_{\rm em}(t_1)  \left[\Delta t + t_k \right] \nonumber \\ 
-	&- e^{-\gamma \Delta t} \left[  f^{(n)}_{\rm em}(t_1) +\dot{f}^{(n)}_{\rm em}(t_1)  t_k \right]
+	&- e^{-\gamma \Delta t} \left[  f^{(n)}_{\rm em}(t_1) +\dot{f}^{(n)}_{\rm em}(t_1)  t_k \right] \ .
 \end{align}
-and
+From Equation \eqref{eq:appendix_noise} the process noise covariance matrix is
 \begin{equation}
-	\boldsymbol{Q}_k \boldsymbol{\delta}_{kj}= \langle \boldsymbol{\eta}_k \boldsymbol{\eta}_j^\intercal \rangle = \text{diag} \left(Q^{(1)}, Q^{(2)},...,Q^{(N)}\right) 
+	\boldsymbol{Q}_k \boldsymbol{\delta}_{kj}= \langle \boldsymbol{\eta}_k \boldsymbol{\eta}_j^\intercal \rangle = \text{diag} \left(Q^{(1)}, Q^{(2)},...,Q^{(N)}\right) \ ,
 \end{equation}
 for 
 \begin{equation}
-	Q^{(n)} = \frac{- [\sigma^{n}]^2}{2 \gamma^{(n)}} \left( e^{-2 \gamma^{(n)} \Delta t} -1\right)
+Q^{(n)} = \frac{- [\sigma^{n}]^2}{2 \gamma^{(n)}} \left( e^{-2 \gamma^{(n)} \Delta t} -1\right) \ .
 \end{equation}
-where $\Delta t$ is the constant time sampling interval $=t_{k+1} -t_{k}$. \newline 
 
-The remaining component matrices of the Kalman filter that we have not yet specified are the measurement matrix $\boldsymbol{H}_k$ and the measurement covariance matrix $\boldsymbol{R}_k$. These are defined straightforwardly from Equation \eqref{eq:measurement}. Specifically, 
+
+
+The two remaining unspecified component matrices of the Kalman filter are the measurement matrix $\boldsymbol{H}_k$ and the measurement covariance matrix $\boldsymbol{R}_k$. These are defined straightforwardly from Equations \eqref{eq:measurement}--\eqref{eq:g_func_trig}. Specifically, 
 $\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagonal is given by $g^{(n)}(t_k)$ from Equation \eqref{eq:g_func}. The measurement covariance $\boldsymbol{R}_k = E \left[ \boldsymbol{v} \boldsymbol{v}^\intercal \right] = \sigma^2_{\rm m}$.
 
 
 
 \section{Fiducial pulsar values}\label{appendix_fiducial}
-\textcolor{red}{TK: Do we really need this? The argument is for reproducibility, but we have a nice github repo that holds all the data we actually used, jupyter notebooks that show how the calculations are done. Perhaps it is sufficient to point the reader to the repo... } 
+\textcolor{red}{TK: AM suggests a table of the pulsars used with there fiducial values. Do we really need this? The argument is for reproducibility, but we have a nice github repo that holds all the data we actually used, jupyter notebooks that show how the calculations are done. Perhaps it is sufficient to point the reader to the repo... MNRAS encourages a "data availability" section before Acknowledgements that points readers to code/data/github repository} 
 
 \section{Wasserstein distance}\label{sec:wasserstein}
+In this section we describe the Wasserstein distance used in Section \ref{sec:multiple_noise}. In Section \ref{sec:appendix_overview_WD} we give a brief overview of the Wasserstein distance generally. In Section \ref{sec:appendix_WD_results} we present for reproducibility the Wasserstein distance calculated between every pair of posteriors for each static parameter in $\boldsymbol{\theta}_{\rm gw}$ across the $10^3$ noise realisations of Section  \ref{sec:multiple_noise}. This corresponds to the mean values reported in Table \ref{tab:Wasserstein}.
+
+
+
+\subsection{Overview of the Wasserstein distance}\label{sec:appendix_overview_WD}
+
+
+
+
 The Wasserstein distance is a metric that defines a distance between two probability distributions $\mu(x)$ and $\nu(x)$. It has an intuitive interpretation as the lowest total cost with which one can move probability mass from $\mu$ to $\nu$, with respect to a cost function $c(x,y)$. For this reason it is sometimes known as the "Earth mover's distance". The $p$-th order Wasserstein distance between two distributions is
 \begin{eqnarray}
 	W_p(\mu,\nu)= \left( \inf_{\gamma \in \Gamma(\mu, \nu)}  \int c(x,y)^p d \lambda (x,y)\right)^{1/p} \label{eq:wasserstein} \ ,
@@ -827,10 +838,23 @@ The use of the Wasserstein distance over more common probability measures such a
 where $X_{\mu}$ and $Y_{\nu}$ are random variables of the distributions $\mu$ and $\nu$ respectively, and $\boldsymbol{E}$ denotes the expected value. That is, if $W_1 =1$ then the difference in the expected value of two random variables drawn from the two distributions is less than 1 radian. Secondly it is a versatile, non-parametric measure that requires no specific properties of the probability distributions that are being compared such as e.g. Gaussianity. Any two distributions can be compared, irregardless of whether they are continuous, discrete, singular or defined on different metric spaces. Thirdly, it is a true distance metric and as such satisfies desirable properties of a measure of distance such as symmetry and the triangle inequality. It also respects the geometry of the underlying metric space over which the distributions are defined. \newline   
 
 
-For each parameter in $\boldsymbol{\theta}_{\rm gw}$ we calculate $W_1$ between every pair of posteriors across our $10^3$ noise realisations. The results are presented in Figure \ref{fig:pairwise_wasserstein}. The figure shows a lower triangular heat-map where each point denotes the $W_1$ value between a pair of posteriors. Small values of $W_1$ are magenta moving to red for large values of $W_1$. Note that the heat-map colour scaling is not the same for all subplots of the figure. It is evident that $W_1$ is generally small across all pairs of posteriors. We define $W_{1, \rm median}$ as the median value of $W_1$ across all $10^3 \choose 2$ pairs of noise realisations. The values of $W_{1, \rm median}$ for each parameter are quoted in Table \ref{tab:Wasserstein}. As a percentage of the width of the prior space (e.g. for $\alpha$ the width of the prior is $2 \pi$), the median $W_1$ for each parameter is $\lesssim 3 \%$. Generally speaking, the method converges to consistent one-dimensional posteriors for each parameter across different noise realisations. \newline
 
 
-There are a small fraction of the total number of noise realisations which have a large Wasserstein distance from all the other posteriors of all the other noise realisations. These are the strong yellow lines in Figure \ref{fig:pairwise_wasserstein}. These correspond exclusively to posteriors which have converged poorly and not found the likelihood global maximum. For instance, the top strong horizontal yellow line in Figure \ref{figWD_psi}, which is identified by an asterisk in the figure, corresponds to a posterior for $\psi$ which has converged sub-optimally, with an estimated value of $\psi = 1.01 \pm 0.06$ rad, highly diverged from the true injected value of $2.50$ rad. The $W_1$ value between this posterior and all the posteriors inferred for all other noise realisations is $\sim 1.7$ rad. We also observe a strong correlation across all noise pairs (Pearson correlation coefficient $=0.96$) between the $W_1$ inferred for $\alpha$ and $\psi$, indicating that noise realisations which corrupt the inference of $\psi$ similarly affect $\alpha$. This is due to multimodal likelihood surface for $\psi-\alpha$, shown in Figure \ref{fig:likelihood_surface_alpha_psi}. We can see that the likelihood surface has a global optima at the approximate location of the injected values ($\alpha \sim 1.0$, $\psi\sim2.5$) and local optima that corresponds to the location of the example poorly converged posterior discussed previously, with $\psi = 1.01$ rad. This problem of poor global convergence can be solved in principle by increasing the number of live points $n_{\rm live}$ in the nested sampler so as to better cover the likelihood surface and prevent falling into local minima. 
+
+
+
+
+\subsection{Wasserstein distance for static parameters} \label{sec:appendix_WD_results}
+
+
+
+Table \ref{tab:Wasserstein} summarizes the WD between the $5\times 10^5$ pairs of one-dimensional posteriors across the $10^3$ realizations, for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$. In Figure \ref{fig:pairwise_wasserstein} we present the WD values for a subset ($=10^2$) of those noise realisations. We plot a subset of realisations so as not to overcrowd the figure and enable certain features in the figure to be resolved. \newline
+
+
+The figure is composed of seven subplots, one for each element or ${\boldsymbol{\theta}}_{\rm gw}$. Each individual subplot is a lower triangular heat-map, where each point denotes the $W_1$ value between a pair of one-dimensional posteriors for that element. Smaller values of $W_1$ are magenta moving to through red to yellow for larger values of $W_1$. Note that the heat-map colour scaling is not the same for all subplots of the figure. \newline 
+
+
+As discussed in Section \ref{sec:multiple_noise} $W_1$ is generally small across all pairs of posteriors. The median $W_1$ across all $10^3 \choose 2$ pairs of noise realisations is reported in Table \ref{tab:Wasserstein}. However for some static parameters there are a small fraction ($\lesssim 5 \%$) of posterior distributions which have a notably larger $W_1$ value from all the other posteriors of all the other noise realisations. These are the strong yellow lines in Figure \ref{fig:pairwise_wasserstein}. These correspond exclusively to posteriors which have converged poorly and not found the likelihood global maximum. For instance, the top strong horizontal yellow line in Figure \ref{figWD_psi}, which is identified by an asterisk in the figure, corresponds to a posterior for $\psi$ which has converged sub-optimally, with an estimated value of $\psi = 1.01 \pm 0.06$ rad, highly diverged from the true injected value of $2.50$ rad. The $W_1$ value between this posterior and all the posteriors inferred for all other noise realisations is $\sim 1.7$ rad. We also observe a strong correlation across all noise pairs (Pearson correlation coefficient $=0.96$) between the $W_1$ inferred for $\alpha$ and $\psi$, indicating that noise realisations which corrupt the inference of $\psi$ similarly affect $\alpha$. This is due to multimodal likelihood surface for $\psi-\alpha$, shown in Figure \ref{fig:likelihood_surface_alpha_psi}. We can see that the likelihood surface has a global optima at the approximate location of the injected values ($\alpha \sim 1.0$, $\psi\sim2.5$) and local optima that corresponds to the location of the example poorly converged posterior discussed previously, with $\psi = 1.01$ rad. This problem of poor global convergence can be solved in principle by increasing the number of live points $n_{\rm live}$ in the nested sampler so as to better cover the likelihood surface and prevent falling into local minima. 
 
 
 
@@ -906,15 +930,11 @@ In order to ascertain how important the bias is for PTA continuous wave searches
 
 
 
-%\section{References}
-%\label{sec:ref_list}
 
 
 
 
 
-\bibliographystyle{mnras}
-\bibliography{example} % if your bibtex file is called example.bib
 
 
 

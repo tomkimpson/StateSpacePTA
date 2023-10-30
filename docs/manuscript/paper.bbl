@@ -17,6 +17,21 @@
   {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
+\bibitem[\protect\citeauthoryear{Abbott et~al.,}{Abbott
+  et~al.}{2022a}]{PhysRevD.105.022002}
+Abbott R.,  et~al., 2022a, \mn@doi [Phys. Rev. D]
+  {10.1103/PhysRevD.105.022002}, 105, 022002
+
+\bibitem[\protect\citeauthoryear{Abbott et~al.,}{Abbott
+  et~al.}{2022b}]{Abbott_2022SCO}
+Abbott R.,  et~al., 2022b, \mn@doi [Physical Review D]
+  {10.1103/physrevd.106.062002}, 106
+
+\bibitem[\protect\citeauthoryear{{Abbott} et~al.,}{{Abbott}
+  et~al.}{2022c}]{2022PhRvD.106f2002A}
+{Abbott} R.,  et~al., 2022c, \mn@doi [\prd] {10.1103/PhysRevD.106.062002},
+  \href {https://ui.adsabs.harvard.edu/abs/2022PhRvD.106f2002A} {106, 062002}
+
 \bibitem[\protect\citeauthoryear{{Agazie} et~al.,}{{Agazie}
   et~al.}{2023a}]{2023ApJ...951L...8A}
 {Agazie} G.,  et~al., 2023a, \mn@doi [\apjl] {10.3847/2041-8213/acdac6}, \href
@@ -485,6 +500,11 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
 {Meyers} P.~M.,  {O'Neill} N.~J.,  {Melatos} A.,   {Evans} R.~J.,  2021b,
   \mn@doi [\mnras] {10.1093/mnras/stab1952}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.506.3349M} {506, 3349}
+
+\bibitem[\protect\citeauthoryear{Middleton, Clearwater, Melatos  \&
+  Dunn}{Middleton et~al.}{2020}]{PhysRevD.102.023006}
+Middleton H.,  Clearwater P.,  Melatos A.,   Dunn L.,  2020, \mn@doi [Phys.
+  Rev. D] {10.1103/PhysRevD.102.023006}, 102, 023006
 
 \bibitem[\protect\citeauthoryear{{Morris}, {Lipp}  \& {Roberts}}{{Morris}
   et~al.}{2023}]{2023GeoRL..5003880M}

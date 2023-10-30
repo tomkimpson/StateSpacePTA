@@ -15,54 +15,55 @@ Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
 Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
-Repeated entry---line 2203 of file example.bib
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Reallocated str_pool (elt_size=1) to 195000 items from 130000.
+Repeated entry---line 2279 of file example.bib
  : @book{zarchan2000fundamentals
  :                              ,
 I'm skipping whatever remains of this entry
-Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 146 entries,
+You've used 150 entries,
             2881 wiz_defined-function locations,
-            1975 strings with 75663 characters,
-and the built_in function-call counts, 73125 in all, are:
-= -- 6583
-> -- 4622
-< -- 336
-+ -- 2044
-- -- 629
-* -- 8695
-:= -- 10838
+            2007 strings with 169593 characters,
+and the built_in function-call counts, 74819 in all, are:
+= -- 6751
+> -- 4714
+< -- 338
++ -- 2088
+- -- 637
+* -- 8919
+:= -- 11079
 add.period$ -- 0
-call.type$ -- 146
-change.case$ -- 293
-chr.to.int$ -- 135
-cite$ -- 148
-duplicate$ -- 3711
-empty$ -- 3627
-format.name$ -- 1109
-if$ -- 13269
-int.to.chr$ -- 12
+call.type$ -- 150
+change.case$ -- 301
+chr.to.int$ -- 137
+cite$ -- 152
+duplicate$ -- 3796
+empty$ -- 3714
+format.name$ -- 1131
+if$ -- 13568
+int.to.chr$ -- 14
 int.to.str$ -- 0
-missing$ -- 153
-newline$ -- 460
-num.names$ -- 969
-pop$ -- 718
+missing$ -- 157
+newline$ -- 472
+num.names$ -- 989
+pop$ -- 736
 preamble$ -- 1
-purify$ -- 584
+purify$ -- 600
 quote$ -- 0
-skip$ -- 2541
+skip$ -- 2589
 stack$ -- 0
-substring$ -- 4957
-swap$ -- 2082
-text.length$ -- 604
+substring$ -- 5097
+swap$ -- 2110
+text.length$ -- 620
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1287
+type$ -- 1323
 warning$ -- 2
-while$ -- 1075
+while$ -- 1099
 width$ -- 0
-write$ -- 1495
+write$ -- 1535
 (There were 2 error messages)
