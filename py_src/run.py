@@ -34,7 +34,8 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
     model_likelihood = KF.likelihood(optimal_parameters)
     logging.info(f"Ideal likelihood given optimal parameters = {model_likelihood}")
     logging.info("The optimal parameters used to generate the data are as follows:")
-    
+    print("opt parm", optimal_parameters)
+    sys.exit()
     for key,value in optimal_parameters.items():
         print(key, value)
     
