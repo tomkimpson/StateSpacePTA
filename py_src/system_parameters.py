@@ -68,7 +68,7 @@ class SystemParameters:
         if num_gw_sources == 2:
             logging.info("Running for two deterministic GW sources")
             
-            self.Ω = np.array([5e-7,2e-8])
+            self.Ω = np.array([5e-7,7e-7])
             self.Φ0 = np.array([0.20,1.50])
             self.ψ = np.array([2.50,0.35])
             self.ι = np.array([1.0,1.2])
