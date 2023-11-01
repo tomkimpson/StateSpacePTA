@@ -3,45 +3,83 @@ from py_src import gravitational_waves #,system_parameters, pulsars
 import random 
 import numpy as np 
 from numpy import sin,cos
+import jax.numpy as jnp 
 
 """Check the principal axes function"""
 def test_principal_axes():
+    K = 10
+    thetas = np.random.uniform(low=0.0,high=np.pi,size=K)
+    phis = np.random.uniform(low=0.0,high=2*np.pi,size=K)
+    psis = np.random.uniform(low=0.0,high=2*np.pi,size=K)
 
-    N = 5
-    thetas = np.random.uniform(low=0.0,high=2*np.pi,size=N)
-    phis = np.random.uniform(low=0.0,high=2*np.pi,size=N)
-    psis = np.random.uniform(low=0.0,high=2*np.pi,size=N)
+    m,n = gravitational_waves.principal_axes(thetas,phis,psis)
 
-    for i in range(N):
-        m,n = gravitational_waves.principal_axes(thetas[i],phis[i],psis[i])
 
-        #Check magnitudes
-        np.testing.assert_almost_equal(np.linalg.norm(m), 1.0) #https://numpy.org/doc/stable/reference/generated/numpy.testing.assert_almost_equal.html
-        np.testing.assert_almost_equal(np.linalg.norm(n), 1.0) 
+    #Check the magnitudes
+    np.testing.assert_array_almost_equal(np.linalg.norm(m,axis=1),np.ones(K)) #check
+    np.testing.assert_array_almost_equal(np.linalg.norm(n,axis=1),np.ones(K)) #check
 
-        #Check directions
-        direction_inferred = np.cross(m,n)
-        direction_explicit = np.array([sin(thetas[i])*cos(phis[i]),sin(thetas[i])*sin(phis[i]),cos(thetas[i])])
-        np.testing.assert_almost_equal(direction_explicit,-direction_inferred)
 
-# """Check the null model is all zeros as expected"""
-# def test_null_model():
+    #Check the direction
+    direction_inferred = np.cross(m,n).T
+    direction_explicit = np.array([sin(thetas)*cos(phis),sin(thetas)*sin(phis),cos(thetas)])
+    np.testing.assert_almost_equal(direction_explicit,-direction_inferred,decimal=6)
     
-    
-#     N = 5
-#     for i in range(N):
+   
+"""Check the h amplitudes function"""
+def test_h_amplitudes():
+ 
+    #When iota is zero
+    h = 1.0
+    iota = 0.0
 
-#         H_factor = gravitational_waves.null_model(
-#                                 np.random.uniform(),
-#                                  np.random.uniform(),
-#                                  np.random.uniform(),
-#                                  np.random.uniform(size=20), #this is q
-#                                  np.random.uniform(),
-#                                  np.random.uniform(),
-#                                  np.random.uniform(),
-#                                  np.random.uniform(),
-#                                  np.random.uniform(),
-#                                  np.random.uniform(size=10), #this is t
-#                                  np.random.uniform(),
-#                                 )
-#     assert np.all(H_factor==0)
+    hp,hx = gravitational_waves._h_amplitudes(h,iota)
+    np.testing.assert_almost_equal(hp,2) 
+    np.testing.assert_almost_equal(hx,-2) 
+
+
+    #when iota is pi/2
+    h = 1.0
+    iota = np.pi/2
+
+    hp,hx = gravitational_waves._h_amplitudes(h,iota)
+    np.testing.assert_almost_equal(hp,1) 
+    np.testing.assert_almost_equal(hx,0) 
+
+
+
+    #when h is zero
+    h = 0.0
+    iota = 1.2345678 #this can be anything, since the strain is zero
+
+    hp,hx = gravitational_waves._h_amplitudes(h,iota)
+    np.testing.assert_almost_equal(hp,0) 
+    np.testing.assert_almost_equal(hx,0) 
+
+
+
+    #check vectors also work
+    h = np.array([1.0,1.0])
+    iota = np.array([0.0,np.pi/2])
+    hp,hx = gravitational_waves._h_amplitudes(h,iota)
+    np.testing.assert_almost_equal(hp,np.array([2,1]))
+    np.testing.assert_almost_equal(hx,np.array([-2,0]))
+
+
+
+def test_basis():
+
+
+    #Test an analytical example with known solutions
+    m = np.array([1,2,3])
+    n = np.array([1,0,1])
+
+    ep,ex = gravitational_waves._polarisation_tensors(m,n)
+
+    analytical_ep = np.array([[0,2,2],[2,4,6],[2,6,8]])
+    analytical_ex = np.array([[0,-2,-2],[2,0,2],[2,-2,0]])
+
+    np.testing.assert_almost_equal(ep,analytical_ep)
+    np.testing.assert_almost_equal(ex,analytical_ex)
+
+

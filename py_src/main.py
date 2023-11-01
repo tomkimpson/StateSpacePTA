@@ -10,6 +10,11 @@ from jax_kalman_filter import setup_kalman_machinery,kalman_filter
 
 import jax.numpy as np
 
+
+from jax import config
+config.update("jax_enable_x64", True) #use double, not single precision
+
+
 #Functional programming using JAX. 
 
 
@@ -20,6 +25,15 @@ if __name__=="__main__":
     P   = SystemParameters(σp=None) 
     PTA = Pulsars(P)                                       # setup the PTA
     data = SyntheticData(PTA,P)                            # generate some synthetic data
+
+
+
+    #Testing area
+
+
+
+
+
     y = data.f_measured
     print("got the synthetic data")
     y_jax = np.array(y)
@@ -37,7 +51,7 @@ if __name__=="__main__":
     initial_x = y[0,:]
     initial_P = np.ones(len(initial_x)) * PTA.σm*1e3 
 
-
+    #these should all be jax objects
     print(type(y_jax))
     print(type(F))
     print(type(Q))
@@ -51,5 +65,5 @@ if __name__=="__main__":
     x_result,P_result,l_result = kalman_filter(y_jax, F, Q, R, X_factor,f_EM,initial_x, initial_P)
 
 
-
+    print(l_result.dtype)
 # x_hat, P,log_likelihood

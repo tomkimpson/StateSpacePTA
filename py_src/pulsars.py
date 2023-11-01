@@ -68,11 +68,15 @@ class Pulsars:
         
       
         #And now get the chi term, shape (K,N)
-        gw_directions = np.zeros((SystemParameters.num_gw_sources,3))
+        gw_directions = np.cross(m,n)
+
+
+
+        #gw_directions = np.zeros((SystemParameters.num_gw_sources,3))
         dot_product =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
         self.chi =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
         for i in range(SystemParameters.num_gw_sources):
-            gw_directions[i,:]        = np.cross(m[i,:],n[i,:])
+            #gw_directions[i,:]        = np.cross(m[i,:],n[i,:])
             dot_product[i,:]          = 1.0 + np.dot(self.q,gw_directions[i,:])
             self.chi[i,:]             = np.mod(SystemParameters.Ω[i]*self.d*dot_product[i,:],2*np.pi)
 

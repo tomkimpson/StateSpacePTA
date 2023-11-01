@@ -1,51 +1,48 @@
-from numpy import sin,cos 
-import numpy as np 
+#from numpy import sin,cos 
+#import numpy as np 
 # from numba import jit,njit,prange
 import sys
 import jax.numpy as np
+from jax import jit
 
-"""
-Return the two polarisation tensors e_+, e_x
-Reshapes allow vectorisation and JIT compatability 
-Todo: check performance of explicit JIT loops
-"""
-# @njit(fastmath=True)
-def _polarisation_tensors(m, n):
-    x, y = m.shape
-    e_plus = m.reshape(x, 1, y) * m.reshape(1, x, y) - n.reshape(1, x, y) * n.reshape(x, 1, y)
-    e_cross = m.reshape(x, 1, y) * n.reshape(1, x, y) - n.reshape(1, x, y) * m.reshape(x, 1, y)
-
-    #i.e. return m[:, None] * m[None, :] - n[:, None] * n[None, :]. See https://stackoverflow.com/questions/77319805/vectorization-of-complicated-matrix-calculation-in-python
-
-    return e_plus,e_cross
 
 
 """
 Calculate the principal axes vectors for each GW source. 
 """
-# @njit(fastmath=True)
+@jit
 def principal_axes(theta,phi,psi):
 
+
+    #numpy is row major, as are jax np arrays
+    #therefore we want to do operations on the rows, not the columns where possible
+
+    m = np.zeros((3,len(theta))) # 3 rows, K columns
     
-    m = np.zeros((len(theta),3)) #size K GW sources x 3 component directions
+    m = m.at[0,:].set(np.sin(phi)*np.cos(psi) - np.sin(psi)*np.cos(phi)*np.cos(theta))  # x-component
+    m = m.at[1,:].set(-np.cos(phi)*np.cos(psi) - np.sin(psi)*np.sin(phi)*np.cos(theta)) # y-component
+    m = m.at[2,:].set(np.sin(psi)*np.sin(theta))                                        # z-component
 
-    m[:,0] = sin(phi)*cos(psi) - sin(psi)*cos(phi)*cos(theta)    # x-component
-    m[:,1] = -(cos(phi)*cos(psi) + sin(psi)*sin(phi)*cos(theta)) # y-component
-    m[:,2] = sin(psi)*sin(theta)                                 # z-component
+    n = np.zeros_like(m) 
 
+    n = n.at[0,:].set(-np.sin(phi)*np.sin(psi) - np.cos(psi)*np.cos(phi)*np.cos(theta))
+    n = n.at[1,:].set(np.cos(phi)*np.sin(psi) - np.cos(psi)*np.sin(phi)*np.cos(theta))
+    n = n.at[2,:].set(np.cos(psi)*np.sin(theta))
 
-    n = np.zeros((len(theta),3)) #size K GW sources x 3 component directions
-    n[:,0] = -sin(phi)*sin(psi) - cos(psi)*cos(phi)*cos(theta)
-    n[:,1] = cos(phi)*sin(psi) - cos(psi)*sin(phi)*cos(theta)
-    n[:,2] = cos(psi)*sin(theta)
-   
-    return m,n
+    return m.T,n.T
 
 
-
-# @njit(fastmath=True)
+@jit
 def _h_amplitudes(h,ι): 
-    return h*(1.0 + cos(ι)**2),h*(-2.0*cos(ι)) #hplus,hcross
+    return h*(1.0 + np.cos(ι)**2),h*(-2.0*np.cos(ι)) 
+
+
+
+@jit
+def _polarisation_tensors(m,n):
+    e_plus = m[:, None] * m[None, :] - n[:, None] * n[None, :]
+    e_cross = m[:, None] * n[None, :] - n[:, None] * m[None, :]
+    return e_plus,e_cross
 
 
 
@@ -57,7 +54,7 @@ b(K,N)
 
 It returns an array of shape (K,T,N)
 """
-# @njit
+@jit
 def add_matrices(a, b):
     K, T, N = a.shape[0], a.shape[1], b.shape[1]
     return a.reshape(K,T,1) + b.reshape(K,1,N)
@@ -68,7 +65,7 @@ def add_matrices(a, b):
 """
 What is the GW modulation factor, including all pulsar terms?
 """
-# @njit(fastmath=True)
+@jit
 def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     K,N,T                    = len(delta),len(q),len(t)  #dimensions
    
@@ -89,7 +86,7 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     pulsar_term_phase   = earth_term_phase.reshape(K,T,1) + chi.reshape(K,1,N)                      # i.e. -\Omega *t + \Phi_0 + \Chi
 
     #Bring it all together
-    net_time_dependent_term = cos(earth_term_phase).reshape(K,T,1) - cos(pulsar_term_phase)
+    net_time_dependent_term = np.cos(earth_term_phase).reshape(K,T,1) - np.cos(pulsar_term_phase)
     amplitude               = 0.50*hbar/dot_product.reshape(hbar.shape)
 
 
