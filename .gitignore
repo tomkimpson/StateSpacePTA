@@ -15,3 +15,4 @@ py_src/outputs/*
 py_src/slurm_jobs/*
 data/*.npy
 data/*.json
+data
