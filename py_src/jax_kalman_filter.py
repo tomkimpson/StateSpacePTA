@@ -3,11 +3,13 @@
 
 import jax.numpy as np
 from jax import lax
+from jax import jit 
+import sys 
 
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-# @njit(fastmath=True)
+@jit
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)    
@@ -19,7 +21,7 @@ def log_likelihood(S,innovation):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-
+@jit
 def update(x, P, observation,R,Xfactor,ephemeris):
 
 
@@ -43,14 +45,18 @@ def update(x, P, observation,R,Xfactor,ephemeris):
     
     #And get the likelihood
     likelihood_value = log_likelihood(S,y)
-    
-    return xnew, Pnew,likelihood_value #,y_predicted
+
+
+    #and map the state to measurement space for plotting
+    y_return = H*xnew - Xfactor*ephemeris
+
+    return xnew, Pnew,likelihood_value,y_return
 
 
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-
+@jit
 def predict(x,P,F,Q): 
     xp = F*x
     Pp = F*P*F + Q  
@@ -69,18 +75,10 @@ def setup_kalman_machinery(P,PTA):
     #Extract parameters manually
     gamma   = PTA.γ
     dt      = PTA.dt
-
-
-    # f0      = PTA.f
-    # fdot    = PTA.fdot
     t       = PTA.t
     sigma_p = PTA.σp
     sigma_m = PTA.σm
  
-
-
-
-
 
     #State evolution matrices
     F = np.exp(-gamma*dt)
@@ -104,33 +102,6 @@ def setup_kalman_machinery(P,PTA):
 
     f_EM = PTA.f + np.outer(PTA.t,PTA.fdot) #ephemeris correction
 
-    #fdot_time =  np.outer(t,fdot) #This has shape(n times, n pulsars)
-    #T_fn = f0 + fdot_time + fdot*dt - np.exp(-gamma*dt)*(f0+fdot_time)
-
-    #Process and measurement noise
-    #Q = -sigma_p**2 * (np.exp(-2.0*gamma* dt) - 1.) / (2.0 * gamma)
-    #R = sigma_m**2
-
-
-
-
-
-    # #Measurement matrix
-    # H_fn = gw_prefactor_optimised(delta_gw,
-    #                                                 alpha_gw,
-    #                                                 psi_gw,
-    #                                                 PTA.q,
-    #                                                 PTA.q_products,
-    #                                                 h,
-    #                                                 iota_gw,
-    #                                                 omega_gw,
-    #                                                 d,
-    #                                                 t,
-    #                                                 phi0_gw
-    #                                                 )
-
-
-
 
     return F, Q, R,X_factor,f_EM
 
@@ -141,7 +112,7 @@ def kalman_filter(y, F, Q, R, H_fn,f_EM,initial_x, initial_P):
 
 
     def body(carry, t):
-        x_hat_tm1, P_tm1,ll = carry
+        x_hat_tm1, P_tm1,ll,y_hat = carry
 
         #Get the measurement matrix, the control vector matrix and the observation matrix at this iteration
         H_t = H_fn[t]
@@ -152,43 +123,51 @@ def kalman_filter(y, F, Q, R, H_fn,f_EM,initial_x, initial_P):
         xp,Pp = predict(x_hat_tm1,P_tm1,F,Q)
 
         # Update step
-        x_hat,P,ll = update(xp, Pp, y_t,R,H_t,T_t)
+        x_hat,P,ll_new,y_hat = update(xp, Pp, y_t,R,H_t,T_t)
         
-        return (x_hat, P,ll), (x_hat, P,ll)
+        return (x_hat, P,ll+ll_new,y_hat), (x_hat, P,ll+ll_new,y_hat)
 
 
-    #State dimensions
+    # #State dimensions
     n_obs, n_dim = y.shape
 
-    # Initialize state estimates
+    # # Initialize state estimates
     x_hat0 = np.zeros((n_dim,))
     x_hat0 = x_hat0.at[...].set(initial_x)
 
     P0 = np.zeros((n_dim,))
     P0 = P0.at[...].set(initial_P)
     
+    y_hat0 = np.zeros_like(x_hat0)
 
     #Perform a single initial update step
-    H_t = H_fn[0]
-    T_t = f_EM[0]
-    y_t = y[0]
-    x_hat,P,ll = update(x_hat0, P0, y_t,R,H_t,T_t)
+   
+    x_hat,P,ll,y_hat = update(x_hat0, P0, y[0],R,H_fn[0],f_EM[0])
+   
 
-    #Assign to variabless
+    #Assign to variables
+    #Is this necessary? Maybe to save first step?
     x_hat0 = x_hat0.at[...].set(x_hat)
     P0 = P0.at[...].set(P)
-    log_likelihood = np.float64(ll)
+    y_hat0 = y_hat0.at[...].set(y_hat)
     
 
+    # Now iterate over observations using scan
+    #jax.lax.scan(f, init, xs, length=None, reverse=False, unroll=1)
 
-    # Now tterate over observations using scan
-    _, (x_hat, P,log_likelihood) = lax.scan(body, (x_hat0, P0,log_likelihood), np.arange(1, n_obs))
+    _, (x_hat, P,log_likelihood,y_hat) = lax.scan(f = body, init = (x_hat, P,ll,y_hat), xs = np.arange(1, n_obs))
 
+    #print("scan complete")
+    #print(y_hat.shape)
 
     # Prepend initial state estimate and error covariance
-    x_hat = np.concatenate((x_hat0[np.newaxis, :], x_hat), axis=0)
-    P = np.concatenate((P0[np.newaxis, :], P), axis=0)
+    x_hat_out = np.concatenate((x_hat0[np.newaxis, :], x_hat), axis=0)
+    P_out     = np.concatenate((P0[np.newaxis, :], P), axis=0)
+    y_hat_out = np.concatenate((y_hat0[np.newaxis, :], y_hat), axis=0)
 
-    return x_hat, P,log_likelihood
+    ll_return = log_likelihood[-1] #this is a cumsum so we only need last 
+ 
+
+    return x_hat_out, P_out,ll_return,y_hat_out
 
 
