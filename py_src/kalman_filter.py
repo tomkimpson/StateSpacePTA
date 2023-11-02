@@ -12,8 +12,8 @@ def log_likelihood(S,innovation):
     N = len(x)    
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    #value = innovation @ x
-    value = -0.5*(innovation @ x + N*np.log(2*np.pi))
+    #value = innovation @ innovation
+    #value = -0.5*(innovation @ x + N*np.log(2*np.pi))
     #print("uncertainty factor = ", slogdet)
     return value
 
@@ -205,7 +205,7 @@ class KalmanFilter:
        
         #Do the first update step
         x,P,likelihood_value,y_predicted = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
-        likelihood +=likelihood_value
+        #likelihood +=likelihood_value
 
         #Don't bother storing results of the state. We just want the likelihoods
         for i in np.arange(1,self.Nsteps):
@@ -215,7 +215,8 @@ class KalmanFilter:
             x_predict, P_predict             = predict(x,P,F,Q)                                           #The predict step
             x,P,likelihood_value,y_predicted = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:]) #The update step    
             
-            likelihood +=likelihood_value
+            if i > 100:
+                likelihood +=likelihood_value
 
    
         return likelihood
