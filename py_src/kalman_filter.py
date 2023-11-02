@@ -170,7 +170,7 @@ class KalmanFilter:
         Q = Q_function(gamma,sigma_p,self.dt)
      
         #Initialise x and P
-        #x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
         #P = np.ones(self.Npsr)* sigma_m * 1e6 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
 
