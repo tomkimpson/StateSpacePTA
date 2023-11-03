@@ -19,3 +19,4 @@ data/corner_plots
 data/selected_compressed_files
 data/credible_levels_results
 data/credible_levels_results_two
+data/*
