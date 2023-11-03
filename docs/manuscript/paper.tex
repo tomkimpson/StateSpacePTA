@@ -267,24 +267,6 @@ We use the parametrisation in terms of $h_0$ and $\iota$ throughout the remainde
 In this section we present a new method to infer $\boldsymbol{\theta}$ and calculate the marginal likelihood (i.e. the model evidence). In Section \ref{sec:kalman_filter} we outline how noisy measurements of the pulsar frequency, $f_{\rm m}^{(n)}(t)$, can be used to estimate the hidden state sequence, $f_{\rm p}^{(n)}(t)$, using a Kalman filter. In Section \ref{sec:nested_sampling} we demonstrate how to deploy the Kalman filter in conjunction with a nested sampling technique to perform Bayesian inference. Model selection and the specification of the null model are described in Section \ref{sec:model_selection}. A complete summary of the workflow is presented in Section \ref{sec:methodsummary}. The method complements traditional PTA analyses because (i) it does not assume a specific functional form (e.g.\ power law) for the power spectral density of the TOA fluctuations; and (ii) it infers ${\boldsymbol{\theta}}$ conditional on the specific, time-ordered, random realization of the noise corresponding to the observed sequence of TOAs rather than on ensemble-averaged quantities like the power spectral density.
 
 \subsection{Kalman filter and likelihood}\label{sec:kalman_filter}
-%\begin{figure*}
-%	%\centering % Not needed
-%	\begin{subfigure}[b]{0.49\textwidth}
-%		\includegraphics[width=\textwidth]{images/Kalman_example_true_params_single}
-%		\caption{Kalman filter using correct estimate of the static parameters, $\hat{\boldsymbol{\theta}} = \boldsymbol{\theta}$ }
-%		\label{fig:6MB_BFS}
-%	\end{subfigure}  
-%    \hfill
-%	\begin{subfigure}[b]{0.49\textwidth}
-%		\includegraphics[width=\textwidth]{images/Kalman_example_wrong_params}
-%		\caption{Kalman filter using incorrect estimate of the static parameters, $\hat{\boldsymbol{\theta}} \neq \boldsymbol{\theta}$}
-%		\label{fig:25MB_bfs}
-%	\end{subfigure}
-%	\caption{
-%		}
-%	\label{fig:four figures}
-%\end{figure*}
-
 
 \begin{figure*}
 	\includegraphics[width=\textwidth, height =0.5\textwidth]{images/Kalman_example_both}
