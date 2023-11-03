@@ -74,7 +74,7 @@ class SystemParameters:
             self.ι = np.array([1.0,1.0])
             self.δ = np.array([1.0,0.70])
             self.α = np.array([1.0,1.30])
-            self.h = np.array([5e-14,5e-14])
+            self.h = np.array([5e-18,5e-18])
 
 
         if num_gw_sources == 3:

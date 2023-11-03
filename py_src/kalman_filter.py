@@ -3,6 +3,9 @@ from numba import njit
 from model import F_function,R_function,Q_function # H function is defined via a class init
 
 
+from scipy.stats import multivariate_normal
+
+
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
@@ -16,6 +19,18 @@ def log_likelihood(S,innovation):
     #value = -0.5*(innovation @ x + N*np.log(2*np.pi))
     #print("uncertainty factor = ", slogdet)
     return value
+
+
+
+
+# def log_likelihood(S,y):
+
+#     flat_mean = None
+#     flat_x = np.asarray(y).flatten()
+#     cov = np.diag(S)
+#     return multivariate_normal.logpdf(flat_x, flat_mean, cov, allow_singular=False)
+
+
 
 
 """
