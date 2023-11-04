@@ -205,7 +205,9 @@ def _set_prior_on_measurement_parameters(init_parameters,priors,P,set_parameters
             
                 #Add all the GW quantities
                 init_parameters[f"omega_gw_{k}"] = None
-                priors[f"omega_gw_{k}"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
+                #priors[f"omega_gw_{k}"] = bilby.core.prior.LogUniform(1e-8, 1e-5, 'omega_gw')
+                priors[f"omega_gw_{k}"] = bilby.core.prior.Uniform(1e-7, 9e-7, 'omega_gw')
+
 
                 init_parameters[f"phi0_gw_{k}"] = None
                 priors[f"phi0_gw_{k}"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'phi0_gw')
