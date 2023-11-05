@@ -345,7 +345,7 @@ In this section we outline how synthetic data are generated in order to validate
 \end{figure}
 We consider, by way of illustration, a synthetic PTA composed of the 47 pulsars in the 12.5 year NANOGrav dataset \citep{2020ApJ...905L..34A}. The NANOGrav pulsars are chosen arbitrarily as being representative of a typical PTA; the analysis below extends unchanged to any other PTA. \newline 
 
-For each pulsar we adopt fiducial values for ${\boldsymbol{q}}^{(n)}$, $d^{(n)}$, $f_{\rm em}^{(n)}(t_1)$, and $\dot{f}_{\rm em}(t_1)$, with the latter two quantities evaluated at the Solar System barycenter. A table of fiducial values is presented in Appendix \ref{appendix_fiducial} for the sake of reproducibility. The sky positions and colour-coded distances of the pulsars are displayed in Figure \ref{fig:pulsar_distrib}. The pulsar parameters are acquired via the Australia Telescope National Facility (ATNF) pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. \newline 
+For each pulsar we adopt fiducial values for ${\boldsymbol{q}}^{(n)}$, $d^{(n)}$, $f_{\rm em}^{(n)}(t_1)$, and $\dot{f}^{(n)}_{\rm em}(t_1)$, with the latter two quantities evaluated at the Solar System barycenter. A table of fiducial values is presented in Appendix \ref{appendix_fiducial} for the sake of reproducibility. The sky positions and colour-coded distances of the pulsars are displayed in Figure \ref{fig:pulsar_distrib}. The pulsar parameters are acquired via the Australia Telescope National Facility (ATNF) pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. \newline 
 
 The remaining static pulsar parameters are $\gamma^{(n)}$ and $\sigma^{(n)}$, for which no direct measurements exist. The ratio $\sigma^{(n)} / [\gamma^{(n)}]^{1/2}$ sets the typical root mean square fluctuations in $f_p^{(n)}(t)$, as discussed in Section \ref{sec:psr_frequency}, and the mean reversion timescale typically satisfies $[\gamma^{(n)}]^{-1} \gg T_{\rm obs}$ \citep{Price2012,Myers2021MNRAS.502.3113M,Meyers2021,Vargas}. In this paper, for the sake of simplicity in the absence of independent measurements, we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. We follow two complementary approaches in order to  set physically reasonable values for $\sigma^{(n)}$. The first approach relies on the empirical timing noise model from \cite{Shannon2010ApJ...725.1607S} which gives the standard deviation of the pulsar TOAs, $\sigma_{\rm TOA}^{(n)}$, empirically as
 \begin{align}
@@ -660,33 +660,10 @@ This research was supported by the Australian Research Council Centre of Excelle
 	
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \appendix
 
-\section{Kalman filtering} \label{sec:kalman}
-In this appendix, we describe the Kalman filter algorithm used in this paper. The general recursion relations for the discrete-time Kalman filter applied to an arbitrary linear dynamical system. are outlined in Section \ref{sec_kalman_general}. The mapping onto our specific continuous-time state-space model described in Section \ref{sec:model} is given in Section \ref{sec_kalman_specific}.
+\section{Kalman filter} \label{sec:kalman}
+In this appendix, we describe the Kalman filter algorithm used in this paper. General recursion relations for the discrete-time Kalman filter are written down for an arbitrary linear dynamical system in Section \ref{sec_kalman_general}. The mapping onto the specific continuous-time state-space model in Section \ref{sec:model} is written down in Section \ref{sec_kalman_specific}.
 
 
 \subsection{Recursion equations}\label{sec_kalman_general}
@@ -694,18 +671,18 @@ The linear Kalman filter operates on temporally discrete, noisy measurements $\b
 \begin{equation}
 	\boldsymbol{Y}_k = \boldsymbol{H}_k \boldsymbol{X}_k + \boldsymbol{v}_k \ ,\label{eq:kalman1}
 \end{equation}
-where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise, $\mathcal{N} \sim (0,\boldsymbol{R}_k)$ with covariance $\boldsymbol{R}_k$, and the subscript $k$ labels the time-step. The Kalman filter takes the underlying states to evolve according to
+where $\boldsymbol{H}_k$ is the measurement matrix or observation model, $\boldsymbol{v}_k$ is a zero-mean Gaussian measurement noise, $\mathcal{N} \sim (0,\boldsymbol{R}_k)$ with covariance $\boldsymbol{R}_k$, and the subscript $k$ labels the time-step. The Kalman filter evolves the underlying states according to
 \begin{equation}
 	\boldsymbol{X}_k = \boldsymbol{F}_k \boldsymbol{X}_{k-1} + \boldsymbol{G}_k \boldsymbol{u}_k + \boldsymbol{w}_k \ , \label{eq:kalman2}
 \end{equation}
-where $\boldsymbol{F}_k$ is the system dynamics matrix, $\boldsymbol{G}_k$ the control matrix. $\boldsymbol{u}_k$ the control vector, and $\boldsymbol{w}_k$ is a zero-mean Gaussian process noise, $\mathcal{N} \sim (0,\boldsymbol{Q}_k)$ with covariance $\boldsymbol{Q}_k$ \newline 
+where $\boldsymbol{F}_k$ is the system dynamics matrix, $\boldsymbol{G}_k$ is the control matrix. $\boldsymbol{u}_k$ is the control vector, and $\boldsymbol{w}_k$ is a zero-mean Gaussian process noise, $\mathcal{N} \sim (0,\boldsymbol{Q}_k)$ with covariance $\boldsymbol{Q}_k$ \newline 
 
-The Kalman filter is a recursive estimator with two distinct stages; a ``predict" stage and an ``update" stage. The predict stage predicts the estimate of the state at discrete step $k$, given the state estimates from step $k-1$. Specifically, the predict step proceeds as,
+The Kalman filter is a recursive estimator with two distinct stages: a ``predict" stage and an ``update" stage. The predict stage predicts $\hat{\boldsymbol{X}}_{k|k-1}$, the estimate of the state at discrete step $k$, given the state estimates from step $k-1$. Specifically, the predict step proceeds as
 \begin{align}
 	\hat{\boldsymbol{X}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{X}}_{k-1|k-1} + \boldsymbol{G}_k \boldsymbol{u}_k \ , \\
-		\hat{\boldsymbol{P}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{P}}_{k-1|k-1} \boldsymbol{F}_k^\intercal + \boldsymbol{Q}_k  \ .
+		\hat{\boldsymbol{P}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{P}}_{k-1|k-1} \boldsymbol{F}_k^\intercal + \boldsymbol{Q}_k  \ ,
 \end{align}
-Note that the predict stage is independent of the measurements. The measurement $\boldsymbol{Y}_k$ is included to update the prediction during the update stage as follows:
+where $\hat{\boldsymbol{P}}_{k|k-1}$ is the covariance of the prediction. Note that the predict stage is independent of the measurements. The measurement $\boldsymbol{Y}_k$ is included to update the prediction during the update stage as follows:
 \begin{align}
 	\boldsymbol{\epsilon}_{k} &= \boldsymbol{Y}_k - \boldsymbol{H}_k \hat{\boldsymbol{X}}_{k|k-1} \ , \\
 	\boldsymbol{S}_k &= \boldsymbol{H}_k \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal + \boldsymbol{R}_k \ , \\
@@ -713,147 +690,199 @@ Note that the predict stage is independent of the measurements. The measurement 
 		\hat{\boldsymbol{X}}_{k|k} &=\hat{\boldsymbol{X}}_{k|k-1} +\boldsymbol{K}_k  \boldsymbol{\epsilon}_{k}  \ , \label{eq:kalmangainupdate} \\
 			\hat{\boldsymbol{P}}_{k|k} &= \left( \boldsymbol{I} - \boldsymbol{K}_k \boldsymbol{H}_k \right) 	\hat{\boldsymbol{P}}_{k|k-1} \ .
 \end{align}
-Equation \eqref{eq:kalman gain} defines the ``Kalman gain" $\boldsymbol{K}_k$ which is defined so as to minimise the mean squared error in the state estimate, i.e.  $\boldsymbol{K}_k = \text{argmin} \left[ \boldsymbol{E}(\boldsymbol{X}_k - \hat{\boldsymbol{X}}_k) \right ]$. For a full review of the Kalman filter, including its derivation, we refer the reader to \cite{Gelb:1974} and \cite{zarchan2000fundamentals}. \newline 
+Equation \eqref{eq:kalman gain} defines the ``Kalman gain" $\boldsymbol{K}_k$ which is defined so as to minimise the mean squared error in the state estimate, i.e.  $\boldsymbol{K}_k = \text{argmin} \left \{ \boldsymbol{E}[ (\boldsymbol{X}_k - \hat{\boldsymbol{X}}_k)^2 ] \right \}$. For a full review of the Kalman filter, including its derivation, we refer the reader to \cite{Gelb:1974} and \cite{zarchan2000fundamentals}. \newline 
 
-To apply the Kalman filter in practice means specifying the eight component matrices that make up the ``machinery'' of the filter: $\boldsymbol{X}_k$,$\boldsymbol{Y}_k$,$\boldsymbol{F}_k$,$\boldsymbol{G}_k$, $\boldsymbol{u}_k$, $\boldsymbol{H}_k$,$\boldsymbol{Q}_k$ and $\boldsymbol{R}_k$. In Section \ref{sec_kalman_specific} we describe how the machinery is determined for the state-space model in Section \ref{sec:model}. 
-
-
-\subsection{Full state space representation}\label{sec_kalman_specific}
-We apply the Kalman machinery of Section \ref{sec_kalman_general} onto the state-space model described in Section \ref{sec:model} as follows. \newline 
+To apply the Kalman filter in practice means specifying the eight component matrices that make up the ``machinery'' of the filter: $\boldsymbol{X}_k$, $\boldsymbol{Y}_k$, $\boldsymbol{F}_k$, $\boldsymbol{G}_k$, $\boldsymbol{u}_k$, $\boldsymbol{H}_k$, $\boldsymbol{Q}_k$ and $\boldsymbol{R}_k$. In Section \ref{sec_kalman_specific} we describe how the machinery is determined for the state-space model in Section \ref{sec:model}. 
 
 
-We identify $\boldsymbol{X}(t)$ with a vector of length $N$ composed of the intrinsic pulsar frequency states, i.e 
+\subsection{State space representation of a PTA analysis}\label{sec_kalman_specific}
+We apply the Kalman recursion relations in Section \ref{sec_kalman_general} to the state-space model of a PTA with $N$ pulsars described in Section \ref{sec:model} as follows. \newline 
+
+
+We identify $\boldsymbol{X}(t)$ with a vector of length $N$ composed of the intrinsic pulsar frequency states, i.e. 
 \begin{equation}
 	\boldsymbol{X}(t) = \left(f_{\rm p}^{(1)}(t), f_{\rm p}^{(2)}(t), ..., f_{\rm p}^{(N)}(t)\right) \ .
 \end{equation}
-Analogously,  
+Analogously,  we package the measured pulsar frequencies as
 \begin{equation}
 	\boldsymbol{Y}(t) = \left(f_{\rm m}^{(1)}(t), f_{\rm m}^{(2)}(t), ..., f_{\rm m}^{(N)}(t) \right) \ .
 \end{equation}
-The states evolve according the continuous dynamical equation (c.f. Equation \eqref{eq:frequency_evolution})
+The states evolve according to the continuous stochastic differential equation (c.f. Equation \eqref{eq:frequency_evolution})
 \begin{equation}
-	d \boldsymbol{X} = \boldsymbol{A} \boldsymbol{X} dt + \boldsymbol{C}(t) dt + \boldsymbol{\Sigma} d \boldsymbol{B}(t) \label{eq:kalmn2}
+	d \boldsymbol{X} = \boldsymbol{A} \boldsymbol{X} dt + \boldsymbol{C}(t) dt + \boldsymbol{\Sigma} d \boldsymbol{B}(t) \ , \label{eq:kalmn2}
 \end{equation}
-where $\boldsymbol{A}$ is a diagonal $N \times N$ square matrix,
+where $\boldsymbol{A}$ is a diagonal $N \times N$ matrix,
 \begin{equation}
-	\boldsymbol{A} = \text{diag} \left(\gamma^{(1)}, \gamma^{(2)}, ..., \gamma^{(N)}\right) \ ,
+	\boldsymbol{A} = \text{diag} \left(-\gamma^{(1)}, -\gamma^{(2)}, ..., -\gamma^{(N)}\right) \ ,
 \end{equation}
-and $\boldsymbol{C}(t)$ a time dependent vector with $n$-th component
+and $\boldsymbol{C}(t)$ is a time-dependent vector with $n$-th component
 \begin{equation}
-	C^{(n)} =\gamma^{(n)} \left(f_{\rm em}^{(n)} (t_1) + \dot{f}_{\rm em}(t_1)^{(n)} t \right) +  \dot{f}_{\rm em}(t_1)^{(n)} \ .
+	C^{(n)} =\gamma^{(n)} \left[ f^{(n)} _{\rm em} (t_1) + \dot{f}^{(n)} _{\rm em}(t_1) \, t \right] +  \dot{f}_{\rm em}(t_1)^{(n)} \ .
 \end{equation}
-The $N \times N$ square matrix $\boldsymbol{\Sigma}$  governs the magnitude of the increments of Brownian motion (Wiener process) $d\boldsymbol{B}(t)$, where
+The $N \times N$ square matrix $\boldsymbol{\Sigma}$  governs the magnitude of the increments of Brownian motion (Wiener process) $d\boldsymbol{B}(t)$, with
 \begin{equation}
 	\boldsymbol{\Sigma} = \text{diag} \left(\sigma^{(1)}, \sigma^{(2)}, ..., \sigma^{(N)}\right) \ .
 \end{equation}
 
-The evolution of the state is an Ornstein-Uhlenbeck process, described by a Langevin equation, Equation \eqref{eq:kalmn2}, which has a general solution given by \citep{gardiner2009stochastic},
+In the idealized model above, each pulsar's rotational state evolves phenomenologically according to a mean-reverting Ornstein-Uhlenbeck process, described by a Langevin equation, Equation \eqref{eq:kalmn2}, whose general solution is given by \citep{gardiner2009stochastic},
 \begin{equation}
 	\boldsymbol{X}(t) = e^{\boldsymbol{A} t} \boldsymbol{X}(0) + \int_0^t e^{\boldsymbol{A}(t-t')} \boldsymbol{C}(t') dt' + \int_0^t e^{\boldsymbol{A}(t-t')} \boldsymbol{\Sigma} d\boldsymbol{B}(t') \ . \label{eq:gardenier}
 \end{equation} 
-From Equation \eqref{eq:gardenier} we construct the discrete, recursive solution for $\boldsymbol{X}(t_k) = \boldsymbol{X}_k$ in the form of Equation \eqref{eq:kalman2} where
+From Equation \eqref{eq:gardenier} we construct the discrete, recursive solution for $\boldsymbol{X}(t_k) = \boldsymbol{X}_k$ in the form of Equation \eqref{eq:kalman2}, with
 \begin{align}
-	\boldsymbol{F}_k &= e^{\boldsymbol{A}\left(\Delta t \right)} \  \\
+	\boldsymbol{F}_k &= e^{\boldsymbol{A} \Delta t } \  \\
 	&= \text{diag}\left(e^{- \gamma^{(1)} \Delta t},e^{- \gamma^{(2)} \Delta t},...,e^{- \gamma^{(N)} \Delta t} \right) \ ,
 \end{align}
 \begin{align}
-	\boldsymbol{G}_k \boldsymbol{u}_k &= \int_{t_i}^{t_{i+1}}  e^{\boldsymbol{A}\left( t_{k+1} - t' \right)}  \boldsymbol{C}(t') dt' \ , \\
-	&= \left(G^{(1)}_k, G^{(2)}_k,...,G^{(N)}_k \right) ' ,
+	\boldsymbol{G}_k \boldsymbol{u}_k &= \int_{t_k}^{t_{k+1}}  e^{\boldsymbol{A}\left( t_{k+1} - t' \right)}  \boldsymbol{C}(t') dt' \ , \\
+	&= \left(G^{(1)}_k, G^{(2)}_k,...,G^{(N)}_k \right) ,
 \end{align}
 \begin{equation}
-	\boldsymbol{w}_k = \int_{t_k}^{t_{k+1}} e^{\boldsymbol{A}\left( t_{k+1} - t' \right)} \boldsymbol{\Sigma} d \boldsymbol{B}(t') \label{eq:appendix_noise}
+	\boldsymbol{w}_k = \int_{t_k}^{t_{k+1}} e^{\boldsymbol{A}\left( t_{k+1} - t' \right)} \boldsymbol{\Sigma} d \boldsymbol{B}(t') \ ,  \label{eq:appendix_noise}
 \end{equation}
-where $ \Delta t = t_{k+1} - t_k$ and 
 \begin{align}
-	G_k^{(n)} =&    f^{(n)}_{\rm em}(t_1) + \dot{f}^{(n)}_{\rm em}(t_1)  \left[\Delta t + t_k \right] \nonumber \\ 
-	&- e^{-\gamma \Delta t} \left[  f^{(n)}_{\rm em}(t_1) +\dot{f}^{(n)}_{\rm em}(t_1)  t_k \right] \ .
+	G_k^{(n)} =&    f^{(n)}_{\rm em}(t_1) + \dot{f}^{(n)}_{\rm em}(t_1)  \left(\Delta t + t_k \right) \nonumber \\ 
+	&- e^{-\gamma \Delta t} \left[  f^{(n)}_{\rm em}(t_1) +\dot{f}^{(n)}_{\rm em}(t_1)  t_k \right] \ ,
 \end{align}
-From Equation \eqref{eq:appendix_noise} the process noise covariance matrix is
+and $\Delta t = t_{k+1} - t_k$. From Equation \eqref{eq:appendix_noise} the process noise covariance matrix is
 \begin{equation}
 	\boldsymbol{Q}_k \boldsymbol{\delta}_{kj}= \langle \boldsymbol{\eta}_k \boldsymbol{\eta}_j^\intercal \rangle = \text{diag} \left(Q^{(1)}, Q^{(2)},...,Q^{(N)}\right) \ ,
 \end{equation}
-for 
+with 
 \begin{equation}
-Q^{(n)} = \frac{- [\sigma^{n}]^2}{2 \gamma^{(n)}} \left( e^{-2 \gamma^{(n)} \Delta t} -1\right) \ .
+Q^{(n)} = \frac{[\sigma^{n}]^2}{2 \gamma^{(n)}} \left[ 1 - e^{-2 \gamma^{(n)} \Delta t}\right] \ .
 \end{equation}
 
 
-
 The two remaining unspecified component matrices of the Kalman filter are the measurement matrix $\boldsymbol{H}_k$ and the measurement covariance matrix $\boldsymbol{R}_k$. These are defined straightforwardly from Equations \eqref{eq:measurement}--\eqref{eq:g_func_trig}. Specifically, 
-$\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagonal is given by $g^{(n)}(t_k)$ from Equation \eqref{eq:g_func}. The measurement covariance $\boldsymbol{R}_k = E \left[ \boldsymbol{v} \boldsymbol{v}^\intercal \right] = \sigma^2_{\rm m}$.
+$\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagonal is given by $g^{(n)}(t_k)$ from Equation \eqref{eq:g_func}. The measurement covariance satisfies $\boldsymbol{R}_k = E \left[ \boldsymbol{v} \boldsymbol{v}^\intercal \right] = \sigma^2_{\rm m}$ for all $k$.
 
 
 
-\section{Fiducial pulsar values}\label{appendix_fiducial}
-\textcolor{red}{TK: AM suggests a table of the pulsars used with there fiducial values. Do we really need this? The argument is for reproducibility, but we have a nice github repo that holds all the data we actually used, jupyter notebooks that show how the calculations are done. Perhaps it is sufficient to point the reader to the repo... MNRAS encourages a "data availability" section before Acknowledgements that points readers to code/data/github repository} 
-
-\section{Wasserstein distance}\label{sec:wasserstein}
-In this section we describe the Wasserstein distance used in Section \ref{sec:multiple_noise}. In Section \ref{sec:appendix_overview_WD} we give a brief overview of the Wasserstein distance generally. In Section \ref{sec:appendix_WD_results} we present for reproducibility the Wasserstein distance calculated between every pair of posteriors for each static parameter in $\boldsymbol{\theta}_{\rm gw}$ across the $10^3$ noise realisations of Section  \ref{sec:multiple_noise}. This corresponds to the mean values reported in Table \ref{tab:Wasserstein}.
-
-
-
-\subsection{Overview of the Wasserstein distance}\label{sec:appendix_overview_WD}
+\section{Synthetic PTA specifications}\label{appendix_fiducial}
+The synthetic PTA deployed for testing in this paper is constructed to mimic the $N=47$ pulsars from the 12.5-year NANOGrav data release, whose sky positions are plotted in Figure \ref{fig:pulsar_distrib}. The construction recipe is described in full in Section \ref{sec:synt_pta}. In this appendix, we record a complete list of the pulsar parameters in Table \ref{tab:pulsar_values}, to assist the interested reader in implementing the analysis scheme and reproducing the test results in Sections \ref{sec:rep_example}--\ref{sec:bias_and_identifiability}.
 
 
 
 
-The Wasserstein distance is a metric that defines a distance between two probability distributions $\mu(x)$ and $\nu(x)$. It has an intuitive interpretation as the lowest total cost with which one can move probability mass from $\mu$ to $\nu$, with respect to a cost function $c(x,y)$. For this reason it is sometimes known as the "Earth mover's distance". The $p$-th order Wasserstein distance between two distributions is
+\begin{table*}
+\begin{tabular}{lccccc}
+	\toprule
+	JNAME &    $f_{\rm em} (t_1)$ (Hz) &  $\dot{f}^{(n)}_{\rm em}(t_1)\times 10^{16}$ (s$^{-2}$) &  $\alpha$ (deg) &  $\delta$ (deg) &  $d$ (kpc) \\
+	\midrule
+	J0023+0923 & 327.8 &      -12.3 &   5.8 &    9.4 &   1.8 \\
+	J0030+0451 & 205.5 &       -4.3 &   7.6 &    4.9 &   0.3 \\
+	J0340+4130 & 303.1 &       -6.5 &  55.1 &   41.5 &   1.6 \\
+	J0613-0200 & 326.6 &      -10.2 &  93.4 &   -2.0 &   0.9 \\
+	J0636+5128 & 348.6 &       -4.2 &  99.0 &   51.5 &   0.7 \\
+	J0645+5158 & 112.9 &       -0.6 & 101.5 &   52.0 &   1.2 \\
+	J0740+6620 & 346.5 &      -14.6 & 115.2 &   66.3 &   1.1 \\
+	J0931-1902 & 215.6 &       -1.7 & 142.8 &  -19.0 &   3.7 \\
+	J1012+5307 & 190.3 &       -6.2 & 153.1 &   53.1 &   0.7 \\
+	J1024-0719 & 193.7 &       -7.0 & 156.2 &   -7.3 &   1.2 \\
+	J1125+7819 & 238.0 &       -3.9 & 171.5 &   78.3 &   0.9 \\
+	J1453+1902 & 172.6 &       -3.5 & 223.4 &   19.0 &   1.3 \\
+	J1455-3330 & 125.2 &       -3.8 & 223.9 &  -33.5 &   0.7 \\
+	J1600-3053 & 277.9 &       -7.3 & 240.2 &  -30.9 &   1.9 \\
+	J1614-2230 & 317.4 &       -9.7 & 243.7 &  -22.5 &   0.7 \\
+	J1640+2224 & 316.1 &       -2.8 & 250.1 &   22.4 &   1.5 \\
+	J1643-1224 & 216.4 &       -8.6 & 250.9 &  -12.4 &   0.7 \\
+	J1713+0747 & 218.8 &       -4.1 & 258.5 &    7.8 &   1.3 \\
+	J1738+0333 & 170.9 &       -7.0 & 264.7 &    3.6 &   1.5 \\
+	J1741+1351 & 266.9 &      -21.5 & 265.4 &   13.9 &   1.7 \\
+	J1744-1134 & 245.4 &       -5.4 & 266.1 &  -11.6 &   0.4 \\
+	J1747-4036 & 607.7 &      -48.5 & 267.0 &  -40.6 &   7.1 \\
+	J1832-0836 & 367.8 &      -11.2 & 278.1 &   -8.6 &   2.1 \\
+	J1853+1303 & 244.4 &       -5.2 & 283.5 &   13.1 &   2.1 \\
+	J1857+0943 & 186.5 &       -6.2 & 284.4 &    9.7 &   1.2 \\
+	J1903+0327 & 465.1 &      -40.7 & 285.8 &    3.5 &   7.0 \\
+	J1909-3744 & 339.3 &      -16.1 & 287.4 &  -37.7 &   1.1 \\
+	J1910+1256 & 200.7 &       -3.9 & 287.5 &   12.9 &   1.5 \\
+	J1911+1347 & 216.2 &       -7.9 & 288.0 &   13.8 &   1.4 \\
+	J1918-0642 & 130.8 &       -4.4 & 289.7 &   -6.7 &   1.1 \\
+	J1923+2515 & 264.0 &       -6.7 & 290.8 &   25.3 &   1.2 \\
+	J1939+2134 & 641.9 &     -433.1 & 294.9 &   21.6 &   3.5 \\
+	J1944+0907 & 192.9 &       -6.4 & 296.0 &    9.1 &   1.2 \\
+	J1946+3417 & 315.4 &       -3.1 & 296.6 &   34.3 &   6.9 \\
+	J1955+2908 & 163.0 &       -7.9 & 298.9 &   29.1 &   6.3 \\
+	J2010-1323 & 191.5 &       -1.8 & 302.7 &  -13.4 &   2.4 \\
+	J2017+0603 & 345.3 &       -9.5 & 304.3 &    6.1 &   1.4 \\
+	J2033+1734 & 168.1 &       -3.1 & 308.4 &   17.6 &   1.7 \\
+	J2043+1711 & 420.2 &       -9.3 & 310.8 &   17.2 &   1.4 \\
+	J2145-0750 &  62.3 &       -1.2 & 326.5 &   -7.8 &   0.7 \\
+	J2214+3000 & 320.6 &      -15.1 & 333.7 &   30.0 &   0.6 \\
+	J2229+2643 & 335.8 &       -1.7 & 337.5 &   26.7 &   1.8 \\
+	J2234+0611 & 279.6 &       -9.4 & 338.6 &    6.2 &   1.0 \\
+	J2234+0944 & 275.7 &      -15.3 & 338.7 &    9.7 &   1.6 \\
+	J2302+4442 & 192.6 &       -5.1 & 345.7 &   44.7 &   0.9 \\
+	J2317+1439 & 290.3 &       -2.0 & 349.3 &   14.7 &   1.7 \\
+	J2322+2057 & 208.0 &       -4.2 & 350.6 &   21.0 &   1.0 \\
+	\bottomrule
+\end{tabular}
+\caption{List of the fiducial pulsar parameters for the 47 pulsars used to construct the synthetic PTA in Section \ref{sec:synt_pta}. The right ascension and declination of an individual pulsar in J2000 coordinates are labelled by $\alpha$ and $\delta$ respectively. Parameter values are obtained from the ATNF pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}.}
+\label{tab:pulsar_values}
+\end{table*}
+
+
+
+
+
+
+
+
+
+\section{Dispersion of ${\theta}_{\rm gw}$ estimates}\label{sec:wasserstein}
+Every random realization of the noise processes $\xi^{(n)}(t)$ and $\varepsilon^{(n)}(t)$ leads to a different ${\boldsymbol{\theta}}_{\rm gw}$ posterior, when the synthetic data are analysed according to the procedure in Section \ref{sec:methodsummary}. This cosmic variance is unavoidable. It is a key source of uncertainty, when the analysis is performed on real astronomical data, where the specific random realizations of $\xi^{(n)}(t)$ and $\varepsilon^{(n)}(t)$ are unknown. To quantify the cosmic variance, one needs a metric to describe the distance between two posteriors (i.e.\ how similar they are). Many valid metrics of this sort exist, including those related to the Kolmogorov-Smirnoff test \citep{corder2014nonparametric}. In this paper, we use the WD \citep{Wasserstein,Villani2009} which is popular in machine learning \citep[e.g.][]{2017arXiv170107875A} and other domains. In Section \ref{sec:appendix_overview_WD} we define the WD and summarize its main properties. In Section \ref{sec:appendix_WD_results} we present for reproducibility the WD calculated between every pair of posteriors for each static parameter in $\boldsymbol{\theta}_{\rm gw}$ across the $10^3$ noise realisations of Section  \ref{sec:multiple_noise}. The results are summarised via the median values reported in Table \ref{tab:Wasserstein}.
+
+
+
+\subsection{Overview of the WD}\label{sec:appendix_overview_WD}
+The WD is a metric that defines a distance between two probability distributions $\mu(x)$ and $\nu(x)$. It has an intuitive interpretation as the lowest total cost with which one can move probability mass from $\mu$ to $\nu$, with respect to a cost function $c(x,y)$. For this reason it is sometimes known as the ``Earth mover's distance''. The $p$-th order Wasserstein distance between two distributions is
 \begin{eqnarray}
-	W_p(\mu,\nu)= \left( \inf_{\gamma \in \Gamma(\mu, \nu)}  \int c(x,y)^p d \lambda (x,y)\right)^{1/p} \label{eq:wasserstein} \ ,
+	W_p(\mu,\nu)= \left[ \inf_{\gamma \in \Gamma(\mu, \nu)}  \int c(x,y)^p d \lambda (x,y)\right]^{1/p} \label{eq:wasserstein} \ ,
 \end{eqnarray}
-where $p \in [1,\infty)$, $\lambda(x,y)$ is the transport plan, and $\Gamma(\mu, \nu)$ is the set of all joint probability distributions for $(x,y)$ that have marginals $\mu$ and $\nu$, i.e. $\Gamma(\mu, \nu)$ is the set of couplings of $\mu$ and $\nu$. 
+for $p \in [1,\infty)$, where $\lambda(x,y)$ is the transport plan, and $\Gamma(\mu, \nu)$ is the set of all joint probability distributions for $(x,y)$ that have marginals $\mu$ and $\nu$, i.e. $\Gamma(\mu, \nu)$ is the set of couplings of $\mu$ and $\nu$. \newline 
 
-The cost function can be freely chosen for the nature of the problem, but is commonly taken to be the absolute value function, $c(x,y) = |x-y|$, and we adopt the same cost function in this work. Given this choice of $c(x,y)$, for an empirical distribution $\hat{\mu}_n$ composed of $n$ i.i.d samples drawn from the underlying probability distribution $\mu$, the solution to the discrete form of Equation \eqref{eq:wasserstein} can be computed generally by the Hungarian algorithm \citep{Kuhn} in polynomial time $\mathcal{O}(n^3)$ \citep{Villani2009}. However, for $\mu$ defined on $\mathbb{R}^d$ it is well-known \citep{Dudley} that the Wasserstein distance suffers from the curse of dimensionality for dimensions $d \geq 3$:
+The cost function can be freely chosen to suit the nature of the problem. Often, as in this paper, it is taken to be the absolute value function, $c(x,y) = |x-y|$. In general, $W_p(\mu,\nu)$ with $c(x,y)=|x-y|$ can be computed from $n$ samples by the Hungarian algorithm \citep{Kuhn} in polynomial time $\mathcal{O}(n^3)$ \citep{Villani2009}. However, for $\mu$ and $\nu$ defined on $\mathbb{R}^d$ it is well-known \citep{Dudley} that $E[W_p(\mu,\nu)]$ converges slowly $\propto n^{-1/d}$. In this paper, we calculate the WD exclusively between the one-dimensional marginalized posteriors, setting $d=1$ and obtaining
 \begin{eqnarray}
-	\boldsymbol{E} [W_1(\hat{\mu}_n,\mu)] \asymp n^{-\frac{1}{d}} \ .
+	W_p(\mu,\nu)= \left\{\int_0^1 dz \left[ F_{\mu}^{-1} (z) - F_{\nu}^{-1} (z) \right] \right\}^{1/p} \ , \label{eq:wasserstein}
 \end{eqnarray}
-In order to circumvent this issue, in this work we calculate the Wasserstein distance exclusively between the one-dimensional marginalized posteriors, i.e. setting $d=1$. In this case Equation \eqref{eq:wasserstein} has a convenient, easily computed, closed form:
-\begin{eqnarray}
-	W_p(\mu,\nu)= \left(\int_0^1  F_{\mu}^{-1} (z) - F_{\nu}^{-1} (z) dz \right)^{1/p} \, \label{eq:wasserstein}
-\end{eqnarray}
-where $F_{\mu}(z)$ is the cumulative distribution function of $\mu$. \newline  
+where $F_{\mu}^{-1}(z)$ is the inverse cumulative distribution function of $\mu$. \newline  
 
 
-The use of the Wasserstein distance over more common probability measures such as the Kullback–Leibler divergence or the  Kolmogorov-Smirnoff test has a number of advantages. Firstly, it is intuitive, being the minimal amount of work required to transform one distribution into another. It also inherits the units of the underlying distributions, providing a convenient heuristic; if $W_1 =1$ between a pair of distributions with units e.g. radians then we can interpret this as the cost to transform between the two distributions is 1 radian. Further interpretability is provided by the Monge-Kantorovich duality \citep{villani2003topics,Villani2009}:
+
+
+The WD holds certain advantages over valid alternatives like the Kullback–Leibler divergence or the  Kolmogorov-Smirnoff test \citep{gelman2013bayesian,corder2014nonparametric}. sIt is intuitive, being the minimum cost required to transform one distribution into another. It satisfies the Monge-Kantorovich duality \citep{villani2003topics,Villani2009},
 \begin{eqnarray}
 	| \boldsymbol{E}(X_{\mu} )-\boldsymbol{E}(Y_{\nu} ) | \leq W_1(\mu, \nu) \ , \label{eq:WDdefn}
 \end{eqnarray}
-where $X_{\mu}$ and $Y_{\nu}$ are random variables of the distributions $\mu$ and $\nu$ respectively, and $\boldsymbol{E}$ denotes the expected value. That is, if $W_1 =1$ then the difference in the expected value of two random variables drawn from the two distributions is less than 1 radian. Secondly it is a versatile, non-parametric measure that requires no specific properties of the probability distributions that are being compared such as e.g. Gaussianity. Any two distributions can be compared, irregardless of whether they are continuous, discrete, singular or defined on different metric spaces. Thirdly, it is a true distance metric and as such satisfies desirable properties of a measure of distance such as symmetry and the triangle inequality. It also respects the geometry of the underlying metric space over which the distributions are defined. \newline   
+where $X_{\mu}$ and $Y_{\nu}$ are random variates drawn from the distributions $\mu$ and $\nu$ respectively, and $\boldsymbol{E}$ denotes the expected value. It also satisfies desirable properties of a measure of distance, such as symmetry and the triangle inequality. For $p=1$, the WD inherits the units of the underlying distributions. Finally, the WD is versatile; any two distributions can be compared, irrespective of whether they are continuous, discrete, or singular. \newline 
 
 
 
 
+\subsection{WD for $\theta_{\rm gw}$} \label{sec:appendix_WD_results}
+Table \ref{tab:Wasserstein} summarizes the median WD between the $5\times 10^5$ pairs of one-dimensional posteriors across the $10^3$ realisations analysed in Section \ref{sec:multiple_noise}, for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$. To assist with reproducibility, we present in Figure \ref{fig:pairwise_wasserstein} we present the WD values for a subset (numbering $10^2$) of the realisations. We plot a subset of realisations to avoid overcrowding the figure. Figure \ref{fig:pairwise_wasserstein} contains seven subplots, one for each element or ${\boldsymbol{\theta}}_{\rm gw}$. Each subplot is a lower triangular heat-map, where each point denotes the $W_1$ value between a pair of one-dimensional posteriors for that element. Lower values of $W_1$ are magenta; higher values of $W_1$ are yellow. Note that the heat-map colour scale is not the same in every subplot. \newline 
 
-
-
-
-\subsection{Wasserstein distance for static parameters} \label{sec:appendix_WD_results}
-
-
-
-Table \ref{tab:Wasserstein} summarizes the WD between the $5\times 10^5$ pairs of one-dimensional posteriors across the $10^3$ realizations, for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$. In Figure \ref{fig:pairwise_wasserstein} we present the WD values for a subset ($=10^2$) of those noise realisations. We plot a subset of realisations so as not to overcrowd the figure and enable certain features in the figure to be resolved. \newline
-
-
-The figure is composed of seven subplots, one for each element or ${\boldsymbol{\theta}}_{\rm gw}$. Each individual subplot is a lower triangular heat-map, where each point denotes the $W_1$ value between a pair of one-dimensional posteriors for that element. Smaller values of $W_1$ are magenta moving to through red to yellow for larger values of $W_1$. Note that the heat-map colour scaling is not the same for all subplots of the figure. \newline 
-
-
-As discussed in Section \ref{sec:multiple_noise} $W_1$ is generally small across all pairs of posteriors. The median $W_1$ across all $10^3 \choose 2$ pairs of noise realisations is reported in Table \ref{tab:Wasserstein}. However for some static parameters there are a small fraction ($\lesssim 5 \%$) of posterior distributions which have a notably larger $W_1$ value from all the other posteriors of all the other noise realisations. These are the strong yellow lines in Figure \ref{fig:pairwise_wasserstein}. These correspond exclusively to posteriors which have converged poorly and not found the likelihood global maximum. For instance, the top strong horizontal yellow line in Figure \ref{figWD_psi}, which is identified by an asterisk in the figure, corresponds to a posterior for $\psi$ which has converged sub-optimally, with an estimated value of $\psi = 1.01 \pm 0.06$ rad, highly diverged from the true injected value of $2.50$ rad. The $W_1$ value between this posterior and all the posteriors inferred for all other noise realisations is $\sim 1.7$ rad. We also observe a strong correlation across all noise pairs (Pearson correlation coefficient $=0.96$) between the $W_1$ inferred for $\alpha$ and $\psi$, indicating that noise realisations which corrupt the inference of $\psi$ similarly affect $\alpha$. This is due to multimodal likelihood surface for $\psi-\alpha$, shown in Figure \ref{fig:likelihood_surface_alpha_psi}. We can see that the likelihood surface has a global optima at the approximate location of the injected values ($\alpha \sim 1.0$, $\psi\sim2.5$) and local optima that corresponds to the location of the example poorly converged posterior discussed previously, with $\psi = 1.01$ rad. This problem of poor global convergence can be solved in principle by increasing the number of live points $n_{\rm live}$ in the nested sampler so as to better cover the likelihood surface and prevent falling into local minima. 
+ Figure \ref{fig:pairwise_wasserstein} confirms that $W_1$ is generally small across all pairs of posteriors, consistent with Table \ref{tab:Wasserstein}. However for some static parameters a small fraction ($\lesssim 5 \%$) of posteriors differ significantly from all the other posteriors. These correspond to the strong yellow lines in Figure \ref{fig:pairwise_wasserstein}. They are posteriors that converge poorly and miss the likelihood global maximum. For instance, the top strong horizontal yellow line in Figure \ref{figWD_psi}, which is identified by an asterisk, corresponds to a posterior for $\psi$ which converges to $\psi = 1.01 \pm 0.06$ rad, far from the true injected value of $2.50$ rad. The $W_1$ value between this posterior and all the others is $\approx 1.7$ rad. We also observe a strong correlation across all noise pairs (Pearson correlation coefficient $=0.96$) between the $W_1$ inferred for $\alpha$ and $\psi$, indicating that noise realisations that corrupt the inference of $\psi$ also affect $\alpha$, due to the multimodal likelihood surface for $\psi-\alpha$, shown in Figure \ref{fig:likelihood_surface_alpha_psi}. The likelihood surface has a global maximum at the approximate location of the injected values ($\alpha \sim 1.0$, $\psi\sim2.5$) and local maxima at the location of the example poorly converged posterior discussed previously, with $\psi = 1.01$ rad. Poor global convergence can be solved in principle by increasing $n_{\rm live}$ in the nested sampler so as to better cover the likelihood surface and prevent falling into local minima, raising the computational cost.
 
 
 
 \section{Bias from dropping the pulsar terms}\label{sec:bias_appendix}
-Why does dropping the pulsar terms bias the above parameters in particular, whilst leaving others nearly unaffected? For instance, why is the bias in $\iota$ so strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is effective modulated by the interference of two equal-amplitude, phase shifted waves (c.f. Equation \eqref{eq:measurement}). Explicitly we have an 
-``Earth-terms wave'' with a general form $y_{\rm Earth} = A \cos \xi$ for amplitude $A$ and phase $\xi$, and the ``pulsar-terms wave'' with a general form $y_{\rm pulsar} = A \cos (\xi + \kappa)$ for phase offset $\kappa$. These two terms are related to the measurement equation, Equation \eqref{eq:g_func_trig} as,
-\begin{eqnarray}
-	1 - g^{(n)}(t) =  y_{\rm Earth}  - y_{\rm pulsar} \ .
-\end{eqnarray}
-The net interference wave that modulates $f_{\rm p}$ is 
-\begin{eqnarray}
-	y_{\rm Earth} - y_{\rm pulsar} = 2 A \sin \left(\frac{\kappa}{2}\right) \sin \left(\xi + \frac{\kappa}{2}\right) \ .
-\end{eqnarray}
-The inclusion of  $y_{\rm pulsar}$ influences the amplitude of the resulting interference wave by a factor $ 2 \sin (\kappa/2)$, but does but do not affect its frequency. When we model this data using the Kalman filter without the pulsar terms, the additional factor from $y_{\rm pulsar}$ must be described by the single wave model, $y_{\rm Earth}$. As a result the $y_{\rm Earth}$ model must try to compensate for these amplitude modulations by adjusting the parameters which govern the amplitude. Terms which influence the amplitude strongly, such as $h_0$ and $\iota$, are strongly affected and exhibit a strong bias. Terms which influence the amplitude weakly such as $\psi$ exhibit a weaker bias. The wave amplitude is independent of the frequency and so $\Omega$ exhibits no bias. Since a shift in phase affects the instantaneous amplitude of the wave, $\Phi_0$ also exhibits a small bias, despite $A$ not being a function of $\Phi_0$. The same hierarchy of biases is seen also in Figure \ref{fig:parameter_space}, where $\alpha$ and $\delta$ are strongly over-constrained whilst $\Omega$ is well-estimated. \newline  
+Why does dropping the pulsar terms in Equation \ref{eq:g_func_trig} bias some components of $\boldsymbol{\theta}_{\rm gw}$, whilst leaving others nearly unaffected? For instance, why is the bias in $\iota$ strong, whereas $\psi$ shows only a weak bias and  $\Omega$ shows no bias at all? In this appendix, we examine the above questions in the context of the Kalman analysis in this paper, complementing work on similar questions in the context of traditional PTA analyses \citep{Zhupulsarterms,Chen2022}. \newline  
 
-In order to ascertain how important the bias is for PTA continuous wave searches requires a thorough exploration of the astrophysical parameter space which we do not carry out in this work. The magnitude of the bias will vary for different points in the parameter space, as well as for different PTA configurations. Quantifying the bias in preparation for a practical PTA analysis with real data lies outside the scope of this introductory paper. If the bias is sufficiently modest then for quiet continuous wave sources with low SNR the uncertainty in the one-dimensional marginalised posterior may dominate. This is what we observe for our synthetic data (e.g. Figure \ref{fig:corner_plot_2}); the marginalised posterior broadens as the SNR decreases, until it overwhelms the shift due to the bias. Conversely if the bias is sufficiently strong, or the source sufficiently loud with low uncertainties, then the bias may systematically affect the inferred parameters. \newline  
+
+
+
+ When we generate synthetic data including the pulsar term, the state frequency of an individual pulsar $f_{\rm p}$ is modulated by the interference of two equal-amplitude, phase-shifted oscillations (c.f. Equation \eqref{eq:measurement}). Specifically we have an 
+``Earth-term oscillation'' of form $y_{\rm Earth} = A \cos \xi$, with amplitude $A$ and phase $\xi$, and a ``pulsar-terms oscillation'' of form $y_{\rm pulsar} = A \cos (\xi + \kappa)$, with phase offset $\kappa$. The two terms are related to the measurement equation, Equation \eqref{eq:g_func_trig}, through
+\begin{align}
+	1 - g^{(n)}(t) &=  y_{\rm Earth}  - y_{\rm pulsar} \  \nonumber \\
+		 &= 2 A \sin \left(\frac{\kappa}{2}\right) \sin \left(\xi + \frac{\kappa}{2}\right) \ . \label{eq:psr_interference}
+\end{align}
+The interference in Equation \ref{eq:psr_interference} multiplies the amplitude by $ 2 \sin (\kappa/2)$, but leaves the frequency unchanged. When we model the data using the Kalman filter without the pulsar terms, $y_{\rm Earth}$ must try to compensate for the modified amplitude on the right-hand side of Equation \ref{eq:psr_interference} by adjusting the parameters which govern the amplitude, such as $h_0$ and $\iota$. Terms which influence the amplitude weakly such as $\psi$ exhibit a weaker bias. The wave amplitude is independent of $\Omega$, and so $\Omega$ exhibits no bias. A shift in phase is covariant with the amplitude, so $\Phi_0$ also exhibits a small bias. The same hierarchy of biases is seen also in Figure \ref{fig:parameter_space}, where $\alpha$ and $\delta$ are over-constrained whilst $\Omega$ is well-estimated. \newline  
+
+Quantifying the bias for practical, astronomical PTA continuous wave searches requires a thorough exploration of the SMBHB parameter space which falls outside the scope of this introductory paper. The bias also depends on the PTA configuration. If the bias is sufficiently modest then for quiet continuous wave sources with low SNR the uncertainty in the one-dimensional marginalised posterior may dominate. This is what we observe for the synthetic data, for example in Figure \ref{fig:corner_plot_2}; the marginalised posterior broadens as the SNR decreases, until it overwhelms the shift due to the bias. Conversely if the bias is sufficiently strong, or the source is sufficiently loud, then the bias may dominate. \newline  
 
 
 
@@ -898,12 +927,12 @@ In order to ascertain how important the bias is for PTA continuous wave searches
 		\includegraphics[width=\textwidth]{images/WD_6}
 		\caption{$h$}
 	\end{subfigure}
-	\caption{The first moment of the Wasserstein distance, $W_1$, calculated between each pair of one-dimensional posteriors for our representative system across $10^3$ realisations, for each parameter of $\boldsymbol{\theta}_{\rm gw}$  $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally small across all parameters and all posteriors, but some posteriors converge poorly leading to large values of $W_1$. The $W_1$ values inferred for $\psi$ and $\alpha$ are strongly correlated with correlation coefficient = 0.96. An example noise realisation with particularly large pairwise $W_1$ values is labelled with an asterisk in (c) and is discussed in the text.} \label{fig:pairwise_wasserstein}
+	\caption{First moment of the WD, $W_1$ (colour scale), calculated between each pair of one-dimensional posteriors for the representative system in Table \ref{tab:parameters_and_priors} across $10^3$ realisations as discussed in Section \ref{sec:appendix_WD_results}, for each component of $\boldsymbol{\theta}_{\rm gw}$. $W_1$ provides an upper bound on the difference in expected values between any two probability distributions. $W_1$ is generally low across all parameters and posteriors, but some posteriors converge poorly and return high values of $W_1$. The $W_1$ values inferred for $\psi$ and $\alpha$ are correlated with Pearson correlation coefficient = 0.96. An example of a noise realisation with particularly high $W_1$ is labelled with an asterisk in (c) and is discussed in the text.} \label{fig:pairwise_wasserstein}
 \end{figure*}
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{images/likelihood_surface_alpha_psi}
-	\caption{Log-likelihood, $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) surface across the $\alpha-\psi$ parameter space for a single noise realisation.  The red point labels the location of the maxima, and the magenta point labels the median values of the one-dimensional posteriors inferred for a particular noise realisation of the data. The likelihood has been normalised with respect to the absolute value of the maxima. A multi-modal structure is clearly visible and for this noise realisation the nested sampler has settled in the local optima. This can be solved generally by increasing the number of live points $n_{\rm live}$.}
+	\caption{Log-likelihood, $\log \mathcal{L}$ (Equation \ref{eq:likelihood}) contours in the $\alpha$-$\psi$ plane for a single noise realisation.  The red point labels the maximum, and the magenta point labels the median values of the inferred one-dimensional posteriors for $\alpha$ and $\psi$. The likelihood is normalised with respect to the absolute value of the maximum; note the compressed colour scale. A multi-modal structure is clearly visible for this noise realisation.  The nested sampler finds a local maximum (magenta point) instead of the global maximum (red point)}
 	\label{fig:likelihood_surface_alpha_psi}
 \end{figure}
 

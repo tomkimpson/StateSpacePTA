@@ -208,6 +208,12 @@ Brook P.~R.,  Karastergiou A.,  Buchner S.,  Roberts S.~J.,  Keith M.~J.,
 Cook S.~R.,  Gelman A.,   Rubin D.~B.,  2006, \mn@doi [Journal of Computational
   and Graphical Statistics] {10.1198/106186006X136976}, 15, 675
 
+\bibitem[\protect\citeauthoryear{Corder \& Foreman}{Corder \&
+  Foreman}{2014}]{corder2014nonparametric}
+Corder G.,  Foreman D.,  2014, Nonparametric Statistics: A Step-by-Step
+  Approach.
+Wiley, \url {https://books.google.com.au/books?id=hYVYAwAAQBAJ}
+
 \bibitem[\protect\citeauthoryear{{Cordes} \& {Greenstein}}{{Cordes} \&
   {Greenstein}}{1981}]{Cordes1981}
 {Cordes} J.~M.,  {Greenstein} G.,  1981, \mn@doi [\apj] {10.1086/158883}, \href
@@ -296,6 +302,13 @@ Springer Series in Synergetics, Springer Berlin Heidelberg, \url
 Gelb A.,  Kasper J.~F.,  Nash R.~A.,  Price C.~F.,   Sutherland A.~A.,  eds,
   1974, Applied Optimal Estimation.
 MIT Press, Cambridge, MA
+
+\bibitem[\protect\citeauthoryear{Gelman, Carlin, Stern, Dunson, Vehtari  \&
+  Rubin}{Gelman et~al.}{2013}]{gelman2013bayesian}
+Gelman A.,  Carlin J.,  Stern H.,  Dunson D.,  Vehtari A.,   Rubin D.,  2013,
+  Bayesian Data Analysis, Third Edition.
+Chapman \& Hall/CRC Texts in Statistical Science, Taylor \& Francis, \url
+  {https://books.google.com.au/books?id=ZXL6AQAAQBAJ}
 
 \bibitem[\protect\citeauthoryear{{Goldreich} \& {Julian}}{{Goldreich} \&
   {Julian}}{1969}]{1969ApJ...157..869G}

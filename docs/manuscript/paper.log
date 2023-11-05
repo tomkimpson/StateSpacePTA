@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  4 NOV 2023 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  5 NOV 2023 12:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1157,9 +1157,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 529--530
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
@@ -1169,16 +1166,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
-
+[10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 537--538
 
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1229,6 +1223,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 566--567
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 568--569
 
  []
@@ -1270,6 +1267,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 608--609
  []
 
 
+Underfull \vbox (badness 1127) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 611--612
 
  []
@@ -1284,13 +1284,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 621--622
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
-
- []
-
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 
  []
 
@@ -1301,6 +1296,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16 <./images/large_h_example.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 627--628
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 631--632
 
  []
@@ -1330,123 +1330,163 @@ Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
  []
 
-(./paper.bbl [17 <./images/likelihood_iota_new.png>]
+[17 <./images/likelihood_iota_new.png>] (./paper.bbl
 Underfull \hbox (badness 4279) in paragraph at lines 86--89
 []\T1/ntxtlf/m/n/8 Arjovsky M., Chin-tala S., Bot-tou L., 2017, [][]arXiv e-pri
 nts[][], [][]p.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--457
+Underfull \hbox (badness 1102) in paragraph at lines 213--216
+[]\T1/ntxtlf/m/n/8 Corder G., Fore-man D., 2014, Non-para-met-ric Statis-tics: 
+A Step-by-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--470
 []\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--457
+Underfull \hbox (badness 10000) in paragraph at lines 466--470
 \T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--457
+Underfull \hbox (badness 10000) in paragraph at lines 466--470
 [][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
 /m/n/8 https : / / doi . org /
  []
 
 [18]
-Underfull \hbox (badness 6493) in paragraph at lines 754--757
+Underfull \hbox (badness 6493) in paragraph at lines 767--770
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 700--702
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 715--717
+Underfull \hbox (badness 10000) in paragraph at lines 677--679
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 722--723
+Underfull \hbox (badness 10000) in paragraph at lines 692--694
 
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 699--700
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 834.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 834.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 834.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 834.
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 813--815
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--822
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--835
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--838
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 853--855
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 856--857
+Underfull \hbox (badness 10000) in paragraph at lines 843--845
 
  []
 
 [21]
-<images/WD_0.png, id=1575, 355.3275pt x 317.7471pt>
+Underfull \hbox (badness 10000) in paragraph at lines 849--851
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 858--860
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 864.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\theta' on input line 864.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 864.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 864.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 865--866
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 872--873
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 882--884
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 885--886
+
+ []
+
+<images/WD_0.png, id=1611, 355.3275pt x 317.7471pt>
 File: images/WD_0.png Graphic file (type png)
 <use images/WD_0.png>
-Package pdftex.def Info: images/WD_0.png  used on input line 868.
+Package pdftex.def Info: images/WD_0.png  used on input line 897.
 (pdftex.def)             Requested size: 111.76062pt x 99.94055pt.
-<images/WD_1.png, id=1576, 367.6134pt x 313.17pt>
+<images/WD_1.png, id=1612, 367.6134pt x 313.17pt>
 File: images/WD_1.png Graphic file (type png)
 <use images/WD_1.png>
-Package pdftex.def Info: images/WD_1.png  used on input line 873.
+Package pdftex.def Info: images/WD_1.png  used on input line 902.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_2.png, id=1577, 393.1488pt x 320.397pt>
+<images/WD_2.png, id=1613, 393.1488pt x 320.397pt>
 File: images/WD_2.png Graphic file (type png)
 <use images/WD_2.png>
-Package pdftex.def Info: images/WD_2.png  used on input line 878.
+Package pdftex.def Info: images/WD_2.png  used on input line 907.
 (pdftex.def)             Requested size: 111.76062pt x 91.07942pt.
-<images/WD_3.png, id=1578, 367.6134pt x 313.17pt>
+<images/WD_3.png, id=1614, 367.6134pt x 313.17pt>
 File: images/WD_3.png Graphic file (type png)
 <use images/WD_3.png>
-Package pdftex.def Info: images/WD_3.png  used on input line 883.
+Package pdftex.def Info: images/WD_3.png  used on input line 912.
 (pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_4.png, id=1579, 367.6134pt x 313.17pt>
+<images/WD_4.png, id=1615, 367.6134pt x 313.17pt>
 File: images/WD_4.png Graphic file (type png)
 <use images/WD_4.png>
-Package pdftex.def Info: images/WD_4.png  used on input line 888.
+Package pdftex.def Info: images/WD_4.png  used on input line 917.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_5.png, id=1580, 367.6134pt x 313.17pt>
+<images/WD_5.png, id=1616, 367.6134pt x 313.17pt>
 File: images/WD_5.png Graphic file (type png)
 <use images/WD_5.png>
-Package pdftex.def Info: images/WD_5.png  used on input line 893.
+Package pdftex.def Info: images/WD_5.png  used on input line 922.
 (pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_6.png, id=1581, 367.6134pt x 317.7471pt>
+<images/WD_6.png, id=1617, 367.6134pt x 317.7471pt>
 File: images/WD_6.png Graphic file (type png)
 <use images/WD_6.png>
-Package pdftex.def Info: images/WD_6.png  used on input line 898.
+Package pdftex.def Info: images/WD_6.png  used on input line 927.
 (pdftex.def)             Requested size: 152.40155pt x 131.72682pt.
-<images/likelihood_surface_alpha_psi.png, id=1582, 409.53pt x 397.7259pt>
+<images/likelihood_surface_alpha_psi.png, id=1622, 409.53pt x 397.7259pt>
 File: images/likelihood_surface_alpha_psi.png Graphic file (type png)
 <use images/likelihood_surface_alpha_psi.png>
 Package pdftex.def Info: images/likelihood_surface_alpha_psi.png  used on input
- line 905.
+ line 934.
 (pdftex.def)             Requested size: 244.0pt x 236.97453pt.
- [22
-
-]
+[22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23
@@ -1462,16 +1502,16 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: BD638E03E8712E101684ACBFE9DF7AD6;5915.
+(rerunfilecheck)             Checksum: E8689AB7B6EB38C70569AF311C9351B2;5776.
  ) 
 Here is how much of TeX's memory you used:
- 17747 strings out of 478268
- 277244 string characters out of 5846348
- 609415 words of memory out of 5000000
- 35260 multiletter control sequences out of 15000+600000
+ 17756 strings out of 478268
+ 277496 string characters out of 5846348
+ 610185 words of memory out of 5000000
+ 35268 multiletter control sequences out of 15000+600000
  604330 words of font info for 262 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,2579b,698s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,2579b,687s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1500,10 +1540,10 @@ xfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts
 fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/
 local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (23 pages, 13217105 bytes).
+Output written on paper.pdf (23 pages, 13220642 bytes).
 PDF statistics:
- 1768 PDF objects out of 2073 (max. 8388607)
- 1615 compressed objects within 17 object streams
- 310 named destinations out of 1000 (max. 500000)
+ 1813 PDF objects out of 2073 (max. 8388607)
+ 1653 compressed objects within 17 object streams
+ 311 named destinations out of 1000 (max. 500000)
  344 words of extra memory for PDF output out of 10000 (max. 10000000)
 
