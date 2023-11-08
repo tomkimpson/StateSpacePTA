@@ -29,7 +29,7 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
     #Run the KF once with the correct parameters.
     #This allows JIT precompile
 
-    init_parameters_optimal, priors_optimal = bilby_priors_dict(PTA,P,set_parameters_as_known=True)
+    init_parameters_optimal, priors_optimal = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True,set_measurement_parameters_as_known=True)
     optimal_parameters = priors_optimal.sample(1)
     model_likelihood = KF.likelihood(optimal_parameters)
     logging.info(f"Ideal likelihood given optimal parameters = {model_likelihood}")
@@ -38,7 +38,8 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
         print(key, value)
     
     #Bilby
-    init_parameters, priors = bilby_priors_dict(PTA,P)
+    #init_parameters, priors = bilby_priors_dict(PTA,P)
+    init_parameters, priors = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True) #just get the measurement params
     logging.info("Testing KF using parameters sampled from prior")
     params = priors.sample(1)
     model_likelihood = KF.likelihood(params)

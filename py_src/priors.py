@@ -237,7 +237,7 @@ def _set_prior_on_measurement_parameters(init_parameters,priors,P,set_parameters
 """
 Main external function for defining priors. c.f. https://arxiv.org/pdf/2008.12320.pdf
 """
-def bilby_priors_dict(PTA,P,set_parameters_as_known=False):
+def bilby_priors_dict(PTA,P,set_state_parameters_as_known=False,set_measurement_parameters_as_known=False):
 
 
     logging.info('Setting the bilby priors dict')
@@ -247,10 +247,10 @@ def bilby_priors_dict(PTA,P,set_parameters_as_known=False):
     priors = bilby.core.prior.PriorDict()
     
     #Measurement priors
-    init_parameters,priors = _set_prior_on_measurement_parameters(init_parameters,priors,P,set_parameters_as_known) 
+    init_parameters,priors = _set_prior_on_measurement_parameters(init_parameters,priors,P,set_measurement_parameters_as_known) 
 
     #State priors
-    init_parameters,priors = _set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi,P.num_gw_sources,set_parameters_as_known,P.measurement_model)
+    init_parameters,priors = _set_prior_on_state_parameters(init_parameters,priors,PTA.f,PTA.fdot,PTA.σp,PTA.γ,PTA.d,PTA.chi,P.num_gw_sources,set_state_parameters_as_known,P.measurement_model)
 
     #Measurement noise priors. Always known
     init_parameters["sigma_m"] = None

@@ -30,7 +30,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir,npoints):
                               #bound='single', # https://dynesty.readthedocs.io/en/latest/faq.html
                               check_point_plot=False,
                               npoints=npoints,
-                              dlogz=100,
+                              dlogz=0.1,
                               npool=1,
                               plot=False,resume=False)
 
