@@ -22,7 +22,7 @@ class SyntheticData:
         σp= pulsars.σp  
 
         #Random seeding
-        generator = np.random.default_rng(P.seed)
+        generator = np.random.default_rng(P["seed"])
 
         
         #Turn σp and γ into diagonal matrices that can be accepted by vectorized sdeint
@@ -39,7 +39,7 @@ class SyntheticData:
 
         #Now calculate the modulation factor due to the GW
         
-        if P.use_psr_terms_in_data:
+        if P["use_psr_terms_in_data"]:
             GW_function = gw_psr_terms
             logging.info("You are including the PSR terms in your synthetic data generation")
         else:
@@ -47,16 +47,16 @@ class SyntheticData:
             logging.info("You are using just the Earth terms in your synthetic data generation")
 
         X_factor = GW_function(
-                                        P.δ,
-                                        P.α,
-                                        P.ψ,
+                                        P["δ"],
+                                        P["α"],
+                                        P["ψ"],
                                         pulsars.q,
                                         pulsars.q_products,
-                                        P.h,
-                                        P.ι,
-                                        P.Ω,
+                                        P["h"],
+                                        P["ι"],
+                                        P["Ω"],
                                         pulsars.t,
-                                        P.Φ0,
+                                        P["Φ0"],
                                         pulsars.chi
                                         )
             

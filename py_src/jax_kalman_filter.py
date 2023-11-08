@@ -5,6 +5,7 @@ import jax.numpy as np
 from jax import lax
 from jax import jit 
 import sys 
+import jax
 
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
@@ -69,13 +70,20 @@ from gravitational_waves import gw_psr_terms
 """
 Given some parameters, define all the Kalman matrices
 """
-def setup_kalman_machinery(P,PTA):
+@jit
+def setup_kalman_machinery(unknown_parameters_dict, known_parameters_dict):
+    jax.debug.print("Welcome to the Kalman filter")
 
+    #print("Welcome to the Kalman filter", P.Ω)
 
     #Extract parameters manually
-    gamma   = PTA.γ
+    gamma   = known_parameters_dict["γ"]
     dt      = PTA.dt
     t       = PTA.t
+
+
+
+
     sigma_p = PTA.σp
     sigma_m = PTA.σm
  
@@ -85,25 +93,26 @@ def setup_kalman_machinery(P,PTA):
     Q = sigma_p**2 * (1. - np.exp(-2.0*gamma* dt)) / (2.0 * gamma)
     R = np.float64(sigma_m**2)
 
-    #measurement
-    X_factor = gw_psr_terms(P.δ,
-                            P.α,
-                            P.ψ,
-                            PTA.q,
-                            PTA.q_products,
-                            P.h,
-                            P.ι,
-                            P.Ω,
-                            PTA.t,
-                            P.Φ0,
-                            PTA.chi
-                            )
+    # #measurement
+    # X_factor = gw_psr_terms(P.δ,
+    #                         P.α,
+    #                         P.ψ,
+    #                         PTA.q,
+    #                         PTA.q_products,
+    #                         P.h,
+    #                         P.ι,
+    #                         P.Ω,
+    #                         PTA.t,
+    #                         P.Φ0,
+    #                         PTA.chi
+    #                         )
 
 
-    f_EM = PTA.f + np.outer(PTA.t,PTA.fdot) #ephemeris correction
+    # f_EM = PTA.f + np.outer(PTA.t,PTA.fdot) #ephemeris correction
 
 
-    return F, Q, R,X_factor,f_EM
+    #return F, Q, R,X_factor,f_EM
+    return F
 
 
 
