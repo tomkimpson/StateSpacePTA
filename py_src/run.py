@@ -45,7 +45,7 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
     model_likelihood = KF.likelihood(params)
     logging.info(f"Non -ideal likelihood for randomly sampled parameters = {model_likelihood}")
 
-    sys.exit()
+    #sys.exit()
 
     #Now run the Bilby sampler
     #How many parameters are we trying to infer?
