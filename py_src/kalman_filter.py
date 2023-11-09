@@ -2,18 +2,22 @@ import numpy as np
 from numba import njit
 from model import F_function,R_function,Q_function # H function is defined via a class init
 
-
+import sys
 from scipy.stats import multivariate_normal
 
 
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)    
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
+    print("Likelihood components:",slogdet,innovation @ x,N*np.log(2*np.pi) )
+    print('innovation:', innovation)
+    print('S', S)
+    sys.exit()
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
     #value = innovation @ innovation
     #value = -0.5*(innovation @ x + N*np.log(2*np.pi))
@@ -36,7 +40,7 @@ def log_likelihood(S,innovation):
 """
 Kalman update step for diagonal matrices where everything is considered as a 1d vector
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def update(x, P, observation,R,Xfactor,ephemeris):
 
 
@@ -70,7 +74,7 @@ def update(x, P, observation,R,Xfactor,ephemeris):
 """
 Kalman predict step for diagonal matrices where everything is considered as a 1d vector
 """
-@njit(fastmath=True)
+#@njit(fastmath=True)
 def predict(x,P,F,Q): 
     xp = F*x
     Pp = F*P*F + Q  

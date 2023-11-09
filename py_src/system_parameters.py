@@ -85,7 +85,7 @@ class SystemParameters:
             self.ι= np.array([1.0,1.0,1.0])
             self.δ= np.array([1.0,0.70,1.11])
             self.α= np.array([1.0,1.30,0.95])
-            self.h   = np.array([5e-15,5e-15,5e-15])
+            self.h   = np.array([2e-15,2e-15,2e-15])
 
             # self.Ω = np.array([5e-7,7e-7,1e-7])
             # self.Φ0= np.array([0.20,1.50,0.10])
