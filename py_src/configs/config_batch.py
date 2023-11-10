@@ -28,17 +28,19 @@ def create_slurm_job(arg_name,h,measurement_model,seed,num_gw_sources):
     
 
 h = 5e-15
-model = 'null'
-seed = 1237
+model = ['earth','null']
+seeds = [1237,1255]
 nums = [1,2,5,10,20]
 
 with open('batch.sh','w') as b:
     
     for n in nums:
-        arg_name = f"floor_earth_{n}"
-        print(arg_name)
-        create_slurm_job(arg_name,h,model,seed,n)
-        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+        for m in model:
+            for s in seeds:
+                arg_name = f"V2_floor_{m}_k_{n}_seed_{s}"
+                print(arg_name)
+                create_slurm_job(arg_name,h,m,s,n)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
 
 

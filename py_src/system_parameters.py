@@ -63,75 +63,60 @@ class SystemParameters:
         if σp ==1.0:
             logging.info("σp = 1.0 is a special value. \n Assigning process noise amplitudes randomly within a range. \n Please see synthetic_data.py")
 
+ 
 
+        if num_gw_sources > 1: #1 is the special deterministic option, otherwise select randomly
 
-        if num_gw_sources == 2:
-            logging.info("Running for two deterministic GW sources")
-            
-            self.Ω = np.array([5e-7,7e-7])
-            self.Φ0 = np.array([0.20,1.50])
-            self.ψ = np.array([2.50,0.35])
-            self.ι = np.array([1.0,1.0])
-            self.δ = np.array([1.0,0.70])
-            self.α = np.array([1.0,1.30])
-            self.h = np.array([5e-15,5e-15])
-
-
-        if num_gw_sources == 3:
-            logging.info("Running for three deterministic GW sources")
-            self.Ω = np.array([5e-7,7e-7,6e-7])
-            self.Φ0= np.array([0.20,1.50,0.10])
-            self.ψ= np.array([2.50,0.35,2.90])
-            self.ι= np.array([1.0,1.0,1.0])
-            self.δ= np.array([1.0,0.70,1.11])
-            self.α= np.array([1.0,1.30,0.95])
-            self.h   = np.array([2e-15,2e-15,2e-15])
-
-            # self.Ω = np.array([5e-7,7e-7,1e-7])
-            # self.Φ0= np.array([0.20,1.50,0.10])
-            # self.ψ= np.array([2.50,0.35,2.90])
-            # self.ι= np.array([1.0,1.2,0.75])
-            # self.δ= np.array([1.0,0.70,1.11])
-            # self.α= np.array([1.0,1.30,0.95])
-            # self.h   = np.array([5e-14,2e-14,6e-14])
-
-
-        if num_gw_sources == 5:
-            logging.info("Running for five deterministic GW sources")
-            
-            self.Ω = np.array([5e-7,1e-7,2e-7,3e-7,4e-7])
-            self.Φ0 = np.array([0.20,1.50,0.30,0.40,1.60])
-            self.ψ = np.array([2.50,0.35,2.60,0.70,0.10])
-            #self.ι = np.array([1.0,1.2,1.3,0.9,0.95])
-            self.ι = np.array([1.0,1.0,1.0,1.0,1.0]) #all the same
-            self.δ = np.array([1.0,0.70,1.1,0.8,0.9])
-            self.α = np.array([1.0,1.30,0.8,0.9,1.2])
-            #self.h = np.array([5e-15,2e-15,6e-15,7e-15,])
-            self.h = np.array([5e-15,5e-15,5e-15,5e-15,5e-15]) #all the same, consistent SNR for every source?
-
-        if num_gw_sources > 5:
             logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
             generator = np.random.default_rng(self.seed)
 
             self.Ω = generator.uniform(low = 1e-7,high=9e-7,size=self.num_gw_sources)
             self.Φ0 = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.ψ = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            #self.ι = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.ι = np.ones(num_gw_sources)
             self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            #self.h = generator.uniform(low = 1e-15,high=9e-15,size=self.num_gw_sources)
-            self.h = np.ones(num_gw_sources) * 1e-15
+            self.h = np.ones(num_gw_sources) * 5e-15
 
-        
-        #     logging.info("Selected random GW parameters are as follows:")
 
-        #     logging.info(f"Omega = {self.Ω}")
-        #     logging.info(f"Phi0 = {self.Φ0}")
-        #     logging.info(f"psi = {self.ψ}")
-        #     logging.info(f"iota = {self.ι}")
-        #     logging.info(f"delta = {self.δ}")
-        #     logging.info(f"alpha = {self.α}")
-        #     logging.info(f"h = {self.h}")
-        #     logging.info("***END SYSTEM PARAMETERS***")
 
+
+
+
+        # if num_gw_sources == 2:
+        #     logging.info("Running for two deterministic GW sources")
+            
+        #     self.Ω = np.array([5e-7,7e-7])
+        #     self.Φ0 = np.array([0.20,1.50])
+        #     self.ψ = np.array([2.50,0.35])
+        #     self.ι = np.ones(num_gw_sources)
+        #     self.δ = np.array([1.0,0.70])
+        #     self.α = np.array([1.0,1.30])
+        #     self.h = np.array([5e-15,5e-15])
+
+
+        # if num_gw_sources == 3:
+        #     logging.info("Running for three deterministic GW sources")
+        #     self.Ω = np.array([5e-7,7e-7,6e-7])
+        #     self.Φ0= np.array([0.20,1.50,0.10])
+        #     self.ψ= np.array([2.50,0.35,2.90])
+        #     self.ι= np.ones(num_gw_sources)
+        #     self.δ= np.array([1.0,0.70,1.11])
+        #     self.α= np.array([1.0,1.30,0.95])
+        #     self.h   = np.ones(num_gw_sources) * 5e-15
+
+        # if num_gw_sources == 5:
+        #     logging.info("Running for five deterministic GW sources")
+            
+        #     self.Ω = np.array([5e-7,1e-7,2e-7,3e-7,4e-7])
+        #     self.Φ0 = np.array([0.20,1.50,0.30,0.40,1.60])
+        #     self.ψ = np.array([2.50,0.35,2.60,0.70,0.10])
+        #     self.ι = np.ones(num_gw_sources)
+        #     self.δ = np.array([1.0,0.70,1.1,0.8,0.9])
+        #     self.α = np.array([1.0,1.30,0.8,0.9,1.2])
+        #     self.h = np.ones(num_gw_sources) * 5e-15
+
+        # if num_gw_sources > 5:
+ 
+
+  
