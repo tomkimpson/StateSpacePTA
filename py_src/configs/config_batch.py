@@ -27,8 +27,8 @@ def create_slurm_job(arg_name,h,measurement_model,seed,num_gw_sources):
         g.write(f"time python main.py {arg_name} {h} {measurement_model} {seed} {num_gw_sources}")
     
 
-h = 1
-model = 'earth'
+h = 5e-15
+model = 'null'
 seed = 1237
 nums = [1,2,5,10,20]
 

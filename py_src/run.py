@@ -11,7 +11,7 @@ from priors import bilby_priors_dict
 import logging 
 import numpy as np 
 import bilby
-
+import sys
 def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
 
     logger = logging.getLogger().setLevel(logging.INFO)
@@ -34,18 +34,17 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
     model_likelihood = KF.likelihood(optimal_parameters)
     logging.info(f"Ideal likelihood given optimal parameters = {model_likelihood}")
     logging.info("The optimal parameters used to generate the data are as follows:")
-    for key,value in optimal_parameters.items():
-        print(key, value)
+    # for key,value in optimal_parameters.items():
+    #     print(key, value)
     
     #Bilby
-    init_parameters, priors = bilby_priors_dict(PTA,P)
-    #init_parameters, priors = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True) #just get the measurement params
+    #init_parameters, priors = bilby_priors_dict(PTA,P)
+    init_parameters, priors = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True) #just get the measurement params
     logging.info("Testing KF using parameters sampled from prior")
     params = priors.sample(1)
     model_likelihood = KF.likelihood(params)
     logging.info(f"Non -ideal likelihood for randomly sampled parameters = {model_likelihood}")
 
-    #sys.exit()
 
     #Now run the Bilby sampler
     #How many parameters are we trying to infer?

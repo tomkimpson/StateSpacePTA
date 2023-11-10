@@ -29,7 +29,7 @@ def test_canonical_example():
 
     #Run the KF once with the correct parameters.
     #We do this as standard to allow JIT precompile
-    init_parameters_optimal, priors_optimal = bilby_priors_dict(PTA,P,set_parameters_as_known=True)
+    init_parameters_optimal, priors_optimal = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True,set_measurement_parameters_as_known=True)
     optimal_parameters = priors_optimal.sample(1)
 
 
