@@ -77,13 +77,6 @@ def plot_observations(data,xp=None,yp=None,psr_index=1):
 
 
 
-
-
-
-
-
-
-
 def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_y,psr_index,savefig=None):
 
     plt.style.use('science')
@@ -172,15 +165,10 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
 
         
 
-    #Make omega into nHz and also scale h
-    # df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
-    # df_posterior["h"] = df_posterior["h"]*scalings[1]
-    # if injection_parameters is not None:
-    #     injection_parameters[0] = injection_parameters[0] * scalings[0]
-    #     injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
-    # if ranges is not None: 
-    #     ranges[0] = (ranges[0][0]*scalings[0],ranges[0][1]*scalings[0])
-    #     ranges[-1] = (ranges[-1][0]*scalings[1],ranges[-1][1]*scalings[1])
+  
+
+    #get the model evidence
+    model_evidence = data['log_evidence']
 
     print("The number of samples is:", len(df_posterior))
 
@@ -202,13 +190,13 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
     y_post = df_posterior[variables_to_plot].to_numpy()
 
 
-    return y_post,injection_parameters,ranges
+    return y_post,injection_parameters,ranges,model_evidence
 
 
 
 def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,fig=None):
     #Extract the data as a numpy array
-    y_post,injection_parameters,ranges= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
+    y_post,injection_parameters,ranges,model_evidence= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
 
 
     #Log scale the axes if needed
@@ -257,7 +245,10 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
         
     if title is not None:
         newfig.suptitle(title, fontsize=20)  
-    #plt.show()
+    
+
+
+    return model_evidence
 
     
 

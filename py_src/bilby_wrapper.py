@@ -32,6 +32,6 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir,npoints):
                               npoints=npoints,
                               dlogz=0.1,
                               npool=1,
-                              plot=False,resume=True)
+                              plot=False,resume=False)
 
     return result
