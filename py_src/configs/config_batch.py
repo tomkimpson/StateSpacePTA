@@ -37,7 +37,7 @@ with open('batch.sh','w') as b:
     for n in nums:
         for m in model:
             for s in seeds:
-                arg_name = f"V3_general_{m}_k_{n}_seed_{s}"
+                arg_name = f"V3_floor_{m}_k_{n}_seed_{s}"
                 print(arg_name)
                 create_slurm_job(arg_name,h,m,s,n)
                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
