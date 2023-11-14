@@ -24,50 +24,36 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-
-
-
-
-
 # MULTIPLE NOISE REALISATIONS
+N = 100
+seeds = np.arange(1235+10,1235+10+N,1)
+strain = 5e-15
+model = "pulsar"
 
+with open('batch.sh','w') as b: 
 
-
-# N = 10
-# seeds = np.arange(1235+10,1235+10+N,1)
-# #strains = [1e-12,5e-15]
-
-# #seeds = [1251,1255]
-# strains = [5e-15,1e-12]
-
-# models = ["earth", "pulsar"]
-
-# with open('batch.sh','w') as b: 
-
-#     for s in seeds:
-#         for h in strains:
-#             for m in models:
-#                 arg_name = f"alpha_high_resolution_canonical_{m}_{h}_{s}"
-#                 create_slurm_job(arg_name,h,m,s)
-#                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+    for s in seeds:
+        arg_name = f"multiple_noise_canonical_{model}_{strain}_{s}"
+        create_slurm_job(arg_name,strain,model,s)
+        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
 
 #BAYES PLOT
 
 
-h_range = np.logspace(-15,-12,101)
-noise_models = ["pulsar","earth", "null"]
+# h_range = np.logspace(-15,-12,101)
+# noise_models = ["pulsar","earth", "null"]
 
-s = 1250 #seed. Also try 1245 which I think is what was used in the paper: https://github.com/tomkimpson/StateSpacePTA/blob/9d997dc7d42ae612e7d526d34b0661944af6eb99/py_src/config_batch.py
-with open('batch.sh','w') as b:
+# s = 1250 #seed. Also try 1245 which I think is what was used in the paper: https://github.com/tomkimpson/StateSpacePTA/blob/9d997dc7d42ae612e7d526d34b0661944af6eb99/py_src/config_batch.py
+# with open('batch.sh','w') as b:
     
-    for h in h_range:
-        for n in noise_models:
-            arg_name = f"alpha_canonical_bayes_h_{h}_model_{n}"
-            print(arg_name)
-            create_slurm_job(arg_name,h,n,s)
+#     for h in h_range:
+#         for n in noise_models:
+#             arg_name = f"alpha_canonical_bayes_h_{h}_model_{n}"
+#             print(arg_name)
+#             create_slurm_job(arg_name,h,n,s)
 
-            b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+#             b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
 
 
