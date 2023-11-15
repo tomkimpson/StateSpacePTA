@@ -175,7 +175,7 @@ class KalmanFilter:
         x = np.ones_like(x)*0.0 
         P = np.ones(self.Npsr)*0.0
 
-
+     
 
         # Precompute the influence of the GW
         # This is solely a function of the parameters and the t-variable but NOT the states
@@ -283,6 +283,7 @@ class KalmanFilter:
 
         x_results[0,:] = x
         y_results[0,:] = (1.0 - X_factor[0,:])*x - X_factor[0,:]*f_EM[0,:] 
+
 
 
         for i in np.arange(1,self.Nsteps):
