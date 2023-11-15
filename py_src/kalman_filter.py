@@ -168,8 +168,12 @@ class KalmanFilter:
      
 
         #Initialise x and P
-        x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+        #x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        #P = np.ones(self.Npsr)* sigma_m * 1e10 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+
+        x = np.ones_like(x)*0.0 
+        P = np.ones(self.Npsr)*0.0
+
 
 
         # Precompute the influence of the GW

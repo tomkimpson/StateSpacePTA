@@ -42,11 +42,6 @@ Abbott R.,  et~al., 2022b, \mn@doi [Physical Review D]
 {Agazie} G.,  et~al., 2023b, \mn@doi [\apjl] {10.3847/2041-8213/acda9a}, \href
   {https://ui.adsabs.harvard.edu/abs/2023ApJ...951L...9A} {951, L9}
 
-\bibitem[\protect\citeauthoryear{{Alam} et~al.,}{{Alam}
-  et~al.}{2021}]{nanogravwideband}
-{Alam} M.~F.,  et~al., 2021, \mn@doi [\apjs] {10.3847/1538-4365/abc6a1}, \href
-  {https://ui.adsabs.harvard.edu/abs/2021ApJS..252....5A} {252, 5}
-
 \bibitem[\protect\citeauthoryear{{Allen}}{{Allen}}{1997}]{Allen1997}
 {Allen} B.,  1997, in {Marck} J.-A.,  {Lasota} J.-P.,  eds, Relativistic
   Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
@@ -75,11 +70,6 @@ Abbott R.,  et~al., 2022b, \mn@doi [Physical Review D]
 {Arjovsky} M.,  {Chintala} S.,   {Bottou} L.,  2017, \mn@doi [arXiv e-prints]
   {10.48550/arXiv.1701.07875}, \href
   {https://ui.adsabs.harvard.edu/abs/2017arXiv170107875A} {p. arXiv:1701.07875}
-
-\bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
-  et~al.}{2018}]{Arzoumanian2018ApJS..235...37A}
-{Arzoumanian} Z.,  et~al., 2018, \mn@doi [\apjs] {10.3847/1538-4365/aab5b0},
-  \href {https://ui.adsabs.harvard.edu/abs/2018ApJS..235...37A} {235, 37}
 
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2020}]{2020ApJ...905L..34A}
@@ -123,11 +113,6 @@ Babak S.,  Sesana A.,  2012b, \mn@doi [Phys. Rev. D]
 {Baym} G.,  {Pethick} C.,  {Pines} D.,   {Ruderman} M.,  1969, \mn@doi [\nat]
   {10.1038/224872a0}, \href
   {https://ui.adsabs.harvard.edu/abs/1969Natur.224..872B} {224, 872}
-
-\bibitem[\protect\citeauthoryear{Bellman \& {\AA}str{\"o}m}{Bellman \&
-  {\AA}str{\"o}m}{1970}]{e5be7c83a0d24500826f6e1b414d1733}
-Bellman R.,  {\AA}str{\"o}m K.,  1970, \mn@doi [Mathematical Biosciences]
-  {10.1016/0025-5564(70)90132-X}, 7, 329
 
 \bibitem[\protect\citeauthoryear{{Bhagwat}, {De Luca}, {Franciolini}, {Pani}
   \& {Riotto}}{{Bhagwat} et~al.}{2021}]{Bhagwat2021}
@@ -274,11 +259,6 @@ González-Delgado J.,  Sagar A.,  Zanon C.,  Lindorff-Larsen K.,  Bernadó P.,
   {10.1093/mnras/stx1937}, \href
   {https://ui.adsabs.harvard.edu/abs/2017MNRAS.471.4827G} {471, 4827}
 
-\bibitem[\protect\citeauthoryear{Guillaume et~al.,}{Guillaume
-  et~al.}{2019}]{GUILLAUME2019418}
-Guillaume J.~H.,  et~al., 2019, \mn@doi [Environmental Modelling & Software]
-  {https://doi.org/10.1016/j.envsoft.2019.07.007}, 119, 418
-
 \bibitem[\protect\citeauthoryear{{Handley}, {Hobson}  \& {Lasenby}}{{Handley}
   et~al.}{2015}]{Handley2015}
 {Handley} W.~J.,  {Hobson} M.~P.,   {Lasenby} A.~N.,  2015, \mn@doi [\mnras]
@@ -340,12 +320,6 @@ Kuhn H.~W.,  1955, \mn@doi [Naval Research Logistics Quarterly]
   et~al.}{2021}]{Lower2021MNRAS.508.3251L}
 {Lower} M.~E.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab2678}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.3251L} {508, 3251}
-
-\bibitem[\protect\citeauthoryear{Maggiore}{Maggiore}{2018}]{Maggiore}
-Maggiore M.,  2018, {Gravitational Waves: Volume 2: Astrophysics and
-  Cosmology}.
-Oxford University Press, \mn@doi{10.1093/oso/9780198570899.001.0001}, \url
-  {https://doi.org/10.1093/oso/9780198570899.001.0001}
 
 \bibitem[\protect\citeauthoryear{{Manchester}, {Hobbs}, {Teoh}  \&
   {Hobbs}}{{Manchester} et~al.}{2005}]{Manchester2005}
@@ -411,12 +385,6 @@ Middleton H.,  Clearwater P.,  Melatos A.,   Dunn L.,  2020, \mn@doi [Phys.
   2022, \mn@doi [Journal of Climate] {10.1175/JCLI-D-21-0343.1}, \href
   {https://ui.adsabs.harvard.edu/abs/2022JCli...35.1215P} {35, 1215}
 
-\bibitem[\protect\citeauthoryear{Pennucci \& Collaboration}{Pennucci \&
-  Collaboration}{2020}]{pennucci_timothy_t_2020_4312887}
-Pennucci T.~T.,  Collaboration T.~N.,  2020, {The NANOGrav 12.5-year Wideband
-  Data Set (version 12yv4)}, \mn@doi{10.5281/zenodo.4312887}, \url
-  {https://doi.org/10.5281/zenodo.4312887}
-
 \bibitem[\protect\citeauthoryear{{Perrodin} \& {Sesana}}{{Perrodin} \&
   {Sesana}}{2018}]{Perrodin2018}
 {Perrodin} D.,  {Sesana} A.,  2018, in {Rezzolla} L.,  {Pizzochero} P.,
@@ -465,10 +433,6 @@ Petiteau A.,  Babak S.,  Sesana A.,   de Ara\'ujo M.,  2013, \mn@doi [Phys.
   et~al.}{2015}]{Rosado10.1093/mnras/stv1098}
 Rosado P.~A.,  Sesana A.,   Gair J.,  2015, \mn@doi [Monthly Notices of the
   Royal Astronomical Society] {10.1093/mnras/stv1098}, 451, 2417
-
-\bibitem[\protect\citeauthoryear{Schutz}{Schutz}{2022}]{schutz2022}
-Schutz B.,  2022, Fundamentals of gravitational radiation, 3 edn.
-Cambridge University Press, p. 202–266, \mn@doi{10.1017/9781108610865.012}
 
 \bibitem[\protect\citeauthoryear{{Sesana}}{{Sesana}}{2013}]{Sesana2013}
 {Sesana} A.,  2013, \mn@doi [Classical and Quantum Gravity]

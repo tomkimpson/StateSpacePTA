@@ -24,18 +24,42 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-# MULTIPLE NOISE REALISATIONS
-N = 100
-seeds = np.arange(1235+10,1235+10+N,1)
-strain = 5e-15
-model = "pulsar"
+# # MULTIPLE NOISE REALISATIONS
+# N = 100
+# seeds = np.arange(1235+10,1235+10+N,1)
+# strain = 5e-15
+# model = "pulsar"
+
+# with open('batch.sh','w') as b: 
+
+#     for s in seeds:
+#         arg_name = f"multiple_noise_canonical_{model}_{strain}_{s}"
+#         create_slurm_job(arg_name,strain,model,s)
+#         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+
+
+N = 10
+#seeds = np.arange(1235+10,1235+10+N,1)
+seeds = [1251]
+
+strains = [1e-12,5e-15]
+models = ["earth", "pulsar"]
 
 with open('batch.sh','w') as b: 
 
     for s in seeds:
-        arg_name = f"multiple_noise_canonical_{model}_{strain}_{s}"
-        create_slurm_job(arg_name,strain,model,s)
-        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+        for h in strains:
+            for m in models:
+                arg_name = f"reproduce_eg_canonical_{m}_{h}_{s}"
+                create_slurm_job(arg_name,h,m,s)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+       
+
+
+
        
 
 #BAYES PLOT

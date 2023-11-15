@@ -3,12 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
-Repeated entry---line 835 of file example.bib
- : @book{Maggiore
- :               ,
-I'm skipping whatever remains of this entry
-Warning--entry type for "pennucci_timothy_t_2020_4312887" isn't style-file defined
---line 1184 of file example.bib
 Reallocated buffer (elt_size=1) to 40000 items from 20000.
 Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
 Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
@@ -16,54 +10,54 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 Repeated entry---line 2315 of file example.bib
  : @book{zarchan2000fundamentals
  :                              ,
 I'm skipping whatever remains of this entry
+Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 113 entries,
+You've used 106 entries,
             2881 wiz_defined-function locations,
-            1693 strings with 150969 characters,
-and the built_in function-call counts, 57128 in all, are:
-= -- 5088
-> -- 3623
-< -- 280
-+ -- 1626
-- -- 485
-* -- 6685
-:= -- 8492
+            1638 strings with 145268 characters,
+and the built_in function-call counts, 54076 in all, are:
+= -- 4831
+> -- 3443
+< -- 263
++ -- 1530
+- -- 473
+* -- 6323
+:= -- 8040
 add.period$ -- 0
-call.type$ -- 113
-change.case$ -- 227
-chr.to.int$ -- 104
-cite$ -- 115
-duplicate$ -- 2927
-empty$ -- 2885
-format.name$ -- 857
-if$ -- 10396
+call.type$ -- 106
+change.case$ -- 212
+chr.to.int$ -- 97
+cite$ -- 108
+duplicate$ -- 2750
+empty$ -- 2704
+format.name$ -- 817
+if$ -- 9853
 int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 122
-newline$ -- 363
-num.names$ -- 763
-pop$ -- 596
+missing$ -- 114
+newline$ -- 340
+num.names$ -- 723
+pop$ -- 549
 preamble$ -- 1
-purify$ -- 452
+purify$ -- 424
 quote$ -- 0
-skip$ -- 2014
+skip$ -- 1903
 stack$ -- 0
-substring$ -- 3799
-swap$ -- 1650
-text.length$ -- 470
+substring$ -- 3640
+swap$ -- 1575
+text.length$ -- 441
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 984
+type$ -- 927
 warning$ -- 2
-while$ -- 831
+while$ -- 785
 width$ -- 0
-write$ -- 1168
-(There were 2 error messages)
+write$ -- 1092
+(There was 1 error message)

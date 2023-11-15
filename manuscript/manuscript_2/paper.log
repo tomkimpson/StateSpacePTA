@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  14 NOV 2023 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  15 NOV 2023 13:23
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -647,33 +647,6 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Label `eq:psrparams' multiply defined.
 
 
-LaTeX Warning: Label `eq:sigmap' multiply defined.
-
-
-LaTeX Warning: Label `eq:sigmap_f' multiply defined.
-
-
-LaTeX Warning: Label `eq:sigma_m_eqn' multiply defined.
-
-
-LaTeX Warning: Label `tab:parameters_and_priors' multiply defined.
-
-
-LaTeX Warning: Label `fig:corner_plot_1' multiply defined.
-
-
-LaTeX Warning: Label `fig:corner_plot_2' multiply defined.
-
-
-LaTeX Warning: Label `eq:wasserstein' multiply defined.
-
-
-LaTeX Warning: Label `eq:psrparams' multiply defined.
-
-
-LaTeX Warning: Label `eq:params3' multiply defined.
-
-
 LaTeX Warning: Label `eq:model_evidence' multiply defined.
 
 
@@ -912,6 +885,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--147
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
@@ -920,795 +898,698 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--151
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 155.
+(Font)              scaled to size 8.0pt on input line 151.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 155.
+(Font)              scaled to size 6.2pt on input line 151.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 155.
+e 151.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 155.
+(Font)              scaled to size 8.0pt on input line 151.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 2393) in paragraph at lines 174--175
-[]\T1/ntxtlf/m/n/9 Throughout the pa-per we adopt the nat-u-ral units, with
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--212
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 215.
+[2]
+
+Package enumitem Warning: Negative labelwidth. This does not make much
+(enumitem)                sense, on input line 217.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 9.0pt on input line 228.
 
 Underfull \hbox (badness 10000) in paragraph at lines 256--258
 
  []
 
 
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 263.
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 267.
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
-
- []
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 274.
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--304
-
- []
+LaTeX Warning: Reference `sec:testing' on page 3 undefined on input line 259.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 340--342
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 352--353
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
 
  []
 
 
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 366--366
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 320--320
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 374--374
-[]|$\OML/cmm/b/it/8 ^^R[]$|  
- []
+LaTeX Warning: Reference `sec:synt_pta' on page 4 undefined on input line 337.
 
+
+LaTeX Warning: Reference `eq:sigmap' on page 4 undefined on input line 337.
+
+
+LaTeX Warning: Reference `sec:priors' on page 4 undefined on input line 337.
+
+
+LaTeX Warning: Reference `eq:psrreduced' on page 4 undefined on input line 337.
+
+
+
+LaTeX Warning: Reference `sec:synt_pta' on page 4 undefined on input line 337.
+
+
+LaTeX Warning: Reference `eq:sigmap' on page 4 undefined on input line 337.
+
+
+LaTeX Warning: Reference `sec:priors' on page 4 undefined on input line 337.
+
+
+LaTeX Warning: Reference `eq:psrreduced' on page 4 undefined on input line 337.
+
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 340.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 340.
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-385.
+340.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 385.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 390.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 390.
-
-Underfull \hbox (badness 1019) in paragraph at lines 394--396
-\T1/ntxtlf/m/n/9 For the syn-thetic 12.5 year NANOGrav dataset, the me-dian
- []
-
-
-Underfull \hbox (badness 1337) in paragraph at lines 394--396
-[]\LMS/ntxsy/m/n/9 ª\OML/ntxmi/m/it/9 ^^[[]\LMS/ntxsy/m/n/9 º \U/ntxmia/m/it/9 
-= \OT1/minntx/m/n/9 1\OML/ntxmi/m/it/9 :\OT1/minntx/m/n/9 67 \LMS/ntxsy/m/n/9 ^
-^B \OT1/minntx/m/n/9 10[]$\T1/ntxtlf/m/n/9 s$[]$ for PSR J0645+5158 and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--396
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
-
- []
-
-
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 403.
-
+(Font)              scaled to size 9.0pt on input line 340.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 404.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 411.
+(Font)              scaled to size 8.0pt on input line 340.
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--412
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+\T1/ntxtlf/m/n/9 In or-der to gen-er-ate syn-thetic fre-quency time se-ries
+ []
+
+
+Underfull \hbox (badness 1460) in paragraph at lines 340--341
+\OML/ntxmi/m/it/9 f[]\LMS/ntxsy/m/n/9 π\OML/ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 ∫\OM
+L/ntxmi/m/it/9 ; [] ; f[]\LMS/ntxsy/m/n/9 π\OML/ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 
+∫$ \T1/ntxtlf/m/n/9 Equa-tions []--[] are in-te-grated nu-mer-
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 340--341
+\T1/ntxtlf/m/n/9 via Equa-tions []--[]. Equa-tions []--[] and []--[] de-pend
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 9.0pt on input line 355.
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
 
  []
 
 [4]
-<images/corner_highSNR_compare.png, id=568, 1125.2439pt x 1146.4431pt>
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+
+ []
+
+
+LaTeX Warning: Reference `Table tab:parameters_and_priors' on page 5 undefined 
+on input line 368.
+
+
+LaTeX Warning: Reference `Table tab:parameters_and_priors' on page 5 undefined 
+on input line 371.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+
+ []
+
+
+LaTeX Warning: Reference `fig:corner_plot_2' on page 5 undefined on input line 
+379.
+
+
+LaTeX Warning: Reference `sec:parameter_estim' on page 5 undefined on input lin
+e 379.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
+
+ []
+
+[5]
+
+LaTeX Warning: Reference `fig:corner_plot_2' on page 6 undefined on input line 
+382.
+
+
+LaTeX Warning: Reference `fig:corner_plot_2' on page 6 undefined on input line 
+382.
+
+
+LaTeX Warning: Reference `sec:bias_and_identifiability' on page 6 undefined on 
+input line 382.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
+
+ []
+
+
+LaTeX Warning: Reference `sec:multiple_noise' on page 6 undefined on input line
+ 384.
+
+
+LaTeX Warning: Reference `sec:pulsar_terms_drop' on page 6 undefined on input l
+ine 384.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
+
+ []
+
+<images/stacked_GW_plot_small_h_definitive2.png, id=535, 1125.2439pt x 1146.202
+2pt>
+File: images/stacked_GW_plot_small_h_definitive2.png Graphic file (type png)
+<use images/stacked_GW_plot_small_h_definitive2.png>
+Package pdftex.def Info: images/stacked_GW_plot_small_h_definitive2.png  used o
+n input line 395.
+(pdftex.def)             Requested size: 508.00339pt x 508.00334pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<images/corner_lowSNR_chi.png, id=539, 819.7827pt x 841.2228pt>
+File: images/corner_lowSNR_chi.png Graphic file (type png)
+<use images/corner_lowSNR_chi.png>
+Package pdftex.def Info: images/corner_lowSNR_chi.png  used on input line 402.
+(pdftex.def)             Requested size: 243.99783pt x 243.99971pt.
+
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 424.
+
+
+LaTeX Warning: Reference `fig:pairwise_wasserstein' on page 6 undefined on inpu
+t line 424.
+
+
+LaTeX Warning: Reference `fig:pairwise_wasserstein' on page 6 undefined on inpu
+t line 424.
+
+
+LaTeX Warning: Reference `sec:wasserstein' on page 6 undefined on input line 43
+3.
+
+
+LaTeX Warning: Reference `sec:wasserstein' on page 6 undefined on input line 43
+3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 433--434
+
+ []
+
+
+LaTeX Warning: Reference `sec:wasserstein' on page 6 undefined on input line 43
+6.
+
+[6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./images/stacked_GW_plot_small_h_definitive2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--459
+
+ []
+
+
+LaTeX Warning: Reference `sec:detection_new' on page 8 undefined on input line 
+461.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 461--462
+
+ []
+
+<images/corner_highSNR_compare.png, id=609, 1125.2439pt x 1146.4431pt>
 File: images/corner_highSNR_compare.png Graphic file (type png)
 <use images/corner_highSNR_compare.png>
 Package pdftex.def Info: images/corner_highSNR_compare.png  used on input line 
-419.
+464.
 (pdftex.def)             Requested size: 508.00339pt x 507.98767pt.
-<images/corner_lowSNR.png, id=572, 1125.2439pt x 1146.4431pt>
+<images/corner_lowSNR.png, id=612, 1125.2439pt x 1146.4431pt>
 File: images/corner_lowSNR.png Graphic file (type png)
 <use images/corner_lowSNR.png>
-Package pdftex.def Info: images/corner_lowSNR.png  used on input line 426.
+Package pdftex.def Info: images/corner_lowSNR.png  used on input line 471.
 (pdftex.def)             Requested size: 508.00339pt x 507.98767pt.
-<images/corner_highSNR_chi.png, id=575, 819.7827pt x 841.2228pt>
-File: images/corner_highSNR_chi.png Graphic file (type png)
-<use images/corner_highSNR_chi.png>
-Package pdftex.def Info: images/corner_highSNR_chi.png  used on input line 432.
 
-(pdftex.def)             Requested size: 228.59943pt x 228.5965pt.
-<images/corner_lowSNR_chi.png, id=576, 819.7827pt x 841.2228pt>
-File: images/corner_lowSNR_chi.png Graphic file (type png)
-<use images/corner_lowSNR_chi.png>
-Package pdftex.def Info: images/corner_lowSNR_chi.png  used on input line 433.
-(pdftex.def)             Requested size: 228.59943pt x 228.5965pt.
-
-Overfull \hbox (10.30946pt too wide) in paragraph at lines 452--452
+Overfull \hbox (10.30946pt too wide) in paragraph at lines 486--486
 []|\T1/ntxtlf/m/n/8 High 
  []
 
 
-Overfull \hbox (9.86946pt too wide) in paragraph at lines 452--452
+Overfull \hbox (9.86946pt too wide) in paragraph at lines 486--486
 \T1/ntxtlf/m/n/8 SNR|  
  []
 
 
-Overfull \hbox (8.69347pt too wide) in paragraph at lines 460--460
+Overfull \hbox (8.69347pt too wide) in paragraph at lines 494--494
 []|\T1/ntxtlf/m/n/8 Low 
  []
 
 
-Overfull \hbox (9.86946pt too wide) in paragraph at lines 460--460
+Overfull \hbox (9.86946pt too wide) in paragraph at lines 494--494
 \T1/ntxtlf/m/n/8 SNR|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 529--530
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 510.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 510.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 510.
+
+<images/CanonicalBayesPlot2000.png, id=615, 734.5041pt x 714.5094pt>
+File: images/CanonicalBayesPlot2000.png Graphic file (type png)
+<use images/CanonicalBayesPlot2000.png>
+Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
+513.
+(pdftex.def)             Requested size: 243.98979pt x 243.99843pt.
+[8 <./images/corner_lowSNR_chi.png>]
+
+LaTeX Warning: Reference `eq:g_func' on page 9 undefined on input line 523.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
 
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./images/corner_highSNR_compare.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 533--534
 
  []
 
+[10 <./images/corner_lowSNR.png>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 539--541
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
-
- []
+LaTeX Warning: Reference `sec:nested_sampling' on page 11 undefined on input li
+ne 536.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./images/corner_highSNR_compare.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 552.
-
-<images/CanonicalBayesPlot2000.png, id=620, 734.5041pt x 714.5094pt>
-File: images/CanonicalBayesPlot2000.png Graphic file (type png)
-<use images/CanonicalBayesPlot2000.png>
-Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
-560.
-(pdftex.def)             Requested size: 243.98979pt x 243.99843pt.
-[7 <./images/corner_lowSNR.png>]
-
-LaTeX Warning: Reference `eq:g_func' on page 8 undefined on input line 570.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 579--580
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `sec:nested_sampling' on page 11 undefined on input li
+ne 549.
 
- [8 <./images/corner_highSNR_chi.png> <./images/corner_lowSNR_chi.png> <./image
-s/CanonicalBayesPlot2000.png>]
 
-LaTeX Warning: Reference `eq:g_func' on page 9 undefined on input line 601.
+LaTeX Warning: Reference `sec:detect' on page 11 undefined on input line 566.
 
-<images/pulsar_distribution.png, id=656, 511.6716pt x 333.8874pt>
-File: images/pulsar_distribution.png Graphic file (type png)
-<use images/pulsar_distribution.png>
-Package pdftex.def Info: images/pulsar_distribution.png  used on input line 605
-.
-(pdftex.def)             Requested size: 244.0pt x 159.21971pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--610
+LaTeX Warning: Reference `sec:testing' on page 11 undefined on input line 566.
 
- []
 
+LaTeX Warning: Reference `sec:bias_and_identifiability' on page 11 undefined on
+ input line 566.
 
-Underfull \hbox (badness 10000) in paragraph at lines 611--612
 
- []
+LaTeX Warning: Reference `sec:priors' on page 11 undefined on input line 566.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--623
+LaTeX Warning: Reference `sec:earth_psr_terms' on page 11 undefined on input li
+ne 566.
 
- []
 
-<images/example_residuals_plot2.png, id=691, 956.373pt x 494.0859pt>
-File: images/example_residuals_plot2.png Graphic file (type png)
-<use images/example_residuals_plot2.png>
-Package pdftex.def Info: images/example_residuals_plot2.png  used on input line
- 637.
-(pdftex.def)             Requested size: 244.0pt x 126.0543pt.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 638.
+LaTeX Warning: Reference `sec:parameter_estim' on page 11 undefined on input li
+ne 566.
 
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 643.
 
+LaTeX Warning: Reference `sec:methodsummary' on page 11 undefined on input line
+ 566.
 
-LaTeX Warning: Reference `eq:g_func' on page 9 undefined on input line 645.
 
+LaTeX Warning: Reference `sec:multiple_noise' on page 11 undefined on input lin
+e 566.
 
-Underfull \hbox (badness 10000) in paragraph at lines 647--648
 
- []
-
-[9 <./images/pulsar_distribution.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 653--655
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 674--675
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
-
- []
-
-[10 <./images/example_residuals_plot2.png>]
-
-LaTeX Warning: Reference `eq:g_func' on page 11 undefined on input line 685.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 685--686
-
- []
-
-
-Underfull \hbox (badness 6412) in paragraph at lines 687--688
-[]\T1/ntxtlf/m/n/9 Most pul-sars in the syn-thetic PTA have $\OT1/minntx/m/n/9 
-10[] \U/msa/m/n/9 6
- []
-
-
-Underfull \hbox (badness 1072) in paragraph at lines 687--688
-\OML/ntxmi/m/it/9 ^^[[]\LMS/ntxsy/m/n/9 ùπ\OT1/minntx/m/n/9 1 []\LMS/ntxsy/m/n/
-9 ∫ \U/msa/m/n/9 6 \OT1/minntx/m/n/9 10[]$ \T1/ntxtlf/m/n/9 as cal-cu-lated fro
-m Equa-tions []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
-
- []
-
-
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 703--703
-[]|$\OML/cmm/b/it/8 ^^R[]$|  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 731--732
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 733--734
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 736--737
-
- []
-
-<images/small_h_posterior_10.png, id=810, 1124.88255pt x 1146.2022pt>
-File: images/small_h_posterior_10.png Graphic file (type png)
-<use images/small_h_posterior_10.png>
-Package pdftex.def Info: images/small_h_posterior_10.png  used on input line 74
-3.
-(pdftex.def)             Requested size: 507.99472pt x 508.00334pt.
-<images/stacked_GW_plot_small_h_definitive2.png, id=813, 1125.2439pt x 1146.202
-2pt>
-File: images/stacked_GW_plot_small_h_definitive2.png Graphic file (type png)
-<use images/stacked_GW_plot_small_h_definitive2.png>
-Package pdftex.def Info: images/stacked_GW_plot_small_h_definitive2.png  used o
-n input line 758.
-(pdftex.def)             Requested size: 508.00339pt x 508.00334pt.
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 777.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 783--784
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 789--790
+Underfull \hbox (badness 10000) in paragraph at lines 566--567
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 796.
+(hyperref)                removing `math shift' on input line 575.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 796.
+(hyperref)                removing `subscript' on input line 575.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 796.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 797--798
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13 <./images/small_h_posterior_10.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 800--801
-
- []
+(hyperref)                removing `math shift' on input line 575.
 
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
-805.
+578.
 (pdftex.def)             Requested size: 244.0pt x 237.34789pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./images/stacked_GW_plot_small_h_definitive2.png>]
-<images/pp_plot_new1.png, id=907, 398.4486pt x 386.1627pt>
+<images/pp_plot_new1.png, id=669, 398.4486pt x 386.1627pt>
 File: images/pp_plot_new1.png Graphic file (type png)
 <use images/pp_plot_new1.png>
-Package pdftex.def Info: images/pp_plot_new1.png  used on input line 814.
+Package pdftex.def Info: images/pp_plot_new1.png  used on input line 587.
 (pdftex.def)             Requested size: 244.0pt x 236.4781pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--819
+LaTeX Warning: Reference `sec:parameter_estim' on page 11 undefined on input li
+ne 588.
+
+
+LaTeX Warning: Reference `sec:pulsar_terms_drop' on page 11 undefined on input 
+line 588.
+
+
+LaTeX Warning: Reference `sec:parameter_estim' on page 11 undefined on input li
+ne 588.
+
+
+LaTeX Warning: Reference `sec:pulsar_terms_drop' on page 11 undefined on input 
+line 588.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--821
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
 
-[15 <./images/pp_plot_new1.png>]
-<images/stacked_GW_plot_iota_h.png, id=938, 366.168pt x 387.3672pt>
-File: images/stacked_GW_plot_iota_h.png Graphic file (type png)
-<use images/stacked_GW_plot_iota_h.png>
-Package pdftex.def Info: images/stacked_GW_plot_iota_h.png  used on input line 
-830.
-(pdftex.def)             Requested size: 244.0pt x 258.13383pt.
-<images/likelihood_surface.png, id=939, 390.7398pt x 397.7259pt>
-File: images/likelihood_surface.png Graphic file (type png)
-<use images/likelihood_surface.png>
-Package pdftex.def Info: images/likelihood_surface.png  used on input line 836.
+[11 <./images/CanonicalBayesPlot2000.png>]
 
-(pdftex.def)             Requested size: 244.0pt x 248.3596pt.
+LaTeX Warning: Reference `sec:multiple_noise' on page 12 undefined on input lin
+e 595.
 
-Underfull \hbox (badness 10000) in paragraph at lines 840--841
 
- []
+LaTeX Warning: Reference `sec:pulsar_terms_drop' on page 12 undefined on input 
+line 595.
 
-<images/large_h_example.png, id=956, 469.5141pt x 478.4274pt>
-File: images/large_h_example.png Graphic file (type png)
-<use images/large_h_example.png>
-Package pdftex.def Info: images/large_h_example.png  used on input line 848.
-(pdftex.def)             Requested size: 508.01335pt x 508.01395pt.
-<images/likelihood_iota_new.png, id=961, 400.8576pt x 380.622pt>
-File: images/likelihood_iota_new.png Graphic file (type png)
-<use images/likelihood_iota_new.png>
-Package pdftex.def Info: images/likelihood_iota_new.png  used on input line 855
-.
-(pdftex.def)             Requested size: 244.0pt x 231.6854pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
-
- []
-
-[16 <./images/stacked_GW_plot_iota_h.png> <./images/likelihood_surface.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 863--864
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17 <./images/large_h_example.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 871--872
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 873--874
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
+
+ []
+
+[12 <./images/pp_plot_new1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 610--611
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 876--877
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 879--880
+Underfull \hbox (badness 10000) in paragraph at lines 616--617
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18 <./images/likelihood_iota_new.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 883--884
-
- []
+LaTeX Warning: Reference `sec:synt_pta' on page 13 undefined on input line 619.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 885--886
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--620
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 888--889
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--892
+LaTeX Warning: Reference `sec:plane_gw' on page 13 undefined on input line 626.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
 
  []
 
 
-LaTeX Warning: Reference `sec:plane_gw' on page 19 undefined on input line 895.
+Underfull \vbox (badness 3690) has occurred while \output is active []
 
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 895--896
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
 
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 (./paper.bbl
-Underfull \hbox (badness 4279) in paragraph at lines 75--78
+Underfull \hbox (badness 4279) in paragraph at lines 70--73
 []\T1/ntxtlf/m/n/8 Arjovsky M., Chin-tala S., Bot-tou L., 2017, [][]arXiv e-pri
 nts[][], [][]p.
  []
 
-
-Underfull \hbox (badness 1102) in paragraph at lines 181--184
+[13]
+Underfull \hbox (badness 1102) in paragraph at lines 166--169
 []\T1/ntxtlf/m/n/8 Corder G., Fore-man D., 2014, Non-para-met-ric Statis-tics: 
 A Step-by-
  []
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 345--349
-[]\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--349
-\T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--349
-[][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
-/m/n/8 https : / / doi . org /
- []
-
-
-Underfull \hbox (badness 6493) in paragraph at lines 574--577
+Underfull \hbox (badness 6493) in paragraph at lines 538--541
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
-)
-
-LaTeX Warning: Reference `sec:model' on page 20 undefined on input line 921.
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 932--934
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 947--949
-
- []
-
-
-LaTeX Warning: Reference `sec:model' on page 21 undefined on input line 950.
-
-
-LaTeX Warning: Reference `sec:model' on page 21 undefined on input line 954.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 954--955
-
- []
-
-
-LaTeX Warning: Reference `eq:g_func' on page 21 undefined on input line 1013.
-
-[21]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1089.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\theta' on input line 1089.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1089.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1089.
-
-
-LaTeX Warning: Reference `sec:appendix_WD_results' on page 22 undefined on inpu
-t line 1090.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1098--1100
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1104--1106
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1113--1115
-
- []
-
-<example-image-a.pdf, id=1396, 321.2pt x 240.9pt>
-File: example-image-a.pdf Graphic file (type pdf)
-<use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 1131.
-(pdftex.def)             Requested size: 508.01486pt x 254.00742pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1149--1150
-
- []
-
-[22]
-
-LaTeX Warning: Reference `sec:model' on page 23 undefined on input line 1158.
-
-
-Underfull \vbox (badness 5302) has occurred while \output is active []
-
- [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1174--1176
-
- []
-
-<images/Kalman_example_both.png, id=1447, 1088.3862pt x 601.5273pt>
-File: images/Kalman_example_both.png Graphic file (type png)
-<use images/Kalman_example_both.png>
-Package pdftex.def Info: images/Kalman_example_both.png  used on input line 118
-2.
-(pdftex.def)             Requested size: 507.9876pt x 253.99815pt.
-
-LaTeX Warning: Reference `eq:g_func' on page 24 undefined on input line 1188.
-
-
-LaTeX Warning: Reference `eq:g_func' on page 24 undefined on input line 1188.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1188--1189
-
- []
-
-
-LaTeX Warning: Reference `sec:model' on page 24 undefined on input line 1190.
-
-
-LaTeX Warning: Reference `eq:g_func' on page 24 undefined on input line 1190.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1190--1191
-
- []
-
-[24 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf>]
-
-LaTeX Warning: Reference `eq:g_func' on page 25 undefined on input line 1201.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25 <./images/Kalman_example_both.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1212--1214
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1215--1216
-
- []
-
-
-LaTeX Warning: Reference `eq:g_func' on page 26 undefined on input line 1224.
-
-
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 1229.
-
-
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 1236.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1249--1250
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1259--1261
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 1262--1263
-
- []
-
-<images/WD_0.png, id=1578, 355.3275pt x 317.7471pt>
-File: images/WD_0.png Graphic file (type png)
-<use images/WD_0.png>
-Package pdftex.def Info: images/WD_0.png  used on input line 1274.
-(pdftex.def)             Requested size: 111.76062pt x 99.94055pt.
-<images/WD_1.png, id=1579, 367.6134pt x 313.17pt>
-File: images/WD_1.png Graphic file (type png)
-<use images/WD_1.png>
-Package pdftex.def Info: images/WD_1.png  used on input line 1279.
-(pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_2.png, id=1580, 393.1488pt x 320.397pt>
-File: images/WD_2.png Graphic file (type png)
-<use images/WD_2.png>
-Package pdftex.def Info: images/WD_2.png  used on input line 1284.
-(pdftex.def)             Requested size: 111.76062pt x 91.07942pt.
-<images/WD_3.png, id=1581, 367.6134pt x 313.17pt>
-File: images/WD_3.png Graphic file (type png)
-<use images/WD_3.png>
-Package pdftex.def Info: images/WD_3.png  used on input line 1289.
-(pdftex.def)             Requested size: 111.76062pt x 95.20848pt.
-<images/WD_4.png, id=1582, 367.6134pt x 313.17pt>
-File: images/WD_4.png Graphic file (type png)
-<use images/WD_4.png>
-Package pdftex.def Info: images/WD_4.png  used on input line 1294.
-(pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_5.png, id=1583, 367.6134pt x 313.17pt>
-File: images/WD_5.png Graphic file (type png)
-<use images/WD_5.png>
-Package pdftex.def Info: images/WD_5.png  used on input line 1299.
-(pdftex.def)             Requested size: 152.40155pt x 129.82932pt.
-<images/WD_6.png, id=1584, 367.6134pt x 317.7471pt>
-File: images/WD_6.png Graphic file (type png)
-<use images/WD_6.png>
-Package pdftex.def Info: images/WD_6.png  used on input line 1304.
-(pdftex.def)             Requested size: 152.40155pt x 131.72682pt.
-
-LaTeX Warning: Reference `sec:appendix_WD_results' on page 27 undefined on inpu
-t line 1307.
-
-
-LaTeX Warning: Reference `sec:appendix_WD_results' on page 27 undefined on inpu
-t line 1307.
-
-<images/likelihood_surface_alpha_psi.png, id=1587, 409.53pt x 397.7259pt>
-File: images/likelihood_surface_alpha_psi.png Graphic file (type png)
-<use images/likelihood_surface_alpha_psi.png>
-Package pdftex.def Info: images/likelihood_surface_alpha_psi.png  used on input
- line 1311.
-(pdftex.def)             Requested size: 244.0pt x 236.97453pt.
-[27
+[14]) [15
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28
+LaTeX Warning: Reference `sec:model' on page 16 undefined on input line 656.
 
- <./images/WD_0.png> <./images/WD_1.png> <./images/WD_2.png> <./images/WD_3.png
-> <./images/WD_4.png> <./images/WD_5.png> <./images/WD_6.png> <./images/likelih
-ood_surface_alpha_psi.png>] (./paper.aux)
+
+LaTeX Warning: Reference `eq:g_func' on page 16 undefined on input line 661.
+
+
+LaTeX Warning: Reference `eq:g_func' on page 16 undefined on input line 661.
+
+
+LaTeX Warning: Reference `sec:nested_sampling' on page 16 undefined on input li
+ne 661.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
+
+ []
+
+
+LaTeX Warning: Reference `sec:model' on page 16 undefined on input line 663.
+
+
+LaTeX Warning: Reference `eq:g_func' on page 16 undefined on input line 663.
+
+
+LaTeX Warning: Reference `sec:nested_sampling' on page 16 undefined on input li
+ne 663.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 663--664
+
+ []
+
+
+LaTeX Warning: Reference `fig:kalman_example' on page 16 undefined on input lin
+e 674.
+
+
+LaTeX Warning: Reference `eq:g_func' on page 16 undefined on input line 674.
+
+
+LaTeX Warning: Reference `sec:nested_sampling' on page 16 undefined on input li
+ne 674.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--697
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--712
+
+ []
+
+[16
+
+]
+
+LaTeX Warning: Reference `sec:model' on page 17 undefined on input line 713.
+
+
+LaTeX Warning: Reference `sec:model' on page 17 undefined on input line 717.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 717--718
+
+ []
+
+
+LaTeX Warning: Reference `eq:g_func' on page 17 undefined on input line 776.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 791--793
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 794--795
+
+ []
+
+[17]
+
+Package enumitem Warning: Negative labelwidth. This does not make much
+(enumitem)                sense, on input line 803.
+
+
+Package enumitem Warning: Negative labelwidth. This does not make much
+(enumitem)                sense, on input line 810.
+
+<example-image-a.pdf, id=1100, 321.2pt x 240.9pt>
+File: example-image-a.pdf Graphic file (type pdf)
+<use example-image-a.pdf>
+Package pdftex.def Info: example-image-a.pdf  used on input line 839.
+(pdftex.def)             Requested size: 508.01486pt x 254.00742pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 847--849
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 850--851
+
+ []
+
+
+LaTeX Warning: Reference `sec:nested_sampling' on page 18 undefined on input li
+ne 858.
+
+
+LaTeX Warning: Reference `sec:methodsummary' on page 18 undefined on input line
+ 858.
+
+
+LaTeX Warning: Reference `eq:g_func' on page 18 undefined on input line 874.
+
+[18] [19
+
+ </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf>] (./pap
+er.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1720,16 +1601,16 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 80450F9C3542D2AB16429F2E28555259;7819.
+(rerunfilecheck)             Checksum: D88B6732D2D66619D2050E0798B89D95;5039.
  ) 
 Here is how much of TeX's memory you used:
- 17681 strings out of 478268
- 276462 string characters out of 5846348
- 602845 words of memory out of 5000000
- 35209 multiletter control sequences out of 15000+600000
- 595127 words of font info for 238 fonts, out of 8000000 for 9000
+ 17357 strings out of 478268
+ 268911 string characters out of 5846348
+ 595896 words of memory out of 5000000
+ 34969 multiletter control sequences out of 15000+600000
+ 592080 words of font info for 237 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,2585b,687s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,2585b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1742,28 +1623,26 @@ ve/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}</usr/local/texlive/20
 mf-dist/fonts/type1/public/newtx/NewTXMI5.pfb></usr/local/texlive/2022/texmf-di
 st/fonts/type1/public/newtx/NewTXMI7.pfb></usr/local/texlive/2022/texmf-dist/fo
 nts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/texmf
--dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2022/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2022/texm
-f-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist
-/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts
-/type1/public/newtx/txbmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
-/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/
-newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts
-/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/txsyb
-.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txsys.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2
-022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (28 pages, 14340413 bytes).
+t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2022/texmf-d
+ist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2022/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fon
+ts/type1/public/newtx/txbmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
+e1/public/newtx/txexs.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/publi
+c/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfon
+ts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txsys
+.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on paper.pdf (19 pages, 6601490 bytes).
 PDF statistics:
- 1776 PDF objects out of 2073 (max. 8388607)
- 1591 compressed objects within 16 object streams
- 300 named destinations out of 1000 (max. 500000)
- 449 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 1193 compressed objects within 12 object streams
+ 233 named destinations out of 1000 (max. 500000)
+ 260 words of extra memory for PDF output out of 10000 (max. 10000000)
 

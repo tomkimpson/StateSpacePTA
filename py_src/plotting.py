@@ -149,14 +149,18 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
 
     y_post = df_posterior[variables_to_plot].to_numpy()
 
+    return_code = 0
+    if medians[2] < 2.0: #if the medians psi is weird, as sometimes happens, don't plot it 
+        print("median psi is weird and won't match axis limits")
+        return_code = 1
 
-    return y_post,injection_parameters,ranges
+    return y_post,injection_parameters,ranges,return_code
 
 
 
 def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,fig=None):
     #Extract the data as a numpy array
-    y_post,injection_parameters,ranges= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
+    y_post,injection_parameters,ranges,return_code= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
 
 
     #Log scale the axes if needed
@@ -250,7 +254,11 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         injection_parameters_idx = injection_parameters.copy()
         ranges_idx = ranges.copy()
 
-        y_post,injection_parameters_idx,ranges_idx= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
+        y_post,injection_parameters_idx,ranges_idx,return_code= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
+
+        if return_code == 1:
+            print("Breaking due to weird psi")
+            continue
 
         errors = get_posterior_accuracy(y_post,injection_parameters_idx,labels)
         error_files.extend([errors])
