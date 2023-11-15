@@ -14,6 +14,7 @@ def log_likelihood(S,innovation):
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
     #value = x @ x
     #return np.log(np.abs(value))
+    #value = -np.sum(innovation)
     return value
 
 
@@ -168,8 +169,8 @@ class KalmanFilter:
      
 
         #Initialise x and P
-        #x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        #P = np.ones(self.Npsr)* sigma_m * 1e10 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+        x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        P = np.ones(self.Npsr)* sigma_m * 1e10 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
         x = np.ones_like(x)*0.0 
         P = np.ones(self.Npsr)*0.0
@@ -221,12 +222,10 @@ class KalmanFilter:
     def likelihood_with_results(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        #omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
-    
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
-
-    
 
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
@@ -236,12 +235,21 @@ class KalmanFilter:
      
 
         #Initialise x and P
+        #x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        #x = np.ones_like(x)*0.0 #2.96709595e-10
+        #P = np.ones(self.Npsr)*0.0 #sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+#
+
+
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        x = np.ones_like(x)*0.0 #2.96709595e-10
-        P = np.ones(self.Npsr)*0.0 #sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+        P = np.ones(self.Npsr)* sigma_m * 1e10
 
 
-        # Precompute the influence of the GW
+        x = np.ones_like(x)*0.0 
+        P = np.ones(self.Npsr)*0.0
+
+
+         # Precompute the influence of the GW
         # This is solely a function of the parameters and the t-variable but NOT the states
         X_factor = self.H_function(delta_gw,
                                    alpha_gw,
@@ -251,7 +259,6 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
-                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi
@@ -291,6 +298,7 @@ class KalmanFilter:
              y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
 
    
+        #print(iota_gw,likelihood)
         return likelihood,x_results,y_results
 
 

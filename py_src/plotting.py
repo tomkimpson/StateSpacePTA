@@ -248,7 +248,9 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
     #Select some files at random
     fig= None 
     random.seed(seed)
-    selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    #selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    selected_files = list_of_files
+
     error_files = []
     for i,f in enumerate(selected_files):
         injection_parameters_idx = injection_parameters.copy()
