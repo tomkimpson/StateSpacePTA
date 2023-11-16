@@ -38,8 +38,8 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
         print(key, value)
     
     #Bilby
-    #init_parameters, priors = bilby_priors_dict(PTA,P)
-    init_parameters, priors = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True) #just get the measurement params
+    init_parameters, priors = bilby_priors_dict(PTA,P)
+    #init_parameters, priors = bilby_priors_dict(PTA,P,set_state_parameters_as_known=True) #just get the measurement params
     logging.info("Testing KF using parameters sampled from prior")
     params = priors.sample(1)
     model_likelihood = KF.likelihood(params)
@@ -67,7 +67,7 @@ def bilby_inference_run(arg_name,h,measurement_model,seed,num_gw_sources):
 
 
     #override for now
-    npoints = 1200
+    npoints = 2000
     
     logging.info(f"Number of live points is {npoints}")
 
