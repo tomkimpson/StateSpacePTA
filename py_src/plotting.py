@@ -248,8 +248,8 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
     #Select some files at random
     fig= None 
     random.seed(seed)
-    #selected_files = random.sample(list_of_files,number_of_files_to_plot)
-    selected_files = list_of_files
+    selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    #selected_files = list_of_files
 
     error_files = []
     for i,f in enumerate(selected_files):
@@ -301,7 +301,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
             
             if ax_title != '':
 
-               
+                print("debug:",kk,i)
                 param_name, value,lower_limit,upper_limit = _extract_value_from_title(ax_title) #Get the values that corner.corner sends to the ax title
                 title_values[kk,i] = value
                 title_lower[kk,i] = lower_limit
