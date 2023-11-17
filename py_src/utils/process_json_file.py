@@ -6,7 +6,7 @@ import pandas as pd
 
 
 
-def process_file(path):
+def process_file(path,savepath):
 
     # Opening JSON file
     f = open(path)
@@ -27,4 +27,7 @@ def process_file(path):
     #add the evidence. The same for every sample of course
     df_cropped['evidence'] = evidence
 
-    return df_cropped
+    #save to disk
+    df_cropped.to_parquet(df_cropped)
+
+
