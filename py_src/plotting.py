@@ -150,9 +150,11 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
     y_post = df_posterior[variables_to_plot].to_numpy()
 
     return_code = 0
-    if medians[2] < 2.0: #if the medians psi is weird, as sometimes happens, don't plot it 
-        print("median psi is weird and won't match axis limits")
-        return_code = 1
+
+    if "psi_gw" in variables_to_plot:
+        if medians[2] < 2.0: #if the medians psi is weird, as sometimes happens, don't plot it 
+            print("median psi is weird and won't match axis limits")
+            return_code = 1
 
     return y_post,injection_parameters,ranges,return_code
 
@@ -248,7 +250,8 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
     #Select some files at random
     fig= None 
     random.seed(seed)
-    selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    selected_files = list_of_files
+    #selected_files = random.sample(list_of_files,number_of_files_to_plot)
     #selected_files = list_of_files
 
     error_files = []

@@ -27,7 +27,8 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
 # MULTIPLE NOISE REALISATIONS
 N = 100
 seeds = np.arange(1235,1235+N,1)
-strains = [1e-12,5e-15]
+#strains = [1e-12,5e-15]
+strains = [1e-14]
 models = ["earth", "pulsar"]
 
 with open('batch.sh','w') as b: 

@@ -218,7 +218,7 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
 
 
         init_parameters["h"] = None
-        priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
+        priors["h"] = bilby.core.prior.LogUniform(P.h/10.0, P.h*10.0, 'h')
 
 
     return init_parameters,priors 
