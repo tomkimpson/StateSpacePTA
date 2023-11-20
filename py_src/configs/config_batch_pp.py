@@ -27,7 +27,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
     
     
 
-N = 200
+N = 500
 seed = 1250 
 h = 1e-14 
 model = "pulsar"
@@ -46,10 +46,10 @@ init_parameters["psi_gw"] = None
 priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
 
 init_parameters["delta_gw"] = None
-priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
+priors["delta_gw"] = bilby.core.prior.Uniform(-np.pi/2, np.pi/2, 'delta_gw')
 
 init_parameters["alpha_gw"] = None
-priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
 
 
 with open('batch.sh','w') as b: 
@@ -57,7 +57,7 @@ with open('batch.sh','w') as b:
     for i in range(N):
         p = priors.sample()
 
-        arg_name = f"gamma_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
+        arg_name = f"november_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
         print(arg_name)
         create_slurm_job(arg_name,h,model,seed,p['omega_gw'],p['phi0_gw'],p['psi_gw'],p['delta_gw'],p['alpha_gw'])
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")

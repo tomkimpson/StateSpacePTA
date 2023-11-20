@@ -68,7 +68,7 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
 
 
 
-def pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,alpha,delta):
+def pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,delta,alpha):
 
     logger = logging.getLogger().setLevel(logging.INFO)
     #Setup the system

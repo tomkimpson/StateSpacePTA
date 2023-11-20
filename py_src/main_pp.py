@@ -17,7 +17,7 @@ delta =  float(sys.argv[8])
 alpha =  float(sys.argv[9]) 
 
 if __name__=="__main__":
-       pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,alpha,delta)
+       pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,delta,alpha)
 
 
 
