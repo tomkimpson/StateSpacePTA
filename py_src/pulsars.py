@@ -99,14 +99,17 @@ class Pulsars:
         self.t       = np.arange(0,end_seconds,self.dt)
         self.Npsr    = len(self.f) 
         
-        #if σp is defined then set all pulsars with that value
+        #if σp is defined by a number then set all pulsars with that value
+        # if it is just true then use the empirical timing model
         #else assign randomly within a range 
         generator = np.random.default_rng(SystemParameters.sigma_p_seed)
         if SystemParameters.σp is None:
             self.σp = generator.uniform(low = 1e-21,high=1e-19,size=self.Npsr)
-            #self.σp = generator.uniform(low = 1e-13,high=2e-13,size=self.Npsr)
-
             logging.info("You are assigning the σp terms randomly")
+
+        elif SystemParameters.σp is True:
+            logging.info("You are assigning the σp terms using the Shannn & Cordes 2010 model")
+            self.σp = shannon_cordes_sigma_p(self.f,self.fdot,self.dt)
         else:
             self.σp = np.full(self.Npsr,SystemParameters.σp)
 
@@ -157,3 +160,31 @@ def convert_vector_to_ra_dec(v):
 
 
     return np.pi/2.0 - theta, phi #dec/ra
+
+
+
+
+"""
+Calculate the value of sigma_p using the model from https://ui.adsabs.harvard.edu/abs/2010ApJ...725.1607S/abstract 
+"""
+def shannon_cordes_sigma_p(f,fdot,cadence):
+
+
+    #Specify the parameters
+    C = -20
+    alpha = 1
+    beta =2
+    gamma = 2.4
+
+    cadence_year = cadence / (365*24*3600) #1 week / 1 year
+
+    ln_sigma  = C + alpha * np.log(f) + beta*np.log(np.abs(fdot/1e-15)) + gamma * np.log(cadence_year) #this in in \log \mu s
+    sigma_toa = np.exp(ln_sigma) * 1e-6  # this is now in seconds 
+    sigma_f   = sigma_toa * f *cadence **(-3/2)
+
+    return sigma_f
+
+
+
+
+
