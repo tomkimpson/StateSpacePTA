@@ -296,15 +296,15 @@ to cover a broader parameter space and consider a range of astrophysically relev
 			& $h_0$            & $5 \times 10^{-15}$ & --- & LogUniform($10^{-15}$, $10^{-9}$) \\
 			& $\iota$             & $1.0$ & rad & Uniform($0, \pi$) \\ 
 			\hline
-			& $f_{\rm em}^{(n)} (t_1)$       & $f_{\rm ATNF}^{(n)}$ & Hz & Uniform$\left[f_{\rm ATNF}^{(n)} - 10^3 \eta^{(n)}_{f}, f_{\rm ATNF}^{(n)} + 10^3 \eta^{(n)}_{f} \right]$ \\
-			\multirow{2}{2mm}{$\boldsymbol{\theta'}_{\rm psr}$} & $\dot{f}_{\rm em}^{(n)} (t_1)$       & $\dot{f}_{\rm ATNF}^{(n)}$ & s$^{-2}$ & Uniform$\left[ \dot{f}_{\rm ATNF}^{(n)} - 10^3 \eta^{(n)}_{\dot{f}}, \dot{f}_{\rm ATNF}^{(n)} + 10^3 \eta^{(n)}_{\dot{f}} \right]$ \\
-		     & $\sigma^{(n)}$              & $\sigma_{\rm SC}^{(n)}$ & $s^{-3/2}$ & LogUniform($10^{-23}, 10^{-19}$) \\
+			\vspace{1mm}& $f_{\rm em}^{(n)} (t_1)$       & $f_{\rm ATNF}^{(n)}$ & Hz & Uniform$\left[f_{\rm ATNF}^{(n)} - 10^3 \eta^{(n)}_{f}, f_{\rm ATNF}^{(n)} + 10^3 \eta^{(n)}_{f} \right]$ \\
+      \multirow{2}{2mm}{$\boldsymbol{\theta'}_{\rm psr}$} & $\dot{f}_{\rm em}^{(n)} (t_1)$       & $\dot{f}_{\rm ATNF}^{(n)}$ & s$^{-2}$ & Uniform$\left[ \dot{f}_{\rm ATNF}^{(n)} - 10^3 \eta^{(n)}_{\dot{f}}, \dot{f}_{\rm ATNF}^{(n)} + 10^3 \eta^{(n)}_{\dot{f}} \right]$ \\
+		     & $\sigma^{(n)}$              & $\sigma_{\rm SC}^{(n)}$ & $s^{-3/2}$ & LogUniform$ \left [10^{-2} \sigma_{\rm SC}^{(n)}, 10^2 \sigma_{\rm SC}^{(n)} \right ]$ \\
 			& $\gamma^{(n)}$              & $10^{-13}$ & s$^{-1}$ & --- \\
 			\hline
 			\vspace{1mm} &  $\chi^{(n)}$       &$\Omega \left( 1 + \boldsymbol{n}\cdot \boldsymbol{q}^{(n)} \right)  d_{\rm ATNF}^{(n)} $  & rad & Uniform($0, 2 \pi $) \\
 			\bottomrule
 		\end{tabular}
-		\caption{Summary of injected static parameters used for generating synthetic data for validation of the analysis scheme when including the pulsar-term in Section \ref{sec:rep_example}. The prior used for Bayesian inference (Section \ref{sec:pe_and_ms}) on each parameter is also displayed (rightmost column).  The top, middle and bottom sections of the table contain the values for $\boldsymbol{\theta}_{\rm gw}$, $\boldsymbol{\theta}_{\rm psr}$ and $\chi^{(n)}$ respectively. The subscript ``ATNF'' denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref{sec:synthetic_data}. The subscript ``SC'' on the pulsar noise amplitude $\sigma^{(n)}$ indicates that the injected value has been calculated using Equation and \eqref{eq:sigmap_f} the empirical timing noise model for MSPs from \protect \cite{Shannon2010}. The quantities $\eta^{(n)}_{f}$ and $\eta^{(n)}_{\dot{f}}$ are the errors in $f^{(n)}_{\rm em} (t_1)$ and $\dot{f}^{(n)}_{\rm em} (t_1)$ respectively, as quoted in the ATNF catalogue. The choice of priors on $\boldsymbol{\theta}_{\rm psr}$ is discussed in Appendix \ref{sec:set_priors}.
+		\caption{Summary of injected static parameters used for generating synthetic data for validation of the analysis scheme when including the pulsar-term in Section \ref{sec:rep_example}. The prior used for Bayesian inference (Section \ref{sec:pe_and_ms}) on each parameter is also displayed (rightmost column).  The top, middle and bottom sections of the table contain the values for $\boldsymbol{\theta}_{\rm gw}$, $\boldsymbol{\theta}_{\rm psr}$ and $\chi^{(n)}$ respectively. The subscript ``ATNF'' denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref{sec:synthetic_data}. The subscript ``SC'' on the pulsar noise amplitude $\sigma^{(n)}$ indicates that the injected value has been calculated using Equation and \eqref{eq:sigmap_f} the empirical timing noise model for MSPs from \protect \cite{Shannon2010}. The quantities $\eta^{(n)}_{f}$ and $\eta^{(n)}_{\dot{f}}$ are the errors in $f^{(n)}_{\rm em} (t_1)$ and $\dot{f}^{(n)}_{\rm em} (t_1)$ respectively, as quoted in the ATNF catalogue. We do not try to infer $\gamma^{(n)}$ as $\gamma^{(n)} T_{\rm obs} \sim 10^{-5}$ and so no prior is set. The choice of priors on $\boldsymbol{\theta}_{\rm psr}$ is discussed in Appendix \ref{sec:set_priors}.
 		}
 		\label{tab:parameters_and_priors}
 	\end{table*}
@@ -315,15 +315,14 @@ In this paper we use the same values for $\boldsymbol{\theta}_{\rm psr}$ as in K
 \begin{eqnarray}
 	\sigma^{(n)} \approx \sigma_{\rm TOA}^{(n)} f_{\rm p}^{(n)} {T_{\rm cad}}^{-3/2} \ . \label{eq:sigmap_f}
 \end{eqnarray}
-where, following K24, we use the empirical timing noise model for MSPs from \cite{Shannon2010ApJ...725.1607S} in order to set physically reasonable values on $\sigma_{\rm TOA}^{(n)}$.  The median $\sigma^{(n)}$ calculated in this way is $\sigma^{(n)} = 5.51 \times 10^{-24} $ s$^{-3/2}$, $\min [ \sigma^{(n)} ] = 1.67 \times 10^{-26}$s$^{-3/2}$ for PSR J0645+5158 and $\max [ \sigma^{(n)} ] = 2.56 \times 10^{-19}$ s$^{-3/2}$ for PSR J1939+2134. Compared to the other 46 pulsars of the array, PSR J1939+2134 is a notable outlier with an estimated $\sigma^{(n)}$ much larger than the median. In practice, in order to avoid setting an overly broad prior on $\sigma^{(n)}$ (see Appendix \ref{sec:set_priors}) for validation purposes, we artificially set $\sigma^{(n)} = 10^{-24} \, {\rm s^{-3/2}}$ for this pulsar, so that $\sigma^{(n)}$ for every pulsar in the synthetic PTA falls within an reasonable width log-uniform prior. This is done purely for testing convenience; it is straightforward to expand the prior when analysing real, astronomical data. \newline 
-
+where, following K24, we use the empirical timing noise model for MSPs from \cite{Shannon2010ApJ...725.1607S} in order to set physically reasonable values on $\sigma_{\rm TOA}^{(n)}$.  The median $\sigma^{(n)}$ calculated in this way is $\sigma^{(n)} = 5.51 \times 10^{-24} $ s$^{-3/2}$, $\min [ \sigma^{(n)} ] = 1.67 \times 10^{-26}$s$^{-3/2}$ for PSR J0645+5158 and $\max [ \sigma^{(n)} ] = 2.56 \times 10^{-19}$ s$^{-3/2}$ for PSR J1939+2134. 
 
 
 The measurement noise covariance as defined in Equation \eqref{eq:vareps} can be approximately related to the uncertainty in the pulse TOA, $\sigma_{\rm TOA}$, as
 \begin{equation}
 	\sigma_{\rm m} \approx f_{\rm p}^{(n)} \sigma_{\rm TOA} \ {T_{\rm cad}}^{-1} \ . \label{eq:sigma_m_eqn}
 \end{equation}
-For a millisecond pulsar with $f_{\rm p}^{(n)} \sim 100$ Hz observed with a weekly cadence and $\sigma_{\rm TOA} \sim 1 \mu$s Equation \eqref{eq:sigma_m_eqn} implies $\sigma_{\rm m} \sim 10^{-10}$ Hz. The most accurately timed pulsars might have $\sigma_{\rm TOA} \sim 10 $ ns or $\sigma_{\rm m} \sim 10^{-12}$ Hz. Throughout this paper we fix $\sigma_{\rm m} = 10^{-11}$ Hz and take it as known \textit{a priori} rather than a parameter to be inferred. Note that whilst $\sigma_{\rm m}$ is the same for every pulsar, $f_{\rm m} ^{(n)}$ is modified by a different realisation of the measurement noise for each pulsar. \newline 
+For a millisecond pulsar with $f_{\rm p}^{(n)} \sim 100$ Hz observed with a weekly cadence and $\sigma_{\rm TOA} \sim 1 \mu$s Equation \eqref{eq:sigma_m_eqn} implies $\sigma_{\rm m} \sim 10^{-10}$ Hz. The most accurately timed pulsars might have $\sigma_{\rm TOA} \sim 10 $ ns or $\sigma_{\rm m} \sim 10^{-12}$ Hz. Throughout this paper we fix $\sigma_{\rm m} = 10^{-11}$ Hz and take it as known \textit{a priori} rather than a parameter to be inferred. When analysing real data this assumption can easily be relaxed. Whilst $\sigma_{\rm m}$ is the same for every pulsar, $f_{\rm m} ^{(n)}$ is constructed by a different random realisation of $\varepsilon^{(n)}(t)$ for each pulsar. \newline 
 
 
 

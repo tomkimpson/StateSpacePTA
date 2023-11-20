@@ -15,8 +15,8 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
 
     logger = logging.getLogger().setLevel(logging.INFO)
     #Setup the system
-    #P   = SystemParameters(h=h,σp=None,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed) # define the system parameters as a dict. Todo: make this a class
-    P   = SystemParameters(h=h,σp=True,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed) # define the system parameters as a dict. Todo: make this a class
+    P   = SystemParameters(h=h,σp=None,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed) # define the system parameters as a dict. Todo: make this a class
+    #P   = SystemParameters(h=h,σp=True,σm=1e-11,use_psr_terms_in_data=True,measurement_model=measurement_model,seed=seed) # define the system parameters as a dict. Todo: make this a class
 
     PTA = Pulsars(P)                                       # setup the PTA
     data = SyntheticData(PTA,P)                            # generate some synthetic data
