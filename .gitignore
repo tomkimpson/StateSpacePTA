@@ -7,3 +7,5 @@ docs/minutes/slides/images/*
 docs/minutes/*/*/*.png
 py_src/slurm_jobs/*.sh
 docs/manuscript/internal_comments_3/difference_file/images
+data/clean/*
+**/.DS_Store
