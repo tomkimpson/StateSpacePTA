@@ -20,8 +20,10 @@ class Pulsars:
     def __init__(self,SystemParameters):
 
 
-
+        #F64, F32, longdouble etc
+        #Not well tested currently. Use F64 as standard fow now
         NF = SystemParameters.NF
+
 
         #Universal constants
         pc = NF(3e16)     # parsec in m
@@ -32,6 +34,7 @@ class Pulsars:
         root = get_project_root()
         pulsars = pd.read_csv(root / "data/NANOGrav_pulsars.csv")
 
+        #Select a subset of pulsars
         if SystemParameters.Npsr != 0:
             pulsars = pulsars.sample(SystemParameters.Npsr,random_state=SystemParameters.seed) #can also use  pulsars.head(N) to sample  
 
@@ -43,31 +46,11 @@ class Pulsars:
         self.γ         = np.ones_like(self.f,dtype=NF) * 1e-13  #for every pulsar let γ be 1e-13
         self.δ         = pulsars["DECJD"].to_numpy()
         self.α         = pulsars["RAJD"].to_numpy()
-
-        #print("Distances = ", self.d)
-        #self.d=1e7*self.d/self.d
-
-
-        if SystemParameters.orthogonal_pulsars:
-            print("Creating orthogonal pulsars")
-            #Overwrite true  RA/DEC
-            GW_direction = unit_vector(np.pi/2.0 -SystemParameters.δ, SystemParameters.α) 
-            print("GW_direction:", GW_direction)
-            for i in range(len(self.f)):
-                v = random_three_vector()
-                psr_directon = np.cross(GW_direction,v) # not a unit vector 
-                mag = np.sqrt(psr_directon.dot(psr_directon))
-                psr_directon = psr_directon/mag #now a unit vector 
-               
-                dec_i, ra_i = convert_vector_to_ra_dec(psr_directon)
-                self.δ[i] = dec_i 
-                self.α[i] = ra_i  
-                #print(np.dot(GW_direction,psr_directon))
-
-
-
         self.q         = unit_vector(np.pi/2.0 -self.δ, self.α) #3 rows, N columns
+        
+        
         #Create a flattened q-vector for optimised calculations later
+        # i.e. given q = [qx,qy,qz], get the 9 (non-indep!) products qx*qx, qx*qy,...
         self.q_products = np.zeros((len(self.f),9))
         k = 0
         for n in range(len(self.f)):
@@ -79,14 +62,20 @@ class Pulsars:
         self.q_products = self.q_products.T
 
 
-        #Also define a new variable chi 
-        m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
-        gw_direction        = np.cross(m,n)
-        dot_product         = 1.0 + np.dot(self.q,gw_direction)
-        self.chi = np.mod(SystemParameters.Ω*self.d*dot_product,2*np.pi)
-        print("chi vals are = ", self.chi)
+       
+        #Get the principal axes for every GW source. 
+        m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ) # shape (K,3)
+        
+      
 
-
+        #And now get the chi term, shape (K,N)
+        gw_directions = np.zeros((SystemParameters.num_gw_sources,3))
+        dot_product =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
+        self.chi =  np.zeros((SystemParameters.num_gw_sources,len(self.q)))
+        for i in range(SystemParameters.num_gw_sources):
+            gw_directions[i,:]        = np.cross(m[i,:],n[i,:])
+            dot_product[i,:]          = 1.0 + np.dot(self.q,gw_directions[i,:])
+            self.chi[i,:]             = np.mod(SystemParameters.Ω[i]*self.d*dot_product[i,:],2*np.pi)
 
 
 
@@ -104,8 +93,6 @@ class Pulsars:
         generator = np.random.default_rng(SystemParameters.sigma_p_seed)
         if SystemParameters.σp is None:
             self.σp = generator.uniform(low = 1e-21,high=1e-19,size=self.Npsr)
-            #self.σp = generator.uniform(low = 1e-13,high=2e-13,size=self.Npsr)
-
             logging.info("You are assigning the σp terms randomly")
         else:
             self.σp = np.full(self.Npsr,SystemParameters.σp)
@@ -128,32 +115,13 @@ def unit_vector(theta,phi):
     return np.array([qx, qy, qz]).T
 
 
-def random_three_vector():
-    """
-    Generates a random 3D unit vector (direction) with a uniform spherical distribution
-    Algo from http://stackoverflow.com/questions/5408276/python-uniform-spherical-distribution
-    :return:
-    """
-    phi = np.random.uniform(0,np.pi*2)
-    costheta = np.random.uniform(-1,1)
-
-    theta = np.arccos( costheta )
-    x = np.sin( theta) * np.cos( phi )
-    y = np.sin( theta) * np.sin( phi )
-    z = np.cos( theta )
-    return  np.array([x,y,z])
-
-
 def convert_vector_to_ra_dec(v):
 
     x,y,z = v[0],v[1],v[2]
-
 
     r = np.sqrt(x**2 + y**2 + z**2)
 
     theta = np.arccos(z/r)
     phi = np.arctan2(y,x)
-
-
 
     return np.pi/2.0 - theta, phi #dec/ra

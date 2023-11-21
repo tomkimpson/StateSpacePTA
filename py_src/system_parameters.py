@@ -22,15 +22,16 @@ class SystemParameters:
                  ι = 1.0,          # GW source inclination
                  δ =  1.0,         # GW source declination
                  α =  1.0,         # GW source right ascension
-                 h =  1e-2,        # GW plus strain
+                 h =  5e-15,        # GW plus strain
                  σp = 1e-13,       # process noise standard deviation
                  σm = 1e-8,        # measurement noise standard deviation
                  Npsr = 0,         # Number of pulsars to use in PTA. 0 = all
                  use_psr_terms_in_data=True, # when generating the synthetic data, include pulsar terms?
                  measurement_model='pulsar',# what do you want the KF measurement model to be? One of pulsar, earth,null
-                 seed = 1234,       # this is the noise seed. It is used for sdeint and gaussian measurement noise
+                 seed = 1237,       # this is the noise seed. It is used for sdeint and gaussian measurement noise
                  σp_seed=1234,      # this is the seed when we randomly generate simga_p parameter values
-                 orthogonal_pulsars=False #if True overwrite true RA/DEC of pulsars and create a ring of pulsars perpendicular to GW direction
+                 orthogonal_pulsars=False, #if True overwrite true RA/DEC of pulsars and create a ring of pulsars perpendicular to GW direction
+                 num_gw_sources = 1 #how many GW sources are there on the sky?
                  ): 
 
         logging.info("Welcome to the Kalman Filter Nested Sampler for PTA GW systems")
@@ -38,13 +39,13 @@ class SystemParameters:
         self.NF = NF 
         self.T = NF(T) 
         self.cadence = NF(cadence)
-        self.Ω = NF(Ω)
-        self.Φ0 = NF(Φ0)
-        self.ψ = NF(ψ)
-        self.ι = NF(ι)
-        self.δ = NF(δ)
-        self.α = NF(α)
-        self.h = NF(h)
+        self.Ω = np.array([NF(Ω)])
+        self.Φ0 = np.array([NF(Φ0)])
+        self.ψ = np.array([NF(ψ)])
+        self.ι = np.array([NF(ι)])
+        self.δ = np.array([NF(δ)])
+        self.α = np.array([NF(α)])
+        self.h = np.array([NF(h)])
         self.σp = σp #can be = None for random assignment. Handle NF conversion in pulsars.py
 
         self.σm = NF(σm)
@@ -56,12 +57,66 @@ class SystemParameters:
         self.sigma_p_seed = σp_seed
         self.orthogonal_pulsars =orthogonal_pulsars
 
+        self.num_gw_sources = num_gw_sources
+
         logging.info(f"Random seed is {self.seed}")
         if σp ==1.0:
             logging.info("σp = 1.0 is a special value. \n Assigning process noise amplitudes randomly within a range. \n Please see synthetic_data.py")
 
+ 
+
+        if num_gw_sources > 1: #1 is the special deterministic option, otherwise select randomly
+
+            logging.info("Multiple GW sources requested. Overwriting default GW parameters and randomly sampling")
+            generator = np.random.default_rng(self.seed)
+
+            self.Ω = generator.uniform(low = 1e-7,high=9e-7,size=self.num_gw_sources)
+            self.Φ0 = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
+            self.ψ = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
+            self.ι = np.ones(num_gw_sources)
+            self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
+            self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
+            self.h = np.ones(num_gw_sources) * 5e-15
 
 
-        
-    
 
+
+
+
+        # if num_gw_sources == 2:
+        #     logging.info("Running for two deterministic GW sources")
+            
+        #     self.Ω = np.array([5e-7,7e-7])
+        #     self.Φ0 = np.array([0.20,1.50])
+        #     self.ψ = np.array([2.50,0.35])
+        #     self.ι = np.ones(num_gw_sources)
+        #     self.δ = np.array([1.0,0.70])
+        #     self.α = np.array([1.0,1.30])
+        #     self.h = np.array([5e-15,5e-15])
+
+
+        # if num_gw_sources == 3:
+        #     logging.info("Running for three deterministic GW sources")
+        #     self.Ω = np.array([5e-7,7e-7,6e-7])
+        #     self.Φ0= np.array([0.20,1.50,0.10])
+        #     self.ψ= np.array([2.50,0.35,2.90])
+        #     self.ι= np.ones(num_gw_sources)
+        #     self.δ= np.array([1.0,0.70,1.11])
+        #     self.α= np.array([1.0,1.30,0.95])
+        #     self.h   = np.ones(num_gw_sources) * 5e-15
+
+        # if num_gw_sources == 5:
+        #     logging.info("Running for five deterministic GW sources")
+            
+        #     self.Ω = np.array([5e-7,1e-7,2e-7,3e-7,4e-7])
+        #     self.Φ0 = np.array([0.20,1.50,0.30,0.40,1.60])
+        #     self.ψ = np.array([2.50,0.35,2.60,0.70,0.10])
+        #     self.ι = np.ones(num_gw_sources)
+        #     self.δ = np.array([1.0,0.70,1.1,0.8,0.9])
+        #     self.α = np.array([1.0,1.30,0.8,0.9,1.2])
+        #     self.h = np.ones(num_gw_sources) * 5e-15
+
+        # if num_gw_sources > 5:
+ 
+
+  

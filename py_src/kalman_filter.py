@@ -2,6 +2,9 @@ import numpy as np
 from numba import njit
 from model import F_function,R_function,Q_function # H function is defined via a class init
 
+import sys
+from scipy.stats import multivariate_normal
+
 
 """
 The log likelihood, designed for diagonal matrices where S is considered as a vector
@@ -11,10 +14,27 @@ def log_likelihood(S,innovation):
     x = innovation / S 
     N = len(x)    
     slogdet = np.sum(np.log(S)) # Uses log rules and diagonality of covariance "matrix"
+    #print("Likelihood components:",slogdet,innovation @ x,N*np.log(2*np.pi) )
+    #print('innovation:', innovation)
+    #print('S', S)
+    #sys.exit()
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
-    #value = x @ x
-    #return np.log(np.abs(value))
+    #value = innovation @ innovation
+    #value = -0.5*(innovation @ x + N*np.log(2*np.pi))
+    #print("uncertainty factor = ", slogdet)
     return value
+
+
+
+
+# def log_likelihood(S,y):
+
+#     flat_mean = None
+#     flat_x = np.asarray(y).flatten()
+#     cov = np.diag(S)
+#     return multivariate_normal.logpdf(flat_x, flat_mean, cov, allow_singular=False)
+
+
 
 
 """
@@ -41,7 +61,10 @@ def update(x, P, observation,R,Xfactor,ephemeris):
     I_KH = 1.0 - K*H
     Pnew = I_KH * P * I_KH + K * R * K
 
-    
+
+    #Pnew = I_KH*P
+
+
     #And get the likelihood
     likelihood_value = log_likelihood(S,y)
     
@@ -101,62 +124,79 @@ class KalmanFilter:
         self.NF = PTA.NF
         self.H_function = Model.H_function
         self.x0 =  self.observations[0,:] 
+        self.num_gw_sources = Model.num_gw_sources
 
+        #Define some arrays of strings
+        #These are the names of the static parameters
+        #We will use these to parse the bilby dict into arrays.
+        
+        ## length num_gw_sources
+        self.list_of_omega_keys = [f'omega_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_phi0_keys  = [f'phi0_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_psi_keys   = [f'psi_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_iota_keys  = [f'iota_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_delta_keys = [f'delta_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_alpha_keys = [f'alpha_gw_{i}' for i in range(self.num_gw_sources)]
+        self.list_of_h_keys     = [f'h_{i}' for i in range(self.num_gw_sources)]
 
-        #Define a list_of_keys arrays. 
-        # This is useful for parsing the Bibly dictionary into arrays efficiently
-        # There may be a less verbose way of doing this, but works well in practice
-        self.list_of_f_keys = [f'f0{i}' for i in range(self.Npsr)]
-        self.list_of_fdot_keys = [f'fdot{i}' for i in range(self.Npsr)]
-        self.list_of_gamma_keys = [f'gamma{i}' for i in range(self.Npsr)]
-        self.list_of_distance_keys = [f'distance{i}' for i in range(self.Npsr)]
-        self.list_of_sigma_p_keys = [f'sigma_p{i}' for i in range(self.Npsr)]
-        self.list_of_chi_keys = [f'chi{i}' for i in range(self.Npsr)]
+        ## length Npsr
+        self.list_of_f_keys        = [f'f0{i}' for i in range(self.Npsr)]
+        self.list_of_fdot_keys     = [f'fdot{i}' for i in range(self.Npsr)]
+        self.list_of_gamma_keys    = [f'gamma{i}' for i in range(self.Npsr)]
+        self.list_of_sigma_p_keys  = [f'sigma_p{i}' for i in range(self.Npsr)]
+
+        # length Npsr x num_gw_sources
+        self.list_of_chi_keys = [ [f'chi{i}_{k}' for i in range(self.Npsr)] for k in range(self.num_gw_sources)]
 
 
     def parse_dictionary(self,parameters_dict):
         
-        #All the GW parameters can just be directly accessed as variables
-        omega_gw = parameters_dict["omega_gw"].item() 
-        phi0_gw  = parameters_dict["phi0_gw"].item()
-        psi_gw   = parameters_dict["psi_gw"].item()
-        iota_gw  = parameters_dict["iota_gw"].item()
-        delta_gw = parameters_dict["delta_gw"].item()
-        alpha_gw = parameters_dict["alpha_gw"].item()
-        h        = parameters_dict["h"].item()
+        
+        omega_gw = dict_to_array(parameters_dict,self.list_of_omega_keys)
+        phi0_gw  = dict_to_array(parameters_dict,self.list_of_phi0_keys)
+        psi_gw   = dict_to_array(parameters_dict,self.list_of_psi_keys)
+        iota_gw  = dict_to_array(parameters_dict,self.list_of_iota_keys)
+        delta_gw = dict_to_array(parameters_dict,self.list_of_delta_keys)
+        alpha_gw = dict_to_array(parameters_dict,self.list_of_alpha_keys)
+        h        = dict_to_array(parameters_dict,self.list_of_h_keys)
 
-        #Now read in the pulsar parameters. Explicit.
+        # Pulsar paramters
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)
         fdot    = dict_to_array(parameters_dict,self.list_of_fdot_keys)
         gamma   = dict_to_array(parameters_dict,self.list_of_gamma_keys)
-        d       = dict_to_array(parameters_dict,self.list_of_distance_keys)
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
-        chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
+
+        chi = np.asarray([dict_to_array(parameters_dict,self.list_of_chi_keys[k]) for k in range(self.num_gw_sources)])
 
 
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
 
-        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m
+      
+        return omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m
 
 
 
     def likelihood(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
-
-    
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)
         R = R_function(sigma_m)
         Q = Q_function(gamma,sigma_p,self.dt)
      
-
         #Initialise x and P
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+        #P = np.ones(self.Npsr)* sigma_m * 1e6 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+
+
+        x = np.ones_like(x)*0.0 
+        P = np.ones(self.Npsr)*0.0 
+
+
 
 
         # Precompute the influence of the GW
@@ -169,7 +209,6 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
-                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi
@@ -191,21 +230,26 @@ class KalmanFilter:
         for i in np.arange(1,self.Nsteps):
 
             
-             obs                              = self.observations[i,:]                                     #The observation at this timestep
-             x_predict, P_predict             = predict(x,P,F,Q)                                           #The predict step
-             x,P,likelihood_value,y_predicted = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:]) #The update step    
-             likelihood +=likelihood_value
+            obs                              = self.observations[i,:]                                     #The observation at this timestep
+            x_predict, P_predict             = predict(x,P,F,Q)                                           #The predict step
+            x,P,likelihood_value,y_predicted = update(x_predict,P_predict, obs,R,X_factor[i,:],f_EM[i,:]) #The update step    
+            
+            if i > -100:
+                likelihood +=likelihood_value
 
    
         return likelihood
 
 
 
-
+    """
+    Not used for Bilby inference, just if we want to also return the states/measurements
+    Done this way for performance, but probably overkill.
+    """
     def likelihood_with_results(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
     
         #Precompute transition/Q/R Kalman matrices
@@ -217,6 +261,19 @@ class KalmanFilter:
 
         #Initialise x and P
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        
+        
+        #Initialise x and P
+        #x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
+        #P = np.ones(self.Npsr)* sigma_m * 1e6 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
+
+        
+        
+        
+        
+        
+        
+        
         x = np.ones_like(x)*0.0 #2.96709595e-10
         P = np.ones(self.Npsr)*0.0 #sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
@@ -231,7 +288,6 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
-                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi
@@ -247,7 +303,7 @@ class KalmanFilter:
        
         #Do the first update step
         x,P,likelihood_value,y_predicted = update(x,P, self.observations[0,:],R,X_factor[0,:],f_EM[0,:])
-        likelihood +=likelihood_value
+        #likelihood +=likelihood_value
 
 
         #Place to store results

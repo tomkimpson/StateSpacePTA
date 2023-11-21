@@ -4,54 +4,43 @@
 
 
 import numpy as np 
+import os 
 
 
-def create_slurm_job(arg_name,h,measurement_model,seed):
 
-    with open(f'../slurm_jobs/slurm_{arg_name}.sh','w') as g:
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) #absolute path to file
+
+def create_slurm_job(arg_name,h,measurement_model,seed,num_gw_sources):
+
+    with open(f'{ROOT_DIR}/../slurm_jobs/slurm_{arg_name}.sh','w') as g:
 
 
         g.write("#!/bin/bash \n \n")  
         g.write("#SBATCH --ntasks=1 \n")  
-        g.write("#SBATCH --mem=8000MB \n")  
-        g.write("#SBATCH --time=24:00:00 \n")  
+        g.write("#SBATCH --mem=16000MB \n")  
+        g.write("#SBATCH --time=96:00:00 \n")  
         g.write(f"#SBATCH --job-name={arg_name} \n")  
         g.write(f"#SBATCH --output=outputs/{arg_name}_out.txt \n \n")
 
         g.write("source ~/.bashrc \n")
         g.write("conda activate OzStar \n")
-        g.write(f"time python main.py {arg_name} {h} {measurement_model} {seed}")
+        g.write(f"time python main.py {arg_name} {h} {measurement_model} {seed} {num_gw_sources}")
     
+
+h = 1e-15
+model = ['earth','null']
+seeds = [1255]
+nums = [1,2,5,10,20,30]
+
+with open('batch.sh','w') as b:
     
+    for n in nums:
+        for m in model:
+            for s in seeds:
+                arg_name = f"HD_h1e15_canonical_{m}_k_{n}_seed_{s}"
+                print(arg_name)
+                create_slurm_job(arg_name,h,m,s,n)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
-N = 100
-seeds = np.arange(1235+10,1235+10+N,1)
-h = 5e-15 
-model = "pulsar"
-with open('batch.sh','w') as b: 
 
-    for s in seeds:
-        arg_name = f"ETJ_pulsar_batch_{s}"
-        create_slurm_job(arg_name,h,model,s)
-        b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
-       
-
-# h_range = np.logspace(-15,-12,101)
-# noise_models = ["earth", "null"]
-# #noise_models = ["earth"]
-
-# seeds = np.arange(1245,1245+10)
-
-# with open('batch.sh','w') as b:
-    
-#     for s in seeds:
-#         for h in h_range:
-#             for n in noise_models:
-#                  arg_name = f"KMULTIpaper_bayes_ratios_n2500_V1_h_{h}_model_{n}_seed_{s}"
-#                  print(arg_name)
-#                  create_slurm_job(arg_name,h,n,s)
-
-#                  b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
-
-    
 

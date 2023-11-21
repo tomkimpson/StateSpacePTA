@@ -10,3 +10,13 @@ py_src/slurm_jobs/*.sh
 data/nested_sampling/*
 docs/build/*
 data/.DS_Store
+data/clean
+py_src/outputs/*
+py_src/slurm_jobs/*
+data/*.npy
+data/*.json
+data/corner_plots
+data/selected_compressed_files
+data/credible_levels_results
+data/credible_levels_results_two
+data/*
