@@ -156,8 +156,6 @@ class KalmanFilter:
         omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
 
-        #print("running the KF with omega = ", omega_gw)
-        #print('...and chi = ', chi)
 
         
         #Precompute transition/Q/R Kalman matrices
