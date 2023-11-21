@@ -3,6 +3,11 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
+I was expecting a `,' or a `}'---line 7 of file example.bib
+ :  
+ :  year={2023},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Reallocated buffer (elt_size=1) to 40000 items from 20000.
 Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
 Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
@@ -10,54 +15,55 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Repeated entry---line 2315 of file example.bib
+Repeated entry---line 2310 of file example.bib
  : @book{zarchan2000fundamentals
  :                              ,
 I'm skipping whatever remains of this entry
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty year in KimpsonPTA
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 106 entries,
+You've used 101 entries,
             2881 wiz_defined-function locations,
-            1638 strings with 145268 characters,
-and the built_in function-call counts, 54076 in all, are:
-= -- 4831
-> -- 3443
-< -- 263
-+ -- 1530
-- -- 473
-* -- 6323
-:= -- 8040
+            1600 strings with 144342 characters,
+and the built_in function-call counts, 51848 in all, are:
+= -- 4669
+> -- 3286
+< -- 245
++ -- 1451
+- -- 455
+* -- 6076
+:= -- 7669
 add.period$ -- 0
-call.type$ -- 106
-change.case$ -- 212
-chr.to.int$ -- 97
-cite$ -- 108
-duplicate$ -- 2750
-empty$ -- 2704
-format.name$ -- 817
-if$ -- 9853
+call.type$ -- 101
+change.case$ -- 202
+chr.to.int$ -- 92
+cite$ -- 104
+duplicate$ -- 2628
+empty$ -- 2563
+format.name$ -- 785
+if$ -- 9465
 int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 114
-newline$ -- 340
-num.names$ -- 723
-pop$ -- 549
+missing$ -- 106
+newline$ -- 322
+num.names$ -- 689
+pop$ -- 516
 preamble$ -- 1
-purify$ -- 424
+purify$ -- 404
 quote$ -- 0
-skip$ -- 1903
+skip$ -- 1833
 stack$ -- 0
-substring$ -- 3640
-swap$ -- 1575
-text.length$ -- 441
+substring$ -- 3550
+swap$ -- 1527
+text.length$ -- 421
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 927
-warning$ -- 2
-while$ -- 785
+type$ -- 891
+warning$ -- 3
+while$ -- 749
 width$ -- 0
-write$ -- 1092
-(There was 1 error message)
+write$ -- 1035
+(There were 2 error messages)

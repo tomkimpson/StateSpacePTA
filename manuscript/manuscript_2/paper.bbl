@@ -161,12 +161,6 @@ Babak S.,  Sesana A.,  2012b, \mn@doi [Phys. Rev. D]
 Cook S.~R.,  Gelman A.,   Rubin D.~B.,  2006, \mn@doi [Journal of Computational
   and Graphical Statistics] {10.1198/106186006X136976}, 15, 675
 
-\bibitem[\protect\citeauthoryear{Corder \& Foreman}{Corder \&
-  Foreman}{2014}]{corder2014nonparametric}
-Corder G.,  Foreman D.,  2014, Nonparametric Statistics: A Step-by-Step
-  Approach.
-Wiley, \url {https://books.google.com.au/books?id=hYVYAwAAQBAJ}
-
 \bibitem[\protect\citeauthoryear{{Cordes} \& {Lazio}}{{Cordes} \&
   {Lazio}}{2002}]{Cordes2002astro.ph..7156C}
 {Cordes} J.~M.,  {Lazio} T.~J.~W.,  2002, \mn@doi [arXiv e-prints]
@@ -178,9 +172,6 @@ Wiley, \url {https://books.google.com.au/books?id=hYVYAwAAQBAJ}
   et~al.}{2016}]{Desvignes2016}
 Desvignes G.,  et~al., 2016, \mn@doi [Monthly Notices of the Royal Astronomical
   Society] {10.1093/mnras/stw483}, 458, 3341
-
-\bibitem[\protect\citeauthoryear{Dudley}{Dudley}{1969}]{Dudley}
-Dudley R.~M.,  1969, The Annals of Mathematical Statistics, 40, 40
 
 \bibitem[\protect\citeauthoryear{{Dunn} et~al.,}{{Dunn}
   et~al.}{2022}]{Dunn2022}
@@ -221,13 +212,6 @@ Springer Series in Synergetics, Springer Berlin Heidelberg, \url
 Gelb A.,  Kasper J.~F.,  Nash R.~A.,  Price C.~F.,   Sutherland A.~A.,  eds,
   1974, Applied Optimal Estimation.
 MIT Press, Cambridge, MA
-
-\bibitem[\protect\citeauthoryear{Gelman, Carlin, Stern, Dunson, Vehtari  \&
-  Rubin}{Gelman et~al.}{2013}]{gelman2013bayesian}
-Gelman A.,  Carlin J.,  Stern H.,  Dunson D.,  Vehtari A.,   Rubin D.,  2013,
-  Bayesian Data Analysis, Third Edition.
-Chapman \& Hall/CRC Texts in Statistical Science, Taylor \& Francis, \url
-  {https://books.google.com.au/books?id=ZXL6AQAAQBAJ}
 
 \bibitem[\protect\citeauthoryear{{Goldreich} \& {Julian}}{{Goldreich} \&
   {Julian}}{1969}]{1969ApJ...157..869G}
@@ -296,19 +280,15 @@ Jankowski F.,  et~al., 2018, \mn@doi [Monthly Notices of the Royal Astronomical
 Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   {10.1115/1.3662552}, 82, 35
 
+\bibitem[\protect\citeauthoryear{Kimpson, Melatos, O'Leary, Carlin
+  et~al.}{Kimpson et~al.}{}]{KimpsonPTA}
+Kimpson T.,  Melatos M.,  O'Leary J.,  Carlin J.,   et~al.,, Submitted to MNRAS
+
 \bibitem[\protect\citeauthoryear{{Kimpson}, {Paxton}, {Chantry}  \&
   {Palmer}}{{Kimpson} et~al.}{2023}]{2023QJRMS.149..843K}
 {Kimpson} T.,  {Paxton} E.~A.,  {Chantry} M.,   {Palmer} T.,  2023, \mn@doi
   [Quarterly Journal of the Royal Meteorological Society] {10.1002/qj.4435},
   \href {https://ui.adsabs.harvard.edu/abs/2023QJRMS.149..843K} {149, 843}
-
-\bibitem[\protect\citeauthoryear{Kimpson, Melatos  \& Carlin}{Kimpson
-  et~al.}{2024}]{KimpsonPTA}
-Kimpson T.,  Melatos M.,   Carlin J.,  2024, MNRAS, 1, 101
-
-\bibitem[\protect\citeauthoryear{Kuhn}{Kuhn}{1955}]{Kuhn}
-Kuhn H.~W.,  1955, \mn@doi [Naval Research Logistics Quarterly]
-  {https://doi.org/10.1002/nav.3800020109}, 2, 83
 
 \bibitem[\protect\citeauthoryear{{Lasky}, {Melatos}, {Ravi}  \&
   {Hobbs}}{{Lasky} et~al.}{2015}]{Lasky2015}
@@ -521,11 +501,6 @@ Vaserstein L.,  1969, Probl. Peredachi Inf., 5
 {Verbiest} J.~P.~W.,  {Os{\l}owski} S.,   {Burke-Spolaor} S.,  2021, in ,
   Handbook of Gravitational Wave Astronomy.
 p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
-
-\bibitem[\protect\citeauthoryear{Villani}{Villani}{2003}]{villani2003topics}
-Villani C.,  2003, Topics in Optimal Transportation.
-Graduate studies in mathematics, American Mathematical Society, \url
-  {https://books.google.com.au/books?id=idyFAwAAQBAJ}
 
 \bibitem[\protect\citeauthoryear{Villani}{Villani}{2009}]{Villani2009}
 Villani C.,  2009, The Wasserstein distances.
