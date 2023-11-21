@@ -37,8 +37,6 @@ def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #s
         init_parameters[key] = None
       
         priors[key] = bilby.core.prior.LogUniform(lower,upper, key) #order of mag either side     
-        #priors[key] = bilby.core.prior.LogUniform(f/10,f*10, key) #order of mag either side     
-
         logging.info(f"Sigma p true value is {key} {f}")
         
         i+= 1
@@ -218,7 +216,7 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
         priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
 
         init_parameters["h"] = None
-        priors["h"] = bilby.core.prior.LogUniform(P.h/10.0, P.h*10.0, 'h')
+        priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
 
 
     return init_parameters,priors 

@@ -308,7 +308,7 @@ to cover a broader parameter space and consider a range of astrophysically relev
 		}
 		\label{tab:parameters_and_priors}
 	\end{table*}
-In order to generate synthetic frequency time series $f_{\rm m}^{(1)}(t), \dots, f_{\rm m}^{(N)}(t)$, Equations \eqref{eq:frequency_evolution}--\eqref{eq:spinevol} are integrated numerically using a Runge-Kutta It$\hat{\text{o}}$ integrator implemented in the \texttt{sdeint} python package \footnote{\url{https://github.com/mattja/sdeint}}. This produces random realizations of $f_{\rm p}^{(n)}(t)$ for $1\leq n \leq N$. The measured $f_{\rm m}^{(n)}(t)$ are then produced via Equations \eqref{eq:measurement}--\eqref{eq:g_func_trig}. Equations \eqref{eq:frequency_evolution}--\eqref{eq:spinevol} and \eqref{eq:measurement}--\eqref{eq:g_func_trig} depend on the choice of static parameters $\boldsymbol{\theta'}$, as well as the choice of pulsar directions ${\boldsymbol{q}}^{(n)}$ and detector measurement noise covariance $\sigma_{\rm m}$ (Equation \eqref{eq:sigma_m_eqn}). We now describe how these values are chosen so as to generate astrophysically representative synthetic data. \newline 
+In order to generate synthetic frequency time series $ \boldsymbol{Y}(t) = \{f_{\rm m}^{(1)}(t), \dots, f_{\rm m}^{(N)}(t) \}$, Equations \eqref{eq:frequency_evolution}--\eqref{eq:spinevol} are integrated numerically using a Runge-Kutta It$\hat{\text{o}}$ integrator implemented in the \texttt{sdeint} python package \footnote{\url{https://github.com/mattja/sdeint}}. This produces random realizations of $f_{\rm p}^{(n)}(t)$ for $1\leq n \leq N$. The measured $f_{\rm m}^{(n)}(t)$ are then produced via Equations \eqref{eq:measurement}--\eqref{eq:g_func_trig}. Equations \eqref{eq:frequency_evolution}--\eqref{eq:spinevol} and \eqref{eq:measurement}--\eqref{eq:g_func_trig} depend on the choice of static parameters $\boldsymbol{\theta'}$, as well as the choice of pulsar directions ${\boldsymbol{q}}^{(n)}$ and detector measurement noise covariance $\sigma_{\rm m}$ (Equation \eqref{eq:sigma_m_eqn}). We now describe how $\boldsymbol{\theta}_{\rm psr}$, ${\boldsymbol{q}}^{(n)}$ and $\sigma_{\rm m}$ are chosen. This is equivalent to specifying the configuration of a synthetic PTA. In Section  \ref{sec:pe_and_ms} and Section \ref{sec:parameter_space} we describe how $\boldsymbol{\theta}_{\rm gw}$ chosen. This is equivalent to specifying the synthetic SMBHB source.  \newline 
 
 
 In this paper we use the same values for $\boldsymbol{\theta}_{\rm psr}$ as in K24. That is, we adopt the 47 millisecond pulsars (MSPs) in the 12.5 year NANOGrav dataset \citep{2020ApJ...905L..34A}, i.e. $N = 47$. We consider all pulsars to be observed with a weekly cadence, $T_{\rm cad} = 1 \,{\rm week}$ over a 10 year period. For each pulsar fiducial values for ${\boldsymbol{q}}^{(n)}$, $d^{(n)}$, $f_{\rm em}^{(n)}(t_1)$, and $\dot{f}^{(n)}_{\rm em}(t_1)$ are obtained via the Australia Telescope National Facility (ATNF) pulsar catalogue \citep{Manchester2005} using the \texttt{psrqpy} package \citep{psrqpy}. We identify $f_{\rm em}^{(n)} (t_1)$ and $\dot{f}_{\rm em}^{(n)} (t_1)$ with the pulsar barycentric rotation frequency and its time derivative respectively, as quoted in catalogues. No direct measurements exist for $\gamma^{(n)}$, though the mean reversion timescale typically satisfies $[\gamma^{(n)}]^{-1} \gg T_{\rm obs}$ \citep{Price2012,Myers2021MNRAS.502.3113M,Meyers2021,Vargas}. In this paper, for the sake of simplicity in the absence of independent measurements, we fix $\gamma^{(n)} = 10^{-13}$ s$^{-1}$ for all $n$. Similarly, no direct measurements exist for $\sigma^{(n)}$.   We relate the process noise in the frequency $\sigma^{(n)}$ to the root mean square TOA noise accumulated over one week such that
@@ -322,7 +322,10 @@ The measurement noise covariance as defined in Equation \eqref{eq:vareps} can be
 \begin{equation}
 	\sigma_{\rm m} \approx f_{\rm p}^{(n)} \sigma_{\rm TOA} \ {T_{\rm cad}}^{-1} \ . \label{eq:sigma_m_eqn}
 \end{equation}
-For a millisecond pulsar with $f_{\rm p}^{(n)} \sim 100$ Hz observed with a weekly cadence and $\sigma_{\rm TOA} \sim 1 \mu$s Equation \eqref{eq:sigma_m_eqn} implies $\sigma_{\rm m} \sim 10^{-10}$ Hz. The most accurately timed pulsars might have $\sigma_{\rm TOA} \sim 10 $ ns or $\sigma_{\rm m} \sim 10^{-12}$ Hz. Throughout this paper we fix $\sigma_{\rm m} = 10^{-11}$ Hz and take it as known \textit{a priori} rather than a parameter to be inferred. When analysing real data this assumption can easily be relaxed. Whilst $\sigma_{\rm m}$ is the same for every pulsar, $f_{\rm m} ^{(n)}$ is constructed by a different random realisation of $\varepsilon^{(n)}(t)$ for each pulsar. \newline 
+For a millisecond pulsar with $f_{\rm p}^{(n)} \sim 100$ Hz observed with a weekly cadence and $\sigma_{\rm TOA} \sim 1 \mu$s Equation \eqref{eq:sigma_m_eqn} implies $\sigma_{\rm m} \sim 10^{-10}$ Hz. The most accurately timed pulsars might have $\sigma_{\rm TOA} \sim 10 $ ns or $\sigma_{\rm m} \sim 10^{-12}$ Hz. Throughout this paper we fix $\sigma_{\rm m} = 10^{-11}$ Hz and take it as known \textit{a priori} rather than a parameter to be inferred. When analysing real data this assumption can easily be relaxed. Whilst $\sigma_{\rm m}$ is the same for every pulsar, $f_{\rm m} ^{(n)}$ is constructed by a different random realisation of $\varepsilon^{(n)}(t)$ for each pulsar. \newline  
+
+
+ 
 
 
 
@@ -330,21 +333,63 @@ For a millisecond pulsar with $f_{\rm p}^{(n)} \sim 100$ Hz observed with a week
 
 
 \subsection{Parameter estimation} \label{sec:pe_and_ms} 
-
-
-The static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this mock analysis are selected to be astrophysically reasonable and representative. The injected components of $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr}$ are summarised in the second column of Table \ref{tab:parameters_and_priors}. Different values of the static GW source parameters are explored in Section XX. \newline 
-
-The synthetic data generated by the above procedure is passed to the analysis scheme in Section \ref{sec:pe_and_ms}.
+In this section, we calculate the joint posterior probability distribution $p({\boldsymbol{\theta}} | {\boldsymbol{Y}})$ 
 
 
 
 
+for synthetic data $\boldsymbol{Y}$
+
+
+
+The injected static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this mock analysis to generate $\boldsymbol{Y}$ are selected to be astrophysically reasonable and representative. 
+
+The static pulsar parameters $\boldsymbol{\theta'}_{\rm psr}$  are as specified in Section \ref{sec:synthetic_data}
+
+
+The injected components of $\boldsymbol{\theta}_{\rm gw}$ and $\boldsymbol{\theta}_{\rm psr}$ are summarised in the second column of Table \ref{tab:parameters_and_priors}. The specification of the priors on $\boldsymbol{\theta}$ is described in Appendix \ref{sec:set_priors} and summarised in Table \ref{tab:parameters_and_priors}. Different values of the static GW source parameters are explored in Section \ref{sec:parameter_space}. 
 
 
 
 
-In this section, we calculate the posterior probability distribution for the static parameters $\boldsymbol{\theta} = \boldsymbol{\theta}_{\rm gw} \cup \boldsymbol{\theta}_{\rm psr}$ and compare it to the known, injected values. The procedure is undertaken for multiple realisations of the noise processes $\xi^{(n)}(t)$ and $\varepsilon^{(n)}(t)$. That is, given the injected static parameters $\boldsymbol{\theta}$ summarised in Table \ref{Table tab:parameters_and_priors}, multiple realisations of synthetic data are generated using the method described in Section \ref{sec:synthetic_data}, and for each realisation we independently estimate $\boldsymbol{\theta}$.The aims are (i) to demonstrate that the analysis scheme works (i.e.\ that it converges to a well-behaved, unimodal posterior for multiple noise realisations), (ii) to give a preliminary sense of its accuracy, and (iii) demonstrate that quantify the natural random dispersion in the one-dimensional posterior medians between noise realisations. We apply the Kalman filter in conjunction with nested sampling in order to infer the joint posterior distribution $p({\boldsymbol{\theta}} | {\boldsymbol{Y}})$. The specification of the priors on $\boldsymbol{\theta}$ is described in section \ref{sec:set_priors} and summarised in \ref{Table tab:parameters_and_priors}
 
+
+
+
+
+posterior probability distribution for the static parameters $\boldsymbol{\theta}$ and compare it to the known, injected values.
+
+
+
+
+
+
+ The procedure is undertaken for multiple realisations of the noise processes $\xi^{(n)}(t)$ and $\varepsilon^{(n)}(t)$. That is, given the injected static parameters $\boldsymbol{\theta}$ multiple realisations of synthetic data are generated using the methods described in Section \ref{sec:synthetic_data}, and for each realisation we independently estimate $\boldsymbol{\theta}$. The aims are (i) to demonstrate that the analysis scheme works (i.e.\ that it converges to a well-behaved, unimodal posterior for multiple noise realisations), (ii) to give a preliminary sense of its accuracy, and (iii) demonstrate that quantify the natural random dispersion in the one-dimensional posterior medians between noise realisations. 
+
+
+We apply the Kalman filter in conjunction with nested sampling in order to infer the
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 Figure \ref{fig:corner_plot_1} displays results for the seven parameters in  $\boldsymbol{\theta}_{\rm gw}$ in the form of a traditional corner plot. The histograms are the one-dimensional posteriors for each parameter, marginalized over the six other parameters. The dashed vertical blue lines mark the 0.16 and 0.84 quantiles; the solid orange line marks the known injected value. The two-dimensional contours mark the (0.5, 1, 1.5, 2)-sigma level surfaces. All histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is scant evidence of railing against the prior bounds. For this representative example, with characteristic strain $h_0 = 5 \times 10^{-15}$, the analysis scheme estimates $\boldsymbol{\theta}_{\rm gw}$ accurately. The injected values are contained within the 90\% credible interval for all seven parameters in $\boldsymbol{\theta}_{\rm gw}$ . \newline 

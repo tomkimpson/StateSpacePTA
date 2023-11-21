@@ -57,7 +57,7 @@ def bilby_inference_run(arg_name,h,measurement_model,seed):
     #npoints = (-1000/3)*np.log10(P.h) - (3000) #This sets npoints = 1000 when h = 10^{-12} and = 2000 when h = 10^{-15}
     #npoints = int(npoints)
 
-    npoints = 2000
+    npoints = 1000
     print("The number of points used is = ", npoints, " for h = ", P.h)
 
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/",npoints=npoints)

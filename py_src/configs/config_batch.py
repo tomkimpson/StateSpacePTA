@@ -24,31 +24,11 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
     
 
-# MULTIPLE NOISE REALISATIONS
-N = 100
-seeds = np.arange(1235,1235+N,1)
-#strains = [1e-12,5e-15]
-strains = [1e-14]
-models = ["earth", "pulsar"]
-
-with open('batch.sh','w') as b: 
-
-    for s in seeds:
-        for h in strains:
-            for m in models:
-                arg_name = f"bigrun_{m}_{h}_{s}"
-                create_slurm_job(arg_name,h,m,s)
-                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
-
-
-
-
-
-# N = 10
-# #seeds = np.arange(1235+10,1235+10+N,1)
-# seeds = [1251]
-
-# strains = [1e-12,5e-15]
+# # MULTIPLE NOISE REALISATIONS
+# N = 100
+# seeds = np.arange(1235,1235+N,1)
+# #strains = [1e-12,5e-15]
+# strains = [1e-14]
 # models = ["earth", "pulsar"]
 
 # with open('batch.sh','w') as b: 
@@ -56,11 +36,30 @@ with open('batch.sh','w') as b:
 #     for s in seeds:
 #         for h in strains:
 #             for m in models:
-#                 arg_name = f"reproduce_eg_canonical_{m}_{h}_{s}"
+#                 arg_name = f"bigrun_{m}_{h}_{s}"
 #                 create_slurm_job(arg_name,h,m,s)
 #                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
-       
 
+
+
+
+
+N = 10
+#seeds = np.arange(1235+10,1235+10+N,1)
+seeds = [1251]
+
+strains = [1e-12,5e-15]
+models = ["earth", "pulsar"]
+
+with open('batch.sh','w') as b: 
+
+    for s in seeds:
+        for h in strains:
+            for m in models:
+                arg_name = f"V2reproduce_eg_canonical_{m}_{h}_{s}"
+                create_slurm_job(arg_name,h,m,s)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+       
 
 
        

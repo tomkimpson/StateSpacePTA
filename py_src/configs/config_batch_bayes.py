@@ -24,19 +24,23 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
 
 #BAYES PLOT
-h_range = np.logspace(-15,-12,101)
+h_range = np.logspace(-15,-12,10) #10 strain vals
+
+nseeds = 10
+seeds = np.arange(1245,1245+nseeds,1)
 noise_models = ["pulsar","earth", "null"]
 
-s = 1250 #seed. Also try 1245 which I think is what was used in the paper: https://github.com/tomkimpson/StateSpacePTA/blob/9d997dc7d42ae612e7d526d34b0661944af6eb99/py_src/config_batch.py
+#s = 1250 #seed. Also try 1245 which I think is what was used in the paper: https://github.com/tomkimpson/StateSpacePTA/blob/9d997dc7d42ae612e7d526d34b0661944af6eb99/py_src/config_batch.py
+
 with open('batch.sh','w') as b:
     
     for h in h_range:
         for n in noise_models:
-            arg_name = f"gamma_canonical_bayes_h_{h}_model_{n}"
-            print(arg_name)
-            create_slurm_job(arg_name,h,n,s)
-
-            b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+            for s in seeds:
+                arg_name = f"november_bayes_h_{h}_model_{n}"
+                print(arg_name)
+                create_slurm_job(arg_name,h,n,s)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
 
 
