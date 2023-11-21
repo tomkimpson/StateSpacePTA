@@ -210,10 +210,10 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
         priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
 
         init_parameters["delta_gw"] = None
-        priors["delta_gw"] = bilby.core.prior.Uniform(-np.pi/2, np.pi/2, 'delta_gw')
+        priors["delta_gw"] = bilby.core.prior.Uniform(0, np.pi/2, 'delta_gw')
 
         init_parameters["alpha_gw"] = None
-        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
+        priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
 
         init_parameters["h"] = None
         priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
