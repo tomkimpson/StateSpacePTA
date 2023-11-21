@@ -14,7 +14,6 @@ def log_likelihood(S,innovation):
     value = -0.5*(slogdet+innovation @ x + N*np.log(2*np.pi))
     #value = x @ x
     #return np.log(np.abs(value))
-    #value = -np.sum(innovation)
     return value
 
 
@@ -285,7 +284,6 @@ class KalmanFilter:
         y_results[0,:] = (1.0 - X_factor[0,:])*x - X_factor[0,:]*f_EM[0,:] 
 
 
-
         for i in np.arange(1,self.Nsteps):
 
             
@@ -299,7 +297,7 @@ class KalmanFilter:
              y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
 
    
-        #print(iota_gw,likelihood)
+
         return likelihood,x_results,y_results
 
 

@@ -367,7 +367,7 @@ posterior probability distribution for the static parameters $\boldsymbol{\theta
  The procedure is undertaken for multiple realisations of the noise processes $\xi^{(n)}(t)$ and $\varepsilon^{(n)}(t)$. That is, given the injected static parameters $\boldsymbol{\theta}$ multiple realisations of synthetic data are generated using the methods described in Section \ref{sec:synthetic_data}, and for each realisation we independently estimate $\boldsymbol{\theta}$. The aims are (i) to demonstrate that the analysis scheme works (i.e.\ that it converges to a well-behaved, unimodal posterior for multiple noise realisations), (ii) to give a preliminary sense of its accuracy, and (iii) demonstrate that quantify the natural random dispersion in the one-dimensional posterior medians between noise realisations. 
 
 
-We apply the Kalman filter in conjunction with nested sampling in order to infer the
+We apply the Kalman filter in conjunction with nested sampling in order to infer $p({\boldsymbol{\theta}} | {\boldsymbol{Y}})$ .  \newline 
 
 
 
@@ -375,23 +375,6 @@ We apply the Kalman filter in conjunction with nested sampling in order to infer
 
 
 
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 Figure \ref{fig:corner_plot_1} displays results for the seven parameters in  $\boldsymbol{\theta}_{\rm gw}$ in the form of a traditional corner plot. The histograms are the one-dimensional posteriors for each parameter, marginalized over the six other parameters. The dashed vertical blue lines mark the 0.16 and 0.84 quantiles; the solid orange line marks the known injected value. The two-dimensional contours mark the (0.5, 1, 1.5, 2)-sigma level surfaces. All histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is scant evidence of railing against the prior bounds. For this representative example, with characteristic strain $h_0 = 5 \times 10^{-15}$, the analysis scheme estimates $\boldsymbol{\theta}_{\rm gw}$ accurately. The injected values are contained within the 90\% credible interval for all seven parameters in $\boldsymbol{\theta}_{\rm gw}$ . \newline 
 
 
@@ -409,16 +392,16 @@ In addition to estimates of $\boldsymbol{\theta}_{\rm gw}$, it is of interest ho
 This is shown in Figure \ref{fig:corner_plot_3} where we plot the results for five of the $\chi^{(n)}$ values for both high SNR (left-hand panel) and low SNR (right hand panel). The estimates are naturally more constrained in the high SNR case, but in both cases the injection is contained within the 90 \% credible interval. Similar results are obtained for the remaining 4$N$ parameters of $\boldsymbol{\theta}_{\rm psr}'$, but we do not display the resulting posterior distributions here since the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this work. 
 
 
- 
+% stacked_GW_plot_small_h_definitive2
 \begin{figure*}
-	\includegraphics[width=\textwidth, height =\textwidth ]{images/stacked_GW_plot_small_h_definitive2}
+	\includegraphics[width=\textwidth, height =\textwidth ]{example-image-a}
 	\caption{Posterior distribution of the GW source parameters $\boldsymbol{\theta}_{\rm gw}$ for the representative system in Table \ref{tab:parameters_and_priors}, for nine realisations of the noise processes, with curves coloured uniquely. The horizontal and vertical orange lines indicate the true injected values. The contours in the two-dimensional histograms mark the (0.5, 1, 1.5, 2)-$\sigma$ levels after marginalizing over all but two parameters. The one-dimensional histograms correspond to the joint posterior distribution marginalized over all but one parameter. The supertitles of the one-dimensional histograms record the posterior median and the 0.16 and 0.84 quantiles of the median realisation. We plot the scaled variables $10^9 \Omega$ (units: ${\rm rad \, s^{-1}}$) and $10^{15} h_0$. The Kalman filter and nested sampler estimate accurately all seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$. The horizontal axes span a subset of the prior domain for all seven parameters. The known, injected value lies within the 90\% credible interval for \textcolor{red}{X} out of the 63 combinations of seven parameters and nine noise realizations. There is an appreciable dispersion among the peaks of the one-dimensional posteriors, with coefficient of variation \textcolor{red}{X} across the 63 combinations.}
 	\label{fig:corner_plot_1}
 \end{figure*}
 
-
+%images/corner_lowSNR_chi
 	\begin{figure}
-	\includegraphics[width=\columnwidth, height =\columnwidth ]{images/corner_lowSNR_chi}
+	\includegraphics[width=\columnwidth, height =\columnwidth ]{example-image-b}
 	\caption{hellow}
 	\label{fig:corner_plot_3}
 \end{figure}
