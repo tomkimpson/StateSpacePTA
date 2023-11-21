@@ -76,7 +76,7 @@ class SystemParameters:
             self.ι = np.ones(num_gw_sources)
             self.δ = generator.uniform(low = 0.0,high=np.pi/2,size=self.num_gw_sources)
             self.α = generator.uniform(low = 0.0,high=np.pi,size=self.num_gw_sources)
-            self.h = np.ones(num_gw_sources) * 1e-15
+            self.h = np.ones(num_gw_sources) * 5e-15
 
 
 
