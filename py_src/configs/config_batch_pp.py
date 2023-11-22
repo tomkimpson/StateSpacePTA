@@ -62,3 +62,5 @@ with open('batch.sh','w') as b:
         create_slurm_job(arg_name,h,model,seed,p['omega_gw'],p['phi0_gw'],p['psi_gw'],p['delta_gw'],p['alpha_gw'])
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
+
+
