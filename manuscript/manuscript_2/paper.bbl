@@ -280,15 +280,15 @@ Jankowski F.,  et~al., 2018, \mn@doi [Monthly Notices of the Royal Astronomical
 Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   {10.1115/1.3662552}, 82, 35
 
-\bibitem[\protect\citeauthoryear{Kimpson, Melatos, O'Leary, Carlin
-  et~al.}{Kimpson et~al.}{}]{KimpsonPTA}
-Kimpson T.,  Melatos M.,  O'Leary J.,  Carlin J.,   et~al.,, Submitted to MNRAS
-
 \bibitem[\protect\citeauthoryear{{Kimpson}, {Paxton}, {Chantry}  \&
   {Palmer}}{{Kimpson} et~al.}{2023}]{2023QJRMS.149..843K}
 {Kimpson} T.,  {Paxton} E.~A.,  {Chantry} M.,   {Palmer} T.,  2023, \mn@doi
   [Quarterly Journal of the Royal Meteorological Society] {10.1002/qj.4435},
   \href {https://ui.adsabs.harvard.edu/abs/2023QJRMS.149..843K} {149, 843}
+
+\bibitem[\protect\citeauthoryear{Kimpson et~al.,}{Kimpson
+  et~al.}{2024}]{KimpsonPTA}
+Kimpson T.,  et~al., 2024, MNRAS
 
 \bibitem[\protect\citeauthoryear{{Lasky}, {Melatos}, {Ravi}  \&
   {Hobbs}}{{Lasky} et~al.}{2015}]{Lasky2015}

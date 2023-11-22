@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  22 NOV 2023 14:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  22 NOV 2023 14:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -887,29 +887,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--134
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 135.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 135.
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 135.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
-File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
-)
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 135.
- [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 8.0pt on input line 136.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.2pt on input line 136.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
+e 136.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 136.
+ [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
@@ -924,14 +924,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 191.
-[2]
 
 Package enumitem Warning: Negative labelwidth. This does not make much
 (enumitem)                sense, on input line 195.
 
-
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 196.
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 202--204
 
  []
@@ -1008,7 +1007,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 311--312
 
  []
 
-[4]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 9.0pt on input line 325.
 
@@ -1016,7 +1014,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--326
 
  []
 
-
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 330--331
 
  []
@@ -1040,17 +1038,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 341--342
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-<example-image-a.pdf, id=531, 321.2pt x 240.9pt>
+<example-image-a.pdf, id=532, 321.2pt x 240.9pt>
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
 Package pdftex.def Info: example-image-a.pdf  used on input line 360.
 (pdftex.def)             Requested size: 508.01486pt x 508.04791pt.
-<example-image-b.pdf, id=534, 321.2pt x 240.9pt>
+<example-image-b.pdf, id=535, 321.2pt x 240.9pt>
 File: example-image-b.pdf Graphic file (type pdf)
 <use example-image-b.pdf>
 Package pdftex.def Info: example-image-b.pdf  used on input line 367.
 (pdftex.def)             Requested size: 244.00671pt x 244.00546pt.
-<example-image-c.pdf, id=537, 321.2pt x 240.9pt>
+<example-image-c.pdf, id=538, 321.2pt x 240.9pt>
 File: example-image-c.pdf Graphic file (type pdf)
 <use example-image-c.pdf>
 Package pdftex.def Info: example-image-c.pdf  used on input line 381.
@@ -1113,9 +1111,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 420--422
  []
 
 [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
@@ -1123,16 +1118,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [7 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<images/corner_highSNR_compare.png, id=604, 1125.2439pt x 1146.4431pt>
+<images/corner_highSNR_compare.png, id=605, 1125.2439pt x 1146.4431pt>
 File: images/corner_highSNR_compare.png Graphic file (type png)
 <use images/corner_highSNR_compare.png>
 Package pdftex.def Info: images/corner_highSNR_compare.png  used on input line 
 427.
 (pdftex.def)             Requested size: 508.00339pt x 507.98767pt.
-<images/corner_lowSNR.png, id=612, 1125.2439pt x 1146.4431pt>
+<images/corner_lowSNR.png, id=613, 1125.2439pt x 1146.4431pt>
 File: images/corner_lowSNR.png Graphic file (type png)
 <use images/corner_lowSNR.png>
 Package pdftex.def Info: images/corner_lowSNR.png  used on input line 434.
@@ -1169,7 +1167,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 473.
 
-<images/CanonicalBayesPlot2000.png, id=623, 734.5041pt x 714.5094pt>
+<images/CanonicalBayesPlot2000.png, id=624, 734.5041pt x 714.5094pt>
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
@@ -1208,9 +1206,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 493--494
 
 [8 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-b.pdf> </usr
 /local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-c.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 LaTeX Warning: Reference `fig:bayes' on page 9 undefined on input line 496.
 
@@ -1219,11 +1214,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 496--497
 
  []
 
-[9 <./images/corner_highSNR_compare.png>]
 
-LaTeX Warning: Reference `fig:bayes' on page 10 undefined on input line 499.
+LaTeX Warning: Reference `fig:bayes' on page 9 undefined on input line 499.
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./images/corner_highSNR_compare.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1244,6 +1241,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 522--523
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 524--525
 
  []
@@ -1258,7 +1258,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 530--531
 
  []
 
-[11 <./images/CanonicalBayesPlot2000.png>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./images/CanonicalBayesPlot2000.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
@@ -1311,6 +1314,9 @@ nts[][], [][]p.
  []
 
 [12]
+Underfull \vbox (badness 2573) has occurred while \output is active []
+
+
 Underfull \hbox (badness 6493) in paragraph at lines 513--516
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
@@ -1481,11 +1487,11 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 Here is how much of TeX's memory you used:
  17311 strings out of 478268
  267654 string characters out of 5846348
- 577706 words of memory out of 5000000
+ 576499 words of memory out of 5000000
  34933 multiletter control sequences out of 15000+600000
  592080 words of font info for 237 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,2585b,560s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,2585b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1515,10 +1521,10 @@ xfonts/txsya.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/t
 xsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/loc
 al/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (18 pages, 4100803 bytes).
+Output written on paper.pdf (18 pages, 4100630 bytes).
 PDF statistics:
- 1296 PDF objects out of 1440 (max. 8388607)
- 1190 compressed objects within 12 object streams
+ 1297 PDF objects out of 1440 (max. 8388607)
+ 1191 compressed objects within 12 object streams
  224 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
