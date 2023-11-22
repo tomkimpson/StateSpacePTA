@@ -46,10 +46,10 @@ init_parameters["psi_gw"] = None
 priors["psi_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'psi_gw')
 
 init_parameters["delta_gw"] = None
-priors["delta_gw"] = bilby.core.prior.Uniform(-np.pi/2, np.pi/2, 'delta_gw')
+priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
 
 init_parameters["alpha_gw"] = None
-priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, 2*np.pi, 'alpha_gw')
+priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
 
 
 with open('batch.sh','w') as b: 

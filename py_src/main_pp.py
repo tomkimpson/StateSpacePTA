@@ -16,23 +16,6 @@ psi   =  float(sys.argv[7])
 delta =  float(sys.argv[8]) 
 alpha =  float(sys.argv[9]) 
 
-if __name__=="__main__":
-       pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,delta,alpha)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,delta,alpha):
 
@@ -74,3 +57,30 @@ def pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,delta,alpha):
     npoints=2000
     BilbySampler(KF,init_parameters,priors,label=arg_name,outdir="../data/nested_sampling/",npoints=npoints)
     logging.info("The run has completed OK")
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__=="__main__":
+       pp_plot_run(arg_name,h,measurement_model,seed,omega,phi_0,psi,delta,alpha)
+
+
+
+
+
+
+
+
+
+
+
+
