@@ -3,7 +3,7 @@ import numpy as np
 from numba import jit,njit 
 
 @njit(fastmath=True)
-def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0):
     #Get GW direction
     m,n                 = principal_axes(np.pi/2.0 - delta,alpha,psi)    
     gw_direction        = np.cross(m,n)
@@ -33,8 +33,8 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 What is the GW modulation factor, just for the earth terms
 """
 @njit(fastmath=True)
-def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
-    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
+def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
+    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0)
     GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase))
     return GW_factor
 
@@ -43,8 +43,8 @@ def gw_earth_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 What is the GW modulation factor, including all pulsar terms?
 """
 @njit(fastmath=True)
-def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
-    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0)
+def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
+    dot_product,hbar,earth_term_phase = gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0)
     
     GW_factor = 0.50*(hbar/dot_product)*(cos(earth_term_phase) - cos(earth_term_phase +chi))
    
@@ -56,7 +56,7 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0,chi):
 The null model - i.e. no GW
 """
 @njit(fastmath=True)
-def null_model(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
+def null_model(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
 
