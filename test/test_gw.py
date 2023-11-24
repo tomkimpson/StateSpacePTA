@@ -27,21 +27,20 @@ def test_principal_axes():
 """Check the null model is all zeros as expected"""
 def test_null_model():
     
-    
-    N = 5
-    for i in range(N):
 
-        H_factor = gravitational_waves.null_model(
-                                np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(size=20), #this is q
-                                 np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(),
-                                 np.random.uniform(size=10), #this is t
-                                 np.random.uniform(),
-                                )
+    Npsr = 50
+    Ntimes = 500
+    H_factor = gravitational_waves.null_model(
+                                np.random.uniform(), #delta
+                                np.random.uniform(), #alpha
+                                np.random.uniform(), #psi
+                                np.random.uniform(size=Npsr), #this is q
+                                np.random.uniform(), # q products
+                                np.random.uniform(), #h
+                                np.random.uniform(), #iota
+                                np.random.uniform(), #omega
+                                np.random.uniform(size=Ntimes), #t
+                                np.random.uniform(), #phi0
+                                np.random.uniform(), #chi
+                            )
     assert np.all(H_factor==0)
