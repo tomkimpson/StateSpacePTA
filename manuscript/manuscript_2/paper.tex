@@ -56,7 +56,7 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 
-
+\usepackage{stfloats}
 
 %
 %\usepackage[section]{placeins} %ensures figures go in their section e.g https://tex.stackexchange.com/questions/279/how-do-i-ensure-that-figures-appear-in-the-section-theyre-associated-with
@@ -461,40 +461,43 @@ For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less o
 			\caption{Bayes factor (odds ratio) $\beta$ between the competing models $\mathcal{M}_1$ (GW present in data) and $\mathcal{M}_0$ (GW not present in data) at different GW strains, $h_0$, for the representative example in Table \ref{tab:parameters_and_priors}. The horizontal grey dashed line labels an arbitrary detection threshold, $\beta = 10$. The minimum detectable strain, for $\beta < 10$, equals $4 \times 10^{-15}$. Missing points for $\beta \lesssim 10$ occur when noise subverts the hierarchical relationship between $\mathcal{M}_0$ and $\mathcal{M}_1$ (see Section \ref{sec:detection}).}
 			\label{fig:bayes1}
 		\end{figure}
-		
-		
-		The evidence integral $\mathcal{Z}$ returned by nested sampling is the probability of the data $\boldsymbol{Y}$ given a model $\mathcal{M}_i$. We compare competing models via a Bayes factor,
+The evidence integral $\mathcal{Z}$ returned by nested sampling, Equation \eqref{eq:model_evidence}, is the probability of the data $\boldsymbol{Y}$ given a model $\mathcal{M}_i$. We define $\mathcal{M}_{\rm null}$ as the null model that assumes no GW exists in the data. This is equivalent to setting $g^{(n)}(t)=1$ in Equation \eqref{eq:g_func_trig}. The support in the data for the presence of a GW signal, described by model $\mathcal{M}_i$, over the absence of a GW signal is quantified via a Bayes factor
 		\begin{equation}
-			\beta = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)} \ . \label{eq:bayes}
+			\beta_i = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_i)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_{\rm null})} \ . \label{eq:bayes}
 		\end{equation}
-		Throughout this work we take $\mathcal{M}_1$ to be the state-space model that includes the presence of a GW. $\mathcal{M}_0$ is the null model, which assumes no GW exists in the data. This is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func} and \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW compared to there being no GW signal present.
-		
-		
-		
-		In Section \ref{sec:detection} we calculate the detectability of the source as a function of $h_0$. \newline
-		
-		
-		We frame the problem of detecting a GW in noisy PTA data in terms of the Bayesian model selection procedure described in Section \ref{sec:model_selection}. In Equation \eqref{eq:bayes} $\mathcal{M}_1$ is the Earth-term-only model with a GW present, i.e. the state-space model with a Kalman filter based on Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for the representative source in Table \ref{tab:parameters_and_priors}, except that we now vary the source amplitude, $h_0$, from $10^{-15}$ (undetectable) to $10^{-12}$ (easily detectable). To control the test, the noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change from one $h_0$ value to the next is $h_0$ itself. \footnote{Changing the noise realizations as well, from one value of $h_0$ to the next, adds uninformative scatter to the trend in Figure \ref{fig:bayes}.} \newline 
+In this paper we consider $i \in \left \{ \rm P\& E, E\right \}$ \newline 
+	
+	
+The Bayes factor, $\beta_i$, for each of the two models is presented in Figure \ref{fig:bayes} for the representative source in Table \ref{tab:parameters_and_priors}, except that we now vary the source amplitude, $h_0$, from $10^{-15}$ (undetectable) to $10^{-12}$ (easily detectable). To control the test, the noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change from one $h_0$ value to the next is $h_0$ itself. \footnote{Changing the noise realizations as well, from one value of $h_0$ to the next, adds uninformative scatter to the trend in Figure \ref{fig:bayes}.}
+	
+	
+	
+	
+	Multiple noise...
+	
+	
+	
+	
 		
 		
 		We see in Figure \ref{fig:bayes} an approximate quadratic relationship $\beta \propto h_0^2$ for $h_0 \gtrsim 10^{-14}$. The GW source is detectable with decisive evidence ($\beta \geq 10$) for $h_0 \gtrsim 4 \times 10^{-15}$. Of course, the minimum detectable strain is particular to the system in Table \ref{tab:parameters_and_priors}. It is influenced in general by $T_{\rm obs}$, ${\boldsymbol{\theta}}_{\rm gw}$, and ${\boldsymbol{\theta}}_{\rm psr}$, as discussed in Section \ref{sec:parameter_space}. Adjusting $\sigma_{\rm m}$ we find that an approximate quadratic relationship $\beta \propto h_0^2 / \sigma_{\rm m}^2$ also exists, where $h_0 / \sigma_{\rm m}$ is the effective signal-to-noise ratio. \newline 
 		
 		
-		The odds ratio $\beta$ drops off for $h_0 \lesssim 4 \times10^{-15}$. This happens because the two competing models becoming increasingly indistinguishable once the measurement noise dominates the GW signal. Moreover, the points in Figure \ref{fig:bayes} become sparser for $h_0 \lesssim 4 \times 10^{-15}$. This happens because we obtain $\beta <0$ for the missing, intermediate points. This is a noise artefact of the nested sampler. When the sampler converges sub-optimally, the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails, and $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about the particular missing points; if one recreates the $\beta(h_0)$ curve by rerunning the nested sampler with another random seed, a different set of points are missing. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$, because the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(n_{\rm live}^{-1/2})$ (see Section \ref{sec:nested_sampling}). In this section we set $n_{\rm live} =2000$. 
+%		The odds ratio $\beta$ drops off for $h_0 \lesssim 4 \times10^{-15}$. This happens because the two competing models becoming increasingly indistinguishable once the measurement noise dominates the GW signal. Moreover, the points in Figure \ref{fig:bayes} become sparser for $h_0 \lesssim 4 \times 10^{-15}$. This happens because we obtain $\beta <0$ for the missing, intermediate points. This is a noise artefact of the nested sampler. When the sampler converges sub-optimally, the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails, and $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about the particular missing points; if one recreates the $\beta(h_0)$ curve by rerunning the nested sampler with another random seed, a different set of points are missing. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$, because the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(n_{\rm live}^{-1/2})$ (see Section \ref{sec:nested_sampling}). In this section we set $n_{\rm live} =2000$. 
+%		
+%		
+%		
 		
 		
 		
 		
 		
 		
+%		
+%		We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. \newline 
 		
-		
-		
-		
-		We frame the problem of claiming a detection of a GW in the noisy data in terms of a Bayesian model selection procedure as described in Section \ref{sec:model_selection}. $\mathcal{M}_1$ is the Earth-terms only model, i.e. the state-space model with a Kalman filter using Equation \eqref{eq:measuremen_earth}. The Bayes factor, $\beta$, as defined in Equation \eqref{eq:bayes} is presented in Figure \ref{fig:bayes} for our representative system, where we now vary the magnitude of the GW strain, $h_0$. The noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change in the data is the change in $h_0$. We can see that for $\beta >10$ there is an approximate log-linear relationship between $\beta$ and $h_0$ where the GW source is easily detectable with decisive evidence ($\beta \sim 100$) for $h_0 \gtrapprox 10^{-14}$. We take $\beta = 10$ as a tolerance cut-off above which we can accept $\mathcal{M}_1$ and claim a detection of the GW. For this system, given this realisation of the noise, the minimal detectable strain is $\sim 3.9 \times 10^{-15}$. This minimal detectable strain is of course particular to this system and will be influenced in general by e.g. $T_{\rm obs}$, $\sigma_{\rm m}$ as well as the parameters of the GW source such as its location on the sky. \newline 
-		
-		There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 3.9 \times10^{-15}$. The steep drop off is due to the two competing models becoming increasingly indistinguishable as the strain signal decreases and the measurement noise starts to dominate. The sparsity is due some of the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these sparse locations appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Appendix \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented in this subsection we set $n_{\rm live} =2000$. 
-		
+%		There is an evident sparsity and steep drop-off of $\beta$ for values of $h_0 \lesssim 3.9 \times10^{-15}$. The steep drop off is due to the two competing models becoming increasingly indistinguishable as the strain signal decreases and the measurement noise starts to dominate. The sparsity is due some of the $\beta$ value becoming negative at these points.This is a noise artefact of the nested sampling method. For these points the noise in the sampler starts to dominate, the sampler converges sub-optimally, and the hierarchical relationship between $\mathcal{M}_0$ and  $\mathcal{M}_1$ fails. That is, the requirement that $\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1) > \mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)$ no longer holds. There is nothing special about these particular points; if one recreates the $\beta - h_0$ curve by rerunning the nested sampler these sparse locations appear at different values of $h_0$, for $\beta < 10$. For $\beta > 10$ the sampling noise is sufficiently small with respect to the signal and the model hierarchy holds. Increasing the number of live points $n_{\rm live}$ used by the nested sampler improves the performance at small values of $h_0$ since as discussed in Appendix \ref{sec:nested_sampling} the uncertainties in $\mathcal{Z}$ scale as $\mathcal{O}(1/ \sqrt{n_{\rm live}})$. For the results presented in this subsection we set $n_{\rm live} =2000$. 
+%		
 
 
 
@@ -502,22 +505,42 @@ For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less o
 
 
 \section{Conclusion}\label{sec:discussion}
+In this paper we demonstrate how to extend state-space methods for PTA data analysis to include the pulsar term. We compare the results when the pulsar terms are includes to those when they are omitted. \newline 
 
-In this paper we demonstrate a new method for the detection and parameter estimation of GWs from individual, monochromatic SMBHBs in PTA data. The new method is complementary to traditional approaches. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than fitting for the ensemble-averaged power spectral density of the noise. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW-induced modulations, and thereby infer the GW source parameters conditional on the specific observed realisation of the noisy data. We implement a Kalman filter in order to track the intrinsic rotational state evolution of the pulsar and combine it with a Bayesian sampling framework to estimate the posterior distributions of each static parameter, as well as the associated Bayesian evidence (marginalised likelihood) of the model with and without a GW. \newline 
+
+
+
+The intrinsic rotational state evolution of the pulsar, described by a mean-reverting Ornstein-Uhlenbeck process (Equations \eqref{eq:xieqn}--\eqref{eq:spinevol}) is tracked using a Kalman filter. The Kalman filter is combined with a Bayesian sampling framework to estimate the posterior distributions of each static parameter, as well as the associated Bayesian evidence (marginalised likelihood) of the model with and without a GW. \newline 
+
+
+
+The updated state-space model including the pulsar term is tested on synthetic data. We consider $X$ noise realisations of synthetic data for a single, astrophysically representative, SMBHB GW source observed by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$. We find that the updated state-space model successfully detects injected signals and estimates their static parameters accurately for all noise realisations with relatively low computational cost. There is a non-negligible natural random dispersion in the median of the marginalised one-dimensional posteriors which \textcolor{red}{...means something}. The updated model is further tested across a broader parameter domain of SMBHB sources. 500 randomly sampled parameter vectors at fixed $\iota$ and $h_0$ are explored; \textcolor{red}{the results are...} \newline 
  
- We test the new method on synthetic data and find that it detects injected signals successfully and estimates their static parameters accurately with relatively low computational cost. We initially focus on a single, astrophysically representative, SMBHB GW source observed synthetically by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$. The minimum detectable strain is estimated to be $\min(h_0) \approx 4 \times 10^{-15}$ for $\iota=1.0$ rad. We then repeat the parameter estimation exercise for 1000 noise realisations to compute the natural dispersion (``cosmic variance'') in the recovered values and hence quantify the statistical accuracy of the method in a real astrophysical application, when the true parameter values are unknown. Consistent posteriors are obtained for most realisations. The median WD is limited to $\lesssim 3\%$ of the width of the prior domain (i.e.\ negligible railing). The median WD divided by the injected value, an approximate measure of the natural dispersion, ranges from  0.2\% for $\Omega$ to 67\% for $\Phi_0$. \newline 
-  
-  
-Exploration of a broader SMBHB parameter domain at fixed $\iota$ and $h_0$ via 200 randomly sampled parameter vectors reveals a bias in the estimates of the static parameters $\delta$ and $\alpha$, and to a lesser extent $\psi$ and $\Phi_0$. The bias is examined for a specific SMBHB GW source in the limit of high-SNR. It is greatest for $\iota$, amounting to $\approx 0.3$ rad.  Smaller biases of $\lesssim 0.1$ rad are also observed in $\Phi_0, \psi, \delta$ and $\alpha$. The bias is shown to result from dropping the pulsar terms from the measurement equation in the Kalman filter, consistent with the work of previous authors \citep{Zhupulsarterms,Chen2022}. The method also exhibits a trade-off between $h_0$ and $\iota$, which follows formally from the weak identifiability of $h_0$ and $\iota$. \newline 
  
+We compare the accuracy of the parameter estimates  from the updated model to those when the pulsar term is omitted. We find that the inclision of the pulsar terms increases the accuaray by X percent in teh case of high SNR and Y per cent in the case of low SNR. The inclusion of pulsar terms also lowers the floor of the minimal detectable strain by YY percent. \newline  
+
+
+
+
+\textcolor{red}{Caceats, extensions, other things}
+
+
+The new method is complementary to traditional approaches. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than fitting for the ensemble-averaged power spectral density of the noise. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW-induced modulations, and thereby infer the GW source parameters conditional on the specific observed realisation of the noisy data. 
+
+
  
-We emphasize that the Kalman tracker and nested sampler in this paper do not supplant traditional PTA analysis approaches; they complement traditional approaches and are most powerful when used in tandem. Relatedly, it is misleading to ask whether the Kalman tracker and nested sampler are more or less sensitive than traditional approaches for two reasons. First, one must still generalize the Kalman tracker and nested sampler to ingest TOAs directly, as happens traditionally, instead of ingesting a frequency time series, as in this paper. Generalizing the algorithm is a subtle task and is postponed to a future work. Second, the Kalman tracker and nested sampler are conditional on a noise model that is related but different to the noise model in traditional approaches. The analysis in this paper assumes a specific, time-ordered realization of a mean-reverting Ornstein-Uhlenbeck process satisfying Equations \eqref{eq:spinevol}--\eqref{eq:xieqn}, whereas traditional analyses assume a stationary Gaussian process described by an ensemble-averaged, power-law power spectral density, whose amplitude and exponent are adjustable. Hence the sensitivities cannot be compared directly. Clarifying the similarities and differences between various approaches promises to be a fruitful avenue of future work. It is also a subject of attention in audio-band GW data analysis involving hidden Markov models applied to data from terrestrial long-baseline interferometers \citep{PhysRevD.102.023006,PhysRevD.105.022002,Abbott_2022SCO,2022PhRvD.106f2002A}. \newline 
+We emphasize that the Kalman tracker and nested sampler in this paper do not supplant traditional PTA analysis approaches; they complement traditional approaches and are most powerful when used in tandem. Relatedly, it is misleading to ask whether the Kalman tracker and nested sampler are more or less sensitive than traditional approaches for two reasons. First, one must still generalize the Kalman tracker and nested sampler to ingest TOAs directly, as happens traditionally, instead of ingesting a frequency time series, as in this paper. Generalizing the algorithm is a subtle task and is postponed to a future work. Second, the Kalman tracker and nested sampler are conditional on a noise model that is related but different to the noise model in traditional approaches. 
+
+The analysis in this paper assumes a specific, time-ordered realization of a , 
+
+
+whereas traditional analyses assume a stationary Gaussian process described by an ensemble-averaged, power-law power spectral density, whose amplitude and exponent are adjustable. Hence the sensitivities cannot be compared directly. Clarifying the similarities and differences between various approaches promises to be a fruitful avenue of future work. It is also a subject of attention in audio-band GW data analysis involving hidden Markov models applied to data from terrestrial long-baseline interferometers \citep{PhysRevD.102.023006,PhysRevD.105.022002,Abbott_2022SCO,2022PhRvD.106f2002A}. \newline 
 
 
 
  The approach in this paper can be extended in at least five ways, enumerated as (i)--(v) below. \newline 
  
-(i) A natural first extension is to retain the pulsar terms in Equation \eqref{eq:measurement}. Alternatively, if the method continues to be used with solely the Earth term, in line with standard practice in published PTA analyses, it would be desirable to evaluate systematically the incurred biases in the model parameters across an astrophysically representative parameter domain, supplementing the results obtained by other authors \citep{Zhupulsarterms,Chen2022}.\newline 
+%(i) A natural first extension is to retain the pulsar terms in Equation \eqref{eq:measurement}. Alternatively, if the method continues to be used with solely the Earth term, in line with standard practice in published PTA analyses, it would be desirable to evaluate systematically the incurred biases in the model parameters across an astrophysically representative parameter domain, supplementing the results obtained by other authors \citep{Zhupulsarterms,Chen2022}.\newline 
 
 
 (ii) In this paper, we consider one specific configuration of the synthetic PTA, namely the same pulsars that make up the 12.5-year NANOGrav (Section \ref{sec:synt_pta}). It is interesting to compare the performance of the method using different pulsar configurations, e.g. those in the PPTA and EPTA. Adding pulsars to PTAs increases the computational cost so it may be advantageous to select a subset of pulsars by exploiting formal optimization techniques from electrical engineering \citep{2023MNRAS.518.1802S}, although the Kalman filter and nested sampler are already cheaper computationally than some other methods. \newline 
