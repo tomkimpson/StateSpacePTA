@@ -29,7 +29,7 @@ def create_slurm_job(arg_name,h,measurement_model,seed,omega,phi0,psi,delta,alph
 
 N = 500
 seed = 1250 
-h = 1e-14 
+h = 1e-15 
 model = "pulsar"
         
 #Create a bilby prior object to sample from
@@ -57,7 +57,7 @@ with open('batch.sh','w') as b:
     for i in range(N):
         p = priors.sample()
 
-        arg_name = f"november_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
+        arg_name = f"november15_pp_plot_h_{h}_model_{model}_seed_{seed}_omega_{p['omega_gw']}_phi0_{p['phi0_gw']}_psi_{p['psi_gw']}_delta_{p['delta_gw']}_alpha_{p['alpha_gw']}"
         print(arg_name)
         create_slurm_job(arg_name,h,model,seed,p['omega_gw'],p['phi0_gw'],p['psi_gw'],p['delta_gw'],p['alpha_gw'])
         b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")

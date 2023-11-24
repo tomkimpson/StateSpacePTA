@@ -25,11 +25,28 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
     
 
 # MULTIPLE NOISE REALISATIONS
+# N = 100
+# seeds = np.arange(1235,1235+N,1)
+# strains = [1e-12,1e-14,5e-15]
+
+# models = ["earth", "pulsar"]
+
+# with open('batch.sh','w') as b: 
+#     for s in seeds:
+#         for h in strains:
+#             for m in models:
+#                 arg_name = f"piglet_{m}_{h}_{s}"
+#                 create_slurm_job(arg_name,h,m,s)
+#                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+#resume multiple noise realisations
 N = 100
 seeds = np.arange(1235,1235+N,1)
-strains = [1e-12,1e-14,5e-15]
+strains = [1e-12]
 
-models = ["earth", "pulsar"]
+models = ["pulsar"]
 
 with open('batch.sh','w') as b: 
     for s in seeds:
@@ -38,10 +55,6 @@ with open('batch.sh','w') as b:
                 arg_name = f"piglet_{m}_{h}_{s}"
                 create_slurm_job(arg_name,h,m,s)
                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
-
-
-
-
 
 # N = 10
 # #seeds = np.arange(1235+10,1235+10+N,1)
