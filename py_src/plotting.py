@@ -77,7 +77,6 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
  
 
-
     ax1.legend()
     ax2.legend()
 
@@ -124,8 +123,9 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
     #Make omega into nHz and also scale h
     df_posterior["omega_gw"] = df_posterior["omega_gw"]*scalings[0]
     df_posterior["h"] = df_posterior["h"]*scalings[1]
-    injection_parameters[0] = injection_parameters[0] * scalings[0]
-    injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
+    if injection_parameters is not None:
+        injection_parameters[0] = injection_parameters[0] * scalings[0]
+        injection_parameters[-1] = injection_parameters[-1] * scalings[1] 
     if ranges is not None: 
         ranges[0] = (ranges[0][0]*scalings[0],ranges[0][1]*scalings[0])
         ranges[-1] = (ranges[-1][0]*scalings[1],ranges[-1][1]*scalings[1])
@@ -136,21 +136,33 @@ def _extract_posterior_results(path,variables_to_plot,injection_parameters,range
     print("Variable/Injection/Median")
     medians = df_posterior[variables_to_plot].median()
 
-    for i in range(len(medians)):
-        print(variables_to_plot[i], injection_parameters[i], medians[i])
+    if injection_parameters is not None:
+
+        for i in range(len(medians)):
+            print(variables_to_plot[i], injection_parameters[i], medians[i])
+
+    else:
+        for i in range(len(medians)):
+            print(variables_to_plot[i], None, medians[i])
     print('-------------------------------')
 
 
     y_post = df_posterior[variables_to_plot].to_numpy()
 
+    return_code = 0
 
-    return y_post,injection_parameters,ranges
+    if "psi_gw" in variables_to_plot:
+        if medians[2] < 2.0: #if the medians psi is weird, as sometimes happens, don't plot it 
+            print("median psi is weird and won't match axis limits")
+            return_code = 1
+
+    return y_post,injection_parameters,ranges,return_code
 
 
 
 def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,fig=None):
     #Extract the data as a numpy array
-    y_post,injection_parameters,ranges= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
+    y_post,injection_parameters,ranges,return_code= _extract_posterior_results(path,variables_to_plot,injection_parameters,ranges,scalings=scalings)
 
 
     #Log scale the axes if needed
@@ -238,13 +250,23 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
     #Select some files at random
     fig= None 
     random.seed(seed)
-    selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    selected_files = list_of_files
+    #selected_files = random.sample(list_of_files,number_of_files_to_plot)
+    #selected_files = list_of_files
+
+    error_files = []
     for i,f in enumerate(selected_files):
         injection_parameters_idx = injection_parameters.copy()
         ranges_idx = ranges.copy()
 
-        y_post,injection_parameters_idx,ranges_idx= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
+        y_post,injection_parameters_idx,ranges_idx,return_code= _extract_posterior_results(f,variables_to_plot,injection_parameters_idx,ranges_idx,scalings=scalings)
 
+        if return_code == 1:
+            print("Breaking due to weird psi")
+            continue
+
+        errors = get_posterior_accuracy(y_post,injection_parameters_idx,labels)
+        error_files.extend([errors])
         k = i 
         if k ==2:
             k = k+1 #convoluted way of skipping C2 color. Surely a better way exists
@@ -263,7 +285,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         fig = corner.corner(yplot, 
                             color=f'C{k}',
                             show_titles=True,
-                            smooth=True,smooth1d=True,
+                            smooth=smooth,smooth1d=smooth1d,
                             truth_color='C2',
                             quantiles=None, #[0.16, 0.84],
                             truths =injection_parameters_idx ,
@@ -282,7 +304,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
             
             if ax_title != '':
 
-               
+                print("debug:",kk,i)
                 param_name, value,lower_limit,upper_limit = _extract_value_from_title(ax_title) #Get the values that corner.corner sends to the ax title
                 title_values[kk,i] = value
                 title_lower[kk,i] = lower_limit
@@ -360,6 +382,42 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         plt.savefig(f"../data/images/{savefig}.png", bbox_inches="tight",dpi=300)
 
 
+
+    #Surface some numbers
+    print("Surfacing some numbers for comparing two posteriors")
+    if len(selected_files) ==2:
+        errors1 = error_files[0]
+        errors2 = error_files[1]
+
+        #print(errors1)
+        #print(errors2)
+        #relative_error = (errors2 - errors1) / errors1
+        relative_error = (errors2 - errors1) #/ errors1
+
+        #print(relative_error)
+        for i in range(len(relative_error)):
+            print("%.3g" % errors1[i],"%.3g" %errors2[i],"%.3g" %relative_error[i]) #printing to 3 sig fig
+
+
+
+def get_posterior_accuracy(posterior,injection,labels):
+
+    print("The error in the 1D posteriors is as follows:")
+    rmse_errors =np.zeros(posterior.shape[-1])
+    for i in range(posterior.shape[-1]):
+        y = posterior[:,i]
+        inj = injection[i]
+        error = np.mean(np.abs(inj - y) / inj) #julian error
+
+        rmse = np.sqrt(np.sum((y - inj)**2) / len(y))
+        #rmse_errors[i] = rmse
+        rmse_errors[i] = error
+
+        print(labels[i], error,rmse)
+    print('*****************************')
+
+
+    return rmse_errors
 
 
 
