@@ -57,6 +57,10 @@ class SystemParameters:
         self.orthogonal_pulsars =orthogonal_pulsars
 
         logging.info(f"Random seed is {self.seed}")
+        if σp ==1.0:
+            logging.info("σp = 1.0 is a special value. \n Assigning process noise amplitudes randomly within a range. \n Please see synthetic_data.py")
+
+
 
         
     

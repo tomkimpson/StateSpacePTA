@@ -115,7 +115,7 @@ class KalmanFilter:
 
 
     def parse_dictionary(self,parameters_dict):
-        #try: 
+        
         #All the GW parameters can just be directly accessed as variables
         omega_gw = parameters_dict["omega_gw"].item() 
         phi0_gw  = parameters_dict["phi0_gw"].item()
@@ -124,15 +124,6 @@ class KalmanFilter:
         delta_gw = parameters_dict["delta_gw"].item()
         alpha_gw = parameters_dict["alpha_gw"].item()
         h        = parameters_dict["h"].item()
-
-        # except: #For the null model, we have these parameters as constants. Bilby returns as floats rather than float64s, so item() doesn't work. This needs fixing
-        #     omega_gw = parameters_dict["omega_gw"]
-        #     phi0_gw  = parameters_dict["phi0_gw"]
-        #     psi_gw   = parameters_dict["psi_gw"]
-        #     iota_gw  = parameters_dict["iota_gw"]
-        #     delta_gw = parameters_dict["delta_gw"]
-        #     alpha_gw = parameters_dict["alpha_gw"]
-        #     h        = parameters_dict["h"]
 
         #Now read in the pulsar parameters. Explicit.
         f       = dict_to_array(parameters_dict,self.list_of_f_keys)
@@ -155,9 +146,7 @@ class KalmanFilter:
         #Map from the dictionary into variables and arrays
         omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
-
-
-        
+    
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)
@@ -169,10 +158,6 @@ class KalmanFilter:
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
         P = np.ones(self.Npsr)* sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
-        #x = np.ones_like(x)*0.0 
-        #P = np.ones(self.Npsr)*0.0
-
-     
 
         # Precompute the influence of the GW
         # This is solely a function of the parameters and the t-variable but NOT the states
@@ -219,11 +204,9 @@ class KalmanFilter:
     def likelihood_with_results(self,parameters):
 
         #Map from the dictionary into variables and arrays
-        #omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
+        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,d,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
 
-        omega_gw,phi0_gw,psi_gw,iota_gw,delta_gw,alpha_gw,h,f,fdot,gamma,sigma_p,chi,sigma_m = self.parse_dictionary(parameters)
-
-
+    
         #Precompute transition/Q/R Kalman matrices
         #F,Q,R are time-independent functions of the parameters
         F = F_function(gamma,self.dt)
@@ -232,21 +215,12 @@ class KalmanFilter:
      
 
         #Initialise x and P
-        #x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        #x = np.ones_like(x)*0.0 #2.96709595e-10
-        #P = np.ones(self.Npsr)*0.0 #sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
-#
-
-
         x = self.x0 # guess that the intrinsic frequencies is the same as the measured frequency
-        P = np.ones(self.Npsr)* sigma_m * 1e10
+        x = np.ones_like(x)*0.0 #2.96709595e-10
+        P = np.ones(self.Npsr)*0.0 #sigma_m * 1e3 #Guess that the uncertainty in the initial state is a few orders of magnitude greater than the measurement noise
 
 
-        x = np.ones_like(x)*0.0 
-        P = np.ones(self.Npsr)*0.0
-
-
-         # Precompute the influence of the GW
+        # Precompute the influence of the GW
         # This is solely a function of the parameters and the t-variable but NOT the states
         X_factor = self.H_function(delta_gw,
                                    alpha_gw,
@@ -256,6 +230,7 @@ class KalmanFilter:
                                    h,
                                    iota_gw,
                                    omega_gw,
+                                   d,
                                    self.t,
                                    phi0_gw,
                                    chi
@@ -295,7 +270,6 @@ class KalmanFilter:
              y_results[i,:] = (1.0 - X_factor[i,:])*x - X_factor[i,:]*f_EM[i,:] 
 
    
-
         return likelihood,x_results,y_results
 
 

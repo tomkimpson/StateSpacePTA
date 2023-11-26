@@ -37,7 +37,6 @@ def add_to_bibly_priors_dict_log(x,label,init_parameters,priors,lower,upper): #s
         init_parameters[key] = None
       
         priors[key] = bilby.core.prior.LogUniform(lower,upper, key)
-        #priors[key] = bilby.core.prior.LogUniform(f*0.1,f*10, key) #set a log uniform prior \pm 10 either side
         logging.info(f"Sigma p true value is {key} {f}")
         
         i+= 1
@@ -213,8 +212,10 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
         init_parameters["delta_gw"] = None
         priors["delta_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2, 'delta_gw')
 
+
         init_parameters["alpha_gw"] = None
         priors["alpha_gw"] = bilby.core.prior.Uniform(0.0, np.pi, 'alpha_gw')
+
 
         init_parameters["h"] = None
         priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
@@ -251,4 +252,3 @@ def bilby_priors_dict(PTA,P):
 
 
     return init_parameters,priors
-
