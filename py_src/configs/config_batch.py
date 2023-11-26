@@ -44,7 +44,7 @@ with open('batch.sh','w') as b:
     for s in seeds:
         for h in strains:
             for m in models:
-                arg_name = f"eg_canonical_{m}_{h}_{s}"
+                arg_name = f"eg_canonical_november_{m}_{h}_{s}"
                 create_slurm_job(arg_name,h,m,s)
                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
        
