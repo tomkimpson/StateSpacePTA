@@ -11,3 +11,6 @@ data/nested_sampling/*
 docs/build/*
 data/.DS_Store
 data/clean
+data/compressed_files
+data/large_files_for_manuscript
+data/reproduce_canonical_v2
