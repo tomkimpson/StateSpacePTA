@@ -133,7 +133,6 @@ class KalmanFilter:
         sigma_p = dict_to_array(parameters_dict,self.list_of_sigma_p_keys)
         chi     = dict_to_array(parameters_dict,self.list_of_chi_keys)
 
-
         #Other noise parameters
         sigma_m = parameters_dict["sigma_m"]
 
