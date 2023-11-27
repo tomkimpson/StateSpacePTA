@@ -26,6 +26,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               label = label,
                               outdir=outdir,
                               sampler ='dynesty',
+                              bound = 'single',
                               sample='rwalk_dynesty',
                               check_point_plot=False,
                               npoints=2000,
