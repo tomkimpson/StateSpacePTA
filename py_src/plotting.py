@@ -243,7 +243,7 @@ def _extract_value_from_title(title_string):
 def _argmedian(x):
     return np.argpartition(x, len(x) // 2)[len(x) // 2]
 
-def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,seed=1):
+def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,seed=1,no_titles=False):
 
     #Some arrays to hold the title value returned by corner.corner
     num_params = len(variables_to_plot)
@@ -376,8 +376,19 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
 
 
             new_title_string = rf'{labels[kk]} $= {title_values[kk,selected_idx]:.2f}_{{{title_lower[kk,selected_idx]:.2f}}}^{{+{title_upper[kk,selected_idx]:.2f}}}$'
-            ax.set_title(new_title_string, fontsize=18)
+            
+            
+            if no_titles:
+                selected_idx=1
+                new_title_string = rf'{labels[kk]} $= {title_values[kk,selected_idx]:.2f}_{{{title_lower[kk,selected_idx]:.2f}}}^{{+{title_upper[kk,selected_idx]:.2f}}}$'
+
+                #ax.set_title('')
+                ax.set_title(new_title_string, fontsize=18)
+            else:
+                ax.set_title(new_title_string, fontsize=18)
+            
             kk += 1
+
 
 
 

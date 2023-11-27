@@ -83,6 +83,10 @@ class Pulsars:
         m,n                 = principal_axes(np.pi/2.0 - SystemParameters.δ,SystemParameters.α,SystemParameters.ψ)    
         gw_direction        = np.cross(m,n)
         dot_product         = 1.0 + np.dot(self.q,gw_direction)
+
+        print("Value of n dot q is")
+        print(np.dot(self.q,gw_direction))
+
         self.chi = np.mod(SystemParameters.Ω*self.d*dot_product,2*np.pi)
         print("chi vals are = ", self.chi)
 

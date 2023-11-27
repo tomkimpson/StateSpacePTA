@@ -29,7 +29,7 @@ def BilbySampler(KalmanFilter,init_parameters,priors,label,outdir):
                               bound = 'single',
                               sample='rwalk_dynesty',
                               check_point_plot=False,
-                              npoints=2000,
+                              npoints=4000,
                               dlogz=0.1,
                               npool=1,
                               plot=False,resume=False)
