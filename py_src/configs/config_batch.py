@@ -29,24 +29,52 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
 
 
 
-# MULTIPLE NOISE REALISATIONS
 
-
-
+# MULTIPLE NOISE REALISATIONS, low snr
 N = 10
 seeds = np.arange(1235+10,1235+10+N,1)
 
-strains = [1e-12,5e-15]
-models = ["earth", "pulsar"]
+strains = [5e-15]
+models = ["pulsar"]
 
 with open('batch.sh','w') as b: 
 
     for s in seeds:
         for h in strains:
             for m in models:
-                arg_name = f"eg_canonical_november_{m}_{h}_{s}"
+                arg_name = f"eg_canonical_bias_exploration_n2000_{m}_{h}_{s}"
                 create_slurm_job(arg_name,h,m,s)
                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+
+
+
+# # MULTIPLE NOISE REALISATIONS
+
+
+
+# N = 10
+# seeds = np.arange(1235+10,1235+10+N,1)
+
+# strains = [1e-12,5e-15]
+# models = ["earth", "pulsar"]
+
+# with open('batch.sh','w') as b: 
+
+#     for s in seeds:
+#         for h in strains:
+#             for m in models:
+#                 arg_name = f"eg_canonical_november_{m}_{h}_{s}"
+#                 create_slurm_job(arg_name,h,m,s)
+#                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+
+
+
        
 
 #BAYES PLOT
