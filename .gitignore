@@ -15,3 +15,6 @@ data/compressed_files
 data/large_files_for_manuscript
 data/reproduce_canonical_v2
 data/PP_images
+data/dir_eg_canonical_november
+data/dir_eg_canonical_bias_exploration_single_bounding
+data/dir_eg_canonical_bias_exploration_n2000

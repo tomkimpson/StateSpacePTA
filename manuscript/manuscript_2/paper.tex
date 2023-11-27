@@ -336,7 +336,7 @@ In addition to estimates of $\boldsymbol{\theta}_{\rm gw}$, it is of interest ho
 Similar results are obtained for the remaining 4$N$ parameters of $\boldsymbol{\theta}_{\rm psr}'$; the injected values are recovered unambiguously across the nine noise realisations. For the sake of brevity we do not display the calculated posterior distributions here because the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this paper and PTA analyses. \newline 
 
 
- \textcolor{red}{TK: there is an obvious additional feature that I haven't yet mentioned in the text, which is the systematic offset in iota and h w.r.t the injection. The systematic-ness makes me think this is likely a sampler setting. I am currently running some checks, and will then add few sentences discussing this, or update the results/plots.}
+ \textcolor{red}{TK: there is an obvious additional feature that I haven't yet mentioned in the text, which is the systematic offset in iota and h w.r.t the injection. The systematic-ness makes me think this is likely a sampler setting. I am currently running some checks, and will then add few sentences discussing this, or update the results/plots. This is not an issue in the high SNR case: can noise drive results away from the injection systematically? Naively I expect a scatter, symmetric about the injection... }
   
 
 \begin{figure*}
@@ -596,8 +596,6 @@ No new data were generated or analysed in support of this research.
 
 
 
-	
-
 
 \appendix
 \newpage
@@ -606,39 +604,15 @@ No new data were generated or analysed in support of this research.
 
 
 \section{Kalman filter} \label{sec:kalman}
-In this appendix, we describe the Kalman filter algorithm used in this paper. General recursion relations for the discrete-time Kalman filter are written down for an arbitrary linear dynamical system in Section \ref{sec_kalman_general}. The mapping onto the specific continuous-time state-space model in Section \ref{sec:model} is written down in Section \ref{sec_kalman_specific}.
+The Kalman filter \citep{Kalman1} is a Gauss-Markov model used to algorithmically recover a temporal sequence of stochastically evolving  system state variables, $\boldsymbol{X}(t)$, which are not observed directly, given a temporal sequence of noisy measurements, $\boldsymbol{Y}(t)$. It finds common use in engineering applications and has been applied successfully in neutron star astrophysics \citep[e.g.][]{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}. In this appendix, we describe the Kalman filter algorithm used in this paper. General recursion relations for the discrete-time Kalman filter are written down for an arbitrary linear dynamical system in Section \ref{sec_kalman_general}, along with the calculation of the likelihood. The application of the Kalman filter algorithm to the specific continuous-time state-space model in Section \ref{sec:2} is outlined in Section \ref{sec_kalman_specific}.
 
+%Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}. Equations \eqref{eq:measurement} and \eqref{eq:g_func} are non-linear in the static parameters (e.g.\ $d^{(n)}$), even though they are linear in ${\boldsymbol{X}}(t)$ and ${\boldsymbol{Y}}(t)$.
+ %Implementation of the linear Kalman filter for the PTA state-space model in Section \ref{sec:model}, including the full set of Kalman recursion relations is presented in Appendix \ref{sec:kalman}.
+%
+%At each discrete timestep indexed by , the Kalman filter returns an estimate of the state variables, $\hat{\boldsymbol{X}}_i = \hat{\boldsymbol{X}}(t_i)$, and the covariance of those estimates, ${\boldsymbol{P}}_i = \langle {\boldsymbol{\hat X}}_i {\boldsymbol{\hat X}}_i^{\rm T} \rangle$, where the superscript T denotes the matrix transpose. 
 
-
-
-The Kalman filter \citep{Kalman1} is a Gauss-Markov model used to algorithmically recover a temporal sequence of stochastically evolving  system state variables, $\boldsymbol{X}(t)$, which are not observed directly, given a temporal sequence of noisy measurements, $\boldsymbol{Y}(t)$. It finds common use in engineering applications and has been applied successfully in neutron star astrophysics \citep[e.g.][]{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}. In this work we use the linear Kalman filter, which assumes a linear relation between $d{\boldsymbol{X}}/dt$ and ${\boldsymbol{X}}(t)$ (dynamics) and between ${\boldsymbol{Y}}(t)$ and ${\boldsymbol{X}}(t)$ (measurement), with ${\boldsymbol{X}}(t) = \{ f_{\rm p}^{(n)}(t) \}$ and ${\boldsymbol{Y}}(t) = \{ f_{\rm m}^{(n)}(t) \}$. Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}. Equations \eqref{eq:measurement} and \eqref{eq:g_func} are non-linear in the static parameters (e.g.\ $d^{(n)}$), even though they are linear in ${\boldsymbol{X}}(t)$ and ${\boldsymbol{Y}}(t)$. Hence inferring the static parameters is a non-linear exercise, to be tackled separately after the linear Kalman filter operates on the data for a fixed set of static parameters. Inference of the static parameters in Equations \eqref{eq:measurement} and \eqref{eq:g_func} by nested sampling is discussed in Section \ref{sec:nested_sampling}. \newline 
-
-Implementation of the linear Kalman filter for the PTA state-space model in Section \ref{sec:model}, including the full set of Kalman recursion relations is presented in Appendix \ref{sec:kalman}. At each discrete timestep indexed by $ 1 \leq i  \leq M$, the Kalman filter returns an estimate of the state variables, $\hat{\boldsymbol{X}}_i = \hat{\boldsymbol{X}}(t_i)$, and the covariance of those estimates, ${\boldsymbol{P}}_i = \langle {\boldsymbol{\hat X}}_i {\boldsymbol{\hat X}}_i^{\rm T} \rangle$, where the superscript T denotes the matrix transpose. The filter tracks the error in its predictions of $\boldsymbol{X}_i$ by converting ${\boldsymbol{\hat X}}_i$ into predicted measurements ${\boldsymbol{\hat Y}}_i$ via Equations \eqref{eq:measurement} and \eqref{eq:g_func} and comparing with the actual, noisy measurements ${\boldsymbol{\hat Y}}_i$. This defines a residual $\boldsymbol{\epsilon}_i = \boldsymbol{Y}_i  - \hat{\boldsymbol{Y}}_i$, which is sometimes termed the innovation. The Kalman filter also calculates the uncertainty in $\boldsymbol{\epsilon}_i$ via the innovation covariance $\boldsymbol{S}_i = \langle \boldsymbol{\epsilon}_i \boldsymbol{\epsilon}_i^{T} \rangle$. The innovation and the innovation covariance are then used to correct the state estimate ${\boldsymbol{\hat X}}_i$ according to Equation \eqref{eq:kalmangainupdate}. For a fixed set of static parameters, the Kalman filter returns an estimate of the state sequence ${\boldsymbol {\hat X}}_1, \dots , {\boldsymbol{\hat X}}_M$ which minimizes the mean square error. We explain how to use this intermediate output to infer the optimal values of the static parameters ${\boldsymbol{\theta}}$ in Section \ref{sec:nested_sampling} \newline 
-
-
-The Gaussian log-likelihood of obtaining ${\boldsymbol{Y}}_i$ given ${\boldsymbol{\hat X}}_i$ can  then be calculated at each timestep from the Kalman filter output according to
-\begin{eqnarray}
-	\log \mathcal{L}_i =  -\frac{1}{2} \left (N \log 2 \pi + \log  \left | \boldsymbol{S}_i \right | + \boldsymbol{\epsilon}_i^{\intercal} \boldsymbol{S}_i^{-1}  \boldsymbol{\epsilon}_i \right ) \ .
-\end{eqnarray}
-The total log-likelihood for the entire sequence is
-\begin{eqnarray}
-	\log \mathcal{L} =  \sum_{i=1}^{M} \log \mathcal{L}_i \ . \label{eq:likelihood}
-\end{eqnarray}
-Given ${\boldsymbol{Y}}_1, \dots, {\boldsymbol{Y}}_M$, $\mathcal{L}$ is a function of the estimates ${\boldsymbol{\hat \theta}}$ of the static parameters passed to the Kalman filter, i.e. $\mathcal{L}$ = $\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\hat \theta})$. Similarly the estimates of the state and measurement variables, $\hat{\boldsymbol{X}}$ and $\hat{\boldsymbol{Y}}$, are functions of $\boldsymbol{\hat \theta}$. If $\boldsymbol{\hat{\theta}}$ is close to the true underlying parameters $\boldsymbol{\theta}$, then the errors in $\hat{\boldsymbol{X}}$ and $\hat{\boldsymbol{Y}}$ are minimized and $\mathcal{L}$ is maximised. This is illustrated with synthetic data in Figure \ref{fig:kalman_example}. In the left column, a time series of $f_{\rm m}^{(1)}(t)$ including Gaussian noise (middle panel, red curve) is generated from Equations \eqref{eq:spinevol}-- \eqref{eq:xieqn}, \eqref{eq:measurement}, and \eqref{eq:g_func} for a single pulsar and fed into the Kalman filter along with the true static parameters ${\boldsymbol{\hat \theta}} = {\boldsymbol{\theta}}$. The Kalman filter recovers the evolution of $f_{\rm p}^{(1)}(t)$ with high fidelity; the estimate of $\hat{f}_{\rm p}^{(1)}(t)$ (left top panel, blue curve) overlaps almost perfectly with the true $f_{\rm p}^{(1)}(t)$ (left top panel, green curve). The predicted state $\hat{f}_{\rm p}^{(1)}(t)$ is converted  into a predicted measurement $\hat{f}_{\rm m}^{(1)}(t)$ (middle panel, magenta curve), which again overlaps almost perfectly with the true measurement. The residuals $\epsilon(t)$ between the true and predicted measurements are small ($\lesssim 0.1\%$) and normally distributed (left bottom panel). By contrast, in the right column, the exercise is repeated while passing slightly incorrect static parameters (${\boldsymbol{\hat\theta}} \neq {\boldsymbol{\theta}}$) to the Kalman filter, where $\Omega$ is displaced from its true value by $20 \%$. In this case the Kalman filter fails to track $f_{\rm p}^{(1)}(t)$ accurately, as the discrepancy between the blue and green curves in the top panel of the right-hand column indicates. It similarly fails to predict $f_{\rm m}^{(1)}(t)$ accurately, as shown by the discrepancy between the red and magenta curves in the middle panel, and the residuals are no longer distributed normally (right bottom panel). In Section \ref{sec:nested_sampling}, we explain how to combine the Kalman filter with a nested sampler to iteratively guide ${\boldsymbol{\hat \theta}}$ towards the true value of ${\boldsymbol{\theta}}$. 
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Recursion equations}\label{sec_kalman_general}
-The linear Kalman filter operates on temporally discrete, noisy measurements $\boldsymbol{Y}_k$, which are related to a set of unobservable discrete system states $\boldsymbol{X}_k$, via a linear transformation
+\subsection{Recursion equations and likelihoood }\label{sec_kalman_general}
+In this work we use the linear Kalman filter, which assumes a linear relation between $d{\boldsymbol{X}}/dt$ and ${\boldsymbol{X}}(t)$ (dynamics) and between ${\boldsymbol{Y}}(t)$ and ${\boldsymbol{X}}(t)$ (measurement), with ${\boldsymbol{X}}(t) = \{ f_{\rm p}^{(n)}(t) \}$ and ${\boldsymbol{Y}}(t) = \{ f_{\rm m}^{(n)}(t) \}$. The linear Kalman filter operates on temporally discrete, noisy measurements $\boldsymbol{Y}_k = \boldsymbol{Y}(t_k)$, which are related via a linear transformation to a set of unobservable discrete system states $\boldsymbol{X}_k= \boldsymbol{Y}(t_k)$. Each discrete timestep is indexed by $ 1 \leq k  \leq K$. The measurements are related to the states via
 \begin{equation}
 	\boldsymbol{Y}_k = \boldsymbol{H}_k \boldsymbol{X}_k + \boldsymbol{v}_k \ ,\label{eq:kalman1}
 \end{equation}
@@ -651,23 +625,34 @@ where $\boldsymbol{F}_k$ is the system dynamics matrix, $\boldsymbol{G}_k$ is th
 The Kalman filter is a recursive estimator with two distinct stages: a ``predict" stage and an ``update" stage. The predict stage predicts $\hat{\boldsymbol{X}}_{k|k-1}$, the estimate of the state at discrete step $k$, given the state estimates from step $k-1$. Specifically, the predict step proceeds as
 \begin{align}
 	\hat{\boldsymbol{X}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{X}}_{k-1|k-1} + \boldsymbol{G}_k \boldsymbol{u}_k \ , \\
-		\hat{\boldsymbol{P}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{P}}_{k-1|k-1} \boldsymbol{F}_k^\intercal + \boldsymbol{Q}_k  \ ,
+	\hat{\boldsymbol{P}}_{k|k-1} &=  \boldsymbol{F}_k \hat{\boldsymbol{P}}_{k-1|k-1} \boldsymbol{F}_k^\intercal + \boldsymbol{Q}_k  \ ,
 \end{align}
 where $\hat{\boldsymbol{P}}_{k|k-1}$ is the covariance of the prediction. Note that the predict stage is independent of the measurements. The measurement $\boldsymbol{Y}_k$ is included to update the prediction during the update stage as follows:
 \begin{align}
-	\boldsymbol{\epsilon}_{k} &= \boldsymbol{Y}_k - \boldsymbol{H}_k \hat{\boldsymbol{X}}_{k|k-1} \ , \\
-	\boldsymbol{S}_k &= \boldsymbol{H}_k \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal + \boldsymbol{R}_k \ , \\
+	\boldsymbol{\epsilon}_{k} &= \boldsymbol{Y}_k - \boldsymbol{H}_k \hat{\boldsymbol{X}}_{k|k-1} \ , \label{eq:residual} \\
+	\boldsymbol{S}_k &= \boldsymbol{H}_k \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal + \boldsymbol{R}_k \ , \label{eq:innv_covar}\\
 	\boldsymbol{K}_k &= \hat{\boldsymbol{P}}_{k|k-1} \boldsymbol{H}_k^\intercal \boldsymbol{S}_k^{-1} \ ,\label{eq:kalman gain} \\
-		\hat{\boldsymbol{X}}_{k|k} &=\hat{\boldsymbol{X}}_{k|k-1} +\boldsymbol{K}_k  \boldsymbol{\epsilon}_{k}  \ , \label{eq:kalmangainupdate} \\
-			\hat{\boldsymbol{P}}_{k|k} &= \left( \boldsymbol{I} - \boldsymbol{K}_k \boldsymbol{H}_k \right) 	\hat{\boldsymbol{P}}_{k|k-1} \ .
+	\hat{\boldsymbol{X}}_{k|k} &=\hat{\boldsymbol{X}}_{k|k-1} +\boldsymbol{K}_k  \boldsymbol{\epsilon}_{k}  \ , \label{eq:kalmangainupdate} \\
+	\hat{\boldsymbol{P}}_{k|k} &= \left( \boldsymbol{I} - \boldsymbol{K}_k \boldsymbol{H}_k \right) 	\hat{\boldsymbol{P}}_{k|k-1} \ .
 \end{align}
-Equation \eqref{eq:kalman gain} defines the ``Kalman gain" $\boldsymbol{K}_k$ which is defined so as to minimise the mean squared error in the state estimate, i.e.  $\boldsymbol{K}_k = \text{argmin} \left \{ \boldsymbol{E}[ (\boldsymbol{X}_k - \hat{\boldsymbol{X}}_k)^2 ] \right \}$. For a full review of the Kalman filter, including its derivation, we refer the reader to \cite{Gelb:1974} and \cite{zarchan2000fundamentals}. \newline 
+Equation \eqref{eq:residual} defines a residual $\boldsymbol{\epsilon}_i = \boldsymbol{Y}_i  - \hat{\boldsymbol{Y}}_i$, which is sometimes termed the innovation. The uncertainty in $\boldsymbol{\epsilon}_i$ is quantified via the innovation covariance $\boldsymbol{S}_i = \langle \boldsymbol{\epsilon}_i \boldsymbol{\epsilon}_i^{T} \rangle$, Equation \eqref{q:innv_covar}. Equation \eqref{eq:kalman gain} defines the ``Kalman gain" $\boldsymbol{K}_k$ which is defined so as to minimise the mean squared error in the state estimate, i.e.  $\boldsymbol{K}_k = \text{argmin} \left \{ \boldsymbol{E}[ (\boldsymbol{X}_k - \hat{\boldsymbol{X}}_k)^2 ] \right \}$. For a full review of the Kalman filter, including its derivation, we refer the reader to \cite{Gelb:1974} and \cite{zarchan2000fundamentals}. \newline 
 
-To apply the Kalman filter in practice means specifying the eight component matrices that make up the ``machinery'' of the filter: $\boldsymbol{X}_k$, $\boldsymbol{Y}_k$, $\boldsymbol{F}_k$, $\boldsymbol{G}_k$, $\boldsymbol{u}_k$, $\boldsymbol{H}_k$, $\boldsymbol{Q}_k$ and $\boldsymbol{R}_k$. In Section \ref{sec_kalman_specific} we describe how the machinery is determined for the state-space model in Section \ref{sec:model}. 
+
+The Gaussian log-likelihood of obtaining ${\boldsymbol{Y}}_i$ given ${\boldsymbol{\hat X}}_i$ is calculated at each timestep from the Kalman filter output according to
+\begin{eqnarray}
+	\log \mathcal{L}_i =  -\frac{1}{2} \left (N \log 2 \pi + \log  \left | \boldsymbol{S}_i \right | + \boldsymbol{\epsilon}_i^{\intercal} \boldsymbol{S}_i^{-1}  \boldsymbol{\epsilon}_i \right ) \ ,
+\end{eqnarray}
+where $N$ is the number of data points at timestep $i$. The total log-likelihood for the entire sequence is
+\begin{eqnarray}
+	\log \mathcal{L} =  \sum_{i=1}^{M} \log \mathcal{L}_i \ . \label{eq:likelihood}
+\end{eqnarray}
+Given ${\boldsymbol{Y}}_1, \dots, {\boldsymbol{Y}}_M$, $\mathcal{L}$ is a function of the estimates ${\boldsymbol{\hat \theta}}$ of the static parameters passed to the Kalman filter, i.e. $\mathcal{L}$ = $\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\hat \theta})$. Similarly the estimates of the state and measurement variables, $\hat{\boldsymbol{X}}$ and $\hat{\boldsymbol{Y}}$, are functions of $\boldsymbol{\hat \theta}$. In Section \ref{sec:nested_sampling}, we explain how to combine the Kalman filter with a nested sampler to iteratively guide ${\boldsymbol{\hat \theta}}$ towards the true value of ${\boldsymbol{\theta}}$. \newline 
+
+To apply the Kalman filter in practice means specifying the eight component matrices that make up the ``machinery'' of the filter: $\boldsymbol{X}_k$, $\boldsymbol{Y}_k$, $\boldsymbol{F}_k$, $\boldsymbol{G}_k$, $\boldsymbol{u}_k$, $\boldsymbol{H}_k$, $\boldsymbol{Q}_k$ and $\boldsymbol{R}_k$. In Section \ref{sec_kalman_specific} we describe how the machinery is determined for the state-space model in Section \ref{sec:2}. 
 
 
 \subsection{State space representation of a PTA analysis}\label{sec_kalman_specific}
-We apply the Kalman recursion relations in Section \ref{sec_kalman_general} to the state-space model of a PTA with $N$ pulsars described in Section \ref{sec:model} as follows. \newline 
+We apply the Kalman recursion relations in Section \ref{sec_kalman_general} to the state-space model of a PTA with $N$ pulsars described in Section \ref{sec:2} as follows. \newline 
 
 
 We identify $\boldsymbol{X}(t)$ with a vector of length $N$ composed of the intrinsic pulsar frequency states, i.e. 
@@ -723,17 +708,12 @@ with
 \begin{equation}
 Q^{(n)} = \frac{[\sigma^{n}]^2}{2 \gamma^{(n)}} \left[ 1 - e^{-2 \gamma^{(n)} \Delta t}\right] \ .
 \end{equation}
-
-
 The two remaining unspecified component matrices of the Kalman filter are the measurement matrix $\boldsymbol{H}_k$ and the measurement covariance matrix $\boldsymbol{R}_k$. These are defined straightforwardly from Equations \eqref{eq:measurement}--\eqref{eq:g_func_trig}. Specifically, 
-$\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagonal is given by $g^{(n)}(t_k)$ from Equation \eqref{eq:g_func}. The measurement covariance satisfies $\boldsymbol{R}_k = E \left[ \boldsymbol{v} \boldsymbol{v}^\intercal \right] = \sigma^2_{\rm m}$ for all $k$.
-
-
+$\boldsymbol{H}_k$ is a diagonal matrix where the $n$-th component of the diagonal is given by $g^{(n)}(t_k)$ from Equation \eqref{eq:g_func_trig}. The measurement covariance satisfies $\boldsymbol{R}_k = E \left[ \boldsymbol{v} \boldsymbol{v}^\intercal \right] = \sigma^2_{\rm m}$ for all $k$.
 
 
 
 \section{Nested sampling}\label{sec:nested_sampling}
-
 We can use the likelihood returned by the Kalman filter, Equation \eqref{eq:likelihood}, in conjunction with likelihood-based inference methods to estimate the posterior distribution of $\boldsymbol{\theta}$ by Bayes' Rule,
 \begin{equation}
 	p(\boldsymbol{\theta} | \boldsymbol{Y}) = \frac{\mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta}) \pi(\boldsymbol{\theta})}{\mathcal{Z}} \ ,
@@ -748,11 +728,17 @@ The primary tunable parameter in nested sampling is $n_{\rm live}$. More live po
 
 
 \section{Choice of priors}\label{sec:set_priors}
-To deploy the analysis scheme of K24 it is necessary to specify a Bayesian prior $\boldsymbol{\theta}$ on the static parameters. \newline 
+To deploy the nested sampling outlined in Appendix \ref{sec:nested_sampling} it is necessary to specify a Bayesian prior $\boldsymbol{\theta}$ on the static parameters. In this section we outline how the priors are chosen. The priors on each static parameter are summarised in Table \ref{tab:parameters_and_priors}.  \newline 
 
-For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021}. For $\pi(\boldsymbol{\theta}_{\rm psr})$ \textit{a priori} information from electromagnetic observations does exist. We adopt constrained uniform priors on $f_{\rm em}^{(n)}(t_1)$ and $\dot{f}_{\rm em}^{(n)}(t_1)$, which extend $\pm 10^3 \eta_f^{(n)}$ and $\pm 10^3 \eta_{\dot{f}}^{(n)}$ respectively about the central, injected values, where $\eta_f^{(n)}$ and $\eta_{\dot{f}}^{(n)}$ denote the errors quoted in the ATNF Pulsar Database. By using wider-than-necessary priors we expose the analysis scheme to a more stringent test. We set an uninformative broad prior $\pi[\sigma^{(n)} / (1 \, {\rm s^{-3/2}})] \sim$ LogUniform($10^{-23}, 10^{-19}$) which covers the range of values inferred from Equation \ref{eq:sigmap_f}. We set an non-informative prior on the new static parameter $\chi^{(n)} \sim \text{Uniform}\left(0,2\pi\right)$. We do not set a prior on $\gamma^{(n)}$, because $\gamma^{(n)} T_{\rm obs} \sim 10^{-5}$, and consequently $\gamma^{(n)}$ is effectively ``unobservable'' over $T_{\rm obs}$. For validation purposes it is therefore sufficient to carry $\gamma^{(n)}$ through the analysis at its injected value. This reduces the total dimension of the parameter space to $7 + 4N$. The chosen prior $\boldsymbol{\theta}$ is the same as used in K24, with the addition of a prior on $\chi^{(n)}$ due to the inclusion of the pulsar term. \newline 
+For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021}. For $\pi(\boldsymbol{\theta}_{\rm psr})$ \textit{a priori} information from electromagnetic observations does exist. We adopt constrained uniform priors on $f_{\rm em}^{(n)}(t_1)$ and $\dot{f}_{\rm em}^{(n)}(t_1)$, which extend $\pm 10^3 \eta_f^{(n)}$ and $\pm 10^3 \eta_{\dot{f}}^{(n)}$ respectively about the central, injected values, where $\eta_f^{(n)}$ and $\eta_{\dot{f}}^{(n)}$ denote the errors quoted in the ATNF Pulsar Database. By using wider-than-necessary priors we expose the analysis scheme to a more stringent test. We set an uninformative broad prior $\pi[\sigma^{(n)} / (1 \, {\rm s^{-3/2}})] \sim$ LogUniform($10^{-23}, 10^{-19}$) which covers the range of values inferred from Equation \eqref{eq:sigmap_f}. We set an non-informative prior on the new static parameter $\chi^{(n)} \sim \text{Uniform}\left(0,2\pi\right)$. We do not set a prior on $\gamma^{(n)}$, because $\gamma^{(n)} T_{\rm obs} \sim 10^{-5}$, and consequently $\gamma^{(n)}$ is effectively ``unobservable'' over $T_{\rm obs}$. For validation purposes it is therefore sufficient to carry $\gamma^{(n)}$ through the analysis at its injected value. This reduces the total dimension of the parameter space to $7 + 4N$. The chosen prior $\boldsymbol{\theta}$ is the same as used in K24, with the addition of a prior on $\chi^{(n)}$ due to the inclusion of the pulsar term. \newline 
 
 The chosen priors for the representative analysis in Section \ref{sec:rep_example1} are summarised in \ref{Table tab:parameters_and_priors}
+
+
+
+
+
+
 
 
 \section{Complete workflow summary}
@@ -775,6 +761,12 @@ For the reader's convenience we now summarise the workflow for a representative 
 	\item Repeat steps (vii)--(ix) until convergence criteria are satisfied.
 \end{enumerate}
 In order to compute $\beta$ the above workflow is repeated for a different $\mathcal{M}$. The resulting $\mathcal{Z}$ values can then be compared. We remind the reader that the above workflow differs from a realistic PTA analysis in one important respect, namely that the data are input as frequency time series $f_{\rm m}^{(n)}(t)$ instead of pulse TOAs. The generalization to TOAs is subtle and will be tackled in a forthcoming paper.
+
+
+
+
+
+
 
 
 
