@@ -146,8 +146,8 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,mea
     
     
     if measurement_model == "pulsar": #we only need a prior on chi when using the pulsar model
-        #init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
-        init_parameters,priors = add_to_bibly_priors_dict_constant(chi,"chi",init_parameters,priors) #uniform
+        init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
+        #init_parameters,priors = add_to_bibly_priors_dict_constant(chi,"chi",init_parameters,priors) #uniform
     else: #set them as constants, but they are not actually used
         init_parameters,priors = add_to_bibly_priors_dict_constant(chi,"chi",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
 
@@ -221,7 +221,8 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
 
 
         init_parameters["h"] = None
-        priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
+        #priors["h"] = bilby.core.prior.LogUniform(P.h/100.0, P.h*10.0, 'h')
+        priors["h"] = bilby.core.prior.Uniform(1e-15, 9e-15, 'h')
 
 
     return init_parameters,priors 

@@ -29,39 +29,39 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
 
 
 #Bayes vs h0, multiple noise
-N = 10
-seeds = np.arange(1235+10,1235+10+N,1)
-strains = [5e-15,1e-14,5e-14,1e-13,5e-13,1e-12]
-#models = ["pulsar","earth"]
-models = ["null"]
-with open('batch.sh','w') as b: 
-    for s in seeds:
-        for h in strains:
-            for m in models:
-                arg_name = f"eg_canonical_bayes_{m}_{h}_{s}"
-                create_slurm_job(arg_name,h,m,s)
-                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
-
-
-
-
-
-
-# MULTIPLE NOISE REALISATIONS, low snr
 # N = 10
 # seeds = np.arange(1235+10,1235+10+N,1)
-
-# strains = [5e-15]
-# models = ["pulsar"]
-
+# strains = [5e-15,1e-14,5e-14,1e-13,5e-13,1e-12]
+# #models = ["pulsar","earth"]
+# models = ["null"]
 # with open('batch.sh','w') as b: 
-
 #     for s in seeds:
 #         for h in strains:
 #             for m in models:
-#                 arg_name = f"eg_canonical_bias_exploration_n4000_{m}_{h}_{s}"
+#                 arg_name = f"eg_canonical_bayes_{m}_{h}_{s}"
 #                 create_slurm_job(arg_name,h,m,s)
 #                 b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
+
+
+
+
+
+
+#MULTIPLE NOISE REALISATIONS, low snr
+N = 10
+seeds = np.arange(1235+10,1235+10+N,1)
+
+strains = [5e-15]
+models = ["pulsar"]
+
+with open('batch.sh','w') as b: 
+
+    for s in seeds:
+        for h in strains:
+            for m in models:
+                arg_name = f"eg_canonical_bias_exploration_hprior_{m}_{h}_{s}"
+                create_slurm_job(arg_name,h,m,s)
+                b.write(f"sbatch slurm_jobs/slurm_{arg_name}.sh & \n")
 
 
 
