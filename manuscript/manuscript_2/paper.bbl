@@ -65,12 +65,6 @@ Abbott R.,  et~al., 2022b, \mn@doi [Physical Review D]
   {10.48550/arXiv.2306.16226}, \href
   {https://ui.adsabs.harvard.edu/abs/2023arXiv230616226A} {p. arXiv:2306.16226}
 
-\bibitem[\protect\citeauthoryear{{Arjovsky}, {Chintala}  \&
-  {Bottou}}{{Arjovsky} et~al.}{2017}]{2017arXiv170107875A}
-{Arjovsky} M.,  {Chintala} S.,   {Bottou} L.,  2017, \mn@doi [arXiv e-prints]
-  {10.48550/arXiv.1701.07875}, \href
-  {https://ui.adsabs.harvard.edu/abs/2017arXiv170107875A} {p. arXiv:1701.07875}
-
 \bibitem[\protect\citeauthoryear{{Arzoumanian} et~al.,}{{Arzoumanian}
   et~al.}{2020}]{2020ApJ...905L..34A}
 {Arzoumanian} Z.,  et~al., 2020, \mn@doi [\apjl] {10.3847/2041-8213/abd401},
@@ -113,6 +107,11 @@ Babak S.,  Sesana A.,  2012b, \mn@doi [Phys. Rev. D]
 {Baym} G.,  {Pethick} C.,  {Pines} D.,   {Ruderman} M.,  1969, \mn@doi [\nat]
   {10.1038/224872a0}, \href
   {https://ui.adsabs.harvard.edu/abs/1969Natur.224..872B} {224, 872}
+
+\bibitem[\protect\citeauthoryear{Bellman \& {\AA}str{\"o}m}{Bellman \&
+  {\AA}str{\"o}m}{1970}]{e5be7c83a0d24500826f6e1b414d1733}
+Bellman R.,  {\AA}str{\"o}m K.,  1970, \mn@doi [Mathematical Biosciences]
+  {10.1016/0025-5564(70)90132-X}, 7, 329
 
 \bibitem[\protect\citeauthoryear{{Bhagwat}, {De Luca}, {Franciolini}, {Pani}
   \& {Riotto}}{{Bhagwat} et~al.}{2021}]{Bhagwat2021}
@@ -229,13 +228,6 @@ MIT Press, Cambridge, MA
 {Goncharov} B.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/staa3411}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.502..478G} {502, 478}
 
-\bibitem[\protect\citeauthoryear{González-Delgado, Sagar, Zanon,
-  Lindorff-Larsen, Bernadó, Neuvial  \& Cortés}{González-Delgado
-  et~al.}{2023}]{GONZALEZDELGADO2023168053}
-González-Delgado J.,  Sagar A.,  Zanon C.,  Lindorff-Larsen K.,  Bernadó P.,
-  Neuvial P.,   Cortés J.,  2023, \mn@doi [Journal of Molecular Biology]
-  {https://doi.org/10.1016/j.jmb.2023.168053}, 435, 168053
-
 \bibitem[\protect\citeauthoryear{{G{\"u}gercino{\v{g}}lu} \&
   {Alpar}}{{G{\"u}gercino{\v{g}}lu} \&
   {Alpar}}{2017}]{Alpar2017MNRAS.471.4827G}
@@ -279,12 +271,6 @@ Jankowski F.,  et~al., 2018, \mn@doi [Monthly Notices of the Royal Astronomical
 \bibitem[\protect\citeauthoryear{Kalman}{Kalman}{1960}]{Kalman1}
 Kalman R.~E.,  1960, \mn@doi [Journal of Basic Engineering]
   {10.1115/1.3662552}, 82, 35
-
-\bibitem[\protect\citeauthoryear{{Kimpson}, {Paxton}, {Chantry}  \&
-  {Palmer}}{{Kimpson} et~al.}{2023}]{2023QJRMS.149..843K}
-{Kimpson} T.,  {Paxton} E.~A.,  {Chantry} M.,   {Palmer} T.,  2023, \mn@doi
-  [Quarterly Journal of the Royal Meteorological Society] {10.1002/qj.4435},
-  \href {https://ui.adsabs.harvard.edu/abs/2023QJRMS.149..843K} {149, 843}
 
 \bibitem[\protect\citeauthoryear{Kimpson et~al.,}{Kimpson
   et~al.}{2024}]{KimpsonPTA}
@@ -341,12 +327,6 @@ McWilliams S.~T.,  Ostriker J.~P.,   Pretorius F.,  2014, \mn@doi [The
 Middleton H.,  Clearwater P.,  Melatos A.,   Dunn L.,  2020, \mn@doi [Phys.
   Rev. D] {10.1103/PhysRevD.102.023006}, 102, 023006
 
-\bibitem[\protect\citeauthoryear{{Morris}, {Lipp}  \& {Roberts}}{{Morris}
-  et~al.}{2023}]{2023GeoRL..5003880M}
-{Morris} M.~J.,  {Lipp} A.~G.,   {Roberts} G.~G.,  2023, \mn@doi [\grl]
-  {10.1029/2023GL103880}, \href
-  {https://ui.adsabs.harvard.edu/abs/2023GeoRL..5003880M} {50, e2023GL103880}
-
 \bibitem[\protect\citeauthoryear{{Mukherjee}, {Parkinson}  \&
   {Liddle}}{{Mukherjee} et~al.}{2006}]{Mukherjee2006}
 {Mukherjee} P.,  {Parkinson} D.,   {Liddle} A.~R.,  2006, \mn@doi [\apjl]
@@ -358,19 +338,6 @@ Middleton H.,  Clearwater P.,  Melatos A.,   Dunn L.,  2020, \mn@doi [Phys.
 {P{\'a}rtay} L.~B.,  {Bart{\'o}k} A.~P.,   {Cs{\'a}nyi} G.,  2009, \mn@doi
   [arXiv e-prints] {10.48550/arXiv.0906.3544}, \href
   {https://ui.adsabs.harvard.edu/abs/2009arXiv0906.3544P} {p. arXiv:0906.3544}
-
-\bibitem[\protect\citeauthoryear{{Paxton}, {Chantry}, {Kl{\"o}wer}, {Saffin}
-  \& {Palmer}}{{Paxton} et~al.}{2022}]{2022JCli...35.1215P}
-{Paxton} E.~A.,  {Chantry} M.,  {Kl{\"o}wer} M.,  {Saffin} L.,   {Palmer} T.,
-  2022, \mn@doi [Journal of Climate] {10.1175/JCLI-D-21-0343.1}, \href
-  {https://ui.adsabs.harvard.edu/abs/2022JCli...35.1215P} {35, 1215}
-
-\bibitem[\protect\citeauthoryear{{Perrodin} \& {Sesana}}{{Perrodin} \&
-  {Sesana}}{2018}]{Perrodin2018}
-{Perrodin} D.,  {Sesana} A.,  2018, in {Rezzolla} L.,  {Pizzochero} P.,
-  {Jones} D.~I.,  {Rea} N.,   {Vida{\~n}a} I.,  eds,  Astrophysics and Space
-  Science Library Vol. 457, Astrophysics and Space Science Library. p.~95
-  (\mn@eprint {arXiv} {1709.02816}), \mn@doi{10.1007/978-3-319-97616-7_3}
 
 \bibitem[\protect\citeauthoryear{Petiteau, Babak, Sesana  \& de
   Ara\'ujo}{Petiteau et~al.}{2013}]{Petiteau2013}
@@ -457,12 +424,6 @@ Skilling J.,  2006, \mn@doi [Bayesian Analysis] {10.1214/06-BA127}, 1, 833
 Speagle J.~S.,  2020, \mn@doi [Monthly Notices of the Royal Astronomical
   Society] {10.1093/mnras/staa278}, 493, 3132
 
-\bibitem[\protect\citeauthoryear{{Speri}, {Porayko}, {Falxa}, {Chen}, {Gair},
-  {Sesana}  \& {Taylor}}{{Speri} et~al.}{2023}]{2023MNRAS.518.1802S}
-{Speri} L.,  {Porayko} N.~K.,  {Falxa} M.,  {Chen} S.,  {Gair} J.~R.,  {Sesana}
-  A.,   {Taylor} S.~R.,  2023, \mn@doi [\mnras] {10.1093/mnras/stac3237}, \href
-  {https://ui.adsabs.harvard.edu/abs/2023MNRAS.518.1802S} {518, 1802}
-
 \bibitem[\protect\citeauthoryear{{Sykes}, {Middleton}, {Melatos}, {Di Matteo},
   {DeGraf}  \& {Bhowmick}}{{Sykes} et~al.}{2022}]{Skyes2022}
 {Sykes} B.,  {Middleton} H.,  {Melatos} A.,  {Di Matteo} T.,  {DeGraf} C.,
@@ -487,9 +448,6 @@ Trassinelli M.,  2019, \mn@doi [Proceedings] {10.3390/proceedings2019033014},
   Melatos}{2023}]{Vargas}
 Vargas A.,  Melatos A.,  2023, TBD, 1, 1
 
-\bibitem[\protect\citeauthoryear{Vaserstein}{Vaserstein}{1969}]{Wasserstein}
-Vaserstein L.,  1969, Probl. Peredachi Inf., 5
-
 \bibitem[\protect\citeauthoryear{{Verbiest}, {Weisberg}, {Chael}, {Lee}  \&
   {Lorimer}}{{Verbiest} et~al.}{2012}]{Verbiest2012ApJ...755...39V}
 {Verbiest} J.~P.~W.,  {Weisberg} J.~M.,  {Chael} A.~A.,  {Lee} K.~J.,
@@ -501,12 +459,6 @@ Vaserstein L.,  1969, Probl. Peredachi Inf., 5
 {Verbiest} J.~P.~W.,  {Os{\l}owski} S.,   {Burke-Spolaor} S.,  2021, in ,
   Handbook of Gravitational Wave Astronomy.
 p.~4, \mn@doi{10.1007/978-981-15-4702-7_4-1}
-
-\bibitem[\protect\citeauthoryear{Villani}{Villani}{2009}]{Villani2009}
-Villani C.,  2009, The Wasserstein distances.
-Springer Berlin Heidelberg, Berlin, Heidelberg, pp 93--111,
-  \mn@doi{10.1007/978-3-540-71050-9_6}, \url
-  {https://doi.org/10.1007/978-3-540-71050-9_6}
 
 \bibitem[\protect\citeauthoryear{Wan \& Van Der~Merwe}{Wan \& Van
   Der~Merwe}{2000}]{882463van}

@@ -546,74 +546,32 @@ To control the test, the noise processes in the synthetic data are identical rea
 
 
 \section{Conclusion}\label{sec:discussion}
-In this paper we demonstrate how to extend state-space methods for PTA data analysis to include the pulsar term. We compare the results when the pulsar terms are includes to those when they are omitted. \newline 
-
-
+In this paper we demonstrate how to extend state-space methods for PTA data analysis to include the pulsar term. We compare the results when the pulsar terms are includes to those when they are omitted. The state-space method is  \newline 
 
 
 The intrinsic rotational state evolution of the pulsar, described by a mean-reverting Ornstein-Uhlenbeck process (Equations \eqref{eq:xieqn}--\eqref{eq:spinevol}) is tracked using a Kalman filter. The Kalman filter is combined with a Bayesian sampling framework to estimate the posterior distributions of each static parameter, as well as the associated Bayesian evidence (marginalised likelihood) of the model. \newline 
 
-
-The updated state-space model including the pulsar term is tested on synthetic data. We consider 10 noise realisations of synthetic data for a single, astrophysically representative, SMBHB GW source observed by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$ and $h_0 = 5 \times 10^{-15}$. We find that the updated state-space model successfully detects injected signals and estimates their static parameters accurately for all noise realisations with relatively low computational cost. There is a non-negligible natural random dispersion in the median of the marginalised one-dimensional posteriors, with a maximum coefficient of variation of 43\% for $\Phi_0$, and a median value across the seven elements of $\boldsymbol{\theta}_{\rm gw}$ 7\%.
-
+The updated state-space model including the pulsar term is tested on synthetic data. We consider 10 noise realisations of synthetic data for a single, astrophysically representative, SMBHB GW source observed by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$ and $h_0 = 5 \times 10^{-15}$. We find that the updated state-space model successfully detects injected signals and estimates their static parameters accurately for all noise realisations with relatively low computational cost. There is a non-negligible natural random dispersion in the median of the marginalised one-dimensional posteriors, with a maximum coefficient of variation of 43\% for $\Phi_0$, and a median value across the seven elements of $\boldsymbol{\theta}_{\rm gw}$ 7\%. The updated model is further tested across a broader parameter domain of SMBHB sources. 200 randomly sampled parameter vectors of $\boldsymbol{\theta}_{\rm gw}$ are explored at fixed $\iota$ and $h_0$. Consistent parameter estimates are obtained for the majority of cases; \textcolor{red}{TBD once the main section updates}. \newline 
 
 
-The updated model is further tested across a broader parameter domain of SMBHB sources. 200 randomly sampled parameter vectors of $\boldsymbol{\theta}_{\rm gw}$ are explored at fixed $\iota$ and $h_0$. 
+We compare the accuracy of the parameter estimates from the updated model to those when the pulsar term is omitted. We find that the inclusion of the pulsar terms increases the accuracy (as quantified by the root-mean-square relative error, Equation \eqref{eq:mean_rel_error}) by 61\% for $\Omega$, up to 99\% for $\psi$ and $\alpha$ for a representative SMBHB system with a high SNR ($h_0 = 10^{-12}$). For low SNR ($h_0 = 5 \times 10^{-15}$) there is no significant improvement because the data is noise dominated. The inclusion of pulsar terms lowers the floor of the minimal detectable strain by \textcolor{red}{X}. \newline  
 
 
-
-
-
-
-Extensions to the state-space analysis scheme are discussed at length in K24. 
-
-
-We note two relevant extensions here
+State-space methods for PTA data analysis are complementary to traditional approaches, and enable the evolution of the intrinsic pulsar timing noise to be tracked explicitly rather than fitting for the ensemble-averaged power spectral density of the noise. That is, it is possible to disentangle statistically the specific time-ordered realisation of the timing noise from the GW-induced modulations, and thereby infer the GW source parameters conditional on the specific observed realisation of the noisy data. State-space models are conditional on a noise model that is related but different to the noise model in traditional approaches. The analysis in this paper assumes a specific, time-ordered realization of a mean-reverting Ornstein-Uhlenbeck process, whereas traditional analyses assume a stationary Gaussian process described by an ensemble-averaged, power-law power spectral density, whose amplitude and exponent are adjustable. Clarifying the similarities and differences between various approaches promises to be a fruitful avenue of future work. It is also a subject of attention in audio-band GW data analysis involving hidden Markov models applied to data from terrestrial long-baseline interferometers \citep{PhysRevD.102.023006,PhysRevD.105.022002,Abbott_2022SCO,2022PhRvD.106f2002A}. \newline 
 
 
 
 
 
+Extensions to the state-space methods for PTA data analysis are discussed at length in K24. We note three relevant extensions here:
 
- 
- 
-We compare the accuracy of the parameter estimates  from the updated model to those when the pulsar term is omitted. We find that the inclision of the pulsar terms increases the accuaray by X percent in teh case of high SNR and Y per cent in the case of low SNR. The inclusion of pulsar terms also lowers the floor of the minimal detectable strain by YY percent. \newline  
+(i) The assumption of a monochromatic source is well-justified astrophysically in various regimes (see Section \ref{sec:plane_gw}).  Nevertheless, SMBHBs are not strictly monochromatic. In principle it is straightforward, to extend the analysis to account for the evolution of $\Omega(t)$, namely by including $\Omega(t)$ in the differential state equations. However, issues related to identifiability \citep{e5be7c83a0d24500826f6e1b414d1733}, the form of the measurement equation Equation \eqref{eq:g_func_trig}, and the linear structure the Kalman filter must be considered carefully and are postponed to a future paper. Regarding the last point, the Kalman filter can be applied to non-linear problems using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}.
 
-
-
-
-\textcolor{red}{Caceats, extensions, other things}
+(ii) The state-space model presented here ingests a frequency time series. It is necessary to generalize this approach to ingest TOAs directly, as happens traditionally. Generalizing the algorithm is a subtle task and will be presented in a forthcoming work. 
 
 
-The new method is complementary to traditional approaches. We track the evolution of the intrinsic pulsar timing noise explicitly via a state-space method, rather than fitting for the ensemble-averaged power spectral density of the noise. That is, we disentangle statistically the specific time-ordered realisation of the timing noise from the GW-induced modulations, and thereby infer the GW source parameters conditional on the specific observed realisation of the noisy data. 
+(iii) We assume in this paper that there is only one GW source. However, it may be possible to resolve multiple continuous GW sources concurrently \citep{PhysRevD.85.044034}. The Kalman filter extends naturally to multiple sources; one can modify Equation \eqref{eq:measurement} easily to accommodate a linear superposition of GWs. Taking the logic further, the stochastic background itself is arguably an incoherent sum of many individual GW sources. As long as a way can be found to summarize economically the many static parameters associated with the background sources, it should be possible for a Kalman filter and nested sampler to operate together to detect the stochastic background by generalizing the model selection procedure in Sections \ref{sec:model_selection} and \ref{sec:detection}. Summarizing the parameter set economically, while respecting the mathematical structure of the Kalman filter, is a subtle challenge, which we postpone to a forthcoming paper. If successful, it will complement the traditional approach of cross-correlating pulsar residuals to uncover the Hellings-Downs curve \citep{Hellings,2023ApJ...951L...8A}. \newline 
 
-
- 
-We emphasize that the Kalman tracker and nested sampler in this paper do not supplant traditional PTA analysis approaches; they complement traditional approaches and are most powerful when used in tandem. Relatedly, it is misleading to ask whether the Kalman tracker and nested sampler are more or less sensitive than traditional approaches for two reasons. First, one must still generalize the Kalman tracker and nested sampler to ingest TOAs directly, as happens traditionally, instead of ingesting a frequency time series, as in this paper. Generalizing the algorithm is a subtle task and is postponed to a future work. Second, the Kalman tracker and nested sampler are conditional on a noise model that is related but different to the noise model in traditional approaches. 
-
-The analysis in this paper assumes a specific, time-ordered realization of a , 
-
-
-whereas traditional analyses assume a stationary Gaussian process described by an ensemble-averaged, power-law power spectral density, whose amplitude and exponent are adjustable. Hence the sensitivities cannot be compared directly. Clarifying the similarities and differences between various approaches promises to be a fruitful avenue of future work. It is also a subject of attention in audio-band GW data analysis involving hidden Markov models applied to data from terrestrial long-baseline interferometers \citep{PhysRevD.102.023006,PhysRevD.105.022002,Abbott_2022SCO,2022PhRvD.106f2002A}. \newline 
-
-
-
- The approach in this paper can be extended in at least five ways, enumerated as (i)--(v) below. \newline 
- 
-%(i) A natural first extension is to retain the pulsar terms in Equation \eqref{eq:measurement}. Alternatively, if the method continues to be used with solely the Earth term, in line with standard practice in published PTA analyses, it would be desirable to evaluate systematically the incurred biases in the model parameters across an astrophysically representative parameter domain, supplementing the results obtained by other authors \citep{Zhupulsarterms,Chen2022}.\newline 
-
-
-(ii) In this paper, we consider one specific configuration of the synthetic PTA, namely the same pulsars that make up the 12.5-year NANOGrav (Section \ref{sec:synt_pta}). It is interesting to compare the performance of the method using different pulsar configurations, e.g. those in the PPTA and EPTA. Adding pulsars to PTAs increases the computational cost so it may be advantageous to select a subset of pulsars by exploiting formal optimization techniques from electrical engineering \citep{2023MNRAS.518.1802S}, although the Kalman filter and nested sampler are already cheaper computationally than some other methods. \newline 
-
-
-(iii) In practice different PTA pulsars are observed with different cadences at different times. Extending the Kalman filter to non-uniform time sampling is straightforward \citep{zarchan2000fundamentals}. \newline 
-
-
-
-(iv) The assumption of a monochromatic source is well-justified astrophysically in various regimes (see Section \ref{sec:plane_gw}) and is an appropriate starting point for this introductory paper. Nevertheless, SMBHBs are not strictly monochromatic. It is interesting to extend the state-space framework such that $f_{\rm gw}$ evolves in time. For $\Delta f_{\rm gw} < 1 / T_{\rm obs}$ (see Equation \eqref{eq:f_evolution}) evolution adds noise incoherently to the pulsar terms, whilst for $\Delta f_{\rm gw} > 1 / T_{\rm obs}$ the pulsar terms induce phase shifts that affect the overall phase coherence \citep{Sesana2010,Perrodin2018}. Careful consideration of the evolution of $f_{\rm gw}$ will be needed when including the pulsar terms in the inference model, as in point (i). \newline 
-
-
-(v) Finally, we assume in this paper that there is only one GW source. However, it may be possible to resolve multiple continuous GW sources concurrently \citep{PhysRevD.85.044034}. The Kalman filter extends naturally to multiple sources; one can modify Equation \eqref{eq:measurement} easily to accommodate a linear superposition of GWs. Taking the logic further, the stochastic background itself is arguably an incoherent sum of many individual GW sources. As long as a way can be found to summarize economically the many static parameters associated with the background sources, it should be possible for a Kalman filter and nested sampler to operate together to detect the stochastic background by generalizing the model selection procedure in Sections \ref{sec:model_selection} and \ref{sec:detection}. Summarizing the parameter set economically, while respecting the mathematical structure of the Kalman filter, is a subtle challenge, which we postpone to a forthcoming paper. If successful, it will complement the traditional approach of cross-correlating pulsar residuals to uncover the Hellings-Downs curve \citep{Hellings,2023ApJ...951L...8A}. \newline 
 
 
 
@@ -640,7 +598,9 @@ No new data were generated or analysed in support of this research.
 \section{Kalman filter} \label{sec:kalman}
 The Kalman filter \citep{Kalman1} is a Gauss-Markov model used to algorithmically recover a temporal sequence of stochastically evolving  system state variables, $\boldsymbol{X}(t)$, which are not observed directly, given a temporal sequence of noisy measurements, $\boldsymbol{Y}(t)$. It finds common use in engineering applications and has been applied successfully in neutron star astrophysics \citep[e.g.][]{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}. In this appendix, we describe the Kalman filter algorithm used in this paper. General recursion relations for the discrete-time Kalman filter are written down for an arbitrary linear dynamical system in Section \ref{sec_kalman_general}, along with the calculation of the likelihood. The application of the Kalman filter algorithm to the specific continuous-time state-space model in Section \ref{sec:2} is outlined in Section \ref{sec_kalman_specific}.
 
-%Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}. Equations \eqref{eq:measurement} and \eqref{eq:g_func} are non-linear in the static parameters (e.g.\ $d^{(n)}$), even though they are linear in ${\boldsymbol{X}}(t)$ and ${\boldsymbol{Y}}(t)$.
+%Extension to non-linear problems is straightforward using either an extended Kalman filter \citep{zarchan2000fundamentals}, unscented Kalman filter \citep{882463van} or particle filter \citep{Simon10}.
+
+% Equations \eqref{eq:measurement} and \eqref{eq:g_func} are non-linear in the static parameters (e.g.\ $d^{(n)}$), even though they are linear in ${\boldsymbol{X}}(t)$ and ${\boldsymbol{Y}}(t)$.
  %Implementation of the linear Kalman filter for the PTA state-space model in Section \ref{sec:model}, including the full set of Kalman recursion relations is presented in Appendix \ref{sec:kalman}.
 %
 %At each discrete timestep indexed by , the Kalman filter returns an estimate of the state variables, $\hat{\boldsymbol{X}}_i = \hat{\boldsymbol{X}}(t_i)$, and the covariance of those estimates, ${\boldsymbol{P}}_i = \langle {\boldsymbol{\hat X}}_i {\boldsymbol{\hat X}}_i^{\rm T} \rangle$, where the superscript T denotes the matrix transpose. 
