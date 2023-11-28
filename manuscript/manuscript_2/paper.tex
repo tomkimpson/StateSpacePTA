@@ -105,7 +105,23 @@ $^{3}$Department of Electrical and Electronic Engineering, University of Melbour
 
 % Abstract of the paper
 \begin{abstract}	
-	 Pulsar timing arrays may be able to detect continuous nanohertz gravitational waves emitted by individual supermassive black hole binaries. The gravitational wave (GW) signal is composed of two components, the ``Earth term" and ``pulsar term" which correspond to the GW incident on the Earth and the pulsar respectively. The data analysis procedure can be formulated within a state-space framework, wherein intrinsic achromatic spin wandering is Kalman-tracked concurrently with the modulation induced by a single-source gravitational wave in the pulse times of arrival. It is shown how to extend previous state-space analyses to include the pulsar terms. Astrophysically representative software injections in Gaussian measurement noise evidence that the inclusion of the pulsar terms eliminates the biases in the parameter estimates, increasing the parameter accuracy by \textcolor{red}{X percent} and the minimal detectable strain by \textcolor{red}{Y percent} relative to the previous approach.
+	 Pulsar timing arrays may be able to detect continuous nanohertz gravitational waves emitted by individual supermassive black hole binaries. The gravitational wave (GW) signal is composed of two components, the ``Earth term" and ``pulsar term" which correspond to the GW incident on the Earth and the pulsar respectively. The data analysis procedure can be formulated within a state-space framework, wherein intrinsic achromatic spin wandering is Kalman-tracked concurrently with the modulation induced by a single-source gravitational wave in the pulse times of arrival. It is shown how to extend previous state-space analyses to include the pulsar terms. 
+	 
+	 
+	 
+	 Astrophysically representative software injections in Gaussian measurement noise evidence that the inclusion of the pulsar terms eliminates the biases in the parameter estimates, increases the parameter accuracy, and decrease the minimal detectable strain relative to the previous approach.
+	 
+	 
+	 For a loud GW source with characteristic wave strain $h_0 = 10^{-12}$ the root-mean-square relative error in the estimated one-dimensional posteriors decreases by up to 99\% by including the pulsar terms. 
+	 
+	 
+	 For a quiet GW source with $h_0 = 5 \times 10^{-15}$ since the system is heavily noise dominated.
+	 
+	 However, including the pulsar terms decreases the minimal detectable strain 
+	 
+	 
+
+	by \textcolor{red}{Y percent} .
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -328,69 +344,8 @@ In this section, we apply the Kalman filter in conjunction with nested sampling 
 Regarding point (iii), quantifying the dispersion is important since it is a practical measure of the accuracy of the parameter estimation scheme when it is applied to real astronomical data, where the true parameter values and specific noise realisations are unknown. The injected static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this mock analysis to generate $\boldsymbol{Y}$ are selected to be astrophysically reasonable and representative. Different values of the static GW source parameters are explored in Section \ref{sec:parameter_space}. The static pulsar parameters $\boldsymbol{\theta'}_{\rm psr}$  are as specified in Section \ref{sec:synthetic_data}. All injected static parameters $\boldsymbol{\theta}'$ are summarised in the second column of Table \ref{tab:parameters_and_priors}. The specification of the priors on $\boldsymbol{\theta'}$ is described in Appendix \ref{sec:set_priors} and summarised in the rightmost column of Table \ref{tab:parameters_and_priors}. \newline
 
 
-Figure \ref{fig:corner_plot_1} displays results for the seven parameters in $\boldsymbol{\theta}_{\rm gw}$ for nine arbitrary noise realisations in the form of a traditional corner plot. The histograms are the one-dimensional posteriors for each parameter, marginalized over the six other parameters. Each coloured curve is the result for different noise realisation. The solid orange line marks the known injected value. The two-dimensional contours mark the (0.5, 1, 1.5, 2)-sigma level surfaces. All histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is scant evidence of railing against the prior bounds. There is no strong evidence for correlations between parameter pairs, e.g.\ banana-shaped contours, although weak-correlations are evident between $\Omega$ and $\Phi_0$, $\psi$ and $\alpha$, and $\iota$ and $h_0$. 
+Figure \ref{fig:corner_plot_1} displays results for the seven parameters in $\boldsymbol{\theta}_{\rm gw}$ for nine arbitrary noise realisations in the form of a traditional corner plot. The histograms are the one-dimensional posteriors for each parameter, marginalized over the six other parameters. Each coloured curve is the result for different noise realisation. The solid orange line marks the known injected value. The two-dimensional contours mark the (0.5, 1, 1.5, 2)-sigma level surfaces. All histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is scant evidence of railing against the prior bounds. There is no strong evidence for correlations between parameter pairs, e.g.\ banana-shaped contours, although weak-correlations are evident between $\Omega$ and $\Phi_0$, $\psi$ and $\alpha$, and $\iota$ and $h_0$. There is an evident offset in the peaks of the posteriors of $\iota$ and $h_0$ relative to the injection value, across all noise realisations \textcolor{red}{TK: to discuss}. The injected value is contained within the 90\% credible interval of the one-dimensional marginalized posteriors in 45 out of the 63 possible combinations of the seven parameters and 63 realizations (i.e. 70 $\%$). There is appreciable natural random dispersion in the one-dimensional posterior medians between noise realisations. The minimum coefficient of variation is  0.2\% for $\Omega$ , the maximum value is 43\% for $\Phi_0$. The remaining parameters have typical coefficients $\lessapprox 10 \%$. For this representative example, with characteristic strain $h_0 = 5 \times 10^{-15}$ the analysis scheme estimates $\boldsymbol{\theta}_{\rm gw}$ accurately. Analogous results for synthetic data with higher strain ($h_0 = 10^{-12}$) are presented in Appendix \ref{sec:app_high_SNR} (Figure \ref{fig:corner_high_snr_appendix}). At higher strains the dispersion between noise realisations is reduced and the one dimensional posteriors for $\iota$ and $h_0$ are more symmetric about the injection value. \newline 
 
-
-
-There is an evident offset in the peaks of the posteriors of $\iota$ and $h_0$ relative to the injection value, across all noise realisations. 
-
-
-
-
-
-
-
-
-
-
-
-iota and h0 are offset/ not symmetric about the injection value
-
-
-
-
-The 
-
-
-
-
-
-The injected value is contained within the 90\% credible interval of the one-dimensional marginalized posteriors in 45 out of the 63 possible combinations of the seven parameters and 63 realizations (i.e. 70 $\%$). 
-
-
-Of the 18 posteriors which do not contain the injected value within the  90\% credible interval, 12 
-
-
-
-This offset is due to the weak-identifiability of $\iota$-$h$
-
-
-
-
-
-
-
-
-
-
-
-
-There is appreciable natural random dispersion in the one-dimensional posterior medians between noise realisations. The minimum coefficient of variation is  0.2\% for $\Omega$ , the maximum value is 43\% for $\Phi_0$. The remaining parameters have typical coefficients $\lessapprox 10 \%$. For this representative example, with characteristic strain $h_0 = 5 \times 10^{-15}$ the analysis scheme estimates $\boldsymbol{\theta}_{\rm gw}$ accurately. Analogous results for synthetic data with higher strain ($h_0 = 10^{-12}$) are presented in Appendix \ref{sec:app_high_SNR} (Figure \ref{fig:corner_high_snr_appendix}). At higher strains the dispersion between noise realisations is reduced. \newline 
-
- 
- Moreover the systematic offset in $\iota$ in $h_0$ is reduced and becomes symmetric about the injection value 
- 
- 
- 
- 
-  \textcolor{red}{TK: there is an obvious additional feature that I haven't yet mentioned in the text, which is the systematic offset in iota and h w.r.t the injection. The systematic-ness makes me think this is likely a sampler setting. I am currently running some checks, and will then add few sentences discussing this, or update the results/plots. This is not an issue in the high SNR case: can noise drive results away from the injection systematically? Naively I expect a scatter, symmetric about the injection... How is this related to the chi vals}
- 
- 
- 
- 
- 
- 
- 
 In addition to estimates of $\boldsymbol{\theta}_{\rm gw}$, it is of interest how well the pulsar-term phase correction parameters $\chi^{(n)}$ can be estimated, since this parameter is a key feature of our approach. Figure \ref{fig:corner_plot_3} displays the results for a representative subset of five parameters of $\chi^{(n)}$, $ \{\chi^{(1)} \dots \chi^{(5)} \}$ over the nine noise realisations, analogously to Figure \ref{fig:corner_plot_1}. We do not display the resulting corner plot for all elements of $\chi^{(n)}$ because it is too big. With the exception of the results for $\chi^{(2)}$ (discussed below), all histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is no evidence for correlations between parameter pairs. The majority of the elements of $\chi^{(n)}$ are recovered unambiguously across all noise realisations; for the 47 elements of $\chi^{n}$ (i.e. not just the five elements plotted in Figure \ref{fig:corner_plot_3}), the injected value is  contained within the 90\% credible interval of the one-dimensional marginalized posteriors in 325 out of the 423 possible combinations of the 47 parameters and nine realizations (i.e. $\sim$ 77 $\%$). There are some elements for which consistent estimates are not obtained across multiple realisations, e.g $\chi^{(2)}$ (third row, third column of Figure \ref{fig:corner_plot_3}). This corresponds to the phase-correction term for PSR J0340+4130. This pulsar lies in the closest direction to our synthetic gw source, such that $| \boldsymbol{n} \cdot \boldsymbol{q}^{(2)}| = 0.96$. As a result the magnitude of $\cos \left( \chi^{(2)}\right) \sim 0.07$, and the influence of the pulsar term is minimal. The inability to accurately infer $\chi^{(2)}$ is contingent on the magnitude of the GW signal relative to the measurement noise; for synthetic data with $h_0 = 10^{-12}$, $\chi^{(2)}$ can be recovered accurately, see Figure \ref{fig:corner_high_snr_appendix_chi} in Appendix \ref{sec:app_high_SNR}. \newline 
 
 Similar results are obtained for the remaining 4$N$ parameters of $\boldsymbol{\theta}_{\rm psr}'$; the injected values are recovered unambiguously across the nine noise realisations. For the sake of brevity we do not display the calculated posterior distributions here because the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this paper and PTA analyses. \newline 
@@ -484,11 +439,11 @@ For the high-SNR case, Figure \ref{fig:corner_plot_compare_high}, the one-dimens
 
 We define a root-mean-square relative error to quantify the accuracy of the one-dimensional posteriors with respect to the injection value as
 \begin{equation}
-\Delta_{\rm M}(\theta) = \sqrt{\frac{1}{K}\sum_{k=1}^{K} \frac{p_k(\theta) - \hat{\theta}}{\hat{\theta}}} \ , \label{eq:mean_rel_error}
+\Delta_{\rm M}(\theta) = \sqrt{\frac{1}{K}\sum_{k=1}^{K} \frac{ \left[p_k(\theta) - \hat{\theta}\right]^2}{\hat{\theta}}} \ , \label{eq:mean_rel_error}
 \end{equation}
-where $p_k(\theta)$ is the $k$-th one-dimensional posterior sample for parameter $\theta$, $K$ is the total number of samples, $\hat{\theta}$ is the true injection value, and the subscript $M \in \{ \text{earth, pulsar} \}$ indicates whether the posterior is estimated using Equation \eqref{eq:g_func_trig_earth} or Equation \eqref{eq:g_func_trig} respectively. The dependence of $p_k(\theta)$ on $M$ is implied. The values of $\Delta_{\rm M}(\theta)$ for each parameter in Figure \ref{fig:corner_plot_compare_high} are summarised in Table \ref{tab:posterior_errors}. The difference in the error between the two models, $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is also presented. For every parameter $\Omega$, $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is positive, indicating that the parameter estimates are more accurate using the pulsar terms. In some cases the difference is modest;  $\Omega$ is recovered with high accuracy by both models such that $\Omega$, $\Delta_{\rm earth}(\Omega)-\Delta_{\rm pulsar}(\Omega) = 6.7 \times 10^{-3}$ rad. The improvement from using the pulsar terms is largest for $\iota$, with $\Delta_{\rm earth}(\iota) - \Delta_{\rm pulsar}(\iota)  = 0.24$ rad. \newline 
-		
-		
+where $p_k(\theta)$ is the $k$-th one-dimensional posterior sample for parameter $\theta$, $K$ is the total number of samples, $\hat{\theta}$ is the true injection value, and the subscript $M \in \{ \text{earth, pulsar} \}$ indicates whether the posterior is estimated using Equation \eqref{eq:g_func_trig_earth} or Equation \eqref{eq:g_func_trig} respectively. The dependence of $p_k(\theta)$ on $M$ is implied. The values of $\Delta_{\rm M}(\theta)$ for each parameter in Figure \ref{fig:corner_plot_compare_high} are summarised in Table \ref{tab:posterior_errors}. The difference in the error between the two models, $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is also presented. For every parameter $\Omega$, $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is positive, indicating that the parameter estimates are more accurate using the pulsar terms. In some cases the difference is modest;  $\Omega$ is recovered with high accuracy by both models such that $\Omega$, $\Delta_{\rm earth}(\Omega)-\Delta_{\rm pulsar}(\Omega) = 6.7 \times 10^{-3}$ rad. The improvement from using the pulsar terms is largest for $\iota$, with $\Delta_{\rm earth}(\iota) - \Delta_{\rm pulsar}(\iota)  = 0.24$ rad. As a percentage change, i.e. $1 - \Delta_{\rm earth}(\theta)/\Delta_{\rm pulsar}(\theta)$, the improvement from using $\mathcal{M}_{\rm P \& E}$ over $\mathcal{M}_{E}$ ranges from 61\% for $\Omega$ to 99\% for $\psi$ and $\alpha$. These improvements are consistent across noise realisations. \newline 
+
+
 For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less of a notable improvement in the parameter estimates. Qualitatively, the green and blue one-dimensional posteriors are generally overlaid. The two-dimensional contours suggest a slight improvement through using the pulsar terms, but the difference is modest. The root-mean-square relative error $\Delta_{\rm M}(\theta)$ for the low SNR case is also reported in Table \ref{tab:posterior_errors}. We see that the error is larger for every element in $\boldsymbol{\theta}_{\rm gw}$ than in the high SNR case, as expected. The inclusion of the pulsar terms improve the estimates for five out of the seven static parameters; $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is positive for all parameters except $\psi$ and $h_0$. However it is hard to draw strong conclusions; for different realisations of the noise different parameters exhibit either improvement or deterioration in $\Delta_{\rm M}(\theta)$. We conclude that the inclusion of the pulsar terms does not significantly improve the parameter estimates in the low-SNR case. This is intuitive since the system is highly noise dominated such that an increasing model complexity does not aid parameter estimates. Whilst the inclusion of the pulsar terms only modestly improve the accuracy of the parameter estimates in the case of low-SNR, we will show in Section \ref{sec:psr_v_earth_bayes} that they are important for increasing the detection probability for a given signal strength. \newline 
 		
 	\begin{figure*}
@@ -510,7 +465,7 @@ For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less o
 	\centering
 	%	\resizebox{\textwidth}{!}{%
 		%	\renewcommand{\arraystretch}{1.0} % Default value: 1
-		\begin{tabular}{lclll}
+		\begin{tabular}{lcllc}
 			\toprule
 			&$\theta$ & $\Delta_{\rm earth}(\theta)$ & $\Delta_{\rm pulsar}(\theta)$ & $\Delta_{\rm earth}(\theta) - \Delta_{\rm pulsar}(\theta)$   \\
 			\hline
@@ -522,14 +477,13 @@ For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less o
 			&$\alpha$ &0.0403 &0.000435 &0.0399 \\
 			&$h_0$ & 0.227 &0.075 &0.152 \\
 			\hline
-			\multirow{7}{2mm}{Low SNR} & $\Omega$       & 2.7 &1.6& \hspace{5mm} 1.09 \\
+			\multirow{7}{2mm}{Low SNR} & $\Omega$       & 2.7 &1.6& 1.09 \\
 			& $\Phi_0$ &0.335 &0.229 &0.106 \\
 			& $\psi$ &0.112 &0.123 &-0.0119 \\
 			& $\iota$ & 0.443 &0.37 &0.0724 \\
 			& $\delta$ & 0.181 &0.0782 &0.103 \\
 			&$\alpha$ &0.145 &0.139 &0.00637 \\
 			&$h_0$ & 1.12 &1.41 &-0.291 \\
-			
 			\bottomrule
 		\end{tabular}
 		\caption{Root-mean-square relative error $\Delta_{\rm M}(\theta)$, Equation \eqref{eq:mean_rel_error}, in the one-dimensional posteriors calculated using the Earth-term model (M = earth, Equation \eqref{eq:g_func_trig_earth}) and the pulsar-term model (M=pulsar, Equation \eqref{eq:g_func_trig}) for the elements $\theta \in \boldsymbol{\theta}_{\rm gw}$. The injection values are as summarised in Table \ref{tab:parameters_and_priors}. The top and bottom halves of the table contain the high-SNR ($h_0 = 10^{-12}$) and low-SNR ($h_0 = 5 \times 10^{-15}$) cases respectively.  For all parameters the units are in rad, except for $h_0$ which is dimensionless. The rightmost column quotes the difference in the mean relative error between the models for each parameter; a negative value indicates that the pulsar-term model is more accurate.}

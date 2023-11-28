@@ -411,9 +411,14 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
         #relative_error = (errors2 - errors1) / errors1
         difference = (earth_term_errors - pulsar_term_errors) #/ errors1
 
+
+
+
+        percentage_difference =difference/ earth_term_errors
+
         #print(relative_error)
         for i in range(len(earth_term_errors)):
-            print(variables_to_plot[i], "%.3g" % earth_term_errors[i],"%.3g" %pulsar_term_errors[i],"%.3g" %difference[i]) #printing to 3 sig fig
+            print(variables_to_plot[i], "%.3g" % earth_term_errors[i],"%.3g" %pulsar_term_errors[i],"%.3g" %difference[i],"%.3g" %percentage_difference[i]) #printing to 3 sig fig
 
 
 

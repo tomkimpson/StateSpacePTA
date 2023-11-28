@@ -56,10 +56,9 @@ def gw_psr_terms(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
 The null model - i.e. no GW
 """
 @njit(fastmath=True)
-def null_model(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0):
+def null_model(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0,chi):
     return np.zeros((len(t),len(q))) #if there is no GW, the GW factor = 0.0
     
-
 @njit(fastmath=True)
 def principal_axes(theta,phi,psi):
     
