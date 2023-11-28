@@ -146,7 +146,8 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d,chi,mea
     
     
     if measurement_model == "pulsar": #we only need a prior on chi when using the pulsar model
-        init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
+        #init_parameters,priors = add_to_bibly_priors_dict_chi(chi,"chi",init_parameters,priors) #uniform
+        init_parameters,priors = add_to_bibly_priors_dict_constant(chi,"chi",init_parameters,priors) #uniform
     else: #set them as constants, but they are not actually used
         init_parameters,priors = add_to_bibly_priors_dict_constant(chi,"chi",init_parameters,priors)        # distance not needed unless we are using the PSR model, which we are not using currently
 

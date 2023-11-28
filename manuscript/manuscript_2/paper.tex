@@ -78,7 +78,7 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-	\title[Kalman Pulsar-terms]{State-space analysis of continuous gravitational waves with a pulsar timing array: inclusion of the pulsar terms}
+	\title[State-space PTA]{State-space analysis of continuous gravitational waves with a pulsar timing array: inclusion of the pulsar terms}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -368,22 +368,20 @@ Section \ref{sec:pe_and_ms} focuses on a single representative system, summarise
 We analyse 200 injections constructed by fixing $h_0 = 5 \times 10^{-15}$, $\iota =1.0$ rad and drawing the remaining five elements of $\boldsymbol{\theta}_{\rm gw}$ randomly from the prior distributions defined in Table \ref{tab:parameters_and_priors}. We fix $h_0$ and $\iota$ in order to maintain an approximately constant signal-to-noise ratio (SNR) across the 200 injections. For each injection we compute the posterior distribution of ${\boldsymbol{\theta}}_{\rm gw}$. The static pulsar parameters $\boldsymbol{\theta'}_{\rm psr}$ are as specified in Section \ref{sec:synthetic_data} and Table  \ref{tab:parameters_and_priors}. \newline 
 
 
-It is prohibitive to produce corner plots analogous to Figure \ref{fig:corner_plot_1} for 200 injections and seven elements of $\boldsymbol{\theta}_{\rm gw}$. Therefore, in order to summarise the results we use a parameter-parameter (PP) plot \citep{doi:10.1198/106186006X136976}. A PP plot displays the fraction of injections included within a given credible interval of the estimated posterior, as a function of the credible interval itself. In the ideal case of perfect recovery, the PP plot should be a diagonal line of unit slope.  
+It is prohibitive to produce corner plots analogous to Figure \ref{fig:corner_plot_1} for 200 injections and seven elements of $\boldsymbol{\theta}_{\rm gw}$. Therefore, in order to summarise the results we use a parameter-parameter (PP) plot \citep{doi:10.1198/106186006X136976}. A PP plot displays the fraction of injections included within a given credible interval of the estimated posterior, as a function of the credible interval itself. In the ideal case of perfect recovery, the PP plot should be a diagonal line of unit slope. The results are displayed in Figure \ref{fig:parameter_space}.  
+The shaded grey contours enclose the $1\sigma$, $2\sigma$, and $3\sigma$ significance levels for 200 injections. The curves for the five parameters generally exhibit the discussed linear behaviour. Some parameters are consistently well estimated across the parameter space; the blue curve for $\Omega$ is consistently contained within the 2-$\sigma$ shaded region. 
 
 
-The results are displayed in Figure \ref{fig:parameter_space}.  
-The shaded grey contours enclose the $1\sigma$, $2\sigma$, and $3\sigma$ significance levels for 200 injections. The curves for the five parameters generally exhibit the discussed linear behaviour. 
-
-
-Some parameters are consistently well estimated across the parameter space; the blue curve for $\Omega$ is consistently contained within the 2-$\sigma$ shaded region. 
-
-
-Conversely some parameters e.g. $\psi$ stray outside the $1\sigma$ bounded region and show evidence of being over constrained; there are more injections contained within lower-value credible intervals than would be expected statistically, and more injections contained within higher-value credible intervals. 
+Conversely some parameters e.g. $\psi$ stray outside the $1\sigma$ bounded region and show evidence of being over constrained; there are more injections contained within lower-value credible intervals than would be expected statistically, and less injections contained within higher-value credible intervals. 
 
 With a strain of X, we are close to the nosie floor (see e.g. figure X), so small variations in 
 
-\textcolor{red}{TK: can we do better than this?}
 
+
+Inspecting the individual resulting corner plots for each of the 200 injections, it is evident that for a minority of SMBHB sources the method either does not converge to a consistent unimodal one-dimensional posterior, or else a posterior is calculated but is slightly offset, not symmetric about the injected value. 
+
+
+due to challenge of etimateng phi
 
 
 The 
@@ -394,7 +392,7 @@ At this signal-to-noise ratio
 the polarisation angle does stray above /below 
 
 
-At lowe SNR the ability to resolve the depends upon the noise realisation and the source location. The antenna pattern function formed by the NANOGrav 12.5 year pulsars is sensitive to different parts of the sky. Areas with lower sensitivity may need to be  
+At low SNR the ability to resolve the depends upon the noise realisation and the source location. The antenna pattern function formed by the NANOGrav 12.5 year pulsars is sensitive to different parts of the sky. Areas with lower sensitivity may need to be  
 
 
 
@@ -508,7 +506,15 @@ For a given $h_0$, we generate 10 realisations of synthetic data
 
 
 
-To control the test, the noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change from one $h_0$ value to the next is $h_0$ itself. \footnote{Changing the noise realizations as well, from one value of $h_0$ to the next, adds uninformative scatter to the trend in Figure \ref{fig:bayes}.}
+To control the test, the noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change from one $h_0$ value to the next is $h_0$ itself. 
+
+
+
+
+
+
+
+\footnote{Changing the noise realizations as well, from one value of $h_0$ to the next, adds uninformative scatter to the trend in Figure \ref{fig:bayes}.}
 	
 	
 	
