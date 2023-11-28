@@ -400,37 +400,38 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
 
 
     #Surface some numbers
-    print("Surfacing some numbers for comparing two posteriors")
+    print("Surfacing numbers for comparing two posteriors")
+    print("The RMSRE is:")
     if len(selected_files) ==2:
-        errors1 = error_files[0]
-        errors2 = error_files[1]
+        earth_term_errors = error_files[0]
+        pulsar_term_errors = error_files[1]
 
         #print(errors1)
         #print(errors2)
         #relative_error = (errors2 - errors1) / errors1
-        relative_error = (errors2 - errors1) #/ errors1
+        difference = (earth_term_errors - pulsar_term_errors) #/ errors1
 
         #print(relative_error)
-        for i in range(len(relative_error)):
-            print("%.3g" % errors1[i],"%.3g" %errors2[i],"%.3g" %relative_error[i]) #printing to 3 sig fig
+        for i in range(len(earth_term_errors)):
+            print(variables_to_plot[i], "%.3g" % earth_term_errors[i],"%.3g" %pulsar_term_errors[i],"%.3g" %difference[i]) #printing to 3 sig fig
 
 
 
 def get_posterior_accuracy(posterior,injection,labels):
 
     print("The error in the 1D posteriors is as follows:")
-    rmse_errors =np.zeros(posterior.shape[-1])
+    rmse_errors =np.zeros(posterior.shape[-1]) # vector of length n parameters
     for i in range(posterior.shape[-1]):
         y = posterior[:,i]
         inj = injection[i]
-        error = np.mean(np.abs(inj - y) / inj) #julian error
+        
+        #error = np.mean(np.abs(inj - y) / inj) #i.e. average absolute error
 
-        rmse = np.sqrt(np.sum((y - inj)**2) / len(y))
-        #rmse_errors[i] = rmse
-        rmse_errors[i] = error
+        rmse = np.sqrt(np.sum((y - inj)**2) / len(y)) # RMSRE https://stats.stackexchange.com/questions/413209/is-there-something-like-a-root-mean-square-relative-error-rmsre-or-what-is-t
+        rmse_errors[i] = rmse
 
-        print(labels[i], error,rmse)
-    print('*****************************')
+        #print(labels[i], error,rmse)
+    #print('*****************************')
 
 
     return rmse_errors

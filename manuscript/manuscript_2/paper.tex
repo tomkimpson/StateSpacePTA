@@ -403,11 +403,11 @@ Conversely the ability to infer $\Omega$ depends less on sky position or values.
 
 
 \section{Earth terms vs pulsar terms}\label{sec:earth_vs_psr}
-In Section \ref{sec:rep_example1} we have validated the state-space analysis scheme when the pulsar terms are included in the inference model. In this section, critically, we compare the affect of including the pulsar-term in the model (i.e. using Equation \eqref{eq:g_func_trig_chi}), as opposed to the omitting the pulsar-term (i.e. Equation \eqref{eq:g_func_trig_earth}). We do this using the specific representative case of the individual quasi-monochromatic SMBHB source described in Table \ref{tab:parameters_and_priors}. We refer to the model where the pulsar-term is included alongside the Earth term as $\mathcal{M}_{\rm P \& E}$. We refer to the model where the pulsar-term is omitted as 
+In Section \ref{sec:rep_example1} we have validated the state-space analysis scheme when the pulsar terms are included in the inference model. In this section, critically, we compare the effect of including the pulsar-term in the model (i.e. using Equation \eqref{eq:g_func_trig_chi}), as opposed to the omitting the pulsar-term (i.e. Equation \eqref{eq:g_func_trig_earth}). We do this using the specific representative case of the individual quasi-monochromatic SMBHB source described in Table \ref{tab:parameters_and_priors}. We refer to the model where the pulsar-term is included alongside the Earth term as $\mathcal{M}_{\rm P \& E}$. We refer to the model where the pulsar-term is omitted as 
 $\mathcal{M}_{\rm E}$. Model $\mathcal{M}_{\rm P \& E}$ is parameterised by $\boldsymbol{\theta}'$. Model $\mathcal{M}_{\rm E}$ is parameterised by $\boldsymbol{\theta}_{\rm E} = \boldsymbol{\theta}_{\rm gw} \cup \boldsymbol{\theta}'_{\rm psr}$. Both models are applied to identical realisations of the data, generated using the procedure as described in Section  \ref{sec:synthetic_data}. The priors on the static parameters in each model are also identical, with the addition of a uniform prior on $\chi^{(n)}$ for $\mathcal{M}_{\rm P \& E}$, as described in Appendix \ref{sec:set_priors}. \newline 
 
 
-In Section \ref{sec:psr_v_earth_pe} we compare the accuracy of the estimates of $\boldsymbol{\theta'}$ returned by the two models. In Section \ref{sec:psr_v_earth_bayes} we compare the minimal detectable strain for the two models. 
+In Section \ref{sec:psr_v_earth_pe} we compare the accuracy of the estimates of $\boldsymbol{\theta'}$, $\boldsymbol{\theta}_{\rm E}$ returned by the respective models. In Section \ref{sec:psr_v_earth_bayes} we compare the minimal detectable strain for the two models. 
 
 
 
@@ -424,14 +424,17 @@ The results for the seven parameters of  $\boldsymbol{\theta}_{\rm gw}$ are show
 For the high-SNR case, Figure \ref{fig:corner_plot_compare_high}, the one-dimensional posteriors for the Earth-term model are evidently biased, as was observed in K24, as well as \cite{Zhupulsarterms} and \cite{Chen2022}. Particular biases are observed in $\psi, \iota $ and $\alpha$, with the blue posterior displaced with respect to the orange injection line. For example, for $\iota$, whilst the injected value is contained within the 90\% credible interval, the median of the posterior of the Earth-term model is shifted from the injected value by 0.35 radians. The inclusion of the pulsar terms corrects for this bias; the green one-dimensional exhibit no bias and are generally symmetric about the injected value. Moreover, for every pair of parameters the injection values are contained within the 2-sigma equivalent contours for the pulsar-term model, which is not true in the Earth-terms case. \newline 
 
 
-We define a relative error metric to quantify the accuracy of the one-dimensional posteriors with respect to the injection value as
+We define a root-mean-square relative error to quantify the accuracy of the one-dimensional posteriors with respect to the injection value as
 \begin{equation}
-\Delta_{\rm M}(\theta) = \frac{1}{K}\sum_{k=1}^{K} \frac{p_k(\theta) - \hat{\theta}}{\hat{\theta}} \ , \label{eq:mean_rel_error}
+\Delta_{\rm M}(\theta) = \sqrt{\frac{1}{K}\sum_{k=1}^{K} \frac{p_k(\theta) - \hat{\theta}}{\hat{\theta}}} \ , \label{eq:mean_rel_error}
 \end{equation}
-where $p_k(\theta)$ is the $k$-th one-dimensional posterior sample for parameter $\theta$, $K$ is the total number of samples, $\hat{\theta}$ is the true injection value, and the subscript $M \in \{ \text{earth, pulsar} \}$ indicates whether the posterior is estimated using Equation \eqref{eq:g_func_trig_earth} or Equation \eqref{eq:g_func_trig} respectively. The dependence of $p_k(\theta)$ on $M$ is implied. $\Delta_{\rm M}(\theta)$ represents the mean relative error in the one-dimensional posterior. The values of $\Delta_{\rm M}(\theta)$ for each parameter in Figure \ref{fig:corner_plot_compare_high} are summarised in Table \ref{tab:posterior_errors}. The difference in the mean relative error between the two models, $\Delta_{\rm pulsar}(\theta) - \Delta_{\rm earth}(\theta)$ is also presented. For every parameter except $\Omega$, $\Delta_{\rm pulsar}(\theta) - \Delta_{\rm earth}(\theta)$ is negative, indicating that the parameter estimates are more accurate using the pulsar terms (i.e. the mean relative error when using the pulsar model is smaller). The exception for $\Omega$ is due to the fact that $\Omega$ is recovered with high accuracy in both cases; the the mean relative error is small $\Delta_{\rm M}(\Omega) \sim 10^{-5}$. The improvement from using the pulsar terms is largest for $\iota$, with $\Delta_{\rm pulsar}(\iota) - \Delta_{\rm earth}(\iota) = -0.25$. \newline 
+where $p_k(\theta)$ is the $k$-th one-dimensional posterior sample for parameter $\theta$, $K$ is the total number of samples, $\hat{\theta}$ is the true injection value, and the subscript $M \in \{ \text{earth, pulsar} \}$ indicates whether the posterior is estimated using Equation \eqref{eq:g_func_trig_earth} or Equation \eqref{eq:g_func_trig} respectively. The dependence of $p_k(\theta)$ on $M$ is implied. The values of $\Delta_{\rm M}(\theta)$ for each parameter in Figure \ref{fig:corner_plot_compare_high} are summarised in Table \ref{tab:posterior_errors}. The difference in the error between the two models, $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is also presented. For every parameter $\Omega$, $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is positive, indicating that the parameter estimates are more accurate using the pulsar terms. In some cases the difference is modest;  $\Omega$ is recovered with high accuracy by both models such that $\Omega$, $\Delta_{\rm earth}(\Omega)-\Delta_{\rm pulsar}(\Omega) = 6.7 \times 10^{-3}$. The improvement from using the pulsar terms is largest for $\iota$, with $\Delta_{\rm earth}(\iota) - \Delta_{\rm pulsar}(\iota)  = 0.24$. \newline 
 		
 		
-For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less of a notable improvement in the parameter estimates. Qualitatively, the green and blue one-dimensional posteriors are generally overlaid. The two-dimensional contours suggest a slight improvement through using the pulsar terms, but the difference is modest. The mean relative errors $\Delta_{\rm M}(\theta)$ for the low SNR case are also reported in Table \ref{tab:posterior_errors}. We see that.... \textcolor{red}{TK: numbers to be inserted here}. We conclude that the inclusion of the pulsar terms does not significantly improve the parameter estimates in the low-SNR case. This is intuitive since the system is highly noise dominated such that an increasing model complexity does not aid parameter estimates. Whilst the inclusion of the pulsar terms only modestly improve the accuracy of the parameter estimates in the case of low-SNR, we will show in Section \ref{sec:psr_v_earth_bayes} that they are important for increasing the detection probability for a given signal strength. \newline 
+For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less of a notable improvement in the parameter estimates. Qualitatively, the green and blue one-dimensional posteriors are generally overlaid. The two-dimensional contours suggest a slight improvement through using the pulsar terms, but the difference is modest. The root-mean-square relative error $\Delta_{\rm M}(\theta)$ for the low SNR case is also reported in Table \ref{tab:posterior_errors}. We see that the error is larger for every element in $\theta_{\rm gw}$ than in the high SNR case, as expected. 
+
+
+The inclusion of the pulsar terms improve the estimates for five out of the seven static parameters; $\Delta_{\rm earth}(\theta)-\Delta_{\rm pulsar}(\theta)$ is positive for all parameters except $\psi$ and $h_0$. However it is hard to draw strong conclusions; for different realisations of the noise different parameters exhibit either improvement or deterioration in $Delta_{\rm M}(\theta)$. We conclude that the inclusion of the pulsar terms does not significantly improve the parameter estimates in the low-SNR case. This is intuitive since the system is highly noise dominated such that an increasing model complexity does not aid parameter estimates. Whilst the inclusion of the pulsar terms only modestly improve the accuracy of the parameter estimates in the case of low-SNR, we will show in Section \ref{sec:psr_v_earth_bayes} that they are important for increasing the detection probability for a given signal strength. \newline 
 		
 	\begin{figure*}
 	\includegraphics[width=\textwidth, height =\textwidth ]{images/corner_highSNR_compare}
@@ -452,29 +455,29 @@ For the low-SNR case,  Figure \ref{fig:corner_plot_compare_low}, there is less o
 	\centering
 	%	\resizebox{\textwidth}{!}{%
 		%	\renewcommand{\arraystretch}{1.0} % Default value: 1
-		\begin{tabular}{lcclc}
+		\begin{tabular}{lcllc}
 			\toprule
-			&$\theta$ & $\Delta_{\rm earth}(\theta)$ & $\Delta_{\rm pulsar}(\theta)$ & $\Delta_{\rm pulsar}(\theta) -\Delta_{\rm earth}(\theta) $   \\
+			&$\theta$ & $\Delta_{\rm earth}(\theta)$ & $\Delta_{\rm pulsar}(\theta)$ & $\Delta_{\rm earth}(\theta) - \Delta_{\rm pulsar}(\theta)$   \\
 			\hline
-			\multirow{7}{2mm}{High SNR} & $\Omega$       & 1.23e-05 &1.49e-05 &2.54e-06 \\
-			& $\Phi_0$ &0.0179 &0.0085& -0.00935 \\
-			& $\psi$ &0.0386& 0.000254& -0.0384 \\
-			& $\iota$ & 0.374 &0.126 &-0.248 \\
-			& $\delta$ & 0.00223 &0.000242& -0.00198 \\
-			&$\alpha$ &0.0397 &0.000582 &-0.0391 \\
-			&$h_0$ & 0.168 &0.0846 &-0.0839 \\
+			\multirow{7}{2mm}{High SNR} & $\Omega$       & 0.011& 0.0043& 0.00671\\
+			& $\Phi_0$ &0.00332 &0.00115 &0.00217\\
+			& $\psi$ &0.0968 &0.000653 &0.0962 \\
+			& $\iota$ & 0.343 &0.106 &0.237 \\
+			& $\delta$ & 0.00187 &0.000285 &0.00158 \\
+			&$\alpha$ &0.0403 &0.000435 &0.0399 \\
+			&$h_0$ & 0.227 &0.075 &0.152 \\
 			\hline
-			\multirow{7}{2mm}{Low SNR} & $\Omega$       & 1.23e-05 &1.49e-05 &2.54e-06 \\
-			& $\Phi_0$ &0.0179 &0.0085& -0.00935 \\
-			& $\psi$ &0.0386& 0.000254& -0.0384 \\
-			& $\iota$ & 0.374 &0.126 &-0.248 \\
-			& $\delta$ & 0.00223 &0.000242& -0.00198 \\
-			&$\alpha$ &0.0397 &0.000582 &-0.0391 \\
-			&$h_0$ & 0.168 &0.0846 &-0.0839 \\
+			\multirow{7}{2mm}{Low SNR} & $\Omega$       & 2.7 &1.6& 1.09 \\
+			& $\Phi_0$ &0.335 &0.229 &0.106 \\
+			& $\psi$ &0.112 &0.123 &-0.0119 \\
+			& $\iota$ & 0.443 &0.37 &0.0724 \\
+			& $\delta$ & 0.181 &0.0782 &0.103 \\
+			&$\alpha$ &0.145 &0.139 &0.00637 \\
+			&$h_0$ & 1.12 &1.41 &-0.291 \\
 			
 			\bottomrule
 		\end{tabular}
-		\caption{Mean relative error $\Delta_{\rm M}(\Theta)$ (Equation \eqref{eq:mean_rel_error}) in the one-dimensional posteriors calculated using the Earth-term model (M = earth, Equation \eqref{eq:g_func_trig_earth}) and the pulsar-term model (M=pulsar, Equation \eqref{eq:g_func_trig}) for the elements $\theta \in \boldsymbol{\theta}_{\rm gw}$. The injection values are as summarised in Table \ref{tab:parameters_and_priors}. The top and bottom halves of the table contain the high-SNR ($h_0 = 10^{-12}$) and low-SNR ($h_0 = 5 \times 10^{-15}$) cases respectively. The rightmost column quotes the difference in the mean relative error between the models for each parameter; a negative value indicates that the pulsar-term model is more accurate.\textcolor{red}{TK numbers to be revised and double checked, but probably representative. Julian notes: swap so positive is good, normalise omega, add units, align}}
+		\caption{Root-mean-square relative error $\Delta_{\rm M}(\theta)$ ,Equation \eqref{eq:mean_rel_error}, in the one-dimensional posteriors calculated using the Earth-term model (M = earth, Equation \eqref{eq:g_func_trig_earth}) and the pulsar-term model (M=pulsar, Equation \eqref{eq:g_func_trig}) for the elements $\theta \in \boldsymbol{\theta}_{\rm gw}$. The injection values are as summarised in Table \ref{tab:parameters_and_priors}. The top and bottom halves of the table contain the high-SNR ($h_0 = 10^{-12}$) and low-SNR ($h_0 = 5 \times 10^{-15}$) cases respectively.  For all parameters the units are in rad, except for $h_0$ which is dimensionless. The rightmost column quotes the difference in the mean relative error between the models for each parameter; a negative value indicates that the pulsar-term model is more accurate.}
 		\label{tab:posterior_errors}
 	\end{table}
 
@@ -494,7 +497,18 @@ The evidence integral $\mathcal{Z}$ returned by nested sampling, Equation \eqref
 In this paper we consider $i \in \left \{ \rm P\& E, E\right \}$ \newline 
 	
 	
-The Bayes factor, $\beta_i$, for each of the two models is presented in Figure \ref{fig:bayes} for the representative source in Table \ref{tab:parameters_and_priors}, except that we now vary the source amplitude, $h_0$, from $10^{-15}$ (undetectable) to $10^{-12}$ (easily detectable). To control the test, the noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change from one $h_0$ value to the next is $h_0$ itself. \footnote{Changing the noise realizations as well, from one value of $h_0$ to the next, adds uninformative scatter to the trend in Figure \ref{fig:bayes}.}
+The Bayes factor, $\beta_i$, for each of the two models is presented in Figure \ref{fig:bayes1} for the representative source in Table \ref{tab:parameters_and_priors}, except that we now vary the source amplitude, $h_0$, from $10^{-15}$ (undetectable) to $10^{-12}$ (easily detectable). 
+
+
+
+
+
+For a given $h_0$, we generate 10 realisations of synthetic data
+
+
+
+
+To control the test, the noise processes in the synthetic data are identical realisations for each value of $h_0$; the only change from one $h_0$ value to the next is $h_0$ itself. \footnote{Changing the noise realizations as well, from one value of $h_0$ to the next, adds uninformative scatter to the trend in Figure \ref{fig:bayes}.}
 	
 	
 	
@@ -720,9 +734,9 @@ We can use the likelihood returned by the Kalman filter, Equation \eqref{eq:like
 \end{equation}
 where $\pi(\boldsymbol{\theta})$ is the prior distribution on $\boldsymbol{\theta}$ and $\mathcal{Z}$ is the marginalised likelihood, or evidence
 \begin{equation}
-	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence}
+	\mathcal{Z} = \int d \boldsymbol{\theta} \mathcal{L}(\boldsymbol{Y} | \boldsymbol{\theta})  \pi(\boldsymbol{\theta})  \ . \label{eq:model_evidence2}
 \end{equation}
-We estimate the posterior distribution and the model evidence through nested sampling \citep{Skilling} in this paper. Nested sampling evaluates marginalised likelihood integrals, of the form given by Equation \eqref{eq:model_evidence}. It also approximates the posterior by returning samples from $p(\boldsymbol{\theta} | \boldsymbol{Y})$. It does so by drawing a set of $n_{\rm live}$ live points from $\pi(\boldsymbol{\theta})$ and iteratively replacing the live point with the lowest likelihood with a new live point drawn from $\pi(\boldsymbol{\theta})$, where the new live point is required to have a higher likelihood than the discarded point. The primary advantage of nested sampling is its ability to compute $\mathcal{Z}$, on which model selection relies. Nested sampling is also computationally efficient and can handle multi-modal problems \citep{Ashton2022}. For these reasons, it has enjoyed widespread adoption in the physical sciences, particularly within the cosmological community \citep{Mukherjee2006,Feroz2008,Handley2015}, neutron star astrophysics \citep{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}, particle physics \citep{proceedings2019033014} and materials science \citep{2009arXiv0906materials}. For reviews of nested sampling we refer the reader to \cite{Buchner2021} and \cite{Ashton2022}. Multiple nested sampling algorithms and computational libraries exist. \citep[e.g.][]{Feroz2008,Feroz2009,Handley2015,dynesty2020,UltraNest2021}. In gravitational wave research it is common to use the \texttt{dynesty} sampler \citep{dynesty2020} via the \texttt{Bilby} \citep{bilby.507.2037A} front-end library. We follow this precedent and use \texttt{Bilby} for all nested sampling Bayesian inference in this work. \newline 
+We estimate the posterior distribution and the model evidence through nested sampling \citep{Skilling} in this paper. Nested sampling evaluates marginalised likelihood integrals, of the form given by Equation \eqref{eq:model_evidence2}. It also approximates the posterior by returning samples from $p(\boldsymbol{\theta} | \boldsymbol{Y})$. It does so by drawing a set of $n_{\rm live}$ live points from $\pi(\boldsymbol{\theta})$ and iteratively replacing the live point with the lowest likelihood with a new live point drawn from $\pi(\boldsymbol{\theta})$, where the new live point is required to have a higher likelihood than the discarded point. The primary advantage of nested sampling is its ability to compute $\mathcal{Z}$, on which model selection relies. Nested sampling is also computationally efficient and can handle multi-modal problems \citep{Ashton2022}. For these reasons, it has enjoyed widespread adoption in the physical sciences, particularly within the cosmological community \citep{Mukherjee2006,Feroz2008,Handley2015}, neutron star astrophysics \citep{Myers2021MNRAS.502.3113M,Meyers2021,Melatos2023}, particle physics \citep{proceedings2019033014} and materials science \citep{2009arXiv0906materials}. For reviews of nested sampling we refer the reader to \cite{Buchner2021} and \cite{Ashton2022}. Multiple nested sampling algorithms and computational libraries exist. \citep[e.g.][]{Feroz2008,Feroz2009,Handley2015,dynesty2020,UltraNest2021}. In gravitational wave research it is common to use the \texttt{dynesty} sampler \citep{dynesty2020} via the \texttt{Bilby} \citep{bilby.507.2037A} front-end library. We follow this precedent and use \texttt{Bilby} for all nested sampling Bayesian inference in this work. \newline 
 
 The primary tunable parameter in nested sampling is $n_{\rm live}$. More live points assists with large parameter spaces and multi-modal problems, whilst the uncertainties in the evidence and the posterior scale as $\mathcal{O}\left(n_{\rm live}^{-1/2}\right)$. However the computational runtime scales as $\mathcal{O}(n_{\rm live})$. \cite{Ashton2022} offered a rule-of-thumb trade-off, where the minimum number of live points should be greater than the number of static parameters. Informal empirical tests conducted as part of this paper support the trade-off suggested by \cite{Ashton2022}; we find typically that the true ${\boldsymbol{\theta}}$ is contained within the 90\% credible interval of the one-dimensional marginalised posteriors of ${\boldsymbol{\hat{\theta}}}$ for $n_{\rm live} > 7 + 5N$ with $N \leq 50$. Unless stated otherwise we take $n_{\rm live} = 1000$ for all results presented in this work. \newline 
 
@@ -730,10 +744,9 @@ The primary tunable parameter in nested sampling is $n_{\rm live}$. More live po
 \section{Choice of priors}\label{sec:set_priors}
 To deploy the nested sampling outlined in Appendix \ref{sec:nested_sampling} it is necessary to specify a Bayesian prior $\boldsymbol{\theta}$ on the static parameters. In this section we outline how the priors are chosen. The priors on each static parameter are summarised in Table \ref{tab:parameters_and_priors}.  \newline 
 
-For $\pi(\boldsymbol{\theta}_{\rm gw})$ we choose standard non-informative priors \citep[e.g.][]{Bhagwat2021}. For $\pi(\boldsymbol{\theta}_{\rm psr})$ \textit{a priori} information from electromagnetic observations does exist. We adopt constrained uniform priors on $f_{\rm em}^{(n)}(t_1)$ and $\dot{f}_{\rm em}^{(n)}(t_1)$, which extend $\pm 10^3 \eta_f^{(n)}$ and $\pm 10^3 \eta_{\dot{f}}^{(n)}$ respectively about the central, injected values, where $\eta_f^{(n)}$ and $\eta_{\dot{f}}^{(n)}$ denote the errors quoted in the ATNF Pulsar Database. By using wider-than-necessary priors we expose the analysis scheme to a more stringent test. We set an uninformative broad prior $\pi[\sigma^{(n)} / (1 \, {\rm s^{-3/2}})] \sim$ LogUniform($10^{-23}, 10^{-19}$) which covers the range of values inferred from Equation \eqref{eq:sigmap_f}. We set an non-informative prior on the new static parameter $\chi^{(n)} \sim \text{Uniform}\left(0,2\pi\right)$. We do not set a prior on $\gamma^{(n)}$, because $\gamma^{(n)} T_{\rm obs} \sim 10^{-5}$, and consequently $\gamma^{(n)}$ is effectively ``unobservable'' over $T_{\rm obs}$. For validation purposes it is therefore sufficient to carry $\gamma^{(n)}$ through the analysis at its injected value. This reduces the total dimension of the parameter space to $7 + 4N$. The chosen prior $\boldsymbol{\theta}$ is the same as used in K24, with the addition of a prior on $\chi^{(n)}$ due to the inclusion of the pulsar term. \newline 
-
-The chosen priors for the representative analysis in Section \ref{sec:rep_example1} are summarised in \ref{Table tab:parameters_and_priors}
-
+For $\pi(\boldsymbol{\theta}_{\rm gw})$ we have no \textit{a priori} information on the parameters. We therefore choose standard non-informative priors \citep[e.g.][]{Bhagwat2021}. For $\pi(\boldsymbol{\theta}_{\rm psr})$ \textit{a priori} information from electromagnetic observations does exist. We adopt constrained uniform priors on $f_{\rm em}^{(n)}(t_1)$ and $\dot{f}_{\rm em}^{(n)}(t_1)$, which extend $\pm 10^3 \eta_f^{(n)}$ and $\pm 10^3 \eta_{\dot{f}}^{(n)}$ respectively about the central, injected values, where $\eta_f^{(n)}$ and $\eta_{\dot{f}}^{(n)}$ denote the errors quoted in the ATNF Pulsar Database. By using wider-than-necessary priors we expose the analysis scheme to a more stringent test. We set an uninformative broad prior $\pi[\sigma^{(n)} / (1 \, {\rm s^{-3/2}})] \sim$ LogUniform$ \left [10^{-2} \sigma_{\rm SC}^{(n)}, 10^2 \sigma_{\rm SC}^{(n)} \right ]$
+where $\sigma_{\rm SC}^{(n)}$ is the value for pulsar $n$ inferred from
+Equation \eqref{eq:sigmap_f}. We set an non-informative prior on the new static parameter $\chi^{(n)} \sim \text{Uniform}\left(0,2\pi\right)$. We do not set a prior on $\gamma^{(n)}$, because $\gamma^{(n)} T_{\rm obs} \sim 10^{-5}$, and consequently $\gamma^{(n)}$ is effectively ``unobservable'' over $T_{\rm obs}$. For validation purposes it is therefore sufficient to carry $\gamma^{(n)}$ through the analysis at its injected value. This reduces the total dimension of the parameter space to $7 + 4N$. \newline 
 
 
 
@@ -742,7 +755,6 @@ The chosen priors for the representative analysis in Section \ref{sec:rep_exampl
 
 
 \section{Complete workflow summary}
-
 For the reader's convenience we now summarise the workflow for a representative PTA analysis using the Kalman filter and nested sampler for parameter estimation and model selection:
 \begin{enumerate}[leftmargin=2em]
 	\item Specify a PTA composed of $N$ pulsars 
@@ -774,16 +786,34 @@ In order to compute $\beta$ the above workflow is repeated for a different $\mat
 
 
 
-\section{Canonical example, high SNR} \label{sec:app_high_SNR}
+\section{Parameter estimation of representative example, high-SNR} \label{sec:app_high_SNR}
+
+
+In this Section we repeat the analysis of Section \ref{sec:pe_and_ms}
+
+
+
+In this section, we apply the Kalman filter in conjunction with nested sampling to calculate the joint posterior probability distribution $p({\boldsymbol{\theta'}} | {\boldsymbol{Y}})$ for synthetic data $\boldsymbol{Y}$, and compare it to the known, injected values. The procedure is undertaken for multiple realisations of the noise processes $\xi^{(n)}(t)$ and $\varepsilon^{(n)}(t)$. That is, given the injected static parameters $\boldsymbol{\theta'}$, multiple realisations of $\boldsymbol{Y}$ are generated using the methods described in Section \ref{sec:synthetic_data}, and for each realisation we independently estimate $\boldsymbol{\theta'}$. The aims are (i) to demonstrate that the analysis scheme works (i.e.\ that it converges to a well-behaved, unimodal posterior for multiple noise realisations), (ii) to give a preliminary sense of its accuracy, and (iii) quantify the natural random dispersion in the one-dimensional posterior medians between noise realisations. 
+Regarding point (iii), quantifying the dispersion is important since it is a practical measure of the accuracy of the parameter estimation scheme when it is applied to real astronomical data, where the true parameter values and specific noise realisations are unknown. The injected static GW source parameters $\boldsymbol{\theta}_{\rm gw}$ used for this mock analysis to generate $\boldsymbol{Y}$ are selected to be astrophysically reasonable and representative. Different values of the static GW source parameters are explored in Section \ref{sec:parameter_space}. The static pulsar parameters $\boldsymbol{\theta'}_{\rm psr}$  are as specified in Section \ref{sec:synthetic_data}. All injected static parameters $\boldsymbol{\theta}'$ are summarised in the second column of Table \ref{tab:parameters_and_priors}. The specification of the priors on $\boldsymbol{\theta'}$ is described in Appendix \ref{sec:set_priors} and summarised in the rightmost column of Table \ref{tab:parameters_and_priors}. \newline
+
+
+Figure \ref{fig:corner_plot_1} displays results for the seven parameters in $\boldsymbol{\theta}_{\rm gw}$ for nine arbitrary noise realisations in the form of a traditional corner plot. The histograms are the one-dimensional posteriors for each parameter, marginalized over the six other parameters. Each coloured curve is the result for different noise realisation. The solid orange line marks the known injected value. The two-dimensional contours mark the (0.5, 1, 1.5, 2)-sigma level surfaces. All histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is scant evidence of railing against the prior bounds. There is no strong evidence for correlations between parameter pairs, e.g.\ banana-shaped contours, although weak-correlations are evident between $\Omega$ and $\Phi_0$, $\psi$ and $\alpha$, and $\iota$ and $h_0$. The injected value is contained within the 90\% credible interval of the one-dimensional marginalized posteriors in 45 out of the 63 possible combinations of the seven parameters and 63 realizations (i.e. 70 $\%$). There is appreciable natural random dispersion in the one-dimensional posterior medians between noise realisations. The minimum coefficient of variation is obtained for $\Omega$ at  0.2 \%, the maximum value is obtained for $\Phi_0$ at 43 \%. The remaining parameters have typical values $\lessapprox 10 \%$. For this representative example, with characteristic strain $h_0 = 5 \times 10^{-15}$ the analysis scheme estimates $\boldsymbol{\theta}_{\rm gw}$ accurately. Analogous results for synthetic data with higher strain ($h_0 = 10^{-12}$) are presented in Appendix \ref{sec:app_high_SNR} (Figure \ref{fig:corner_high_snr_appendix}). At higher strains the dispersion between noise realisations is reduced. \newline 
+
+
+In addition to estimates of $\boldsymbol{\theta}_{\rm gw}$, it is of interest how well the pulsar-term phase correction parameters $\chi^{(n)}$ can be estimated, since this parameter is a key feature of our approach. Figure \ref{fig:corner_plot_3} displays the results for a representative subset of five parameters of $\chi^{(n)}$, $ \{\chi^{(1)} \dots \chi^{(5)} \}$ over the nine noise realisations, analogously to Figure \ref{fig:corner_plot_1}. We do not display the resulting corner plot for all elements of $\chi^{(n)}$ because it is too big. With the exception of the results for $\chi^{(2)}$ (discussed below), all histograms and contours are consistent with a unimodal joint posterior, which peaks near the known, injected values. There is no evidence for correlations between parameter pairs. The majority of the elements of $\chi^{(n)}$ are recovered unambiguously across all noise realisations; for the 47 elements of $\chi^{n}$ (i.e. not just the five elements plotted in Figure \ref{fig:corner_plot_3}), the injected value is  contained within the 90\% credible interval of the one-dimensional marginalized posteriors in 325 out of the 423 possible combinations of the 47 parameters and nine realizations (i.e. $\sim$ 77 $\%$). There are some elements for which consistent estimates are not obtained across multiple realisations, e.g $\chi^{(2)}$, (third row, third column of Figure \ref{fig:corner_plot_3}). This corresponds to the phase-correction term for PSR J0340+4130. This pulsar lies in the closest direction to our synthetic gw source, such that $| \boldsymbol{n} \cdot \boldsymbol{q}^{(2)}| = 0.96$. As a result the magnitude of $\cos \left( \chi^{(2)}\right) \sim 0.07$, and the influence of the pulsar term is minimal. The inability to accurately infer $\chi^{(2)}$ is contingent on the magnitude of the GW signal relative to the measurement noise; for synthetic data with $h_0 = 10^{-12}$, $\chi^{(2)}$ can be recovered accurately, see Figure \ref{fig:corner_high_snr_appendix_chi} in Appendix \ref{sec:app_high_SNR}. \newline 
+
+Similar results are obtained for the remaining 4$N$ parameters of $\boldsymbol{\theta}_{\rm psr}'$; the injected values are recovered unambiguously across the nine noise realisations. For the sake of brevity we do not display the calculated posterior distributions here because the inference of $\boldsymbol{\theta}_{\rm gw}$ is the main focus of this paper and PTA analyses. \newline 
 
 
 
 
-		\begin{figure}
-	\includegraphics[width=\columnwidth, height = \columnwidth ]{example-image-a} 	
+
+
+		\begin{figure*}
+	\includegraphics[width=\textwidth, height = \textwidth ]{images/corner_highSNR} 	
 	\caption{}
 	\label{fig:corner_high_snr_appendix}
-\end{figure}
+\end{figure*}
 
 
 
@@ -791,50 +821,50 @@ In order to compute $\beta$ the above workflow is repeated for a different $\mat
 
 
 	\begin{figure}
-	\includegraphics[width=\columnwidth, height = \columnwidth ]{example-image-b} 	
+	\includegraphics[width=\columnwidth, height = \columnwidth ]{images/corner_highSNR_chi} 	
 	\caption{}
 	\label{fig:corner_high_snr_appendix_chi}
 \end{figure}
 
 
 
-
-\section{Multiple noise realisaitons and the Wasserstein distance}
-
-
-We can extend the analysis of these two points and consider 1000 noise realisations of $\boldsymbol{Y}$, beyond the \textcolor{red}{X} plotted in Figure \ref{fig:corner_plot_1}. As in Figure \ref{fig:corner_plot_1} we independently estimate the static parameters, $\boldsymbol{\theta}$ for each realisation and calculate $p({\boldsymbol{\theta'}} | {\boldsymbol{Y}})$. 
-
-
-
-
-To this end we start with the representative example in Table \ref{tab:parameters_and_priors} and generate $1000$ realisations of the process noise $\xi^{(n)}(t)$ and measurement noise $\varepsilon^{(n)}(t)$. For each realisation we 
-
-
-We now consider the complete set of $10^3$ noise realisations, going beyond the subset of nine realisations in the preceding discussion. We ask the question: how ``similar'' are the $10^3$ marginalized, one-dimensional posteriors computed for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$? There is no unique way to answer this question. In this paper we appeal to the Wasserstein distance \citep[WD;][]{Wasserstein,Villani2009} from optimal transport theory, which defines an intuitive notion of similarity between probability distributions. The WD is a popular metric in machine learning \citep{2017arXiv170107875A}, climate modelling \citep{2022JCli...35.1215P,2023QJRMS.149..843K}, computational biology \citep{GONZALEZDELGADO2023168053} and geophysics \citep{2023GeoRL..5003880M}; a short review is presented in Appendix \ref{sec:wasserstein}. The WD measures the cost of an optimal strategy for moving probability mass between two distributions from position $x$ to position $y$, with respect to some cost function $c(x,y)$. In this paper we use the first WD moment, $W_1(\mu,\nu)$, which is defined and interpreted in Appendix \ref{sec:wasserstein}. Intuitively $W_1$ bounds the difference in the expectation value of a parameter selected from ${\boldsymbol{\theta}}_{\rm gw}$ with respect to the PDFs $\mu$ and $\nu$. Taking a concrete example, suppose that we infer two one-dimensional posterior distributions $\mu(\iota)$ and $\nu(\iota)$ for $\iota$, for two different realisations of the noise, and calculate $W_1(\mu, \nu) =0.5$ rad. Then we can infer $| \langle \iota \rangle_\mu - \langle \iota \rangle_\nu | \leq 0.5 \, {\rm rad}$. \newline 
-
-
-Table \ref{tab:Wasserstein} summarizes the WD between the $5\times 10^5$ pairs of one-dimensional posteriors across the $10^3$ realizations, for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$. The median $W_1$ for each parameter is tabulated in the rightmost column and denoted by $W_{1,{\rm median}}$. As a percentage of the known, injected value, $W_{\rm 1,median}$ ranges from  0.2\% for $\Omega$ to 67\% for $\Phi_0$. These values quantify approximately the natural dispersion in parameter estimates when the analysis scheme is applied to real, astronomical data, where the true parameter values are unknown. Moreover, as a percentage of the prior domain, $W_{\rm 1,median}$ ranges from $8.1 \times 10^{-4}$ \% for $h_0$ to 2.7\% for $\psi$. These values confirm that the nested sampler converges reliably to a single, narrow peak without railing against the prior bounds for $10^3$ noise realizations. Further analysis of the WD is performed in Appendix \ref{sec:wasserstein}.
-
-\begin{table}
-	\centering
-	\begin{tabular}{ccll}
-		\toprule
-		Parameter & Injected value & Units & $W_{1, \rm median}$  \\
-		\hline
-		$\Omega$     &   $5 \times 10^{-7}$ & Hz & $10^{-9}$ \\
-		$\Phi_0$          & $0.20$ & rad & $0.13$ \\
-		$\psi$              & $2.50$ & rad & $0.16$ \\
-		$\iota$             & $1.0$ & rad & $0.14$ \\ 
-		$\delta$              & $1.0$  & rad & $0.09$ \\
-		$\alpha$          & $1.0$  & rad & $0.17$\\
-		$h_0$            & $5 \times 10^{-15}$ & --- & $8 \times 10^{-16}$ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Median value of the Wasserstein distance $W_{1, \rm median}$, for each parameter in $\boldsymbol{\theta}_{\rm gw}$, calculated across the $10^3 \choose 2$ pairs of probability posteriors, for the $10^3$ noise realisations in Figure \ref{fig:pairwise_wasserstein}. $W_{1, \rm median}$ is generally smaller than the prior domain.}
-	\label{tab:Wasserstein}
-\end{table}
-
-
+%
+%\section{Multiple noise realisaitons and the Wasserstein distance}
+%
+%
+%We can extend the analysis of these two points and consider 1000 noise realisations of $\boldsymbol{Y}$, beyond the \textcolor{red}{X} plotted in Figure \ref{fig:corner_plot_1}. As in Figure \ref{fig:corner_plot_1} we independently estimate the static parameters, $\boldsymbol{\theta}$ for each realisation and calculate $p({\boldsymbol{\theta'}} | {\boldsymbol{Y}})$. 
+%
+%
+%
+%
+%To this end we start with the representative example in Table \ref{tab:parameters_and_priors} and generate $1000$ realisations of the process noise $\xi^{(n)}(t)$ and measurement noise $\varepsilon^{(n)}(t)$. For each realisation we 
+%
+%
+%We now consider the complete set of $10^3$ noise realisations, going beyond the subset of nine realisations in the preceding discussion. We ask the question: how ``similar'' are the $10^3$ marginalized, one-dimensional posteriors computed for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$? There is no unique way to answer this question. In this paper we appeal to the Wasserstein distance \citep[WD;][]{Wasserstein,Villani2009} from optimal transport theory, which defines an intuitive notion of similarity between probability distributions. The WD is a popular metric in machine learning \citep{2017arXiv170107875A}, climate modelling \citep{2022JCli...35.1215P,2023QJRMS.149..843K}, computational biology \citep{GONZALEZDELGADO2023168053} and geophysics \citep{2023GeoRL..5003880M}; a short review is presented in Appendix \ref{sec:wasserstein}. The WD measures the cost of an optimal strategy for moving probability mass between two distributions from position $x$ to position $y$, with respect to some cost function $c(x,y)$. In this paper we use the first WD moment, $W_1(\mu,\nu)$, which is defined and interpreted in Appendix \ref{sec:wasserstein}. Intuitively $W_1$ bounds the difference in the expectation value of a parameter selected from ${\boldsymbol{\theta}}_{\rm gw}$ with respect to the PDFs $\mu$ and $\nu$. Taking a concrete example, suppose that we infer two one-dimensional posterior distributions $\mu(\iota)$ and $\nu(\iota)$ for $\iota$, for two different realisations of the noise, and calculate $W_1(\mu, \nu) =0.5$ rad. Then we can infer $| \langle \iota \rangle_\mu - \langle \iota \rangle_\nu | \leq 0.5 \, {\rm rad}$. \newline 
+%
+%
+%Table \ref{tab:Wasserstein} summarizes the WD between the $5\times 10^5$ pairs of one-dimensional posteriors across the $10^3$ realizations, for each of the seven parameters in ${\boldsymbol{\theta}}_{\rm gw}$. The median $W_1$ for each parameter is tabulated in the rightmost column and denoted by $W_{1,{\rm median}}$. As a percentage of the known, injected value, $W_{\rm 1,median}$ ranges from  0.2\% for $\Omega$ to 67\% for $\Phi_0$. These values quantify approximately the natural dispersion in parameter estimates when the analysis scheme is applied to real, astronomical data, where the true parameter values are unknown. Moreover, as a percentage of the prior domain, $W_{\rm 1,median}$ ranges from $8.1 \times 10^{-4}$ \% for $h_0$ to 2.7\% for $\psi$. These values confirm that the nested sampler converges reliably to a single, narrow peak without railing against the prior bounds for $10^3$ noise realizations. Further analysis of the WD is performed in Appendix \ref{sec:wasserstein}.
+%
+%\begin{table}
+%	\centering
+%	\begin{tabular}{ccll}
+%		\toprule
+%		Parameter & Injected value & Units & $W_{1, \rm median}$  \\
+%		\hline
+%		$\Omega$     &   $5 \times 10^{-7}$ & Hz & $10^{-9}$ \\
+%		$\Phi_0$          & $0.20$ & rad & $0.13$ \\
+%		$\psi$              & $2.50$ & rad & $0.16$ \\
+%		$\iota$             & $1.0$ & rad & $0.14$ \\ 
+%		$\delta$              & $1.0$  & rad & $0.09$ \\
+%		$\alpha$          & $1.0$  & rad & $0.17$\\
+%		$h_0$            & $5 \times 10^{-15}$ & --- & $8 \times 10^{-16}$ \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{Median value of the Wasserstein distance $W_{1, \rm median}$, for each parameter in $\boldsymbol{\theta}_{\rm gw}$, calculated across the $10^3 \choose 2$ pairs of probability posteriors, for the $10^3$ noise realisations in Figure \ref{fig:pairwise_wasserstein}. $W_{1, \rm median}$ is generally smaller than the prior domain.}
+%	\label{tab:Wasserstein}
+%\end{table}
+%
+%
 
 
 
@@ -863,7 +893,7 @@ This is shown by the orange curve in the right-hand panel of Figure \ref{fig:lik
 
 In this section we present a new method to infer $\boldsymbol{\theta}$ and calculate the marginal likelihood (i.e. the model evidence). In Section \ref{sec:kalman_filter} we outline how noisy measurements of the pulsar frequency, $f_{\rm m}^{(n)}(t)$, can be used to estimate the hidden state sequence, $f_{\rm p}^{(n)}(t)$, using a Kalman filter. In Section \ref{sec:nested_sampling} we demonstrate how to deploy the Kalman filter in conjunction with a nested sampling technique to perform Bayesian inference. Model selection and the specification of the null model are described in Section \ref{sec:model_selection}. A complete summary of the workflow is presented in Section \ref{sec:methodsummary}. The method complements traditional PTA analyses because (i) it does not assume a specific functional form (e.g.\ power law) for the power spectral density of the TOA fluctuations; and (ii) it infers ${\boldsymbol{\theta}}$ conditional on the specific, time-ordered, random realization of the noise corresponding to the observed sequence of TOAs rather than on ensemble-averaged quantities like the power spectral density.
 
-\subsection{Kalman filter and likelihood}\label{sec:kalman_filter}
+
 
 
 
@@ -872,22 +902,21 @@ In this section we present a new method to infer $\boldsymbol{\theta}$ and calcu
 
 %See https://arxiv.org/pdf/2102.12478.pdf for a good NS explanation
 
-\subsection{Model selection}\label{sec:model_selection}
-The evidence integral $\mathcal{Z}$ returned by nested sampling is the probability of the data $\boldsymbol{Y}$ given a model $\mathcal{M}_i$. We compare competing models via a Bayes factor,
-\begin{equation}
-	\beta = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)} \ . \label{eq:bayes}
-\end{equation}
-Throughout this work we take $\mathcal{M}_1$ to be the state-space model that includes the presence of a GW. $\mathcal{M}_0$ is the null model, which assumes no GW exists in the data, and is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func} and \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW signal compared to there being no GW signal present.
 
 
 
 
 
 
-
-
-
-
+%
+%\section{Model selection}\label{sec:model_selection}
+%The evidence integral $\mathcal{Z}$ returned by nested sampling is the probability of the data $\boldsymbol{Y}$ given a model $\mathcal{M}_i$. We compare competing models via a Bayes factor,
+%\begin{equation}
+%	\beta = \frac{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_1)}{\mathcal{Z}(\boldsymbol{Y} | \mathcal{M}_0)} \ . \label{eq:bayes}
+%\end{equation}
+%Throughout this work we take $\mathcal{M}_1$ to be the state-space model that includes the presence of a GW. $\mathcal{M}_0$ is the null model, which assumes no GW exists in the data, and is equivalent to setting $g^{(n)}(t)=1$ in Equations \eqref{eq:g_func} and \eqref{eq:g_func_trig}. The Bayes factors we quote in this work therefore quantify whether the data supports evidence for a GW signal compared to there being no GW signal present.
+%
+%
 
 
 
