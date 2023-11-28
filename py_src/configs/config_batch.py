@@ -31,9 +31,11 @@ def create_slurm_job(arg_name,h,measurement_model,seed):
 #Bayes vs h0, multiple noise
 N = 10
 seeds = np.arange(1235+10,1235+10+N,1)
-strains = [5e-15,1e-14,5e-14,1e-13,5e-13,1e-12]
+#trains = [5e-15,1e-14,5e-14,1e-13,5e-13,1e-12]
+strains = [5e-13,1e-12]
+models = ["pulsar"]
 #models = ["pulsar","earth"]
-models = ["null"]
+#models = ["null"]
 with open('batch.sh','w') as b: 
     for s in seeds:
         for h in strains:
