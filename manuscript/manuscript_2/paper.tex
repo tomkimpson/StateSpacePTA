@@ -105,23 +105,7 @@ $^{3}$Department of Electrical and Electronic Engineering, University of Melbour
 
 % Abstract of the paper
 \begin{abstract}	
-	 Pulsar timing arrays may be able to detect continuous nanohertz gravitational waves emitted by individual supermassive black hole binaries. The gravitational wave (GW) signal is composed of two components, the ``Earth term" and ``pulsar term" which correspond to the GW incident on the Earth and the pulsar respectively. The data analysis procedure can be formulated within a state-space framework, wherein intrinsic achromatic spin wandering is Kalman-tracked concurrently with the modulation induced by a single-source gravitational wave in the pulse times of arrival. It is shown how to extend previous state-space analyses to include the pulsar terms. 
-	 
-	 
-	 
-	 Astrophysically representative software injections in Gaussian measurement noise evidence that the inclusion of the pulsar terms eliminates the biases in the parameter estimates, increases the parameter accuracy, and decrease the minimal detectable strain relative to the previous approach.
-	 
-	 
-	 For a loud GW source with characteristic wave strain $h_0 = 10^{-12}$ the root-mean-square relative error in the estimated one-dimensional posteriors decreases by up to 99\% by including the pulsar terms. 
-	 
-	 
-	 For a quiet GW source with $h_0 = 5 \times 10^{-15}$ since the system is heavily noise dominated.
-	 
-	 However, including the pulsar terms decreases the minimal detectable strain 
-	 
-	 
-
-	by \textcolor{red}{Y percent} .
+	 Pulsar timing arrays may be able to detect continuous nanohertz gravitational waves emitted by individual supermassive black hole binaries. The gravitational wave (GW) signal is composed of two components, the ``Earth term" and ``pulsar term" which correspond to the GW incident on the Earth and the pulsar respectively. The data analysis procedure can be formulated within a state-space framework, wherein intrinsic achromatic spin wandering is Kalman-tracked concurrently with the modulation induced by a single-source gravitational wave in the pulse times of arrival. It is shown how to extend previous state-space analyses to include the pulsar terms. Astrophysically representative software injections in Gaussian measurement noise evidence that the inclusion of the pulsar terms eliminates the biases in the parameter estimates, increases the parameter accuracy, and decrease the minimal detectable strain relative to the previous approach. For a loud GW source with characteristic wave strain $h_0 = 10^{-12}$ the root-mean-square relative error in the estimated one-dimensional posteriors decreases by up to 99\% by including the pulsar terms. For a quiet GW source with $h_0 = 5 \times 10^{-15}$ there is no significant improvement in the parameter accuracy since the system is heavily noise dominated. However, including the pulsar terms decreases the minimal detectable strain by \textcolor{red}{Y percent} .
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -567,11 +551,30 @@ In this paper we demonstrate how to extend state-space methods for PTA data anal
 
 
 
-The intrinsic rotational state evolution of the pulsar, described by a mean-reverting Ornstein-Uhlenbeck process (Equations \eqref{eq:xieqn}--\eqref{eq:spinevol}) is tracked using a Kalman filter. The Kalman filter is combined with a Bayesian sampling framework to estimate the posterior distributions of each static parameter, as well as the associated Bayesian evidence (marginalised likelihood) of the model with and without a GW. \newline 
+The intrinsic rotational state evolution of the pulsar, described by a mean-reverting Ornstein-Uhlenbeck process (Equations \eqref{eq:xieqn}--\eqref{eq:spinevol}) is tracked using a Kalman filter. The Kalman filter is combined with a Bayesian sampling framework to estimate the posterior distributions of each static parameter, as well as the associated Bayesian evidence (marginalised likelihood) of the model. \newline 
+
+
+The updated state-space model including the pulsar term is tested on synthetic data. We consider 10 noise realisations of synthetic data for a single, astrophysically representative, SMBHB GW source observed by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$ and $h_0 = 5 \times 10^{-15}$. We find that the updated state-space model successfully detects injected signals and estimates their static parameters accurately for all noise realisations with relatively low computational cost. There is a non-negligible natural random dispersion in the median of the marginalised one-dimensional posteriors, with a maximum coefficient of variation of 43\% for $\Phi_0$, and a median value across the seven elements of $\boldsymbol{\theta}_{\rm gw}$ 7\%.
 
 
 
-The updated state-space model including the pulsar term is tested on synthetic data. We consider $X$ noise realisations of synthetic data for a single, astrophysically representative, SMBHB GW source observed by the 12.5-year NANOGrav pulsars with $T_{\rm obs} = 10 \, {\rm years}$. We find that the updated state-space model successfully detects injected signals and estimates their static parameters accurately for all noise realisations with relatively low computational cost. There is a non-negligible natural random dispersion in the median of the marginalised one-dimensional posteriors which \textcolor{red}{...means something}. The updated model is further tested across a broader parameter domain of SMBHB sources. 500 randomly sampled parameter vectors at fixed $\iota$ and $h_0$ are explored; \textcolor{red}{the results are...} \newline 
+The updated model is further tested across a broader parameter domain of SMBHB sources. 200 randomly sampled parameter vectors of $\boldsymbol{\theta}_{\rm gw}$ are explored at fixed $\iota$ and $h_0$. 
+
+
+
+
+
+
+Extensions to the state-space analysis scheme are discussed at length in K24. 
+
+
+We note two relevant extensions here
+
+
+
+
+
+
  
  
 We compare the accuracy of the parameter estimates  from the updated model to those when the pulsar term is omitted. We find that the inclision of the pulsar terms increases the accuaray by X percent in teh case of high SNR and Y per cent in the case of low SNR. The inclusion of pulsar terms also lowers the floor of the minimal detectable strain by YY percent. \newline  
