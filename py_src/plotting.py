@@ -243,7 +243,7 @@ def _extract_value_from_title(title_string):
 def _argmedian(x):
     return np.argpartition(x, len(x) // 2)[len(x) // 2]
 
-def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,seed=1,no_titles=False):
+def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,labels,injection_parameters,ranges,axes_scales,scalings=[1.0,1.0],savefig=None,logscale=False,title=None,smooth=True,smooth1d=True,seed=1,no_titles=False,plot_datapoints=True):
 
     #Some arrays to hold the title value returned by corner.corner
     num_params = len(variables_to_plot)
@@ -299,7 +299,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
                             label_kwargs=dict(fontsize=fs),
                             axes_scales = axes_scales,
                             weights = np.ones(nsamples)/nsamples,
-                            plot_datapoints=True,fig=fig)
+                            plot_datapoints=plot_datapoints,fig=fig)
 
 
         #Extract the axis titles 
