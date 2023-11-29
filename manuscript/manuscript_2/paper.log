@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  28 NOV 2023 17:15
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.3)  29 NOV 2023 11:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1539,14 +1539,6 @@ Overfull \hbox (7.13991pt too wide) in paragraph at lines 297--297
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
-
-LaTeX Warning: Reference `sec:rep_example' on page 4 undefined on input line 30
-5.
-
-
-LaTeX Warning: Reference `sec:rep_example' on page 4 undefined on input line 30
-5.
-
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 7.3pt on input line 308.
 Requested font "[TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05
@@ -1600,12 +1592,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 327--329
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
-
+Underfull \hbox (badness 2150) in paragraph at lines 334--335
+[]\TU/TeXGyreTermesX(0)/m/n/9 There is appreciable natural random dispersion in
+ the one-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 2057) in paragraph at lines 334--335
+\TU/TeXGyreTermesX(0)/m/n/9 dimensional posterior medians between noise realisa
+tions. The
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--335
 
  []
 
@@ -1613,56 +1612,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 333--334
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 1122) in paragraph at lines 336--337
+\TU/TeXGyreTermesX(0)/m/n/9 to the phase-correction term for PSR J0340+4130. Th
+is pulsar
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--337
 
  []
 
-File: images/corner_lowSNR.png Graphic file (type bmp)
-<images/corner_lowSNR.png>
-File: images/corner_lowSNR_chi.png Graphic file (type bmp)
-<images/corner_lowSNR_chi.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
+
+ []
+
+File: images/corner_lowSNR_n4000.png Graphic file (type bmp)
+<images/corner_lowSNR_n4000.png>
+File: images/corner_lowSNR_chi_n4000.png Graphic file (type bmp)
+<images/corner_lowSNR_chi_n4000.png>
 File: images/pp_plot_canonical500.png Graphic file (type bmp)
 <images/pp_plot_canonical500.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--365
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 367--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--405
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
 
  []
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 414--415
-\TU/TeXGyreTermesX(0)/m/n/9 filter using Equation [] to return $\LMS/ntxsy/m/n/
-9 L¹\OML/cmm/b/it/9 Y\LMS/ntxsy/m/n/9 j\OML/cmm/b/it/9 ^^R[]\LMS/ntxsy/m/n/9 º$
-\TU/TeXGyreTermesX(0)/m/n/9 . The likelihood
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
+Underfull \hbox (badness 10000) in paragraph at lines 406--408
 
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 416--417
-\TU/TeXGyreTermesX(0)/m/n/9 The “high-SNR” system is considered in order to eva
-luate the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
 
  []
 
 [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 1038) in paragraph at lines 419--420
+\TU/TeXGyreTermesX(0)/m/n/9 The “high-SNR” system is considered in order to eva
+luate the
+ []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 419--420
@@ -1672,13 +1667,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--420
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
 
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 427--429
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 430--432
 \TU/TeXGyreTermesX(0)/m/n/9 where $\OML/ntxmi/m/it/9 p[]\LMS/ntxsy/m/n/9 ¹\OML/
 ntxmi/m/it/9 ^^R\LMS/ntxsy/m/n/9 º$ \TU/TeXGyreTermesX(0)/m/n/9 is the $\OML/nt
 xmi/m/it/9 k$\TU/TeXGyreTermesX(0)/m/n/9 -th one-dimensional posterior sample f
@@ -1686,13 +1692,13 @@ or
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 427--429
+Underfull \hbox (badness 1173) in paragraph at lines 430--432
 \TU/TeXGyreTermesX(0)/m/n/9 the posterior is estimated using Equation [] or Equ
 ation []
  []
 
 
-Underfull \hbox (badness 1629) in paragraph at lines 427--429
+Underfull \hbox (badness 1629) in paragraph at lines 430--432
 \TU/TeXGyreTermesX(0)/m/n/9 respectively. The dependence of $\OML/ntxmi/m/it/9 
 p[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 ^^R\LMS/ntxsy/m/n/9 º$ \TU/TeXGyreTermes
 X(0)/m/n/9 on $\OML/ntxmi/m/it/9 M$ \TU/TeXGyreTermesX(0)/m/n/9 is implied. The
@@ -1700,25 +1706,32 @@ X(0)/m/n/9 on $\OML/ntxmi/m/it/9 M$ \TU/TeXGyreTermesX(0)/m/n/9 is implied. The
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 427--429
+Underfull \hbox (badness 2285) in paragraph at lines 430--432
+\U/ntxmia/m/it/9 ^^A[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 ^^R\LMS/ntxsy/m/n/9 º
+ ^^@ \U/ntxmia/m/it/9 ^^A[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 ^^R\LMS/ntxsy/m/
+n/9 º$ \TU/TeXGyreTermesX(0)/m/n/9 is also presented. For every parameter,
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 430--432
 \U/ntxmia/m/it/9 ^^A[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 ^^R\LMS/ntxsy/m/n/9 º
  ^^@ \U/ntxmia/m/it/9 ^^A[]\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 ^^R\LMS/ntxsy/m/
 n/9 º$ \TU/TeXGyreTermesX(0)/m/n/9 is positive, indicating that the parameter
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--429
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
 
  []
 
 
-Underfull \hbox (badness 1442) in paragraph at lines 431--432
+Underfull \hbox (badness 1442) in paragraph at lines 434--435
 []\TU/TeXGyreTermesX(0)/m/n/9 For the low-SNR case, Figure [][]5[][], there is 
 less of a notable
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
 
  []
 
@@ -1728,65 +1741,60 @@ File: images/corner_highSNR_compare.png Graphic file (type bmp)
 File: images/corner_lowSNR_compare.png Graphic file (type bmp)
 <images/corner_lowSNR_compare.png>
 
-Overfull \hbox (10.30946pt too wide) in paragraph at lines 456--456
+Overfull \hbox (10.30946pt too wide) in paragraph at lines 459--459
 []|\TU/TeXGyreTermesX(0)/m/n/8 High 
  []
 
 
-Overfull \hbox (9.86946pt too wide) in paragraph at lines 456--456
+Overfull \hbox (9.86946pt too wide) in paragraph at lines 459--459
 \TU/TeXGyreTermesX(0)/m/n/8 SNR|  
  []
 
 
-Overfull \hbox (8.69347pt too wide) in paragraph at lines 464--464
+Overfull \hbox (8.69347pt too wide) in paragraph at lines 467--467
 []|\TU/TeXGyreTermesX(0)/m/n/8 Low 
  []
 
 
-Overfull \hbox (9.86946pt too wide) in paragraph at lines 464--464
+Overfull \hbox (9.86946pt too wide) in paragraph at lines 467--467
 \TU/TeXGyreTermesX(0)/m/n/8 SNR|  
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 479.
+(hyperref)                removing `math shift' on input line 482.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 479.
+(hyperref)                removing `subscript' on input line 482.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 479.
+(hyperref)                removing `math shift' on input line 482.
 
 File: images/CanonicalBayesPlot2000.png Graphic file (type bmp)
 <images/CanonicalBayesPlot2000.png>
 
-LaTeX Warning: Reference `sec:detection' on page 9 undefined on input line 483.
+LaTeX Warning: Reference `sec:detection' on page 9 undefined on input line 486.
 
 
 
-LaTeX Warning: Reference `sec:detection' on page 9 undefined on input line 483.
+LaTeX Warning: Reference `sec:detection' on page 9 undefined on input line 486.
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--491
-
- []
-
-
-LaTeX Warning: Reference `fig:bayes' on page 9 undefined on input line 512.
-
-
-LaTeX Warning: Reference `fig:bayes' on page 9 undefined on input line 524.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 524--525
+Underfull \hbox (badness 10000) in paragraph at lines 492--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--550
+LaTeX Warning: Reference `fig:bayes' on page 9 undefined on input line 515.
+
+
+LaTeX Warning: Reference `fig:bayes' on page 9 undefined on input line 527.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
 
  []
 
@@ -1796,26 +1804,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 552--553
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 554--555
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
+
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 557--558
 \TU/TeXGyreTermesX(0)/m/n/9 successfully detects injected signals and estimates
  their static
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 554--555
+Underfull \hbox (badness 2626) in paragraph at lines 557--558
 \TU/TeXGyreTermesX(0)/m/n/9 parameters accurately for all noise realisations wi
 th relatively
  []
 
 
-Underfull \hbox (badness 2150) in paragraph at lines 554--555
+Underfull \hbox (badness 2150) in paragraph at lines 557--558
 \TU/TeXGyreTermesX(0)/m/n/9 dispersion in the median of the marginalised one-di
 mensional
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
-
  []
 
 
@@ -1828,38 +1836,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 560--561
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
+
+ []
+
 [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Warning: Reference `sec:plane_gw' on page 10 undefined on input line 568.
-
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Warning: Reference `sec:model_selection' on page 11 undefined on input li
-ne 573.
-
-
-LaTeX Warning: Reference `sec:detection' on page 11 undefined on input line 573
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 573--574
+Underfull \hbox (badness 10000) in paragraph at lines 566--567
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [11]
+
+LaTeX Warning: Reference `sec:model_selection' on page 12 undefined on input li
+ne 584.
+
+
+LaTeX Warning: Reference `sec:detection' on page 12 undefined on input line 584
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 584--585
+
+ []
+
 (./paper.bbl [12]
 Underfull \hbox (badness 8075) in paragraph at lines 338--341
 []\TU/TeXGyreTermesX(0)/m/n/8 Pártay L. B., Bartók A. P., Csányi G., 2009, [][]
@@ -1884,32 +1896,25 @@ Underfull \hbox (badness 4013) in paragraph at lines 465--468
 153–158,
  []
 
-) [13
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 616--618
+) [13]
+Underfull \hbox (badness 10000) in paragraph at lines 627--629
 
  []
 
 
-LaTeX Warning: Reference `q:innv_covar' on page 14 undefined on input line 632.
+LaTeX Warning: Reference `q:innv_covar' on page 14 undefined on input line 643.
 
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 631--633
+Underfull \hbox (badness 1527) in paragraph at lines 642--644
 \TU/TeXGyreTermesX(0)/m/n/9 termed the innovation. The uncertainty in $\OML/cmm
 /b/it/9 ^^O[]$ \TU/TeXGyreTermesX(0)/m/n/9 is quantified via
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 631--633
+Underfull \hbox (badness 1237) in paragraph at lines 642--644
 \TU/TeXGyreTermesX(0)/m/n/9 tion [] defines the “Kalman gain” $\OML/cmm/b/it/9 
 K[]$ \TU/TeXGyreTermesX(0)/m/n/9 which is defined so
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 631--633
-
  []
 
 
@@ -1918,7 +1923,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 642--644
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--650
+Underfull \hbox (badness 10000) in paragraph at lines 653--655
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 660--661
 
  []
 
@@ -1974,7 +1984,7 @@ Requested font "ntxbexa" at 7.3pt
 Requested font "ntxbexa" at 5.5pt
  -> /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntxbexa.tfm
 
-Underfull \hbox (badness 2213) in paragraph at lines 677--678
+Underfull \hbox (badness 2213) in paragraph at lines 688--689
 []\TU/TeXGyreTermesX(0)/m/n/9 In the idealized model above, each pulsar’s rotat
 ional state
  []
@@ -1982,87 +1992,82 @@ ional state
 [14
 
 ]
-Underfull \hbox (badness 1348) in paragraph at lines 718--720
+Underfull \hbox (badness 1348) in paragraph at lines 729--731
 \TU/TeXGyreTermesX(0)/m/n/9 We estimate the posterior distribution and the mode
 l evidence
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 718--720
+Underfull \hbox (badness 1688) in paragraph at lines 729--731
 \TU/TeXGyreTermesX(0)/m/n/9 through nested sampling ([][]Skilling[][] [][]2006[
 ][]) in this paper. Nested
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 718--720
+Underfull \hbox (badness 1365) in paragraph at lines 729--731
 \TU/TeXGyreTermesX(0)/m/n/9 given by Equation []. It also approximates the post
 erior by
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 718--720
+Underfull \hbox (badness 1117) in paragraph at lines 729--731
 \TU/TeXGyreTermesX(0)/m/n/9 libraries exist. (e.g. [][]Feroz & Hobson[][] [][]2
 008[][]; [][]Feroz et al.[][] [][]2009[][];
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--720
+Underfull \hbox (badness 10000) in paragraph at lines 729--731
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--722
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--726
+Underfull \hbox (badness 10000) in paragraph at lines 736--737
 
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 727--730
+Underfull \hbox (badness 2221) in paragraph at lines 738--741
 \TU/TeXGyreTermesX(0)/m/n/9 LogUniform$[]$ where $\OML/ntxmi/m/it/9 ^^[[]$ \TU/
 TeXGyreTermesX(0)/m/n/9 is the value for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--730
+Underfull \hbox (badness 10000) in paragraph at lines 738--741
 
  []
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 739.
+(enumitem)                sense, on input line 750.
 
 [15]
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 746.
+(enumitem)                sense, on input line 757.
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 750--751
+Underfull \hbox (badness 1902) in paragraph at lines 761--762
 []\TU/TeXGyreTermesX(0)/m/n/9 Remove the live point with the lowest likelihood 
 value,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 776--778
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 780--781
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 783--784
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 785--786
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
 
  []
 
@@ -2073,41 +2078,40 @@ File: images/corner_highSNR_chi.png Graphic file (type bmp)
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--865
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 861--863
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
+
+ []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 868--870
+Underfull \hbox (badness 1237) in paragraph at lines 866--868
 \TU/TeXGyreTermesX(0)/m/n/9 static parameters do not? These parameters appear i
 n the pul-
  []
 
 
+LaTeX Warning: Reference `sec:kalman_filter' on page 16 undefined on input line
+ 872.
+
+
+LaTeX Warning: Reference `sec:model_selection' on page 16 undefined on input li
+ne 872.
+
+
+LaTeX Warning: Reference `sec:methodsummary' on page 16 undefined on input line
+ 872.
+
+[16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `sec:kalman_filter' on page 18 undefined on input line
- 874.
-
-
-LaTeX Warning: Reference `sec:model_selection' on page 18 undefined on input li
-ne 874.
-
-
-LaTeX Warning: Reference `sec:methodsummary' on page 18 undefined on input line
- 874.
-
-[18
+ [18
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2125,12 +2129,12 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: D67AC778118B45FD6A4B98890FBA4BAE;4540.
  ) 
 Here is how much of TeX's memory you used:
- 19023 strings out of 476179
- 352971 string characters out of 5809545
- 724945 words of memory out of 5000000
- 39398 multiletter control sequences out of 15000+600000
+ 19022 strings out of 476179
+ 353170 string characters out of 5809545
+ 726857 words of memory out of 5000000
+ 39397 multiletter control sequences out of 15000+600000
  535763 words of font info for 221 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 88i,15n,99p,2128b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,15n,99p,2098b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on paper.pdf (19 pages).
