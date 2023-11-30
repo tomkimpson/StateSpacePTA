@@ -2011,4 +2011,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 711--712
 
  []
 
-File: images/corner_highSNR.png 
+File: images/corner_highSNR.png Graphic file (type bmp)
+<images/corner_highSNR.png>
+File: images/corner_highSNR_chi.png Graphic file (type bmp)
+<images/corner_highSNR_chi.png>
+File: images/Likelihoods_alpha.png Graphic file (type bmp)
+<images/Likelihoods_alpha.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 782--783
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--793
+
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 794--795
+[]\TU/TeXGyreTermesX(0)/m/n/9 Why do $\OML/ntxmi/m/it/9 ^^K$\TU/TeXGyreTermesX(
+0)/m/n/9 , $\OML/ntxmi/m/it/9 ^^N$ \TU/TeXGyreTermesX(0)/m/n/9 and $\U/ntxmia/m
+/it/9 
+$ \TU/TeXGyreTermesX(0)/m/n/9 exhibit noisy $\LMS/ntxsy/m/n/9 L¹\OML/ntxmi/m/it
+/9 ^^R\LMS/ntxsy/m/n/9 º$ \TU/TeXGyreTermesX(0)/m/n/9 curves whereas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 794--795
+
+ []
+
+[16] [17
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+(./paper.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+Package rerunfilecheck Info: File `paper.out' has not changed.
+(rerunfilecheck)             Checksum: D729296504AC1D94F151D6653178B75A;4540.
+ ) 
+Here is how much of TeX's memory you used:
+ 19041 strings out of 476179
+ 354140 string characters out of 5809545
+ 741729 words of memory out of 5000000
+ 39416 multiletter control sequences out of 15000+600000
+ 535763 words of font info for 221 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 88i,15n,99p,2625b,580s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on paper.pdf (19 pages).
