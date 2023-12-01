@@ -17,53 +17,54 @@ Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-Repeated entry---line 2301 of file example.bib
+Repeated entry---line 2303 of file example.bib
  : @book{zarchan2000fundamentals
  :                              ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Manchester2005"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 152 entries,
+You've used 151 entries,
             2881 wiz_defined-function locations,
-            2018 strings with 170010 characters,
-and the built_in function-call counts, 75840 in all, are:
-= -- 6803
-> -- 4812
-< -- 344
-+ -- 2134
-- -- 653
-* -- 9038
-:= -- 11256
+            2009 strings with 169779 characters,
+and the built_in function-call counts, 75309 in all, are:
+= -- 6759
+> -- 4770
+< -- 342
++ -- 2118
+- -- 645
+* -- 8971
+:= -- 11171
 add.period$ -- 0
-call.type$ -- 152
-change.case$ -- 305
-chr.to.int$ -- 139
-cite$ -- 154
-duplicate$ -- 3850
-empty$ -- 3778
-format.name$ -- 1155
-if$ -- 13740
+call.type$ -- 151
+change.case$ -- 303
+chr.to.int$ -- 138
+cite$ -- 153
+duplicate$ -- 3827
+empty$ -- 3756
+format.name$ -- 1145
+if$ -- 13648
 int.to.chr$ -- 14
 int.to.str$ -- 0
-missing$ -- 161
-newline$ -- 480
-num.names$ -- 1005
-pop$ -- 758
+missing$ -- 160
+newline$ -- 477
+num.names$ -- 997
+pop$ -- 754
 preamble$ -- 1
-purify$ -- 608
+purify$ -- 604
 quote$ -- 0
-skip$ -- 2615
+skip$ -- 2601
 stack$ -- 0
-substring$ -- 5113
-swap$ -- 2138
-text.length$ -- 628
+substring$ -- 5079
+swap$ -- 2122
+text.length$ -- 624
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1335
+type$ -- 1326
 warning$ -- 2
-while$ -- 1111
+while$ -- 1103
 width$ -- 0
-write$ -- 1558
+write$ -- 1548
 (There were 2 error messages)

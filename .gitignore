@@ -9,3 +9,6 @@ py_src/slurm_jobs/*.sh
 docs/manuscript/internal_comments_3/difference_file/images
 data/clean/*
 **/.DS_Store
+data/**/*.json
+data/compressed_files
+data/PP_images
