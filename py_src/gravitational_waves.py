@@ -22,7 +22,7 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,d,t,phi0):
 
 
     e_plus              = np.array([[m[i]*m[j]-n[i]*n[j] for i in range(3)] for j in range(3)]) #tensordot might be a bit faster, but list comprehension has JIT support
-    e_cross             = np.array([[m[i]*n[j]-n[i]*m[j] for i in range(3)] for j in range(3)])
+    e_cross             = np.array([[m[i]*n[j]+n[i]*m[j] for i in range(3)] for j in range(3)])
 
     hp,hx               = h_amplitudes(h,iota) 
     Hij                 = hp * e_plus + hx * e_cross

@@ -19,7 +19,10 @@ class Pulsars:
 
 
         #Load the pulsar data
-        pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
+        try:
+            pulsars = pd.read_csv("../data/NANOGrav_pulsars.csv")
+        except:
+            pulsars = pd.read_csv("../../data/NANOGrav_pulsars.csv")
         if SystemParameters.Npsr != 0:
             pulsars = pulsars.sample(SystemParameters.Npsr,random_state=SystemParameters.seed) #can also use  pulsars.head(N) to sample  
 
