@@ -13,7 +13,7 @@ def gw_prefactors(delta,alpha,psi,q,q_products,h,iota,omega,t,phi0):
     # For e_+,e_x, Tensordot might be a bit faster, but list comprehension has JIT support
     # Note these are 1D arrays, rather than the usual 2D struture
     e_plus              = np.array([m[i]*m[j]-n[i]*n[j] for i in range(3) for j in range(3)]) 
-    e_cross             = np.array([m[i]*n[j]-n[i]*m[j] for i in range(3) for j in range(3)])
+    e_cross             = np.array([m[i]*n[j]+n[i]*m[j] for i in range(3) for j in range(3)])
     hp,hx               = h_amplitudes(h,iota) 
     Hij                 = hp * e_plus + hx * e_cross
     hbar                = np.dot(Hij,q_products) #length = Npsr

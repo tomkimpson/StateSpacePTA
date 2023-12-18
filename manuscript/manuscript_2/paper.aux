@@ -14,6 +14,8 @@
 \fi}
 \global\let\hyper@last\relax 
 \gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{Rajagopal1995,Jaffe_2003,Wyithe2003,Sesana2013,McWilliams_2014,Ravi2015MNRAS.447.2772R,Burke2019,Skyes2022}
 \citation{Tiburzi2018,2021hgwa.bookE...4V}
 \citation{2023ApJ...951L...8A,2023arXiv230616214A,2023ApJ...951L...6R,2023RAA....23g5024X}
@@ -59,7 +61,6 @@
 \citation{Kalman1}
 \citation{Skilling}
 \citation{Sesana2010,Babak2012,Petiteau2013,Zhu2015,Taylors2016,Goldstein2018,Charisi2023arXiv230403786C}
-\citation{Zhupulsarterms,Chen2022,KimpsonPTA}
 \newlabel{eq:f_evolution}{{9}{3}{Modulation of pulsar frequency by a GW}{equation.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Static parameters of the model}{3}{subsection.2.3}\protected@file@percent }
 \newlabel{sec:ss_params}{{2.3}{3}{Static parameters of the model}{subsection.2.3}{}}
@@ -71,7 +72,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Earth term}{3}{subsection.3.1}\protected@file@percent }
 \newlabel{sec:earth_term}{{3.1}{3}{Earth term}{subsection.3.1}{}}
 \newlabel{eq:measuremen_earth}{{14}{3}{Earth term}{equation.14}{}}
-\newlabel{eq:g_func_trig_earth}{{15}{3}{Earth term}{equation.15}{}}
+\citation{Zhupulsarterms,Chen2022,KimpsonPTA}
 \citation{Shannon2010}
 \citation{Shannon2010}
 \citation{2020ApJ...905L..34A}
@@ -79,6 +80,7 @@
 \citation{psrqpy}
 \citation{Price2012,Myers2021MNRAS.502.3113M,Meyers2021,Vargas}
 \citation{Shannon2010ApJ...725.1607S}
+\newlabel{eq:g_func_trig_earth}{{15}{4}{Earth term}{equation.15}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Reparametrisation of the pulsar term}{4}{subsection.3.2}\protected@file@percent }
 \newlabel{sec:pulsar_term2}{{3.2}{4}{Reparametrisation of the pulsar term}{subsection.3.2}{}}
 \newlabel{eq:g_func_trig_chi}{{17}{4}{Reparametrisation of the pulsar term}{equation.17}{}}
@@ -88,10 +90,10 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Generating synthetic data}{4}{subsection.4.1}\protected@file@percent }
 \newlabel{sec:synthetic_data}{{4.1}{4}{Generating synthetic data}{subsection.4.1}{}}
 \newlabel{eq:sigmap_f}{{19}{4}{Generating synthetic data}{equation.19}{}}
-\newlabel{eq:sigma_m_eqn}{{20}{4}{Generating synthetic data}{equation.20}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of the injected static parameters used for generating synthetic data for validation of the analysis scheme when including the pulsar-term in Section \ref  {sec:pe_and_ms}. The prior used for Bayesian inference (Section \ref  {sec:pe_and_ms}) on each parameter is also displayed (rightmost column). The top, middle and bottom sections of the table contain the values for $\bm  {\theta }_{\rm  gw}$, $\bm  {\theta }_{\rm  psr}$ and $\chi ^{(n)}$ respectively. The subscript ``ATNF'' denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref  {sec:synthetic_data}. The subscript ``SC'' on the pulsar noise amplitude $\sigma ^{(n)}$ indicates that the injected value has been calculated using Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sigmap_f}\unskip \@@italiccorr )}} the empirical timing noise model for MSPs from \cite {Shannon2010}. The quantities $\eta ^{(n)}_{f}$ and $\eta ^{(n)}_{\dot  {f}}$ are the errors in $f^{(n)}_{\rm  em} (t_1)$ and $\dot  {f}^{(n)}_{\rm  em} (t_1)$ respectively, as quoted in the ATNF catalogue. We do not try to infer $\gamma ^{(n)}$ as $\gamma ^{(n)} T_{\rm  obs} \sim 10^{-5}$ and so no prior is set. The choice of priors on $\bm  {\theta }_{\rm  psr}$ is discussed in Appendix \ref  {sec:set_priors}. \relax }}{5}{table.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{tab:parameters_and_priors}{{1}{5}{Summary of the injected static parameters used for generating synthetic data for validation of the analysis scheme when including the pulsar-term in Section \ref {sec:pe_and_ms}. The prior used for Bayesian inference (Section \ref {sec:pe_and_ms}) on each parameter is also displayed (rightmost column). The top, middle and bottom sections of the table contain the values for $\boldsymbol {\theta }_{\rm gw}$, $\boldsymbol {\theta }_{\rm psr}$ and $\chi ^{(n)}$ respectively. The subscript ``ATNF'' denotes values which have been obtained from the ATNF pulsar catalogue as described in Section \ref {sec:synthetic_data}. The subscript ``SC'' on the pulsar noise amplitude $\sigma ^{(n)}$ indicates that the injected value has been calculated using Equation \eqref {eq:sigmap_f} the empirical timing noise model for MSPs from \protect \cite {Shannon2010}. The quantities $\eta ^{(n)}_{f}$ and $\eta ^{(n)}_{\dot {f}}$ are the errors in $f^{(n)}_{\rm em} (t_1)$ and $\dot {f}^{(n)}_{\rm em} (t_1)$ respectively, as quoted in the ATNF catalogue. We do not try to infer $\gamma ^{(n)}$ as $\gamma ^{(n)} T_{\rm obs} \sim 10^{-5}$ and so no prior is set. The choice of priors on $\boldsymbol {\theta }_{\rm psr}$ is discussed in Appendix \ref {sec:set_priors}. \relax }{table.caption.1}{}}
+\newlabel{eq:sigma_m_eqn}{{20}{5}{Generating synthetic data}{equation.20}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Parameter estimation}{5}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:pe_and_ms}{{4.2}{5}{Parameter estimation}{subsection.4.2}{}}
 \citation{doi:10.1198/106186006X136976}
@@ -99,10 +101,10 @@
 \newlabel{sec:parameter_space}{{4.3}{6}{Extension to broader parameter space}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Earth terms vs pulsar terms}{6}{section.5}\protected@file@percent }
 \newlabel{sec:earth_vs_psr}{{5}{6}{Earth terms vs pulsar terms}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Accuracy of parameter estimation}{6}{subsection.5.1}\protected@file@percent }
-\newlabel{sec:psr_v_earth_pe}{{5.1}{6}{Accuracy of parameter estimation}{subsection.5.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Posterior distribution of the GW source parameters $\bm  {\theta }_{\rm  gw}$ for the representative system in Table \ref  {tab:parameters_and_priors}, for ten realisations of the noise processes, with curves coloured uniquely. The horizontal and vertical orange lines indicate the true injected values. The contours in the two-dimensional histograms mark the (0.5, 1, 1.5, 2)-$\sigma $ levels after marginalizing over all but two parameters. The one-dimensional histograms correspond to the joint posterior distribution marginalized over all but one parameter. The supertitles of the one-dimensional histograms record the posterior median and the 0.16 and 0.84 quantiles of the median realisation. We plot the scaled variables $10^9 \Omega $ (units: ${\rm  rad \, s^{-1}}$) and $10^{15} h_0$. The Kalman filter and nested sampler estimate accurately all seven parameters in ${\bm  {\theta }}_{\rm  gw}$. The horizontal axes span a subset of the prior domain for all seven parameters. The known, injected value lies within the 90\% credible interval for 60 out of the 70 combinations of seven parameters and ten noise realizations. There is an appreciable dispersion among the peaks of the one-dimensional posteriors; the maximum coefficient of variation is $52 \%$ for $\Phi _0$, the minimum is $0.02 \%$ for $\Omega $.\relax }}{7}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:corner_plot_1}{{1}{7}{Posterior distribution of the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for the representative system in Table \ref {tab:parameters_and_priors}, for ten realisations of the noise processes, with curves coloured uniquely. The horizontal and vertical orange lines indicate the true injected values. The contours in the two-dimensional histograms mark the (0.5, 1, 1.5, 2)-$\sigma $ levels after marginalizing over all but two parameters. The one-dimensional histograms correspond to the joint posterior distribution marginalized over all but one parameter. The supertitles of the one-dimensional histograms record the posterior median and the 0.16 and 0.84 quantiles of the median realisation. We plot the scaled variables $10^9 \Omega $ (units: ${\rm rad \, s^{-1}}$) and $10^{15} h_0$. The Kalman filter and nested sampler estimate accurately all seven parameters in ${\boldsymbol {\theta }}_{\rm gw}$. The horizontal axes span a subset of the prior domain for all seven parameters. The known, injected value lies within the 90\% credible interval for 60 out of the 70 combinations of seven parameters and ten noise realizations. There is an appreciable dispersion among the peaks of the one-dimensional posteriors; the maximum coefficient of variation is $52 \%$ for $\Phi _0$, the minimum is $0.02 \%$ for $\Omega $.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Accuracy of parameter estimation}{7}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:psr_v_earth_pe}{{5.1}{7}{Accuracy of parameter estimation}{subsection.5.1}{}}
 \citation{Zhupulsarterms}
 \citation{Chen2022}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Same as Figure \ref  {fig:corner_plot_1} but for five static parameters of $\chi ^{(n)}$. Consistent unimodal posteriors are obtained across the ten noise realisations for four out of the five displayed parameters. No consistent posteriors are obtained for $\chi ^{(2)}$ (third row, third column), because this pulsar has a similar sky position to that of the synthetic GW source. The known, injected value lies within the 90\% credible interval for 38 out of the 50 combinations of five parameters and ten noise realizations (i.e. $76 \%$). \relax }}{8}{figure.caption.3}\protected@file@percent }
@@ -117,10 +119,10 @@
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Root-mean-square relative error $\Delta _{\rm  M}(\theta )$, Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:mean_rel_error}\unskip \@@italiccorr )}}, in the one-dimensional posteriors calculated using the Earth-term model (M = earth, Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:g_func_trig_earth}\unskip \@@italiccorr )}}) and the pulsar-term model (M=psr, Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:g_func_trig}\unskip \@@italiccorr )}}) for the elements $\theta \in \bm  {\theta }_{\rm  gw}$. The injection values are as summarised in Table \ref  {tab:parameters_and_priors}. The top and bottom halves of the table contain the high-SNR ($h_0 = 10^{-12}$) and low-SNR ($h_0 = 5 \times 10^{-15}$) cases respectively. For all parameters the units are in rad, except for $h_0$ which is dimensionless. The rightmost column quotes the difference in the mean relative error between the models for each parameter; a positive value indicates that the pulsar-term model is more accurate.\relax }}{9}{table.caption.8}\protected@file@percent }
 \newlabel{tab:posterior_errors}{{2}{9}{Root-mean-square relative error $\Delta _{\rm M}(\theta )$, Equation \eqref {eq:mean_rel_error}, in the one-dimensional posteriors calculated using the Earth-term model (M = earth, Equation \eqref {eq:g_func_trig_earth}) and the pulsar-term model (M=psr, Equation \eqref {eq:g_func_trig}) for the elements $\theta \in \boldsymbol {\theta }_{\rm gw}$. The injection values are as summarised in Table \ref {tab:parameters_and_priors}. The top and bottom halves of the table contain the high-SNR ($h_0 = 10^{-12}$) and low-SNR ($h_0 = 5 \times 10^{-15}$) cases respectively. For all parameters the units are in rad, except for $h_0$ which is dimensionless. The rightmost column quotes the difference in the mean relative error between the models for each parameter; a positive value indicates that the pulsar-term model is more accurate.\relax }{table.caption.8}{}}
 \newlabel{eq:bayes}{{22}{9}{Detectability vs $h_0$}{equation.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
-\newlabel{sec:discussion}{{6}{9}{Conclusion}{section.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Posterior distribution of the GW source parameters $\bm  {\theta }_{\rm  gw}$ for the representative system described in Table \ref  {tab:parameters_and_priors}, with $h_0 = 10^{-12}$, for a single realisation of the system noise. The blue curves are the posteriors derived using the Earth-term model, Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:g_func_trig_earth}\unskip \@@italiccorr )}}, the green curves using the pulsar-term model, Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:g_func_trig}\unskip \@@italiccorr )}}. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. The supertitles of the one-dimensional histograms record the posterior medians and the 0.16 and 0.84 quantiles of the green curves, i.e. the pulsar-term model. We plot the scaled variables $10^9 \Omega $ (units: rad s$^{-1}$) and $10^{12} h_0$. Some parameters (e.g. $\psi , \iota $) exhibit a bias when using the Earth-term model which is absent when using the pulsar-term model.\relax }}{10}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:corner_plot_compare_high}{{5}{10}{Posterior distribution of the GW source parameters $\boldsymbol {\theta }_{\rm gw}$ for the representative system described in Table \ref {tab:parameters_and_priors}, with $h_0 = 10^{-12}$, for a single realisation of the system noise. The blue curves are the posteriors derived using the Earth-term model, Equation \eqref {eq:g_func_trig_earth}, the green curves using the pulsar-term model, Equation \eqref {eq:g_func_trig}. The vertical orange lines indicate the true injected values. The contours in the 2D histograms denote the (0.5, 1, 1.5, 2)-$\sigma $ levels. The supertitles of the one-dimensional histograms record the posterior medians and the 0.16 and 0.84 quantiles of the green curves, i.e. the pulsar-term model. We plot the scaled variables $10^9 \Omega $ (units: rad s$^{-1}$) and $10^{12} h_0$. Some parameters (e.g. $\psi , \iota $) exhibit a bias when using the Earth-term model which is absent when using the pulsar-term model.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{10}{section.6}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{10}{Conclusion}{section.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Same as Figure \ref  {fig:corner_plot_compare_high}, but for a low-SNR system with $h_0 = 5 \times 10^{-15}$. The posterior distributions from the Earth-term and pulsar-term models are generally overlaid. The two-dimensional contours suggest a slight improvement through using $\mathcal  {M}_{\rm  psr \& earth}$; qualitatively the injected value generally lies closer to the centre of the green contours than the blue contours. However the difference is modest and contingent on the specific realisation of the data.\relax }}{11}{figure.caption.7}\protected@file@percent }
 \newlabel{fig:corner_plot_compare_low}{{6}{11}{Same as Figure \ref {fig:corner_plot_compare_high}, but for a low-SNR system with $h_0 = 5 \times 10^{-15}$. The posterior distributions from the Earth-term and pulsar-term models are generally overlaid. The two-dimensional contours suggest a slight improvement through using $\mathcal {M}_{\rm psr \& earth}$; qualitatively the injected value generally lies closer to the centre of the green contours than the blue contours. However the difference is modest and contingent on the specific realisation of the data.\relax }{figure.caption.7}{}}
 \citation{PhysRevD.102.023006,PhysRevD.105.022002,Abbott_2022SCO,2022PhRvD.106f2002A}
@@ -132,10 +134,10 @@
 \citation{Hellings,2023ApJ...951L...8A}
 \bibstyle{mnras}
 \bibdata{example}
-\bibcite{PhysRevD.105.022002}{{1}{2022a}{{Abbott et~al.}}{{Abbott et~al.,}}}
-\bibcite{Abbott_2022SCO}{{2}{2022b}{{Abbott et~al.}}{{Abbott et~al.,}}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bayes factor (odds ratio) $\beta $ between the competing models $\mathcal  {M}_i$, $i \in \left \{ \rm  psr \& earth, earth \right \}$ (GW present in data) and $\mathcal  {M}_{\rm  null}$ (GW not present in data) at different GW strains, $h_0$, for the representative example in Table \ref  {tab:parameters_and_priors}. The horizontal grey dashed line labels an arbitrary detection threshold, $\beta = 10$. The minimum detectable strain for which $\beta < 10$ equals $3.19 \times 10^{-15}$ for $\mathcal  {M}_{\rm  earth}$ and $2.93 \times 10^{-15}$ for $\mathcal  {M}_{\rm  psr \& earth}$. \textcolor {red}{TK: we should also mention scatter at lower h, but this should be eliminated when new simulations complete.}\relax }}{12}{figure.caption.9}\protected@file@percent }
 \newlabel{fig:bayes1}{{7}{12}{Bayes factor (odds ratio) $\beta $ between the competing models $\mathcal {M}_i$, $i \in \left \{ \rm psr \& earth, earth \right \}$ (GW present in data) and $\mathcal {M}_{\rm null}$ (GW not present in data) at different GW strains, $h_0$, for the representative example in Table \ref {tab:parameters_and_priors}. The horizontal grey dashed line labels an arbitrary detection threshold, $\beta = 10$. The minimum detectable strain for which $\beta < 10$ equals $3.19 \times 10^{-15}$ for $\mathcal {M}_{\rm earth}$ and $2.93 \times 10^{-15}$ for $\mathcal {M}_{\rm psr \& earth}$. \textcolor {red}{TK: we should also mention scatter at lower h, but this should be eliminated when new simulations complete.}\relax }{figure.caption.9}{}}
+\bibcite{PhysRevD.105.022002}{{1}{2022a}{{Abbott et~al.}}{{Abbott et~al.,}}}
+\bibcite{Abbott_2022SCO}{{2}{2022b}{{Abbott et~al.}}{{Abbott et~al.,}}}
 \bibcite{2022PhRvD.106f2002A}{{3}{2022c}{{{Abbott} et~al.}}{{{Abbott} et~al.,}}}
 \bibcite{2023ApJ...951L...8A}{{4}{2023a}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
 \bibcite{NANOgrav2023}{{5}{2023b}{{{Agazie} et~al.}}{{{Agazie} et~al.,}}}
@@ -232,20 +234,20 @@
 \citation{Gelb:1974}
 \citation{zarchan2000fundamentals}
 \citation{gardiner2009stochastic}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Kalman filter}{14}{section.A1}\protected@file@percent }
-\newlabel{sec:kalman}{{A}{14}{Kalman filter}{section.A1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A1}Recursion equations and likelihoood }{14}{subsection.A1.1}\protected@file@percent }
-\newlabel{sec_kalman_general}{{A1}{14}{Recursion equations and likelihoood}{subsection.A1.1}{}}
-\newlabel{eq:kalman1}{{A1}{14}{Recursion equations and likelihoood}{equation.A1.1}{}}
-\newlabel{eq:kalman2}{{A2}{14}{Recursion equations and likelihoood}{equation.A1.2}{}}
-\newlabel{eq:residual}{{A5}{14}{Recursion equations and likelihoood}{equation.A1.5}{}}
-\newlabel{eq:innv_covar}{{A6}{14}{Recursion equations and likelihoood}{equation.A1.6}{}}
-\newlabel{eq:kalman gain}{{A7}{14}{Recursion equations and likelihoood}{equation.A1.7}{}}
-\newlabel{eq:kalmangainupdate}{{A8}{14}{Recursion equations and likelihoood}{equation.A1.8}{}}
-\newlabel{eq:likelihood}{{A11}{14}{Recursion equations and likelihoood}{equation.A1.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A2}State space representation of a PTA analysis}{14}{subsection.A1.2}\protected@file@percent }
-\newlabel{sec_kalman_specific}{{A2}{14}{State space representation of a PTA analysis}{subsection.A1.2}{}}
-\newlabel{eq:kalmn2}{{A14}{14}{State space representation of a PTA analysis}{equation.A1.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Kalman filter}{15}{section.A1}\protected@file@percent }
+\newlabel{sec:kalman}{{A}{15}{Kalman filter}{section.A1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A1}Recursion equations and likelihoood }{15}{subsection.A1.1}\protected@file@percent }
+\newlabel{sec_kalman_general}{{A1}{15}{Recursion equations and likelihoood}{subsection.A1.1}{}}
+\newlabel{eq:kalman1}{{A1}{15}{Recursion equations and likelihoood}{equation.A1.1}{}}
+\newlabel{eq:kalman2}{{A2}{15}{Recursion equations and likelihoood}{equation.A1.2}{}}
+\newlabel{eq:residual}{{A5}{15}{Recursion equations and likelihoood}{equation.A1.5}{}}
+\newlabel{eq:innv_covar}{{A6}{15}{Recursion equations and likelihoood}{equation.A1.6}{}}
+\newlabel{eq:kalman gain}{{A7}{15}{Recursion equations and likelihoood}{equation.A1.7}{}}
+\newlabel{eq:kalmangainupdate}{{A8}{15}{Recursion equations and likelihoood}{equation.A1.8}{}}
+\newlabel{eq:likelihood}{{A11}{15}{Recursion equations and likelihoood}{equation.A1.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A2}State space representation of a PTA analysis}{15}{subsection.A1.2}\protected@file@percent }
+\newlabel{sec_kalman_specific}{{A2}{15}{State space representation of a PTA analysis}{subsection.A1.2}{}}
+\newlabel{eq:kalmn2}{{A14}{15}{State space representation of a PTA analysis}{equation.A1.14}{}}
 \citation{Skilling}
 \citation{Ashton2022}
 \citation{Mukherjee2006,Feroz2008,Handley2015}
@@ -259,25 +261,25 @@
 \citation{bilby.507.2037A}
 \citation{Ashton2022}
 \citation{Ashton2022}
-\newlabel{eq:gardenier}{{A18}{15}{State space representation of a PTA analysis}{equation.A1.18}{}}
-\newlabel{eq:appendix_noise}{{A23}{15}{State space representation of a PTA analysis}{equation.A1.23}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Nested sampling}{15}{section.A2}\protected@file@percent }
-\newlabel{sec:nested_sampling}{{B}{15}{Nested sampling}{section.A2}{}}
-\newlabel{eq:model_evidence2}{{B2}{15}{Nested sampling}{equation.A2.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Complete workflow summary}{15}{section.A3}\protected@file@percent }
-\newlabel{sec:workflow}{{C}{15}{Complete workflow summary}{section.A3}{}}
+\newlabel{eq:gardenier}{{A18}{16}{State space representation of a PTA analysis}{equation.A1.18}{}}
+\newlabel{eq:appendix_noise}{{A23}{16}{State space representation of a PTA analysis}{equation.A1.23}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Nested sampling}{16}{section.A2}\protected@file@percent }
+\newlabel{sec:nested_sampling}{{B}{16}{Nested sampling}{section.A2}{}}
+\newlabel{eq:model_evidence2}{{B2}{16}{Nested sampling}{equation.A2.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Complete workflow summary}{16}{section.A3}\protected@file@percent }
+\newlabel{sec:workflow}{{C}{16}{Complete workflow summary}{section.A3}{}}
 \citation{Bhagwat2021}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Choice of priors}{16}{section.A4}\protected@file@percent }
-\newlabel{sec:set_priors}{{D}{16}{Choice of priors}{section.A4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Parameter estimation of representative example, high-SNR}{16}{section.A5}\protected@file@percent }
-\newlabel{sec:app_high_SNR}{{E}{16}{Parameter estimation of representative example, high-SNR}{section.A5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {F}Challenges of the pulsar term}{16}{section.A6}\protected@file@percent }
-\newlabel{sec:psr_term_challenges}{{F}{16}{Challenges of the pulsar term}{section.A6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {E1}{\ignorespaces Same as Figure \ref  {fig:corner_plot_1}, but for a SMBHB with $h_0 = 10^{-12}$. The Kalman filter and nested sampler estimate all seven parameters in $\bm  {\theta }_{\rm  gw}$ accurately. There is a reduced dispersion in the one-dimensional posterior medians between noise realisations compared to the low-SNR case (c.f. Figure \ref  {fig:corner_plot_1}). An appreciable dispersion remains for $\iota $ and $h_0$, along with a correlation across noise realisations for these two parameters, due to their weak-identifiability.\relax }}{17}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:corner_high_snr_appendix}{{E1}{17}{Same as Figure \ref {fig:corner_plot_1}, but for a SMBHB with $h_0 = 10^{-12}$. The Kalman filter and nested sampler estimate all seven parameters in $\boldsymbol {\theta }_{\rm gw}$ accurately. There is a reduced dispersion in the one-dimensional posterior medians between noise realisations compared to the low-SNR case (c.f. Figure \ref {fig:corner_plot_1}). An appreciable dispersion remains for $\iota $ and $h_0$, along with a correlation across noise realisations for these two parameters, due to their weak-identifiability.\relax }{figure.caption.10}{}}
-\newlabel{lastpage}{{F}{17}{Challenges of the pulsar term}{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {E2}{\ignorespaces Same as Figure \ref  {fig:corner_plot_3}, but for a SMBHB with $h_0 = 10^{-12}$. Consistent unimodal posteriors are obtained across all noise realisations and all five displayed parameters. It is now possible to infer $\chi ^{(2)}$ due to the loundness of the GW signal, unlike in the low-SNR case where consistent posteriors for $\chi ^{(2)}$ could not be estimated.\relax }}{18}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:corner_high_snr_appendix_chi}{{E2}{18}{Same as Figure \ref {fig:corner_plot_3}, but for a SMBHB with $h_0 = 10^{-12}$. Consistent unimodal posteriors are obtained across all noise realisations and all five displayed parameters. It is now possible to infer $\chi ^{(2)}$ due to the loundness of the GW signal, unlike in the low-SNR case where consistent posteriors for $\chi ^{(2)}$ could not be estimated.\relax }{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {F1}{\ignorespaces Logarithm of the one-dimensional likelihood $\mathcal  {L}(\alpha )$ returned by the Kalman filter acting on synthetic data $\bm  {Y}$. All other static elements of $\bm  {\theta }$ are held constant at their true injected values. In the left panel the Kalman filter uses Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:g_func_trig}\unskip \@@italiccorr )}} to calculate $\mathcal  {L}(\alpha )$, i.e. inclusive of the pulsar terms. In the right-hand panel the Kalman filter uses Equation \ref  {eq:g_func_trig_earth}, i.e. just the Earth terms. The vertical dashed lines indicate the true injected value of $\alpha $ ($=1.0$ rad) used to generate $\bm  {Y}$. The inset plot covers the region $1.0 - 10^{-4} \le \alpha \le 1.0 +10^{-4}$ rad. In the left panel $\mathcal  {L}(\alpha )$ is noisy, though a smooth concave optima exists on scales $\mathcal  {O}(10^{-4})$ rad. This noise hampers the ability of sampling algorithms to converge to a posterior distribution. Conversely, in the right hand panel $\mathcal  {L}(\alpha )$ is globally smooth. \relax }}{19}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:likelihood_comparison}{{F1}{19}{Logarithm of the one-dimensional likelihood $\mathcal {L}(\alpha )$ returned by the Kalman filter acting on synthetic data $\boldsymbol {Y}$. All other static elements of $\boldsymbol {\theta }$ are held constant at their true injected values. In the left panel the Kalman filter uses Equation \eqref {eq:g_func_trig} to calculate $\mathcal {L}(\alpha )$, i.e. inclusive of the pulsar terms. In the right-hand panel the Kalman filter uses Equation \ref {eq:g_func_trig_earth}, i.e. just the Earth terms. The vertical dashed lines indicate the true injected value of $\alpha $ ($=1.0$ rad) used to generate $\boldsymbol {Y}$. The inset plot covers the region $1.0 - 10^{-4} \le \alpha \le 1.0 +10^{-4}$ rad. In the left panel $\mathcal {L}(\alpha )$ is noisy, though a smooth concave optima exists on scales $\mathcal {O}(10^{-4})$ rad. This noise hampers the ability of sampling algorithms to converge to a posterior distribution. Conversely, in the right hand panel $\mathcal {L}(\alpha )$ is globally smooth. \relax }{figure.caption.12}{}}
-\gdef \@abspage@last{19}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Choice of priors}{17}{section.A4}\protected@file@percent }
+\newlabel{sec:set_priors}{{D}{17}{Choice of priors}{section.A4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Parameter estimation of representative example, high-SNR}{17}{section.A5}\protected@file@percent }
+\newlabel{sec:app_high_SNR}{{E}{17}{Parameter estimation of representative example, high-SNR}{section.A5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Challenges of the pulsar term}{17}{section.A6}\protected@file@percent }
+\newlabel{sec:psr_term_challenges}{{F}{17}{Challenges of the pulsar term}{section.A6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E1}{\ignorespaces Same as Figure \ref  {fig:corner_plot_1}, but for a SMBHB with $h_0 = 10^{-12}$. The Kalman filter and nested sampler estimate all seven parameters in $\bm  {\theta }_{\rm  gw}$ accurately. There is a reduced dispersion in the one-dimensional posterior medians between noise realisations compared to the low-SNR case (c.f. Figure \ref  {fig:corner_plot_1}). An appreciable dispersion remains for $\iota $ and $h_0$, along with a correlation across noise realisations for these two parameters, due to their weak-identifiability.\relax }}{18}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:corner_high_snr_appendix}{{E1}{18}{Same as Figure \ref {fig:corner_plot_1}, but for a SMBHB with $h_0 = 10^{-12}$. The Kalman filter and nested sampler estimate all seven parameters in $\boldsymbol {\theta }_{\rm gw}$ accurately. There is a reduced dispersion in the one-dimensional posterior medians between noise realisations compared to the low-SNR case (c.f. Figure \ref {fig:corner_plot_1}). An appreciable dispersion remains for $\iota $ and $h_0$, along with a correlation across noise realisations for these two parameters, due to their weak-identifiability.\relax }{figure.caption.10}{}}
+\newlabel{lastpage}{{F}{18}{Challenges of the pulsar term}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E2}{\ignorespaces Same as Figure \ref  {fig:corner_plot_3}, but for a SMBHB with $h_0 = 10^{-12}$. Consistent unimodal posteriors are obtained across all noise realisations and all five displayed parameters. It is now possible to infer $\chi ^{(2)}$ due to the loundness of the GW signal, unlike in the low-SNR case where consistent posteriors for $\chi ^{(2)}$ could not be estimated.\relax }}{19}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:corner_high_snr_appendix_chi}{{E2}{19}{Same as Figure \ref {fig:corner_plot_3}, but for a SMBHB with $h_0 = 10^{-12}$. Consistent unimodal posteriors are obtained across all noise realisations and all five displayed parameters. It is now possible to infer $\chi ^{(2)}$ due to the loundness of the GW signal, unlike in the low-SNR case where consistent posteriors for $\chi ^{(2)}$ could not be estimated.\relax }{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {F1}{\ignorespaces Logarithm of the one-dimensional likelihood $\mathcal  {L}(\alpha )$ returned by the Kalman filter acting on synthetic data $\bm  {Y}$. All other static elements of $\bm  {\theta }$ are held constant at their true injected values. In the left panel the Kalman filter uses Equation \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:g_func_trig}\unskip \@@italiccorr )}} to calculate $\mathcal  {L}(\alpha )$, i.e. inclusive of the pulsar terms. In the right-hand panel the Kalman filter uses Equation \ref  {eq:g_func_trig_earth}, i.e. just the Earth terms. The vertical dashed lines indicate the true injected value of $\alpha $ ($=1.0$ rad) used to generate $\bm  {Y}$. The inset plot covers the region $1.0 - 10^{-4} \le \alpha \le 1.0 +10^{-4}$ rad. In the left panel $\mathcal  {L}(\alpha )$ is noisy, though a smooth concave optima exists on scales $\mathcal  {O}(10^{-4})$ rad. This noise hampers the ability of sampling algorithms to converge to a posterior distribution. Conversely, in the right hand panel $\mathcal  {L}(\alpha )$ is globally smooth. \relax }}{20}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:likelihood_comparison}{{F1}{20}{Logarithm of the one-dimensional likelihood $\mathcal {L}(\alpha )$ returned by the Kalman filter acting on synthetic data $\boldsymbol {Y}$. All other static elements of $\boldsymbol {\theta }$ are held constant at their true injected values. In the left panel the Kalman filter uses Equation \eqref {eq:g_func_trig} to calculate $\mathcal {L}(\alpha )$, i.e. inclusive of the pulsar terms. In the right-hand panel the Kalman filter uses Equation \ref {eq:g_func_trig_earth}, i.e. just the Earth terms. The vertical dashed lines indicate the true injected value of $\alpha $ ($=1.0$ rad) used to generate $\boldsymbol {Y}$. The inset plot covers the region $1.0 - 10^{-4} \le \alpha \le 1.0 +10^{-4}$ rad. In the left panel $\mathcal {L}(\alpha )$ is noisy, though a smooth concave optima exists on scales $\mathcal {O}(10^{-4})$ rad. This noise hampers the ability of sampling algorithms to converge to a posterior distribution. Conversely, in the right hand panel $\mathcal {L}(\alpha )$ is globally smooth. \relax }{figure.caption.12}{}}
+\gdef \@abspage@last{20}
