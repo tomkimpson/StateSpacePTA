@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  8 JAN 2024 07:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.3)  8 JAN 2024 13:20
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -871,6 +871,12 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.0pt on input line 113.
 
+Underfull \hbox (badness 1442) in paragraph at lines 129--130
+\T1/ntxtlf/m/n/9 si-mul-ta-ne-ously mea-sures the TOAs from mul-ti-ple to searc
+h
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
@@ -889,17 +895,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--134
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 134.
+(Font)              scaled to size 8.0pt on input line 135.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 134.
+(Font)              scaled to size 6.2pt on input line 135.
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 134.
+e 135.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 134.
+(Font)              scaled to size 8.0pt on input line 135.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -909,61 +915,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--136
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--189
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 191.
+(Font)              scaled to size 12.0pt on input line 187.
 [2]
-
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 192.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
+Underfull \hbox (badness 10000) in paragraph at lines 190--192
 
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 204.
+(Font)              scaled to size 9.0pt on input line 194.
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 1048) in paragraph at lines 225--226
+\T1/ntxtlf/m/n/9 The GW mod-u-lates ra-dio pulses ac-cord-ing to Equa-tion [].
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 225--226
+\T1/ntxtlf/m/n/9 The mod-u-la-tion is com-posed of an Earth term, pro-por-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
-
- []
-
-
-Overfull \hbox (7.12753pt too wide) in paragraph at lines 288--288
+Overfull \hbox (7.12753pt too wide) in paragraph at lines 289--289
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
 
-Overfull \hbox (7.13991pt too wide) in paragraph at lines 297--297
+Overfull \hbox (7.13991pt too wide) in paragraph at lines 298--298
 []|$\OML/cmm/b/it/8 ^^R[]$|  
  []
 
@@ -982,48 +983,23 @@ LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 8.0pt on input line 308.
 
 Underfull \hbox (badness 10000) in paragraph at lines 308--309
-\T1/ntxtlf/m/n/9 In or-der to gen-er-ate syn-thetic fre-quency time se-ries
- []
-
-
-Underfull \hbox (badness 1442) in paragraph at lines 308--309
-\OML/cmm/b/it/9 Y\LMS/ntxsy/m/n/9 ¹\OML/ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 º \U/ntx
-mia/m/it/9 = \LMS/ntxsy/m/n/9 f\OML/ntxmi/m/it/9 f[]\LMS/ntxsy/m/n/9 ¹\OML/ntxm
-i/m/it/9 t\LMS/ntxsy/m/n/9 º\OML/ntxmi/m/it/9 ; [] ; f[]\LMS/ntxsy/m/n/9 ¹\OML/
-ntxmi/m/it/9 t\LMS/ntxsy/m/n/9 ºg$\T1/ntxtlf/m/n/9 , Equa-tions []--[] are in-t
-e-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
  []
 
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 9.0pt on input line 319.
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
 
 [4]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.0pt on input line 322.
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--329
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 331--332
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
@@ -1031,172 +1007,187 @@ Underfull \hbox (badness 10000) in paragraph at lines 333--334
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
-<images/corner_lowSNR_n4000.png, id=540, 1131.7482pt x 1146.2022pt>
+<images/corner_lowSNR_n4000.png, id=557, 1131.7482pt x 1146.2022pt>
 File: images/corner_lowSNR_n4000.png Graphic file (type png)
 <use images/corner_lowSNR_n4000.png>
-Package pdftex.def Info: images/corner_lowSNR_n4000.png  used on input line 342
+Package pdftex.def Info: images/corner_lowSNR_n4000.png  used on input line 352
 .
 (pdftex.def)             Requested size: 508.00407pt x 508.00334pt.
-<images/corner_lowSNR_chi_n4000.png, id=544, 819.7827pt x 841.2228pt>
+<images/corner_lowSNR_chi_n4000.png, id=561, 819.7827pt x 841.2228pt>
 File: images/corner_lowSNR_chi_n4000.png Graphic file (type png)
 <use images/corner_lowSNR_chi_n4000.png>
 Package pdftex.def Info: images/corner_lowSNR_chi_n4000.png  used on input line
- 349.
+ 359.
 (pdftex.def)             Requested size: 243.99783pt x 243.99971pt.
-<images/pp_plot_canonical500.png, id=547, 398.4486pt x 386.1627pt>
+<images/pp_plot_canonical500.png, id=564, 398.4486pt x 386.1627pt>
 File: images/pp_plot_canonical500.png Graphic file (type png)
 <use images/pp_plot_canonical500.png>
-Package pdftex.def Info: images/pp_plot_canonical500.png  used on input line 36
+Package pdftex.def Info: images/pp_plot_canonical500.png  used on input line 37
 0.
 (pdftex.def)             Requested size: 244.0pt x 236.4781pt.
-<images/pp_plot_canonical_nochi.png, id=550, 398.4486pt x 386.1627pt>
+<images/pp_plot_canonical_nochi.png, id=567, 398.4486pt x 386.1627pt>
 File: images/pp_plot_canonical_nochi.png Graphic file (type png)
 <use images/pp_plot_canonical_nochi.png>
 Package pdftex.def Info: images/pp_plot_canonical_nochi.png  used on input line
- 366.
+ 376.
 (pdftex.def)             Requested size: 244.0pt x 236.4781pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+LaTeX Warning: Reference `sec:synthetic_data' on page 6 undefined on input line
+ 383.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--383
+LaTeX Warning: Reference `sec:synthetic_data' on page 6 undefined on input line
+ 392.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--393
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 399--400
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7 <./images/corner_lowSNR_n4000.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
-
- []
-
-[8 <./images/corner_lowSNR_chi_n4000.png> <./images/pp_plot_canonical500.png> <
-./images/pp_plot_canonical_nochi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 402--404
-
- []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 406--407
 
  []
 
-<images/corner_highSNR_compare.png, id=626, 1125.003pt x 1146.2022pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./images/corner_lowSNR_n4000.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
+
+ []
+
+[8 <./images/corner_lowSNR_chi_n4000.png> <./images/pp_plot_canonical500.png> <
+./images/pp_plot_canonical_nochi.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
+
+ []
+
+<images/corner_highSNR_compare.png, id=641, 1125.003pt x 1146.2022pt>
 File: images/corner_highSNR_compare.png Graphic file (type png)
 <use images/corner_highSNR_compare.png>
 Package pdftex.def Info: images/corner_highSNR_compare.png  used on input line 
-409.
+419.
 (pdftex.def)             Requested size: 507.99763pt x 508.00334pt.
-<images/corner_lowSNR_compare_n4000.png, id=633, 1125.003pt x 1146.2022pt>
+<images/corner_lowSNR_compare_n4000.png, id=648, 1125.003pt x 1146.2022pt>
 File: images/corner_lowSNR_compare_n4000.png Graphic file (type png)
 <use images/corner_lowSNR_compare_n4000.png>
 Package pdftex.def Info: images/corner_lowSNR_compare_n4000.png  used on input 
-line 416.
+line 426.
 (pdftex.def)             Requested size: 507.99763pt x 508.00334pt.
 
-Overfull \hbox (10.30946pt too wide) in paragraph at lines 431--431
+Overfull \hbox (10.30946pt too wide) in paragraph at lines 441--441
 []|\T1/ntxtlf/m/n/8 High 
  []
 
 
-Overfull \hbox (9.86946pt too wide) in paragraph at lines 431--431
+Overfull \hbox (9.86946pt too wide) in paragraph at lines 441--441
 \T1/ntxtlf/m/n/8 SNR|  
  []
 
 
-Overfull \hbox (8.69347pt too wide) in paragraph at lines 439--439
+Overfull \hbox (8.69347pt too wide) in paragraph at lines 449--449
 []|\T1/ntxtlf/m/n/8 Low 
  []
 
 
-Overfull \hbox (9.86946pt too wide) in paragraph at lines 439--439
+Overfull \hbox (9.86946pt too wide) in paragraph at lines 449--449
 \T1/ntxtlf/m/n/8 SNR|  
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 454.
+(hyperref)                removing `math shift' on input line 464.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 454.
+(hyperref)                removing `subscript' on input line 464.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 454.
+(hyperref)                removing `math shift' on input line 464.
 
-<images/CanonicalBayesPlot2000.png, id=644, 734.5041pt x 714.5094pt>
+<images/CanonicalBayesPlot2000.png, id=659, 734.5041pt x 714.5094pt>
 File: images/CanonicalBayesPlot2000.png Graphic file (type png)
 <use images/CanonicalBayesPlot2000.png>
 Package pdftex.def Info: images/CanonicalBayesPlot2000.png  used on input line 
-457.
+467.
 (pdftex.def)             Requested size: 243.98979pt x 243.99843pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--467
+Underfull \hbox (badness 10000) in paragraph at lines 475--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 
  []
 
 
-Underfull \vbox (badness 1430) has occurred while \output is active []
-
- [9]
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
+
+ []
+
+[9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
+
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./images/corner_highSNR_compare.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 483--484
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
 
  []
 
@@ -1207,183 +1198,195 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11 <./images/corner_lowSNR_compare_n4000.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 485--486
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
-
- []
-
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 492.
+(enumitem)                sense, on input line 502.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
  []
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 496--497
+Underfull \hbox (badness 1127) in paragraph at lines 506--507
 \T1/ntxtlf/m/n/9 state equa-tions. How-ever, is-sues re-lated to iden-ti-fi-a-b
 il-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
 
  []
 
 (./paper.bbl [12 <./images/CanonicalBayesPlot2000.png>]
-Underfull \hbox (badness 6493) in paragraph at lines 465--468
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
+[]\T1/ntxtlf/m/n/8 Maggiore M., 2018, Grav-i-ta-tional Waves: Vol-ume 2: As-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
+\T1/ntxtlf/m/n/8 tro-physics and Cos-mol-ogy. Ox-ford Uni-ver-sity Press,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
+[][]\T1/ntxtlf/m/n/8 doi:10.1093/oso/9780198570899.001.0001[][], [][]$\T1/ntxtt
+/m/n/8 https : / / doi . org /
+ []
+
+
+Underfull \hbox (badness 6493) in paragraph at lines 477--480
 []\T1/ntxtlf/m/n/8 Wan E., Van Der Merwe R., 2000, in Pro-ceed-ings of the
  []
 
-[13]) [14
+) [13]
+Underfull \hbox (badness 10000) in paragraph at lines 559--561
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 585--587
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
+
+ []
+
+[14
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 549--551
+Underfull \hbox (badness 10000) in paragraph at lines 661--663
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--566
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 575--577
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 582--583
-
- []
-
-[15
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 651--653
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Underfull \hbox (badness 10000) in paragraph at lines 664--665
 
  []
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 665.
+(enumitem)                sense, on input line 675.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 672.
+(enumitem)                sense, on input line 682.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 685--686
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 
  []
 
 
 Underfull \vbox (badness 2359) has occurred while \output is active []
 
- [16]
-Underfull \hbox (badness 10000) in paragraph at lines 687--690
+ [15]
+Underfull \hbox (badness 10000) in paragraph at lines 697--700
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--705
+Underfull \hbox (badness 10000) in paragraph at lines 714--715
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 711--712
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 
  []
 
-<images/corner_highSNR.png, id=1070, 1125.003pt x 1146.2022pt>
+<images/corner_highSNR.png, id=1082, 1125.003pt x 1146.2022pt>
 File: images/corner_highSNR.png Graphic file (type png)
 <use images/corner_highSNR.png>
-Package pdftex.def Info: images/corner_highSNR.png  used on input line 719.
+Package pdftex.def Info: images/corner_highSNR.png  used on input line 729.
 (pdftex.def)             Requested size: 507.99763pt x 508.00334pt.
-<images/corner_highSNR_chi.png, id=1075, 819.7827pt x 841.2228pt>
+<images/corner_highSNR_chi.png, id=1087, 819.7827pt x 841.2228pt>
 File: images/corner_highSNR_chi.png Graphic file (type png)
 <use images/corner_highSNR_chi.png>
-Package pdftex.def Info: images/corner_highSNR_chi.png  used on input line 725.
+Package pdftex.def Info: images/corner_highSNR_chi.png  used on input line 735.
 
 (pdftex.def)             Requested size: 243.99783pt x 243.99971pt.
-<images/Likelihoods_alpha.png, id=1078, 966.009pt x 494.0859pt>
+<images/Likelihoods_alpha.png, id=1090, 966.009pt x 494.0859pt>
 File: images/Likelihoods_alpha.png Graphic file (type png)
 <use images/Likelihoods_alpha.png>
-Package pdftex.def Info: images/Likelihoods_alpha.png  used on input line 778.
+Package pdftex.def Info: images/Likelihoods_alpha.png  used on input line 788.
 (pdftex.def)             Requested size: 508.0025pt x 254.00096pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 782--783
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 792--793
 
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 794--795
+LaTeX Warning: Reference `sec:synthetic_data' on page 16 undefined on input lin
+e 798.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 798--799
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 802--803
+
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 804--805
 \T1/ntxtlf/m/n/9 tion $\U/ntxmia/m/it/9 
  [] \OML/ntxmi/m/it/9 d[]$\T1/ntxtlf/m/n/9 , where we re-mind the reader that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 794--795
+Underfull \hbox (badness 10000) in paragraph at lines 804--805
 
  []
 
-[17] [18
+[16] [17
 
  <./images/corner_highSNR.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19
+ [18
 
  <./images/corner_highSNR_chi.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20 <./images/Likelihoods_alpha.png>] (./paper.aux)
+ [19 <./images/Likelihoods_alpha.png>] (./paper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: D729296504AC1D94F151D6653178B75A;4540.
+(rerunfilecheck)             Checksum: ED21E27116E05A6AEAD63D22BBF3C3FF;4482.
  ) 
 Here is how much of TeX's memory you used:
- 17379 strings out of 478268
- 269979 string characters out of 5846348
- 598360 words of memory out of 5000000
- 34991 multiletter control sequences out of 15000+600000
+ 17386 strings out of 478268
+ 270121 string characters out of 5846348
+ 587153 words of memory out of 5000000
+ 34999 multiletter control sequences out of 15000+600000
  600241 words of font info for 257 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,78p,2625b,684s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,78p,2625b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1412,10 +1415,10 @@ ts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2022/texmf-dist/fonts/type
 ic/newtx/txsys.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx
 /ztmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb
 ></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on paper.pdf (20 pages, 15220648 bytes).
+Output written on paper.pdf (19 pages, 15221536 bytes).
 PDF statistics:
- 1264 PDF objects out of 1440 (max. 8388607)
- 1140 compressed objects within 12 object streams
- 220 named destinations out of 1000 (max. 500000)
+ 1275 PDF objects out of 1440 (max. 8388607)
+ 1154 compressed objects within 12 object streams
+ 219 named destinations out of 1000 (max. 500000)
  243 words of extra memory for PDF output out of 10000 (max. 10000000)
 

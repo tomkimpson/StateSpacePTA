@@ -183,6 +183,12 @@ Desvignes G.,  et~al., 2016, \mn@doi [Monthly Notices of the Royal Astronomical
    2023, \mn@doi [\mnras] {10.1093/mnras/stad1335}, \href
   {https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.5469D} {522, 5469}
 
+\bibitem[\protect\citeauthoryear{Edwards, Hobbs  \& Manchester}{Edwards
+  et~al.}{2006}]{edwardstempo}
+Edwards R.~T.,  Hobbs G.~B.,   Manchester R.~N.,  2006, \mn@doi [Monthly
+  Notices of the Royal Astronomical Society]
+  {10.1111/j.1365-2966.2006.10870.x}, 372, 1549
+
 \bibitem[\protect\citeauthoryear{{Ellis}, {Siemens}  \& {Creighton}}{{Ellis}
   et~al.}{2012}]{Ellis2012ApJ}
 {Ellis} J.~A.,  {Siemens} X.,   {Creighton} J.~D.~E.,  2012, \mn@doi [\apj]
@@ -286,6 +292,12 @@ Kimpson T.,  et~al., 2024, Submitted to MNRAS
   et~al.}{2021}]{Lower2021MNRAS.508.3251L}
 {Lower} M.~E.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab2678}, \href
   {https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.3251L} {508, 3251}
+
+\bibitem[\protect\citeauthoryear{Maggiore}{Maggiore}{2018}]{Maggiore}
+Maggiore M.,  2018, {Gravitational Waves: Volume 2: Astrophysics and
+  Cosmology}.
+Oxford University Press, \mn@doi{10.1093/oso/9780198570899.001.0001}, \url
+  {https://doi.org/10.1093/oso/9780198570899.001.0001}
 
 \bibitem[\protect\citeauthoryear{{Manchester}, {Hobbs}, {Teoh}  \&
   {Hobbs}}{{Manchester} et~al.}{2005}]{Manchester2005}
