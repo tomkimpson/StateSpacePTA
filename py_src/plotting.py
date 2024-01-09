@@ -178,7 +178,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
 
 
-    
+    print(ranges)
     #Now plot it using corner.corner
     fs = 20
     newfig = corner.corner(y_post, 
@@ -217,6 +217,16 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     if title is not None:
         newfig.suptitle(title, fontsize=20)  
     #plt.show()
+
+    
+
+
+
+
+
+
+
+
 
     
 
