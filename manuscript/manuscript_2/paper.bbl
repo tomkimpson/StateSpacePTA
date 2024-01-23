@@ -47,6 +47,17 @@ Abbott R.,  et~al., 2022b, \mn@doi [Physical Review D]
   Gravitation and Gravitational Radiation. pp 373--417 (\mn@eprint {arXiv}
   {gr-qc/9604033}), \mn@doi{10.48550/arXiv.gr-qc/9604033}
 
+\bibitem[\protect\citeauthoryear{Anholm, Ballmer, Creighton, Price  \&
+  Siemens}{Anholm et~al.}{2009}]{PhysRevD.79.084030}
+Anholm M.,  Ballmer S.,  Creighton J. D.~E.,  Price L.~R.,   Siemens X.,  2009,
+  \mn@doi [Phys. Rev. D] {10.1103/PhysRevD.79.084030}, 79, 084030
+
+\bibitem[\protect\citeauthoryear{{Antonelli}, {Basu}  \& {Haskell}}{{Antonelli}
+  et~al.}{2023}]{2023MNRAS.520.2813A}
+{Antonelli} M.,  {Basu} A.,   {Haskell} B.,  2023, \mn@doi [\mnras]
+  {10.1093/mnras/stad256}, \href
+  {https://ui.adsabs.harvard.edu/abs/2023MNRAS.520.2813A} {520, 2813}
+
 \bibitem[\protect\citeauthoryear{{Antoniadis} et~al.,}{{Antoniadis}
   et~al.}{2023a}]{2023arXiv230616214A}
 {Antoniadis} J.,  et~al., 2023a, \mn@doi [arXiv e-prints]
@@ -138,6 +149,12 @@ Bellman R.,  {\AA}str{\"o}m K.,  1970, \mn@doi [Mathematical Biosciences]
   et~al.}{2016}]{Caballero2016}
 {Caballero} R.~N.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stw179},
   \href {https://ui.adsabs.harvard.edu/abs/2016MNRAS.457.4421C} {457, 4421}
+
+\bibitem[\protect\citeauthoryear{Chamberlin, Creighton, Siemens, Demorest,
+  Ellis, Price  \& Romano}{Chamberlin et~al.}{2015}]{PhysRevD.91.044048}
+Chamberlin S.~J.,  Creighton J. D.~E.,  Siemens X.,  Demorest P.,  Ellis J.,
+  Price L.~R.,   Romano J.~D.,  2015, \mn@doi [Phys. Rev. D]
+  {10.1103/PhysRevD.91.044048}, 91, 044048
 
 \bibitem[\protect\citeauthoryear{{Charisi}, {Taylor}, {Witt}  \&
   {Runnoe}}{{Charisi} et~al.}{2023}]{Charisi2023arXiv230403786C}
