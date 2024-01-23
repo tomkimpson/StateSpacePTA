@@ -104,10 +104,8 @@ def plot_all(t,states,measurements,measurements_clean,predictions_x,predictions_
 
 
 
-def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None):
+def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges,axes_scales,savefig,logscale=False,title=None,quantiles=[0.16, 0.84],smooth=True,smooth1d=True):
     plt.style.use('science')
-
-
 
 
     print(path.split('.')[-1])
@@ -124,7 +122,7 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
         #Make it a dataframe. Nice for surfacing
         df_posterior = pd.DataFrame(data["posterior"]["content"]) # posterior
-
+       
 
 
     else: #is a parquet gzip
@@ -134,8 +132,8 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
 
     #Make omega into nHz
     df_posterior["omega_gw"] = df_posterior["omega_gw"]*1e9
-    #df_posterior["h"] = df_posterior["h"]*1e15
-    df_posterior["h"] = df_posterior["h"]*1e12
+    df_posterior["h"] = df_posterior["h"]*1e15
+    #df_posterior["h"] = df_posterior["h"]*1e12
 
     display(df_posterior)
 
@@ -173,9 +171,9 @@ def plot_custom_corner(path,variables_to_plot,labels,injection_parameters,ranges
     fig = corner.corner(y_post, 
                         color='C0',
                         show_titles=True,
-                        smooth=False,smooth1d=False,
+                        smooth=True,smooth1d=True,
                         truth_color='C2',
-                        quantiles=[0.16, 0.84], #[0.16, 0.84]
+                        quantiles=quantiles, #[0.16, 0.84] #
                         truths = injection_parameters,
                         range=ranges,
                         labels = labels,

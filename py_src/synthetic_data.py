@@ -62,7 +62,8 @@ class SyntheticData:
             
         #The measured frequency, no noise
         self.f_measured_clean= (1.0-X_factor)*self.intrinsic_frequency - X_factor*pulsars.ephemeris
-        
+        self.f_measured_clean_no_hetero= (1.0-X_factor)*self.intrinsic_frequency #- X_factor*pulsars.ephemeris
+
         measurement_noise = generator.normal(0, pulsars.σm,self.f_measured_clean.shape) # Measurement noise. Seeded
         self.f_measured = self.f_measured_clean + measurement_noise
-
+        self.f_measured_no_hetero = self.f_measured_clean_no_hetero + measurement_noise

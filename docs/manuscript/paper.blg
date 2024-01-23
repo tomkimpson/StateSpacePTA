@@ -3,10 +3,12 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
-Repeated entry---line 764 of file example.bib
+Repeated entry---line 821 of file example.bib
  : @book{Maggiore
  :               ,
 I'm skipping whatever remains of this entry
+Warning--entry type for "pennucci_timothy_t_2020_4312887" isn't style-file defined
+--line 1170 of file example.bib
 Reallocated buffer (elt_size=1) to 40000 items from 20000.
 Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
 Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
@@ -14,51 +16,55 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Warning--I didn't find a database entry for "Paxton2021"
-Warning--I didn't find a database entry for "Vissio2020"
+Reallocated str_pool (elt_size=1) to 195000 items from 130000.
+Repeated entry---line 2303 of file example.bib
+ : @book{zarchan2000fundamentals
+ :                              ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Manchester2005"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 143 entries,
+You've used 151 entries,
             2881 wiz_defined-function locations,
-            1958 strings with 73089 characters,
-and the built_in function-call counts, 71471 in all, are:
-= -- 6477
-> -- 4489
-< -- 325
-+ -- 1984
-- -- 609
-* -- 8518
-:= -- 10578
+            2009 strings with 169779 characters,
+and the built_in function-call counts, 75309 in all, are:
+= -- 6759
+> -- 4770
+< -- 342
++ -- 2118
+- -- 645
+* -- 8971
+:= -- 11171
 add.period$ -- 0
-call.type$ -- 143
-change.case$ -- 286
-chr.to.int$ -- 132
-cite$ -- 145
-duplicate$ -- 3614
-empty$ -- 3529
-format.name$ -- 1075
-if$ -- 12968
-int.to.chr$ -- 12
+call.type$ -- 151
+change.case$ -- 303
+chr.to.int$ -- 138
+cite$ -- 153
+duplicate$ -- 3827
+empty$ -- 3756
+format.name$ -- 1145
+if$ -- 13648
+int.to.chr$ -- 14
 int.to.str$ -- 0
-missing$ -- 150
-newline$ -- 449
-num.names$ -- 944
-pop$ -- 688
+missing$ -- 160
+newline$ -- 477
+num.names$ -- 997
+pop$ -- 754
 preamble$ -- 1
-purify$ -- 572
+purify$ -- 604
 quote$ -- 0
-skip$ -- 2478
+skip$ -- 2601
 stack$ -- 0
-substring$ -- 4912
-swap$ -- 2019
-text.length$ -- 591
+substring$ -- 5079
+swap$ -- 2122
+text.length$ -- 624
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1266
+type$ -- 1326
 warning$ -- 2
-while$ -- 1055
+while$ -- 1103
 width$ -- 0
-write$ -- 1460
-(There was 1 error message)
+write$ -- 1548
+(There were 2 error messages)

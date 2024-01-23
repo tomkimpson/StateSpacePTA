@@ -28,11 +28,21 @@ seed = int(sys.argv[4]) #the seeding
 
 
 #Extra params for pp plot
+#This was the old way - wrong !
+# omega =  float(sys.argv[5]) 
+# phi_0 =  float(sys.argv[6]) 
+# psi   =  float(sys.argv[7]) 
+# alpha =  float(sys.argv[8]) 
+# delta =  float(sys.argv[9]) 
+
+
+#this is the new way
 omega =  float(sys.argv[5]) 
 phi_0 =  float(sys.argv[6]) 
 psi   =  float(sys.argv[7]) 
-alpha =  float(sys.argv[8]) 
-delta =  float(sys.argv[9]) 
+delta =  float(sys.argv[8]) 
+alpha =  float(sys.argv[9]) 
+
 
 
 from numba import jit, config

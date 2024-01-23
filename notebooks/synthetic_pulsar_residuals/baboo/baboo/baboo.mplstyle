@@ -1,0 +1,51 @@
+# randoms
+axes.labelsize: 24
+axes.titlesize: 28
+lines.linewidth: 3
+text.usetex: True
+font.family: serif
+font.serif: Computer Modern Roman
+# font.serif: Ubuntu
+figure.figsize: 10,6
+axes.grid: False
+axes.grid.axis: both
+axes.grid.which: major
+grid.linestyle: :
+axes.linewidth : 2
+# lines.dotted_pattern : 4, 6
+# ticks
+xtick.labelsize: 18
+ytick.labelsize: 18
+xtick.direction: out
+ytick.direction: out
+xtick.major.size: 9
+ytick.major.size: 9
+xtick.minor.size: 6
+ytick.minor.size: 6
+ytick.left: True
+ytick.right: False
+xtick.bottom: True
+xtick.top: False
+xtick.minor.visible: False
+ytick.minor.visible: False
+xtick.major.width: 2
+xtick.minor.width: 1.5
+ytick.major.width: 2
+ytick.minor.width: 1.5
+
+# legend
+legend.fontsize: 22
+legend.edgecolor: k
+legend.facecolor: white
+
+# cycler
+# axes.prop_cycle: cycler('color', ['1F78B4', '33A02C', 'E31A1C', 'A6CEE3', 'B2DF8A', 'FB9A99'])
+# axes.prop_cycle: cycler('color', ['377EB8', 'FF7F00', '4DAF4A', 'F781BF', 'A65628', '984EA3', '999999', 'E41A1C', 'DEDE00'])
+# axes.prop_cycle: cycler('color', ["5A3A8E", "68B057", "C772C5", "45C097", "B0457B", "C1A33B", "6D83DA", "848438", "BA4758", "BA5837"])
+axes.prop_cycle: cycler('color', ['0173b2', 'de8f05', '029e73', 'd55e00', 'cc78bc', 'ca9161', 'fbafe4', '949494', 'ece133', '56b4e9'])
+patch.edgecolor: w
+hist.edgecolor: w
+hatch.linewidth: 6
+hatch.alpha: 0.2
+hatch.color: k
+

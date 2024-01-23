@@ -118,7 +118,7 @@ def set_prior_on_state_parameters(init_parameters,priors,f,fdot,σp,γ,d):
         logging.info('Not setting a prior for σp') 
         init_parameters,priors = add_to_bibly_priors_dict_constant(σp,"sigma_p",init_parameters,priors)           #constant
     else:
-        init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-21,1e-19) #log. 
+        init_parameters,priors = add_to_bibly_priors_dict_log(σp,"sigma_p",init_parameters,priors,1e-25,1e-23) #log. 
     
     
     init_parameters,priors = add_to_bibly_priors_dict_constant(γ,"gamma",init_parameters,priors)           #constant

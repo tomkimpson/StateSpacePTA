@@ -1,0 +1,98 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2796,         90]
+NotebookOptionsPosition[      2237,         72]
+NotebookOutlinePosition[      2628,         88]
+CellTagsIndexPosition[      2585,         85]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+This notebook confirms some of the calculations for the linear Kalman filter \
+applied to PTA data analysis\
+\>", "Text",
+ CellChangeTimes->{{3.908135498152049*^9, 
+  3.9081355271921167`*^9}},ExpressionUUID->"e4270881-2c98-4833-a9c2-\
+083aa5a609c0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", "\[Gamma]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{"\[CapitalTau]", "+", "\[CapitalDelta]", "-", "t"}], ")"}]}], 
+     "]"}], "*", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Gamma]", "*", 
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "+", 
+         RowBox[{"\[Beta]", "*", "t"}]}], ")"}]}], "+", "\[Beta]"}], ")"}]}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "\[CapitalTau]", ",", 
+     RowBox[{"\[CapitalTau]", "+", "\[CapitalDelta]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.908135532992991*^9, 3.908135651334365*^9}, {
+  3.9081358349168997`*^9, 3.908135852464239*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"ecfb8f75-5b47-4b5e-a440-4b355d45f9bd"],
+
+Cell[BoxData[
+ RowBox[{"\[Alpha]", "+", 
+  RowBox[{"\[Beta]", " ", 
+   RowBox[{"(", 
+    RowBox[{"\[CapitalDelta]", "+", "\[CapitalTau]"}], ")"}]}], "-", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "\[Gamma]"}], " ", "\[CapitalDelta]"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{"\[Alpha]", "+", 
+     RowBox[{"\[Beta]", " ", "\[CapitalTau]"}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{3.908135533990937*^9, 3.908135656155005*^9, 
+  3.908135856733996*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"0fb8927c-7d4b-4f2b-ab0a-898142d91e5b"]
+}, Open  ]]
+},
+WindowSize->{971, 911},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"13.1 for Mac OS X x86 (64-bit) (June 16, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4753b75b-d8cb-4798-b1f5-48f6e1243117"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 259, 6, 35, "Text",ExpressionUUID->"e4270881-2c98-4833-a9c2-083aa5a609c0"],
+Cell[CellGroupData[{
+Cell[842, 30, 809, 23, 30, "Input",ExpressionUUID->"ecfb8f75-5b47-4b5e-a440-4b355d45f9bd"],
+Cell[1654, 55, 567, 14, 57, "Output",ExpressionUUID->"0fb8927c-7d4b-4f2b-ab0a-898142d91e5b"]
+}, Open  ]]
+}
+]
+*)
+

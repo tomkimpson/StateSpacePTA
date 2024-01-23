@@ -1,7 +1,14 @@
-data/
+data/nested_sampling/*
+data/large_files_for_manuscript/*
 py_src/__pycache__/bilby_wrapper.cpython-310.pyc
 py_src/__pycache__/*.pyc
 py_src/outputs/*
 docs/minutes/slides/images/*
 docs/minutes/*/*/*.png
 py_src/slurm_jobs/*.sh
+docs/manuscript/internal_comments_3/difference_file/images
+data/clean/*
+**/.DS_Store
+data/**/*.json
+data/compressed_files
+data/PP_images
