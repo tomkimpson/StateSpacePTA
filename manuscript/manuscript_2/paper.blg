@@ -19,13 +19,14 @@ Repeated entry---line 2379 of file example.bib
  :                              ,
 I'm skipping whatever remains of this entry
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
+Warning--I didn't find a database entry for "]"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
 You've used 98 entries,
             2881 wiz_defined-function locations,
-            1569 strings with 143952 characters,
+            1570 strings with 143953 characters,
 and the built_in function-call counts, 49315 in all, are:
 = -- 4445
 > -- 3106
