@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1705970096 "paper.aux" "paper.bbl" "paper" 1705970106
+["bibtex paper"] 1706048319 "paper.aux" "paper.bbl" "paper" 1706048350
   "./mnras.bst" 1704745367 43376 8463aa2cc1948e346d5641ca59bb4619 ""
-  "example.bib" 1705612498 339907 9bf08696f056206572f98c0067ce9fbc ""
-  "paper.aux" 1705970106 43325 82e9bd9f06192aece1db98ccedcba7c1 "pdflatex"
+  "example.bib" 1706047570 339907 9bf08696f056206572f98c0067ce9fbc ""
+  "paper.aux" 1706048350 34964 48386e24e51c76e7878fc0995301e5b5 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1705970096 "/Users/t1/github_repos/StateSpacePTA/manuscript/manuscript_2/paper.tex" "paper.pdf" "paper" 1705970106
-  "/Users/t1/github_repos/StateSpacePTA/manuscript/manuscript_2/paper.tex" 1705970012 108108 7c785ab8afab65f6989180ed7460f545 ""
+["pdflatex"] 1706048339 "/Users/t1/github_repos/StateSpacePTA/manuscript/manuscript_2/paper.tex" "paper.pdf" "paper" 1706048350
+  "/Users/t1/github_repos/StateSpacePTA/manuscript/manuscript_2/paper.tex" 1706048307 107309 bfa0d0a48b215ffcebc32ea0ccd91532 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1640468671 3136 aac2e2476de8af6c827239df395814ee ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1640468671 2914 8283dfc24eaf1964346f843d7605c2b0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -226,8 +226,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1651583895 2826439 4a940b04d36128448ce90d50481cbcbe ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "images/CanonicalBayesPlot2000.png" 1704764314 209866 b704a25af9fcd3d9f99dfd3f0c193202 ""
-  "images/Likelihoods_alpha.png" 1704745367 274248 29c4080f4997a6e60c04243b5674754c ""
+  "images/CanonicalBayesPlot2000.png" 1706047570 209866 b704a25af9fcd3d9f99dfd3f0c193202 ""
+  "images/Likelihoods_alpha_v2.png" 1706047906 424553 f09a06492ab9be36b99ae34aed1193a0 ""
   "images/corner_highSNR.png" 1704745367 1563981 43d77226a6249198697f230314a5112c ""
   "images/corner_highSNR_chi.png" 1704745367 355272 ed1129d5788e58780370ae9e4004ce87 ""
   "images/corner_highSNR_compare.png" 1704745367 1148959 671b1f70b57439c20bf9228b6a06888f ""
@@ -237,10 +237,10 @@
   "images/pp_plot_canonical500.png" 1704745367 252390 34c1006ea12c9417335a48c8e534b025 ""
   "images/pp_plot_canonical_nochi.png" 1704745367 246544 99923d74f98b704617db56b7471068ee ""
   "mnras.cls" 1704745367 62657 f252e2c707372bfc3609684578d8db01 ""
-  "paper.aux" 1705970106 43325 82e9bd9f06192aece1db98ccedcba7c1 "pdflatex"
-  "paper.bbl" 1705970096 26586 fd91423695832628199caa5d77a38998 "bibtex paper"
-  "paper.out" 1705970106 4550 af2411dcc66e45d51384d607631207c6 "pdflatex"
-  "paper.tex" 1705970012 108108 7c785ab8afab65f6989180ed7460f545 ""
+  "paper.aux" 1706048350 34964 48386e24e51c76e7878fc0995301e5b5 "pdflatex"
+  "paper.bbl" 0 -1 0 "bibtex paper"
+  "paper.out" 1706048350 4550 af2411dcc66e45d51384d607631207c6 "pdflatex"
+  "paper.tex" 1706048307 107309 bfa0d0a48b215ffcebc32ea0ccd91532 ""
   (generated)
   "paper.aux"
   "paper.log"

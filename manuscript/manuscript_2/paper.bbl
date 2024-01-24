@@ -150,6 +150,12 @@ Bellman R.,  {\AA}str{\"o}m K.,  1970, \mn@doi [Mathematical Biosciences]
 {Caballero} R.~N.,  et~al., 2016, \mn@doi [\mnras] {10.1093/mnras/stw179},
   \href {https://ui.adsabs.harvard.edu/abs/2016MNRAS.457.4421C} {457, 4421}
 
+\bibitem[\protect\citeauthoryear{Challa, Morelande, Mušicki  \& Evans}{Challa
+  et~al.}{2011}]{rob_KF_book}
+Challa S.,  Morelande M.~R.,  Mušicki D.,   Evans R.~J.,  2011, Fundamentals
+  of Object Tracking.
+Cambridge University Press, \mn@doi{10.1017/CBO9780511975837}
+
 \bibitem[\protect\citeauthoryear{Chamberlin, Creighton, Siemens, Demorest,
   Ellis, Price  \& Romano}{Chamberlin et~al.}{2015}]{PhysRevD.91.044048}
 Chamberlin S.~J.,  Creighton J. D.~E.,  Siemens X.,  Demorest P.,  Ellis J.,
@@ -171,6 +177,12 @@ Chamberlin S.~J.,  Creighton J. D.~E.,  Siemens X.,  Demorest P.,  Ellis J.,
 {Christensen} N.,  2019, \mn@doi [Reports on Progress in Physics]
   {10.1088/1361-6633/aae6b5}, \href
   {https://ui.adsabs.harvard.edu/abs/2019RPPh...82a6903C} {82, 016903}
+
+\bibitem[\protect\citeauthoryear{Chui \& Chen}{Chui \&
+  Chen}{2017}]{10.5555/3103280}
+Chui C.~K.,  Chen G.,  2017, Kalman Filtering: with Real-Time Applications, 5th
+  edn.
+Springer Publishing Company, Incorporated
 
 \bibitem[\protect\citeauthoryear{Cook, Gelman  \& Rubin}{Cook
   et~al.}{2006}]{doi:10.1198/106186006X136976}
@@ -495,6 +507,15 @@ Wan E.,  Van Der~Merwe R.,  2000, in Proceedings of the IEEE 2000 Adaptive
   Systems for Signal Processing, Communications, and Control Symposium (Cat.
   No.00EX373). pp 153--158, \mn@doi{10.1109/ASSPCC.2000.882463}
 
+\bibitem[\protect\citeauthoryear{Wiltshire, Ledwich  \& O'Shea}{Wiltshire
+  et~al.}{2007}]{KFexample4}
+Wiltshire R.~A.,  Ledwich G.,   O'Shea P.,  2007, IEEE Transactions on Power
+  Systems, 22, 1698
+
+\bibitem[\protect\citeauthoryear{Won, D{\"o}tterb{\"o}ck  \& Eissfeller}{Won
+  et~al.}{2010}]{KFexample2}
+Won J.-H.,  D{\"o}tterb{\"o}ck D.,   Eissfeller B.,  2010, Navigation, 57, 185
+
 \bibitem[\protect\citeauthoryear{{Wyithe} \& {Loeb}}{{Wyithe} \&
   {Loeb}}{2003}]{Wyithe2003}
 {Wyithe} J. S.~B.,  {Loeb} A.,  2003, \mn@doi [\apj] {10.1086/375187}, \href
@@ -519,6 +540,11 @@ Zarchan P.,  Musoff H.,  2000, Fundamentals of Kalman Filtering: A Practical
 Progress in astronautics and aeronautics, American Institute of Aeronautics and
   Astronautics, \url {https://books.google.com.au/books?id=AQxRAAAAMAAJ}
 
+\bibitem[\protect\citeauthoryear{Zhang, Li, Jin, Zhang  \& Liu}{Zhang
+  et~al.}{2019}]{KFexample3}
+Zhang J.-H.,  Li P.,  Jin C.-C.,  Zhang W.-A.,   Liu S.,  2019, IEEE
+  Transactions on Industrial Electronics, 67, 8659
+
 \bibitem[\protect\citeauthoryear{{Zhu} et~al.,}{{Zhu}
   et~al.}{2014}]{Zhu2014PPTA}
 {Zhu} X.~J.,  et~al., 2014, \mn@doi [\mnras] {10.1093/mnras/stu1717}, \href
@@ -533,6 +559,11 @@ Zhu X.-J.,  et~al., 2015, \mn@doi [Monthly Notices of the Royal Astronomical
 Zhu X.-J.,  Wen L.,  Xiong J.,  Xu Y.,  Wang Y.,  Mohanty S.~D.,  Hobbs G.,
   Manchester R.~N.,  2016, \mn@doi [Monthly Notices of the Royal Astronomical
   Society] {10.1093/mnras/stw1446}, 461, 1317
+
+\bibitem[\protect\citeauthoryear{Zhu, Chang, Zhang, Su  \& Long}{Zhu
+  et~al.}{2022}]{KFexample1}
+Zhu J.,  Chang X.,  Zhang X.,  Su Y.,   Long X.,  2022, CMES-Computer Modeling
+  in Engineering \& Sciences, 130
 
 \bibitem[\protect\citeauthoryear{{Zic} et~al.,}{{Zic}
   et~al.}{2023}]{Zic2023arXiv230616230Z}

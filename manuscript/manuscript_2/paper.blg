@@ -3,7 +3,7 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: mnras.bst
 Database file #1: example.bib
-Repeated entry---line 899 of file example.bib
+Repeated entry---line 954 of file example.bib
  : @book{Maggiore
  :               ,
 I'm skipping whatever remains of this entry
@@ -14,55 +14,54 @@ Reallocated out_buf (elt_size=1) to 40000 items from 20000.
 Reallocated name_tok (elt_size=4) to 40000 items from 20000.
 Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Repeated entry---line 2379 of file example.bib
+Repeated entry---line 2434 of file example.bib
  : @book{zarchan2000fundamentals
  :                              ,
 I'm skipping whatever remains of this entry
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
-Warning--I didn't find a database entry for "]"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty publisher in Sornette2004
 Warning--empty publisher in 2021hgwa.bookE...4V
-You've used 98 entries,
+You've used 104 entries,
             2881 wiz_defined-function locations,
-            1570 strings with 143953 characters,
-and the built_in function-call counts, 49315 in all, are:
-= -- 4445
-> -- 3106
-< -- 229
-+ -- 1381
-- -- 416
-* -- 5816
-:= -- 7299
+            1610 strings with 145255 characters,
+and the built_in function-call counts, 52280 in all, are:
+= -- 4646
+> -- 3366
+< -- 243
++ -- 1496
+- -- 460
+* -- 6154
+:= -- 7795
 add.period$ -- 0
-call.type$ -- 98
-change.case$ -- 196
-chr.to.int$ -- 89
-cite$ -- 100
-duplicate$ -- 2509
-empty$ -- 2453
-format.name$ -- 742
-if$ -- 8963
+call.type$ -- 104
+change.case$ -- 209
+chr.to.int$ -- 95
+cite$ -- 106
+duplicate$ -- 2654
+empty$ -- 2604
+format.name$ -- 802
+if$ -- 9467
 int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 103
-newline$ -- 313
-num.names$ -- 659
-pop$ -- 489
+missing$ -- 111
+newline$ -- 333
+num.names$ -- 707
+pop$ -- 529
 preamble$ -- 1
-purify$ -- 392
+purify$ -- 416
 quote$ -- 0
-skip$ -- 1730
+skip$ -- 1813
 stack$ -- 0
-substring$ -- 3359
-swap$ -- 1425
-text.length$ -- 404
+substring$ -- 3482
+swap$ -- 1509
+text.length$ -- 428
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 864
+type$ -- 912
 warning$ -- 2
-while$ -- 720
+while$ -- 762
 width$ -- 0
-write$ -- 1002
+write$ -- 1064
 (There were 2 error messages)
