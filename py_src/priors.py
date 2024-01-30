@@ -213,7 +213,7 @@ def set_prior_on_measurement_parameters(init_parameters,priors,measurement_model
 
         init_parameters["iota_gw"] = None
         #priors["iota_gw"] = bilby.core.prior.Uniform(0.0, np.pi/2.0, 'iota_gw')
-        priors["iota_gw"] = bilby.core.prior.Sin(0.0, np.pi, 'iota_gw')
+        priors["iota_gw"] = bilby.core.prior.Sine(0.0, np.pi, 'iota_gw')
 
 
         init_parameters["delta_gw"] = None
