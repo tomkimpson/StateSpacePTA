@@ -11,6 +11,7 @@ import random
 from parse import * 
 warnings.filterwarnings("error")
 plt.style.use('science')
+import scipy.stats as ss
 
 def plot_statespace(t,states,measurements,psr_index):
 
@@ -280,7 +281,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
             print("Breaking due to weird psi")
             continue
 
-        errors = get_posterior_accuracy(y_post,injection_parameters_idx,labels)
+        errors = get_posterior_accuracy2(y_post,injection_parameters_idx,labels)
         error_files.extend([errors])
         k = i 
         if k ==2:
@@ -412,6 +413,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
     #Surface some numbers
     print("Surfacing numbers for comparing two posteriors")
     print("The RMSRE is:")
+
     if len(selected_files) ==2:
         earth_term_errors = error_files[0]
         pulsar_term_errors = error_files[1]
@@ -434,7 +436,7 @@ def stacked_corner(list_of_files,number_of_files_to_plot,variables_to_plot,label
 
 def get_posterior_accuracy(posterior,injection,labels):
 
-    print("The error in the 1D posteriors is as follows:")
+    print("Gettti error in the 1D posteriors is as follows:")
     rmse_errors =np.zeros(posterior.shape[-1]) # vector of length n parameters
     for i in range(posterior.shape[-1]):
         y = posterior[:,i]
@@ -452,6 +454,32 @@ def get_posterior_accuracy(posterior,injection,labels):
     return rmse_errors
 
 
+#This one is used for submitted paper after discussion with AM
+def get_posterior_accuracy2(posterior,injection,labels):
+
+    print("Gettti error in the 1D posteriors is as follows:")
+    rmse_errors =np.zeros(posterior.shape[-1]) # vector of length n parameters
+    for i in range(posterior.shape[-1]):
+        y = posterior[:,i]
+        inj = injection[i]
+        
+        ymode = ss.mode(y.flatten(),keepdims=True)[0] #https://stackoverflow.com/questions/16330831/most-efficient-way-to-find-mode-in-numpy-array?answertab=scoredesc#tab-top
+        
+
+        ymode = np.median(y)
+
+
+
+        rmse = np.abs(ymode - inj) / inj
+        
+        
+        rmse_errors[i] = rmse
+
+        print(labels[i], ymode, inj,rmse)
+    #print('*****************************')
+
+
+    return rmse_errors
 
 
 
