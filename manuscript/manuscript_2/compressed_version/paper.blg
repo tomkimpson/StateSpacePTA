@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper.aux
+The style file: mnras.bst
+Database file #1: example.bib
+Repeated entry---line 954 of file example.bib
+ : @book{Maggiore
+ :               ,
+I'm skipping whatever remains of this entry
+Reallocated buffer (elt_size=1) to 40000 items from 20000.
+Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
+Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
+Reallocated out_buf (elt_size=1) to 40000 items from 20000.
+Reallocated name_tok (elt_size=4) to 40000 items from 20000.
+Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Repeated entry---line 2434 of file example.bib
+ : @book{zarchan2000fundamentals
+ :                              ,
+I'm skipping whatever remains of this entry
+Reallocated str_pool (elt_size=1) to 195000 items from 130000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty publisher in Sornette2004
+Warning--empty publisher in 2021hgwa.bookE...4V
+You've used 104 entries,
+            2881 wiz_defined-function locations,
+            1610 strings with 145255 characters,
+and the built_in function-call counts, 52280 in all, are:
+= -- 4646
+> -- 3366
+< -- 243
++ -- 1496
+- -- 460
+* -- 6154
+:= -- 7795
+add.period$ -- 0
+call.type$ -- 104
+change.case$ -- 209
+chr.to.int$ -- 95
+cite$ -- 106
+duplicate$ -- 2654
+empty$ -- 2604
+format.name$ -- 802
+if$ -- 9467
+int.to.chr$ -- 10
+int.to.str$ -- 0
+missing$ -- 111
+newline$ -- 333
+num.names$ -- 707
+pop$ -- 529
+preamble$ -- 1
+purify$ -- 416
+quote$ -- 0
+skip$ -- 1813
+stack$ -- 0
+substring$ -- 3482
+swap$ -- 1509
+text.length$ -- 428
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 912
+warning$ -- 2
+while$ -- 762
+width$ -- 0
+write$ -- 1064
+(There were 2 error messages)
